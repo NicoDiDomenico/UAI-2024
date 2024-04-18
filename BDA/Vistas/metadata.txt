@@ -1,0 +1,36 @@
+TP 2 VISTAS            
+
+atributos tablas
+
+
+
+ADM_Ciudades
+id_ciudad		int		
+nomnbre_ciudad	nvarchar	100
+id_pais		int		
+-----------------------------------------
+
+ADM_Paises
+id_pais		int		
+nombre_pais	nvarchar	100
+-----------------------------------------
+
+FER_Predios
+id_predio	int	autonumerico
+nombre_predio	nvarchar	100
+id_ciudad		int		
+superficie	numeric		9
+-----------------------------------------
+
+FER_Rubros
+id_rubro		int		
+rubro		nvarchar	100
+-----------------------------------------
+
+FER_Expos
+id_feria		int		
+nombre		nvarchar	100
+id_rubro		int		
+fecha_apertura	datetime	
+fecha_cierre	datetime	
+id_predio		int		
