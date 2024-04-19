@@ -1,17 +1,17 @@
 -- 1_ Crear base de datos eventos_apellido
-create database eventos_apellido;
+create database eventos_DiDomenico;
 
 -- 2_ Crear tablas, claves, relaciones, restricciones: DER
-use eventos_apellido;
+use eventos_DiDomenico;
 
 CREATE TABLE ADM_Paises (
 	id_pais INT PRIMARY KEY,
-	nombre_pais VARCHAR(50) NOT NULL
+	nombre_pais NVARCHAR(100) NOT NULL
 );
 
 CREATE TABLE ADM_Ciudades (
 	id_ciudad INT PRIMARY KEY,
-	nombre_ciudad VARCHAR(50) NOT NULL,
+	nombre_ciudad NVARCHAR(100) NOT NULL,
 	id_pais INT NOT NULL,
 	CONSTRAINT fk_ciudades_paises
 	FOREIGN KEY (id_pais) REFERENCES ADM_Paises(id_pais)
@@ -19,30 +19,30 @@ CREATE TABLE ADM_Ciudades (
 
 
 CREATE TABLE FER_Predios (
-	id_predio INT PRIMARY KEY,
-	nombre_predio VARCHAR(50) NOT NULL,
+	id_predio INT IDENTITY(1,1) PRIMARY KEY ,
+	nombre_predio NVARCHAR(100) NOT NULL,
 	id_ciudad INT NOT NULL,
-	superficie REAL NOT NULL,
+	superficie NUMERIC(9) NOT NULL,
 	CONSTRAINT fk_predios_ciudades
 	FOREIGN KEY (id_ciudad) REFERENCES ADM_Ciudades(id_ciudad)
 );
 
 CREATE TABLE FER_Rubros (
 	id_rubro INT PRIMARY KEY,
-	rubro VARCHAR(50) NOT NULL,
+	rubro NVARCHAR(100) NOT NULL,
 );
 
 CREATE TABLE FER_Expos (
 	id_feria INT PRIMARY KEY,
-	nombre VARCHAR(50) NOT NULL,
+	nombre NVARCHAR(100) NOT NULL,
 	id_rubro INT NOT NULL,
-	fecha_apertura DATE NOT NULL,
-	fecha_cierre DATE NOT NULL,
+	fecha_apertura DATETIME NOT NULL,
+	fecha_cierre DATETIME NOT NULL,
 	id_predio INT NOT NULL,
 	CONSTRAINT fk_expos_rubros
-	FOREIGN KEY (id_rubro) REFERENCES ADM_Rubros(id_rubro),
+	FOREIGN KEY (id_rubro) REFERENCES FER_Rubros(id_rubro),
 	CONSTRAINT fk_expos_predios
-	FOREIGN KEY (id_predio) REFERENCES ADM_Predios(id_predio)
+	FOREIGN KEY (id_predio) REFERENCES FER_Predios(id_predio)
 );
 
 -- 3_ Carga de datos: Ver ANEXO
@@ -69,20 +69,20 @@ INSERT INTO ADM_Ciudades (id_ciudad, nombre_ciudad, id_pais)
 VALUES (6, 'Santa Fe', 1);
 
 -- Alta Predios
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (1, 'La Posta', 1, 1200);
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (2, 'El Quincho', 1, 1000);
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (3, 'Francia', 3, 4000);
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (4, 'El Palomar', 4, 2500);
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (5, 'La Noche', 1, 200);
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (6, 'La Estrella', 2, 5000);
-INSERT INTO FER_Predios (id_predio, nombre_predio, id_ciudad, superficie)
-VALUES (7, 'El Establo', 6, 600);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'La Posta', 1, 1200);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'El Quincho', 1, 1000);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'Francia', 3, 4000);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'El Palomar', 4, 2500);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'La Noche', 1, 200);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'La Estrella', 2, 5000);
+INSERT INTO FER_Predios (nombre_predio, id_ciudad, superficie)
+VALUES ( 'El Establo', 6, 600);
 
 -- Alta Rubros
 INSERT INTO FER_Rubros (id_rubro, rubro)
@@ -126,23 +126,17 @@ INNER JOIN FER_Rubros r
 ON r.id_rubro = e.id_rubro
 WHERE fecha_apertura >= '2024-01-01' AND fecha_cierre <= GETDATE();
 
--- 6_ Crear una vista (VW_Predios2) con nombre_predio –id_ciudad – superficie Utilizar esta vista para hacer el insert de un nuevo predio. (Tener en cuentaque al no poder ingresar el id_predio este deberáser auto numérico y así se incrementaracorrectamente)
--- LLEVAR A CONSULTA - NO ESTOY SEGURO 
--- Creando la vista sin id_predio
+-- 6_ Crear una vista (VW_Predios2) con nombre_predio –id_ciudad – superficie. Utilizar esta vista para hacer el insert de un nuevo predio. (Tener en cuenta que al no poder ingresar el id_predio este deberá ser auto numérico y así se incrementaracorrectamente)
 CREATE VIEW VW_Predios2 AS
 SELECT nombre_predio, id_ciudad, superficie
 FROM FER_Predios; 
 
--- Insertando un nuevo predio utilizando la vista:
-INSERT INTO VW_Predios2 (nombre_predio, id_ciudad, superficie)
-VALUES ('Predio 1', 1, 12000);
+select *
+from VW_Predios2
 
--- Para que esto tenga efecto la PK debe ser auto-incermental:
-CREATE TABLE FER_Predios (
-	id_predio INT PRIMARY KEY IDENTITY,
-	nombre_predio VARCHAR(50) NOT NULL,
-	id_ciudad INT NOT NULL,
-	superficie REAL NOT NULL,
-	CONSTRAINT fk_predios_ciudades
-	FOREIGN KEY (id_ciudad) REFERENCES ADM_Ciudades(id_ciudad)
-);
+INSERT INTO VW_Predios2 (nombre_predio, id_ciudad, superficie)
+VALUES ('La Vista', 1, 2000);
+
+select *
+from FER_Predios;
+
