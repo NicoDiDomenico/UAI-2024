@@ -1,6 +1,0 @@
-Lista de nombres y apellidos:
-- Rodriguez, Nico 
-- Sarate, Juan 
-- Costagura, Pepe 
-- Romano, Rodrigo 
-- Mancineli, Emilia 

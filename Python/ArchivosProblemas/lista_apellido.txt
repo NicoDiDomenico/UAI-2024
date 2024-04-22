@@ -1,6 +1,0 @@
-Lista de apellidos:
-- Rodriguez
-- Sarate
-- Costagura
-- Romano
-- Mancineli
