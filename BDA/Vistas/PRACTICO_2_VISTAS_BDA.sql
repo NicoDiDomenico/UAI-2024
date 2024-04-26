@@ -17,7 +17,6 @@ CREATE TABLE ADM_Ciudades (
 	FOREIGN KEY (id_pais) REFERENCES ADM_Paises(id_pais)
 );
 
-
 CREATE TABLE FER_Predios (
 	id_predio INT IDENTITY(1,1) PRIMARY KEY ,
 	nombre_predio NVARCHAR(100) NOT NULL,
@@ -108,7 +107,7 @@ VALUES (5, 'casamiento Ariel', 4, '2009-01-05', '2009-01-06', 2);
 INSERT INTO FER_Expos (id_feria, nombre, id_rubro, fecha_apertura, fecha_cierre, id_predio)
 VALUES (6, 'cumple15', 2, '2009-04-25', '2009-04-26', 2);
 
--- 4_ Crear una Vista (VW_Predios) que devuelva todos lospredios que comienzan con la letra L. Las columnas amostrar son las siguientes.nombre_predio – nombre_ciudad – nombre_pais
+-- 4_ Crear una Vista (VW_Predios) que devuelva todos los predios que comienzan con la letra L. Las columnas amostrar son las siguientes.nombre_predio – nombre_ciudad – nombre_pais
 CREATE VIEW VW_Predios AS
 SELECT p.nombre_predio, c.nombre_ciudad, pa.nombre_pais
 FROM FER_Predios p
@@ -123,7 +122,7 @@ CREATE VIEW VW_Feriashoy AS
 SELECT e.nombre nombre_feria, r.rubro, e.fecha_apertura, e.fecha_cierre
 FROM FER_Expos e
 INNER JOIN FER_Rubros r
-ON r.id_rubro = e.id_rubro
+ON e.id_rubro = r.id_rubro
 WHERE fecha_apertura >= '2024-01-01' AND fecha_cierre <= GETDATE();
 
 -- 6_ Crear una vista (VW_Predios2) con nombre_predio –id_ciudad – superficie. Utilizar esta vista para hacer el insert de un nuevo predio. (Tener en cuenta que al no poder ingresar el id_predio este deberá ser auto numérico y así se incrementaracorrectamente)
