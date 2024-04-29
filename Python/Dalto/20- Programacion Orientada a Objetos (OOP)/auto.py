@@ -2,14 +2,17 @@ class Auto:
     # Variable de Clase
     ruedas = 4
 
-    # Variable de Instancia
-    def __init__(self, marca, modelo, ano, color): #  __init__(self, ...) Este metodo actua cono un constructor y crea objetos para nosotros
+    # Metodo contructor - contiene las Variable de Instancia
+    #  __init__(self, ...) Este metodo actua como un constructor y crea objetos para nosotros
+    def __init__(self, marca, modelo, ano, color):
         self.marca = marca
         self.modelo = modelo
         self.ano = ano
         self.color = color
+        self.__ruedas = 4
+            # Para encapsular (atributos privados)usamos '__': self.ruedas = 4
 
-    # Metodo de Clase
+    # Metodo de Clase - NO LO VIMOS
     def obtener_ruedas(cls):
         #print(cls.ruedas)
         return cls.ruedas
@@ -21,3 +24,8 @@ class Auto:
 
     def apagado(self):
         print('El auto está Apagado!')
+        # Metodo privado: print('El coche tiene ', self.__ruedas, ' ruedas.')
+
+    def __ruedas_priv(self):
+        print('El coche tiene ', self.__ruedas, ' ruedas.')
+

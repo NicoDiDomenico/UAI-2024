@@ -22,3 +22,7 @@ auto_2.apagado()
 print()
 # Metodo de Clase
 print(auto_1.obtener_ruedas())
+print()
+# Probando variables y metodos privados
+auto_1.ruedas_priv() # si le saco el '__' al metodo ruedas_priv de auto.py notar que se hace publico y se muestra
+auto_1.__ruedas_priv() # cuando lo haga publico desde acá lo hago privado porque le agrego el '__' desde main.py
