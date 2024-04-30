@@ -1,5 +1,5 @@
 ## Curso Dalto
-
+# 54
 # Introducción
 # Definiendo lambda - Se crean utilizando la palabra clave lambda y no requieren un nombre. Son expresiones anónimas 
 # que pueden tener cualquier número de parámetros y una única expresión.
@@ -9,6 +9,7 @@
 
 ## Usando Lambda
 
+
 # 1 - Multiplicando *2
 # En una función normal: 
 def multiplicar_por_dos(x):
@@ -16,7 +17,7 @@ def multiplicar_por_dos(x):
 
 # Con Lambda:
 multiplicar_por_dos = lambda x : x*2
-
+#                     lambda parametros: expresion
 print(multiplicar_por_dos(5))
 
 # 2 - Retornando números pares:
