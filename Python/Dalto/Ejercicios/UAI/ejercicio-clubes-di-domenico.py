@@ -58,7 +58,7 @@ def contar_socios(club):
 
 def ingresoDatos():
     clubes = list()
-    x = 4 # Son 17 clubes -> x = 18
+    x = 18 # Son 17 clubes -> x = 18
     for i in range(1, x):
         print('----------------------------------------------------------------------------')
         print(f"Club {i} - Ingresar opcion codigo: | (1) Socio temporal | (2) Socio permanente | (0) Salir |")
