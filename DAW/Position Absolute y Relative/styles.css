@@ -1,0 +1,36 @@
+body{
+/* position: relative; */ /* Al comentar este y comentar el .container, cada-1 tomara de referencia toda la pantalla, notar como se saltea el padding del body */
+top: 20px;
+border: solid violet 2px;
+padding: 10px;
+}
+/* Entendiendo Position relative y absolute */
+.container{
+    /* position: relative; */ /*Al comentarlo, .conteiner pasa a no estar posicinado, el elemento de caja-1 pasar a tomar como referencia a body, ya que este se encuentra poscionado*/
+    background-color: chocolate;
+    width: 500px;
+    height: 500px;
+    padding: 25px;
+}
+
+.caja-1{ 
+    position: absolute;
+    background-color: wheat;
+    border: black solid 1px;
+    width: 500px;
+    height: 100px;
+    top: 0;
+    right: 0;
+}
+
+.caja-2{ 
+    background-color: rgb(95, 95, 172);
+    border: black solid 1px;
+    height: 200px;
+}
+
+.caja-3{ 
+    background-color: rgb(204, 92, 92);
+    border: black solid 1px;
+    height: 200px;
+}
