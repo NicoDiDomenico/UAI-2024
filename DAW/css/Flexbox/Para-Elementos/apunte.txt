@@ -1,0 +1,37 @@
+
+Estas propiedades se aplican a cada elemento flex dentro del contenedor flex y permiten un control detallado sobre cómo se distribuyen y presentan los elementos dentro del diseño flexbox.
+
+- `align-self`: Se aplica a elementos flex individuales para controlar su alineación dentro del contenedor flex a lo largo del eje cruzado. Al tilizar esta propiedad se anula el align-items del contenedor para ese elemento que le estamos aplicando el align-self (ya que es el mismo funcionamiento pero para un elemento).
+    Valores:
+        auto: Hereda el valor de align-items del contenedor.
+        flex-start: Alinea el elemento al principio del eje cruzado.
+        flex-end: Alinea el elemento al final del eje cruzado.
+        center: Alinea el elemento en el centro del eje cruzado.
+        baseline: Alinea el elemento según la línea base de su contenido.
+        stretch: Estira el elemento para que coincida con la altura del contenedor.
+
+- `flex-grow`: Se utiliza en elementos flexibles para determinar cuánto crecerán en relación con otros elementos flexibles cuando haya espacio adicional disponible en el contenedor flex a lo largo del eje principal.
+    Valores:
+        0 --> NO crece
+        1 --> crece!
+        2 --> crece el doble! (con respecto al que tenga 1)
+        3 --> crece el triple! (con respecto al que tenga 1)
+        ... (Mayor sea el valor --> Mas crecera con respecto al resto)
+
+- `flex-shrink`: Controla la capacidad de un elemento flexible para reducir su tamaño cuando no haya espacio disponible en el contenedor flex.
+    Valores:
+        0 --> NO se achicará
+        1 --> se achicará!
+        2 --> se achicará el doble! (=)
+        3 --> se achicará el triple! (=)
+        ... (Mayor sea el valor --> Mas se reducirá con respecto al resto)
+
+- `flex-basis`: Establece el tamaño base inicial de un elemento flexible antes de que se distribuya el espacio adicional o se apliquen los factores de crecimiento o reducción. Es decir crece hasta el valor que le asignemos, si el contenedor tiene menos de ese valor crecera hasta donde el contenedor y el resto de elementos del mismo le permitan. 
+    Valores: XXXXpx (por defecto viene en auto)
+
+- `flex`: Es una propiedad abreviada que combina `flex-grow`, `flex-shrink` y `flex-basis` en una sola declaración para especificar cómo un elemento flexible debe crecer, reducirse y establecer su tamaño base inicial.
+    Valores: X X XXXXpx
+        Nota: 
+            - Si el flex-shrink = 0 entonces el elemento tendrá un ancho minimo el valor dado por flex-basis (puede ocurrir overflow).
+            - Si el flex-shrink >= 1 entonces no se respeta el valor que se le de al flex-basis cuando no haya mas espacio en el contenedor.
+            - Si el flex-grow es >=1 entonces el elemento va a ocupar mas espacio disponible que el indicado por el valor de flex-basis.

@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+
+    background-color: bisque;
+    border: black 1px solid;
+    width: auto;
+    height: 400px;
+    padding: 5px;
+}
+
+.item {
+     
+    background-color: aquamarine;
+    border: black 1px solid;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.especial{
+    align-self: center /* Notar como anula el align-items: flex-start del conteendor */ 
+}

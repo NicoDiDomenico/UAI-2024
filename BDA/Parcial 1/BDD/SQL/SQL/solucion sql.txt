@@ -1,0 +1,27 @@
+
+
+**** solucion practico SQL
+1_
+create table socios(
+legajo int,
+nombre varchar(70),
+apellido varchar (70),
+dni bigint,
+direccion varchar (79),
+telefono varchar (35),
+deuda money)
+**************************
+select * from socios
+**************************
+2_
+alter table socios
+add localidad nvarchar(50)
+
+5_
+select * from socios where localidad = 'rosario'
+
+9_
+drop table socios
+
+10_
+select "promedio de deuda" = avg(deuda) from socios

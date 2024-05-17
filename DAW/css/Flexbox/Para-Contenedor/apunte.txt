@@ -1,0 +1,26 @@
+
+1. **Flex Direction (dirección flex)**: Esta propiedad establece la dirección principal de los elementos flexibles dentro de su contenedor. Puedes establecerlo en `row` (de izquierda a derecha), `row-reverse` (de derecha a izquierda), `column` (de arriba a abajo) o `column-reverse` (de abajo hacia arriba).
+    El eje principal y el eje cruzado en Flexbox dependen de la dirección establecida por la propiedad `flex-direction`. Aquí hay una guía rápida:
+
+    1. **Cuando `flex-direction` es `row` o `row-reverse`**:
+    - El eje principal está en la dirección horizontal, de izquierda a derecha (para `row`) o de derecha a izquierda (para `row-reverse`).
+    - El eje cruzado está en la dirección vertical, de arriba a abajo.
+
+    2. **Cuando `flex-direction` es `column` o `column-reverse`**:
+    - El eje principal está en la dirección vertical, de arriba a abajo (para `column`) o de abajo a arriba (para `column-reverse`).
+    - El eje cruzado está en la dirección horizontal, de izquierda a derecha.
+
+    Entonces, dependiendo de la dirección establecida por `flex-direction`, el eje principal y el eje cruzado cambiarán en consecuencia. Esto es importante para comprender cómo se aplicarán las propiedades relacionadas con la alineación y distribución de elementos flexibles en tu diseño.
+
+2. **Justify Content (justificar contenido)**: Esta propiedad controla la distribución de los elementos a lo largo del eje principal del contenedor flex, ubicandolos, segun el valor que use, en alguna posicion del flujo de datos. Puedes usar valores como `flex-start` (al principio), `flex-end` (al final), `center` (en el centro), `space-between` (separados uniformemente con el primer elemento al principio y el último al final), `space-around` (separados uniformemente con espacios iguales alrededor de ellos) y `space-evenly` (parecido a space-around conla diferencia que comparten el mismo espacio de separacion).
+
+3. **Flex Wrap (envoltura flex)**: Esta propiedad define si los elementos flexibles deben envolverse o no dentro del contenedor cuando no tienen suficiente espacio en una sola línea. Puedes usar valores como `nowrap` (no se envuelve), `wrap` (se envuelve si es necesario) y `wrap-reverse` (se envuelve en sentido inverso y desde el otro extremo si es que es necesario).
+
+4. **Align Items (alinear elementos)**: Esta propiedad controla la alineación de los elementos flexibles a lo largo del eje cruzado del contenedor. Puedes usar valores como `stretch` (estirar para llenar el contenedor, HAY QUE SACARLE EL HEIGHT A LOS ELEMENTOS), `flex-start` (al principio), `flex-end` (al final), `center` (en el centro) y `baseline` (alineados por la línea base del contenido, PARA NOTAR LA DIFERENCIA SE DEBE CAMNIAR EL TAMAÑO DE CADA ELEMENTO).
+
+5. **Align Content (alinear contenido)**: Esta propiedad se utiliza cuando hay múltiples líneas de elementos flexibles dentro del contenedor y controla su alineación a lo largo del eje cruzado. Los valores son similares a los de `justify-content`, pero aplicados a las líneas en lugar de a los elementos individuales.
+Importante: align-content tiene efecto sólo cuando la cantidad de items rebasa el límite del eje principal y el wrap está activado.
+
+6. **Gap**: Esta propiedad se utiliza para especificar el espacio que va a haber entre elementos, teniendo en cuenta ambos ejes.
+    - row-gap: Esta propiedad se utiliza para establecer el espacio entre las filas de una cuadrícula CSS. Es útil cuando quieres controlar la separación vertical entre las filas de una cuadrícula.
+    - column-gap: Por otro lado, column-gap se usa para definir el espacio entre las columnas de una cuadrícula CSS. Te permite establecer la separación horizontal entre las columnas de una cuadrícula.
