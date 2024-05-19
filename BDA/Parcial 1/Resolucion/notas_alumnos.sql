@@ -42,25 +42,25 @@ CREATE TABLE Notas (
 );
 
 -- Cargar datos:
--- Alta Alumnos (MODIFICAR NOMBRES)
+-- Alta Alumnos
 INSERT INTO Alumnos (CodAlu, NyA, Direccion)
-VALUES	(1, 'Juan Pérez', 'Calle Falsa 123'),
-		(2, 'María López', 'Avenida Siempreviva 456'),
-		(3, 'Carlos Gómez', 'Calle del Sol 789'),
-		(4, 'Lucía Fernández', 'Pasaje Olmos 345'),
-		(5, 'Ana Torres', 'Av. Libertador 654'),
-		(6, 'Miguel Díaz', 'Calle Mayor 123'),
-		(7, 'Laura García', 'Calle de la Luna 567'),
-		(8, 'Diego Martínez', 'Av. Principal 789'),
-		(9, 'Sofía Moreno', 'Calle del Prado 234'),
-		(10, 'Fernando Ramírez', 'Calle Serrano 101');
+VALUES	(1, 'Marcos Dorato', 'Pres. Roca 1802'),
+		(2, 'Bruno Javioli', 'Salta 880'),
+		(3, 'Pepe Majul', 'Entre Ríos 1057'),
+		(4, 'Lucia Palma', 'Tucumán 1500'),
+		(5, 'Ana Walt', 'Leandro N. Alem 810'),
+		(6, 'Sofia Díaz', 'Uriburu 170'),
+		(7, 'Angie Garzón', 'José Ingenieros 1379'),
+		(8, 'Micaela Martínez', 'Suipacha 864'),
+		(9, 'Miguel Moreno', 'Riccheri 340'),
+		(10, 'Mariana Ronco', 'San Juan 2450');
 
 -- Alta Materias
 INSERT INTO Materias (CodMat, Nombre)
 VALUES	(101, 'Análisis Matemático'),
 		(102, 'Programacion I'),
 		(103, 'Sistemas y Organizaciones'),
-		(104, 'Algoritmo y Estructuras de Datos'),
+		(104, 'Algoritmos y Estructuras de Datos'),
 		(201, 'Física'),
 		(202, 'Inglés I'),
 		(203, 'Paradigmas de Programación'),
@@ -82,7 +82,7 @@ VALUES	(1, 'Marcos Sancho', 'Titular', 'Analista de Sistemas'),
 		(4, 'Pedro Fernández', 'Interino', 'Ingeniería Mecánica'),
 		(5, 'Lucio Torres', 'Titular', 'Licenciatura en Matemática'),
 		(6, 'Juan Pérez', 'Titular', 'Ingenieria en Sistemas de Informacion'),
-		(7, 'Claudia Gómez', 'Asociado', 'Traductorado en Inglés'),
+		(7, 'Claudia Gafete', 'Asociado', 'Traductorado en Inglés'),
 		(8, 'Manuel García', 'Titular', 'Tecnología Informática'),
 		(9, 'Roberto Sampodia', 'Titular', 'Licenciatura en Programacion'),
 		(10, 'Elena López', 'Titular', 'Administracion de Empresas');
@@ -141,7 +141,7 @@ SELECT
 	FROM Notas n
 	INNER JOIN Materias m 
 	ON n.CodMat = m.CodMat
-	WHERE n.Fecha BETWEEN '2023-01-01' AND '2023-12-31') AS 'Promedio General' -- Si me pedia para todos los examenes sin portar la fecha le sado el where
+	WHERE n.Fecha BETWEEN '2023-01-01' AND '2023-12-31') AS 'Promedio General'
 FROM Notas n
 INNER JOIN Materias m 
 ON n.CodMat = m.CodMat
@@ -179,7 +179,8 @@ SELECT
 FROM Profesores p
 LEFT JOIN Cursos c ON p.CodProf = c.CodProf;
 
--- 5) Listado de profesores que están asignados a más de una materia
+-- 5) Libre. Generar una consulta de interés al modelo.
+-- Listado de profesores que están asignados a más de una materia
 SELECT 
     p.CodProf AS 'Código de Profesor',
     p.NomProf AS 'Nombre y Apellido del Profesor',
@@ -189,24 +190,3 @@ INNER JOIN Cursos c
 ON p.CodProf = c.CodProf
 GROUP BY p.CodProf, p.NomProf
 HAVING COUNT(c.CodMat) > 1;
-
---Parte Teórica.
--- 1. Tipos de índices. Nombrar y explicar brevemente
-
--- **Índices Primarios:**
---   - **Índice Primario Denso:** Cada valor de clave de la tabla tiene su propia entrada en el índice, lo que facilita la búsqueda rápida de registros individuales.
---   - **Índice Primario Disperso:** Los valores de clave se agrupan en rangos y se asigna una entrada de índice a cada rango, lo que puede reducir la cantidad de entradas en el índice y mejorar el rendimiento en ciertos casos.
---   - **Índice Primario Multinivel:** Este tipo de índice tiene uno o varios niveles de índices dispersos, seguidos por un último nivel denso que apunta directamente a la base de datos. Puede mejorar la eficiencia al organizar los datos en múltiples niveles de estructuras de índices.
-
---. **Índices Secundarios:**
---   - Los índices secundarios se construyen sobre atributos que no son claves primarias. Se utilizan para mejorar la velocidad de las consultas que filtran, ordenan o agrupan datos según estos atributos.
-
--- 2. 2. Grafique un índice Primario Disperso
--- (Pegar)
-
--- 3. Explique porque se justifica la generación de un índice primario disperso en lugar de un índice primario denso.
--- Si bien un indice primario denso facilita la busqueda rapida de registros individuales en la tabla, un indice primario disperso reduce la cantidad de entradas en el indice logrando mejorar el rendimiento. Hay que tener en cuenta que un mal uso de los indices se traduce en una reduccion de rendimiento.
--- (alt) La generación de un índice primario disperso en lugar de un índice primario denso se justifica por varias razones:
---1. **Reducción del tamaño del índice:** Un índice primario disperso ocupa menos espacio de almacenamiento ya que solo genera registros de índice para ciertos rangos de valores de clave en lugar de para cada valor único
---2. **Mejora del rendimiento de las consultas:** Los índices dispersos pueden ser más eficientes para consultas que involucran rangos de valores de clave, ya que el índice organiza los datos en rangos predefinidos.
---3. **Reducción del mantenimiento del índice:** Con menos entradas en el índice, las operaciones de mantenimiento como la inserción, eliminación o actualización de registros pueden ser más eficientes, lo que resulta en tiempos de respuesta más rápidos durante las operaciones de actualización de la base de datos.
