@@ -53,11 +53,10 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada.
             - Capa de Presentación: Interfaz de usuario accesible desde navegadores web.
             - Capa de Negocio: Lógica de la aplicación, reglas de negocio y validación.
             - Capa de Datos: Acceso y manipulación de la base de datos.
-    
-    Se ha elegido esta arquitectura por:
-    - Separación de responsabilidades: Facilita el mantenimiento y la escalabilidad del sistema.
-    - Reutilización de componentes: Las capas pueden ser desarrolladas y probadas de manera independiente.
-    - Facilidad de pruebas: Cada capa puede ser probada de manera aislada, mejorando la calidad del software.
+        - Se ha elegido esta arquitectura por:
+            - Separación de responsabilidades: Facilita el mantenimiento y la escalabilidad del sistema.
+            - Reutilización de componentes: Las capas pueden ser desarrolladas y probadas de manera independiente.
+            - Facilidad de pruebas: Cada capa puede ser probada de manera aislada, mejorando la calidad del software.
     
     - Ejercicio 6: Diseña la base de datos para la aplicación web del ejercicio 1.
     - Para diseñar la base de datos de la aplicación web para gestionar el inventario, se ha optado por un modelo relacional. Este tipo de base de datos es ideal para aplicaciones donde la integridad de los datos, las relaciones entre diferentes entidades y la capacidad de realizar consultas complejas son cruciales. Las bases de datos relacionales, como MySQL, PostgreSQL, y otros, ofrecen robustez, escalabilidad y soporte para transacciones, lo que garantiza que las operaciones se ejecuten correctamente y que los datos se mantengan consistentes.
