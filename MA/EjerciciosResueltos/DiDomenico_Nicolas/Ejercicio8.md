@@ -32,7 +32,7 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada
 
     Ejercicio 2: Redacta un caso de uso para la funcionalidad de "Agregar un nuevo producto" en la aplicación web del ejercicio 1.
     - Caso de Uso
-        <image src="./resources/caso-de-uso-ma.png" alt="CU">
         
+        ![CU](./resources/caso-de-uso-ma.png)
         
 
