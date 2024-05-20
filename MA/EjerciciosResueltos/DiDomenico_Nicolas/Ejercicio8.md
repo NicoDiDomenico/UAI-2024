@@ -92,19 +92,15 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada.
 
 4. Diseño:
     Utilizando los siguientes diagrama resuelva los casos de usos de los  ejercicios 7 y 8: 
-    
-    ---------------------------------------------------------------------------------------------------------                
-    |                                                                                                       |
-    |    Diagrama de Dominio: Identifica las entidades, atributos y relaciones del sistema.                 |
-    |    Diagrama de Robustez: Analiza cómo el sistema responde a diferentes escenarios de uso.             |
-    |    Prototipo: Crea una versión simplificada del sistema para probar la usabilidad y funcionalidad.    |
-    |    Diagrama de Secuencia: Describe la interacción entre los diferentes objetos del sistema.           |
-    |    Diagrama de Clases: Define las clases, sus atributos, métodos y relaciones                         |
-    |                                                                                                       |
-    ---------------------------------------------------------------------------------------------------------
+    - Diagrama de Dominio: Identifica las entidades, atributos y relaciones del sistema.                 
+    - Diagrama de Robustez: Analiza cómo el sistema responde a diferentes escenarios de uso.             
+    - Prototipo: Crea una versión simplificada del sistema para probar la usabilidad y funcionalidad.    
+    - Diagrama de Secuencia: Describe la interacción entre los diferentes objetos del sistema.           
+    - Diagrama de Clases: Define las clases, sus atributos, métodos y relaciones                         
+ 
     
     Ejercicio 7: Implementa la funcionalidad de "Agregar un nuevo producto" en la aplicación web del ejercicio 1 utilizando el lenguaje de programación de tu preferencia.
-    (Es Codificacion --> No se hace)
+    - (Es Codificacion --> No se hace)
 
     Ejercicio 8: Implementa la lógica de negocio para la funcionalidad de "Agregar un nuevo producto" en la aplicación web del ejercicio 1.
     - Modelo de dominio
