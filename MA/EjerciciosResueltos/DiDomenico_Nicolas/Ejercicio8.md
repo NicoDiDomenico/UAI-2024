@@ -92,6 +92,7 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada.
 
 4. Diseño:
     Utilizando los siguientes diagrama resuelva los casos de usos de los  ejercicios 7 y 8: 
+    
     ---------------------------------------------------------------------------------------------------------                
     |                                                                                                       |
     |    Diagrama de Dominio: Identifica las entidades, atributos y relaciones del sistema.                 |
