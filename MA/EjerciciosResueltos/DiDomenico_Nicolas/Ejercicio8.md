@@ -1,4 +1,4 @@
-Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada
+Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada.
 
 1. Análisis de requerimientos:
     Ejercicio 1: Un cliente te solicita una aplicación web para gestionar su inventario. Define los requisitos funcionales y no funcionales del sistema.
@@ -39,7 +39,7 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada
     Ejercicio 3: Elabora un diagrama de flujo de datos para la aplicación web del ejercicio 1.
     - Diagrama de flujo
         
-        ![CU](./resources/DF.png)
+        ![CU](./resources/diagrama-de-flujo.png)
 
     Ejercicio 4: Diseña la interfaz de usuario para la pantalla de "Inicio" de la aplicación web del ejercicio 1.
     - Interfaz de usuario
@@ -92,7 +92,7 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada
 
 4. Diseño:
     Utilizando los siguientes diagrama resuelva los casos de usos de los  ejercicios 7 y 8: 
-    ---------------------------------------------------------------------------------------------------------                |
+    ---------------------------------------------------------------------------------------------------------                
     |                                                                                                       |
     |    Diagrama de Dominio: Identifica las entidades, atributos y relaciones del sistema.                 |
     |    Diagrama de Robustez: Analiza cómo el sistema responde a diferentes escenarios de uso.             |
@@ -120,4 +120,81 @@ Ejercicio 8: Ejercicios sobre Metodologías de Desarrollo en Cascada
 
     - Diagrama de clases
 
-        ![CU](./resources/diagrama-de-clase.png)
+        ![CU](./resources/diagrama-de-clases.png)
+
+5. Pruebas:
+    Ejercicio 9: Define un conjunto de pruebas unitarias para la funcionalidad de "Agregar un nuevo producto" en la aplicación web del ejercicio 1.
+    - Pruebas Unitarias:
+        Verificar que se puede agregar un producto con datos válidos.
+        Verificar que no se puede agregar un producto con nombre vacío.
+        Verificar que no se puede agregar un producto con precio negativo.
+        Verificar que se muestra un mensaje de confirmación al agregar un producto correctamente.
+
+    Ejercicio 10: Ejecuta pruebas de integración para la funcionalidad de "Agregar un nuevo producto" en la aplicación web del ejercicio 1.
+    - Pruebas de Integración:
+        Verificar que la funcionalidad de agregar producto se comunica correctamente con la base de datos
+        Verificar que los datos del producto agregado se muestran correctamente en la lista de productos
+        Verificar que las validaciones de la interfaz de usuario coinciden con las validaciones de la lógica de negocio.
+
+6. Despliegue del Programa::
+    Ejercicio 11: Definir un plan de despliegue para la aplicación web del ejercicio 1.
+    - Plan de Despliegue:
+        Preparación:
+            Realizar pruebas finales en un entorno de pre-producción.
+            Documentar el proceso de despliegue.
+            Configurar backups automáticos.
+        Despliegue:
+            Configurar el servidor de producción.
+            Migrar la base de datos al entorno de producción.
+            Implementar el código de la aplicación en el servidor.
+            Configurar el dominio y el SSL.
+        Post-Despliegue:
+            Monitorear el rendimiento y la disponibilidad del sistema.
+            Realizar pruebas funcionales para verificar el despliegue exitoso.
+            Documentar cualquier incidencia y solución.
+
+    Ejercicio 12: Despliega la aplicación web del ejercicio 1 en un servidor de producción.
+    - Despliegue en servidor de producción
+        1. Configurar el servidor (por ejemplo, utilizando AWS, Azure, DigitalOcean).
+        2. Instalar dependencias (servidor web, base de datos, etc.).
+        3. Subir el código fuente y configurar el entorno.
+        4. Ejecutar scripts de migración de base de datos.
+        5. Configurar el dominio y SSL.
+        6. Realizar pruebas funcionales y de rendimiento.
+
+7. Mantenimiento:
+    Ejercicio 13: Definir un plan de mantenimiento para la aplicación web del ejercicio 1.
+    - Plan de mantenimiento
+        Mantenimiento Preventivo:
+            Actualizar regularmente el sistema operativo y las dependencias del servidor.
+            Realizar auditorías de seguridad periódicas.
+            Monitorear el rendimiento del sistema.
+        Mantenimiento Correctivo:
+            Solucionar errores reportados por los usuarios.
+            Aplicar parches de seguridad.
+        Mantenimiento Evolutivo:
+            Añadir nuevas funcionalidades según los requisitos del cliente.
+            Mejorar la interfaz de usuario basada en feedback de usuarios.
+
+    Ejercicio 14: Implementa una corrección de errores para un problema detectado en la aplicación web del ejercicio 1.
+    - Corrección de errores
+        Identificar y reproducir el error.
+        Analizar el código para encontrar la causa del error.
+        Implementar la corrección en el entorno de desarrollo.
+        Realizar pruebas para verificar que el error ha sido solucionado.
+        Desplegar la corrección en el entorno de producción.
+        Documentar el error y su solución.
+
+8. Equipo de trabajo:
+    Ejercicio 15: Arme un equipo de trabajo y defina los roles para realizar los ejercicios anteriores para un futuro dominio de aplicación relacionado con inteligencia artificial generatica. 
+    - Equipo de Trabajo y Roles:
+        Jefe de Proyecto: Responsable de la planificación, coordinación y seguimiento del proyecto.
+        Analista de Requerimientos: Encargado de recopilar y definir los requisitos del sistema.
+        Arquitecto de Software: Diseña la arquitectura del sistema y toma decisiones técnicas.
+        Desarrollador Frontend: Desarrolla la interfaz de usuario y asegura su usabilidad.
+        Desarrollador Backend: Implementa la lógica de negocio y la integración con la base de datos.
+        Tester: Diseña y ejecuta pruebas para garantizar la calidad del software.
+        Administrador de Base de Datos: Gestiona y optimiza la base de datos.
+        Especialista en Seguridad: Asegura que el sistema cumpla con los estándares de seguridad.
+        Ingeniero DevOps: Responsable del despliegue y la infraestructura del sistema.
+        Especialista en IA: Desarrolla e implementa modelos de inteligencia artificial generativa.
