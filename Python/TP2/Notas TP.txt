@@ -1,0 +1,3 @@
+Me tocó el 12)
+Aplicar lenguaje orientado a objetos (POO), modulos y archivos.
+Fecha entrega 27/5
