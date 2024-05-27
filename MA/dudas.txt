@@ -1,0 +1,3 @@
+duda: 
+- como carajos hago el paso b) de el ejercicio 12 y 13-XP
+- los pasos del ejercicio 13 -TDD me confunden con lo que habia entendido
