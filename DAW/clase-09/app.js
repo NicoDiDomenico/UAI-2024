@@ -1,6 +1,8 @@
-console.log(document.title) /* Me treae todo el HTML del VSC */
+console.log(document.title) // Muestra el título (contenido) del documento en la consola
+/* document: Es el objeto principal que representa el documento HTML en el que se está ejecutando el script. Me treae todo el HTML del VSC. Por lo tanto, si uso .title se lee como si de todo ese objeto que traigo --> solo quiero el título, y al no especificar trae la primer etiqueta title que se encuentre */
 
-document.title = "To do list" /* lo cambio dinamicamente al title del HTML */
+document.title = "To do list" /* lo cambio dinamicamente al title del HTML*/
+console.log(document.title); // Ahora va a mostrar el nuevo título ya que lo cambiamos
 
 /* GetElementById */
 var title = document.getElementById("title") /* obtengo el elemento con ese id, mirar el tipo de dato --> es un elemento HTML lo que traigo */
