@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso Digital</title>
+    <link rel="stylesheet" href="styles_form.css">
+</head>
+<body>
+    <header>
+        <h1><a href="https://www.lanacion.com.ar/">LA NACIÓN</a></h1>
+        <nav>
+            <ul class="nav-list">
+                <li><a href="index.html">Volver</a></li>
+                <li><a href="#">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="formulario" action="#" method="get" target="_blank">
+            <fieldset>
+                <legend><strong>Datos Usuario</strong></legend>
+                <div class="form-group">
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <div class="error-message" id="error-nombre"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message" id="error-email"></div>
+                </div>
+                <div class="form-group">
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" id="contraseña" name="contraseña" required>
+                    <div class="error-message" id="error-contraseña"></div>
+                </div>
+                <div class="form-group">
+                    <label for="repContraseña">Repetir Contraseña:</label>
+                    <input type="password" id="repContraseña" name="repContraseña" required>
+                    <div class="error-message" id="error-repContraseña"></div>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" required>
+                    <div class="error-message" id="error-edad"></div>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input placeholder="Opcional" type="tel" id="telefono" name="telefono">
+                    <div class="error-message" id="error-telefono"></div>
+                </div>
+                <div class="form-group">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                    <div class="error-message" id="error-direccion"></div>
+                </div>
+                <div class="form-group">
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" name="ciudad" required>
+                    <div class="error-message" id="error-ciudad"></div>
+                </div>
+                <div class="form-group">
+                    <label for="codigoPostal">Código Postal:</label>
+                    <input type="text" id="codigoPostal" name="codigoPostal" required>
+                    <div class="error-message" id="error-codigoPostal"></div>
+                </div>
+                <div class="form-group">
+                    <label for="dni">DNI:</label>
+                    <input type="text" id="dni" name="dni" required>
+                    <div class="error-message" id="error-dni"></div>
+                </div>
+                <div class="button-group">
+                    <button type="submit">Enviar</button>
+                    <a href="index.html">
+                        <button type="button">Cancelar</button>
+                    </a>
+                </div>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <p>¿Dudas? 
+        <a rel="noopener noreferrer" href="https://micuenta.lanacion.com.ar/ayuda" target="_blank">Consultá las Preguntas Frecuentes</a>
+        </p>
+    </footer>
+    <script src="validations.js"></script>
+</body>
+</html>
