@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expresiones Regulares</title>
+</head>
+<!-- Las expresiones regulares son patrones que se utilizan para hacer coincidir combinaciones de caracteres en cadenas. En JavaScript, las expresiones regulares también son objetos. Estos patrones se utilizan con los métodos exec() y test() de RegExp, y con match(), matchAll(), replace(), replaceAll(), search() y split() métodos de String. -->
+<!-- https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular -->
+<!-- https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Regular_expressions -->
+<body>
+    <script>
+        var cadena = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste voluptas molestiae explicabo dolore quod! Eligendi quas nobis consequatur, delectus soluta cumque velit, ipsa alias a sint, nihil minima temporibus odit! lorem";
+        
+        /* Forma 1: */
+        var expReg = new RegExp("lorem","i"); /* RegExp("palabra-a-buscar","flag") --> es un constructor, por eso 'expReg' es de tipo objeto. El primer parametro será la 'cadena' que se quiere buscar, el flag es un "cómo se va a buscar" */
+
+        console.log(expReg.test(cadena)); /* .test() --> metodo que devuelve true o false e indica si la expresion regular que le pasemos por parametro existe o no */
+        console.log(expReg.exec(cadena)); /* .exec() --> metodo que devuelve un arreglo con informacion de la expresion regular que encontró del parametro que ingresó */
+
+        /*  Forma 2: (mejor/mas usada) */
+        var expReg2 = /lorem/ig; /* represento la expresion regular a buscar  entre /.../ y coloco los flags al final*/
+        console.log(expReg2.test(cadena)); 
+        console.log(expReg2.exec(cadena));
+
+        /* Para encontrar todas las coincidencias - notar que si no lo ponia en un bucle solo me devolvia el último índice que encontró */
+        var resultado; 
+        while ((resultado = expReg2.exec(cadena)) !== null) {
+            console.log(`Encontrado '${resultado[0]}' en el índice ${resultado.index}`);
+        } /* no me anda */
+
+    </script>
+</body>
+</html>
+<!-- Usar expresiones regulares en JavaScript - Las expresiones regulares se utilizan con los métodos RegExp test() y exec() y con los métodos de String, match(), replace(), search() y split(). Estos métodos se explican en detalle en la referencia de JavaScript. -->
+
+<!-- 
+Método:	      |  Descripción:
+              |
+exec()	      |  Ejecuta una búsqueda por una coincidencia en una cadena. Devuelve un arreglo de información o null en una discrepancia.
+test()	      |  Prueba una coincidencia en una cadena. Devuelve true o false.
+match()	      |  Devuelve un arreglo que contiene todas las coincidencias, incluidos los grupos de captura, o null si no se encuentra ninguna coincidencia.
+matchAll()	  |  Devuelve un iterador que contiene todas las coincidencias, incluidos los grupos de captura.
+search()	  |  Prueba una coincidencia en una cadena. Devuelve el índice de la coincidencia, o -1 si la búsqueda falla.
+replace()	  |  Ejecuta una búsqueda por una coincidencia en una cadena y reemplaza la subcadena coincidente con una subcadena de reemplazo.
+replaceAll()  |	 Ejecuta una búsqueda de todas las coincidencias en una cadena y reemplaza las subcadenas coincidentes con una subcadena de reemplazo.
+split()	      |  Utiliza una expresión regular o una cadena fija para dividir una cadena en un arreglo de subcadenas. 
+-->
+
+<!-- Flags - Las expresiones regulares tienen seis indicadores opcionales que permiten funciones como la búsqueda global y que no distinga entre mayúsculas y minúsculas. Estos indicadores se pueden usar por separado o juntos en cualquier orden y se incluyen como parte de la expresión regular. -->
+<!--
+g	Búsqueda global.
+i	Búsqueda que no distingue entre mayúsculas y minúsculas.
+m	Búsqueda multilínea.
+s	Permite que el . coincida con caracteres de nueva línea.
+u	"unicode"; tratar un patrón como una secuencia de puntos de código Unicode.
+y	Realiza una búsqueda "pegajosa" que coincida a partir de la posición actual en la cadena de destino. Consulta sticky.
+-->
+
+<!-- Busquedas a tabeés de la barra inversa - Pueden darle significado especial a caracteres que no lo tienen. En vez de 'lorem' que vimos usamos alguna/s de las siguientes: -->
+<!-- 
+\t — Representa un tabulador.
+\r — Representa el "retorno de carro" o "regreso al inicio" o sea el lugar en que la línea vuelve a iniciar.
+\n — Representa la "nueva línea" el carácter por medio del cual una línea da inicio. Es necesario recordar que en Windows es necesaria una combinación de \r\n para comenzar una nueva línea, mientras que en Unix solamente se usa \n y en Mac_OS clásico se usa solamente \r.
+\a — Representa una "campana" o "beep" que se produce al imprimir este carácter.
+\e — Representa la tecla "Esc" o "Escape"
+\f — Representa un salto de página
+\v — Representa un tabulador vertical
+\x — Se utiliza para representar caracteres ASCII o ANSI si conoce su código. De esta forma, si se busca el símbolo de derechos de autor y la fuente en la que se busca utiliza el conjunto de caracteres latín-1 es posible encontrarlo utilizando \xA9".
+\u — Se utiliza para representar caracteres Unicode si se conoce su código. "\u00A2" representa el símbolo de centavos. No todos los motores de Expresiones Regulares soportan Unicode. El .Net Framework lo hace, pero el EditPad Pro no, por ejemplo.
+\d — Representa un dígito del 0 al 9.
+\w — Representa cualquier carácter alfanumérico.
+\s — Representa un espacio en blanco.
+\D — Representa cualquier carácter que no sea un dígito del 0 al 9.
+\W — Representa cualquier carácter no alfanumérico.
+\S — Representa cualquier carácter que no sea un espacio en blanco.
+\A — Representa el inicio de la cadena. No un carácter sino una posición.
+\Z — Representa el final de la cadena. No un carácter sino una posición.
+\b — Marca la posición de una palabra limitada por espacios en blanco, puntuación o el inicio/final de una cadena.
+\B — Marca la posición entre dos caracteres alfanuméricos o dos no-alfanuméricos.
+\Q y \E — Se interpreta como literal todo lo que vaya entre estas dos marcas. Ejemplo: \Q.*\E se interpreta como el literal .*.
+-->
+
+<!-- Otras expresiones que podemos usar entre /.../ para hacer la busqueda: -->
+<!-- 
+### Resumen de Caracteres Especiales en Expresiones Regulares
+
+#### Los corchetes `[ ]`
+- Representan "clases de caracteres" y se usan para agrupar caracteres.
+- Permiten buscar cualquier carácter dentro del grupo especificado.
+- Dentro de los corchetes, los metacaracteres pierden su significado y se convierten en literales, excepto la barra inversa.
+- Ejemplo: 
+  - `[a-z]` busca cualquier letra minúscula.
+  - `[^\w ]` busca cualquier carácter que no sea alfanumérico o espacio.
+  - `expresi[oó]n` encuentra "expresion" o "expresión".
+
+#### La barra `|`
+- Indica una de varias opciones.
+- Ejemplo: 
+  - `a|e` encuentra "a" o "e".
+  - `este|oeste|norte|sur` encuentra cualquiera de los puntos cardinales.
+
+#### El signo de dólar `$`
+- Representa el final de la cadena o línea (en modo multilínea).
+- Ejemplo:
+  - `\.$` encuentra un punto al final de la línea.
+
+#### El acento circunflejo `^`
+- Tiene doble funcionalidad.
+  - Representa el inicio de la cadena.
+  - Dentro de corchetes, indica negación.
+- Ejemplo:
+  - `^[a-z]` busca cadenas que comiencen con una letra minúscula.
+  - `[^\w ]` busca caracteres que no sean alfanuméricos ni espacios.
+
+#### Los paréntesis `()`
+- Agrupan caracteres y conservan el significado de los metacaracteres.
+- Permiten hacer referencias posteriores y búsquedas opcionales.
+- Ejemplo:
+  - `al (este|oeste|norte|sur) de` busca direcciones usando puntos cardinales.
+  - `Nov(\.|iembre|ember)?` encuentra "Nov", "Nov.", "Noviembre", o "November".
+
+#### El signo de interrogación `?`
+- Especifica que una parte de la búsqueda es opcional.
+- Con paréntesis: `(?:...)` evita etiquetar grupos para referencias futuras.
+- Con paréntesis triangulares: `(?<nombre>...)` nombra grupos.
+- Ejemplo:
+  - `ob?scuridad` encuentra "oscuridad" y "obscuridad".
+  - `Nov(\.|iembre|ember)?` encuentra "Nov", "Nov.", "Noviembre", o "November".
+
+#### Las llaves `{ }`
+- Especifican repeticiones de caracteres.
+- Ejemplo:
+  - `\d{2}` busca dos dígitos contiguos.
+  - `\d{2,4}` busca entre 2 y 4 repeticiones de un dígito.
+
+#### El asterisco `*`
+- Encuentra algo que se repite 0 o más veces.
+- Ejemplo:
+  - `[a-zA-Z]\d*` encuentra una letra seguida de cero o más dígitos.
+
+#### El signo de suma `+`
+- Encuentra una cadena que se repite una o más veces.
+- Ejemplo:
+  - `[a-zA-Z]\d+` encuentra una letra seguida de uno o más dígitos.
+
+#### Grupos anónimos
+- Se definen con paréntesis y permiten referenciar partes de la expresión dentro de la misma o en el código.
+- Ejemplo:
+  - `<([a-zA-Z]\w*?)>.*?</\1>` encuentra etiquetas HTML coincidentes.
+-->
