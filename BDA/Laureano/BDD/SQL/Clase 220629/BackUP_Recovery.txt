@@ -1,0 +1,23 @@
+Configurar base de datos:
+
+ClickDerecho>propiedades>options>recoveryModel>FULL
+
+use Empresa_Cimarelli
+
+--backup en modo completo
+backup database database [Empresa_cimarelli]
+to disk= N'C:\carpeta\backup_cimarelli.bak'
+
+--backup del log
+backup log [Empresa_Cimarelli]
+to disk =N'c:\carpeta\backup_log_cimarelli.trn'
+
+--recupero la base de datos (recupero no de forma completa porque tengoq ver el log si hay algo nuevo)
+restore database [Empresa_Cimarelli]
+from disk= N'C:\carpeta\backup_cimarelli.bak'
+with norecovery
+
+--recupero los datos del log
+restore log [Empresa_Cimarelli]
+from disk=N'C:\carpeta\backup_cimarelli.bak'
+
