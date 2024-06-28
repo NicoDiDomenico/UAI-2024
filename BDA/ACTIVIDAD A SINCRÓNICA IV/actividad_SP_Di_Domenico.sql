@@ -86,25 +86,48 @@ END
 --	DESCRIP_CUENTA[30 COMPLETAR CON ESPACIOS EN BLANCO A LA DERECHA]
 --	RAZON_SOCIAL_TITULAR[30 COMPLETAR CON ESPACIOS EN BLANCO A LA DERECHA]
 --	SALDO [0000000000 COMPLETAR IZQ] DE TODAS LAS CUENTAS PARA UN DETERMINADO RANGO DE FECHAS. 
-CREATE PROCEDURE sp_GenerarReporteTXT
-    @FECHA_INICIO DATE,
-    @FECHA_FIN DATE
+CREATE PROCEDURE sp_GenerarTxtCuentas
+    @FechaInicio DATE,
+    @FechaFin DATE
 AS
 BEGIN
-    DECLARE @Result NVARCHAR(MAX);
+    DECLARE @cmd VARCHAR(1000);
+	DECLARE @FilePath VARCHAR(255);
 
-    SELECT @Result = COALESCE(@Result + CHAR(13) + CHAR(10), '') +
-        RIGHT('0000' + CAST(NRO_CUENTA AS VARCHAR(4)), 4) +
-        LEFT(DESCRIP_CUENTA + REPLICATE(' ', 30), 30) +
-        LEFT(RAZON_SOCIAL_TITULAR + REPLICATE(' ', 30), 30) +
-        RIGHT('0000000000' + CAST(CAST(SALDO AS INT) AS VARCHAR(10)), 10)
-    FROM Cuentas
-    INNER JOIN Titulares ON Cuentas.ID_TITULAR = Titulares.ID_TITULAR
-    WHERE FECHA_APERTURA BETWEEN @FECHA_INICIO AND @FECHA_FIN;
+	-- Establecer la ruta fija para el archivo de salida
+    SET @FilePath = 'C:\\Users\\Usuario\\Desktop\\UAI-2024\\BDA\\INFO_CUENTAS.txt';
 
-    -- Se puede ajustar la salida para guardar en un archivo o simplemente devolver el resultado
-    SELECT @Result;
-END
+    -- Eliminar datos anteriores en la tabla temporal si existe
+    IF OBJECT_ID('tempdb..#CuentasTxt') IS NOT NULL
+        DROP TABLE #CuentasTxt;
 
--- No me anda
-EXEC sp_GenerarReporteTXT @FECHA_INICIO = '2023-01-01', @FECHA_FIN = '2023-12-31';
+    -- Crear tabla temporal para almacenar los datos formateados
+    CREATE TABLE #CuentasTxt (
+        Nro_Cuenta CHAR(4),
+        Descrip_Cuenta CHAR(30),
+        Razon_Social_Titular CHAR(30),
+        Saldo CHAR(10)
+    );
+
+    -- Insertar datos formateados en la tabla temporal
+    INSERT INTO #CuentasTxt
+    SELECT 
+        RIGHT('0000' + LTRIM(RTRIM(CAST(NRO_CUENTA AS VARCHAR(4)))), 4) AS Nro_Cuenta,
+        LEFT(LTRIM(RTRIM(DESCRIP_CUENTA)) + REPLICATE(' ', 30), 30) AS Descrip_Cuenta,
+        LEFT(LTRIM(RTRIM(t.RAZON_SOCIAL_TITULAR)) + REPLICATE(' ', 30), 30) AS Razon_Social_Titular,
+        RIGHT('0000000000' + LTRIM(RTRIM(CAST(CAST(SALDO AS INT) AS VARCHAR(10)))), 10) AS Saldo
+    FROM 
+        Cuentas c
+    JOIN 
+        Titulares t ON c.ID_TITULAR = t.ID_TITULAR
+    WHERE 
+        FECHA_APERTURA BETWEEN @FechaInicio AND @FechaFin;
+
+    -- Generar el comando para exportar los datos a un archivo de texto
+    SET @cmd = 'bcp "SELECT Nro_Cuenta + Descrip_Cuenta + Razon_Social_Titular + Saldo FROM #CuentasTxt" queryout "' + @FilePath + '" -c -t';
+
+    -- Ejecutar el comando para exportar el archivo
+    EXEC xp_cmdshell @cmd;
+END;
+
+EXEC sp_GenerarTxtCuentas '2024-01-01', '2024-12-31';
