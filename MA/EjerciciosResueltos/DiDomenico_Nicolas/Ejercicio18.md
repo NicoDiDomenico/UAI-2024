@@ -42,25 +42,25 @@ Ejercicio 18 + Presentación:
 3. Resultados de Poca Calidad y Reflexión:
 -	Las historias de usuario resultantes carecen de detalles específicos, lo que puede llevar a malentendidos durante el desarrollo. Por ejemplo, en el “Cómo” se podría haber identificado bien el rol del usuario. Además las validaciones pueden estar incompletas, poco detalladas o no cumplir con las reglas para considerarse un criterio de aceptación, por lo tanto las validaciones podrían quedar de la siguiente manera:  
 -	Historia de Usuario 1: Administración de Perfiles de Usuario:
-i.	El sistema permite editar los campos de información personal (nombre, correo electrónico, dirección, etc.).
-ii.	Después de guardar los cambios, el sistema muestra una notificación de confirmación que indica "Información actualizada correctamente".
-iii.	Los cambios realizados se reflejan inmediatamente en el perfil del usuario.
-iv.	Los datos actualizados se verifican en la base de datos para asegurar que los cambios fueron guardados correctamente.
+    - El sistema permite editar los campos de información personal (nombre, correo electrónico, dirección, etc.).
+    - Después de guardar los cambios, el sistema muestra una notificación de confirmación que indica "Información actualizada correctamente".
+    - Los cambios realizados se reflejan inmediatamente en el perfil del usuario.
+    - Los datos actualizados se verifican en la base de datos para asegurar que los cambios fueron guardados correctamente.
 -	Historia de Usuario 2: Notificaciones Automáticas sobre el Estado de los Envíos:
-i.	El sistema envía notificaciones automáticas en tiempo real cuando el estado del envío cambia a "Enviado", "En tránsito", "En reparto" y "Entregado".
-ii.	Las notificaciones se envían dentro de los 5 minutos posteriores a cada cambio de estado.
-iii.	El usuario puede configurar preferencias de notificación para recibir alertas por correo electrónico, SMS, y/o notificaciones push.
-iv.	El sistema permite activar o desactivar cada tipo de notificación y esta preferencia se guarda para futuras sesiones.
+    - El sistema envía notificaciones automáticas en tiempo real cuando el estado del envío cambia a "Enviado", "En tránsito", "En reparto" y "Entregado".
+    - Las notificaciones se envían dentro de los 5 minutos posteriores a cada cambio de estado.
+    - El usuario puede configurar preferencias de notificación para recibir alertas por correo electrónico, SMS, y/o notificaciones push.
+    - El sistema permite activar o desactivar cada tipo de notificación y esta preferencia se guarda para futuras sesiones.
 -	Historia de Usuario 3: Soporte para Múltiples Idiomas en la Interfaz de Usuario:
-i.	La interfaz de usuario cambia al idioma seleccionado inmediatamente después de que el usuario elige una opción del menú de idiomas.
-ii.	La preferencia de idioma se guarda y se aplica automáticamente en las futuras sesiones del usuario.
-iii.	Todo el contenido visible en la aplicación (menús, botones, mensajes, etc.) se muestra en el idioma seleccionado, y se verifica que no haya partes no traducidas.
-iv.	El sistema realiza una comprobación de QA para asegurarse de que todas las cadenas de texto están correctamente traducidas.
+    - La interfaz de usuario cambia al idioma seleccionado inmediatamente después de que el usuario elige una opción del menú de idiomas.
+    - La preferencia de idioma se guarda y se aplica automáticamente en las futuras sesiones del usuario.
+    - Todo el contenido visible en la aplicación (menús, botones, mensajes, etc.) se muestra en el idioma seleccionado, y se verifica que no haya partes no traducidas.
+    - El sistema realiza una comprobación de QA para asegurarse de que todas las cadenas de texto están correctamente traducidas.
 -	Historia de Usuario 4: Funcionalidad de Chat para Soporte en Tiempo Real:
-i.	El sistema conecta al usuario con un representante de soporte en tiempo real dentro de los primeros 30 segundos después de iniciar el chat.
-ii.	El usuario puede enviar y recibir mensajes instantáneamente durante la sesión de chat.
-iii.	El historial del chat se guarda automáticamente y está disponible para futuras referencias.
-iv.	El sistema muestra un mensaje de confirmación "Conectado con soporte" una vez que el usuario está conectado con un representante.
+    - El sistema conecta al usuario con un representante de soporte en tiempo real dentro de los primeros 30 segundos después de iniciar el chat.
+    - El usuario puede enviar y recibir mensajes instantáneamente durante la sesión de chat.
+    - El historial del chat se guarda automáticamente y está disponible para futuras referencias.
+    - El sistema muestra un mensaje de confirmación "Conectado con soporte" una vez que el usuario está conectado con un representante.
 -	Tal vez si se le agrega al prompt teoría sobre lo que hace el Scrum Master, podría arrojar resultados más acertados a lo que se busca con el proyecto. Además se le puede dar como entrada ciertas reglas sobre cómo queremos que arme las historias de usuario.
 -	Se podrían haber dado un orden de prioridad a cada historia de usuario mediante el uso de story point, ya que es responsabilidad del Product Owner asegurarse de que exista una Product Backlog actualizado y priorizado.
 -	Consideramos que faltaria como salida del sprint, no solo las historias de usuario, sino también el sprint goal, para así en la siguiente fase de sprint planning poder determinar con qué historias se van a trabajar para cumplir con la sprint goal al finalizar el sprint.
