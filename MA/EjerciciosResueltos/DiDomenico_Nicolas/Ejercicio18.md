@@ -12,26 +12,26 @@ Ejercicio 18 + Presentación:
     -	Funcionalidad de chat para soporte en tiempo real.
 -	Prompt: En el contexto de la metodología scrum, actúa como product owner para el proyecto de desarrollo de una aplicación web para una empresa de logística.
 -	Resultado de ejecutar el prompt: Product Backlog Inicial.
-1.	Historia de Usuario 1: Administración de Perfiles de Usuario.
-    -	Como: Usuario del sistema.
-    -	Quiero: Poder administrar mi perfil para actualizar mi información personal.
-    -	Para: Mantener mi información actualizada y segura.
-    -	Validación: El sistema permite editar y guardar cambios en el perfil, y muestra una notificación de confirmación después de actualizar la información.
-2.	Historia de Usuario 2: Notificaciones Automáticas sobre el Estado de los Envíos.
-    -	Como: Usuario del sistema.
-    -	Quiero: Recibir notificaciones automáticas sobre el estado de mis envíos.
-    -	Para: Estar al tanto del progreso y estado de mis envíos en tiempo real.
-    -	Validación: El sistema envía notificaciones automáticas en tiempo real sobre cambios de estado del envío, y permite configurar preferencias de notificación.
-3.	Historia de Usuario 3: Soporte para Múltiples Idiomas en la Interfaz de Usuario.
-    -	Como: Usuario del sistema.
-    -	Quiero: Cambiar el idioma de la interfaz de usuario.
-    -	Para: Utilizar la aplicación en mi idioma preferido.
-    -	Validación: La interfaz de usuario cambia al idioma seleccionado y mantiene la preferencia para futuras sesiones, mostrando todo el contenido en el idioma elegido.
-4.	Historia de Usuario 4: Funcionalidad de Chat para Soporte en Tiempo Real.
-    -	Como: Usuario del sistema.
-    -	Quiero: Utilizar una función de chat para obtener soporte en tiempo real.
-    -	Para: Resolver rápidamente cualquier problema o duda sobre mis envíos.
-    -	Validación: El sistema conecta al usuario con un representante de soporte en tiempo real, permite enviar y recibir mensajes, y guarda el historial de chat.
+    1.	Historia de Usuario 1: Administración de Perfiles de Usuario.
+        -	Como: Usuario del sistema.
+        -	Quiero: Poder administrar mi perfil para actualizar mi información personal.
+        -	Para: Mantener mi información actualizada y segura.
+        -	Validación: El sistema permite editar y guardar cambios en el perfil, y muestra una notificación de confirmación después de actualizar la información.
+    2.	Historia de Usuario 2: Notificaciones Automáticas sobre el Estado de los Envíos.
+        -	Como: Usuario del sistema.
+        -	Quiero: Recibir notificaciones automáticas sobre el estado de mis envíos.
+        -	Para: Estar al tanto del progreso y estado de mis envíos en tiempo real.
+        -	Validación: El sistema envía notificaciones automáticas en tiempo real sobre cambios de estado del envío, y permite configurar preferencias de notificación.
+    3.	Historia de Usuario 3: Soporte para Múltiples Idiomas en la Interfaz de Usuario.
+        -	Como: Usuario del sistema.
+        -	Quiero: Cambiar el idioma de la interfaz de usuario.
+        -	Para: Utilizar la aplicación en mi idioma preferido.
+        -	Validación: La interfaz de usuario cambia al idioma seleccionado y mantiene la preferencia para futuras sesiones, mostrando todo el contenido en el idioma elegido.
+    4.	Historia de Usuario 4: Funcionalidad de Chat para Soporte en Tiempo Real.
+        -	Como: Usuario del sistema.
+        -	Quiero: Utilizar una función de chat para obtener soporte en tiempo real.
+        -	Para: Resolver rápidamente cualquier problema o duda sobre mis envíos.
+        -	Validación: El sistema conecta al usuario con un representante de soporte en tiempo real, permite enviar y recibir mensajes, y guarda el historial de chat.
 1. Técnicas utilizadas en los prompts:
 -	Como entrada se le dió requerimientos clasificados en funcionales. Tanto de ejemplos de otros proyectos como para que los tenga de referencia, como los requerimientos nuestros que queremos que use.
 -	Para indicarle la salida esperada, se le dió como ejemplo Historias de Usuario para los requerimientos mencionados anteriormente de otro proyecto, y una vez que conoció como queremos que arme las historias de usuario, que genere las correspondientes a nuestros requerimientos.
