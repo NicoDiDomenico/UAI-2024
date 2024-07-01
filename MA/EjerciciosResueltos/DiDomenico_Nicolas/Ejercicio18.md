@@ -98,7 +98,6 @@ Ejercicio 18 + Presentación:
         -	Desarrollar la funcionalidad para guardar y acceder al historial de chat: Desarrollador C.
         -	Implementar indicadores de disponibilidad de representantes de soporte: Desarrollador D.
         -	Realizar pruebas de funcionalidad y rendimiento del chat en tiempo real: Tester B
-
 1. Técnicas utilizadas en los prompts:
     -	Separación de las historias de usuario en tareas más pequeñas y manejables
     -	Asignación de tareas a cada uno de los roles del equipo
@@ -115,25 +114,25 @@ Ejercicio 18 + Presentación:
 4. Mejoras se pueden hacer a los prompts y a su proceso de creación:
     -	Prompt Original: "Ahora tomarás el rol del equipo de desarrollo y deberás tomar la salida anterior (las historias de usuario) como entrada en esta fase de planificación de sprint.“
     -	Prompt Mejorado: "En el contexto de la metodología Scrum, ahora asumirás el rol del equipo de desarrollo para el proyecto de una aplicación web para una empresa de logística. Tu objetivo es tomar las historias de usuario del Product Backlog proporcionadas y planificar el sprint, desglosando cada historia de usuario en tareas específicas y asignando responsables. Recuerda que el equipo de desarrollo en Scrum es multifuncional y trabaja colaborativamente para entregar incrementos funcionales del producto al final de cada sprint. Además deberás estimar el Tamaño del Proyecto Utilizando COSMIC de la siguiente monera:
-    1.	Identificar las Interacciones Funcionales: Cada requerimiento funcional identificado en las historias de usuario al desglosarlas en tareas, estas serán las interacciones funcionales que tendrás que clasificar.
-    2.	Clasificar las Interacciones Funcionales en: Pequeña (S), Mediana (M) y Grande (L).
-    3.	Calcular el Tamaño Funcional: Asignarle a cada interacción la siguiente clasificación de tamaño y luego calcular el Tamaño Funcional Total(X) [PFC].
-        a.	Si es Pequeña (S): 3 PFC.
-        b.	Si es Mediana (M): 5 PFC.
-        c.	Si es Grande (L): 7 PFC.
-    4.	Obtener el Costo por Punto de Función:
-        a.	 Costo mes del equipo: Dependerá del número de personas, remuneración de cada rol, otros gastos, margen de ganancia si es un proyecto para un tercero. Por ejemplo, el equipo tiene 5 personas con un costo mensual total de $20,000. [$]
-        b.	Puntos de función del mes(W): Basado en proyectos pasados, podemos saber que el equipo de desarrollo de software produce N cantidad de puntos de función al mes [PFC/mes]. Por ejemplo, el equipo produce 25 PFC al mes.
-        c.	Costo por punto de función(CPFC): CPFC = Costo mes del equipo / W [$/ PFC]
-    5.	Calcular la Duración del Proyecto(A): A = X/W [Meses]
-    6.	Estimar el Costo total del proyecto(B): B = X*CPFC [$]
-        El equipo está compuesto por los siguientes roles:
-        ●	Desarrollador A
-        ●	Desarrollador B
-        ●	Desarrollador C 
-        ●	Desarrollador D
-        ●	Tester A 
-        ●	Tester B”
+        1.	Identificar las Interacciones Funcionales: Cada requerimiento funcional identificado en las historias de usuario al desglosarlas en tareas, estas serán las interacciones funcionales que tendrás que clasificar.
+        2.	Clasificar las Interacciones Funcionales en: Pequeña (S), Mediana (M) y Grande (L).
+        3.	Calcular el Tamaño Funcional: Asignarle a cada interacción la siguiente clasificación de tamaño y luego calcular el Tamaño Funcional Total(X) [PFC].
+            a.	Si es Pequeña (S): 3 PFC.
+            b.	Si es Mediana (M): 5 PFC.
+            c.	Si es Grande (L): 7 PFC.
+        4.	Obtener el Costo por Punto de Función:
+            a.	 Costo mes del equipo: Dependerá del número de personas, remuneración de cada rol, otros gastos, margen de ganancia si es un proyecto para un tercero. Por ejemplo, el equipo tiene 5 personas con un costo mensual total de $20,000. [$]
+            b.	Puntos de función del mes(W): Basado en proyectos pasados, podemos saber que el equipo de desarrollo de software produce N cantidad de puntos de función al mes [PFC/mes]. Por ejemplo, el equipo produce 25 PFC al mes.
+            c.	Costo por punto de función(CPFC): CPFC = Costo mes del equipo / W [$/ PFC]
+        5.	Calcular la Duración del Proyecto(A): A = X/W [Meses]
+        6.	Estimar el Costo total del proyecto(B): B = X*CPFC [$]
+            El equipo está compuesto por los siguientes roles:
+            ●	Desarrollador A
+            ●	Desarrollador B
+            ●	Desarrollador C 
+            ●	Desarrollador D
+            ●	Tester A 
+            ●	Tester B”
 
 - Número de prompt: 3.
 - Rol que representa el prompt: Scrum Master.
