@@ -6,33 +6,32 @@ Ejercicio 18 + Presentación:
 -	Número de prompt: 1.
 -	Rol que representa el prompt: Product Owner.
 -	Entrada de información que recibe el prompt: El cliente ha proporcionado los siguientes requerimientos iniciales para una aplicación web de gestión de envíos logísticos:
-o	Administración de perfiles de usuario.
-o	Notificaciones automáticas sobre el estado de los envíos.
-o	Soporte para múltiples idiomas en la interfaz de usuario.
-o	Funcionalidad de chat para soporte en tiempo real.
+    -	Administración de perfiles de usuario.
+    -	Notificaciones automáticas sobre el estado de los envíos.
+    -	Soporte para múltiples idiomas en la interfaz de usuario.
+    -	Funcionalidad de chat para soporte en tiempo real.
 -	Prompt: En el contexto de la metodología scrum, actúa como product owner para el proyecto de desarrollo de una aplicación web para una empresa de logística.
 -	Resultado de ejecutar el prompt: Product Backlog Inicial.
 1.	Historia de Usuario 1: Administración de Perfiles de Usuario.
-o	Como: Usuario del sistema.
-o	Quiero: Poder administrar mi perfil para actualizar mi información personal.
-o	Para: Mantener mi información actualizada y segura.
-o	Validación: El sistema permite editar y guardar cambios en el perfil, y muestra una notificación de confirmación después de actualizar la información.
-
+    -	Como: Usuario del sistema.
+    -	Quiero: Poder administrar mi perfil para actualizar mi información personal.
+    -	Para: Mantener mi información actualizada y segura.
+    -	Validación: El sistema permite editar y guardar cambios en el perfil, y muestra una notificación de confirmación después de actualizar la información.
 2.	Historia de Usuario 2: Notificaciones Automáticas sobre el Estado de los Envíos.
-o	Como: Usuario del sistema.
-o	Quiero: Recibir notificaciones automáticas sobre el estado de mis envíos.
-o	Para: Estar al tanto del progreso y estado de mis envíos en tiempo real.
-o	Validación: El sistema envía notificaciones automáticas en tiempo real sobre cambios de estado del envío, y permite configurar preferencias de notificación.
+    -	Como: Usuario del sistema.
+    -	Quiero: Recibir notificaciones automáticas sobre el estado de mis envíos.
+    -	Para: Estar al tanto del progreso y estado de mis envíos en tiempo real.
+    -	Validación: El sistema envía notificaciones automáticas en tiempo real sobre cambios de estado del envío, y permite configurar preferencias de notificación.
 3.	Historia de Usuario 3: Soporte para Múltiples Idiomas en la Interfaz de Usuario.
-o	Como: Usuario del sistema.
-o	Quiero: Cambiar el idioma de la interfaz de usuario.
-o	Para: Utilizar la aplicación en mi idioma preferido.
-o	Validación: La interfaz de usuario cambia al idioma seleccionado y mantiene la preferencia para futuras sesiones, mostrando todo el contenido en el idioma elegido.
+    -	Como: Usuario del sistema.
+    -	Quiero: Cambiar el idioma de la interfaz de usuario.
+    -	Para: Utilizar la aplicación en mi idioma preferido.
+    -	Validación: La interfaz de usuario cambia al idioma seleccionado y mantiene la preferencia para futuras sesiones, mostrando todo el contenido en el idioma elegido.
 4.	Historia de Usuario 4: Funcionalidad de Chat para Soporte en Tiempo Real.
-o	Como: Usuario del sistema.
-o	Quiero: Utilizar una función de chat para obtener soporte en tiempo real.
-o	Para: Resolver rápidamente cualquier problema o duda sobre mis envíos.
-o	Validación: El sistema conecta al usuario con un representante de soporte en tiempo real, permite enviar y recibir mensajes, y guarda el historial de chat.
+    -	Como: Usuario del sistema.
+    -	Quiero: Utilizar una función de chat para obtener soporte en tiempo real.
+    -	Para: Resolver rápidamente cualquier problema o duda sobre mis envíos.
+    -	Validación: El sistema conecta al usuario con un representante de soporte en tiempo real, permite enviar y recibir mensajes, y guarda el historial de chat.
 1. Técnicas utilizadas en los prompts:
 -	Como entrada se le dió requerimientos clasificados en funcionales. Tanto de ejemplos de otros proyectos como para que los tenga de referencia, como los requerimientos nuestros que queremos que use.
 -	Para indicarle la salida esperada, se le dió como ejemplo Historias de Usuario para los requerimientos mencionados anteriormente de otro proyecto, y una vez que conoció como queremos que arme las historias de usuario, que genere las correspondientes a nuestros requerimientos.
@@ -70,11 +69,11 @@ iv.	El sistema muestra un mensaje de confirmación "Conectado con soporte" una v
 -	Prompt Original: "En el contexto de la metodología Scrum, actúa como Product Owner para el proyecto de desarrollo de una aplicación web para una empresa de logística.“
 -	Prompt Mejorado: "En el contexto de la metodología Scrum, actúa como Product Owner (indico responsabilidades) para el proyecto de desarrollo de una aplicación web para una empresa de logística. La aplicación debe permitir a los usuarios administrar sus perfiles, recibir notificaciones automáticas sobre el estado de los envíos, soportar múltiples idiomas en la interfaz de usuario y proporcionar una funcionalidad de chat para soporte en tiempo real. Te encargaras de tomar cada uno de estos requerimientos y transformarlos en historias de usuario según los siguientes criterios: (ejemplos de historias de usuario con el formato y el nivel de detalle que queremos) “
 
--Número de prompt: 2.
--Rol que representa el prompt: Team Development.
--Entrada de información que recibe el prompt: Product Backlog.
--Prompt: Ahora tomarás el rol del equipo de desarrollo y deberás tomar la salida anterior (las historias de usuario) como entrada en esta fase de planificación de sprint basado en la metodología scrum. La salida ser un conjunto de tareas y el responsable de cada una.
--Resultado de ejecutar el prompt: plan del sprint con las siguientes tareas y responsables:
+- Número de prompt: 2.
+- Rol que representa el prompt: Team Development.
+- Entrada de información que recibe el prompt: Product Backlog.
+- Prompt: Ahora tomarás el rol del equipo de desarrollo y deberás tomar la salida anterior (las historias de usuario) como entrada en esta fase de planificación de sprint basado en la metodología scrum. La salida ser un conjunto de tareas y el responsable de cada una.
+- Resultado de ejecutar el prompt: plan del sprint con las siguientes tareas y responsables:
 ●	Para la Administración de Perfiles de Usuario:
 o	Diseñar la interfaz de usuario para la administración de perfiles: Desarrollador A.
 o	Implementar la funcionalidad de edición de perfil: Desarrollador B
