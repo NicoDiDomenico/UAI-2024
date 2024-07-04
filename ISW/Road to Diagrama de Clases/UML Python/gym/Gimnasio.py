@@ -7,16 +7,13 @@ class Gimnasio:
         self.__socios = []
         self.__sociosEliminados = []
         self.__paginaWeb = "www.SariesGym.com"
-        self.__turnos = []
     
     def agregarSocio(self, nombreYApellido, fechaNacimiento, genero, telefono, email, obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan, diasAsistencia):
         # Método para asignar ID automáticamente
         idSocio = self.asignarIdAutomaticamente()
         
-        # Estado inicial del socio
         estadoSocio = "Nuevo"
-        
-        # Obtener la fecha actual
+    
         fecha_inicio = datetime.now()
         
         # Calcular la fecha de fin según el plan
@@ -27,16 +24,17 @@ class Gimnasio:
         else:
             raise ValueError("Plan no válido")
         
-        # Validar los datos ingresados
-        ok = self.validarDatos(nombreYApellido, fechaNacimiento, genero, telefono, email, obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan, diasAsistencia)
+        ok = self.validarDatos(nombreYApellido, fechaNacimiento, genero, telefono, email, obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan)
         
         if ok:
             # Crear un nuevo socio
             nuevo_socio = Socio(
                 idSocio, nombreYApellido, fechaNacimiento, genero, telefono, email,
                 obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan,
-                estadoSocio, fecha_inicio.strftime('%Y-%m-%d'), diasAsistencia, fecha_fin.strftime('%Y-%m-%d')
+                estadoSocio, fecha_inicio.strftime('%Y-%m-%d'), fecha_fin.strftime('%Y-%m-%d')
             )
+
+            nuevo_socio.agregarDias(diasAsistencia)
 
             # Enviar correo de confirmación
             rta = nuevo_socio.enviarCorreoConfirmacion()
@@ -93,6 +91,7 @@ class Gimnasio:
                   f"Respuesta: {respuesta}")
         return self.enviarCorreo(email, asunto, cuerpo)
 
+    # CUD03 - Consultar Socio
     def consultarSocio(self, id):
         for socio in self.socios:
             if (socio.idSocio == id):
@@ -100,6 +99,7 @@ class Gimnasio:
             else:
                 print(f"No se encontró el socio con id {id}")
 
+    # CUD04 - Modificar Socio
     def modificarSocio(self, id, datoAModificar, valorDato): # datoAModificar se obtiene cuando se hace clic en el campo, valorDato lo ingresa el administrador o lo selecciona
         for socio in self.socios:
             if (socio.idSocio == id): 
@@ -109,7 +109,8 @@ class Gimnasio:
                         socio.fechaFinActividades += timedelta(days=30)
                     elif socio.plan == 'anual':
                         socio.fechaFinActividades += timedelta(days=365)
-                    
+
+    # CUD05 – Eliminar Socio                
     def eliminarSocio(self, id):
         for socio in self.socios:
             if (socio.idSocio == id):
@@ -127,11 +128,53 @@ class Gimnasio:
                 self.socios.append(socio)
                 self.sociosEliminados.remove(socio)
 
-    def validarIngreso(self, id):
-        for turno in self.__turnos:
-            if (turno.Socio.idSocio == id and turno.fechaTurno == datetime.now()):
-                turno.estadoTurno = "Finalizado"
-                turno.getDatosTurnos() # No estoy seguro de esta parte, porque en la interfaz no lo puse pero si en el CU
-                print("Validación Exitosa!")
-            else:
+    # CUD09 – Validar Ingreso del Socio
+    def validarIngreso(self, idSocio):
+        socioEncontrado = None
+        for socio in self.socios:
+            if socio.idSocio == idSocio:
+                socioEncontrado = socio
+                break
+        if socioEncontrado:
+            turnoValido = False
+            for turno in socioEncontrado.turnos:
+                if turno.fecha == datetime.now().date():
+                    turno.estado = "Finalizado"
+                    turnoValido = True
+                    print("Validación Exitosa!")
+                    print(turno.getDatosTurnos())
+                    break
+            if not turnoValido:
                 print("No tiene turno registrado!")
+        else:
+            print("Socio no encontrado!")
+    
+    # CUD06 - Gestionar Turno
+    def iniciarSesion(self, nombreUsuario, contrasena):
+        rta, socioEncontrado = self.validarCredenciales(nombreUsuario, contrasena)
+        if (rta == True):
+            socioEncontrado.mostrarHistorialTurnos()
+            self.mostrarOpcionesGestion(socioEncontrado) 
+        else:
+            print("Credenciales incorrectas")
+
+    def validarCredenciales(self, nombreUsuario, contrasena):
+        for socio in self.socios:
+            if (nombreUsuario == socio.__nombreUsuario and contrasen == socio.__contrasena):
+                return True, socio
+        return False, None
+
+    def mostrarOpcionesGestion(self, socio):
+        print("1. Agregar turno")
+        print("2. Cancelar turno")
+        opcion = input("Seleccione una opción: ")
+        if opcion == "1":
+            socio.agregarTurno() # --> CUD07 - Agregar Turno
+        elif opcion == "2":
+            idTurno = input("Ingrese el ID del turno a cancelar: ") # En realidad esto está mal, porque por como está hecha mi interfaz, yo tendria que apretar la "X" que estará al lado de cada turno que esté en proceso y ahí eliminarlo.
+            socio.cancelarTurno(idTurno) # --> CUD08 - Eliminar Turno
+        else:
+            print("Opción no válida")
+
+
+        
