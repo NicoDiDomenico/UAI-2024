@@ -1,0 +1,16 @@
+@startuml
+abstract class Responsable {
+    - nombreYApellido: String
+    // otros atributos compartidos
+}
+
+class Dueño extends Responsable {
+    - idDueño: Integer
+    - claveGimnasio: String
+}
+
+class Administrador extends Responsable {
+    - idAdministrador: Integer
+    // otros atributos específicos
+}
+@enduml

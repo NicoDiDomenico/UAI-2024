@@ -1,0 +1,30 @@
+@startuml
+actor Administrador
+boundary InterfazGestionSocios
+control ControladorGimnasio
+entity Gimnasio
+
+Administrador -> InterfazGestionSocios : ingresarClaveAcceso()
+activate InterfazGestionSocios
+InterfazGestionSocios -> ControladorGimnasio : validarClaveAcceso()
+activate ControladorGimnasio
+ControladorGimnasio -> Gimnasio : validarClaveAcceso()
+activate Gimnasio
+Gimnasio -> ControladorGimnasio : accesoValidado()
+deactivate Gimnasio
+ControladorGimnasio -> InterfazGestionSocios : accesoValidado()
+deactivate ControladorGimnasio
+deactivate InterfazGestionSocios
+
+Administrador -> InterfazGestionSocios : seleccionarVerSocios()
+activate InterfazGestionSocios
+InterfazGestionSocios -> ControladorGimnasio : verSocios()
+activate ControladorGimnasio
+ControladorGimnasio -> Gimnasio : obtenerListaSocios()
+activate Gimnasio
+Gimnasio -> ControladorGimnasio : listaSocios()
+deactivate Gimnasio
+ControladorGimnasio -> InterfazGestionSocios : mostrarListaSocios()
+deactivate ControladorGimnasio
+deactivate InterfazGestionSocios
+@enduml

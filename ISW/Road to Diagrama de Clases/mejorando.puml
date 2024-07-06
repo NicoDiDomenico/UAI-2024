@@ -1,0 +1,40 @@
+@startuml
+abstract class Responsable {
+    - idResponsable: Integer
+    - nombreYApellido: String
+    - email: String
+    - telefono: String
+    - direccion: String
+    - ciudad: String
+    - nroDocumento: Integer
+    - genero: String
+    - fechaNacimiento: Date
+    - claveIngresoSistema: String
+    + login(clave: String): void
+    "constructor" + Responsable(datosResponsable)
+}
+
+class Dueño extends Responsable {
+    - claveGimnasio: String
+}
+
+class Administrador extends Responsable {
+}
+
+class Entrenador extends Responsable {
+    // Aquí puedes agregar atributos o métodos específicos de Entrenador si es necesario
+}
+
+class Rango_Horario {
+    - idHorario: Integer
+    - horaDesde: Time
+    - horaHasta: Time
+    - cupo: Integer
+}
+
+/' Responsable <|-- Dueño
+Responsable <|-- Administrador
+Responsable <|-- Entrenador
+ '/
+Entrenador "1" -- "0..*" Rango_Horario : responsable
+@enduml

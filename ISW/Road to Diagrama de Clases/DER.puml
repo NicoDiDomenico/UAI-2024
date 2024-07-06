@@ -1,0 +1,40 @@
+@startuml
+entity "Responsable" as Responsable {
+    + idResponsable: Integer <<PK>>
+    + nombreYApellido: String
+    + email: String
+    + telefono: String
+    + direccion: String
+    + ciudad: String
+    + nroDocumento: Integer
+    + genero: String
+    + fechaNacimiento: Date
+    + claveIngresoSistema: String
+}
+
+entity "Dueño" as Dueno {
+    + idResponsable: Integer <<PK, FK>>
+    + claveGimnasio: String
+}
+
+entity "Administrador" as Administrador {
+    + idResponsable: Integer <<PK, FK>>
+}
+
+entity "Entrenador" as Entrenador {
+    + idResponsable: Integer <<PK, FK>>
+}
+
+entity "Rango_Horario" as Rango_Horario {
+    + idHorario: Integer <<PK>>
+    + horaDesde: Time
+    + horaHasta: Time
+    + cupo: Integer
+    + idEntrenador: Integer <<FK>>
+}
+
+Responsable ||--o{ Dueno : "tiene"
+Responsable ||--o{ Administrador : "tiene"
+Responsable ||--o{ Entrenador : "tiene"
+Entrenador ||--o{ Rango_Horario : "asigna"
+@enduml
