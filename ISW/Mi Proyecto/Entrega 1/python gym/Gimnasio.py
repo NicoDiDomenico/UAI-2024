@@ -1,3 +1,4 @@
+import smtplib
 from Socio import Socio
 from datetime import datetime, timedelta
 
@@ -7,8 +8,26 @@ class Gimnasio:
         self.__socios = []
         self.__sociosEliminados = []
         self.__paginaWeb = "www.SariesGym.com"
+        self.__responsables = []
     
-    def agregarSocio(self, nombreYApellido, fechaNacimiento, genero, telefono, email, obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan, diasAsistencia):
+    # CUD01 - Gestionar Socio
+    def validarClaveAcceso(self, clave):
+        pass
+    
+    def mostrarSocios(self):
+        listaSocios = []
+        for socio in self.__socios:
+            listaSocios.append(socio)
+            
+        for socioEliminado in self.__sociosEliminados:
+            listaSocios.append(socioEliminado)
+            
+        for socio in listaSocios:
+            nombreYApellido, estadoSocio, fechaFinActividades = socio.getDatosPreviosSocio()
+            return (nombreYApellido, estadoSocio, fechaFinActividades)
+    
+    # CUD02 - Agregar Socio
+    def agregarSocio(self, nombreYApellido, fechaNacimiento, genero, nroDocumento, ciudad, direccion, telefono, email, obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan, diasAsistencia):
         # Método para asignar ID automáticamente
         idSocio = self.asignarIdAutomaticamente()
         
@@ -29,7 +48,7 @@ class Gimnasio:
         if ok:
             # Crear un nuevo socio
             nuevo_socio = Socio(
-                idSocio, nombreYApellido, fechaNacimiento, genero, telefono, email,
+                idSocio, nombreYApellido, fechaNacimiento, genero, nroDocumento, ciudad, direccion, telefono, email,
                 obraSocial, nombreUsuario, contrasena, pregunta, respuesta, plan,
                 estadoSocio, fecha_inicio.strftime('%Y-%m-%d'), fecha_fin.strftime('%Y-%m-%d')
             )
@@ -37,13 +56,13 @@ class Gimnasio:
             nuevo_socio.agregarDias(diasAsistencia)
 
             # Enviar correo de confirmación
-            rta = nuevo_socio.enviarCorreoConfirmacion()
+            rta = self.enviarCorreoConfirmacion(nombreYApellido, email)
             if rta:
                 self.socios.append(nuevo_socio)
                 print(f"Socio agregado correctamente: {nombreYApellido}")
 
                 # Enviar credenciales
-                nuevo_socio.enviarCredenciales(self.paginaWeb)
+                self.enviarCredenciales(self.paginaWeb)
             else:
                 print("Error al enviar el correo de confirmación.")
         else:
@@ -90,12 +109,12 @@ class Gimnasio:
                   f"Pregunta de recuperación: {pregunta}\n"
                   f"Respuesta: {respuesta}")
         return self.enviarCorreo(email, asunto, cuerpo)
-
+    
     # CUD03 - Consultar Socio
     def consultarSocio(self, id):
         for socio in self.socios:
             if (socio.idSocio == id):
-                socio.getDatosSocios()
+                socio.getDatosSocio()
             else:
                 print(f"No se encontró el socio con id {id}")
 
@@ -103,7 +122,7 @@ class Gimnasio:
     def modificarSocio(self, id, datoAModificar, valorDato): # datoAModificar se obtiene cuando se hace clic en el campo, valorDato lo ingresa el administrador o lo selecciona
         for socio in self.socios:
             if (socio.idSocio == id): 
-                socio.datoAModificar = valorDatos
+                socio.datoAModificar = valorDato
                 if (datoAModificar == socio.estadoSocio):
                     if socio.plan == 'mensual':
                         socio.fechaFinActividades += timedelta(days=30)
@@ -160,7 +179,7 @@ class Gimnasio:
 
     def validarCredenciales(self, nombreUsuario, contrasena):
         for socio in self.socios:
-            if (nombreUsuario == socio.__nombreUsuario and contrasen == socio.__contrasena):
+            if (nombreUsuario == socio.__nombreUsuario and contrasena == socio.__contrasena):
                 return True, socio
         return False, None
 
@@ -169,7 +188,10 @@ class Gimnasio:
         print("2. Cancelar turno")
         opcion = input("Seleccione una opción: ")
         if opcion == "1":
-            socio.agregarTurno() # --> CUD07 - Agregar Turno
+            fechaTurno = input("Ingrese la fecha del turno (YYYY-MM-DD): ")
+            horaTurno = input("Ingrese la hora del turno (HH:MM): ")
+            entrenador = input("Ingrese el nombre del entrenador: ")
+            socio.agregarTurno(fechaTurno, horaTurno, entrenador) # --> CUD07 - Agregar Turno
         elif opcion == "2":
             idTurno = input("Ingrese el ID del turno a cancelar: ") # En realidad esto está mal, porque por como está hecha mi interfaz, yo tendria que apretar la "X" que estará al lado de cada turno que esté en proceso y ahí eliminarlo.
             socio.cancelarTurno(idTurno) # --> CUD08 - Eliminar Turno

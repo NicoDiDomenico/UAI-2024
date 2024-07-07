@@ -1,0 +1,51 @@
+@startuml
+actor Administrador
+boundary InterfazRegistroSocio
+control ControladorGimnasio
+entity Gimnasio
+entity Socio
+
+' Step 1: El sistema muestra un formulario de registro de socio
+Administrador -> InterfazRegistroSocio : mostrarFormularioRegistro()
+activate InterfazRegistroSocio
+
+' Step 2: El administrador completa el formulario con los datos del cliente
+Administrador -> InterfazRegistroSocio : completarFormulario(datosCliente)
+activate InterfazRegistroSocio
+
+' Step 3: El administrador guarda la información
+Administrador -> InterfazRegistroSocio : guardarInformacion()
+InterfazRegistroSocio -> ControladorGimnasio : guardarInformacion(datosCliente)
+activate ControladorGimnasio
+
+' Step 4: El sistema valida que los datos ingresados son válidos
+ControladorGimnasio -> Gimnasio : validarDatos(datosCliente)
+activate Gimnasio
+Gimnasio -> ControladorGimnasio : datosValidos()
+deactivate Gimnasio
+
+' Step 5: El sistema envía un correo para confirmar que el mail del Cliente corresponde a uno válido
+ControladorGimnasio -> Gimnasio : enviarCorreoConfirmacion(datosCliente.email)
+Gimnasio -> ControladorGimnasio : correoEnviado()
+
+' Step 6: El socio confirma correo
+Socio -> Gimnasio : confirmarCorreo()
+activate Gimnasio
+Gimnasio -> ControladorGimnasio : correoConfirmado()
+deactivate Gimnasio
+
+' Step 7: El sistema registra a la persona como nuevo socio y muestra mensaje de confirmación
+ControladorGimnasio -> Gimnasio : registrarSocio(datosCliente)
+Gimnasio -> ControladorGimnasio : socioRegistrado()
+ControladorGimnasio -> InterfazRegistroSocio : mostrarConfirmacion()
+deactivate ControladorGimnasio
+
+' Step 8: El sistema le envía las credenciales de acceso a la página web del gimnasio por correo electrónico
+ControladorGimnasio -> Gimnasio : enviarCredenciales(datosCliente)
+Gimnasio -> ControladorGimnasio : credencialesEnviadas()
+
+' Step 9: Administrador informa al socio la página web del gimnasio
+ControladorGimnasio -> InterfazRegistroSocio : informarPaginaWeb(socio)
+InterfazRegistroSocio -> Administrador : informarPaginaWeb(socio)
+deactivate InterfazRegistroSocio
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+actor Socio
+boundary InterfazWeb
+control ControladorGimnasio
+entity Gimnasio
+entity Turno
+
+' Step 1: El Socio ingresa el link de la página web del gimnasio en su navegador de preferencia
+Socio -> InterfazWeb : ingresarLinkPaginaWeb()
+activate InterfazWeb
+
+' Step 2: El socio al ingresar a la página web del sistema, este le solicitará las credenciales de acceso
+InterfazWeb -> Socio : solicitarCredenciales()
+deactivate InterfazWeb
+
+' Step 3: El socio ingresa las credenciales. Sistema valida.
+Socio -> InterfazWeb : ingresarCredenciales(nombreUsuario, contrasena)
+activate InterfazWeb
+InterfazWeb -> ControladorGimnasio : validarCredenciales(nombreUsuario, contrasena)
+activate ControladorGimnasio
+ControladorGimnasio -> Gimnasio : validarCredenciales(nombreUsuario, contrasena)
+activate Gimnasio
+Gimnasio -> ControladorGimnasio : credencialesValidas(socio)
+deactivate Gimnasio
+ControladorGimnasio -> InterfazWeb : credencialesValidas()
+deactivate ControladorGimnasio
+InterfazWeb -> Socio : mostrarOpcionesGestionarTurno()
+deactivate InterfazWeb
+
+' Step 4: El socio selecciona la opción de gestionar turno
+Socio -> InterfazWeb : seleccionarGestionarTurno()
+activate InterfazWeb
+
+' Step 5: El sistema muestra el historial de turnos y dos opciones a realizar: agregar turno y eliminar turno
+InterfazWeb -> ControladorGimnasio : obtenerHistorialTurnos(socio)
+activate ControladorGimnasio
+ControladorGimnasio -> Gimnasio : obtenerHistorialTurnos(socio)
+activate Gimnasio
+Gimnasio -> ControladorGimnasio : historialTurnos(turnos)
+deactivate Gimnasio
+ControladorGimnasio -> InterfazWeb : mostrarHistorialTurnos(turnos)
+deactivate ControladorGimnasio
+InterfazWeb -> Socio : mostrarOpcionesTurno()
+deactivate InterfazWeb
+
+' Step 6: El socio selecciona una de las opciones
+Socio -> InterfazWeb : seleccionarOpcionTurno(agregarOEliminar)
+activate InterfazWeb
+InterfazWeb -> ControladorGimnasio : gestionarTurno(socio, agregarOEliminar)
+activate ControladorGimnasio
+
+' Aquí puedes agregar más detalle dependiendo de si es agregar o eliminar turno
+deactivate ControladorGimnasio
+deactivate InterfazWeb
+@enduml
