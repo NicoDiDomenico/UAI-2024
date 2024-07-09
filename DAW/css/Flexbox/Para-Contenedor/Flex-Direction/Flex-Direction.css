@@ -2,7 +2,13 @@
     display: flex;
     background-color: bisque;
     border: 1px solid black;
-    flex-direction: row /* row-reverse */ /* column */  /* column-reverse */
+    flex-direction: column-reverse /* row-reverse */ /* column */  /* column-reverse */;
+    justify-content: flex-start /* flex-end */ /* center  *//* space-between */ /* space-around */ /* space-evenly */;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 5px;
+    height: 500px;
   }
   
   .item {
