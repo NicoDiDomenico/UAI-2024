@@ -7,7 +7,7 @@ padding: 20px;
 }
 /* Entendiendo Position relative y absolute */
 .container{
-    /* position: relative;  *//*Al comentarlo, .conteiner pasa a no estar posicinado, el elemento de caja-1 pasar a tomar como referencia a body, ya que este se encuentra poscionado*/
+    position: relative; /*Al comentarlo, .conteiner pasa a no estar posicinado, el elemento de caja-1 pasar a tomar como referencia a body, ya que este se encuentra poscionado*/
     border: solid black 1px;
     background-color: chocolate;
     width: 500px;
@@ -33,6 +33,7 @@ padding: 20px;
     width: 500px;
     height: 200px;
     top: 0;
+    right: 0;
 }
 
 .caja-3{ 
