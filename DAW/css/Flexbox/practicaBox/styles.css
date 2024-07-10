@@ -1,0 +1,20 @@
+main{
+    display: flex;
+    border: 2px solid black;
+}
+.caja1{
+    box-sizing: content-box;
+    background-color: aquamarine;
+    width: 250px;
+    height: 250px;
+    border: 5px solid olive;
+    padding: 5px;
+}
+.caja2{
+    box-sizing: border-box;
+    background-color: blanchedalmond;
+    width: 250px;
+    height: 250px;
+    border: 5px solid olive;
+    padding: 5px
+}
