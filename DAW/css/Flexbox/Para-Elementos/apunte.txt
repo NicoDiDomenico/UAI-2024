@@ -35,3 +35,9 @@ Estas propiedades se aplican a cada elemento flex dentro del contenedor flex y p
             - Si el flex-shrink = 0 entonces el elemento tendrá un ancho minimo el valor dado por flex-basis (puede ocurrir overflow).
             - Si el flex-shrink >= 1 entonces no se respeta el valor que se le de al flex-basis cuando no haya mas espacio en el contenedor.
             - Si el flex-grow es >=1 entonces el elemento va a ocupar mas espacio disponible que el indicado por el valor de flex-basis.
+
+        Acepta los siguientes valores:
+            “initial”: Se restablece a los valores predeterminados de flexbox, es igual a “flex: 0 1 auto”
+            “auto”: Los items tienen la capacidad de crecer / reducir (grow/shrink) según sea necesario, es igual que “flex: 1 1 auto”
+            “none”: Hace a los item inflexibles, igual que “flex: 0 0 auto”
+            “flex: 1”: Los items tienen la capacidad de 

@@ -8,17 +8,17 @@
     width: auto;
     height: 400px;
     padding: 5px;
+    gap: 5px;
 }
 
-.item {
-     
+.item {  
     background-color: aquamarine;
     border: black 1px solid;
     width: 100px;
     height: 100px;
-    text-align: center;
+    align-self: flex-end;
 }
 
-.especial{
-    align-self: center /* Notar como anula el align-items: flex-start del conteendor */ 
+.b{
+    align-self: flex-start /* Notar como anula el align-items: flex-start del conteendor */ 
 }

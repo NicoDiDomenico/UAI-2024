@@ -1,8 +1,7 @@
 .container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-
+    align-items: start;
     background-color: bisque;
     border: #000000 1px solid;
     width: 1200px;

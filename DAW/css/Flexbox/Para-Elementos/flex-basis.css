@@ -6,16 +6,16 @@
     background-color: bisque;
     border: #000000 1px solid;
     /* width: 1200px; */
-    width: auto;
+    width: 1200px;
     height: 400px;
     padding: 5px;
 }
 
 .item {
-     
+    box-sizing: border-box;
     background-color: aquamarine;
     border: black 1px solid;
-    width: 400px;
+    width: 200px;
     height: 100px;
     text-align: center;
 }
@@ -25,7 +25,7 @@
 }
 
 .b{
-    flex-basis: 100px; 
+    flex-basis: 450px; 
 }
 
 .c{
@@ -33,5 +33,5 @@
 }
 
 .d{
-    flex-basis: 2000px; /* Al poner el width en auto, mis elemento va a intentará ocupar los 2000px que le asignemos, si sobra espacio en el cntenedor frenará hasta ese valor indicado */
+    flex-basis: 450px; /* Al poner el width en auto, mis elemento va a intentará ocupar los 2000px que le asignemos, si sobra espacio en el cntenedor frenará hasta ese valor indicado */
 }

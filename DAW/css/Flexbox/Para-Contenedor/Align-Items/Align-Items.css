@@ -3,7 +3,6 @@
     background-color: bisque;
     border: 1px solid black;
     flex-direction: row;
-    align-items: /* stretch */ /* flex-start */ /* flex-end */ /* center */ baseline;
     height: 400px;
   }
   
