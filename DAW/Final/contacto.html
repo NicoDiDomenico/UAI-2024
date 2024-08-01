@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <!-- de acá -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+    <!-- acá no entiendo -->
     <title>Boggle - Contacto</title>
   </head>
   <body>
+    <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-container">
         <h1 class="logo"><a href="/">Boggle</a></h1>
@@ -27,6 +30,8 @@
         </div>
       </div>
     </nav>
+
+    <!-- Contact Form -->
     <div class="container">
       <div class="form-container">
         <h2>Contacto</h2>
@@ -34,16 +39,16 @@
           <div class="form-input">
             <label for="name">Nombre completo:</label>
             <input type="text" id="name" placeholder="John Doe" required />
-            <span class="error" id="nameError"></span>
+            <span class="error" id="nameError"></span> <!-- uso .error en css ara ocultar todos las equiquetas span vacias que luego por JS le agrego contenido  -->
           </div>
           <div class="form-input">
             <label for="name">Email:</label>
             <input
               type="email"
               id="email"
-              placeholder="you@company.com" 
+              placeholder="you@company.com"
               required
-            /> <!-- you@company.com tiene que estar en español ya que el placeholder tiene que estar en el mismo idioma que la interfaz -->
+            />
             <span class="error" id="emailError"></span>
           </div>
           <div class="form-input">
@@ -52,16 +57,22 @@
               type="text"
               id="message"
               required
-              resize="none"
+              resize="none" 
               placeholder="Tu mensaje(min. 5 caracteres)"
-            ></textarea>
+            ></textarea> <!-- resize="none" es CSS no HTML -->
             <span class="error" id="messageError"></span>
           </div>
           <button id="submitButton" class="button">Enviar!</button>
         </form>
       </div>
     </div>
-    <footer class="footer"><p>&copy; 2024 Your Company Name. All rights reserved.</p></footer>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
     <script src="./form.js"></script>
   </body>
 </html>

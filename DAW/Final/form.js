@@ -1,4 +1,5 @@
-'use strict'
+'use strict' /*  introducido en ECMAScript 5 (ES5) y tiene el objetivo de ayudar a los desarrolladores a escribir código más seguro y eficiente, al eliminar algunas de las características más propensas a errores de JavaScript */
+
 var d = document
 
 var contactForm = d.getElementById('contactForm')
@@ -6,11 +7,13 @@ var contactForm = d.getElementById('contactForm')
 var nameInput = document.getElementById('name')
 var emailInput = document.getElementById('email')
 var messageInput = document.getElementById('message')
+
 var nameError = document.getElementById('nameError')
 var emailError = document.getElementById('emailError')
 var messageError = document.getElementById('messageError')
+/* Me parece que al id lo uso para el JS y a la clase para el CSS */
 
-var validateAndSendForm = function (e) {
+var validateAndSendForm = function (e) { /* esta forma permite manipular la varibale para agregarle otra funcion o pasarla como argumento, la otra forma es: function validateAndSendForme(e){...} */
   e.preventDefault()
 
   let valido = true
