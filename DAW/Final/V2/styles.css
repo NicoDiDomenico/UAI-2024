@@ -1,0 +1,475 @@
+/* Generales */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  background-color: #eae8e1;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar */
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.navbar-container {
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo {
+  font-size: 2.25rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.links a {
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: 0.3s all;
+}
+
+.links a:hover {
+  font-size: 1.5rem;
+}
+
+#rankingButton {
+  background-color: #4238cb;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s all ease;
+}
+
+#rankingButton:hover {
+  transform: scale(1.1);
+}
+
+/* Footer */
+
+.footer {
+  padding: 1rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.footer p {
+  text-align: center;
+}
+
+/* WelcomeForm */
+
+.welcomeForm {
+  padding: 4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+}
+
+.welcomeForm h2 {
+  font-size: 4rem;
+  padding: 0;
+  line-height: 4rem;
+  margin-bottom: 2rem;
+}
+
+#welcomeForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+#welcomeForm label {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+#welcomeForm input,
+#welcomeForm select {
+  padding: 0.75rem;
+  border: 1px solid black;
+  border-radius: 0.25rem;
+  transition: 0.3s all ease;
+  margin-bottom: 0.25rem;
+}
+
+#welcomeForm input:hover {
+  transform: scale(1.01);
+}
+
+/* Boggle Game */
+
+.boggleGame {
+  display: flex;
+  width: 90%;
+  height: 70%;
+  text-align: center;
+}
+
+.left-container {
+  height: 100%;
+  width: 25%;
+}
+
+.game {
+  height: 100%;
+  width: 45%;
+}
+
+.timer {
+  font-size: 1.75rem;
+}
+
+#time {
+  font-weight: bold;
+}
+
+#board {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  gap: 0.75rem;
+}
+
+.row {
+  height: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.cell {
+  background-color: #30638e;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: 0.3s all;
+}
+
+.cell:hover {
+  opacity: 0.92;
+  transform: scale(1.05);
+}
+
+.game-text {
+  display: flex;
+  flex-direction: column;
+}
+
+#game-error {
+  color: #d1495b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.current-word {
+  font-size: 1.5rem;
+}
+
+#current-word {
+  font-weight: bold;
+}
+
+.found-words {
+  height: 100%;
+  width: 30%;
+  position: relative;
+}
+
+#points-message {
+  position: absolute;
+  text-align: center;
+  top: -1.5rem;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  color: red;
+}
+
+.points-text {
+  font-size: 1.75rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+#points {
+  font-weight: bold;
+}
+
+#found-words-container {
+  list-style: none;
+  font-weight: bold;
+}
+
+/* Ranking */
+#rankingTable{
+  width: 100%;
+}
+
+#rankingTable, th, td{ /* para la tabla creada en welcomeForm.js */
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td{
+  padding: 5px;
+}
+
+/* Contact Form */
+
+.form-container {
+  margin: 0 auto;
+  width: 480px;
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+}
+
+.form-container h2 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+}
+
+.form-input label {
+  font-size: 1.25rem;
+}
+
+.form-input input {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 0.5px black solid;
+  transition: 0.3s all;
+}
+
+.form-input input:hover {
+  transform: scale(1.01);
+}
+
+.form-input textarea {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 0.5px black solid;
+  resize: none;
+  transition: 0.3s all;
+  height: 200px;
+}
+
+.form-input textarea:hover {
+  transform: scale(1.01);
+}
+
+.button {
+  margin-top: 1rem;
+  background-color: #003d5b;
+  cursor: pointer;
+  width: 100%;
+  padding: 1rem 0;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s all ease;
+}
+
+.button:hover {
+  font-size: 1.25rem;
+}
+
+/* Utils */
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  color: #d1495b;
+  font-size: 0.95rem;
+}
+
+.text-red {
+  color: #d1495b;
+}
+
+.selected {
+  background-color: #9ae19d;
+}
+
+.last-selected {
+  outline: 2px black solid;
+}
+
+.able-to-select {
+  background-color: #edae49;
+}
+
+.disabled {
+  cursor: default;
+}
+
+/* Mobile Navbar */
+
+.mobile-navbar {
+  display: none;
+  width: 100%;
+}
+
+.mobile-navbar-links {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  height: 100vh;
+}
+
+.mobile-navbar-links .links-container {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobile-navbar-item {
+  width: 100%;
+  display: block;
+  position: relative !important;
+  background-color: transparent !important;
+  font-size: 3rem !important;
+  text-align: center;
+  color: black !important;
+  font-weight: bold;
+  padding: 0 !important;
+
+}
+
+.mobile-navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.mobile-navbar button {
+  background-color: transparent;
+  color: black;
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  font-size: 1.75rem;
+  z-index: 51;
+}
+
+.mobile-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .container {
+    align-items: flex-start;
+    margin-top: 2rem;
+  }
+
+  .left-container {
+    display: none;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: block;
+  }
+
+  .mobile-navbar-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .boggleGame {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+  }
+
+  .cell {
+    min-width: 100px;
+  }
+
+  .found-words {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .boggleGame {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cell {
+    min-width: 80px;
+  }
+}
