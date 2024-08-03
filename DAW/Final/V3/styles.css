@@ -233,7 +233,7 @@ body {
   left: 0;
   right: 0;
   font-weight: bold;
-  color: red;
+  /* color: #d1495b; */ /* ta al pedo porque se asigna dinamicamente */
 }
 
 .points-text {

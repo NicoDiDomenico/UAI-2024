@@ -46,7 +46,7 @@ var validateAndOpenGame = function (e) {
     boggleGame.classList.remove("hidden");
     
      // Iniciar el juego
-    startGame(); /* esta función está en  boggleGame.js */
+    startGame(); /* esta función está en  boggleGame.js (1)*/
   }
 };
 
@@ -85,7 +85,7 @@ function crearTabla() {
   var trCabecera = document.createElement("tr");
   thead.appendChild(trCabecera); // Añadir fila de cabecera a <thead>
 
-  cabeceras.forEach((cabecera) => {
+  cabeceras.forEach(function(cabecera) {
     var th = document.createElement("th");
     th.textContent = cabecera;
     trCabecera.appendChild(th); // Añadir cada <th> a la fila de cabecera
@@ -104,7 +104,7 @@ function crearTabla() {
   //   <tbody></tbody>
   // </table>
 
-  listaJuegos.forEach((juego) => {
+  listaJuegos.forEach(function(juego) {
     var trCuerpo = document.createElement("tr"); // Crear fila para cada juego
     tbody.appendChild(trCuerpo); // Añadir fila a <tbody>
 

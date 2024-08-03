@@ -7,24 +7,11 @@
     <!-- de acá... -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css"/>
     <!-- Biblioteca SweetAlert2 de JavaScript para creación de modales: https://sweetalert2.github.io/#examples -->
-    <script src="
-  https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js
-  "></script> <!-- carga la biblioteca JavaScript de SweetAlert2 desde un CDN. Esto te permite usar las funciones de SweetAlert2 en tu proyecto para crear modales y alertas personalizadas, mejorando la experiencia del usuario en tu sitio web. -->
-    <link
-      href="
-  https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css
-  "
-      rel="stylesheet"
-    /> <!--  carga la hoja de estilo CSS de SweetAlert2 desde un CDN(Content Delivery Network), permitiendo que los modales y alertas creados con SweetAlert2 tengan el estilo predeterminado de la biblioteca. -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script> <!-- carga la biblioteca JavaScript de SweetAlert2 desde un CDN. Esto te permite usar las funciones de SweetAlert2 en tu proyecto para crear modales y alertas personalizadas, mejorando la experiencia del usuario en tu sitio web. -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css" rel="stylesheet"/> <!--  carga la hoja de estilo CSS de SweetAlert2 desde un CDN(Content Delivery Network), permitiendo que los modales y alertas creados con SweetAlert2 tengan el estilo predeterminado de la biblioteca. -->
     <!-- ...a acá se importó biblioteca, fuentes, animaciones -->
     <link rel="stylesheet" href="./normalize.css" />
     <title>Boggle</title>
@@ -32,17 +19,13 @@
 
   <body>
     <!-- Navbar -->
-    <nav class="navbar" id="navbar"> <!-- se esconde en mobile y se muestra en desktop, con displey del CSS -->
+    <nav class="navbar" id="navbar">
       <div class="navbar-container">
         <h1 class="logo"><a href="/">Boggle</a></h1>
         <div class="links">
           <a href="/">Inicio</a>
           <a href="/contacto.html">Contacto</a>
-          <a
-            href="https://github.com/AgustinAlbonico/Boggle-DAW"
-            target="_blank"
-            >Repositorio</a
-          >
+          <a href="https://github.com/AgustinAlbonico/Boggle-DAW" target="_blank">Repositorio</a>
           <button id="rankingButton">Ranking</button> <!-- EVENTO! -->
         </div>
       </div>
@@ -63,12 +46,7 @@
         <div class="links-container">
           <a href="/" class="mobile-navbar-item">Inicio</a>
           <a href="/contacto.html" class="mobile-navbar-item">Contacto</a>
-          <a
-            href="https://github.com/AgustinAlbonico/Boggle-DAW"
-            target="_blank"
-            class="mobile-navbar-item"
-            >Repositorio</a
-          >
+          <a href="https://github.com/AgustinAlbonico/Boggle-DAW" target="_blank" class="mobile-navbar-item">Repositorio</a>
           <button id="rankingButtonMobile" class="mobile-navbar-item">Ranking</button> <!-- EVENTO! -->
         </div>
       </div>
@@ -82,12 +60,7 @@
           <h2>Bienvenido!</h2>
           <label for="name">Ingrese su nombre:</label>
           <div class="input-container">
-            <input
-              type="text"
-              name="name"
-              id="nameInput"
-              placeholder="Tu nombre"
-            />
+            <input type="text" name="name" id="nameInput" placeholder="Tu nombre" />
             <span id="nameError" class="error"></span>
           </div>
           <div class="input-container">
@@ -98,7 +71,7 @@
               <option value="3">3 minutos</option>
             </select>
           </div>
-          <button type="submit" class="button">Jugar!</button> <!-- si al evento lo ponia acá tenia que ser de tipo "clic" y no se va a ejecutar si apretas enter en algun campo -->
+          <button type="submit" class="button">Jugar!</button>
         </form>
       </div>
 
@@ -138,24 +111,8 @@
             <span class="current-word">Palabra formada: <span id="current-word"></span></span>
           </div>
           <div class="buttons">
-            <div
-              class="button"
-              id="send-word"
-              style="width: 12rem; margin: 2rem auto 0 auto"
-            >
-              Enviar palabra
-            </div> <!-- EVENTO -->
-            <div
-              class="button"
-              id="clear-word"
-              style="
-                background-color: #edae49;
-                width: 12rem;
-                margin: 1rem auto 0 auto;
-              "
-            >
-              Limpiar palabra
-            </div> <!-- EVENTO -->
+            <div class="button" id="send-word" style="width: 12rem; margin: 2rem auto 0 auto">Enviar palabra</div> <!-- EVENTO -->
+            <div class="button" id="clear-word" style="background-color: #edae49; width: 12rem; margin: 1rem auto 0 auto;">Limpiar palabra</div> <!-- EVENTO -->
           </div>
         </div>
         <div class="found-words">
@@ -168,10 +125,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <p>
-        &copy; 2024 Agustín Albónico & Nicolas Di Domenico. Todos los derechos
-        reservados.
-      </p>
+      <p>&copy; 2024 Agustín Albónico & Nicolas Di Domenico. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Scripts -->

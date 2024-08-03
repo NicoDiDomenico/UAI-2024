@@ -52,30 +52,30 @@ var remainingTime;
 var currentWord = "";
 ////Variable para ir almacenando el puntaje de un juego
 var totalScore;
-////Intervalo para cada segundo del timer
-var timer;
+////ID del intervalo para cada segundo del timer
+var intervalID;
 ////Variable para guardar las palabras encontradas
 var foundWords;
 
 //Funcion que empieza el juego
 function startGame() {
-  time.classList.remove("text-red"); /* cuando se reinicia el juego (ver modal) queda en rojo el contenido del span, entonces hay que removerle la clase y asi quitar el css*/
+  time.classList.remove("text-red"); /* cuando se reinicia el juego (por el modal) queda en rojo el contenido del span, entonces hay que removerle la clase y asi quitar el css*/
   remainingTime = Number(gameTime.value) * 60;
   time.textContent = remainingTime;
-  totalScore = 0;
+  /* totalScore = 0; */ /* lo mandé a resetSecondaryPanel()  */
   foundWords = []
 
   resetSecondaryPanel() /* reseteo el puntaje y las palabras encontardas */
   resetCurrentWord(); /* reseteo la palabra seleccionada en el tablero cuando inicia o reinicio el juego */
   initializeBoard();
 
-  timer = setInterval(handleTimer, 1000);
+  intervalID = setInterval(handleTimer, 1000); /* setInterval es una función que llama a otra función o ejecuta un fragmento de código repetidamente, con un retardo fijo entre cada llamada (1000=1 seg). */
 }
 
 //Funcion para manejar el temporizador
 function handleTimer() {
   if (remainingTime === 0) {
-    clearInterval(timer);
+    clearInterval(intervalID);
     showScore();
     saveGameData();
   }
@@ -84,7 +84,7 @@ function handleTimer() {
     time.classList.add("text-red");
   }
   time.textContent = remainingTime;
-  remainingTime--;
+  remainingTime--; /* esto hace que se reste el tiempo */
 }
 
 //Funcion para guardar en localStorage los datos del jugador y una partida
@@ -107,11 +107,11 @@ async function sendWord() {
     //Muestro el mensaje de error de palabra menor a 3 caracteres por un ratito y lo saco
     if (currentWord.length < 3) {
       showGameErrorMessage("La palabra debe contener mas de 3 caracteres");
-    } else if (foundWords.includes(currentWord)) { /* este if tiene sentido por addWordToFound() que te agrega la palabra al arreglo foundWords*/
+    } else if (foundWords.indexOf(currentWord) !== -1) { /* este if tiene sentido por addWordToFound() que te agrega la palabra al arreglo foundWords*/
       showGameErrorMessage("La palabra ya ha sido ingresada");
     } else {
       gameErrorMessage.classList.add("hidden");
-      var response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${currentWord}`); /* await espera a que la promesa de fetch se resuelva y asigna el resultado (un objeto Response) a la variable response. Response es exclusivo de API fetch --> esto permite hacer solicitudes HTTP. Notar que la URL tiene la currentWord, de esta manera se valida si la palabra que s eforma en el span es o no una palabra valida en ingles. */
+      var response = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord); /* await espera a que la promesa de fetch se resuelva y asigna el resultado (un objeto Response) a la variable response. Response es exclusivo de API fetch --> esto permite hacer solicitudes HTTP. Notar que la URL tiene la currentWord, de esta manera se valida si la palabra que s eforma en el span es o no una palabra valida en ingles. */
       handleSubmitWord(response.ok); /* res.ok devuelve boolean, True si la solicitud a la URL especificada fue exitosa */
     }
   } catch (error) { // Manejar errores 
@@ -119,7 +119,7 @@ async function sendWord() {
   } finally { // Hacer algo siempre, ya sea que hubo error o no
     sendWordButton.disabled = false;
     resetCurrentWord() /* reseteo la palabra seleccionada en el tablero cuando la palabra tiene < de dos letars o cuando la palabra ya la ingresaste */
-    resetCellsStyle()
+    /* resetCellsStyle() */ /* es al pedo porque está en resetCurrentWord() */
   }
 }
 
@@ -146,10 +146,12 @@ function handleSubmitWord(isValid) {
       totalScore = totalScore + 11;
       messagePoints(11);
     }
+    showGameErrorMessage("Correcto!");
     addWordToFound(); /* esto tiene conexion con foundWords */
   } else {
+    showGameErrorMessage("Incorrecto!")
     totalScore = totalScore - 1;
-    messagePoints(-1, "#d1495b");
+    messagePoints(-1);
   }
   pointsDom.textContent = totalScore;
   resetCurrentWord(); /* reseteo la palabra seleccionada en el tablero cuando la palabra tiene < de dos letars o cuando la palabra ya la ingresaste */
@@ -173,13 +175,13 @@ function handleError(msjError) {
 function showScore() {
   Swal.fire({
     title: "Finalizó el juego",
-    text: `Su puntaje: ${totalScore}`,
+    text: "Su puntaje: " + totalScore,
     icon: "info",
     confirmButtonColor: "#3085d6",
     confirmButtonText: "Jugar de nuevo",
     showCancelButton: true,
     cancelButtonColor: "#d33",
-  }).then((result) => {
+  }).then(function(result) {
     if (result.isConfirmed) {
       startGame();
     } else {
@@ -200,22 +202,22 @@ function resetCurrentWord() {
   currentWord = ""; /* Es una variable global que almacena la palabra actual que el jugador está formando seleccionando celdas. */
   selectedCells = [] /*  Es una variable global que almacena un array de las celdas actualmente seleccionadas por el jugador. */
   currentWordDom.textContent = currentWord;
-  /* gameErrorMessage.classList.add("hidden"); */ /* solo se que si lo saco anda */
+  /* gameErrorMessage.classList.add("hidden"); */ /* Agregarlo da error */
   resetCellsStyle()
 }
 
 //Funcion que muestra el puntaje segun una palabra ingresada
-function messagePoints(points, color = "#00798C") {
+function messagePoints(points) {
   if (points > 0) {
-    pointsMessage.textContent = `+${points} puntos!`;
-    pointsMessage.style.color = color;
-    setTimeout(() => {
+    pointsMessage.textContent = "+" + points + " puntos!";
+    pointsMessage.style.color = "#00798C"; /* "Verde" */
+    setTimeout(function() {
       pointsMessage.textContent = "";
     }, 1200);
   } else {
-    pointsMessage.textContent = `${points} puntos!`;
-    pointsMessage.style.color = color;
-    setTimeout(() => {
+    pointsMessage.textContent = points + " puntos!";
+    pointsMessage.style.color = "#d1495b"; /* "Rojo" */
+    setTimeout(function() {
       pointsMessage.textContent = "";
     }, 1200);
   }
@@ -225,16 +227,21 @@ function messagePoints(points, color = "#00798C") {
 function showGameErrorMessage(msg) {
   gameErrorMessage.classList.remove("hidden");
   gameErrorMessage.textContent = msg;
-  setTimeout(() => {
+  if (msg === "Correcto!"){
+    gameErrorMessage.style.color = "#00798C"; /* "Verde" */ 
+  }
+  setTimeout(function() {
     gameErrorMessage.classList.add("hidden");
     gameErrorMessage.textContent = "";
+    gameErrorMessage.style.removeProperty('color'); /* esto lo agregue para quitar lo verde que puse antes y se respete el css con rojo */
   }, 1500);
   return;
 }
 
-//Funcion que agrega la palabra encontrada a la lista de palabras encontradas y tambien lo muestra en el dom
+//Funcion que agrega la palabra al arreglo de palabras encontradas y tambien se muestra en el dom
 function addWordToFound() {
-  foundWords.push(currentWord);
+  foundWords.push(currentWord); /* foundWord es un arreglo para comparar en el try de sendWord si la palabra ya la ingresé antes*/
+  /* Ahora agrego la palabra al dom del contenedor found-words*/
   var liFoundWordElement = d.createElement("li");
   liFoundWordElement.textContent = currentWord;
   foundWordsContainerDom.appendChild(liFoundWordElement);
@@ -242,41 +249,46 @@ function addWordToFound() {
 
 //Funcion que inicializa el tablero
 function initializeBoard() {
-  selectedCells = [];
-  allCells = [];
-  resetCellsStyle();
+  /* selectedCells = []; */ /* LO HACE resetCurrentWord() */
+  allCells = []; 
+  /* resetCellsStyle(); */ /* LO HACE resetCurrentWord() */
 
+  
   // Selecciona 6 vocales aleatorias
   var selectedVowels = [];
   for (var i = 0; i < 6; i++) {
     selectedVowels.push(vowels[Math.floor(Math.random() * vowels.length)]);
+    //                         Math.floor --> redeondea para abajo
+    //                                    Math.random() --> Devuelve un numero real entre 0 y 1 (sin incluir)
+    //                                                    vowels.length --> Me devuevle el tamaño del arreglo vowels
   }
 
   // Selecciona exactamente 10 consonantes aleatorias
   var selectedConsonants = [];
   for (var i = 0; i < 10; i++) {
-    selectedConsonants.push(
-      consonants[Math.floor(Math.random() * consonants.length)]
-    );
+    selectedConsonants.push(consonants[Math.floor(Math.random() * consonants.length)]);
+    // misma logica que antes pero ahroa con las consonantes
   }
 
   // Combina y mezcla las letras
   var boardLetters = selectedVowels.concat(selectedConsonants);
-  boardLetters = boardLetters.sort(() => Math.random() - 0.5);
-
-  for (let i = 1; i <= 16; i++) {
-    var cell = d.getElementById(`cell-${i}`);
+  boardLetters = boardLetters.sort(function() {
+    return Math.random() - 0.5;
+  });
+  
+  for (var i = 1; i <= 16; i++) {
+    var cell = d.getElementById("cell-" + i);
     cell.textContent = boardLetters[i - 1];
     cell.addEventListener("click", handleCellClick);
     allCells.push(cell);
   }
-}
+}  
 
 // Maneja el click en una celda del tablero
 function handleCellClick(event) {
   var cell = event.target;
 
-  if (selectedCells.includes(cell)) {
+  if (selectedCells.indexOf(cell) !== -1) {
     return;
   }
 
@@ -290,7 +302,7 @@ function handleCellClick(event) {
 
   // Restablece el color original de todas las celdas adyacentes no seleccionadas
   allCells.forEach(function (adjacentCell) {
-    if (!selectedCells.includes(adjacentCell)) {
+    if (selectedCells.indexOf(adjacentCell) === -1) {
       adjacentCell.classList.remove("able-to-select");
     }
   });
@@ -305,7 +317,7 @@ function handleCellClick(event) {
   // Obtiene las celdas adyacentes y marca las seleccionables
   var adjacentCells = getAdjacentCells(cell);
   adjacentCells.forEach(function (adjacentCell) {
-    if (!selectedCells.includes(adjacentCell)) {
+    if (selectedCells.indexOf(adjacentCell) === -1) {
       adjacentCell.classList.add("able-to-select");
     }
   });
@@ -344,18 +356,19 @@ function isAdjacent(cell1, cell2) {
 
 //Funcion que reinicia todos los estilos de las celdas en caso de jugar de nuevo
 function resetCellsStyle() {
-  for (let i = 1; i <= 16; i++) {
-    var cell = d.getElementById(`cell-${i}`);
-    cell.classList.remove("selected");
-    cell.classList.remove("last-selected");
-    cell.classList.remove("able-to-select");
-    cell.disabled = false;
+  for (var i = 1; i <= 16; i++) {
+    var cell = d.getElementById("cell-" + i); /* traigo la celda */
+    cell.classList.remove("selected"); /* remuevo esta clase que se agrego antes dinamicamente para darle estilo */
+    cell.classList.remove("last-selected"); /*                           ||                                      */
+    cell.classList.remove("able-to-select"); /*                          ||                                      */
+    cell.disabled = false; /* habilito la celda */
   }
 }
 
 //Funcionar para reiniciar el puntaje y las palabras encontradas de la partida anterior
 function resetSecondaryPanel() {
-  pointsDom.textContent = totalScore
+  totalScore = 0;
+  pointsDom.textContent = totalScore;
   //Elimino todos las palabras encontradas del dom
   /* while(foundWordsContainerDom.firstChild) {
     foundWordsContainerDom.firstChild.remove()
@@ -363,5 +376,5 @@ function resetSecondaryPanel() {
 }
 
 //Eventos
-sendWordButton.addEventListener("click",sendWord);
+sendWordButton.addEventListener("click",sendWord); /* Envio la palabra para hacer todas las valdiaciones y cambios durante el jeugo */
 clearWordButton.addEventListener("click", resetCurrentWord); /* acá limpio cuando apreto limpiar */
