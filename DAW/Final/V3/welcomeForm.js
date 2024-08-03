@@ -8,8 +8,6 @@ var boggleGame = d.querySelector(".boggleGame"); /* Para la tabla */
 var nameError = d.getElementById("nameError"); /* Para validar */
 var nameInput = d.getElementById("nameInput"); /* Para validar */
 
-var gameTime = d.getElementById("game-time"); /* Traigo el <select> del Formulario de bienvenida --> PARA MI TIENE QUE IR AL BOGGLEGAME.JS */
-
 var rankingButton = d.getElementById("rankingButton"); /* Para el evento */
 var rankingButtonMobile = d.getElementById("rankingButtonMobile"); /* Para el evento */
 

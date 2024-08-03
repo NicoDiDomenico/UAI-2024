@@ -1,15 +1,21 @@
 'use strict'
 
 //Elementos del DOM
-var time = d.getElementById("time"); /* el span que que va atener el valor del tiempo */
-var currentWordDom = d.getElementById("current-word");
-var sendWordButton = d.getElementById("send-word"); /* Para evento al hacer clic en enviar palabra  */
-var clearWordButton = d.getElementById("clear-word"); /* Para evento al hacer clic en limpiar palabra */
+var time = d.getElementById("time"); /* el span que que va a tener el valor del tiempo */
+var gameTime = d.getElementById("game-time"); /* traigo el <select> */
+
+var currentWordDom = d.getElementById("current-word"); /* traigo el <span> para la palabra que se va a formar cuando seleccionemos letras  */
+var gameErrorMessage = d.getElementById("game-error"); /* traigo el <span> para agregarle el error segun los distintos casos */
+
 var cell = d.querySelectorAll(".cell");
 var pointsMessage = d.getElementById("points-message");
-var gameErrorMessage = d.getElementById("game-error");
+
 var pointsDom = d.getElementById("points");
-var foundWordsContainerDom = d.getElementById("found-words-container");
+var foundWordsContainerDom = d.getElementById("found-words-container"); /* traigo el <ul> */
+
+var sendWordButton = d.getElementById("send-word"); /* Para evento al hacer clic en enviar palabra  */
+var clearWordButton = d.getElementById("clear-word"); /* Para evento al hacer clic en limpiar palabra */
+
 var selectedCells = [];
 var allCells = [];
 
@@ -40,10 +46,9 @@ var consonants = [
 ];
 
 // Declaracion de variables
-////Variable para saber cuando el juego esta activo y cuando no
-var gameStart = false;
 ////Contador del tiempo restante de un juego
 var remainingTime;
+////Almacena la palabra actual que el jugador está formando seleccionando celdas.
 var currentWord = "";
 ////Variable para ir almacenando el puntaje de un juego
 var totalScore;
@@ -55,14 +60,13 @@ var foundWords;
 //Funcion que empieza el juego
 function startGame() {
   time.classList.remove("text-red"); /* cuando se reinicia el juego (ver modal) queda en rojo el contenido del span, entonces hay que removerle la clase y asi quitar el css*/
-  gameStart = true; /* no le veo un uso */
-  remainingTime = parseInt(gameTime.value, 10) * 60; /* gameTime está en welcomeFoom.js */
+  remainingTime = Number(gameTime.value) * 60;
   time.textContent = remainingTime;
   totalScore = 0;
   foundWords = []
 
-  resetSecondaryPanel()
-  resetCurrentWord();
+  resetSecondaryPanel() /* reseteo el puntaje y las palabras encontardas */
+  resetCurrentWord(); /* reseteo la palabra seleccionada en el tablero cuando inicia o reinicio el juego */
   initializeBoard();
 
   timer = setInterval(handleTimer, 1000);
@@ -72,7 +76,6 @@ function startGame() {
 function handleTimer() {
   if (remainingTime === 0) {
     clearInterval(timer);
-    gameStart = false;
     showScore();
     saveGameData();
   }
@@ -99,25 +102,23 @@ function saveGameData() {
 
 //Funcion que valida la palabra ingresada en una api
 async function sendWord() {
-  try {
-    sendWordButton.disabled = true;
+  try { // Hacer algo que puede fallar
+    sendWordButton.disabled = true; /* no lo termino de entender */
     //Muestro el mensaje de error de palabra menor a 3 caracteres por un ratito y lo saco
     if (currentWord.length < 3) {
       showGameErrorMessage("La palabra debe contener mas de 3 caracteres");
-    } else if (foundWords.includes(currentWord)) {
+    } else if (foundWords.includes(currentWord)) { /* este if tiene sentido por addWordToFound() que te agrega la palabra al arreglo foundWords*/
       showGameErrorMessage("La palabra ya ha sido ingresada");
     } else {
       gameErrorMessage.classList.add("hidden");
-      var res = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${currentWord}`
-      );
-      handleSubmitWord(res.ok);
+      var response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${currentWord}`); /* await espera a que la promesa de fetch se resuelva y asigna el resultado (un objeto Response) a la variable response. Response es exclusivo de API fetch --> esto permite hacer solicitudes HTTP. Notar que la URL tiene la currentWord, de esta manera se valida si la palabra que s eforma en el span es o no una palabra valida en ingles. */
+      handleSubmitWord(response.ok); /* res.ok devuelve boolean, True si la solicitud a la URL especificada fue exitosa */
     }
-  } catch (error) {
-    handleError("Error al verificar la palabra");
-  } finally {
+  } catch (error) { // Manejar errores 
+    handleError("Error al verificar la palabra"); // Esto se muestra si no funca la api ¿como? ni idea mostruo
+  } finally { // Hacer algo siempre, ya sea que hubo error o no
     sendWordButton.disabled = false;
-    resetCurrentWord()
+    resetCurrentWord() /* reseteo la palabra seleccionada en el tablero cuando la palabra tiene < de dos letars o cuando la palabra ya la ingresaste */
     resetCellsStyle()
   }
 }
@@ -145,13 +146,13 @@ function handleSubmitWord(isValid) {
       totalScore = totalScore + 11;
       messagePoints(11);
     }
-    addWordToFound();
+    addWordToFound(); /* esto tiene conexion con foundWords */
   } else {
     totalScore = totalScore - 1;
     messagePoints(-1, "#d1495b");
   }
   pointsDom.textContent = totalScore;
-  resetCurrentWord();
+  resetCurrentWord(); /* reseteo la palabra seleccionada en el tablero cuando la palabra tiene < de dos letars o cuando la palabra ya la ingresaste */
 }
 
 //Funcion general para mostrar modal de error
@@ -188,11 +189,18 @@ function showScore() {
 }
 
 //Funcion para resetar la palabra ingresada
+/* 
+Casos que la funcion es llamada:
+  - Inicio del Juego (startGame()): Se llama resetCurrentWord() para asegurarse de que la palabra actual esté vacía y que las celdas seleccionadas y los estilos de las celdas se reinicien antes de que comience una nueva partida.
+  - Después de Enviar una Palabra (sendWord()): Independientemente de si la palabra es válida o no, resetCurrentWord() se llama para reiniciar la palabra actual y las celdas seleccionadas después de intentar enviar una palabra.
+  - Al Hacer Clic en el Botón de Limpiar Palabra (clearWordButton.addEventListener("click", resetCurrentWord)): Cuando el usuario hace clic en el botón "Limpiar palabra", se llama resetCurrentWord() para vaciar la palabra actual y reiniciar las celdas seleccionadas.
+  - ... (falta creo)
+  */
 function resetCurrentWord() {
-  currentWord = "";
-  selectedCells = []
+  currentWord = ""; /* Es una variable global que almacena la palabra actual que el jugador está formando seleccionando celdas. */
+  selectedCells = [] /*  Es una variable global que almacena un array de las celdas actualmente seleccionadas por el jugador. */
   currentWordDom.textContent = currentWord;
-  gameErrorMessage.classList.add("hidden");
+  /* gameErrorMessage.classList.add("hidden"); */ /* solo se que si lo saco anda */
   resetCellsStyle()
 }
 
@@ -213,7 +221,7 @@ function messagePoints(points, color = "#00798C") {
   }
 }
 
-//Funcion que muestra error del juego
+//Funcion que muestra error del juego abajo del tablero
 function showGameErrorMessage(msg) {
   gameErrorMessage.classList.remove("hidden");
   gameErrorMessage.textContent = msg;
@@ -345,20 +353,15 @@ function resetCellsStyle() {
   }
 }
 
-//Funcionar para reiniciar el puntaje y las palabras anteriores de la partida anterior
+//Funcionar para reiniciar el puntaje y las palabras encontradas de la partida anterior
 function resetSecondaryPanel() {
   pointsDom.textContent = totalScore
   //Elimino todos las palabras encontradas del dom
-  while(foundWordsContainerDom.firstChild) {
+  /* while(foundWordsContainerDom.firstChild) {
     foundWordsContainerDom.firstChild.remove()
-  }
+  } */ foundWordsContainerDom.innerHTML = '';
 }
 
 //Eventos
-sendWordButton.addEventListener("click", () => {
-  sendWord();
-});
-
-clearWordButton.addEventListener("click", () => {
-  resetCurrentWord();
-});
+sendWordButton.addEventListener("click",sendWord);
+clearWordButton.addEventListener("click", resetCurrentWord); /* acá limpio cuando apreto limpiar */
