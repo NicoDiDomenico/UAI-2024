@@ -10,7 +10,7 @@ startGame
     ├── if remainingTime === 0 <!--  -->
     │   ├── showScore <!-- Modal + manejo de promesa -->
     |   |   ├──startGame <!--  -->
-    │   ├── saveGameData
+    │   ├── saveGameData <!-- aca se guarda la partida para la creacion de la tabla en welcomeForm.js al querer ver el ranking -->
     ├── if remainingTime === 10 <!--  -->
         ├── Cambia el color de texto a rojo <!--  -->
 

@@ -55,7 +55,7 @@ function handleTimer() {
   if (remainingTime === 0) {
     clearInterval(intervalID);
     showScore(); /* me lleva al modal que devuelve una promesa que se resuelve al interacturar con el modal */
-    saveGameData(); 
+    saveGameData(); // Guardo datos de la partida cuando termine --> servirá para el ranking
   }
   /* A los 10 seg pongo el span time en rojo  */
   if (remainingTime === 10) {
@@ -74,8 +74,9 @@ function saveGameData() {
     date: new Date().toLocaleString(),
     time: gameTime.value,
   });
-  var formatedSavegame = JSON.stringify(savegame);
-  localStorage.setItem("savegame", formatedSavegame);
+  // new Date() crea un nuevo objeto de fecha que contiene la fecha y hora actuales.
+  // .toLocaleString() es un método del objeto Date que convierte la fecha y hora en una cadena de texto usando la configuración regional específica del entorno en el que se ejecuta el código
+  localStorage.setItem("savegame", JSON.stringify(savegame));
 }
 
 //Funcion que valida la palabra ingresada en una api

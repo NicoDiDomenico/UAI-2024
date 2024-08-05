@@ -20,18 +20,17 @@ Resumen:
   JSON.parse() convierte una cadena JSON a un objeto JavaScript.
   Uso combinado: Para almacenar objetos en localStorage, conviértelos a JSON y luego parsea el JSON al recuperarlos.
 */
-//Valida el nombre ingresado, cierra el formulario y abre el juego
+//Valida el nombre ingresado, cierra el formulas  rio y abre el juego
 var validateAndOpenGame = function (e) {
   e.preventDefault(); /* evito recarga de pagina */
 
-  let valido = true;
+  var valido = true;
 
   if (nameInput.value.trim() === "") {
     nameError.textContent = "El nombre es obligatorio";
     valido = false;
   } else if (!/^[a-zA-Z0-9 ]+$/.test(nameInput.value)) {
-    nameError.textContent =
-      "El nombre solo puede contener letras, números y espacios";
+    nameError.textContent = "El nombre solo puede contener letras, números y espacios";
     valido = false;
   } else if (nameInput.value.length < 3) {
     nameError.textContent = "El nombre debe tener como minimo 3 caracteres";
@@ -62,7 +61,7 @@ function showRanking() {
     showCloseButton: true,  // Mostrar el botón de cerrar en el modal --> Para mi tiene que ser false
     focusConfirm: false,    // No enfocar automáticamente el botón de confirmación --> Para mi tiene que ser true
   });
-}
+} 
 
 function crearTabla() {
   var table = document.createElement("table"); // Creo el elemento <table></table>
