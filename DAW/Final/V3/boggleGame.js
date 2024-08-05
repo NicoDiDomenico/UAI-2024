@@ -7,7 +7,7 @@ var gameTime = d.getElementById("game-time"); /* traigo el <select> */
 var currentWordDom = d.getElementById("current-word"); /* traigo el <span> para la palabra que se va a formar cuando seleccionemos letras  */
 var gameErrorMessage = d.getElementById("game-error"); /* traigo el <span> para agregarle el error segun los distintos casos */
 
-var cell = d.querySelectorAll(".cell");
+/* var cell = d.querySelectorAll(".cell"); */ /* Para mi está de mas */
 var pointsMessage = d.getElementById("points-message");
 
 var pointsDom = d.getElementById("points");
@@ -16,36 +16,14 @@ var foundWordsContainerDom = d.getElementById("found-words-container"); /* traig
 var sendWordButton = d.getElementById("send-word"); /* Para evento al hacer clic en enviar palabra  */
 var clearWordButton = d.getElementById("clear-word"); /* Para evento al hacer clic en limpiar palabra */
 
+// Variables
+
 var selectedCells = [];
 var allCells = [];
 
-//Constantes
-var vowels = ["A", "E", "I", "O", "U"];
-var consonants = [
-  "B",
-  "C",
-  "D",
-  "F",
-  "G",
-  "H",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-];
+var vowels = ["A", "E", "I", "O", "U"]; //Vocales
+var consonants = ["B", "C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","V","W","X","Y","Z",]; //Constantes
 
-// Declaracion de variables
 ////Contador del tiempo restante de un juego
 var remainingTime;
 ////Almacena la palabra actual que el jugador está formando seleccionando celdas.
@@ -67,7 +45,7 @@ function startGame() {
 
   resetSecondaryPanel() /* reseteo el puntaje y las palabras encontardas */
   resetCurrentWord(); /* reseteo la palabra seleccionada en el tablero cuando inicia o reinicio el juego */
-  initializeBoard();
+  initializeBoard(); /* no solo inicializa el tablero sino que es lo que me permite seleccionar celdas y colorearlas a traves del evento de cada una */
 
   intervalID = setInterval(handleTimer, 1000); /* setInterval es una función que llama a otra función o ejecuta un fragmento de código repetidamente, con un retardo fijo entre cada llamada (1000=1 seg). */
 }
@@ -76,8 +54,8 @@ function startGame() {
 function handleTimer() {
   if (remainingTime === 0) {
     clearInterval(intervalID);
-    showScore();
-    saveGameData();
+    showScore(); /* me lleva al modal que devuelve una promesa que se resuelve al interacturar con el modal */
+    saveGameData(); 
   }
   /* A los 10 seg pongo el span time en rojo  */
   if (remainingTime === 10) {
@@ -91,7 +69,7 @@ function handleTimer() {
 function saveGameData() {
   var savegame = JSON.parse(localStorage.getItem("savegame") || "[]");
   savegame.push({
-    username: nameInput.value,
+    username: nameInput.value, /* nameInput está en welcomeForm.js */
     score: totalScore,
     date: new Date().toLocaleString(),
     time: gameTime.value,
@@ -111,8 +89,8 @@ async function sendWord() {
       showGameErrorMessage("La palabra ya ha sido ingresada");
     } else {
       gameErrorMessage.classList.add("hidden");
-      var response = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord); /* await espera a que la promesa de fetch se resuelva y asigna el resultado (un objeto Response) a la variable response. Response es exclusivo de API fetch --> esto permite hacer solicitudes HTTP. Notar que la URL tiene la currentWord, de esta manera se valida si la palabra que s eforma en el span es o no una palabra valida en ingles. */
-      handleSubmitWord(response.ok); /* res.ok devuelve boolean, True si la solicitud a la URL especificada fue exitosa */
+      var res = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord); /* await espera a que la promesa de fetch se resuelva y asigna el resultado (un objeto Response) a la variable response. Response es exclusivo de API fetch --> esto permite hacer solicitudes HTTP. Notar que la URL tiene la currentWord, de esta manera se valida si la palabra que s eforma en el span es o no una palabra valida en ingles. */
+      handleSubmitWord(res.ok); /* res.ok devuelve boolean, True si la solicitud a la URL especificada fue exitosa */
     }
   } catch (error) { // Manejar errores 
     handleError("Error al verificar la palabra"); // Esto se muestra si no funca la api ¿como? ni idea mostruo
@@ -163,11 +141,11 @@ function handleError(msjError) {
     position: "top",
     icon: "error",
     title: "Error!",
-    text: msjError,
+    text: msjError, // importante!
     width: 300,
     padding: "12",
-    timer: "750",
-    showConfirmButton: false,
+    timer: "750", // tiempo que dura el modal
+    showConfirmButton: false, // lo escondo total se va solo el modal
   });
 }
 
@@ -179,13 +157,14 @@ function showScore() {
     icon: "info",
     confirmButtonColor: "#3085d6",
     confirmButtonText: "Jugar de nuevo",
+    cancelButtonText: "Salir", 
     showCancelButton: true,
     cancelButtonColor: "#d33",
-  }).then(function(result) {
-    if (result.isConfirmed) {
+  }).then(function(res) { // SweetAlert2 devuelve una promesa que se resuelve cuando el usuario interactúa con la ventana emergente.
+    if (res.isConfirmed) {// .isConfirmed Esa propiedad es específica del objeto de resultado de las promesas devueltas por SweetAlert2.
       startGame();
     } else {
-      window.location.replace("/");
+      window.location.replace("/");  // redirige al usuario a la página principal ("/").
     }
   });
 }
@@ -270,52 +249,66 @@ function initializeBoard() {
     // misma logica que antes pero ahroa con las consonantes
   }
 
-  // Combina y mezcla las letras
+  // Concateno las vocales y consonantes para luego mezclarlas todas aleatoriamente en boardLetters 
   var boardLetters = selectedVowels.concat(selectedConsonants);
-  boardLetters = boardLetters.sort(function() {
-    return Math.random() - 0.5;
+  boardLetters = boardLetters.sort(function() { /* En sort se usa una funcion de comparacion que devuelve un valor +,0,- que determinara en que orden colocar los los valores */
+    return Math.random() - 0.5; /* Math.random() - 0.5 hace que obtenga valores entre [-0.5, 5) y no [0, 1) */
   });
-  
+  // Ahora las coloco en el tablero
   for (var i = 1; i <= 16; i++) {
     var cell = d.getElementById("cell-" + i);
     cell.textContent = boardLetters[i - 1];
     cell.addEventListener("click", handleCellClick);
-    allCells.push(cell);
+    allCells.push(cell); /* tambien las coloco en este arreglo para mas adelante hacer valdiaciones */
   }
 }  
 
 // Maneja el click en una celda del tablero
 function handleCellClick(event) {
-  var cell = event.target;
-
-  if (selectedCells.indexOf(cell) !== -1) {
+  var cell = event.target; // obtiene el elemento que fue clicado. En este caso, es una celda del tablero. Recordar event es un objeto que pasa por el handler, y como objeto tiene propeidades propias como .tarjet o .type 
+  console.log(event.target); // Notar como traigo la etiqueta <button>...</button>, esto es gracias al .target
+  
+  // Verificar si la celda ya está seleccionada
+  if (selectedCells.indexOf(cell) !== -1) { /* si ya ingrese la letra salgo del handler */
     return;
-  }
+  } // si es verde no continuo el codigo
 
-  if (selectedCells.length > 0) {
+  // Verificar si la celda clicada es adyacente a la última celda seleccionada --> 2)
+  if (selectedCells.length > 0) { 
     var lastCell = selectedCells[selectedCells.length - 1];
-    lastCell.classList.remove("last-selected");
-    if (!isAdjacent(lastCell, cell)) {
-      return;
+    // 1)
+    if(cell.classList.contains("able-to-select")){
+      lastCell.classList.remove("last-selected"); // le quita el outline
     }
-  }
+    // 2) 
+    if (!isAdjacent(lastCell, cell)) {
+      return; // CREO que si es azul o verde retorno (es decir no es naranja)...
+    }// ...pero si es naranja continuo el codigo
+  } 
+  // hasta acá sé que cell es adyacente y no está seleccionada (no es verde)
 
   // Restablece el color original de todas las celdas adyacentes no seleccionadas
-  allCells.forEach(function (adjacentCell) {
+  allCells.forEach(function (adjacentCell) { // array.forEach(function(elementFromArray, index, array) {...}
     if (selectedCells.indexOf(adjacentCell) === -1) {
       adjacentCell.classList.remove("able-to-select");
     }
   });
+  // de acá salgo con el tablero sin color A EXEPCION de las selecionadas (las verdes)
+  // y con la cell adyacente y no seleccionada
 
-  // Añade las clases 'selected'
+  // A cell la definio como seleccionada
   cell.classList.add("selected");
   cell.classList.add("last-selected")
   selectedCells.push(cell);
+  
+  // Voy definiendo dinamicamente currentWord y el contenido del dom en que se encuentra
   currentWord += cell.textContent;
   currentWordDom.textContent = currentWord;
 
   // Obtiene las celdas adyacentes y marca las seleccionables
+  // Obtengo las celdas adyacentes a la cliqueeada
   var adjacentCells = getAdjacentCells(cell);
+  //  Las "pinto" de naranja --> able-to-select
   adjacentCells.forEach(function (adjacentCell) {
     if (selectedCells.indexOf(adjacentCell) === -1) {
       adjacentCell.classList.add("able-to-select");
@@ -323,19 +316,24 @@ function handleCellClick(event) {
   });
 }
 
-// Obtiene las celdas adyacentes a una celda dada
+// Obtiene las celdas adyacentes a una celda dada (la del evento)
 function getAdjacentCells(cell) {
   var index = allCells.indexOf(cell);
   var row = Math.floor(index / 4);
   var col = index % 4;
+
+  // adjacentCells es un array vacío que llenaremos con las celdas adyacentes.
   var adjacentCells = [];
 
   // Verifica las celdas adyacentes en la matriz 4x4
-  for (var i = Math.max(0, row - 1); i <= Math.min(row + 1, 3); i++) {
-    for (var j = Math.max(0, col - 1); j <= Math.min(col + 1, 3); j++) {
-      if (!(i === row && j === col)) {
-        // No incluir la celda actual
-        adjacentCells.push(allCells[i * 4 + j]);
+  /* 
+  Math.max(num1, num2) --> devuelve el maximo (establezco la minima fila/columna para iterar)
+  Math.min(num1, num2) --> devuelve el minimo (establezco la maxima fila/columna para iterar)
+  */
+  for (var i = Math.max(0, row - 1); i <= Math.min(row + 1, 3); i++) { // itero filas
+    for (var j = Math.max(0, col - 1); j <= Math.min(col + 1, 3); j++) { // itero columnas
+      if (!(i === row && j === col)) { // asegura que no incluimos la celda actual en el array de celdas adyacentes. Solo queremos celdas adyacentes.
+        adjacentCells.push(allCells[i * 4 + j]); // si haces las cuentas te da la posicion de la cerlda adyacente
       }
     }
   }
@@ -343,15 +341,52 @@ function getAdjacentCells(cell) {
   return adjacentCells;
 }
 
-// Verifica si dos celdas son adyacentes en el tablero
-function isAdjacent(cell1, cell2) {
-  var index1 = allCells.indexOf(cell1);
-  var index2 = allCells.indexOf(cell2);
-  var row1 = Math.floor(index1 / 4);
-  var col1 = index1 % 4;
-  var row2 = Math.floor(index2 / 4);
-  var col2 = index2 % 4;
-  return Math.abs(row1 - row2) <= 1 && Math.abs(col1 - col2) <= 1;
+// Verifica si dos celdas son adyacentes en el tablero (si la celda cliqueada es adyacente a la ultima celda selecionada)
+function isAdjacent(lastCell, cell) {
+  /* 
+  Antes hay que entender:
+  El tablero 4x4 tiene indices del 0 al 15:
+    0  1  2  3
+    4  5  6  7
+    8  9 10 11
+    12 13 14 15
+  - allCells = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+
+  Cada celda se puede identificar por su fila y columna. Por ejemplo:
+    La celda 0 está en la fila 0, columna 0.
+    La celda 5 está en la fila 1, columna 1.
+    La celda 14 está en la fila 3, columna 2.
+
+  Para encontrar la fila de una celda con índice i, usamos:
+    var row = Math.floor(i / 4);
+
+  Para encontrar la columna de una celda con índice i, usamos:
+    var col = i % 4;
+  */
+  // Obtener los índices de las celdas en el array allCells
+  var lastCellIndex = allCells.indexOf(lastCell);
+  var cellIndex = allCells.indexOf(cell);
+
+  // Calcular la fila y la columna de lastCell
+  var lastCellRow = Math.floor(lastCellIndex / 4);
+  var lastCellCol = lastCellIndex % 4;
+
+  // Calcular la fila y la columna de cell
+  var cellRow = Math.floor(cellIndex / 4);
+  var cellCol = cellIndex % 4;
+
+  // Verificar si las celdas son adyacentes
+  /* 
+  lastCellRow - cellRow calcula la diferencia entre las filas de las dos celdas.
+  
+  Math.abs(...) toma el valor absoluto de esa diferencia, eliminando cualquier signo negativo. Esto es importante porque queremos la distancia absoluta entre las filas, sin importar el orden.
+  
+  <= 1 verifica si esta diferencia absoluta es menor o igual a 1. Si es así, significa que las filas están una al lado de la otra o son la misma fila.
+  */
+  var rowsAreAdjacent = Math.abs(lastCellRow - cellRow) <= 1;
+  var colsAreAdjacent = Math.abs(lastCellCol - cellCol) <= 1;
+
+  return rowsAreAdjacent && colsAreAdjacent; 
 }
 
 //Funcion que reinicia todos los estilos de las celdas en caso de jugar de nuevo
