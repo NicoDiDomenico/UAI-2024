@@ -96,7 +96,6 @@ async function sendWord() {
   } catch (error) { // Manejar errores 
     handleError("Error al verificar la palabra"); // Esto se muestra si no funca la api ¿como? ni idea mostruo
   } finally { // Hacer algo siempre, ya sea que hubo error o no
-    sendWordButton.disabled = false;
     resetCurrentWord() /* reseteo la palabra seleccionada en el tablero cuando la palabra tiene < de dos letars o cuando la palabra ya la ingresaste */
     /* resetCellsStyle() */ /* es al pedo porque está en resetCurrentWord() */
   }
