@@ -236,7 +236,7 @@ function initializeBoard() {
   // Selecciona 6 vocales aleatorias
   var selectedVowels = [];
   for (var i = 0; i < 6; i++) {
-    selectedVowels.push(vowels[Math.floor(Math.random() * vowels.length)]);
+    selectedVowels.push(vowels[Math.floor(Math.random() * vowels.le++ngth)]);
     //                         Math.floor --> redeondea para abajo
     //                                    Math.random() --> Devuelve un numero real entre 0 y 1 (sin incluir)
     //                                                    vowels.length --> Me devuevle el tamaño del arreglo vowels
@@ -306,7 +306,7 @@ function handleCellClick(event) {
   currentWordDom.textContent = currentWord;
 
   // Obtiene las celdas adyacentes y marca las seleccionables
-  // Obtengo las celdas adyacentes a la cliqueeada
+  // Obtengo las celdas adyacentes a la cliqueada
   var adjacentCells = getAdjacentCells(cell);
   //  Las "pinto" de naranja --> able-to-select
   adjacentCells.forEach(function (adjacentCell) {
@@ -332,7 +332,7 @@ function getAdjacentCells(cell) {
   */
   for (var i = Math.max(0, row - 1); i <= Math.min(row + 1, 3); i++) { // itero filas
     for (var j = Math.max(0, col - 1); j <= Math.min(col + 1, 3); j++) { // itero columnas
-      if (!(i === row && j === col)) { // asegura que no incluimos la celda actual en el array de celdas adyacentes. Solo queremos celdas adyacentes.
+      if (!(i === row && j === col)) { // Estoy parado en la celde (i, j) que quiero utilizar
         adjacentCells.push(allCells[i * 4 + j]); // si haces las cuentas te da la posicion de la cerlda adyacente
       }
     }
