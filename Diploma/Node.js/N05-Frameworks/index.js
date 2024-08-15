@@ -1,0 +1,1 @@
+// Es importante entender que cuando estamos escribiendo una aplicacion real no es necesario escribirlo todo desde 0, existen los Frameworks como express...1:32:00

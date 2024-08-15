@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0"
+  },
+  "name": "n04-npm",
+  "version": "1.0.0",
+  "description": "un curso de node.js",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "curso",
+    "español"
+  ],
+  "author": "Nico",
+  "license": "ISC"
+}

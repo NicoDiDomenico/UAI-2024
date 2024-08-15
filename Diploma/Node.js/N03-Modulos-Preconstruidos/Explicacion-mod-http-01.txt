@@ -1,0 +1,23 @@
+La estructura del código que mencionas y cómo se relaciona con HTTP se puede desglosar con los siguientes puntos:
+
+1. **Método `http.createServer`**:
+   - Este método crea un servidor HTTP en Node.js. El servidor escucha las solicitudes HTTP que llegan y emite respuestas según la lógica definida dentro de la función callback.
+
+2. **`function(req, res)`**:
+   - En este contexto, `req` hace referencia al objeto `request` que contiene información sobre la solicitud HTTP que el cliente ha enviado. Por ejemplo, el método de la solicitud (GET, POST, etc.), los encabezados de la solicitud, los datos de la URL, entre otros.
+   - `res` hace referencia al objeto `response` que se usa para enviar la respuesta de vuelta al cliente. Aquí es donde configuras la línea de estado, los encabezados y el cuerpo de la respuesta.
+
+3. **`res.writeHead(200, {'Content-Type': 'text/html'})`**:
+   - **`200`**: Es el **código de estado** HTTP, que indica que la solicitud se ha procesado correctamente. En la diapositiva se hace referencia a diferentes rangos de códigos de estado, donde el rango `200` indica éxito.
+   - **`{'Content-Type': 'text/html'}`**: Este es un encabezado HTTP que indica al cliente (por ejemplo, un navegador web) que el contenido de la respuesta es HTML. En la estructura de HTTP, esto corresponde a la sección de "Header lines" de la respuesta.
+
+4. **`res.write('<h1>Hola mundo desde node.js</h1>')`**:
+   - Este método escribe datos en el cuerpo de la respuesta (en inglés, "Entity body" según la diapositiva). Aquí estás enviando un fragmento de HTML al cliente, que se renderizará en el navegador.
+
+5. **`res.end();`**:
+   - Finaliza la respuesta. Este método indica al servidor que no se enviará más contenido en esta respuesta, permitiendo que el servidor pueda liberar los recursos asociados con la solicitud y respuesta.
+
+6. **`.listen(3000)`**:
+   - Hace que el servidor escuche en el puerto `3000` para solicitudes entrantes. En el caso de HTTP, cuando un cliente (por ejemplo, un navegador) hace una solicitud a `http://localhost:3000`, esta será manejada por este servidor.
+
+Esta estructura sigue la misma lógica de la respuesta HTTP que se detalla en la diapositiva: una línea de estado, encabezados y el cuerpo de la respuesta. Todo esto se maneja dentro del servidor HTTP que creas en Node.js.
