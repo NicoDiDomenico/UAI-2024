@@ -19,13 +19,17 @@ app.use(function(req, res, next){
 
 // Middlewere isAuthenticated
 app.use(function(req, res, next){ 
-    console.log('Route: ' + req.url + ';' + ' Metodo: ' + req.method);
+  if (req.query.login === 'nico@nicoweb.com'){
     next();
-  });
+  } else{
+    res.send('No autorizado.');
+  }
+});
   
-app.get('/dashboard', (req, res) => {
-    res.send('Dashboard page');
-  });  
+app.get('/dashboard', function(req, res){
+  console.log('Ahora si se va a mostrar el mensaje en el navegador');
+  res.send('Dashboard page');
+});  
 
 //// CONCLUSIÓN: El orden importa!!!
 
