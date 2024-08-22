@@ -6,3 +6,12 @@ console.log('Suma: ' + math.add(1,2));
 console.log('Resta: ' + math.substract(1,2));
 console.log('Multiplicacion: ' + math.multiply(1,2));
 console.log('Division: ' + math.divide(1,0));
+
+//// IMportante
+// importar objeto vs importar funcion:
+/* 
+Uso después de la Importación:
+
+Función: Después de importar una función, generalmente la invocas con función().
+Objeto: Después de importar un objeto, accedes a sus propiedades o métodos con objeto.propiedad o objeto.metodo().
+*/
