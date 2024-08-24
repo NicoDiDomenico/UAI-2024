@@ -1,9 +1,9 @@
 // userController.js
 
 // Importar la clase User
-const User = require('../models/userModel.js');
+import User from '../models/userModel.js'
 
-module.exports = {
+export default {
     // Controlador para obtener todos los usuarios
     get: (req, res) => {
         const users = User.getAllUsers();

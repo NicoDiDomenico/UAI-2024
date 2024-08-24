@@ -32,4 +32,4 @@ class User {
 }
 
 // Exportar la clase User
-module.exports = User;
+export default User;

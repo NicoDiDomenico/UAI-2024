@@ -1,12 +1,12 @@
 // index.js
-const express = require("express");
+/* const express = require("express"); */ // Forma antigua
+import express from 'express' // Forma moderna
+import userRoute from './routes/user.js'
+
 const app = express(); 
 
 // Middleware para manejar JSON en el cuerpo de las solicitudes
 app.use(express.json()); // al incluir app.use(express.json()) en index.js, el middleware express.json() se aplica globalmente a todas las rutas y controladores definidos en tu aplicación Express. Esto significa que todas las solicitudes entrantes que contengan cuerpos JSON serán parseadas automáticamente y estarán disponibles en req.body en cualquier archivo de tu aplicación.
-
-// Importar el router de usuarios
-const userRoute = require('./routes/user.js');
 
 // Montar el router en la ruta '/user'
 app.use('/user', userRoute);
