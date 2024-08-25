@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 
 const app = express(); 
 
-const mongoURL = 'mongodb+srv://Nico:8845@nico-bd.qzxau.mongodb.net/Nico-BD?retryWrites=true&w=majority&appName=Nico-BD';
+const mongoURL = 'mongodb+srv://Nico:8845@nico-bd.qzxau.mongodb.net/Nico-BD?retryWrites=true&w=majority&appName=Nico-BD'; // Esto me hizo agregarlo el del curso pero no lo terminé de implementar/usar
 
 async function startServer() {
     try {

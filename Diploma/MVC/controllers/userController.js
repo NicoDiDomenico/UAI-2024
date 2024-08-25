@@ -1,4 +1,4 @@
-// userController.js
+// /controllers/userController.js
 
 // Importar la clase User
 import User from '../models/userModel.js'
