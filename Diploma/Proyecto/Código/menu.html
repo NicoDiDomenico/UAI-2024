@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="./css/stylesMenu.css">
+</head>
+<body>
+    <!-- Modal para ingresar la clave -->
+    <div id="claveModal" class="modal">
+        <div class="modal-content">
+            <h2>Ingrese la clave para acceder</h2>
+            <p class="claveError hidden">¡Clave incorrecta!</p>
+            <input type="password" id="claveInput" placeholder="Clave de acceso">
+            <button id="ingresarButton">Ingresar</button>
+        </div>
+    </div>
+
+    <!-- Modal para iniciar sesión en gestionar gimnasio -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content-2">
+            <h2>Para continuar el dueño o personal autorizado debe iniciar sesión:</h2>
+            <div class="inputs-container">
+                <div class="input-container">
+                    <label for="usuarioInput">Usuario:</label>
+                    <input type="text" id="usuarioInput" placeholder="Usuario">
+                </div>
+                <div class="input-container">
+                    <label for="claveLoginInput">Clave:</label>
+                    <input type="password" id="claveLoginInput" placeholder="Clave">
+                </div>
+            </div>
+            <button id="iniciarSesionButton">Iniciar Sesión</button>
+            <a href="#" id="forgotPassword">Forgot Password?</a>
+        </div>
+    </div>
+
+    <!-- Contenido principal del menú -->
+    <div id="menuContent" class="hidden">
+        <header>
+            <div class="logo">LOGO</div>
+            <div class="user-section">
+                <a href="#" class="user-icon">
+                    <img src="./recursos/user-icon.png" alt="Usuario">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#">Rutinas</a></li>
+                        <li><a href="#">Socios</a></li>
+                        <li><a href="#">Gimnasio</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <h1>Bienvenidos</h1>
+            <div class="content-box"></div>
+            <div class="button-group">
+                <button onclick="location.href='#'">Gestionar Rutinas</button>
+                <button onclick="location.href='#'">Ver Socios</button>
+                <button onclick="location.href='#'">Gestionar Gimnasio</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="./js/scriptLogin.js"></script>
+    <script src="./js/scriptGestionarGimnasio.js"></script>
+</body>
+</html>
+
