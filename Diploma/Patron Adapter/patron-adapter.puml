@@ -1,0 +1,28 @@
+@startuml
+interface IFbalanza {
+  + pesar(): double
+}
+
+class BalanzaActual {
+  + pesar(): double
+}
+
+class BalanzaNueva {
+  + leerPeso(): double
+}
+
+class AdaptadorBalanza {
+  + pesar(): double
+  - balanzaNueva: BalanzaNueva
+}
+
+class Cliente {
+  - balanza: IFbalanza
+  + realizarPesaje(): void
+}
+
+IFbalanza <|-- BalanzaActual
+IFbalanza <|-- AdaptadorBalanza
+AdaptadorBalanza o-- BalanzaNueva
+Cliente o-- IFbalanza
+@enduml
