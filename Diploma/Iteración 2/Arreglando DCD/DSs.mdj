@@ -18574,7 +18574,7 @@
 													"top": 47,
 													"width": 158.3544921875,
 													"height": 13,
-													"text": "ControladorGimnasio"
+													"text": "cGym: ControladorGym"
 												},
 												{
 													"_type": "LabelView",
@@ -21020,7 +21020,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGQiPzPS7S4/Jw="
 							},
-							"name": "ControladorGimnasio",
+							"name": "cGym: ControladorGym",
 							"represent": {
 								"$ref": "AAAAAAGQiQvsZ4z48ec="
 							},
@@ -21305,9 +21305,9 @@
 												"$ref": "AAAAAAGQiP2zkbZ7ipA="
 											},
 											"font": "Arial;13;0",
-											"left": 22.55908203125,
+											"left": 24.72998046875,
 											"top": 5,
-											"width": 134.69091796875,
+											"width": 145.9453125,
 											"height": 13,
 											"text": "CUD03 - Consultar Socio"
 										},
@@ -21320,7 +21320,7 @@
 											"font": "Arial;13;1",
 											"left": 5,
 											"top": 5,
-											"width": 11.55908203125,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
