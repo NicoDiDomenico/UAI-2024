@@ -21,14 +21,6 @@
 					"defaultDiagram": true
 				},
 				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAGPsTdTgyron+U=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "ClassDiagram1"
-				},
-				{
 					"_type": "UMLUseCaseDiagram",
 					"_id": "AAAAAAGPsTdvbSrtArw=",
 					"_parent": {
