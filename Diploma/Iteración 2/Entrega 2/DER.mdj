@@ -3853,10 +3853,11 @@
 							"_parent": {
 								"$ref": "AAAAAAFLzntJC6ElOqo="
 							},
+							"lineColor": "#FF0000",
 							"fontColor": "#FF0000",
 							"font": "Arial;13;0",
 							"lineStyle": 1,
-							"points": "1744:1528;1824:1528;1825:1188"
+							"points": "1752:1528;1824:1528;1825:1188"
 						}
 					]
 				},
