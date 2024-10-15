@@ -3813,16 +3813,6 @@
 						},
 						{
 							"_type": "UMLNoteView",
-							"_id": "AAAAAAGSkZJJ5EKgqJo=",
-							"_parent": {
-								"$ref": "AAAAAAFLzntJC6ElOqo="
-							},
-							"font": "Arial;13;0",
-							"width": 70,
-							"height": 40
-						},
-						{
-							"_type": "UMLNoteView",
 							"_id": "AAAAAAGSkZJS20Kj3Kg=",
 							"_parent": {
 								"$ref": "AAAAAAFLzntJC6ElOqo="
