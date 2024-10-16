@@ -3474,7 +3474,7 @@
 									"top": 1029,
 									"width": 179.7666015625,
 									"height": 13,
-									"text": "Usuario"
+									"text": "Persona"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -3823,8 +3823,8 @@
 							"left": 1576,
 							"top": 1504,
 							"width": 176,
-							"height": 88,
-							"text": "Problema: no estoy seguro como es la relacion y si es PK o FK cuando hay herencia tanto abstracta como no abstracta"
+							"height": 103,
+							"text": "Problema: no estoy seguro como es la relacion y si es PK o FK cuando hay herencia tanto abstracta como no abstracta, hacer el metodo de todas subclases"
 						},
 						{
 							"_type": "FreelineEdgeView",
@@ -5855,7 +5855,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFLzntJC6EktCk="
 					},
-					"name": "Usuario",
+					"name": "Persona",
 					"columns": [
 						{
 							"_type": "ERDColumn",
