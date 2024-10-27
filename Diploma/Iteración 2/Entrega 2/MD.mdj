@@ -8402,7 +8402,7 @@
 											"top": 775,
 											"width": 229.33154296875,
 											"height": 13,
-											"text": "«No se si va visible»-contrasena: String",
+											"text": "-contrasena: String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16823,7 +16823,7 @@
 								"$ref": "AAAAAAGSkgFMpBT/CZE="
 							},
 							"name": "contrasena",
-							"stereotype": "No se si va visible",
+							"stereotype": "",
 							"visibility": "private",
 							"type": "String"
 						},
