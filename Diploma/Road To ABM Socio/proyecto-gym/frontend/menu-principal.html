@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Componente</title>
+  <link rel="stylesheet" href="./styles/menu-principal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <div class="min-h-screen bg-black text-white">
+    <header class="header">
+      <div class="container flex">
+        <div class="logo">
+          <a href="./menu-principal.html" class="nav-link">LOGO</a>
+        </div>
+        <div class="nav-container">
+          <nav class="nav">
+            <a href="/rutinas" class="nav-link">Rutinas</a>
+            <a href="./socios.html" class="nav-link">Socios</a>
+            <a href="/gimnasio" class="nav-link">Gimnasio</a>
+          </nav>
+          <button class="user-icon" aria-label="Perfil de usuario">
+            <i class="fas fa-user-circle"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container main">
+      <h1 class="title">Bienvenidos</h1>
+      
+      <div class="aspect-16-9"></div>
+
+      <div class="grid">
+        <button class="btn">Gestionar Rutinas</button>
+        <button class="btn" onclick="location.href='socios.html'">Ver Socios</button>
+        <button class="btn">Gestionar Gimnasio</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
