@@ -1,0 +1,180 @@
+/* General */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita desplazamiento horizontal */
+    overflow: overlay; 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    border-bottom: 1px solid #3a3a3a;
+    padding: 1rem;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    background-color: #1a1a1a;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #333;
+}
+
+.user-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/* Main */
+.main {
+    flex: 1;
+    padding: 1rem; /* Reduce el padding del main */
+    overflow-y: auto;
+}
+
+/* Formulario */
+form {
+    background-color: #1a1a1a;
+    padding: 1.4rem; /* Reduce el padding interno del formulario */
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+fieldset {
+    border: 1px solid #444;
+    border-radius: 0.5rem;
+    padding: 0.7rem; /* Reduce el padding interno del fieldset */
+    margin-bottom: 1rem; /* Reduce el margen inferior entre fieldsets */
+}
+
+legend {
+    padding: 0 0.25rem; /* Reduce el padding del legend */
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem; /* Reduce el tamaño de la fuente */
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.7rem; /* Reduce el margen inferior entre etiquetas */
+    font-weight: bold;
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+}
+
+label input, label select {
+    flex: 1;
+    padding: 0.4rem; /* Reduce el padding de los campos */
+    margin-left: 0.5rem; /* Reduce el margen izquierdo */
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 0.25rem;
+}
+
+label input[type="checkbox"], label input[type="radio"] {
+    flex: 0;
+    margin-left: 0.25rem; /* Ajusta el margen para los checkboxes y radios */
+    margin-right: 0.25rem;
+}
+
+.dias-semana, .genero, .plan {
+    display: flex;
+    gap: 0.5rem; /* Reduce el espacio entre elementos */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Botón de guardar */
+button[type="submit"] {
+    width: 100%;
+    padding: 0.5rem; /* Reduce el padding del botón */
+    font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 0.75rem; /* Reduce el margen superior del botón */
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* lapiz de edicion */
+.edit-icon {
+    margin-left: 0.5rem;
+    cursor: pointer;
+    color: #4caf50;
+}
+
+.edit-icon:hover {
+    color: #66bb6a;
+}
+
+/* botones de editar campo */
+button{
+    margin-left: 5px;
+}
+
+/* Estilo para los campos bloqueados */
+input[readonly], input[disabled] {
+    background-color: #d3d3d3; /* Color gris para mostrar que están bloqueados */
+    color: #555555; /* Texto en un gris más oscuro para dar apariencia de bloqueado */
+    border: 1px solid #ccc;
+    cursor: not-allowed;
+}

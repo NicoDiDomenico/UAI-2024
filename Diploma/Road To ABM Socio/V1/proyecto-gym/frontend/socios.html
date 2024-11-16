@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Socios</title>
+  <link rel="stylesheet" href="./styles/socios.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="min-h-screen bg-black text-white">
+    <header class="header">
+        <div class="container flex">
+          <div class="logo">
+            <a href="./menu-principal.html" class="nav-link">LOGO</a>
+          </div>
+          <div class="nav-container">
+            <nav class="nav">
+              <a href="/rutinas" class="nav-link">Rutinas</a>
+              <a href="./socios.html" class="nav-link">Socios</a>
+              <a href="/gimnasio" class="nav-link">Gimnasio</a>
+            </nav>
+            <button class="user-icon" aria-label="Perfil de usuario">
+              <i class="fas fa-user-circle"></i>
+            </button>
+          </div>
+        </div>
+      </header>
+
+    <main class="container main">
+      <section class="filter-section">
+        <label for="filter">Filtro</label>
+        <input type="text" id="filter" placeholder="Nombre y Apellido">
+        <button>🔍</button>
+      </section>
+
+      <section class="socios-list">
+        <!-- Aquí se mostrarán los socios cargados de la base de datos -->
+        <p class="no-socios-message">No hay socios cargados actualmente.</p>
+      </section>
+
+      <nav class="pagination">
+        << Prev a b c d e f g h i j Next >>
+      </nav>
+
+      <section class="actions">
+        <button onclick="window.location.href='agregar-socio.html'">Agregar</button>
+        <button onclick="consultarSocio()">Consultar</button>
+        <button class="delete-button">Eliminar</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="./scripts/socios.js"></script>
+</body>
+</html>
+
+
+

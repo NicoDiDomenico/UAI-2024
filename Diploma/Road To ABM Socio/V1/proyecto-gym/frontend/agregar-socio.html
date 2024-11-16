@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Socio</title>
+  <link rel="stylesheet" href="./styles/menu-principal.css">
+  <link rel="stylesheet" href="./styles/agregar-socio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="min-h-screen bg-black text-white">
+    <!-- Header compartido -->
+    <header class="header">
+      <div class="container flex">
+        <div class="logo">
+          <a href="./menu-principal.html" class="nav-link">LOGO</a>
+        </div>
+        <div class="nav-container">
+          <nav class="nav">
+            <a href="/rutinas" class="nav-link">Rutinas</a>
+            <a href="./socios.html" class="nav-link">Socios</a>
+            <a href="/gimnasio" class="nav-link">Gimnasio</a>
+          </nav>
+          <button class="user-icon" aria-label="Perfil de usuario">
+            <i class="fas fa-user-circle"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="container main">
+      <form id="formularioSocio">
+        <!-- Datos personales -->
+        <fieldset>
+          <legend>Datos Personales</legend>
+          <label>Nombre y Apellido: <input type="text" name="nombre" required></label>
+          <label>Fecha Nacimiento: <input type="date" name="fechaNacimiento" required></label>
+          <label>Género:
+            <input type="radio" name="genero" value="Hombre" required> Hombre
+            <input type="radio" name="genero" value="Mujer"> Mujer
+          </label>
+          <label>DNI: <input type="text" name="dni" required></label>
+          <label>Dirección: <input type="text" name="direccion"></label>
+          <label>Teléfono: <input type="text" name="telefono"></label>
+          <label>Email: <input type="email" name="email"></label>
+          <label>Obra Social: <input type="text" name="obraSocial"></label>
+          <label>Días de asistencia:
+            <div class="dias-semana">
+              <input type="checkbox" name="diasAsistencia" value="Lunes"> Lunes
+              <input type="checkbox" name="diasAsistencia" value="Martes"> Martes
+              <input type="checkbox" name="diasAsistencia" value="Miércoles"> Miércoles
+              <input type="checkbox" name="diasAsistencia" value="Jueves"> Jueves
+              <input type="checkbox" name="diasAsistencia" value="Viernes"> Viernes
+              <input type="checkbox" name="diasAsistencia" value="Sábado"> Sábado
+            </div>
+          </label>
+        </fieldset>
+
+        <!-- Datos de acceso -->
+        <fieldset>
+          <legend>Datos de Acceso</legend>
+          <label>Nombre de Usuario: <input type="text" name="nombreUsuario" required></label>
+          <label>Contraseña: <input type="password" name="contrasena" required></label>
+          <label>Pregunta de Seguridad: <input type="text" name="preguntaSeguridad"></label>
+          <label>Respuesta de Seguridad: <input type="text" name="respuestaSeguridad"></label>
+        </fieldset>
+
+        <!-- Facturación -->
+        <fieldset>
+          <legend>Facturación</legend>
+          <label>Plan:
+            <input type="radio" name="plan" value="Mensual" required> Mensual
+            <input type="radio" name="plan" value="Anual"> Anual
+          </label>
+        </fieldset>
+        
+        <button type="submit">Guardar</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="./scripts/agregar-socio.js"></script>
+</body>
+</html>
+

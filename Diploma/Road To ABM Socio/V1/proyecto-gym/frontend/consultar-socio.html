@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultar Socio</title>
+  <link rel="stylesheet" href="./styles/menu-principal.css">
+  <link rel="stylesheet" href="./styles/consultar-socio.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="min-h-screen bg-black text-white">
+    <!-- Header compartido -->
+    <header class="header">
+      <div class="container flex">
+        <div class="logo">
+          <a href="./menu-principal.html" class="nav-link">LOGO</a>
+        </div>
+        <div class="nav-container">
+          <nav class="nav">
+            <a href="/rutinas" class="nav-link">Rutinas</a>
+            <a href="./socios.html" class="nav-link">Socios</a>
+            <a href="/gimnasio" class="nav-link">Gimnasio</a>
+          </nav>
+          <button class="user-icon" aria-label="Perfil de usuario">
+            <i class="fas fa-user-circle"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="container main">
+      <form id="formularioConsultaSocio">
+        <!-- Datos personales -->
+        <fieldset>
+          <legend>Datos Personales</legend>
+          <label>ID Socio: <input type="text" name="id" readonly></label>
+          <label>Nombre y Apellido: <input type="text" name="nombre" readonly><button type="button" onclick="habilitarEdicion('nombre')"><i class="fas fa-edit"></i></button></label>
+          <label>Fecha Nacimiento: <input type="date" name="fechaNacimiento" readonly><button type="button" onclick="habilitarEdicion('fechaNacimiento')"><i class="fas fa-edit"></i></button></label>
+          <label>Género:
+            <input type="radio" name="genero" value="Hombre"> Hombre
+            <input type="radio" name="genero" value="Mujer"> Mujer
+          </label>
+          <label>DNI: <input type="text" name="dni" readonly><button type="button" onclick="habilitarEdicion('dni')"><i class="fas fa-edit"></i></button></label>
+          <label>Dirección: <input type="text" name="direccion" readonly><button type="button" onclick="habilitarEdicion('direccion')"><i class="fas fa-edit"></i></button></label>
+          <label>Teléfono: <input type="text" name="telefono" readonly><button type="button" onclick="habilitarEdicion('telefono')"><i class="fas fa-edit"></i></button></label>
+          <label>Email: <input type="email" name="email" readonly><button type="button" onclick="habilitarEdicion('email')"><i class="fas fa-edit"></i></button></label>
+          <label>Obra Social: <input type="text" name="obraSocial" readonly><button type="button" onclick="habilitarEdicion('obraSocial')"><i class="fas fa-edit"></i></button></label>
+          <label>Días de asistencia:
+            <div class="dias-semana">
+              <input type="checkbox" name="diasAsistencia" value="Lunes"> Lunes
+              <input type="checkbox" name="diasAsistencia" value="Martes"> Martes
+              <input type="checkbox" name="diasAsistencia" value="Miércoles"> Miércoles
+              <input type="checkbox" name="diasAsistencia" value="Jueves"> Jueves
+              <input type="checkbox" name="diasAsistencia" value="Viernes"> Viernes
+              <input type="checkbox" name="diasAsistencia" value="Sábado"> Sábado
+            </div>
+          </label>
+        </fieldset>
+
+        <!-- Datos de acceso -->
+        <fieldset>
+          <legend>Datos de Acceso</legend>
+          <label>Nombre de Usuario: <input type="text" name="nombreUsuario" readonly><button type="button" onclick="habilitarEdicion('nombreUsuario')"><i class="fas fa-edit"></i></button></label>
+          <label>Contraseña: <input type="password" name="contrasena" readonly><button type="button" onclick="habilitarEdicion('contrasena')"><i class="fas fa-edit"></i></button></label>
+          <label>Pregunta de Seguridad: <input type="text" name="preguntaSeguridad" readonly><button type="button" onclick="habilitarEdicion('preguntaSeguridad')"><i class="fas fa-edit"></i></button></label>
+          <label>Respuesta de Seguridad: <input type="text" name="respuestaSeguridad" readonly><button type="button" onclick="habilitarEdicion('respuestaSeguridad')"><i class="fas fa-edit"></i></button></label>
+        </fieldset>
+
+        <!-- Facturación -->
+        <fieldset>
+          <legend>Facturación</legend>
+          <label>Plan:
+            <input type="radio" name="plan" value="Mensual"> Mensual
+            <input type="radio" name="plan" value="Anual"> Anual
+          </label>
+        </fieldset>
+        
+        <button id="confirmar" type="button">Confirmar</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="./scripts/consultar-socio.js"></script>
+</body>
+</html>
