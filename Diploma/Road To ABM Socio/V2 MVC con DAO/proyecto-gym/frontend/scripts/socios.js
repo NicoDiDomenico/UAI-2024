@@ -1,3 +1,18 @@
+// Función para habilitar los botones cuando se selecciona un socio
+function manejarSeleccion() {
+    const socioSeleccionado = document.querySelector('input[name="socioSeleccionado"]:checked');
+    const consultarBtn = document.querySelector('.actions button:nth-child(2)');
+    const eliminarBtn = document.querySelector('.delete-button');
+
+    if (socioSeleccionado) {
+        consultarBtn.disabled = false;
+        eliminarBtn.disabled = false;
+    } else {
+        consultarBtn.disabled = true;
+        eliminarBtn.disabled = true;
+    }
+}
+
 // Función para obtener socios del backend
 async function obtenerSocios() {
     try {
@@ -32,15 +47,20 @@ async function obtenerSocios() {
   
             listaSocios.appendChild(socioElemento);
         });
+
+        // Asociar el evento change a todos los radio buttons
+        document.querySelectorAll('input[name="socioSeleccionado"]').forEach(radio => {
+            radio.addEventListener('change', manejarSeleccion);
+        });
     } catch (error) {
         console.error("Error al obtener los socios:", error);
         const listaSocios = document.querySelector('.socios-list');
         listaSocios.innerHTML = '<p class="no-socios-message">Error al cargar los socios. Intenta de nuevo más tarde.</p>';
     }
-  }
-  
-  // Función para consultar el socio seleccionado
-  function consultarSocio() {
+}
+
+// Función para consultar el socio seleccionado
+function consultarSocio() {
     const socioSeleccionado = document.querySelector('input[name="socioSeleccionado"]:checked');
     
     if (!socioSeleccionado) {
@@ -54,9 +74,9 @@ async function obtenerSocios() {
     // Redirecciona a la página de consulta con el ID en la URL
     window.location.href = `./consultar-socio.html?id=${id}`;
 }
-  
-  // Función para eliminar el socio seleccionado
-  async function eliminarSocioSeleccionado() {
+
+// Función para eliminar el socio seleccionado
+async function eliminarSocioSeleccionado() {
     const socioSeleccionado = document.querySelector('input[name="socioSeleccionado"]:checked');
     if (!socioSeleccionado) {
         alert("Por favor, selecciona un socio para eliminar.");
@@ -84,13 +104,13 @@ async function obtenerSocios() {
         console.error('Error al eliminar el socio:', error);
         alert('Error al eliminar el socio. Intenta de nuevo más tarde.');
     }
-  }
-  
-  // Llamar a la función cuando la página cargue
-  document.addEventListener('DOMContentLoaded', obtenerSocios);
-  
-  // Asociar los botones con las funciones correspondientes
-  document.querySelector('.delete-button').addEventListener('click', eliminarSocioSeleccionado);
-  document.querySelector('.actions button:nth-child(2)').addEventListener('click', consultarSocio);
-  
+}
+
+// Llamar a la función cuando la página cargue
+document.addEventListener('DOMContentLoaded', obtenerSocios);
+
+// Asociar los botones con las funciones correspondientes
+document.querySelector('.delete-button').addEventListener('click', eliminarSocioSeleccionado);
+document.querySelector('.actions button:nth-child(2)').addEventListener('click', consultarSocio);
+
 
