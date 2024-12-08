@@ -1,0 +1,3 @@
+MONGODB_URI = 'mongodb+srv://agusalbo2024:ferchu123@test.bmscycf.mongodb.net/'
+PORT = 3000
+JWT_TOKEN = '123'
