@@ -23,7 +23,7 @@ export const checkAuth = (req: Request, res: Response, next: NextFunction) => {
   try {
     const decodedToken = jwt.verify(token, JWT_TOKEN) as IJwtPayload;
 
-    req.user = decodedToken.id;
+    req.user = decodedToken.id; // Añade el ID del usuario a req.user --> Se usa en user.controller.ts
     next();
   } catch (error) {
     return next(new ErrorResponse("Usuario no autorizado", 401));

@@ -23,7 +23,7 @@ Propósito: Capturar errores de las rutas o middlewares y enviar respuestas clar
 */
 
 // Middleware
-const app = express(); // Crea una instancia de Express (app), que será el núcleo de tu servidor. (Sirve para cualquier lógica que maneje solicitudes HTTP)
+const app = express(); // Crea una instancia de Express (app), que será el núcleo de tu servidor. (Sirve para cualquier lógica que maneje solicitudes HTTP) => Crea una instancia de un servidor y voy definiendo metodos como los middlewares
 app.use(express.json()); // Middleware que convierte el cuerpo de las solicitudes con formato JSON en un objeto JavaScript accesible en req.body.
 
 app.use(

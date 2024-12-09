@@ -1,5 +1,5 @@
 import express from "express";
-const userRouter = express.Router();
+const userRouter = express.Router(); // instancia independiente de un router, es una instancia más pequeña que hereda muchos métodos de app. Es como un mini-servidor o subservidor que se utiliza para organizar y definir rutas relacionadas con una funcionalidad específica (por ejemplo, "usuarios").
 /* Creacion de subrutas para app.use("/api/users", userRouter); en app.ts
 Crea un router independiente para manejar las rutas relacionadas con usuarios.
 `express.Router()` permite modularizar las rutas, haciendo el código más organizado y escalable.
