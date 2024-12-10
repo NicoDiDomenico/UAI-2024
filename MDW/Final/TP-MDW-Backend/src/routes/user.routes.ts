@@ -11,9 +11,9 @@ import { loginSchema, registerSchema } from "../controllers/schemaValidations";
 import { checkAuth } from "../middlewares/checkAuth.middleware";
 
 // Subrutas del router
-userRouter.post("/register", validateSchema(registerSchema), register);
+userRouter.post("/register", validateSchema(registerSchema), register); // Middlewares para validar esquemas de datos enviados en req.body (schemaValidation.middleware.ts).
 userRouter.post("/login", validateSchema(loginSchema), login);
-userRouter.get("/user-info", checkAuth, getUser);
+userRouter.get("/user-info", checkAuth, getUser); // Middlewares para verificar que el usuario esté autenticado mediante un token JWT (checkAuth.middleware.ts).
 
 
 export {userRouter};

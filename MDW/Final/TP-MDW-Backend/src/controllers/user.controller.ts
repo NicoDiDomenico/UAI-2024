@@ -28,7 +28,7 @@ export const register = async ( /* Este controlador maneja las solicitudes POST 
       birthdate,
     });
 
-    await user.save(); // Lo guarda en MongoDB
+    await user.save(); // Lo guarda en MongoDB transformandolo en un JSON y le asigna un _id único a ese documento.
 
     res
       .status(201) // Recordar: 200 → Éxito general, 400 → Solicitud incorrecta (errores del cliente), 500 → Error interno del servidor.
