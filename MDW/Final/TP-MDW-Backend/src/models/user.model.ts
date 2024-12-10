@@ -8,7 +8,7 @@ const userSchema = new Schema<IUser>(
     lastname: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    birthdate: { type: Date, required: true },
+    birthdate: { type: Date, required: true }, 
   },
   { timestamps: true }
 );
@@ -23,12 +23,15 @@ const userSchema = new Schema<IUser>(
       createdAt: Fecha de creación del documento.
       updatedAt: Fecha de la última modificación del documento.
 */
+
+// Compara la contraseña que ingreso el usuario con la que está en la BD, PERO para eso tengo que encriptarla, ya que la de la BD ser encriptó con userSchema.pre()
 userSchema.methods.comparePassword = async function (
   password: string
 ): Promise<Boolean> {
   return await bcrypt.compare(password, this.password);
 };
 
+// Defino un metodo que antes de guardar el usuario en el registro encripta la contraseña.
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
   const salt = await bcrypt.genSalt(10);
@@ -36,5 +39,5 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-
 export const User = model("User", userSchema);
+                          // Con este nombre se guarda en la BD

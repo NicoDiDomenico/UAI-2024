@@ -2,6 +2,8 @@ import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { JWT_TOKEN } from "../config/env";
 
+// Lo mandamos a otro lado a esto.
+
 export const authenticateToken = (
   req: Request,
   res: Response,

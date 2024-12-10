@@ -3,6 +3,7 @@ import { Request, Response, NextFunction } from "express";
 import { ErrorResponse } from "./errorHandler.middleware";
 import { JWT_TOKEN, MONGODB_URI } from "../config/env";
 
+// No le doy bola DICE agustin 
 interface IJwtPayload extends jwt.JwtPayload {
   id: string;
 }
@@ -15,6 +16,8 @@ declare global {
   }
 }
 
+// Este si dale bola
+// Recibo del front el token, chequeo que tiene adentro, y lo paso al handler
 export const checkAuth = (req: Request, res: Response, next: NextFunction) => {
   
   const token = req.headers.authorization?.split(" ")[1];

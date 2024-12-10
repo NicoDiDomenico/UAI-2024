@@ -1,5 +1,5 @@
 import { Language, User } from "../custom";
-
+// No le doy bola
 export {}
 
 declare global {

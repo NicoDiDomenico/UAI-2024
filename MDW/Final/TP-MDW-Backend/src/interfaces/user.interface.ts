@@ -1,4 +1,4 @@
-import { Document } from "mongoose"; /* Me parece al pedo el extend si no valido _id. */
+import { Document } from "mongoose"; /* Me parece al pedo el extend si no valido _id. --> No porque esto es general para todos los archivos y puede que uno si haga uso del _id */
 
 /*  Una interfaz en TypeScript define la forma o estructura que debe tener un objeto. (o funciones, clases, etc.) Es como un "contrato" que asegura que un objeto cumpla con ciertas reglas. */
 

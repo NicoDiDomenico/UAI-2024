@@ -13,4 +13,4 @@ const TodoSchema: Schema = new Schema<ITodo>(
   }
 );
 
-export const Todo = model<ITodo>("Todo", TodoSchema);
+export const Todo = model("Todo", TodoSchema);

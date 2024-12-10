@@ -10,7 +10,7 @@ export const createTodo = async (
   const { title, description, tags } = req.body;
 
   try {
-    const todo = await Todo.create({
+    const todo = await Todo.create({ // Esto es lo mismo que el save pero para cagarme la vida
       title,
       description,
       tags,
