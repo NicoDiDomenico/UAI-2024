@@ -1,3 +1,5 @@
+/* validateSchema retorna una función que valida req.body usando un esquema de Joi. Si hay errores, los pasa al manejador de errores de Express con next(new ErrorResponse(...)); si no hay errores, llama a next() para continuar. */
+
 import { Request, Response, NextFunction } from "express";
 import Joi from "joi";
 import { ErrorResponse } from "./errorHandler.middleware";

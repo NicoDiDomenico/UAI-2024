@@ -1,0 +1,85 @@
+Flujo general de las rutas - plaintext
+
+Cliente: Envía solicitud (POST /register, POST /login, GET /user-info)
+|
+Servidor: userRouter (Rutas)
+|
++--> POST /register --> validateSchema(registerSchema)
+|                      |
+|                      +--> Datos válidos --> register (Controlador)
+|                      |                       |
+|                      |                       +--> Busca en la base de datos si existe el usuario
+|                      |                       |    |
+|                      |                       |    +--> Si existe --> Error (400)
+|                      |                       |    +--> Si no existe --> Crea usuario y responde (201)
+|                      |                       |
+|                      |                       +--> Respuesta: 201 Created
+|                      |
+|                      +--> Datos inválidos --> ErrorHandler
+|
++--> POST /login --> validateSchema(loginSchema)
+|                   |
+|                   +--> Datos válidos --> login (Controlador)
+|                   |                       |
+|                   |                       +--> Busca en la base de datos el usuario por email
+|                   |                       |    |
+|                   |                       |    +--> Si no existe --> Error (401)
+|                   |                       |    +--> Si existe, compara contraseñas
+|                   |                       |          |
+|                   |                       |          +--> Contraseña inválida --> Error (401)
+|                   |                       |          +--> Contraseña válida --> Genera JWT
+|                   |                       |
+|                   |                       +--> Respuesta: 200 OK + Token JWT
+|                   |
+|                   +--> Datos inválidos --> ErrorHandler
+|
++--> GET /user-info --> checkAuth
+                    |
+                    +--> Token válido --> getUser (Controlador)
+                    |                       |
+                    |                       +--> Busca usuario en la base de datos por ID
+                    |                       |    |
+                    |                       |    +--> Si no existe --> Error (404)
+                    |                       |    +--> Si existe --> Responde con datos del usuario
+                    |                       |
+                    |                       +--> Respuesta: 200 OK + User Info
+                    |
+                    +--> Token inválido --> ErrorHandler
+
+Explicación detallada
+
+1. POST /register
+	1.Middleware validateSchema(registerSchema):
+		Valida los datos enviados por el cliente con el esquema registerSchema.
+		Si los datos no cumplen con el esquema, llama a ErrorHandler.
+	2. Controlador register:
+		Busca el email en la base de datos.
+		Si ya existe, devuelve un error (400).
+		Si no existe, crea el usuario en la base de datos y responde con éxito (201).
+
+2. POST /login
+	1. Middleware validateSchema(loginSchema):
+		Valida los datos enviados por el cliente con el esquema loginSchema.
+		Si los datos no cumplen con el esquema, llama a ErrorHandler.
+	2. Controlador login:
+		Busca el email en la base de datos.
+		Si no encuentra al usuario, devuelve un error (401).
+		Si lo encuentra, compara la contraseña.
+		Si la contraseña no coincide, devuelve un error (401).
+		Si coincide, genera un token JWT y lo envía al cliente.
+
+3. GET /user-info
+	1. Middleware checkAuth:
+		Extrae el token del encabezado Authorization.
+		Verifica si el token es válido.
+		Si no es válido, llama a ErrorHandler.
+		Si es válido, añade el user.id al objeto req.
+	2. Controlador getUser:
+		Usa el req.user (ID del usuario) para buscar en la base de datos.
+		Si el usuario no existe, devuelve un error (404).
+		Si existe, responde con los datos del usuario.
+
+*Manejo de errores global
+En cualquier momento que ocurra un error:
+	1. Llama al middleware global de manejo de errores (ErrorHandler).
+	2. Envía una respuesta con el código HTTP y el mensaje de error correspondiente.

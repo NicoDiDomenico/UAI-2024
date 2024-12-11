@@ -1,0 +1,75 @@
+Cliente: Envía solicitud (POST, GET, PUT, DELETE a /api/todos)
+|
+Servidor: todoRouter (Rutas)
+|
++--> POST /api/todos --> checkAuth --> validateSchema(createTodoSchema) --> createTodo
+|                      |
+|                      +--> Token válido --> Validación del esquema --> Crear nuevo TODO
+|                      +--> Token inválido o datos incorrectos --> ErrorHandler
+|
++--> GET /api/todos --> checkAuth --> getEveryTodo
+|                     |
+|                     +--> Token válido --> Obtener todas las notas del usuario
+|                     +--> Token inválido --> ErrorHandler
+|
++--> GET /api/todos/:id --> checkAuth --> getTodo
+|                          |
+|                          +--> Token válido --> Buscar nota por ID
+|                          +--> Token inválido --> ErrorHandler
+|
++--> PUT /api/todos/:id --> checkAuth --> editTodo
+|                          |
+|                          +--> Token válido --> Buscar y actualizar nota
+|                          +--> Nota no encontrada o token inválido --> ErrorHandler
+|
++--> DELETE /api/todos/:id --> checkAuth --> deleteTodo
+|                             |
+|                             +--> Token válido --> Buscar y eliminar nota
+|                             +--> Nota no encontrada o token inválido --> ErrorHandler
+
+2. Desglose de los métodos
+POST /api/todos → Crear nueva nota
+	1. Middleware checkAuth:
+		Valida el token JWT.
+		Si el token es válido, añade req.user con el ID del usuario.
+	2. Middleware validateSchema(createTodoSchema):
+		Valida los datos enviados en el cuerpo de la solicitud con el esquema createTodoSchema.
+		Si los datos son inválidos, redirige al middleware de errores.
+	3. Controlador createTodo:
+		Usa Todo.create() para guardar una nueva nota con los datos del cuerpo de la solicitud y el ID del usuario.
+		Responde con éxito (200) y los datos de la nueva nota.
+
+GET /api/todos → Obtener todas las notas del usuario
+	1. Middleware checkAuth:
+		Valida el token JWT.
+		Si el token es válido, añade req.user con el ID del usuario.
+	2. Controlador getEveryTodo:
+		Usa Todo.find({ user: req.user }) para obtener todas las notas del usuario ordenadas por el campo isPinned.
+		Responde con éxito (200) y las notas del usuario.
+
+GET /api/todos/:id → Obtener una nota por ID
+	1. Middleware checkAuth:
+		Valida el token JWT.
+		Si el token es válido, añade req.user con el ID del usuario.
+	2. Controlador getTodo:
+		Usa Todo.findById(req.params.id) para buscar la nota por su ID.
+		Responde con éxito (200) y los datos de la nota encontrada.
+
+PUT /api/todos/:id → Editar una nota
+	1. Middleware checkAuth:
+		Valida el token JWT.
+		Si el token es válido, añade req.user con el ID del usuario.
+	2. Controlador editTodo:
+		Usa Todo.findOne({ _id: req.params.id, user: req.user }) para verificar que la nota existe y pertenece al usuario.
+		Actualiza los campos especificados en la solicitud.
+		Guarda los cambios con todo.save().
+		Responde con éxito (200) y los datos actualizados de la nota.
+
+DELETE /api/todos/:id → Eliminar una nota
+	1. Middleware checkAuth:
+		Valida el token JWT.
+		Si el token es válido, añade req.user con el ID del usuario.
+	2. Controlador deleteTodo:
+		Usa Todo.findOne({ _id: req.params.id, user: req.user }) para verificar que la nota existe y pertenece al usuario.
+		Elimina la nota con Todo.deleteOne().
+		Responde con éxito (200) y un mensaje de confirmación.
