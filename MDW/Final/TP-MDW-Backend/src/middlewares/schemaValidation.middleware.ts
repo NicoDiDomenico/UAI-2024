@@ -6,7 +6,7 @@ import { ErrorResponse } from "./errorHandler.middleware";
 
 // Propósito: Validar que los datos enviados en req.body cumplan con el esquema definido.
 const validateSchema = (schema: Joi.ObjectSchema) => { // El middleware no valida nada por sí mismo. En cambio, toma como argumento un esquema de validación creado con Joi.
-  return (req: Request, res: Response, next: NextFunction) => {
+  return (req: Request, res: Response, next: NextFunction) => { /* Este patrón utiliza un closure: una función que devuelve otra función y "recuerda" las variables del contexto en el que fue creada (en este caso, `schema`). Es común en Express cuando se necesita generar un middleware dinámico y reutilizable, como validar datos con diferentes esquemas o configurar permisos según el contexto. */
     const { error } = schema.validate(req.body); // Usa el esquema (pasado en el paso 1) para validar los datos enviados por el cliente (req.body).
     if (error) {
       return next(new ErrorResponse(error.details[0].message, 400));

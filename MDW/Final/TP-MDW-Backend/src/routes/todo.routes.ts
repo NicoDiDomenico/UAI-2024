@@ -11,6 +11,10 @@ todoRouter.get("/", checkAuth, getEveryTodo);
 todoRouter.get("/:id", checkAuth, getTodo);
 todoRouter.put("/:id", checkAuth, editTodo);
 todoRouter.delete("/:id", checkAuth, deleteTodo);
+/* 
+"/:id"    --> req.params.id dice "qué recurso quiero modificar".
+checkAuth --> req.user dice "¿tengo permiso para modificar este recurso?".
+*/
 
 export { todoRouter };
 

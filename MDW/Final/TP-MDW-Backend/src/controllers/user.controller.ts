@@ -16,8 +16,15 @@ export const register = async ( /* Este controlador maneja las solicitudes POST 
 
     if (foundUser) // Si el usuario ya existe (True), devuelve un error con el mensaje "Ya existe un usuario con ese email" y código HTTP 400.
       return next(new ErrorResponse("Ya existe un usuario con ese email", 400)); 
-      /*Si usara `throw` en lugar de `next()`, el flujo de ejecución se interrumpe de inmediato y todo el código posterior no se ejecuta. El error lanzado se pasará al middleware de manejo de errores de Express si está configurado. 
-      Con `next(error)`, el error se pasa al siguiente middleware sin detener la ejecución del código inmediatamente, permitiendo que otras operaciones ocurran antes de manejar el error.*/
+      /* Si usara `throw` en lugar de `next()`, el flujo de ejecución se interrumpe de inmediato 
+      debido a que se lanza una excepción. El error lanzado será capturado por un bloque `catch`
+      o, si no hay uno, por el middleware de manejo de errores de Express.
+
+      Con `next(error)` acompañado de un `return`, como en este caso, el flujo de ejecución
+      también se interrumpe, pero sin lanzar una excepción. En su lugar, el control pasa 
+      directamente al siguiente middleware configurado en la aplicación, lo cual es más adecuado 
+      en el contexto de Express. */
+
     
     // A continuacion creo un objeto usuario con las propuedades del req.body, notar que es distinto porque es un esquema según mongoose y no el constructor tipico de js que conozco
     const user = new User({
@@ -32,7 +39,7 @@ export const register = async ( /* Este controlador maneja las solicitudes POST 
 
     res
       .status(201) // Recordar: 200 → Éxito general, 400 → Solicitud incorrecta (errores del cliente), 500 → Error interno del servidor.
-      .json({ error: false, message: "Cuenta creada correctamente", user });
+      .json({ error: false, message: "Cuenta creada correctamente", user }); /* medio al pedo devuelve el usuario, endria que ver si el front lo usa */
   } catch (error) { 
     /* 
     Este bloque `catch` captura únicamente los errores que ocurren dentro del bloque `try`, ya sea porque se lanzaron explícitamente con `throw` o porque surgieron durante una operación asíncrona (como `await user.save()`).

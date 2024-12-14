@@ -9,11 +9,11 @@ Servidor: userRouter (Rutas)
 |                      +--> Datos válidos --> register (Controlador)
 |                      |                       |
 |                      |                       +--> Busca en la base de datos si existe el usuario
-|                      |                       |    |
-|                      |                       |    +--> Si existe --> Error (400)
-|                      |                       |    +--> Si no existe --> Crea usuario y responde (201)
-|                      |                       |
-|                      |                       +--> Respuesta: 201 Created
+|                      |                            |
+|                      |                            +--> Si existe --> Error (400)
+|                      |                            +--> Si no existe --> Crea usuario y responde (201)
+|                      |                      			 |
+|                      |                       			 +--> Respuesta: 201 Created
 |                      |
 |                      +--> Datos inválidos --> ErrorHandler
 |
@@ -22,27 +22,27 @@ Servidor: userRouter (Rutas)
 |                   +--> Datos válidos --> login (Controlador)
 |                   |                       |
 |                   |                       +--> Busca en la base de datos el usuario por email
-|                   |                       |    |
-|                   |                       |    +--> Si no existe --> Error (401)
-|                   |                       |    +--> Si existe, compara contraseñas
-|                   |                       |          |
-|                   |                       |          +--> Contraseña inválida --> Error (401)
-|                   |                       |          +--> Contraseña válida --> Genera JWT
-|                   |                       |
-|                   |                       +--> Respuesta: 200 OK + Token JWT
+|                   |                            |
+|                   |                            +--> Si no existe --> Error (401)
+|                   |                            +--> Si existe, compara contraseñas
+|                   |                                  |
+|                   |                                  +--> Contraseña inválida --> Error (401)
+|                   |                                  +--> Contraseña válida --> Genera JWT
+|                   |                       				|
+|                   |                       				+--> Respuesta: 200 OK + Token JWT
 |                   |
 |                   +--> Datos inválidos --> ErrorHandler
 |
 +--> GET /user-info --> checkAuth
                     |
-                    +--> Token válido --> getUser (Controlador)
-                    |                       |
-                    |                       +--> Busca usuario en la base de datos por ID
-                    |                       |    |
-                    |                       |    +--> Si no existe --> Error (404)
-                    |                       |    +--> Si existe --> Responde con datos del usuario
-                    |                       |
-                    |                       +--> Respuesta: 200 OK + User Info
+                    +--> Token válido --> Extraigo id--> getUser (Controlador)
+                    |                       			 |
+                    |                      				 +--> Busca usuario en la base de datos por ID
+                    |                           			  |
+                    |                           		 	  +--> Si no existe --> Error (404)
+                    |                           		 	  +--> Si existe --> Responde con datos del usuario
+                    |                       	 			       |
+                    |                            	 		  	   +--> Respuesta: 200 OK + User Info
                     |
                     +--> Token inválido --> ErrorHandler
 

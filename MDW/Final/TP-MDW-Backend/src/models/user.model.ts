@@ -39,5 +39,5 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-export const User = model("User", userSchema);
+export const User = model("User", userSchema); /* Esta función se utiliza para crear un modelo basado en un esquema (que es un conjunto de reglas para los documentos dentro de una colección en MongoDB). */
                           // Con este nombre se guarda en la BD

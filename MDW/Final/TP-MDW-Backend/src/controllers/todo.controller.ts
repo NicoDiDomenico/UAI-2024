@@ -33,7 +33,7 @@ export const editTodo = async (
   next: NextFunction
 ) => {
   const { title, description, tags, isPinned } = req.body;
-  const { id } = req.params;
+  const { id } = req.params; /* es lo mismo que usar directamente req.params.id */
 
   try {
     const todo = await Todo.findOne({ _id: id, user: req.user });
@@ -63,10 +63,15 @@ export const getEveryTodo = async (
   next: NextFunction
 ) => {
   try {
-    const todos = await Todo.find({
-      user: req.user,
-    }).sort({
-      isPinned: -1,
+    const todos = await Todo.find({// Se busca en la colección de tareas (Todo) todas las que tengan un campo user igual al ID del usuario autenticado (req.user). Este ID fue agregado previamente por el middleware checkAuth.
+      user: req.user, // Filtra las tareas que pertenecen al usuario autenticado.
+    }).sort({ // El método sort() en Mongoose organiza los documentos que se obtienen de la base de datos en un orden específico antes de enviarlos como respuesta. Este orden se define según los valores de uno o más campos. Por lo tanto ordena las tareas de mayor a menor prioridad según el campo `isPinned`
+      isPinned: -1, 
+      /* 
+      isPinned: Es el campo del modelo que se utiliza como criterio de ordenación.
+      -1: Indica que los documentos se ordenan en orden descendente. Esto significa que:
+        Los documentos con isPinned: true aparecerán antes que los documentos con isPinned: false.
+      */
     });
 
     res.status(200).json({
