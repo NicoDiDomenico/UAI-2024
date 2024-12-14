@@ -1,7 +1,7 @@
 /* 
  Es importante aclarar cómo funcionan las importaciones en JavaScript/TypeScript para que quede claro por qué app.ts ya se ejecuta en el momento en que se importa, sin esperar a que se use app.listen.
 */
-import app from "./app"; /* acá están las rutas, middlewares y otras funcionalidades principales */
+import app from "./app";  
 import connectDb from "./config/connectDb"; /* conectar el backend con una base de datos */
 import { PORT } from "./config/env"; /* - `PORT` es una variable de entorno que define en qué puerto se ejecutará el servidor. */
 // con {} importo los elementos de las const exportadas, sin { } importo todo el elemento exportado con export default

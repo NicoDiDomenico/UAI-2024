@@ -15,7 +15,6 @@ userRouter.post("/register", validateSchema(registerSchema), register); // Middl
 userRouter.post("/login", validateSchema(loginSchema), login);
 userRouter.get("/user-info", checkAuth, getUser); // Middlewares para verificar que el usuario esté autenticado mediante un token JWT (checkAuth.middleware.ts).
 
-
 export {userRouter};
 /* También se podría exportar como export default userRouter;
    --> Con export default, solo puedes exportar una cosa principal desde el archivo.

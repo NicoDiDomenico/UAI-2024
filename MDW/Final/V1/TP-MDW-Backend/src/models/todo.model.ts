@@ -36,5 +36,4 @@ const TodoSchema: Schema = new Schema<ITodo>(
   }
 );
 
-
 export const Todo = model("Todo", TodoSchema);
