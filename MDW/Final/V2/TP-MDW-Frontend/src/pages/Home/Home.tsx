@@ -40,8 +40,9 @@ interface IOpenModal {
 }
 
 const Home = () => {
-  const navigate = useNavigate();
-  const { user } = useAuth();
+  const navigate = useNavigate(); // Esta línea usa el hook useNavigate de React Router, que te permite redirigir al usuario programáticamente.
+  /* navigate: Es una función que puedes llamar para cambiar la URL de la aplicación.  */
+  const { user } = useAuth(); // Esta línea usa un hook personalizado llamado useAuth para obtener el valor actual del usuario desde el contexto AuthContext.
 
   const [loading, setLoading] = useState(false);
   const [notes, setNotes] = useState<INote[]>([]);
@@ -51,9 +52,11 @@ const Home = () => {
     data: null,
   });
 
+  /* Se ejecuta después de que el componente se haya renderizado, En este caso, se ejecuta cada vez que user cambia o cuando es la primera vez, gracias a la dependencia [user]. */
   useEffect(() => {
     if (!user) navigate("/login");
-    else getAllNotes();
+    // Si no hay un usuario, React automáticamente redirige a /login.
+    else getAllNotes(); // Si hay usuario, carga las notas.
   }, [user]);
 
   //Traer todas las notas del usuario

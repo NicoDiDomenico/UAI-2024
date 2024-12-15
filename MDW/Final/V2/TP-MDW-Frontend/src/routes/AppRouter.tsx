@@ -21,6 +21,7 @@ const AppRouter = () => {
         <Route path={PublicRoutes.REGISTER} element={<Register />} />
 
         <Route path={PrivateRoutes.HOME} element={<Home />} />
+        {/* Cuando accedes a la aplicación por primera vez, React Router detecta la URL actual. Si no escribes una ruta específica (por ejemplo, solo accedes a http://localhost:5173), se considera la raíz (/). */}
       </NotFound>
     </BrowserRouter>
   );

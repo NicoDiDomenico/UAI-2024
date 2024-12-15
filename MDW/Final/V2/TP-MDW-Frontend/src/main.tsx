@@ -16,7 +16,9 @@ createRoot(document.getElementById("root")!).render(
   2. Compartir esa información con otros componentes de la app sin tener que pasarla manualmente como propiedades a cada uno.
   En términos simples: <AuthProvider> actúa como el "cerebro" que controla quién tiene acceso a ciertas partes de la aplicación. */
   <AuthProvider>
-    {/* `App` es el componente principal de la aplicación. */}
+    {" "}
+    {/* usa AuthContext.Provider */}
+    {/* `App` es el componente principal de la aplicación. Esto significa que cualquier componente dentro de <App /> puede acceder a user, login, y logout. */}
     {/* Maneja las rutas y los componentes principales de toda la estructura. */}
     <App />
   </AuthProvider>
