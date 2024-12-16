@@ -62,7 +62,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   }, [user]);
 
   /* Las funciones login y logout no dependen del useEffect. Son independientes y están disponibles todo el tiempo. */
-
+  // Las constantes como login y logout que defines dentro del componente AuthProvider no se ejecutan automáticamente al renderizar el componente, sino que simplemente se definen como funciones.
   const login = (user: User) =>
     setUser(
       user
