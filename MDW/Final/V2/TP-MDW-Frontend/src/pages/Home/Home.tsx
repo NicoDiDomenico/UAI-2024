@@ -47,9 +47,9 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [notes, setNotes] = useState<INote[]>([]);
   const [openModal, setOpenModal] = useState<IOpenModal>({
-    isShown: false,
-    type: "add",
-    data: null,
+    isShown: false, // Indica si el modal debe mostrarse o no. --> Esto acriva el componente Modal de react-modal
+    type: "add", // Tipo de acción: "add" (agregar) o "edit" (editar).
+    data: null, // Contiene los datos de la nota cuando se edita.
   });
 
   /* Se ejecuta después de que el componente se haya renderizado, En este caso, se ejecuta cada vez que user cambia o cuando es la primera vez, gracias a la dependencia [user]. */
@@ -94,12 +94,14 @@ const Home = () => {
   //Buscar nota con el buscador
   const searchNote = async (query: string) => {
     try {
-      setLoading(true);
+      setLoading(true); // esto es para mostrar el SpinnerCircularFixed
       const res = await axiosInstance.get("/todos/search", {
-        params: { query },
+        params: {
+          query,
+        } /* Envía el parámetro "query" al backend como parte de la URL. */,
       });
 
-      const notesDb = res.data.todos as INoteRaw[];
+      const notesDb = res.data.todos as INoteRaw[]; // Recupera las notas del backend.
 
       const formattedNotes: INote[] = notesDb.map((note) => ({
         completed: note.completed,
@@ -129,6 +131,10 @@ const Home = () => {
   //Limpia el buscador
   const handleClearSearch = () => {
     getAllNotes();
+    /* 
+    Llama a la función que trae todas las notas desde el backend.
+    Es una "limpieza" del buscador porque al volver a obtener todas las notas, se elimina cualquier filtro o búsqueda aplicada.
+    */
   };
 
   //Logica para borrar una nota
@@ -136,33 +142,37 @@ const Home = () => {
     try {
       const confirm = window.confirm("Seguro que desea borrar la nota?");
       if (confirm) {
-        const res = await axiosInstance.delete(`/todos/${id}`);
+        const res = await axiosInstance.delete(`/todos/${id}`); // Elimina la nota en el backend --> todoRouter.delete("/:id", checkAuth, deleteTodo);
 
         notifySuccess(res.data.message);
-        getAllNotes();
+        getAllNotes(); // Vuelve a cargar todas las notas después de eliminar.
       }
     } catch (error) {
       if (error instanceof AxiosError) {
-        notifyError(error.response?.data.message);
+        notifyError(error.response?.data.message); // Notificación en caso de error.
       }
     }
   };
 
-  //Abrir modal con los datos de la nota a editar
+  //Abrir modal con los datos de la nota a editar / COMO HACE PARA DESPUES LA LOGICA DEL MODAL (ACTUALIZAR, AGREGAR ETIQUETAS, ETC..)
   const handleEdit = (noteDetails: INote) => {
     setOpenModal({ data: noteDetails, isShown: true, type: "edit" });
+    /* Actualiza el estado openModal con:
+        isShown: true → Abre el modal.
+        type: "edit" → El modal está en modo editar.
+        data: noteDetails → Guarda los datos actuales de la nota para poder editarlos. */
   };
 
-  //Fijo una nota arriba
+  //Fijar o desfijar una nota
   const updateIsPinned = async (id: string, isPinned: boolean) => {
     try {
-      console.log(id, isPinned);
+      console.log(id, isPinned); // quitar
       await axiosInstance.put(`/todos/pin-todo/${id}`, {
-        isPinned: !isPinned,
+        isPinned: !isPinned, // Invierte el valor actual de isPinned.
       });
 
-      getAllNotes();
-      setOpenModal({ isShown: false, data: null, type: "add" });
+      getAllNotes(); // Recarga todas las notas. (por eso creo que es al dope traer del servidor la nota modificada)
+      setOpenModal({ isShown: false, data: null, type: "add" }); // Cierra el modal si estaba abierto.
     } catch (error) {
       if (error instanceof AxiosError) {
         notifyError(error.response?.data.message);
@@ -172,48 +182,64 @@ const Home = () => {
 
   return (
     <Navbar searchNote={searchNote} handleClearSearch={handleClearSearch}>
+      {/* Mostar el Spinner hasta que se obtengan las notas de la api */}
       <div className="container mx-auto">
         {loading && (
           <SpinnerCircularFixed className="mx-auto" color="#2B85FF" />
         )}
 
+        {/* Cuando la api respodne puede que no hayan notas, entonces renderiza <p></p> */}
         {notes?.length === 0 && loading === false && (
           <p className="text-xl text-center">No hay ninguna nota cargada!</p>
         )}
 
+        {/* El componente NoteCard se está renderizando dentro de un map que recorre el array de notes */}
         <div className="grid grid-cols-3 gap-4 mt-8 justify-start">
-          {notes.map((item, index) => (
-            <NoteCard
-              key={index}
-              title={item.title}
-              date={item.date}
-              description={item.description}
-              isPinned={item.isPinned}
-              tags={item.tags}
-              onDelete={() => {
-                onDelete(item.id);
-              }}
-              onEdit={() => handleEdit(item)}
-              onPinNote={() => {
-                updateIsPinned(item.id, item.isPinned);
-              }}
-            />
-          ))}
+          {notes.map(
+            (
+              item,
+              index // El resultado de map es un nuevo arreglo de elementos JSX que React puede renderizar.
+            ) => (
+              <NoteCard
+                key={index} // Propiedad clave única para cada tarjeta.
+                title={item.title} // Título de la nota.
+                date={item.date} // Fecha formateada de creación de la nota.
+                description={item.description} // Descripción de la nota.
+                isPinned={item.isPinned} // Indica si la nota está fijada.
+                tags={item.tags} // Array de etiquetas de la nota.
+                onDelete={() => {
+                  onDelete(item.id); // Llama a la lógica para borrar la nota con su id, pasar item.id como para metro es clave para despues usarla como params en la url
+                }}
+                /* 2) Editar una nota */
+                onEdit={() => handleEdit(item)} // Abre el modal de tipo edit
+                onPinNote={() => {
+                  updateIsPinned(item.id, item.isPinned); // Fija o desfija la nota.
+                }}
+              />
+            )
+          )}
         </div>
       </div>
 
+      {/* 1) Agregar una nota */}
       <button
         className="w-16 h-16 flex items-center justify-center rounded-2xl bg-primary hover:bg-blue-600 duration-150 absolute right-10 bottom-10 "
         onClick={() => {
+          /* Cuando haces clic en el botón con el + azul (que está en la parte inferior derecha de la pantalla), ejecuta la función setOpenModal. */
           setOpenModal({ isShown: true, type: "add", data: null });
+          /* isShown: true → Abre el modal.
+          type: "add" → El modal está en modo agregar.
+          data: null → No hay datos porque es una nueva nota. */
         }}
       >
         <MdAdd className="text-[32px] text-white" />
       </button>
 
+      {/* El modal se abre en dos casos principales: 1) Agregar una nota y 2) Editar una nota */}
+      {/* El modal se renderiza usando la librería react-modal */}
       <Modal
-        isOpen={openModal.isShown}
-        onRequestClose={() => {}}
+        isOpen={openModal.isShown} // Muestra el modal si isShown es true.
+        onRequestClose={() => {}} // Aquí puedes cerrar el modal manualmente (no implementado aún).
         style={{
           overlay: {
             backgroundColor: "rgba(0,0,0,0.2)",
@@ -222,11 +248,12 @@ const Home = () => {
         contentLabel=""
         className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-hidden"
       >
+        {/* Es el componente principal dentro del modal que maneja tanto la lógica de agregar como de editar una nota. */}
         <AddEditNotes
-          setOpenModal={setOpenModal}
-          type={openModal.type}
-          getAllNotes={getAllNotes}
-          noteDetails={openModal.data}
+          setOpenModal={setOpenModal} // Pasa la función para cambiar el estado
+          type={openModal.type} // Pasa el tipo de acción (add o edit).
+          getAllNotes={getAllNotes} // Pasa la función para recargar las notas.
+          noteDetails={openModal.data} // Pasa los datos de la nota.
         />
       </Modal>
     </Navbar>

@@ -41,6 +41,7 @@ export const editTodo = async (
 
     if (!todo) return next(new ErrorResponse("Nota no encontrada", 404));
 
+    // Aca creo que estoy chequeando que lo que traje en el req.body no sea nulo
     if (title) todo.title = title;
     if (description) todo.description = description;
     if (tags) todo.tags = tags;
@@ -51,7 +52,7 @@ export const editTodo = async (
     res.status(200).json({
       error: false,
       message: "Nota editada correctamente",
-      todo,
+      todo, /* para mi aca tambien es al pedo traer la nota  */
     });
   } catch (error) {
     next(error);
@@ -150,7 +151,7 @@ export const updateIsPinned = async (
     res.status(200).json({
       error: false,
       message: "Nota editada correctamente",
-      todo,
+      todo, /* para mi no es necesario enviar el todo */
     }); // Devuelve un estado 200 (éxito) junto con un mensaje de confirmación y el documento actualizado (todo).
   } catch (error) { // Captura cualquier error que ocurra en el bloque try y lo pasa al middleware global de manejo de errores.
     next(error);

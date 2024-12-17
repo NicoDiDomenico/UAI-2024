@@ -23,7 +23,24 @@ interface AuthContextProps {
 }
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined); // Este contexto sirve como un "contenedor global" para guardar el estado de autenticación (user) y las funciones (login, logout).
+/* 
+Formas de tipear un componente:
+import { ReactNode } from "react";
 
+type AuthProviderProps = {
+  children: ReactNode;
+}; // Acá podia haber usado interface en vez de type.   
+
+forma 1 - funcion(parametro: props): tipo(opcional) => {}
+export const AuthProvider = ({ children }: AuthProviderProps): JSX.Element=> {
+  return <>{children}</>;
+};
+
+forma 2 - con :React.FC<>
+export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+  return <>{children}</>;
+};
+*/
 /* AuthProvider es quien llena la caja (AuthContext) con valores específicos (user, login, logout) y los comparte. */
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   children,

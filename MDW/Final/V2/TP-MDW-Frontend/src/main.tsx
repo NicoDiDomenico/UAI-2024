@@ -15,13 +15,17 @@ createRoot(document.getElementById("root")!).render(
   1. Guardar información sobre el usuario (por ejemplo, si está autenticado o no, su token, etc.).
   2. Compartir esa información con otros componentes de la app sin tener que pasarla manualmente como propiedades a cada uno.
   En términos simples: <AuthProvider> actúa como el "cerebro" que controla quién tiene acceso a ciertas partes de la aplicación. */
-  <AuthProvider>
-    {" "}
-    {/* usa AuthContext.Provider */}
-    {/* `App` es el componente principal de la aplicación. Esto significa que cualquier componente dentro de <App /> puede acceder a user, login, y logout. */}
-    {/* Maneja las rutas y los componentes principales de toda la estructura. */}
-    <App />
-  </AuthProvider>
+
+  <div>
+    <AuthProvider>
+      {" "}
+      {/* usa AuthContext.Provider */}
+      {/* `App` es el componente principal de la aplicación. Esto significa que cualquier componente dentro de <App /> puede acceder a user, login, y logout. */}
+      {/* Maneja las rutas y los componentes principales de toda la estructura. */}
+      <App />
+    </AuthProvider>
+    <h1></h1>
+  </div>
 );
 
 /*Conclusión: React inserta los componentes AuthProvider y App dentro del <div id="root"> en el DOM del navegador.*/

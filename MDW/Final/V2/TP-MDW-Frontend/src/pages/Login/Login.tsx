@@ -151,7 +151,8 @@ const Login = () => {
                 className="input-box"
                 {...register("password")}
               /> */}
-              {error && <p className="error-msg pt-0">{error}</p>} {/* l estado error se muestra en la interfaz dentro de este bloque, para proporcionar mensajes de error generales (no relacionados con validaciones específicas de un campo, por ejemplo, email duplicado). */}
+              {error && <p className="error-msg pt-0">{error}</p>}{" "}
+              {/* l estado error se muestra en la interfaz dentro de este bloque, para proporcionar mensajes de error generales (no relacionados con validaciones específicas de un campo, por ejemplo, email duplicado). */}
               <button type="submit" className="btn-primary">
                 {" "}
                 {/* 1) React activa el evento onSubmit del formulario cuando se hace clic en este boton */}
@@ -165,7 +166,8 @@ const Login = () => {
                 replace // Reemplaza la entrada actual en el historial del navegador en lugar de agregar una nueva, Esto significa que, al regresar con el botón "Atrás", no volverás a la página previa al registro.
                 className="text-primary" // Aplica estilos personalizados al enlace.
               >
-                Registrate! {/* Texto visible en la UI. Al hacer clic, lleva al usuario a la página de registro. */}
+                Registrate!{" "}
+                {/* Texto visible en la UI. Al hacer clic, lleva al usuario a la página de registro. */}
               </Link>
             </p>
           </div>

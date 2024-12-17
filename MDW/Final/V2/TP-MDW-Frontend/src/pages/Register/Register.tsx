@@ -77,7 +77,7 @@ const Register = () => {
           birthdate: "2000-01-01"
         }
       - Este objeto se construye a partir de los campos registrados mediante `register("nombreDelCampo")`.
-    */  
+    */
     try {
       setError(""); // Limpia cualquier error previo.
 
@@ -89,7 +89,7 @@ const Register = () => {
         email: data.email,
         password: data.password,
       });
-    
+
       const { message } = response.data; // Extrae el mensaje de éxito del backend.
 
       notifySuccess(message); // Muestra un mensaje de éxito al usuario.
@@ -104,11 +104,15 @@ const Register = () => {
 
   return (
     <>
-      <Navbar> {/* Componente de barra de navegación */}
+      <Navbar>
+        {" "}
+        {/* Componente de barra de navegación */}
         <div className="flex items-center justify-center my-12">
           <div className="w-96 border rounded bg-white px-7 py-10">
-            <form onSubmit={handleSubmit(submitData)}> {/* Valida y envía los datos al backend */}
-                {/* 
+            <form onSubmit={handleSubmit(submitData)}>
+              {" "}
+              {/* Valida y envía los datos al backend */}
+              {/* 
                   handleSubmit(submitData):
                   - Cuando el usuario hace clic en el botón "Registrate", handleSubmit valida los datos del formulario usando el esquema definido con Zod.
                   - Si los datos son válidos:
@@ -118,7 +122,6 @@ const Register = () => {
                     - Detiene el flujo y llena `formState.errors` con los errores generados, que luego pueden mostrarse en la interfaz.
                 */}
               <h4 className="text-2xl mb-7">Registrate</h4>
-
               <div className="flex gap-2">
                 <Input
                   type="text"
@@ -133,7 +136,6 @@ const Register = () => {
                   placeholder="Apellido"
                 />
               </div>
-
               <Input
                 type="email"
                 {...register("email")} // Registra el campo "email".
@@ -158,13 +160,13 @@ const Register = () => {
                 error={errors.confirmPassword?.message} // Muestra el mensaje de error si existe.
                 placeholder="Confirmar contraseña"
               />
-
-              {error && <p className="error-msg pt-0">{error}</p>} {/* Muestra errores generales del backend */}
-
-              <button type="submit" className="btn-primary"> {/* Envía el formulario */}
+              {error && <p className="error-msg pt-0">{error}</p>}{" "}
+              {/* Muestra errores generales del backend */}
+              <button type="submit" className="btn-primary">
+                {" "}
+                {/* Envía el formulario */}
                 Registrate
               </button>
-
               <p className="text-sm text-center mt-4">
                 Ya tenes cuenta?{" "}
                 <Link
