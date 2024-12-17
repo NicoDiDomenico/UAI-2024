@@ -8,8 +8,10 @@ interface FieldProps extends HTMLProps<HTMLInputElement> {
 }
 
 const Input = forwardRef((props: FieldProps, ref: Ref<HTMLInputElement>) => {
+  // forwardRef permite "pasar" la referencia (ref) desde un componente padre hacia un elemento DOM dentro del componente hijo. Con forwardRef, el componente hijo puede aceptar una referencia y asignarla manualmente al elemento que querés.
+
   const { placeholder, error, type, ...FieldProps } = props;
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // Maneja el estado local para mostrar u ocultar la contraseña. Se inicializa con false porque, al inicio, la contraseña debe estar oculta.
 
   return (
     <>
@@ -18,6 +20,7 @@ const Input = forwardRef((props: FieldProps, ref: Ref<HTMLInputElement>) => {
           type === "file" && "cursor-pointer"
         }`}
       >
+        {/* Campo del form --> Use Form lo gestiona. */}
         <input
           type={type !== "password" ? type : !showPassword ? type : "text"}
           placeholder={placeholder}
@@ -27,8 +30,9 @@ const Input = forwardRef((props: FieldProps, ref: Ref<HTMLInputElement>) => {
           ref={ref}
           {...FieldProps}
         />
+        {/* Logica para cambiar el icono a ojo abierto o a cerrado --> Al cambiar showPassword afecta directamente al input*/}
         {type === "password" && !showPassword ? (
-          <FaRegEye
+          <FaRegEye /* (ojo abierto)  */
             size={22}
             className="text-primary cursor-pointer"
             onClick={() => setShowPassword(!showPassword)}

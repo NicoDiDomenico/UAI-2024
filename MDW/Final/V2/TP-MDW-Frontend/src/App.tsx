@@ -21,6 +21,7 @@ const App = () => {
           {/* AppRouter: Este componente maneja la navegación de la aplicación. Según la URL actual, muestra el componente correspondiente (por ejemplo, la página de inicio, el login, etc.). */}
           <ToastContainer />
           {/* ToastContainer: Este componente renderiza (muestra en pantalla) las notificaciones que se generan en cualquier parte de la aplicación (porque lo puse en app). Cuando digo "renderizar notificaciones", me refiero a que toma los mensajes que envías mediante funciones como toast.success o toast.error y los muestra visualmente en la interfaz del usuario. */}
+          {/* Sin ToastContainer, no verías ninguna notificación aunque llames a notifySuccess o toast.success(). */}
         </main>
       </Suspense>{" "}
       {/* React.lazy en AppRouter depende de <Suspense> para manejar la carga asíncrona del componente y mostrar un contenido de respaldo mientras el componente se carga. Si intentas renderizar un componente cargado con React.lazy sin envolverlo en <Suspense>, verás un error que significa que React no sabe qué mostrar mientras espera a que el componente se cargue. */}

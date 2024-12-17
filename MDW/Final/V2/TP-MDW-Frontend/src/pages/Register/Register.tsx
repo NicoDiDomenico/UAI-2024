@@ -131,7 +131,7 @@ const Register = () => {
                 />
                 <Input
                   type="text"
-                  {...register("lastname")} // Registra el campo "lastname".
+                  {...register("lastname")} // Registra el campo "lastname" ya que lastname será la etiqueta que identifica el input, register("lastname") devuelve un objeto que tiene name="lastname" y otras funciones, con ... copiamos todo y lo mandamos como propiedad del input. IMPORTANTE: TAMBIEN MANDA --> ref: (element) => {...} // Referencia al input real
                   error={errors.lastname?.message} // Muestra el mensaje de error si existe.
                   placeholder="Apellido"
                 />
