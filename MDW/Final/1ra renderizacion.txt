@@ -1,0 +1,11 @@
+1. Abres la página (/)
+2. React monta AuthProvider:
+   - user = null
+   - Verifica token en localStorage
+3. Si hay token:
+   - Llama al backend (/users/user-info)
+   - setUser({ ...usuario... })
+4. Renderiza App → AppRouter → Home
+5. En Home:
+   - Si user === null → navigate("/login")
+   - Si user !== null → Muestra contenido

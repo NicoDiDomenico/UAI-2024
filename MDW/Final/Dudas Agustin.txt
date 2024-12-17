@@ -1,0 +1,2 @@
+handleEdit --> No lo entiendo, no se como ese pedacito hace tanto
+En updateIsPinned, el servidor tare la nota modificada, pero para mi es al pedo porque el front igualemtne trae todas.

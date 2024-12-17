@@ -1,0 +1,36 @@
+main.tsx
+   │
+   ├── AuthProvider → Verifica el token y el usuario.
+   │        │
+   │        └── <App />
+   │              │
+   │              └── Suspense
+   │                   │
+   │                   └── AppRouter
+   │                         │
+   ├── /login  →  Login.tsx
+   │                         │
+   ├── /register → Register.tsx
+   │                         │
+   ├── /         → Home.tsx
+   │                         │
+   │                         ├── Navbar
+   │                         │     ├── SearchBar
+   │                         │     ├── handleLogout
+   │                         │     ├── searchNote
+   │                         │     └── handleClearSearch
+   │                         │
+   │                         ├── NoteCard[] (Renderiza notas)
+   │                         │     ├── onDelete → Abre modal de confirmación
+   │                         │     ├── onEdit   → Abre modal de edición
+   │                         │     └── onPinNote → Fija la nota arriba
+   │                         │
+   │                         ├── Modal → AddEditNotes
+   │                         │     ├── Crea o edita una nota
+   │                         │     └── Actualiza las notas
+   │                         │
+   │                         └── Modal → Confirmación de Eliminación
+   │                               ├── Confirma la acción
+   │                               └── Borra la nota en el backend
+   │
+   └── ToastContainer → Renderiza notificaciones
