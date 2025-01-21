@@ -132,19 +132,19 @@ namespace ProyectoHerencia
         }
     }
 
-    class Caballo : Mamiferos, IMamiferosTerrestres, IAnimalesYDeportes, ISaltoConPatas // Primero se eescriben la clase de la que hereda y luego separado por ',' las interfaces.
+    class Caballo : Mamiferos, IMamiferosTerrestres, IAnimalesYDeportes, ISaltoConPatas // Primero se escriben la clase de la que hereda y luego separado por ',' las interfaces.
     {
-        public Caballo(string nombreCaballo):base(nombreCaballo)
+        public Caballo(string nombreCaballo) : base(nombreCaballo)
         {
 
         }
         public void Galopar()
         {
             Console.WriteLine("Soy capaz de galopar");
-            Respirar(); // Funciona porque su hereda de Mamifero esta clase
+            Respirar(); // Funciona porque se hereda de Mamifero esta clase
         }
 
-        int IMamiferosTerrestres.NumeroPatas() // Notar como hay que quitar el public ya que por logica al tener 2 con el mismo nombre, no quiero que sean visibles en otras clases ya que el usuario no va a saber cual usar
+        public int NumeroPatas() // Esta clase respeta ambas interfaces, pero para especificar a cual especificamente se de aplicar los de la siguiente clase...
         {
             return 4;
         }
@@ -157,10 +157,6 @@ namespace ProyectoHerencia
         public Boolean EsOlimpico()
         {
             return true;
-        }
-        int ISaltoConPatas.NumeroPatas()
-        {
-            return 2;
         }
     }
 
