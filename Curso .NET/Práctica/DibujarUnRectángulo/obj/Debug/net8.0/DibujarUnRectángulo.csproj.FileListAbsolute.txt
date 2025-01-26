@@ -1,0 +1,15 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\bin\Debug\net8.0\DibujarUnRectángulo.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\bin\Debug\net8.0\DibujarUnRectángulo.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\bin\Debug\net8.0\DibujarUnRectángulo.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\bin\Debug\net8.0\DibujarUnRectángulo.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\bin\Debug\net8.0\DibujarUnRectángulo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\refint\DibujarUnRectángulo.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\DibujarUnRectángulo.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarUnRectángulo\obj\Debug\net8.0\ref\DibujarUnRectángulo.dll
