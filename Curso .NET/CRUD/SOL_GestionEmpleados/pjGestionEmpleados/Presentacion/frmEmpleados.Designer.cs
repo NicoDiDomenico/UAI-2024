@@ -402,6 +402,7 @@
             this.dgvLista.Size = new System.Drawing.Size(864, 201);
             this.dgvLista.TabIndex = 17;
             this.dgvLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellClick);
+            this.dgvLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLista_CellContentClick);
             // 
             // btnGuardar
             // 

@@ -3,40 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\datos\\d_empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\datos\\d_empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\datos\\d_cargos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\datos\\d_cargos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\reporteempleados.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\reporteempleados.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\datos\\d_departamentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\datos\\d_departamentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\entidades\\e_empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\entidades\\e_empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\dataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\dataset.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\dataset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\dataset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\dataset.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\dataset.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\dataset.xss||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\dataset.xss||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\presentacion\\frmempleados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmempleados.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\presentacion\\frmconectar.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmconectar.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\datos\\d_departamentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\datos\\d_departamentos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\presentacion\\frmempleados.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmempleados.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\datos\\d_cargos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\datos\\d_cargos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\entidades\\e_empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\entidades\\e_empleado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\crud\\sol_gestionempleados\\pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\reportes\\frmreporteempleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\datos\\d_empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\datos\\d_empleados.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\presentacion\\frmconectar.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|solutionrelative:pjgestionempleados\\presentacion\\frmconectar.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{081F1DE2-2E23-469F-8764-278B23A1F828}|pjGestionEmpleados\\pjGestionEmpleados.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjgestionempleados\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,11 +98,149 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReporteEmpleados.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\ReporteEmpleados.rdlc",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\ReporteEmpleados.rdlc",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\ReporteEmpleados.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\ReporteEmpleados.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2025-01-30T16:17:46.975Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmReporteEmpleados.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.Designer.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.Designer.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.Designer.cs",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:17:20.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "frmReporteEmpleados.resx",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.resx",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.resx",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.resx",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2025-01-30T16:17:12.064Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DataSet.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.cs",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:16:52.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DataSet.xsd",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xsd",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xsd",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xsd",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2025-01-30T16:16:47.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmEmpleados.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs [Dise\u00F1o]",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T21:38:21.518Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DataSet.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.Designer.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.Designer.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.Designer.cs",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:16:46.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DataSet.xss",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xss",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xss",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xss",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\DataSet.xss",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAQAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEQSURBVDhPpZIxDoIwFIYfbsAiNxBu4KKwMnMBmDyCJxFXndy4AHcgunADdGdAE4EwVV4pWqEgiV/y0uZ/7Z\u002B\u002B1wdjlGW5KYoiroN0IsYcEEIkdrZHfchPkmQbRREEQcDUBtd1wbIsMAxjz6Rvsiybp2lKDocjuWcPYfg7n75mxu4IyfOc7fo8WW6sBOI4DugLHVbrNVMbLuczXG9XCMPw2wAvse0bNBkCDXol4IU2pjDagyn0DPBZ/PoLaoC1i\u002BpH0EhkpqoqXWkT244PgQZ83jRN8DzvM0hoYNs2P6rvGNCbUa6ZoUBdOBRFEc5HVVUa5upYyrJ8Qo32oH1et4yurmnanW44/v5GaaiEaaUBvACMFdHTTBiv\u002BAAAAABJRU5ErkJggg==",
+              "WhenOpened": "2025-01-30T16:16:44.324Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmEmpleados.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
+              "ViewState": "AQIAAFkAAAAAAAAAAAAhwGgAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:14:51.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "frmReporteEmpleados.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAASwBUAAABxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:03:19.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmReporteEmpleados.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs",
+              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs [Dise\u00F1o]",
+              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\Reportes\\frmReporteEmpleados.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T16:02:43.439Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "E_Empleado.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Entidades\\E_Empleado.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Entidades\\E_Empleado.cs",
@@ -78,11 +248,12 @@
               "RelativeToolTip": "pjGestionEmpleados\\Entidades\\E_Empleado.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-29T23:09:24.838Z"
+              "WhenOpened": "2025-01-29T23:09:24.838Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "D_Cargos.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Datos\\D_Cargos.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Datos\\D_Cargos.cs",
@@ -95,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "D_Departamentos.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Datos\\D_Departamentos.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Datos\\D_Departamentos.cs",
@@ -108,70 +279,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 15,
               "Title": "D_Empleados.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Datos\\D_Empleados.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Datos\\D_Empleados.cs",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Datos\\D_Empleados.cs",
               "RelativeToolTip": "pjGestionEmpleados\\Datos\\D_Empleados.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAArwEoAAAAAAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAswKEAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T13:36:20.025Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmEmpleados.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
-              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
-              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
-              "ViewState": "AQIAAAYBAAAAAAAAAAAMwKcAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T21:48:16.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "frmEmpleados.resx",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.resx",
-              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmEmpleados.resx",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.resx",
-              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmEmpleados.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-01-27T21:39:54.565Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "frmEmpleados.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.Designer.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmEmpleados.Designer.cs",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.Designer.cs",
               "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmEmpleados.Designer.cs",
-              "ViewState": "AQIAAHYAAAAAAAAAAAAowNgBAAAbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T21:39:53.545Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmEmpleados.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
-              "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmEmpleados.cs [Dise\u00F1o]",
-              "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmEmpleados.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T21:38:21.518Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Program.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Program.cs",
@@ -179,22 +313,24 @@
               "RelativeToolTip": "pjGestionEmpleados\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T21:32:09.255Z"
+              "WhenOpened": "2025-01-27T21:32:09.255Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "frmConectar.resx",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmConectar.resx",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmConectar.resx",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmConectar.resx",
               "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmConectar.resx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-01-27T21:18:02.835Z"
+              "WhenOpened": "2025-01-27T21:18:02.835Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "frmConectar.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmConectar.Designer.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmConectar.Designer.cs",
@@ -202,11 +338,12 @@
               "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmConectar.Designer.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAQwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T21:17:59.716Z"
+              "WhenOpened": "2025-01-27T21:17:59.716Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "frmConectar.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmConectar.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmConectar.cs",
@@ -214,22 +351,24 @@
               "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmConectar.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAewCsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T21:13:49.082Z"
+              "WhenOpened": "2025-01-27T21:13:49.082Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "frmConectar.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmConectar.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Presentacion\\frmConectar.cs",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Presentacion\\frmConectar.cs [Dise\u00F1o]",
               "RelativeToolTip": "pjGestionEmpleados\\Presentacion\\frmConectar.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T21:12:16.699Z"
+              "WhenOpened": "2025-01-27T21:12:16.699Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "Conexion.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\CRUD\\SOL_GestionEmpleados\\pjGestionEmpleados\\Datos\\Conexion.cs",
               "RelativeDocumentMoniker": "pjGestionEmpleados\\Datos\\Conexion.cs",
@@ -237,7 +376,8 @@
               "RelativeToolTip": "pjGestionEmpleados\\Datos\\Conexion.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAADEAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T15:16:56.458Z"
+              "WhenOpened": "2025-01-26T15:16:56.458Z",
+              "EditorCaption": ""
             }
           ]
         }

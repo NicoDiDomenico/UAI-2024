@@ -1,5 +1,6 @@
 ﻿using pjGestionEmpleados.Datos;
 using pjGestionEmpleados.Entidades;
+using pjGestionEmpleados.Presentacion.Reportes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace pjGestionEmpleados.Presentacion
         }
         #region "Variables"
             int iCodigoEmpleado = 0;
+        // Acá el profe agrego una variable llamada bEstadoGuardar de tipo bool para cambiar la accion del boton de guardar, si es true guarda, si es false actualiza. Mi alternativa fue que con usar iCodigoEmpleado es suficiente, ya que iCodigoEmpleado = 0 representara bEstadoGuardar = true y iCodigoEmpleado != 0 representara bEstadoGuardar = false
         #endregion
 
         #region "Métodos"
@@ -178,7 +180,7 @@ namespace pjGestionEmpleados.Presentacion
             }
         }
 
-        private bool validarTextos()
+        private bool ValidarTextos()
         {
             bool hayTextosVacios = false;
 
@@ -189,6 +191,54 @@ namespace pjGestionEmpleados.Presentacion
             return hayTextosVacios;
         }
 
+        private void ActualizarEmpleados()
+        {
+            E_Empleado Empleado = new E_Empleado();
+
+            Empleado.ID_Empleado = iCodigoEmpleado;
+            Empleado.Nombre_Empleado = txtNombre.Text;
+            Empleado.Direccion_Empleado = txtDireccion.Text;
+            Empleado.Telefono_Empleado = txtTelefono.Text;
+            Empleado.Salario_Empleado = Convert.ToDecimal(txtSalario.Text);
+            Empleado.Fecha_Nacimiento_Empleado = dtpFechaNacimiento.Value;
+            Empleado.ID_Departamento = Convert.ToInt32(cmbDepartamento.SelectedValue);
+            Empleado.ID_Cargo = Convert.ToInt32(cmbCargo.SelectedValue);
+
+            D_Empleados Datos = new D_Empleados();
+            string respuesta = Datos.Actualizar_Empleado(Empleado);
+
+            if (respuesta == "OK")
+            {
+                CargarEmpleados("%"); // Volver a cargar el grid
+                LimpiarCampos();
+                ActivarTextos(false);
+                ActivarBotones(true);
+
+                MessageBox.Show("Datos Actualizados Correctamente!", "Sistema Gestión de Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(respuesta, "Sistema Gestión de Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void EliminarEmpleados()
+        {
+            D_Empleados Datos = new D_Empleados();
+            string respuesta = Datos.Borrar_Empleado(iCodigoEmpleado);
+
+            if (respuesta == "OK")
+            {
+                CargarEmpleados("%"); // Volver a cargar el grid
+                LimpiarCampos();
+             
+                MessageBox.Show("Datos Eliminados Correctamente!", "Sistema Gestión de Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(respuesta, "Sistema Gestión de Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
         #endregion
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -262,22 +312,40 @@ namespace pjGestionEmpleados.Presentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            frmReporteEmpleados formReporteEmpleados = new frmReporteEmpleados();
+            formReporteEmpleados.txtFiltrar.Text = txtBuscar.Text;
+            formReporteEmpleados.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (iCodigoEmpleado != 0)
+            {
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de eliminar este registro?",
+                                         "Sistema de Gestión de Empleados",
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Information);
 
+                if (resultado == DialogResult.Yes)
+                {
+                    EliminarEmpleados();
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un Registro", "Sistema de Gestión de Empleados", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (validarTextos())
+            if (ValidarTextos())
             {
                 MessageBox.Show("Hay Campos vacíos, debes llenar todos los campos (*) obligatorios",
                 "Sistema Gestión de Empleados",
@@ -286,7 +354,8 @@ namespace pjGestionEmpleados.Presentacion
             }
             else
             {
-                GuardarEmpleados();
+                if (iCodigoEmpleado == 0) GuardarEmpleados();
+                else ActualizarEmpleados();
             }
         }
 
@@ -347,6 +416,11 @@ namespace pjGestionEmpleados.Presentacion
         }
 
         private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
