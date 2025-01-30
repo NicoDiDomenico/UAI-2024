@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PrimeraApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81575caa2d60c4d78b7400af1f1846cc3a541419")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0fb048368ff0369da756127cacd49040e791fd37")]
 [assembly: System.Reflection.AssemblyProductAttribute("PrimeraApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PrimeraApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

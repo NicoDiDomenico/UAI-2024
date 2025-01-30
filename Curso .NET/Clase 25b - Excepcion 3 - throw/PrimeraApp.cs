@@ -21,10 +21,14 @@ namespace LanzamientoExcepciones
                 // Llamar al método para obtener el nombre del mes
                 Console.WriteLine(NombreDelMes(NumeroMes));
             }
-            catch (ArgumentOutOfRangeException) // no hace falta poner errorAOORE para delcarar la variable ya que no la usamos
+            catch (ArgumentOutOfRangeException aoore) // no hace falta poner errorAOORE para delcarar la variable ya que no la usamos
             {
                 // Manejar el caso en que el mes no sea válido
                 Console.WriteLine("El número de mes introducido no es válido. Debe estar entre 1 y 12.");
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine(aoore); // Opcionalmente tambien puedo lanzar el error por consola
+                // throw aoore; // Tambien puedo lanzar la excepcion pero no continuará con el codigo siguiente
+                Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
             }
 
             Console.WriteLine("Aquí continuaría la ejecución del resto del programa");
@@ -61,7 +65,8 @@ namespace LanzamientoExcepciones
                     return "Diciembre"; // No hace falta el break si existe algo como el return o el throw.
                 default:
                     // Lanza una excepción si el número está fuera del rango 1-12
-                    throw new ArgumentOutOfRangeException();
+                    ArgumentOutOfRangeException aoore = new ArgumentOutOfRangeException();
+                    throw aoore;
                     /*
                     Buscarlas acá a las excepciones que mas se ajustan a lo que necesitamos:
                     https://learn.microsoft.com/en-us/dotnet/api/system?view=net-9.0

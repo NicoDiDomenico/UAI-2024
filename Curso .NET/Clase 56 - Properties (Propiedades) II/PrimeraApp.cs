@@ -15,6 +15,9 @@ namespace ProyectoHerencia
 
             Console.WriteLine("El salario del empleado es: " + Juan.SALARIO);
 
+            Juan.EDAD = 20;
+
+            Console.WriteLine("Su edad es: " + Juan.EDAD);
         }
 
     }
@@ -52,7 +55,7 @@ namespace ProyectoHerencia
             else return salario;
         }
 
-        // CREACIÓN DE PROPIEDAD - hace que una variable privada se use como publcia sin violar sus reglas
+        // CREACIÓN DE PROPIEDAD - hace que una variable privada se use como publica sin violar sus reglas
         /*public double SALARIO
         {
             get { return this.salario; }
@@ -66,6 +69,9 @@ namespace ProyectoHerencia
             set => this.salario = evaluaSalario(value);
         }
 
+        // ULtra Simplificacion - No es necesario declarar
+        public double EDAD { get; set; }
+        // OJO: NO se puede aplicar si necesitas validaciones en set (como evaluaSalario(value)).
     }
 
 }
