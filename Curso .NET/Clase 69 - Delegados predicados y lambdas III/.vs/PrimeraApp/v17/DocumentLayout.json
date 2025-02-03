@@ -14,8 +14,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +28,7 @@
               "RelativeDocumentMoniker": "PrimeraApp.cs",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 69 - Delegados predicados y lambdas III\\PrimeraApp.cs",
               "RelativeToolTip": "PrimeraApp.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAgwCkAAACIAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwCkAAACIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-03T02:43:05.945Z",
               "EditorCaption": ""
