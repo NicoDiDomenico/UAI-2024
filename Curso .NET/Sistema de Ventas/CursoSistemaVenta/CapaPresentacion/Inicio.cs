@@ -84,7 +84,7 @@ namespace CapaPresentacion
         }
         #endregion
 
-        public Inicio(Usuario objUsuario = null) // Este se ejecuta 1ro
+        public Inicio(Usuario objUsuario = null) // Este se ejecuta 1ro 
         {
             // Momentaneo, sacar '= null'
             if (objUsuario == null)
@@ -93,7 +93,7 @@ namespace CapaPresentacion
                 usuarioActual = objUsuario;
             //
 
-            //usuarioActual = objUsuario;
+            // usuarioActual = objUsuario;
 
             InitializeComponent();
         }

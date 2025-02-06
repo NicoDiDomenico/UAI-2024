@@ -24,3 +24,4 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\C
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmReportes.resources
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuarios.resources
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmVentas.resources
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources

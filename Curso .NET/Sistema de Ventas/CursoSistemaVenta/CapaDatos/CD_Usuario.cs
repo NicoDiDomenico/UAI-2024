@@ -26,7 +26,13 @@ namespace CapaDatos
                 try
                 {
                     // Consulta SQL para obtener los datos de la tabla 'usuario'
-                    string query = "select IdUsuario, Documento, NombreCompleto, Correo, Clave, Estado from usuario";
+                    // string query = "select IdUsuario, Documento, NombreCompleto, Correo, Clave, Estado from usuario";
+                    string query = @"
+                        select u.IdUsuario, u.Documento, u.NombreCompleto, u.Correo, u.Clave, u.Estado, r.IdRol, r.Descripcion
+                        from usuario u
+                        inner join ROL r
+                        on r.IdRol = u.IdRol
+                    ";
 
                     // Se crea un comando SQL con la consulta y la conexión
                     SqlCommand cmd = new SqlCommand(query, oconexion);
@@ -42,7 +48,7 @@ namespace CapaDatos
                     {
                         // Mientras haya filas para leer
                         while (dr.Read()) // dr.Read() avanza a la siguiente fila de los resultados, al inicio está en una fila anterior a la primera, pero al ejecutarse por 1ra vez en el while pasar a posicionarse en la primera fila.
-                        {                            
+                        {
                             // Se añade un nuevo objeto Usuario a la lista, mapeando los campos de la base de datos a las propiedades del objeto
                             lista.Add(new Usuario()
                             {
@@ -51,7 +57,7 @@ namespace CapaDatos
                                 NombreCompleto = dr["NombreCompleto"].ToString(),         // Convierte 'NombreCompleto' a string
                                 Correo = dr["Correo"].ToString(),                         // Convierte 'Correo' a string
                                 Clave = dr["Clave"].ToString(),                           // Convierte 'Clave' a string
-                                // no traigo el Rol
+                                oRol = new Rol { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() }, // No lo necesito
                                 Estado = Convert.ToBoolean(dr["Estado"])                  // Convierte el valor de 'Estado' a booleano (true/false)
                                 // no traigo la FechaRegistro
                             });
@@ -83,5 +89,123 @@ namespace CapaDatos
             // Se devuelve la lista de usuarios obtenida de la base de datos
             return lista;
         }
+
+        public int Registrar(Usuario obj, out string Mensaje)
+        {
+            int idusuariogenerado = 0; // Variable para almacenar el ID del usuario generado por la BD
+            Mensaje = string.Empty; // Inicializa la variable de mensaje como vacía
+
+            try
+            {
+                // Se abre una conexión a la base de datos utilizando la cadena de conexión definida
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    // Se crea un objeto SqlCommand para ejecutar el procedimiento almacenado "SP_REGISTRARUSUARIO"
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", oconexion);
+
+                    // Se agregan parámetros al comando SQL con los valores del objeto 'Usuario'
+                    cmd.Parameters.AddWithValue("Documento", obj.Documento);
+                    cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("Clave", obj.Clave);
+                    cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
+                    cmd.Parameters.AddWithValue("Estado", obj.Estado);
+
+                    // Se definen parámetros de salida que serán retornados por el procedimiento almacenado
+                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    // Se indica que el tipo de comando es un procedimiento almacenado
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Se abre la conexión con la base de datos
+                    oconexion.Open();
+
+                    // Se ejecuta el procedimiento almacenado
+                    cmd.ExecuteNonQuery();
+
+                    // Se obtienen los valores de los parámetros de salida después de la ejecución del procedimiento
+                    idusuariogenerado = Convert.ToInt32(cmd.Parameters["IdUsuarioResultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si hay un error, se captura la excepción y se devuelve un ID de usuario 0 con el mensaje de error
+                idusuariogenerado = 0;
+                Mensaje = ex.Message;
+            }
+
+            return idusuariogenerado; // Retorna el ID del usuario generado o 0 si hubo error
+        }
+
+        public bool Editar(Usuario obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", oconexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.AddWithValue("Documento", obj.Documento);
+                    cmd.Parameters.AddWithValue("NombreCompleto", obj.NombreCompleto);
+                    cmd.Parameters.AddWithValue("Correo", obj.Correo);
+                    cmd.Parameters.AddWithValue("Clave", obj.Clave);
+                    cmd.Parameters.AddWithValue("IdRol", obj.oRol.IdRol);
+                    cmd.Parameters.AddWithValue("Estado", obj.Estado);
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return respuesta;
+        }
+
+        public bool Eliminar(Usuario obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINARUSUARIO", oconexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return respuesta;
+        }
+
     }
 }
