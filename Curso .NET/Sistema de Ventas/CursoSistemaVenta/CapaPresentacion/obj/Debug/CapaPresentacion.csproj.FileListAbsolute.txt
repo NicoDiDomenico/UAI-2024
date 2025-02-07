@@ -25,30 +25,30 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\C
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuarios.resources
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmVentas.resources
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaPresentacion.exe
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaEntidad.dll
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaNegocio.dll
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaDatos.dll
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaEntidad.pdb
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaNegocio.pdb
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaDatos.pdb
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmCategoria.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmClientes.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmCompras.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmProducto.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmProveedores.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmReportes.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuarios.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmVentas.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Inicio.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Login.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPres.61CA7C38.Up2Date
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.exe
-C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaPresentacion.exe
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaEntidad.dll
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaNegocio.dll
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\FontAwesome.Sharp.dll
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaDatos.dll
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaEntidad.pdb
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaNegocio.pdb
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\CapaDatos.pdb
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.AssemblyReference.cache
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmCategoria.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmClientes.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmCompras.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmProducto.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmProveedores.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmReportes.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmUsuarios.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmVentas.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Inicio.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Login.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Properties.Resources.resources
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.GenerateResource.cache
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CoreCompileInputs.cache
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPres.61CA7C38.Up2Date
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.exe
+D:\Back Up Sistema Ventas\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
