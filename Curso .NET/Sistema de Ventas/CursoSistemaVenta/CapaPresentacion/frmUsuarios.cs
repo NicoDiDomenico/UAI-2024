@@ -143,9 +143,9 @@ namespace CapaPresentacion
 
                 if (unUsuario.IdUsuario == 0)
                 {
-                    int idusuariogenerado = new CN_Usuario().Registrar(unUsuario, out mensaje);
+                    int idUsuarioGenerado = new CN_Usuario().Registrar(unUsuario, out mensaje);
 
-                    if (idusuariogenerado != 0)
+                    if (idUsuarioGenerado != 0)
                     {
                         // Mi Forma:
                         dgvData.Rows.Clear();
