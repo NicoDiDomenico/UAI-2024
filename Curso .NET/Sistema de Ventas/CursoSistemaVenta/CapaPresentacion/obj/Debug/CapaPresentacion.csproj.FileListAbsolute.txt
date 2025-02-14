@@ -78,3 +78,5 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\C
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmNegocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProducto.resources
