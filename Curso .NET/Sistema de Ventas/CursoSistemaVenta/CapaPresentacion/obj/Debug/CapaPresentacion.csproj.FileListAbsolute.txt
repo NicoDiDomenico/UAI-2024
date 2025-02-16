@@ -80,3 +80,10 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\C
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmNegocio.resources
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdProducto.resources
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmDetalleVenta.resources
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.frmDetalleCompra.resources
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\itextsharp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\itextsharp.xml
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll

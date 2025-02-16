@@ -536,3 +536,96 @@ select * from NEGOCIO
 
 insert into NEGOCIO (IdNegocio, Nombre, RUC, Direccion) 
 values (1, 'Codigo Estudiante', '101010', 'av. codigo 123');
+
+/* PROCESOS PARA REGISTRAR UNA COMPRA */
+-- Esta estructura será utilizada como tipo de parametro usado en mi codigo C# --
+CREATE TYPE [dbo].[EDetalle_Compra] AS TABLE(
+    [IdProducto] int NULL,
+    [PrecioCompra] decimal(18,2) NULL,
+    [PrecioVenta] decimal(18,2) NULL,
+    [Cantidad] int NULL,
+    [MontoTotal] decimal(18,2) NULL
+)
+
+GO
+/* PROCESO PARA REGISTRAR UNA COMPRA */
+
+CREATE PROCEDURE sp_RegistrarCompra(
+    @IdUsuario INT,
+    @IdProveedor INT,
+    @TipoDocumento VARCHAR(500),
+    @NumeroDocumento VARCHAR(500),
+    @MontoTotal DECIMAL(18,2),
+    @DetalleCompra [EDetalle_Compra] READONLY,
+    @Resultado BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicialización de variables
+        DECLARE @IdCompra INT = 0;
+        SET @Resultado = 1;
+        SET @Mensaje = '';
+
+        -- Iniciar transacción
+        BEGIN TRANSACTION registro;
+
+        -- Insertar en la tabla COMPRA
+        INSERT INTO COMPRA (IdUsuario, IdProveedor, TipoDocumento, NumeroDocumento, MontoTotal)
+        VALUES (@IdUsuario, @IdProveedor, @TipoDocumento, @NumeroDocumento, @MontoTotal);
+
+        -- Obtener el ID de la compra recién insertada
+        SET @IdCompra = SCOPE_IDENTITY();
+
+        -- Insertar los detalles de la compra en DETALLE_COMPRA
+        INSERT INTO DETALLE_COMPRA (IdCompra, IdProducto, PrecioCompra, PrecioVenta, Cantidad, MontoTotal)
+        SELECT @IdCompra, IdProducto, PrecioCompra, PrecioVenta, Cantidad, MontoTotal 
+        FROM @DetalleCompra;
+
+        -- Actualizar el stock y precios de los productos en la tabla PRODUCTO
+        UPDATE p
+        SET 
+            p.Stock = p.Stock + dc.Cantidad,
+            p.PrecioCompra = dc.PrecioCompra,
+            p.PrecioVenta = dc.PrecioVenta
+        FROM PRODUCTO p
+        INNER JOIN @DetalleCompra dc ON dc.IdProducto = p.IdProducto;
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION registro;
+    END TRY
+    BEGIN CATCH
+        -- Manejo de errores
+        SET @Resultado = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+        
+        -- Revertir la transacción en caso de error
+        ROLLBACK TRANSACTION registro;
+    END CATCH
+END;
+
+/* Para asginar un mumero de documento a la nuyeva compra que se hace en la capa de presentacion frmCompras */
+select count(*) + 1 from COMPRA
+
+/* Chequeando si se registro bien la compra */
+select * from COMPRA c
+where c.NumeroDocumento = '000001'; 
+
+select * from DETALLE_COMPRA
+where IdCompra = 1; 
+
+select c.IdCompra,
+       u.NombreCompleto,
+       pr.Documento, pr.RazonSocial,
+       c.TipoDocumento, c.NumeroDocumento, c.MontoTotal,
+       convert(char(10), c.FechaRegistro, 103) [FechaRegistro]
+from COMPRA c
+inner join USUARIO u on u.IdUsuario = c.IdUsuario
+inner join PROVEEDOR pr on pr.IdProveedor = c.IdProveedor
+where c.NumeroDocumento = '000001';
+
+select p.Nombre, dc.PrecioCompra, dc.Cantidad, dc.MontoTotal
+from DETALLE_COMPRA dc
+inner join PRODUCTO p on p.IdProducto = dc.IdProducto
+where dc.IdCompra = 1;
