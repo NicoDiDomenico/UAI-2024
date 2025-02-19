@@ -23,6 +23,11 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        private void frmDetalleCompra_Load(object sender, EventArgs e)
+        {
+            txtBusqueda.Select();
+        }
+
         // Probar con: 000001
         private void btnBuscar_Click(object sender, EventArgs e)
         {

@@ -87,3 +87,4 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\C
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\BouncyCastle.Cryptography.xml
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\itextsharp.xml
 C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Sistema de Ventas\CursoSistemaVenta\CapaPresentacion\obj\Debug\CapaPresentacion.Modales.mdCliente.resources

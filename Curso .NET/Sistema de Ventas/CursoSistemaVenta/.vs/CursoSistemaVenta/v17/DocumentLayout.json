@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capapresentacion\\frmdetallecompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmdetallecompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capapresentacion\\frmdetalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmdetalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capapresentacion\\frmdetallecompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmdetallecompra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{4BAD2589-819A-461D-AE38-B17B855C865C}|CapaEntidad\\CapaEntidad.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capaentidad\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4BAD2589-819A-461D-AE38-B17B855C865C}|CapaEntidad\\CapaEntidad.csproj|solutionrelative:capaentidad\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2FAB1520-F165-4846-843A-EE5A6585D018}|CapaDatos\\CapaDatos.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capadatos\\cd_compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2FAB1520-F165-4846-843A-EE5A6585D018}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\cd_compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capapresentacion\\frmdetalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmdetalleventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E520EB0D-C05A-4F41-BB35-A1A7B5740299}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capanegocio\\cn_compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E520EB0D-C05A-4F41-BB35-A1A7B5740299}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\cn_compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E520EB0D-C05A-4F41-BB35-A1A7B5740299}|CapaNegocio\\CapaNegocio.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capanegocio\\cn_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E520EB0D-C05A-4F41-BB35-A1A7B5740299}|CapaNegocio\\CapaNegocio.csproj|solutionrelative:capanegocio\\cn_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2FAB1520-F165-4846-843A-EE5A6585D018}|CapaDatos\\CapaDatos.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\sistema de ventas\\cursosistemaventa\\capadatos\\cd_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FAB1520-F165-4846-843A-EE5A6585D018}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\cd_venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,21 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmDetalleCompra.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleCompra.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmDetalleCompra.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleCompra.cs [Dise\u00F1o]",
-              "RelativeToolTip": "CapaPresentacion\\frmDetalleCompra.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T22:42:12.098Z",
-              "IsPinned": true,
-              "EditorCaption": " [Dise\u00F1o]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -48,40 +47,90 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmDetalleCompra.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleCompra.cs",
-              "RelativeDocumentMoniker": "CapaPresentacion\\frmDetalleCompra.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleCompra.cs",
-              "RelativeToolTip": "CapaPresentacion\\frmDetalleCompra.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAswBkAAAAXAAAA",
+              "Title": "frmDetalleVenta.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleVenta.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmDetalleVenta.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleVenta.cs",
+              "RelativeToolTip": "CapaPresentacion\\frmDetalleVenta.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAwwJQAAABeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T23:15:24.005Z",
+              "WhenOpened": "2025-02-19T18:35:44.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CD_Compra.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaDatos\\CD_Compra.cs",
-              "RelativeDocumentMoniker": "CapaDatos\\CD_Compra.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaDatos\\CD_Compra.cs",
-              "RelativeToolTip": "CapaDatos\\CD_Compra.cs",
-              "ViewState": "AQIAAG0AAAAAAAAAAAAswGwAAAAuAAAA",
+              "Title": "frmDetalleVenta.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleVenta.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmDetalleVenta.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmDetalleVenta.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CapaPresentacion\\frmDetalleVenta.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T22:53:04.304Z",
+              "WhenOpened": "2025-02-19T18:35:37.181Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Venta.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaEntidad\\Venta.cs",
+              "RelativeDocumentMoniker": "CapaEntidad\\Venta.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaEntidad\\Venta.cs",
+              "RelativeToolTip": "CapaEntidad\\Venta.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T18:30:10.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CN_Venta.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaNegocio\\CN_Venta.cs",
+              "RelativeDocumentMoniker": "CapaNegocio\\CN_Venta.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaNegocio\\CN_Venta.cs",
+              "RelativeToolTip": "CapaNegocio\\CN_Venta.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowCwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T18:27:34.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CD_Venta.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaDatos\\CD_Venta.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\CD_Venta.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaDatos\\CD_Venta.cs",
+              "RelativeToolTip": "CapaDatos\\CD_Venta.cs",
+              "ViewState": "AQIAAMQAAAAAAAAAAAAgwKIAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T17:47:34.408Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CN_Compra.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaNegocio\\CN_Compra.cs",
-              "RelativeDocumentMoniker": "CapaNegocio\\CN_Compra.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaNegocio\\CN_Compra.cs",
-              "RelativeToolTip": "CapaNegocio\\CN_Compra.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwCcAAAAAAAAA",
+              "Title": "frmVentas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmVentas.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmVentas.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmVentas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CapaPresentacion\\frmVentas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-16T23:09:09.985Z",
+              "WhenOpened": "2025-02-18T20:50:18.97Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmVentas.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmVentas.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\frmVentas.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Sistema de Ventas\\CursoSistemaVenta\\CapaPresentacion\\frmVentas.cs",
+              "RelativeToolTip": "CapaPresentacion\\frmVentas.cs",
+              "ViewState": "AQIAAG0BAAAAAAAAAAAIwI4BAABRAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-17T18:27:18.951Z",
               "EditorCaption": ""
             }
           ]

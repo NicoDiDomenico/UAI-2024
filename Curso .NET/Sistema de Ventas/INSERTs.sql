@@ -629,3 +629,77 @@ select p.Nombre, dc.PrecioCompra, dc.Cantidad, dc.MontoTotal
 from DETALLE_COMPRA dc
 inner join PRODUCTO p on p.IdProducto = dc.IdProducto
 where dc.IdCompra = 1;
+
+select * from CLIENTE
+update CLIENTE set Estado = 1
+
+/* PROCESOS PARA REGISTRAR UNA VENTA */
+CREATE TYPE [dbo].[EDetalle_Venta] AS TABLE(
+    [IdProducto] int NULL,
+    [PrecioVenta] decimal(18,2) NULL,
+    [Cantidad] int NULL,
+    [SubTotal] decimal(18,2) NULL
+)
+
+GO
+
+CREATE PROCEDURE usp_RegistrarVenta(
+    @IdUsuario int,
+    @TipoDocumento varchar(500),
+    @NumeroDocumento varchar(500),
+    @DocumentoCliente varchar(500),
+    @NombreCliente varchar(500),
+    @MontoPago decimal(18,2),
+    @MontoCambio decimal(18,2),
+    @MontoTotal decimal(18,2),
+    @DetalleVenta [EDetalle_Venta] READONLY,
+    @Resultado bit OUTPUT,
+    @Mensaje varchar(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        DECLARE @idVenta int = 0
+        SET @Resultado = 1
+        SET @Mensaje = ''
+
+        BEGIN TRANSACTION registro
+
+        INSERT INTO VENTA(IdUsuario, TipoDocumento, NumeroDocumento, DocumentoCliente, NombreCliente, MontoPago, MontoCambio, MontoTotal)
+        VALUES(@IdUsuario, @TipoDocumento, @NumeroDocumento, @DocumentoCliente, @NombreCliente, @MontoPago, @MontoCambio, @MontoTotal)
+
+        SET @idVenta = SCOPE_IDENTITY()
+
+        INSERT INTO DETALLE_VENTA(IdVenta, IdProducto, PrecioVenta, Cantidad, SubTotal)
+        SELECT @idVenta, IdProducto, PrecioVenta, Cantidad, SubTotal FROM @DetalleVenta
+
+        COMMIT TRANSACTION registro
+    END TRY
+    BEGIN CATCH
+        SET @Resultado = 0
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION registro
+    END CATCH
+END
+
+/* Reducir el stock cuando se hace una venta */
+update producto set stock = stock - @cantidad where idproducto = @idproducto
+
+select * from Venta 
+
+select * from DETALLE_VENTA
+
+/* Consultas para Ver detalles de la venta */
+select v.IdVenta, u.NombreCompleto,
+       v.DocumentoCliente, v.NombreCliente,
+       v.TipoDocumento, v.NumeroDocumento,
+       v.MontoPago, v.MontoCambio, v.MontoTotal,
+       convert(char(10), v.FechaRegistro, 103) [FechaRegistro]
+from VENTA v
+inner join USUARIO u on u.IdUsuario = v.IdUsuario
+where v.NumeroDocumento = '00001'
+
+select p.Nombre, dv.PrecioVenta, dv.Cantidad, dv.SubTotal
+from DETALLE_VENTA dv
+inner join PRODUCTO p on p.IdProducto = dv.IdProducto
+where dv.IdVenta = 1

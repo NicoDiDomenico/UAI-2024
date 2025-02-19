@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,7 +69,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.btnRegistrar = new FontAwesome.Sharp.IconButton();
             this.btnAgreagar = new FontAwesome.Sharp.IconButton();
-            this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -87,6 +86,7 @@
             this.label10.Size = new System.Drawing.Size(998, 515);
             this.label10.TabIndex = 21;
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label9
             // 
@@ -98,6 +98,7 @@
             this.label9.Size = new System.Drawing.Size(170, 25);
             this.label9.TabIndex = 22;
             this.label9.Text = "Registrar Compra:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label1
             // 
@@ -108,6 +109,7 @@
             this.label1.Size = new System.Drawing.Size(89, 13);
             this.label1.TabIndex = 25;
             this.label1.Text = "Tipo Documento:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -118,6 +120,7 @@
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 24;
             this.label2.Text = "Fecha:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtFecha
             // 
@@ -125,6 +128,7 @@
             this.txtFecha.Name = "txtFecha";
             this.txtFecha.Size = new System.Drawing.Size(157, 20);
             this.txtFecha.TabIndex = 26;
+            this.txtFecha.TextChanged += new System.EventHandler(this.txtFecha_TextChanged);
             // 
             // cboTipoDocumento
             // 
@@ -133,6 +137,7 @@
             this.cboTipoDocumento.Name = "cboTipoDocumento";
             this.cboTipoDocumento.Size = new System.Drawing.Size(217, 21);
             this.cboTipoDocumento.TabIndex = 27;
+            this.cboTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cboTipoDocumento_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -147,6 +152,7 @@
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información Compra";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtDocProveedor
             // 
@@ -154,6 +160,7 @@
             this.txtDocProveedor.Name = "txtDocProveedor";
             this.txtDocProveedor.Size = new System.Drawing.Size(157, 20);
             this.txtDocProveedor.TabIndex = 26;
+            this.txtDocProveedor.TextChanged += new System.EventHandler(this.txtDocProveedor_TextChanged);
             // 
             // label3
             // 
@@ -164,6 +171,7 @@
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 25;
             this.label3.Text = "Razón Social:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // groupBox2
             // 
@@ -180,6 +188,7 @@
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información Proveedor";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtIdProveedor
             // 
@@ -189,6 +198,7 @@
             this.txtIdProveedor.TabIndex = 30;
             this.txtIdProveedor.Text = "0";
             this.txtIdProveedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdProveedor.TextChanged += new System.EventHandler(this.txtIdProveedor_TextChanged);
             // 
             // btnBuscarProveedor
             // 
@@ -215,6 +225,7 @@
             this.txtNombreProveedor.Name = "txtNombreProveedor";
             this.txtNombreProveedor.Size = new System.Drawing.Size(189, 20);
             this.txtNombreProveedor.TabIndex = 27;
+            this.txtNombreProveedor.TextChanged += new System.EventHandler(this.txtNombreProveedor_TextChanged);
             // 
             // label4
             // 
@@ -225,6 +236,7 @@
             this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 24;
             this.label4.Text = "Nro Documento:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // groupBox3
             // 
@@ -247,6 +259,7 @@
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Información Producto";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label11
             // 
@@ -257,6 +270,7 @@
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 38;
             this.label11.Text = "Cantidad";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // nudCantidad
             // 
@@ -279,6 +293,7 @@
             0,
             0,
             0});
+            this.nudCantidad.ValueChanged += new System.EventHandler(this.nudCantidad_ValueChanged);
             // 
             // label8
             // 
@@ -289,6 +304,7 @@
             this.label8.Size = new System.Drawing.Size(71, 13);
             this.label8.TabIndex = 36;
             this.label8.Text = "Precio Venta:";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -299,6 +315,7 @@
             this.label7.Size = new System.Drawing.Size(79, 13);
             this.label7.TabIndex = 35;
             this.label7.Text = "Precio Compra:";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtPrecioVenta
             // 
@@ -306,6 +323,7 @@
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(106, 20);
             this.txtPrecioVenta.TabIndex = 34;
+            this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
             this.txtPrecioVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioVenta_KeyPress);
             // 
             // txtPrecioCompra
@@ -314,6 +332,7 @@
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(108, 20);
             this.txtPrecioCompra.TabIndex = 33;
+            this.txtPrecioCompra.TextChanged += new System.EventHandler(this.txtPrecioCompra_TextChanged);
             this.txtPrecioCompra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioCompra_KeyPress);
             // 
             // txtProducto
@@ -322,6 +341,7 @@
             this.txtProducto.Name = "txtProducto";
             this.txtProducto.Size = new System.Drawing.Size(160, 20);
             this.txtProducto.TabIndex = 32;
+            this.txtProducto.TextChanged += new System.EventHandler(this.txtProducto_TextChanged);
             // 
             // txtIdProducto
             // 
@@ -331,6 +351,7 @@
             this.txtIdProducto.TabIndex = 31;
             this.txtIdProducto.Text = "0";
             this.txtIdProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdProducto.TextChanged += new System.EventHandler(this.txtIdProducto_TextChanged);
             // 
             // btnBuscarProducto
             // 
@@ -357,6 +378,7 @@
             this.txtCodProducto.Name = "txtCodProducto";
             this.txtCodProducto.Size = new System.Drawing.Size(127, 20);
             this.txtCodProducto.TabIndex = 26;
+            this.txtCodProducto.TextChanged += new System.EventHandler(this.txtCodProducto_TextChanged);
             this.txtCodProducto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodProducto_KeyDown);
             // 
             // label5
@@ -368,6 +390,7 @@
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 24;
             this.label5.Text = "Código Producto:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -378,20 +401,21 @@
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Producto:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // dgvData
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdProducto,
@@ -405,9 +429,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(763, 285);
             this.dgvData.TabIndex = 29;
@@ -471,6 +495,7 @@
             this.txtTotalPagar.Size = new System.Drawing.Size(98, 20);
             this.txtTotalPagar.TabIndex = 39;
             this.txtTotalPagar.Text = "0";
+            this.txtTotalPagar.TextChanged += new System.EventHandler(this.txtTotalPagar_TextChanged);
             // 
             // label12
             // 
@@ -481,6 +506,7 @@
             this.label12.Size = new System.Drawing.Size(74, 13);
             this.label12.TabIndex = 39;
             this.label12.Text = "Total a Pagar:";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // btnRegistrar
             // 
@@ -513,18 +539,6 @@
             this.btnAgreagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAgreagar.UseVisualStyleBackColor = true;
             this.btnAgreagar.Click += new System.EventHandler(this.btnAgreagar_Click);
-            // 
-            // iconSplitButton1
-            // 
-            this.iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconSplitButton1.IconColor = System.Drawing.Color.Black;
-            this.iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSplitButton1.IconSize = 48;
-            this.iconSplitButton1.Name = "iconSplitButton1";
-            this.iconSplitButton1.Rotation = 0D;
-            this.iconSplitButton1.Size = new System.Drawing.Size(23, 23);
-            this.iconSplitButton1.Text = "iconSplitButton1";
             // 
             // frmCompras
             // 
@@ -598,6 +612,5 @@
         private System.Windows.Forms.TextBox txtTotalPagar;
         private System.Windows.Forms.Label label12;
         private FontAwesome.Sharp.IconButton btnRegistrar;
-        private FontAwesome.Sharp.IconSplitButton iconSplitButton1;
     }
 }

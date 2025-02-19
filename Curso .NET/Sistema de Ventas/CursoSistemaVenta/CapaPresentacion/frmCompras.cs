@@ -111,7 +111,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    txtDocProveedor.Select(); 
+                    txtCodProducto.Select(); 
                 }
             }
         }
@@ -221,7 +221,7 @@ namespace CapaPresentacion
                 // Pinta la celda con sus partes predeterminadas
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
 
-                // Obtiene el ancho y alto del recurso (icono o imagen "trash20")
+                // Obtiene el ancho y alto del recurso (icono o imagen "trash")
                 var w = Properties.Resources.trash.Width;
                 var h = Properties.Resources.trash.Height;
 
@@ -387,6 +387,147 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        /* Ignorar los siguientes eventos... */
+        private void iconSplitButton1_ButtonClick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFecha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDocProveedor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdProveedor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombreProveedor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudCantidad_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioVenta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioCompra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotalPagar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

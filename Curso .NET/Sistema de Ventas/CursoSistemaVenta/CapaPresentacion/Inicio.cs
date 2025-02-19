@@ -18,7 +18,7 @@ namespace CapaPresentacion
     {
 
         #region "Variables"
-        private static Usuario usuarioActual;
+        private static Usuario usuarioActual; // La variable usuarioActual es compartida por todas las instancias de la clase Inicio.
         private static IconMenuItem MenuActivo = null;
         private static Form formularioActivo = null;
         #endregion
@@ -126,7 +126,7 @@ namespace CapaPresentacion
 
         private void subMenuRegistrarVenta_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuVentas, new frmVentas());
+            AbrirFormulario(menuVentas, new frmVentas(usuarioActual));
         }
 
         private void subMenuVerDetalleVenta_Click(object sender, EventArgs e)
