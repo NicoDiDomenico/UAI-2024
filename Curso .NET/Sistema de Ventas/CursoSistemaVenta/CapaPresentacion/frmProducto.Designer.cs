@@ -113,6 +113,7 @@
             this.cboBusqueda.Name = "cboBusqueda";
             this.cboBusqueda.Size = new System.Drawing.Size(127, 21);
             this.cboBusqueda.TabIndex = 51;
+            this.cboBusqueda.SelectedIndexChanged += new System.EventHandler(this.cboBusqueda_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -123,6 +124,7 @@
             this.label11.Size = new System.Drawing.Size(62, 13);
             this.label11.TabIndex = 50;
             this.label11.Text = "Buscar Por:";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // txtId
             // 

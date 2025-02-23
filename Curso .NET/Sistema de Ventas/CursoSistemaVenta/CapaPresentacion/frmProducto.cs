@@ -300,61 +300,72 @@ namespace CapaPresentacion
                 MessageBox.Show("No hay datos para exportar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return; // Salir del método para evitar ejecución innecesaria
             }
+            else { 
+                // Se crea un DataTable para almacenar los datos que se exportarán
+                DataTable dt = new DataTable();
 
-            // Se crea un DataTable para almacenar los datos que se exportarán
-            DataTable dt = new DataTable();
-
-            // Se recorren todas las columnas visibles del DataGridView para agregarlas al DataTable
-            foreach (DataGridViewColumn columna in dgvData.Columns)
-            {
-                if (columna.HeaderText != "" && columna.Visible) // Solo agrega columnas visibles con encabezado
+                // Se recorren todas las columnas visibles del DataGridView para agregarlas al DataTable
+                foreach (DataGridViewColumn columna in dgvData.Columns)
                 {
-                    dt.Columns.Add(columna.HeaderText, typeof(string)); // Agrega la columna al DataTable con tipo string
-                }
-            }
-
-            // Se recorren todas las filas visibles del DataGridView para agregarlas al DataTable
-            foreach (DataGridViewRow row in dgvData.Rows)
-            {
-                if (row.Visible) // Solo toma en cuenta las filas visibles
-                {
-                    dt.Rows.Add(new object[]
+                    if (columna.HeaderText != "" && columna.Visible) // Solo agrega columnas visibles con encabezado
                     {
-                row.Cells[2].Value.ToString(),  // Columna 2
-                row.Cells[3].Value.ToString(),  // Columna 3
-                row.Cells[4].Value.ToString(),  // Columna 4
-                row.Cells[6].Value.ToString(),  // Columna 6
-                row.Cells[7].Value.ToString(),  // Columna 7
-                row.Cells[8].Value.ToString(),  // Columna 8
-                row.Cells[9].Value.ToString(),  // Columna 9
-                row.Cells[11].Value.ToString()  // Columna 11
-                    });
+                        dt.Columns.Add(columna.HeaderText, typeof(string)); // Agrega la columna al DataTable con tipo string
+                    }
+                }
+
+                // Se recorren todas las filas visibles del DataGridView para agregarlas al DataTable
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    if (row.Visible) // Solo toma en cuenta las filas visibles
+                    {
+                        dt.Rows.Add(new object[]
+                        {
+                            row.Cells[2].Value.ToString(),  // Columna 2
+                            row.Cells[3].Value.ToString(),  // Columna 3
+                            row.Cells[4].Value.ToString(),  // Columna 4
+                            row.Cells[6].Value.ToString(),  // Columna 6
+                            row.Cells[7].Value.ToString(),  // Columna 7
+                            row.Cells[8].Value.ToString(),  // Columna 8
+                            row.Cells[9].Value.ToString(),  // Columna 9
+                            row.Cells[11].Value.ToString()  // Columna 11
+                        });
+                    }
+                }
+
+                // Se crea el cuadro de diálogo para guardar el archivo
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.FileName = string.Format("ReporteProducto_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss")); // Nombre del archivo con fecha y hora
+                savefile.Filter = "Excel Files | *.xlsx"; // Filtro para archivos Excel
+
+                // Si el usuario selecciona una ubicación y presiona "Guardar"
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Se crea un nuevo libro de Excel usando la biblioteca ClosedXML
+                        XLWorkbook wb = new XLWorkbook();
+                        var hoja = wb.Worksheets.Add(dt, "Informe"); // Se agrega una hoja llamada "Informe"
+                        hoja.ColumnsUsed().AdjustToContents(); // Ajusta las columnas al contenido automáticamente
+                        wb.SaveAs(savefile.FileName); // Guarda el archivo en la ubicación seleccionada
+                        MessageBox.Show("Reporte Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch
+                    {
+                        // Si ocurre un error al generar el archivo, muestra un mensaje de advertencia
+                        MessageBox.Show("Error al generar reporte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
+        }
 
-            // Se crea el cuadro de diálogo para guardar el archivo
-            SaveFileDialog savefile = new SaveFileDialog();
-            savefile.FileName = string.Format("ReporteProducto_{0}.xlsx", DateTime.Now.ToString("ddMMyyyyHHmmss")); // Nombre del archivo con fecha y hora
-            savefile.Filter = "Excel Files | *.xlsx"; // Filtro para archivos Excel
+        private void label11_Click(object sender, EventArgs e)
+        {
 
-            // Si el usuario selecciona una ubicación y presiona "Guardar"
-            if (savefile.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    // Se crea un nuevo libro de Excel usando la biblioteca ClosedXML
-                    XLWorkbook wb = new XLWorkbook();
-                    var hoja = wb.Worksheets.Add(dt, "Informe"); // Se agrega una hoja llamada "Informe"
-                    hoja.ColumnsUsed().AdjustToContents(); // Ajusta las columnas al contenido automáticamente
-                    wb.SaveAs(savefile.FileName); // Guarda el archivo en la ubicación seleccionada
-                    MessageBox.Show("Reporte Generado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch
-                {
-                    // Si ocurre un error al generar el archivo, muestra un mensaje de advertencia
-                    MessageBox.Show("Error al generar reporte", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
+        }
+
+        private void cboBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
