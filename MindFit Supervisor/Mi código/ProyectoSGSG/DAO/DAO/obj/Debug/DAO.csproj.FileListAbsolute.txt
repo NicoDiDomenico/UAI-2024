@@ -1,0 +1,9 @@
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\obj\Debug\DAO.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\obj\Debug\DAO.csproj.Up2Date
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\obj\Debug\DAO.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\DAO\DAO\obj\Debug\DAO.pdb
