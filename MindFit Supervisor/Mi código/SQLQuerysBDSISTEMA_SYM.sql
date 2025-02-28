@@ -20,6 +20,15 @@ SELECT * FROM Rol;
 
 SELECT IdRol, Descripcion FROM Rol
 
+SELECT r.IdRol, r.Descripcion, p.NombreMenu from Rol r
+inner join Permiso p
+on p.IdRol = r.IdRol
+
+SELECT p.NombreMenu from Permiso p
+inner join Rol r
+on p.IdRol = r.IdRol
+Where p.IdRol = 1
+
 GO
 ---
 CREATE TYPE [dbo].[ETabla_Permisos] AS TABLE(

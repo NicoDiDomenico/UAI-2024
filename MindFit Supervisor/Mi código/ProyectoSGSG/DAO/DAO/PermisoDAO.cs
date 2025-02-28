@@ -94,5 +94,54 @@ namespace DAO
             }
             return lista;
         }
+
+        public List<Permiso> ObtenerPermisosRol(int IdRol)
+        {
+            // Se crea una lista para almacenar los detalles de la compra
+            List<Permiso> oLista = new List<Permiso>();
+
+            try
+            {
+                // Se establece la conexión con la base de datos
+                using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+                {
+                    conexion.Open(); // Se abre la conexión
+
+                    string query = @"
+                        SELECT p.NombreMenu from Permiso p
+                        inner join Rol r
+                        on p.IdRol = r.IdRol
+                        Where p.IdRol = @IdRol
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
+
+                    cmd.Parameters.AddWithValue("@IdRol", IdRol);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    // Se ejecuta la consulta y se obtiene el resultado
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        // Se recorren los registros obtenidos
+                        while (dr.Read())
+                        {
+                            // Se agrega cada detalle de compra a la lista
+                            oLista.Add(new Permiso()
+                            {
+                                NombreMenu = dr["NombreMenu"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                oLista = new List<Permiso>();
+            }
+
+            // Se retorna la lista con los detalles de la compra
+            return oLista;
+        }
     }
 }

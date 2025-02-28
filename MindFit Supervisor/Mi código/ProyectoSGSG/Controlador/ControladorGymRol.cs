@@ -18,6 +18,7 @@ namespace Controlador
         {
             return objcd_rol.Listar();
         }
+
         public bool Registrar(string Descripcion, DataTable Permisos, out string Mensaje)
         {
             return objcd_rol.Registrar(Descripcion, Permisos, out Mensaje);

@@ -20,7 +20,11 @@ namespace DAO
             {
                 try
                 {
-                    string query = "SELECT IdRol, Descripcion FROM Rol";
+                    string query = @"
+                        SELECT r.IdRol, r.Descripcion, p.NombreMenu from Rol r
+                        inner join Permiso p
+                        on p.IdRol = r.IdRol
+                    ";  
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
 
