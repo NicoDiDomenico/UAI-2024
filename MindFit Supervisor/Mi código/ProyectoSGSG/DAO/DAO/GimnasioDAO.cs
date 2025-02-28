@@ -34,7 +34,7 @@ namespace DAO
                                 IdGimnasio = int.Parse(dr["IdGimnasio"].ToString()),
                                 NombreGimnasio = dr["NombreGimnasio"].ToString(),
                                 Direccion = dr["Direccion"].ToString(),
-                                Telefono = dr["Direccion"].ToString()
+                                Telefono = dr["Telefono"].ToString()
                             };
                         }
                     }

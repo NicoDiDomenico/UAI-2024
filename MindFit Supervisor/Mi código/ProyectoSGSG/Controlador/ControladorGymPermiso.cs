@@ -16,5 +16,9 @@ namespace Controlador
         {
             return objcd_permiso.Listar(idUsuario);
         }
+        public List<Permiso> ListarTodos()
+        {
+            return objcd_permiso.ListarTodos();
+        }
     }
 }

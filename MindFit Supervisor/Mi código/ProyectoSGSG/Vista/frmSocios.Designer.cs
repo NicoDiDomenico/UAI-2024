@@ -37,15 +37,15 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 164F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(40, 101);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(729, 249);
+            this.label1.Size = new System.Drawing.Size(690, 249);
             this.label1.TabIndex = 1;
-            this.label1.Text = "socios";
+            this.label1.Text = "Hacer";
             // 
             // frmSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1788, 740);
             this.Controls.Add(this.label1);
             this.Name = "frmSocios";
             this.Text = "frmSocios";

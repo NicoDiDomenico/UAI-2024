@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.subBotones = new System.Windows.Forms.MenuStrip();
+            this.subContenedor = new System.Windows.Forms.Panel();
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
+            this.menuRoles = new FontAwesome.Sharp.IconMenuItem();
             this.menuMaquinas = new FontAwesome.Sharp.IconMenuItem();
             this.menuEjercicios = new FontAwesome.Sharp.IconMenuItem();
             this.menuEquipamiento = new FontAwesome.Sharp.IconMenuItem();
@@ -37,7 +39,10 @@
             this.menuHistorialTurnos = new FontAwesome.Sharp.IconMenuItem();
             this.menuNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
-            this.subContenedor = new System.Windows.Forms.Panel();
+            this.asdsadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asdasdasdasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.agregarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
+            this.editarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
             this.subBotones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +52,7 @@
             this.subBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.subBotones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuarios,
+            this.menuRoles,
             this.menuMaquinas,
             this.menuEjercicios,
             this.menuEquipamiento,
@@ -56,11 +62,20 @@
             this.menuAcercaDe});
             this.subBotones.Location = new System.Drawing.Point(0, 0);
             this.subBotones.Name = "subBotones";
-            this.subBotones.Padding = new System.Windows.Forms.Padding(12, 2, 0, 2);
+            this.subBotones.Padding = new System.Windows.Forms.Padding(20, 2, 0, 2);
             this.subBotones.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.subBotones.Size = new System.Drawing.Size(1788, 95);
-            this.subBotones.TabIndex = 1;
+            this.subBotones.Size = new System.Drawing.Size(1788, 119);
+            this.subBotones.TabIndex = 0;
             this.subBotones.Text = "menuStrip1";
+            // 
+            // subContenedor
+            // 
+            this.subContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.subContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subContenedor.Location = new System.Drawing.Point(0, 119);
+            this.subContenedor.Name = "subContenedor";
+            this.subContenedor.Size = new System.Drawing.Size(1788, 621);
+            this.subContenedor.TabIndex = 11;
             // 
             // menuUsuarios
             // 
@@ -73,10 +88,28 @@
             this.menuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuUsuarios.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.menuUsuarios.Name = "menuUsuarios";
-            this.menuUsuarios.Size = new System.Drawing.Size(222, 100);
+            this.menuUsuarios.Size = new System.Drawing.Size(195, 100);
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
+            // 
+            // menuRoles
+            // 
+            this.menuRoles.AutoSize = false;
+            this.menuRoles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.agregarRolToolStripMenuItem,
+            this.editarRolToolStripMenuItem});
+            this.menuRoles.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuRoles.IconChar = FontAwesome.Sharp.IconChar.UserShield;
+            this.menuRoles.IconColor = System.Drawing.Color.Black;
+            this.menuRoles.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuRoles.IconSize = 55;
+            this.menuRoles.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuRoles.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.menuRoles.Name = "menuRoles";
+            this.menuRoles.Size = new System.Drawing.Size(195, 100);
+            this.menuRoles.Text = "Roles y Permisos";
+            this.menuRoles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // menuMaquinas
             // 
@@ -88,7 +121,7 @@
             this.menuMaquinas.IconSize = 55;
             this.menuMaquinas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuMaquinas.Name = "menuMaquinas";
-            this.menuMaquinas.Size = new System.Drawing.Size(221, 100);
+            this.menuMaquinas.Size = new System.Drawing.Size(195, 100);
             this.menuMaquinas.Text = "Maquinas";
             this.menuMaquinas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuMaquinas.Click += new System.EventHandler(this.menuMaquinas_Click);
@@ -103,7 +136,7 @@
             this.menuEjercicios.IconSize = 55;
             this.menuEjercicios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuEjercicios.Name = "menuEjercicios";
-            this.menuEjercicios.Size = new System.Drawing.Size(221, 100);
+            this.menuEjercicios.Size = new System.Drawing.Size(195, 100);
             this.menuEjercicios.Text = "Ejercicios";
             this.menuEjercicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuEjercicios.Click += new System.EventHandler(this.menuEjercicios_Click);
@@ -118,7 +151,7 @@
             this.menuEquipamiento.IconSize = 55;
             this.menuEquipamiento.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuEquipamiento.Name = "menuEquipamiento";
-            this.menuEquipamiento.Size = new System.Drawing.Size(221, 100);
+            this.menuEquipamiento.Size = new System.Drawing.Size(195, 100);
             this.menuEquipamiento.Text = "Equipamientos";
             this.menuEquipamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuEquipamiento.Click += new System.EventHandler(this.menuEquipamiento_Click);
@@ -133,7 +166,7 @@
             this.menuRangosHorarios.IconSize = 55;
             this.menuRangosHorarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuRangosHorarios.Name = "menuRangosHorarios";
-            this.menuRangosHorarios.Size = new System.Drawing.Size(221, 100);
+            this.menuRangosHorarios.Size = new System.Drawing.Size(195, 100);
             this.menuRangosHorarios.Text = "Rangos Horarios";
             this.menuRangosHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuRangosHorarios.Click += new System.EventHandler(this.menuRangosHorarios_Click);
@@ -148,7 +181,7 @@
             this.menuHistorialTurnos.IconSize = 55;
             this.menuHistorialTurnos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuHistorialTurnos.Name = "menuHistorialTurnos";
-            this.menuHistorialTurnos.Size = new System.Drawing.Size(222, 100);
+            this.menuHistorialTurnos.Size = new System.Drawing.Size(195, 100);
             this.menuHistorialTurnos.Text = "Historial Turnos";
             this.menuHistorialTurnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuHistorialTurnos.Click += new System.EventHandler(this.menuHistorialTurnos_Click);
@@ -163,7 +196,7 @@
             this.menuNegocio.IconSize = 55;
             this.menuNegocio.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuNegocio.Name = "menuNegocio";
-            this.menuNegocio.Size = new System.Drawing.Size(222, 100);
+            this.menuNegocio.Size = new System.Drawing.Size(195, 100);
             this.menuNegocio.Text = "Negocio";
             this.menuNegocio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuNegocio.Click += new System.EventHandler(this.menuNegocio_Click);
@@ -178,19 +211,42 @@
             this.menuAcercaDe.IconSize = 55;
             this.menuAcercaDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAcercaDe.Name = "menuAcercaDe";
-            this.menuAcercaDe.Size = new System.Drawing.Size(222, 100);
+            this.menuAcercaDe.Size = new System.Drawing.Size(195, 100);
             this.menuAcercaDe.Text = "Acerca de";
             this.menuAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuAcercaDe.Click += new System.EventHandler(this.menuAcercaDe_Click);
             // 
-            // subContenedor
+            // asdsadsToolStripMenuItem
             // 
-            this.subContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.subContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subContenedor.Location = new System.Drawing.Point(0, 95);
-            this.subContenedor.Name = "subContenedor";
-            this.subContenedor.Size = new System.Drawing.Size(1788, 645);
-            this.subContenedor.TabIndex = 11;
+            this.asdsadsToolStripMenuItem.Name = "asdsadsToolStripMenuItem";
+            this.asdsadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asdsadsToolStripMenuItem.Text = "asdsads";
+            // 
+            // asdasdasdasToolStripMenuItem
+            // 
+            this.asdasdasdasToolStripMenuItem.Name = "asdasdasdasToolStripMenuItem";
+            this.asdasdasdasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asdasdasdasToolStripMenuItem.Text = "asdasdasdas";
+            // 
+            // agregarRolToolStripMenuItem
+            // 
+            this.agregarRolToolStripMenuItem.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.agregarRolToolStripMenuItem.IconColor = System.Drawing.Color.Black;
+            this.agregarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.agregarRolToolStripMenuItem.Name = "agregarRolToolStripMenuItem";
+            this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.agregarRolToolStripMenuItem.Text = "Agregar  Rol";
+            this.agregarRolToolStripMenuItem.Click += new System.EventHandler(this.agregarRolToolStripMenuItem_Click);
+            // 
+            // editarRolToolStripMenuItem
+            // 
+            this.editarRolToolStripMenuItem.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.editarRolToolStripMenuItem.IconColor = System.Drawing.Color.Black;
+            this.editarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.editarRolToolStripMenuItem.Name = "editarRolToolStripMenuItem";
+            this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.editarRolToolStripMenuItem.Text = "Editar Rol";
+            this.editarRolToolStripMenuItem.Click += new System.EventHandler(this.editarRolToolStripMenuItem_Click);
             // 
             // frmGestionarGimnasio
             // 
@@ -222,5 +278,10 @@
         private FontAwesome.Sharp.IconMenuItem menuRangosHorarios;
         private FontAwesome.Sharp.IconMenuItem menuHistorialTurnos;
         private System.Windows.Forms.Panel subContenedor;
+        private FontAwesome.Sharp.IconMenuItem menuRoles;
+        private System.Windows.Forms.ToolStripMenuItem asdsadsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asdasdasdasToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem agregarRolToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem editarRolToolStripMenuItem;
     }
 }

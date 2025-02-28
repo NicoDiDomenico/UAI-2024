@@ -41,11 +41,11 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario ousuario = (((new ControladorGymUsuario()).Listar()).Where(u => u.NombreUsuario == txtNombreUsuario.Text && u.Clave == txtClave.Text)).FirstOrDefault();
+            Usuario unUsuario = (((new ControladorGymUsuario()).Listar()).Where(u => u.NombreUsuario == txtNombreUsuario.Text && u.Clave == txtClave.Text)).FirstOrDefault();
                       
-            if (ousuario != null)
+            if (unUsuario != null)
             {
-                Inicio form = new Inicio(ousuario);
+                Inicio form = new Inicio(unUsuario);
 
                 form.Show();
                 this.Hide();

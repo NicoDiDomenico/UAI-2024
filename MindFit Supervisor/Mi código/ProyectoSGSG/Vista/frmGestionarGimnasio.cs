@@ -69,6 +69,15 @@ namespace Vista
         {
             AbrirFormulario((IconMenuItem)sender, new frmMenuUsuarios());
         }
+        private void agregarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuRoles, new frmMenuRolesYPermisos());
+        }
+
+        private void editarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuRoles, new frmModificarRoles());
+        }
 
         private void menuMaquinas_Click(object sender, EventArgs e)
         {

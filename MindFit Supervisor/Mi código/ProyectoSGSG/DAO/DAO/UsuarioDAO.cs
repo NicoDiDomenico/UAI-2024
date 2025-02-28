@@ -20,7 +20,7 @@ namespace DAO
                 try
                 {
                     string query = @"
-                        select u.IdUsuario, u.NombreUsuario, NombreYApellido, u.Email, u.Telefono, u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, FechaNacimiento, u.Clave, r.IdRol, r.Descripcion, u.Estado
+                        select u.IdUsuario, NombreYApellido, u.Email, u.Telefono, u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, FechaNacimiento, u.NombreUsuario, u.Clave, r.IdRol, r.Descripcion, u.Estado, u.FechaRegistro
                         from Usuario u
                         inner join Rol r
                         on r.IdRol = u.IdRol
@@ -38,13 +38,20 @@ namespace DAO
                         {
                             Usuario unUsuario = new Usuario();
                             
-                            // Para el Login 
                             unUsuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
-                            unUsuario.NombreUsuario = dr["NombreUsuario"].ToString();
                             unUsuario.NombreYApellido = dr["NombreYApellido"].ToString();
+                            unUsuario.Email = dr["Email"].ToString();
+                            unUsuario.Telefono = dr["Telefono"].ToString();
+                            unUsuario.Direccion = dr["Direccion"].ToString();
+                            unUsuario.Ciudad = dr["Ciudad"].ToString();
+                            unUsuario.NroDocumento = Convert.ToInt32(dr["NroDocumento"]);
+                            unUsuario.Genero = dr["Genero"].ToString();
+                            unUsuario.FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]);
+                            unUsuario.NombreUsuario = dr["NombreUsuario"].ToString();
                             unUsuario.Clave = dr["Clave"].ToString();
-                            // Para el ABM
-                            // ...
+                            unUsuario.Rol = new Rol { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() };
+                            unUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
+                            unUsuario.FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"]);
 
                             lista.Add(unUsuario);
                         }
@@ -57,6 +64,132 @@ namespace DAO
             }
             return lista;
         }
-        // Falta ABM
+        public int Registrar(Usuario obj, out string Mensaje)
+        {
+            int idusuariogenerado = 0;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_REGISTRARUSUARIO", oconexion);
+
+                    // Parámetros de entrada
+                    cmd.Parameters.AddWithValue("@NombreUsuario", obj.NombreUsuario);
+                    cmd.Parameters.AddWithValue("@NombreYApellido", obj.NombreYApellido);
+                    cmd.Parameters.AddWithValue("@Email", obj.Email);
+                    cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("@Direccion", obj.Direccion);
+                    cmd.Parameters.AddWithValue("@Ciudad", obj.Ciudad);
+                    cmd.Parameters.AddWithValue("@NroDocumento", obj.NroDocumento);
+                    cmd.Parameters.AddWithValue("@Genero", obj.Genero);
+                    cmd.Parameters.AddWithValue("@FechaNacimiento", obj.FechaNacimiento);
+                    cmd.Parameters.AddWithValue("@Clave", obj.Clave);
+                    cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
+                    cmd.Parameters.AddWithValue("@Estado", obj.Estado);
+
+                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+
+                    // Se indica que el tipo de comando es un procedimiento almacenado
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Se abre la conexión con la base de datos
+                    oconexion.Open();
+
+                    // Se ejecuta el procedimiento almacenado
+                    cmd.ExecuteNonQuery();
+
+                    // Se obtienen los valores de los parámetros de salida después de la ejecución del procedimiento
+                    idusuariogenerado = Convert.ToInt32(cmd.Parameters["IdUsuarioResultado"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si hay un error, se captura la excepción y se devuelve un ID de usuario 0 con el mensaje de error
+                idusuariogenerado = 0;
+                Mensaje = ex.Message;
+            }
+
+            return idusuariogenerado; // Retorna el ID del usuario generado o 0 si hubo error
+        }
+
+        public bool Editar(Usuario obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", oconexion);
+
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.AddWithValue("@NombreUsuario", obj.NombreUsuario);
+                    cmd.Parameters.AddWithValue("@NombreYApellido", obj.NombreYApellido);
+                    cmd.Parameters.AddWithValue("@Email", obj.Email);
+                    cmd.Parameters.AddWithValue("@Telefono", obj.Telefono);
+                    cmd.Parameters.AddWithValue("@Direccion", obj.Direccion);
+                    cmd.Parameters.AddWithValue("@Ciudad", obj.Ciudad);
+                    cmd.Parameters.AddWithValue("@NroDocumento", obj.NroDocumento);
+                    cmd.Parameters.AddWithValue("@Genero", obj.Genero);
+                    cmd.Parameters.AddWithValue("@FechaNacimiento", obj.FechaNacimiento);
+                    cmd.Parameters.AddWithValue("@Clave", obj.Clave);
+                    cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
+                    cmd.Parameters.AddWithValue("@Estado", obj.Estado);
+
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return respuesta;
+        }
+
+        public bool Eliminar(Usuario obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINARUSUARIO", oconexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+
+            return respuesta;
+        }
     }
 }

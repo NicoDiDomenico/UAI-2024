@@ -56,5 +56,43 @@ namespace DAO
             }
             return lista;
         }
+        public List<Permiso> ListarTodos()
+        {
+            List<Permiso> lista = new List<Permiso>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        select NombreMenu 
+                        from Permiso
+                        group by NombreMenu
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            lista.Add(new Permiso()
+                            {
+                                NombreMenu = dr["NombreMenu"].ToString()
+                            });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Permiso>();
+                }
+            }
+            return lista;
+        }
     }
 }

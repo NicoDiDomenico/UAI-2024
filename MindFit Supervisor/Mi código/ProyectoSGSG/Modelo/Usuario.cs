@@ -21,6 +21,6 @@ namespace Modelo
         public string Clave { get; set; }
         public Rol Rol { get; set; }
         public bool Estado { get; set; }
-        public DateTime fechaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
     }
 }

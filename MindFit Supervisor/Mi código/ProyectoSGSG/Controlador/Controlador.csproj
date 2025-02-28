@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ControladorGymGimnasio.cs" />
     <Compile Include="ControladorGymPermiso.cs" />
+    <Compile Include="ControladorGymRol.cs" />
     <Compile Include="ControladorGymUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -21,3 +21,6 @@ C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
