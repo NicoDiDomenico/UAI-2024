@@ -156,12 +156,12 @@ namespace Vista
         // Gestionar Gimnasio
         private void menuTopGestionarGimnasio_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmGestionarGimnasio());
+            AbrirFormulario((IconMenuItem)sender, new frmGestionarGimnasio(usuarioActual));
         }
 
         private void menuGestionarGimnasio_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuTopGestionarGimnasio, new frmGestionarGimnasio());
+            AbrirFormulario(menuTopGestionarGimnasio, new frmGestionarGimnasio(usuarioActual));
         }
 
         private void picLogo_Click(object sender, EventArgs e)

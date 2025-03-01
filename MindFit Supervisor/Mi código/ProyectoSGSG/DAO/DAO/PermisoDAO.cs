@@ -65,9 +65,9 @@ namespace DAO
                 try
                 {
                     string query = @"
-                        select NombreMenu 
+                        select NombreMenu, Descripcion
                         from Permiso
-                        group by NombreMenu
+                        group by NombreMenu, Descripcion
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
@@ -82,7 +82,8 @@ namespace DAO
                         {
                             lista.Add(new Permiso()
                             {
-                                NombreMenu = dr["NombreMenu"].ToString()
+                                NombreMenu = dr["NombreMenu"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString()
                             });
                         }
                     }
@@ -108,7 +109,7 @@ namespace DAO
                     conexion.Open(); // Se abre la conexión
 
                     string query = @"
-                        SELECT p.NombreMenu from Permiso p
+                        SELECT p.NombreMenu, p.Descripcion from Permiso p
                         inner join Rol r
                         on p.IdRol = r.IdRol
                         Where p.IdRol = @IdRol
@@ -129,7 +130,8 @@ namespace DAO
                             // Se agrega cada detalle de compra a la lista
                             oLista.Add(new Permiso()
                             {
-                                NombreMenu = dr["NombreMenu"].ToString()
+                                NombreMenu = dr["NombreMenu"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString()
                             });
                         }
                     }

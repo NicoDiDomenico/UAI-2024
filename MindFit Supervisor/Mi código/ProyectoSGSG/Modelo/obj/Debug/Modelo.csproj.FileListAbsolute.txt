@@ -4,3 +4,9 @@ C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Model
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.dll
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\bin\Debug\Modelo.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\bin\Debug\Modelo.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.csproj.AssemblyReference.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Modelo\obj\Debug\Modelo.pdb

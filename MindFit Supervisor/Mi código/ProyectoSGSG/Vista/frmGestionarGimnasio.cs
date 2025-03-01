@@ -16,6 +16,7 @@ namespace Vista
     public partial class frmGestionarGimnasio : Form
     {
         #region "Variables"
+        private static Usuario usuario;
         private static IconMenuItem MenuActivo = null;
         private static Form formularioActivo = null;
         #endregion
@@ -55,8 +56,9 @@ namespace Vista
         }
         #endregion
 
-        public frmGestionarGimnasio()
+        public frmGestionarGimnasio(Usuario usuarioActual)
         {
+            usuario = usuarioActual;
             InitializeComponent();
         }
 
@@ -67,7 +69,7 @@ namespace Vista
 
         private void menuUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmMenuUsuarios());
+            AbrirFormulario((IconMenuItem)sender, new frmMenuUsuarios(usuario));
         }
         private void agregarRolToolStripMenuItem_Click(object sender, EventArgs e)
         {

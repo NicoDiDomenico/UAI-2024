@@ -23,5 +23,14 @@ namespace Controlador
         {
             return objcd_rol.Registrar(Descripcion, Permisos, out Mensaje);
         }
+        
+        public bool Actualizar(Rol unRol, DataTable Permisos, out string Mensaje)
+        {
+            return objcd_rol.Actualizar(unRol, Permisos, out Mensaje);
+        }
+        public bool Eliminar(int IdRol, out string Mensaje)
+        {
+            return objcd_rol.Eliminar(IdRol, out Mensaje);
+        }
     }
 }

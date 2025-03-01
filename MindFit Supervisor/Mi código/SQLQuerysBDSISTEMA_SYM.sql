@@ -27,12 +27,29 @@ on p.IdRol = r.IdRol
 SELECT p.NombreMenu from Permiso p
 inner join Rol r
 on p.IdRol = r.IdRol
-Where p.IdRol = 1
+Where p.IdRol = 1 	
+
+SELECT r.IdRol, r.Descripcion, p.NombreMenu from Rol r
+inner join Permiso p
+on p.IdRol = r.IdRol
+
+SELECT r.IdRol, r.Descripcion, p.NombreMenu from Rol r
+inner join Permiso p
+on p.IdRol = r.IdRol
 
 GO
 ---
+--- NUEVO, MODIFIQUE [ETabla_Permisos] Y SP_REGISTRARROL, POR LO TANTO EJECUTAR: --
+/*
+DROP PROCEDURE IF EXISTS SP_REGISTRARROL;
+GO
+
+DROP TYPE IF EXISTS ETabla_Permisos;
+GO
+*/
 CREATE TYPE [dbo].[ETabla_Permisos] AS TABLE(
-    [NombreMenu] VARCHAR(100)
+    [NombreMenu] VARCHAR(100),
+    [Descripcion] VARCHAR(255) -- Nueva columna agregada
 );
 GO
 
@@ -59,8 +76,8 @@ BEGIN
             SET @IdRol = SCOPE_IDENTITY();
 
             -- Insertar los permisos para el rol
-            INSERT INTO Permiso (IdRol, NombreMenu)
-            SELECT @IdRol, NombreMenu FROM @Permisos
+            INSERT INTO Permiso (IdRol, NombreMenu, Descripcion)
+            SELECT @IdRol, NombreMenu, Descripcion FROM @Permisos
 
             -- Si todo está bien, marcar como éxito
             SET @Resultado = 1
@@ -80,96 +97,106 @@ BEGIN
     END CATCH
 END
 GO
-
 ---
+CREATE PROCEDURE SP_ACTUALIZARROL(
+    @IdRol INT, -- Ahora recibimos el IdRol para identificar qué rol actualizar
+    @Descripcion VARCHAR(50),
+    @Permisos ETabla_Permisos READONLY, -- Tipo tabla con los permisos actualizados
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT -- Indica éxito o error
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @Resultado = 0  -- Por defecto, fallido
 
-create PROC SP_EDITARUSUARIO(
-	@IdUsuario int,
-	@NombreUsuario VARCHAR(50),
-    @NombreYApellido VARCHAR(100),
-    @Email VARCHAR(100),
-    @Telefono VARCHAR(50),
-    @Direccion VARCHAR(100),
-    @Ciudad VARCHAR(50),
-    @NroDocumento INT,
-    @Genero VARCHAR(50),
-    @FechaNacimiento DATETIME,
-    @Clave VARCHAR(100),
+        BEGIN TRANSACTION  -- Iniciar transacción para evitar inconsistencias
+
+        -- Verifica si el rol existe
+        IF EXISTS (SELECT * FROM Rol WHERE IdRol = @IdRol)
+        BEGIN
+            -- Actualizar la descripción del rol
+            UPDATE Rol 
+            SET Descripcion = @Descripcion 
+            WHERE IdRol = @IdRol;
+
+            -- Eliminar los permisos actuales asociados a este rol
+            DELETE FROM Permiso WHERE IdRol = @IdRol;
+
+			DBCC CHECKIDENT ('Permiso', RESEED, 0);
+
+            -- Insertar los permisos actualizados
+            INSERT INTO Permiso (IdRol, NombreMenu, Descripcion)
+            SELECT @IdRol, NombreMenu, Descripcion FROM @Permisos;
+            -- Si todo está bien, marcar como éxito
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol actualizado correctamente'
+            COMMIT TRANSACTION  -- Confirmar los cambios
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El rol no existe'
+            ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION -- Revertir cambios si hay error
+    END CATCH
+END
+GO
+
+CREATE PROCEDURE SP_ELIMINARROL (
     @IdRol INT,
-    @Estado BIT,
-	@Respuesta bit output,
-	@Mensaje varchar(500) output
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
 )
-as
-begin
-	set @Respuesta = 0
-	set @Mensaje = ''
+AS
+BEGIN
+    BEGIN TRY
+        SET @Respuesta = 0
+        SET @Mensaje = ''
+        DECLARE @pasoreglas BIT = 1
 
+        -- Evita eliminar roles protegidos
+        IF @IdRol IN (1, 2, 3)
+        BEGIN
+            SET @pasoreglas = 0
+            SET @Mensaje = 'No se puede eliminar este rol'
+        END
 
-	if not exists(select * from Usuario where NroDocumento = @NroDocumento and idusuario != @IdUsuario)
-	begin
-		update  Usuario set
-		NombreYApellido = @NombreYApellido,
-		Email = @Email,
-		Telefono = @Telefono,
-		Direccion = @Direccion,
-		Ciudad = @Ciudad,
-		NroDocumento = @NroDocumento,
-		Genero = @Genero,
-		FechaNacimiento = @FechaNacimiento,
-		NombreUsuario = @NombreUsuario,
-		Clave = @Clave,
-		IdRol = @IdRol,
-		Estado = @Estado
-		where IdUsuario = @IdUsuario
+        -- Verifica si el rol está en uso en otras tablas (ejemplo: Usuario)
+        IF EXISTS (SELECT * FROM Usuario WHERE IdRol = @IdRol)
+        BEGIN
+            SET @pasoreglas = 0
+            SET @Mensaje = 'No se puede eliminar este rol porque está en uso en la tabla Usuario'
+        END
 
-		set @Respuesta = 1
-		
-	end
-	else
-		set @Mensaje = 'No se puede repetir el documento para más de un usuario'
-end
+        IF @pasoreglas = 1
+        BEGIN
+            BEGIN TRANSACTION
 
-create PROC SP_ELIMINARUSUARIO(
-@IdUsuario int,
-@Respuesta bit output,
-@Mensaje varchar(500) output
-)
-as
-begin
-	set @Respuesta = 0
-	set @Mensaje = ''
-	declare @pasoreglas bit = 1
-	-- Yo no tengo compras y ventas pero si debo tener turnos o rangos hortarios asignados a ese responsable, asi que luego debere hace esas validaciones para este sp --
-	/*
-	IF EXISTS (SELECT * FROM COMPRA C 
-	INNER JOIN USUARIO U ON U.IdUsuario = C.IdUsuario
-	WHERE U.IDUSUARIO = @IdUsuario
-	)
-	BEGIN
-		set @pasoreglas = 0
-		set @Respuesta = 0
-		set @Mensaje = @Mensaje + 'No se puede eliminar porque el usuario se encuentra relacionado a una COMPRA\n' 
-	END
+            -- Eliminar los permisos asociados al rol
+            DELETE FROM Permiso WHERE IdRol = @IdRol
 
-	IF EXISTS (SELECT * FROM VENTA V
-	INNER JOIN USUARIO U ON U.IdUsuario = V.IdUsuario
-	WHERE U.IDUSUARIO = @IdUsuario
-	)
-	BEGIN
-		set @pasoreglas = 0
-		set @Respuesta = 0
-		set @Mensaje = @Mensaje + 'No se puede eliminar porque el usuario se encuentra relacionado a una VENTA\n' 
-	END
-	*/
+            -- Eliminar el rol
+            DELETE FROM Rol WHERE IdRol = @IdRol
 
-	if(@pasoreglas = 1)
-	begin
-		delete from USUARIO where IdUsuario = @IdUsuario
-		set @Respuesta = 1 
-	end
+            SET @Respuesta = 1
+            SET @Mensaje = 'Rol eliminado correctamente'
 
-end
+            COMMIT TRANSACTION
+        END
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION
+        SET @Respuesta = 0
+        SET @Mensaje = ERROR_MESSAGE()
+    END CATCH
+END
+GO
 
 
 /* Permiso */
@@ -180,12 +207,27 @@ CREATE TABLE Permiso (
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 
+-- NUEVO --
+ALTER TABLE Permiso
+ADD Descripcion VARCHAR(255) NULL;
+
 INSERT INTO Permiso (idRol, nombreMenu) VALUES
 (1, 'menuGestionarRutinas'),
 (1, 'menuSocios'),
 (1, 'menuGestionarGimnasio'),
 (2, 'menuSocios'),
 (3, 'menuGestionarRutinas');
+
+-- NUEVO --
+UPDATE Permiso
+SET Descripcion = 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignación y modificación.'
+WHERE NombreMenu = 'menuGestionarRutinas';
+UPDATE Permiso
+SET Descripcion = 'Permite registrar, editar y eliminar socios, así como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'
+WHERE NombreMenu = 'menuSocios';
+UPDATE Permiso
+SET Descripcion = 'Permite la gestión completa del gimnasio, incluyendo usuarios, máquinas y equipamientos, además de la visualización y administración de turnos.'
+WHERE NombreMenu = 'menuGestionarGimnasio';
 
 SELECT * FROM Permiso;
 
@@ -194,9 +236,14 @@ FROM Permiso p
 INNER JOIN Rol r ON p.IdRol = r.IdRol;
 GO
 
-select NombreMenu 
+SELECT p.NombreMenu, p.Descripcion from Permiso p
+inner join Rol r
+on p.IdRol = r.IdRol
+Where p.IdRol = 1
+
+select NombreMenu, Descripcion
 from Permiso
-group by NombreMenu
+group by NombreMenu, Descripcion
 
 /* Usuario */
 CREATE TABLE Usuario (
@@ -247,6 +294,7 @@ begin
 		VALUES (@NombreUsuario, @NombreYApellido, @Email, @Telefono, @Direccion, @Ciudad, @NroDocumento, @Genero, @FechaNacimiento, @Clave, @IdRol, @Estado);
 
 		set @IdUsuarioResultado = SCOPE_IDENTITY()
+		SET @Mensaje = 'Usuario registrado correctamente'
 		
 	end
 	else
@@ -295,7 +343,7 @@ begin
 		where IdUsuario = @IdUsuario
 
 		set @Respuesta = 1
-		
+		SET @Mensaje = 'Usuario actualizado correctamente' 
 	end
 	else
 		set @Mensaje = 'No se puede repetir el documento para más de un usuario'
@@ -337,7 +385,8 @@ begin
 	if(@pasoreglas = 1)
 	begin
 		delete from USUARIO where IdUsuario = @IdUsuario
-		set @Respuesta = 1 
+		set @Respuesta = 1
+		SET @Mensaje = 'Usuario eliminado correctamente' 
 	end
 
 end
@@ -386,4 +435,76 @@ select * from Gimnasio
 go
 
 
+-- NUEVO, normalizando permisos.... --
+CREATE TABLE Rol_Permiso (
+    IdRol INT NOT NULL,
+    IdPermiso INT NOT NULL,
+    PRIMARY KEY (IdRol, IdPermiso),
+    FOREIGN KEY (IdRol) REFERENCES Rol(IdRol) ON DELETE CASCADE,
+    FOREIGN KEY (IdPermiso) REFERENCES Permiso(IdPermiso) ON DELETE CASCADE
+);
 
+SELECT name
+FROM sys.foreign_keys
+WHERE parent_object_id = OBJECT_ID('Permiso'); --> Devuelve: FK__Permiso__IdRol__5535A963
+
+ALTER TABLE Permiso DROP CONSTRAINT FK__Permiso__IdRol__5535A963;
+
+ALTER TABLE Permiso DROP COLUMN IdRol;
+
+SELECT * FROM Permiso;
+
+SELECT NombreMenu, COUNT(*)
+FROM Permiso
+GROUP BY NombreMenu
+HAVING COUNT(*) > 1;
+
+WITH CTE AS (
+    SELECT 
+        IdPermiso, 
+        NombreMenu, 
+        FechaRegistro, 
+        Descripcion,
+        ROW_NUMBER() OVER (PARTITION BY NombreMenu ORDER BY IdPermiso) AS fila
+    FROM Permiso
+)
+DELETE FROM Permiso WHERE IdPermiso IN (SELECT IdPermiso FROM CTE WHERE fila > 1);
+
+ALTER TABLE Permiso ADD CONSTRAINT UQ_Permiso_NombreMenu UNIQUE (NombreMenu);
+
+
+
+SELECT * FROM Usuario
+UPDATE Usuario
+SET IdRol = 1
+WHERE IdRol = 7;
+
+SELECT * FROM Rol;
+/*
+SET IDENTITY_INSERT Rol ON;
+
+DELETE FROM Rol WHERE IdRol = 7;
+
+SELECT MAX(IdRol) AS UltimoID FROM Rol;
+*/
+SELECT * FROM Permiso;
+
+
+DELETE FROM Permiso;
+DBCC CHECKIDENT ('Permiso', RESEED, 0);
+INSERT INTO Permiso (IdRol, NombreMenu, FechaRegistro, Descripcion) VALUES
+(1, 'menuGestionarRutinas', GETDATE(), 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignación y modificación.'),
+(1, 'menuSocios', GETDATE(), 'Permite registrar, editar y eliminar socios, así como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'),
+(1, 'menuGestionarGimnasio', GETDATE(), 'Permite la gestión completa del gimnasio, incluyendo usuarios, máquinas y equipamientos, además de la visualización y administración de turnos.'),
+(2, 'menuSocios', GETDATE(), 'Permite registrar, editar y eliminar socios, así como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'),
+(3, 'menuGestionarRutinas', GETDATE(), 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignación y modificación.');
+
+SELECT * FROM Permiso;
+
+SELECT * FROM Rol;
+
+DBCC CHECKIDENT ('Rol', NORESEED);
+DBCC CHECKIDENT ('Rol', RESEED, 3);
+
+DBCC CHECKIDENT ('Permiso', NORESEED);
+DBCC CHECKIDENT ('Permiso', RESEED, 5);

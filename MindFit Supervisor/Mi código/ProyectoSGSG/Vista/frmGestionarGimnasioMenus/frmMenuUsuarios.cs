@@ -11,11 +11,16 @@ using System.Windows.Forms;
 using Controlador;
 using System.Windows.Controls;
 using CapaPresentacion.Utilidades;
+using FontAwesome.Sharp;
 
 namespace Vista
 {
     public partial class frmMenuUsuarios : Form
     {
+        #region "Variables"
+        private static Usuario usuarioIniciado;
+        #endregion
+
         #region "Métodos"
         private void limpiarCampos()
         {
@@ -30,6 +35,7 @@ namespace Vista
             dtpFechaNacimiento.Value = DateTime.Today;
             txtNombreUsuario.Text = "";
             txtClave.Text = "";
+            txtConfirmarClave.Text = "";
 
             cboGenero.SelectedIndex = -1;
             cboRol.SelectedIndex = -1;
@@ -69,8 +75,9 @@ namespace Vista
         }
         #endregion
 
-        public frmMenuUsuarios()
+        public frmMenuUsuarios(Usuario usuario)
         {
+            usuarioIniciado = usuario;
             InitializeComponent();
         }
 
@@ -126,53 +133,62 @@ namespace Vista
         {
             try
             {
-                Usuario unUsuario = new Usuario
+                if (txtClave == txtConfirmarClave)
                 {
-                    IdUsuario = Convert.ToInt32(txtId.Text), // Este id va a servir para saber cuando hay que editar o registrar un usuario
-                    NombreYApellido = txtNombreYApellido.Text,
-                    Email = txtEmail.Text,
-                    Telefono = txtTelefono.Text,
-                    Direccion = txtDireccion.Text,
-                    Ciudad = txtCiudad.Text,
-                    NroDocumento = Convert.ToInt32(txtNroDocumento.Text),
-                    FechaNacimiento = dtpFechaNacimiento.Value,
-                    NombreUsuario = txtNombreUsuario.Text,
-                    Clave = txtClave.Text,
-                    Genero = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? "Femenino" : "Masculino",
-                    Rol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor) },
-                    Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
-                };
-                string mensaje = string.Empty;
-
-                if (unUsuario.IdUsuario == 0)
-                {
-                    int idUsuarioGenerado = new ControladorGymUsuario().Registrar(unUsuario, out mensaje);
-
-                    if (idUsuarioGenerado != 0)
+                    Usuario unUsuario = new Usuario
                     {
-                        dgvData.Rows.Clear();
-                        cargarGrid();
-                        limpiarCampos();
+                        IdUsuario = Convert.ToInt32(txtId.Text), // Este id va a servir para saber cuando hay que editar o registrar un usuario
+                        NombreYApellido = txtNombreYApellido.Text,
+                        Email = txtEmail.Text,
+                        Telefono = txtTelefono.Text,
+                        Direccion = txtDireccion.Text,
+                        Ciudad = txtCiudad.Text,
+                        NroDocumento = Convert.ToInt32(txtNroDocumento.Text),
+                        FechaNacimiento = dtpFechaNacimiento.Value,
+                        NombreUsuario = txtNombreUsuario.Text,
+                        Clave = txtClave.Text,
+                        Genero = Convert.ToInt32(((OpcionCombo)cboGenero.SelectedItem).Valor) == 1 ? "Femenino" : "Masculino",
+                        Rol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor) },
+                        Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
+                    };
+                    string mensaje = string.Empty;
+
+                    if (unUsuario.IdUsuario == 0)
+                    {
+                        int idUsuarioGenerado = new ControladorGymUsuario().Registrar(unUsuario, out mensaje);
+
+                        if (idUsuarioGenerado != 0)
+                        {
+                            dgvData.Rows.Clear();
+                            cargarGrid();
+                            limpiarCampos();
+                            MessageBox.Show(mensaje);
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show(mensaje);
-                    }
-                }
-                else
-                {
-                    bool rta = new ControladorGymUsuario().Editar(unUsuario, out mensaje);
+                        bool rta = new ControladorGymUsuario().Editar(unUsuario, out mensaje);
 
-                    if (rta)
-                    {
-                        dgvData.Rows.Clear();
-                        cargarGrid();
-                        limpiarCampos();
+                        if (rta)
+                        {
+                            dgvData.Rows.Clear();
+                            cargarGrid();
+                            limpiarCampos();
+                            MessageBox.Show(mensaje);
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show(mensaje);
-                    }
+                } else
+                {
+                    MessageBox.Show("Las claves no coinciden", "Advertencia");
+                    txtConfirmarClave.Select();
                 }
             }
             catch (Exception ex)
@@ -340,29 +356,37 @@ namespace Vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(txtId.Text) != 0)
+            if (Convert.ToInt32(txtId.Text) != usuarioIniciado.IdUsuario)
             {
-                if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Convert.ToInt32(txtId.Text) != 0)
                 {
-                    string mensaje = string.Empty;
-                    Usuario objusuario = new Usuario()
+                    if (MessageBox.Show("¿Desea eliminar el usuario?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        IdUsuario = Convert.ToInt32(txtId.Text)
-                    };
+                        string mensaje = string.Empty;
+                        Usuario objusuario = new Usuario()
+                        {
+                            IdUsuario = Convert.ToInt32(txtId.Text)
+                        };
 
-                    bool respuesta = new ControladorGymUsuario().Eliminar(objusuario, out mensaje);
+                        bool respuesta = new ControladorGymUsuario().Eliminar(objusuario, out mensaje);
 
-                    if (respuesta)
-                    {
-                        dgvData.Rows.Clear();
-                        cargarGrid();
-                        limpiarCampos();
-                    }
-                    else
-                    {
-                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        if (respuesta)
+                        {
+                            dgvData.Rows.Clear();
+                            cargarGrid();
+                            limpiarCampos();
+                            MessageBox.Show("");
+                        }
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar el usuario actual");
             }
         }
 

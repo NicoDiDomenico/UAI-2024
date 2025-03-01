@@ -17,6 +17,17 @@ namespace Vista
 {
     public partial class frmMenuRolesYPermisos : Form
     {
+        #region "Métodos"
+        private void limpiarCampos()
+        {
+            txtDescripcion.Clear();
+            cboPermiso.SelectedIndex = -1;
+            dgvPermisosSeleccionados.Rows.Clear();
+            txtDescripcion.Enabled = true;
+            gbPermiso.Enabled = false;
+        }
+        #endregion
+
         public frmMenuRolesYPermisos()
         {
             InitializeComponent();
@@ -29,13 +40,15 @@ namespace Vista
             foreach (Permiso item in permisos)
             {
                 int count = 0;
-                cboPermiso.Items.Add(new OpcionCombo() { Valor = count, Texto = item.NombreMenu });
+                cboPermiso.Items.Add(new OpcionCombo() { Valor = count, Texto = item.NombreMenu, DescripcionPermiso = item.Descripcion });
                 count++;
             }
 
             cboPermiso.DisplayMember = "Texto";
             cboPermiso.ValueMember = "Valor";
             cboPermiso.SelectedIndex = -1;
+
+            txtDescripcion.Select();
         }
 
         private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
@@ -47,6 +60,7 @@ namespace Vista
                 if (descripcionActual != "") {
                     txtDescripcion.Enabled = false;
                     gbPermiso.Enabled = true;
+                    gbPermiso.Select();
                 } else
                 {
                     MessageBox.Show("Debe ingresar una descripcion para el Rol", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -65,6 +79,7 @@ namespace Vista
             }
 
             string nuevaDescripcion = txtDescripcion.Text.ToUpper();
+            string nuevaDescripcionPermiso = (string)((OpcionCombo)cboPermiso.SelectedItem).DescripcionPermiso;
             string nuevoPermiso = ((OpcionCombo)cboPermiso.SelectedItem).Texto;
 
             // Verifica si el permiso ya existe en alguna fila del DataGridView
@@ -78,7 +93,7 @@ namespace Vista
             }
 
             // Si no existe, agregar la nueva descripción y permiso
-            dgvPermisosSeleccionados.Rows.Add(new object[] { nuevaDescripcion, nuevoPermiso });
+            dgvPermisosSeleccionados.Rows.Add(new object[] { nuevaDescripcion, nuevoPermiso, nuevaDescripcionPermiso });
         }
 
         private void btnRegistrarRol_Click(object sender, EventArgs e)
@@ -100,11 +115,15 @@ namespace Vista
             // Crear DataTable para los permisos seleccionados
             DataTable tablaPermisos = new DataTable();
             tablaPermisos.Columns.Add("NombreMenu", typeof(string));
+            tablaPermisos.Columns.Add("Descripcion", typeof(string));
 
             // Agregar los permisos seleccionados a la tabla
             foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows)
             {
-                tablaPermisos.Rows.Add(row.Cells["NombreMenu"].Value.ToString());
+                tablaPermisos.Rows.Add(
+                    row.Cells["NombreMenu"].Value.ToString(),
+                    row.Cells["DescripcionPermiso"].Value.ToString() 
+                );
             }
 
             // Obtener la descripción del rol desde el formulario
@@ -122,8 +141,7 @@ namespace Vista
                 MessageBox.Show("Rol registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Limpiar los campos después del registro exitoso
-                txtDescripcion.Text = "";
-                dgvPermisosSeleccionados.Rows.Clear();
+                limpiarCampos();
             }
             else
             {
@@ -139,7 +157,7 @@ namespace Vista
                 return;
 
             // Verifica que está en la primera columna (columna de botones)
-            if (e.ColumnIndex == 2)
+            if (e.ColumnIndex == 3)
             {
                 // Pinta la celda con sus partes predeterminadas
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
@@ -176,11 +194,7 @@ namespace Vista
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtDescripcion.Clear();
-            cboPermiso.SelectedIndex = -1;
-            dgvPermisosSeleccionados.Rows.Clear();
-            txtDescripcion.Enabled = true;
-            gbPermiso.Enabled = false;
+            limpiarCampos();
         }
     }
 }

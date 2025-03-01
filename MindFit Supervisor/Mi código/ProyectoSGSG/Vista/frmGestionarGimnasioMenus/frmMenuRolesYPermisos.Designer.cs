@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -42,10 +42,11 @@
             this.btnRegistrarRol = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.dgvPermisosSeleccionados = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripcionPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gbPermiso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermisosSeleccionados)).BeginInit();
@@ -113,7 +114,7 @@
             this.gbPermiso.Controls.Add(this.btnAgreagar);
             this.gbPermiso.Controls.Add(this.label7);
             this.gbPermiso.Enabled = false;
-            this.gbPermiso.Location = new System.Drawing.Point(21, 108);
+            this.gbPermiso.Location = new System.Drawing.Point(21, 119);
             this.gbPermiso.Name = "gbPermiso";
             this.gbPermiso.Size = new System.Drawing.Size(334, 92);
             this.gbPermiso.TabIndex = 64;
@@ -165,7 +166,7 @@
             this.btnRegistrarRol.IconColor = System.Drawing.Color.White;
             this.btnRegistrarRol.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRegistrarRol.IconSize = 20;
-            this.btnRegistrarRol.Location = new System.Drawing.Point(80, 232);
+            this.btnRegistrarRol.Location = new System.Drawing.Point(88, 454);
             this.btnRegistrarRol.Name = "btnRegistrarRol";
             this.btnRegistrarRol.Size = new System.Drawing.Size(199, 29);
             this.btnRegistrarRol.TabIndex = 44;
@@ -186,7 +187,7 @@
             this.btnLimpiar.IconColor = System.Drawing.Color.White;
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 20;
-            this.btnLimpiar.Location = new System.Drawing.Point(80, 268);
+            this.btnLimpiar.Location = new System.Drawing.Point(88, 490);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(199, 29);
             this.btnLimpiar.TabIndex = 43;
@@ -200,56 +201,34 @@
             // 
             this.dgvPermisosSeleccionados.AllowUserToAddRows = false;
             this.dgvPermisosSeleccionados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPermisosSeleccionados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermisosSeleccionados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvPermisosSeleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermisosSeleccionados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descripcion,
             this.NombreMenu,
+            this.DescripcionPermiso,
             this.btnEliminar});
             this.dgvPermisosSeleccionados.Location = new System.Drawing.Point(504, 40);
             this.dgvPermisosSeleccionados.MultiSelect = false;
             this.dgvPermisosSeleccionados.Name = "dgvPermisosSeleccionados";
             this.dgvPermisosSeleccionados.ReadOnly = true;
             this.dgvPermisosSeleccionados.RowHeadersWidth = 34;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvPermisosSeleccionados.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvPermisosSeleccionados.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvPermisosSeleccionados.RowTemplate.Height = 42;
             this.dgvPermisosSeleccionados.Size = new System.Drawing.Size(1238, 553);
             this.dgvPermisosSeleccionados.TabIndex = 64;
             this.dgvPermisosSeleccionados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPermisosSeleccionados_CellContentClick);
             this.dgvPermisosSeleccionados.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvPermisosSeleccionados_CellPainting);
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion Rol";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.ReadOnly = true;
-            this.Descripcion.Width = 150;
-            // 
-            // NombreMenu
-            // 
-            this.NombreMenu.HeaderText = "Permiso";
-            this.NombreMenu.Name = "NombreMenu";
-            this.NombreMenu.ReadOnly = true;
-            this.NombreMenu.Width = 150;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.HeaderText = "";
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.ReadOnly = true;
-            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnEliminar.Width = 50;
             // 
             // label1
             // 
@@ -261,6 +240,36 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(465, 812);
             this.label1.TabIndex = 58;
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Rol";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 150;
+            // 
+            // NombreMenu
+            // 
+            this.NombreMenu.HeaderText = "Permiso";
+            this.NombreMenu.Name = "NombreMenu";
+            this.NombreMenu.ReadOnly = true;
+            this.NombreMenu.Width = 150;
+            // 
+            // DescripcionPermiso
+            // 
+            this.DescripcionPermiso.HeaderText = "Descripcion Permiso";
+            this.DescripcionPermiso.Name = "DescripcionPermiso";
+            this.DescripcionPermiso.ReadOnly = true;
+            this.DescripcionPermiso.Width = 800;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.HeaderText = "";
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.ReadOnly = true;
+            this.btnEliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnEliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnEliminar.Width = 50;
             // 
             // frmMenuRolesYPermisos
             // 
@@ -300,6 +309,7 @@
         private System.Windows.Forms.DataGridView dgvPermisosSeleccionados;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreMenu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionPermiso;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
     }
 }

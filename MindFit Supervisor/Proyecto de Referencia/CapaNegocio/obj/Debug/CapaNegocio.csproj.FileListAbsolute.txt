@@ -31,3 +31,14 @@ C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNe
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNegocio.dll
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\bin\Debug\CapaEntidad.dll
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\bin\Debug\CapaEntidad.pdb
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNegocio.csproj.AssemblyReference.cache
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNego.81B9D119.Up2Date
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaNegocio\obj\Debug\CapaNegocio.pdb
