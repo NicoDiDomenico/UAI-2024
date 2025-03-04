@@ -46,6 +46,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="GimnasioDAO.cs" />
     <Compile Include="PermisoDAO.cs" />
+    <Compile Include="RangoHorarioDAO.cs" />
     <Compile Include="RolDAO.cs" />
     <Compile Include="UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

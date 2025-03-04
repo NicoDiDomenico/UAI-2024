@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.Modales;
 
 
 namespace Vista
@@ -113,7 +114,9 @@ namespace Vista
 
         private void menuAcercaDe_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmMenuAcercaDe());
+            //AbrirFormulario((IconMenuItem)sender, new frmMenuAcercaDe());
+            mdAcercaDe md = new mdAcercaDe();
+            md.ShowDialog();
         }
     }
 }

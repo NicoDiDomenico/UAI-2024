@@ -57,7 +57,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.Black;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 20;
-            this.btnGuardar.Location = new System.Drawing.Point(61, 623);
+            this.btnGuardar.Location = new System.Drawing.Point(65, 547);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(114, 29);
             this.btnGuardar.TabIndex = 24;
@@ -69,21 +69,21 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(63, 497);
+            this.txtNombre.Location = new System.Drawing.Point(67, 421);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(561, 20);
             this.txtNombre.TabIndex = 23;
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(63, 546);
+            this.txtTelefono.Location = new System.Drawing.Point(67, 470);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(561, 20);
             this.txtTelefono.TabIndex = 22;
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(63, 597);
+            this.txtDireccion.Location = new System.Drawing.Point(67, 521);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(561, 20);
             this.txtDireccion.TabIndex = 21;
@@ -92,7 +92,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(60, 580);
+            this.label4.Location = new System.Drawing.Point(64, 505);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 20;
@@ -102,7 +102,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(58, 529);
+            this.label3.Location = new System.Drawing.Point(62, 453);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 19;
@@ -112,7 +112,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(58, 480);
+            this.label5.Location = new System.Drawing.Point(62, 404);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 13);
             this.label5.TabIndex = 18;
@@ -130,7 +130,7 @@
             this.btnSubir.IconColor = System.Drawing.Color.Black;
             this.btnSubir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSubir.IconSize = 20;
-            this.btnSubir.Location = new System.Drawing.Point(140, 357);
+            this.btnSubir.Location = new System.Drawing.Point(163, 254);
             this.btnSubir.Name = "btnSubir";
             this.btnSubir.Size = new System.Drawing.Size(118, 29);
             this.btnSubir.TabIndex = 17;
@@ -143,9 +143,9 @@
             // picLogo
             // 
             this.picLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLogo.Location = new System.Drawing.Point(50, 45);
+            this.picLogo.Location = new System.Drawing.Point(43, 59);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(300, 300);
+            this.picLogo.Size = new System.Drawing.Size(360, 176);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
@@ -177,9 +177,9 @@
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.groupBox2.Controls.Add(this.picLogo);
             this.groupBox2.Controls.Add(this.btnSubir);
-            this.groupBox2.Location = new System.Drawing.Point(144, 46);
+            this.groupBox2.Location = new System.Drawing.Point(120, 67);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(400, 400);
+            this.groupBox2.Size = new System.Drawing.Size(445, 285);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Logo";
@@ -189,7 +189,7 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(35, 466);
+            this.label6.Location = new System.Drawing.Point(39, 390);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(624, 199);
             this.label6.TabIndex = 26;

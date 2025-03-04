@@ -207,7 +207,7 @@ CREATE TABLE Permiso (
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 
--- NUEVO --
+-- NUEVO --> Listo  --
 ALTER TABLE Permiso
 ADD Descripcion VARCHAR(255) NULL;
 
@@ -218,7 +218,7 @@ INSERT INTO Permiso (idRol, nombreMenu) VALUES
 (2, 'menuSocios'),
 (3, 'menuGestionarRutinas');
 
--- NUEVO --
+-- NUEVO --> Listo --
 UPDATE Permiso
 SET Descripcion = 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignación y modificación.'
 WHERE NombreMenu = 'menuGestionarRutinas';
@@ -434,7 +434,8 @@ select * from Gimnasio
 
 go
 
-
+-- No hacer --
+/*
 -- NUEVO, normalizando permisos.... --
 CREATE TABLE Rol_Permiso (
     IdRol INT NOT NULL,
@@ -508,3 +509,124 @@ DBCC CHECKIDENT ('Rol', RESEED, 3);
 
 DBCC CHECKIDENT ('Permiso', NORESEED);
 DBCC CHECKIDENT ('Permiso', RESEED, 5);
+*/
+
+/* NUEVO */
+-- Rangos Horarios --
+CREATE TABLE RangoHorario (
+    IdRangoHorario INT PRIMARY KEY IDENTITY,
+	HoraDesde Time,
+	HoraHasta Time,
+	Fecha Date,
+	CupoActual INT NULL DEFAULT 0,
+	CupoMaximo INT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE RangoHorario_Usuario (
+    IdRangoHorario INT NOT NULL,
+    IdUsuario INT NOT NULL,
+    PRIMARY KEY (IdRangoHorario, IdUsuario),
+    FOREIGN KEY (IdRangoHorario) REFERENCES RangoHorario(IdRangoHorario) ON DELETE CASCADE,
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario) ON DELETE CASCADE
+);
+GO
+
+CREATE PROCEDURE SP_REGISTRAR_RANGOHORARIO
+    @HoraDesde TIME,
+    @HoraHasta TIME,
+    @Fecha DATE,
+    @CupoMaximo INT,
+    @IdUsuario INT,
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT
+AS
+BEGIN
+    BEGIN TRY
+        DECLARE @IdRangoHorario INT;
+        SET @Mensaje = '';
+        SET @Resultado = 0;
+
+        BEGIN TRANSACTION;
+
+        -- Insertar el nuevo RangoHorario
+        INSERT INTO RangoHorario (HoraDesde, HoraHasta, Fecha, CupoMaximo)
+        VALUES (@HoraDesde, @HoraHasta, @Fecha, @CupoMaximo);
+
+        -- Obtener el ID generado
+        SET @IdRangoHorario = SCOPE_IDENTITY();
+
+        -- Insertar en la tabla relacional
+        INSERT INTO RangoHorario_Usuario (IdRangoHorario, IdUsuario)
+        VALUES (@IdRangoHorario, @IdUsuario);
+
+        SET @Resultado = 1;
+        SET @Mensaje = 'Rango horario registrado correctamente.';
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE();
+        SET @Resultado = 0;
+        ROLLBACK TRANSACTION;
+    END CATCH
+END;
+GO
+
+select rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, rh.CupoMaximo, u.NombreYApellido, u.IdUsuario from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u 
+on rh_u.IdUsuario = u.IdRol
+
+CREATE PROCEDURE SP_REGISTRAR_RANGOHORARIO_USUARIO
+    @IdRangoHorario INT,
+    @IdUsuario INT,
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = '';
+        SET @Resultado = 0;
+
+        BEGIN TRANSACTION;
+
+        -- Insertar el nuevo RangoHorario
+        INSERT INTO RangoHorario_Usuario(IdRangoHorario, IdUsuario)
+        VALUES (@IdRangoHorario, @IdUsuario);
+
+        SET @Resultado = 1;
+        SET @Mensaje = 'Rango horario registrado correctamente.';
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE();
+        SET @Resultado = 0;
+        ROLLBACK TRANSACTION;
+    END CATCH
+END;
+GO
+
+-- Insertar los rangos horarios de 1 hora cada uno
+INSERT INTO RangoHorario (HoraDesde, HoraHasta, Fecha, CupoActual, CupoMaximo)
+SELECT 
+    DATEADD(HOUR, v.number, '00:00:00') AS HoraDesde,
+    DATEADD(HOUR, 1, DATEADD(HOUR, v.number, '00:00:00')) AS HoraHasta,
+    GETDATE() AS Fecha,
+    0 AS CupoActual,
+    5 AS CupoMaximo
+FROM master.dbo.spt_values v
+WHERE v.type = 'P' AND v.number BETWEEN 0 AND 23;
+
+select * from RangoHorario
+
+select rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, rh.CupoMaximo, u.NombreYApellido, u.IdUsuario from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u 
+on rh_u.IdUsuario = u.IdRol
+
+select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo from RangoHorario
+
+select * from RangoHorario_Usuario

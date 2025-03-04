@@ -83,6 +83,7 @@
             this.Name = "mdAcercaDe";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mdAcercaDe";
+            this.Load += new System.EventHandler(this.mdAcercaDe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

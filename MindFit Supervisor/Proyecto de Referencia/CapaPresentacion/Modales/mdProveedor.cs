@@ -26,24 +26,24 @@ namespace CapaPresentacion.Modales
 
         private void mdProveedor_Load(object sender, EventArgs e)
         {
-            foreach (DataGridViewColumn columna in dgvData.Columns)
-            {
-                if (columna.Visible == true)
+                foreach (DataGridViewColumn columna in dgvData.Columns)
                 {
-                    cboBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                    if (columna.Visible == true)
+                    {
+                        cboBusqueda.Items.Add(new OpcionCombo() { Valor = columna.Name, Texto = columna.HeaderText });
+                    }
                 }
-            }
 
-            cboBusqueda.DisplayMember = "Texto";
-            cboBusqueda.ValueMember = "Valor";
-            cboBusqueda.SelectedIndex = 0;
+                cboBusqueda.DisplayMember = "Texto";
+                cboBusqueda.ValueMember = "Valor";
+                cboBusqueda.SelectedIndex = 0;
 
-            List<Proveedor> lista = new CN_Proveedor().Listar();
+                List<Proveedor> lista = new CN_Proveedor().Listar();
 
-            foreach (Proveedor item in lista)
-            {
-                dgvData.Rows.Add(new object[] { item.IdProveedor, item.Documento, item.RazonSocial });
-            }
+                foreach (Proveedor item in lista)
+                {
+                    dgvData.Rows.Add(new object[] { item.IdProveedor, item.Documento, item.RazonSocial });
+                }
 
         }
 
