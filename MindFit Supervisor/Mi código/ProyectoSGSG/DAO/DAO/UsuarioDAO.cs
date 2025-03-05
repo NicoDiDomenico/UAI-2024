@@ -89,21 +89,18 @@ namespace DAO
                     cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
                     cmd.Parameters.AddWithValue("@Estado", obj.Estado);
 
-                    cmd.Parameters.Add("IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
-                    // Se indica que el tipo de comando es un procedimiento almacenado
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Se abre la conexión con la base de datos
                     oconexion.Open();
 
-                    // Se ejecuta el procedimiento almacenado
                     cmd.ExecuteNonQuery();
 
                     // Se obtienen los valores de los parámetros de salida después de la ejecución del procedimiento
-                    idusuariogenerado = Convert.ToInt32(cmd.Parameters["IdUsuarioResultado"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    idusuariogenerado = Convert.ToInt32(cmd.Parameters["@IdUsuarioResultado"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -127,7 +124,7 @@ namespace DAO
                 {
                     SqlCommand cmd = new SqlCommand("SP_EDITARUSUARIO", oconexion);
 
-                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
                     cmd.Parameters.AddWithValue("@NombreUsuario", obj.NombreUsuario);
                     cmd.Parameters.AddWithValue("@NombreYApellido", obj.NombreYApellido);
                     cmd.Parameters.AddWithValue("@Email", obj.Email);
@@ -141,15 +138,15 @@ namespace DAO
                     cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
                     cmd.Parameters.AddWithValue("@Estado", obj.Estado);
 
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -171,16 +168,16 @@ namespace DAO
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("SP_ELIMINARUSUARIO", oconexion);
-                    cmd.Parameters.AddWithValue("IdUsuario", obj.IdUsuario);
-                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
-                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
             }
             catch (Exception ex)

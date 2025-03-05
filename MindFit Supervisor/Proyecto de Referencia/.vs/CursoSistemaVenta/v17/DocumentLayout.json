@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2FAB1520-F165-4846-843A-EE5A6585D018}|CapaDatos\\CapaDatos.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\proyecto de referencia\\capadatos\\cd_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2FAB1520-F165-4846-843A-EE5A6585D018}|CapaDatos\\CapaDatos.csproj|solutionrelative:capadatos\\cd_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\capapresentacion\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\proyecto de referencia\\capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\proyecto de referencia\\capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\capapresentacion\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\capapresentacion\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\frmusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4A4A5983-AD39-4A77-B57F-D51DA1C70EF3}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\capapresentacion\\modales\\mdproveedor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +58,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "CD_Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaDatos\\CD_Usuario.cs",
+              "RelativeDocumentMoniker": "CapaDatos\\CD_Usuario.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaDatos\\CD_Usuario.cs",
+              "RelativeToolTip": "CapaDatos\\CD_Usuario.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAowCUAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T01:56:44.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "frmUsuarios.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\frmUsuarios.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\frmUsuarios.cs",
@@ -67,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "frmUsuarios.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\frmUsuarios.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\frmUsuarios.cs",
@@ -79,7 +96,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "mdProveedor.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\Modales\\mdProveedor.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\Modales\\mdProveedor.cs",
@@ -87,24 +104,22 @@
               "RelativeToolTip": "CapaPresentacion\\Modales\\mdProveedor.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T23:45:53.327Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T23:45:53.327Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "mdProveedor.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\Modales\\mdProveedor.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\Modales\\mdProveedor.cs",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\Modales\\mdProveedor.cs [Dise\u00F1o]",
               "RelativeToolTip": "CapaPresentacion\\Modales\\mdProveedor.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T23:43:40.348Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-03-03T23:43:40.348Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "frmVentas.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\frmVentas.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\frmVentas.cs",
@@ -117,19 +132,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "frmVentas.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\frmVentas.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\frmVentas.cs",
               "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\frmVentas.cs [Dise\u00F1o]",
               "RelativeToolTip": "CapaPresentacion\\frmVentas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T23:24:36.748Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2025-03-03T23:24:36.748Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "mdAcercaDe.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\Modales\\mdAcercaDe.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\Modales\\mdAcercaDe.cs",
@@ -140,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Inicio.cs",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\Inicio.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\Inicio.cs",
@@ -152,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Inicio.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Proyecto de Referencia\\CapaPresentacion\\Inicio.cs",
               "RelativeDocumentMoniker": "CapaPresentacion\\Inicio.cs",

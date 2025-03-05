@@ -52,7 +52,7 @@ namespace Controlador
 
             if (obj.NombreUsuario == "")
             {
-                Mensaje += "Es necesario el Nombre de Usuario para el usuario\n";
+                Mensaje += "Es necesario el Nombre de Usuario\n";
             }
 
             if (obj.NombreYApellido == "")

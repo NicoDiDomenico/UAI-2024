@@ -265,7 +265,8 @@ CREATE TABLE Usuario (
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 GO
-
+-- NUEVO --> Eliminar los SP viejos y agregar estos. --
+----
 create PROC SP_REGISTRARUSUARIO(
 	@NombreUsuario VARCHAR(50),
     @NombreYApellido VARCHAR(100),
@@ -343,7 +344,7 @@ begin
 		where IdUsuario = @IdUsuario
 
 		set @Respuesta = 1
-		SET @Mensaje = 'Usuario actualizado correctamente' 
+		set @Mensaje = 'Usuario actualizado correctamente' 
 	end
 	else
 		set @Mensaje = 'No se puede repetir el documento para más de un usuario'
@@ -390,6 +391,7 @@ begin
 	end
 
 end
+----
 
 INSERT INTO Usuario 
     (nombreUsuario, nombreYApellido, email, telefono, direccion, ciudad, nroDocumento, genero, fechaNacimiento, clave, idRol, estado) 

@@ -133,7 +133,7 @@ namespace Vista
         {
             try
             {
-                if (txtClave == txtConfirmarClave)
+                if (txtClave.Text == txtConfirmarClave.Text)
                 {
                     Usuario unUsuario = new Usuario
                     {
@@ -159,9 +159,11 @@ namespace Vista
 
                         if (idUsuarioGenerado != 0)
                         {
+                            
                             dgvData.Rows.Clear();
                             cargarGrid();
                             limpiarCampos();
+                            // Me falto configurar el mensaje en la BD, por eso se muestar vacio
                             MessageBox.Show(mensaje);
                         }
                         else
