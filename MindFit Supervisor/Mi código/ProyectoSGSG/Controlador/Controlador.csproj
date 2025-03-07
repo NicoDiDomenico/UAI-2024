@@ -45,6 +45,7 @@
     <Compile Include="ControladorGymPermiso.cs" />
     <Compile Include="ControladorGymRangoHorario.cs" />
     <Compile Include="ControladorGymRol.cs" />
+    <Compile Include="ControladorGymSocio.cs" />
     <Compile Include="ControladorGymUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

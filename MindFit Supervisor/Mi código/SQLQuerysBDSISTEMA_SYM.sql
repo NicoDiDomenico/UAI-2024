@@ -39,7 +39,7 @@ on p.IdRol = r.IdRol
 
 GO
 ---
---- NUEVO, MODIFIQUE [ETabla_Permisos] Y SP_REGISTRARROL, POR LO TANTO EJECUTAR: --
+--- NUEVO, MODIFIQUE [ETabla_Permisos] Y SP_REGISTRARROL, POR LO TANTO EJECUTAR: --> NO TOQUE NADA TAMPOCO PORQUE ANDA BIEN --
 /*
 DROP PROCEDURE IF EXISTS SP_REGISTRARROL;
 GO
@@ -218,7 +218,6 @@ INSERT INTO Permiso (idRol, nombreMenu) VALUES
 (2, 'menuSocios'),
 (3, 'menuGestionarRutinas');
 
--- NUEVO --> Listo --
 UPDATE Permiso
 SET Descripcion = 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignación y modificación.'
 WHERE NombreMenu = 'menuGestionarRutinas';
@@ -265,7 +264,7 @@ CREATE TABLE Usuario (
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 GO
--- NUEVO --> Eliminar los SP viejos y agregar estos. --
+-- NUEVO --> Eliminar los SP viejos y agregar estos. --> ANDA BIEN EN LA BOOK 4 POR LO TANTO LO DEJE COMO ESTABA--
 ----
 create PROC SP_REGISTRARUSUARIO(
 	@NombreUsuario VARCHAR(50),
@@ -511,6 +510,31 @@ DBCC CHECKIDENT ('Rol', RESEED, 3);
 
 DBCC CHECKIDENT ('Permiso', NORESEED);
 DBCC CHECKIDENT ('Permiso', RESEED, 5);
+
+---- CORRECCION MODULO SEGURIDAD ----
+
+-- Accion, en vez de asignarle un rol, le asigno cada accion directamente. --
+CREATE TABLE Accion (
+	IdAccion INT PRIMARY KEY IDENTITY,
+	IdUsuario INT REFERENCES Usuario(IdUsuario),
+	IdGrupo INT NOT NULL REFERENCES Grupo(IdGrupo),
+	NombreSubMenu VARCHAR(100)
+);
+
+-- Grupo, cada accion tiene un menu que tambien tiene que ser accedido si elije determianada accion, por lo tanto sseran 3 filas nomas (los 3 menus).
+CREATE TABLE Grupo (
+	IdGrupo INT PRIMARY KEY IDENTITY,
+	NombreMenu VARCHAR(100)
+);
+
+-- Permiso, queda igual. --
+CREATE TABLE Permiso (
+    IdPermiso INT PRIMARY KEY IDENTITY,
+    IdRol INT REFERENCES rol(idRol),
+    NombreMenu VARCHAR(100),
+    FechaRegistro DATETIME DEFAULT GETDATE(),
+	Descripcion VARCHAR(255) NULL
+);
 */
 
 /* NUEVO */
@@ -632,3 +656,126 @@ on rh_u.IdUsuario = u.IdRol
 select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo from RangoHorario
 
 select * from RangoHorario_Usuario
+
+/* Socio */
+CREATE TABLE Socio (
+    IdSocio INT PRIMARY KEY IDENTITY,
+    NombreYApellido VARCHAR(100) NOT NULL,
+    FechaNacimiento DATE NOT NULL,
+    Genero VARCHAR(50) NOT NULL,
+    NroDocumento INT UNIQUE NOT NULL,
+    Ciudad VARCHAR(50) NOT NULL,
+    Direccion VARCHAR(50) NOT NULL,
+    Telefono VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
+    ObraSocial VARCHAR(50) NULL,
+    [Plan] VARCHAR(50) NULL,  -- Corchetes para evitar conflictos con la palabra reservada
+    EstadoSocio VARCHAR(50) NOT NULL,
+    FechaInicioActividades DATE NULL,
+    FechaFinActividades DATE NULL,
+    FechaNotificacion DATE NULL,
+    RespuestaNotificacion BIT NULL
+);
+/*
+// No lo voy a hacer por ahora
+CREATE TABLE HistorialRutinas (
+    IdHistorialRutinas INT NOT NULL,
+    UltimaFecha DATE NOT NULL,
+    UltimaHora TIME NOT NULL,
+    CONSTRAINT PK_HistorialRutinas PRIMARY KEY (IdHistorialRutinas, UltimaFecha, UltimaHora)
+);
+*/
+
+select * from Socio s
+left join Rutina r
+on s.IdSocio = r.IdSocio
+
+delete Socio where IdSocio = 1
+
+DBCC CHECKIDENT ('Socio', RESEED, 0);
+DBCC CHECKIDENT ('Rutina', RESEED, 0);
+
+INSERT INTO Socio (NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, Direccion, Telefono, Email, EstadoSocio)
+VALUES ('Test Usuario', '1990-01-01', 'Masculino', 12345678, 'Ciudad Prueba', 'Calle 123', '1234567890', 'test@email.com', 'Nuevo');
+
+DBCC CHECKIDENT ('Socio', NORESEED);
+
+CREATE TYPE [dbo].[ETabla_Rutinas] AS TABLE(
+    FechaModificacion DATE NOT NULL,    -- Fecha de modificación de la rutina
+    Dia VARCHAR(20) NOT NULL            -- Día de la rutina ("Lunes", "Martes", etc.)
+);
+GO
+
+CREATE PROCEDURE SP_RegistrarSocio
+(
+    @NombreYApellido VARCHAR(100),
+    @FechaNacimiento DATE,
+    @Genero VARCHAR(50),
+    @NroDocumento INT,
+    @Ciudad VARCHAR(50),
+    @Direccion VARCHAR(50),
+    @Telefono VARCHAR(50),
+    @Email VARCHAR(50),
+    @ObraSocial VARCHAR(50),
+    @Plan VARCHAR(50),
+    @EstadoSocio VARCHAR(50),
+    @FechaInicioActividades DATE,
+    @FechaFinActividades DATE,
+    @FechaNotificacion DATE,
+    @RespuestaNotificacion BIT,
+    @Rutinas ETabla_Rutinas READONLY, -- Lista de rutinas
+    @IdSocio INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @IdSocio = 0
+
+        BEGIN TRANSACTION
+
+        -- Verificar si ya existe un socio con el mismo documento
+        IF EXISTS (SELECT 1 FROM Socio WHERE NroDocumento = @NroDocumento)
+        BEGIN
+            SET @Mensaje = 'El número de documento ya está registrado.'
+            ROLLBACK TRANSACTION
+            RETURN
+        END
+
+        -- Insertar el socio
+        INSERT INTO Socio 
+        (NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion)
+        VALUES 
+        (@NombreYApellido, @FechaNacimiento, @Genero, @NroDocumento, @Ciudad, @Direccion, @Telefono, @Email, @ObraSocial, @Plan, @EstadoSocio, @FechaInicioActividades, @FechaFinActividades, @FechaNotificacion, @RespuestaNotificacion)
+
+        -- Obtener el ID generado del socio
+        SET @IdSocio = SCOPE_IDENTITY()
+
+        -- Insertar las rutinas asociadas al socio
+        INSERT INTO Rutina (IdSocio, FechaModificacion, Dia)
+        SELECT @IdSocio, FechaModificacion, Dia FROM @Rutinas
+
+        -- Confirmar transacción
+        COMMIT TRANSACTION
+        SET @Mensaje = 'Socio registrado exitosamente con sus rutinas.'
+
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION
+    END CATCH
+END
+GO
+
+
+/* Rutina */
+CREATE TABLE Rutina (
+	IdRutina INT PRIMARY KEY IDENTITY,
+	IdSocio INT NOT NULL,
+	FechaModificacion DATE NOT NULL,
+	Dia VARCHAR(20) NOT NULL,
+	CONSTRAINT FK_Rutina_Socio FOREIGN KEY (IdSocio) REFERENCES Socio(IdSocio) ON DELETE CASCADE
+);
+
+select * from Rutina

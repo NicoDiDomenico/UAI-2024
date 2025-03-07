@@ -71,7 +71,7 @@
             this.btnSalir.IconColor = System.Drawing.Color.White;
             this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSalir.IconSize = 60;
-            this.btnSalir.Location = new System.Drawing.Point(1712, 12);
+            this.btnSalir.Location = new System.Drawing.Point(1712, 16);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.btnSalir.Size = new System.Drawing.Size(80, 60);
@@ -85,7 +85,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1424, 36);
+            this.label2.Location = new System.Drawing.Point(1334, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 11;
@@ -267,7 +267,7 @@
             this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(1514, 37);
+            this.lblUsuario.Location = new System.Drawing.Point(1431, 35);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 20);
             this.lblUsuario.TabIndex = 12;
@@ -295,7 +295,7 @@
             this.iconButton1.IconSize = 135;
             this.iconButton1.Location = new System.Drawing.Point(815, 16);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(35, 5, 0, 0);
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(25, 5, 0, 0);
             this.iconButton1.Size = new System.Drawing.Size(175, 130);
             this.iconButton1.TabIndex = 10;
             this.iconButton1.UseVisualStyleBackColor = false;
@@ -340,10 +340,10 @@
             this.iconMenuItem9,
             this.iconMenuItem10,
             this.iconMenuItem11});
-            this.botonesTop.Location = new System.Drawing.Point(1331, 94);
+            this.botonesTop.Location = new System.Drawing.Point(1338, 94);
             this.botonesTop.Name = "botonesTop";
-            this.botonesTop.Padding = new System.Windows.Forms.Padding(3, 2, 2, 2);
-            this.botonesTop.Size = new System.Drawing.Size(461, 52);
+            this.botonesTop.Padding = new System.Windows.Forms.Padding(1);
+            this.botonesTop.Size = new System.Drawing.Size(454, 52);
             this.botonesTop.TabIndex = 2;
             this.botonesTop.Text = "menuStrip1";
             // 
@@ -359,7 +359,7 @@
             this.menuTopGestionarRutinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menuTopGestionarRutinas.IconSize = 1;
             this.menuTopGestionarRutinas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuTopGestionarRutinas.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.menuTopGestionarRutinas.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.menuTopGestionarRutinas.Name = "menuTopGestionarRutinas";
             this.menuTopGestionarRutinas.Padding = new System.Windows.Forms.Padding(0);
             this.menuTopGestionarRutinas.Size = new System.Drawing.Size(150, 50);
@@ -379,8 +379,9 @@
             this.menuTopSocios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.menuTopSocios.IconSize = 50;
             this.menuTopSocios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuTopSocios.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            this.menuTopSocios.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
             this.menuTopSocios.Name = "menuTopSocios";
+            this.menuTopSocios.Padding = new System.Windows.Forms.Padding(0);
             this.menuTopSocios.Size = new System.Drawing.Size(150, 50);
             this.menuTopSocios.Text = "Ver Socios";
             this.menuTopSocios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;

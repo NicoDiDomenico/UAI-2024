@@ -20,3 +20,14 @@ C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Con
 C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
 C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
 C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
