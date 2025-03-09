@@ -11,9 +11,20 @@ namespace Controlador
 
         public List<Socio> Listar()
         {
-            return objcd_Socio.Listar();
-        }
+            List <Socio> socios= objcd_Socio.Listar();
 
+            foreach (Socio socio in socios)
+            {
+                if (socio.FechaFinActividades <= DateTime.Now.Date) socio.EstadoSocio = "Suspendido";
+            }
+
+            return socios;
+        }
+        
+        public Socio GetSocio(int id)
+        {
+            return objcd_Socio.GetSocio(id);
+        }
         public int Registrar(Socio unSocio, out string mensaje)
         {
             mensaje = string.Empty;
@@ -43,6 +54,18 @@ namespace Controlador
 
             // Aquí se debería llamar a la Capa de Datos para registrar el socio
             return objcd_Socio.Registrar(unSocio, out mensaje);
+        }
+
+        public Boolean Actualizar(Socio unSocio, out string mensaje)
+        {
+            mensaje = string.Empty;
+
+            return objcd_Socio.Actualizar(unSocio, out mensaje);
+        }
+
+        public bool Eliminar(Socio obj, out string Mensaje)
+        {
+            return objcd_Socio.Eliminar(obj, out Mensaje);
         }
     }
 }

@@ -57,9 +57,7 @@
             this.btnDireccion = new FontAwesome.Sharp.IconButton();
             this.btnCiudad = new FontAwesome.Sharp.IconButton();
             this.btnNroDocumento = new FontAwesome.Sharp.IconButton();
-            this.btnFechaNacimiento = new FontAwesome.Sharp.IconButton();
             this.btnNombreYApellido = new FontAwesome.Sharp.IconButton();
-            this.btnId = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chkSabado = new System.Windows.Forms.CheckBox();
             this.chkViernes = new System.Windows.Forms.CheckBox();
@@ -78,6 +76,8 @@
             this.chkMensual = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnConfirmar = new FontAwesome.Sharp.IconButton();
+            this.lblRenovar = new System.Windows.Forms.Label();
+            this.btnRenovarCuota = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -122,6 +122,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(492, 23);
             this.txtEmail.TabIndex = 37;
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             // 
             // txtNombreYApellido
             // 
@@ -129,6 +130,7 @@
             this.txtNombreYApellido.Name = "txtNombreYApellido";
             this.txtNombreYApellido.Size = new System.Drawing.Size(492, 23);
             this.txtNombreYApellido.TabIndex = 38;
+            this.txtNombreYApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreYApellido_KeyDown);
             // 
             // dtpFechaNacimiento
             // 
@@ -162,6 +164,7 @@
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(414, 24);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(492, 23);
@@ -203,6 +206,7 @@
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(492, 23);
             this.txtNroDocumento.TabIndex = 67;
+            this.txtNroDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNroDocumento_KeyDown);
             // 
             // label6
             // 
@@ -220,6 +224,7 @@
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(492, 23);
             this.txtCiudad.TabIndex = 69;
+            this.txtCiudad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCiudad_KeyDown);
             // 
             // label5
             // 
@@ -233,11 +238,12 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.BackColor = System.Drawing.Color.White;
+            this.txtDireccion.BackColor = System.Drawing.SystemColors.Window;
             this.txtDireccion.Location = new System.Drawing.Point(414, 240);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(492, 23);
             this.txtDireccion.TabIndex = 71;
+            this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // label4
             // 
@@ -255,6 +261,7 @@
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(492, 23);
             this.txtTelefono.TabIndex = 73;
+            this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // txtObraSocial
             // 
@@ -262,6 +269,7 @@
             this.txtObraSocial.Name = "txtObraSocial";
             this.txtObraSocial.Size = new System.Drawing.Size(492, 23);
             this.txtObraSocial.TabIndex = 74;
+            this.txtObraSocial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtObraSocial_KeyDown);
             // 
             // label7
             // 
@@ -292,9 +300,7 @@
             this.panel2.Controls.Add(this.btnDireccion);
             this.panel2.Controls.Add(this.btnCiudad);
             this.panel2.Controls.Add(this.btnNroDocumento);
-            this.panel2.Controls.Add(this.btnFechaNacimiento);
             this.panel2.Controls.Add(this.btnNombreYApellido);
-            this.panel2.Controls.Add(this.btnId);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label8);
@@ -341,6 +347,7 @@
             this.btnObraSocial.Size = new System.Drawing.Size(36, 23);
             this.btnObraSocial.TabIndex = 88;
             this.btnObraSocial.UseVisualStyleBackColor = false;
+            this.btnObraSocial.Click += new System.EventHandler(this.btnObraSocial_Click);
             // 
             // btnEmail
             // 
@@ -359,6 +366,7 @@
             this.btnEmail.Size = new System.Drawing.Size(36, 23);
             this.btnEmail.TabIndex = 87;
             this.btnEmail.UseVisualStyleBackColor = false;
+            this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);
             // 
             // btnTelefono
             // 
@@ -377,6 +385,7 @@
             this.btnTelefono.Size = new System.Drawing.Size(36, 23);
             this.btnTelefono.TabIndex = 86;
             this.btnTelefono.UseVisualStyleBackColor = false;
+            this.btnTelefono.Click += new System.EventHandler(this.btnTelefono_Click);
             // 
             // btnDireccion
             // 
@@ -395,6 +404,7 @@
             this.btnDireccion.Size = new System.Drawing.Size(36, 23);
             this.btnDireccion.TabIndex = 85;
             this.btnDireccion.UseVisualStyleBackColor = false;
+            this.btnDireccion.Click += new System.EventHandler(this.btnDireccion_Click);
             // 
             // btnCiudad
             // 
@@ -413,6 +423,7 @@
             this.btnCiudad.Size = new System.Drawing.Size(36, 23);
             this.btnCiudad.TabIndex = 84;
             this.btnCiudad.UseVisualStyleBackColor = false;
+            this.btnCiudad.Click += new System.EventHandler(this.btnCiudad_Click);
             // 
             // btnNroDocumento
             // 
@@ -431,24 +442,7 @@
             this.btnNroDocumento.Size = new System.Drawing.Size(36, 23);
             this.btnNroDocumento.TabIndex = 83;
             this.btnNroDocumento.UseVisualStyleBackColor = false;
-            // 
-            // btnFechaNacimiento
-            // 
-            this.btnFechaNacimiento.BackColor = System.Drawing.Color.White;
-            this.btnFechaNacimiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFechaNacimiento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFechaNacimiento.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFechaNacimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFechaNacimiento.ForeColor = System.Drawing.Color.White;
-            this.btnFechaNacimiento.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.btnFechaNacimiento.IconColor = System.Drawing.Color.Black;
-            this.btnFechaNacimiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFechaNacimiento.IconSize = 20;
-            this.btnFechaNacimiento.Location = new System.Drawing.Point(923, 95);
-            this.btnFechaNacimiento.Name = "btnFechaNacimiento";
-            this.btnFechaNacimiento.Size = new System.Drawing.Size(36, 23);
-            this.btnFechaNacimiento.TabIndex = 82;
-            this.btnFechaNacimiento.UseVisualStyleBackColor = false;
+            this.btnNroDocumento.Click += new System.EventHandler(this.btnNroDocumento_Click);
             // 
             // btnNombreYApellido
             // 
@@ -467,24 +461,7 @@
             this.btnNombreYApellido.Size = new System.Drawing.Size(36, 23);
             this.btnNombreYApellido.TabIndex = 81;
             this.btnNombreYApellido.UseVisualStyleBackColor = false;
-            // 
-            // btnId
-            // 
-            this.btnId.BackColor = System.Drawing.Color.White;
-            this.btnId.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnId.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnId.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnId.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnId.ForeColor = System.Drawing.Color.White;
-            this.btnId.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            this.btnId.IconColor = System.Drawing.Color.Black;
-            this.btnId.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnId.IconSize = 20;
-            this.btnId.Location = new System.Drawing.Point(923, 23);
-            this.btnId.Name = "btnId";
-            this.btnId.Size = new System.Drawing.Size(36, 23);
-            this.btnId.TabIndex = 80;
-            this.btnId.UseVisualStyleBackColor = false;
+            this.btnNombreYApellido.Click += new System.EventHandler(this.btnNombreYApellido_Click);
             // 
             // panel1
             // 
@@ -506,7 +483,7 @@
             this.chkSabado.Name = "chkSabado";
             this.chkSabado.Size = new System.Drawing.Size(76, 21);
             this.chkSabado.TabIndex = 82;
-            this.chkSabado.Text = "Sábado";
+            this.chkSabado.Text = "Sabado";
             this.chkSabado.UseVisualStyleBackColor = true;
             // 
             // chkViernes
@@ -536,7 +513,7 @@
             this.chkMiercoles.Name = "chkMiercoles";
             this.chkMiercoles.Size = new System.Drawing.Size(87, 21);
             this.chkMiercoles.TabIndex = 79;
-            this.chkMiercoles.Text = "Miércoles";
+            this.chkMiercoles.Text = "Miercoles";
             this.chkMiercoles.UseVisualStyleBackColor = true;
             // 
             // chkMartes
@@ -577,7 +554,7 @@
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(196, 506);
+            this.label15.Location = new System.Drawing.Point(196, 504);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(126, 24);
             this.label15.TabIndex = 92;
@@ -586,6 +563,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panel4.Controls.Add(this.lblRenovar);
+            this.panel4.Controls.Add(this.btnRenovarCuota);
             this.panel4.Controls.Add(this.lblMensajeEstado);
             this.panel4.Controls.Add(this.label17);
             this.panel4.Controls.Add(this.cboEstado);
@@ -593,9 +572,9 @@
             this.panel4.Controls.Add(this.label16);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.Black;
-            this.panel4.Location = new System.Drawing.Point(200, 533);
+            this.panel4.Location = new System.Drawing.Point(200, 531);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1359, 94);
+            this.panel4.Size = new System.Drawing.Size(1359, 104);
             this.panel4.TabIndex = 91;
             // 
             // lblMensajeEstado
@@ -603,8 +582,8 @@
             this.lblMensajeEstado.AutoSize = true;
             this.lblMensajeEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.lblMensajeEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensajeEstado.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblMensajeEstado.Location = new System.Drawing.Point(636, 62);
+            this.lblMensajeEstado.ForeColor = System.Drawing.Color.Black;
+            this.lblMensajeEstado.Location = new System.Drawing.Point(636, 71);
             this.lblMensajeEstado.Name = "lblMensajeEstado";
             this.lblMensajeEstado.Size = new System.Drawing.Size(77, 17);
             this.lblMensajeEstado.TabIndex = 89;
@@ -614,7 +593,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label17.Location = new System.Drawing.Point(335, 62);
+            this.label17.Location = new System.Drawing.Point(335, 71);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(56, 17);
             this.label17.TabIndex = 89;
@@ -625,7 +604,7 @@
             this.cboEstado.BackColor = System.Drawing.Color.WhiteSmoke;
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstado.FormattingEnabled = true;
-            this.cboEstado.Location = new System.Drawing.Point(413, 59);
+            this.cboEstado.Location = new System.Drawing.Point(413, 68);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(190, 24);
             this.cboEstado.TabIndex = 90;
@@ -634,15 +613,15 @@
             // 
             this.panel5.Controls.Add(this.chkAnual);
             this.panel5.Controls.Add(this.chkMensual);
-            this.panel5.Location = new System.Drawing.Point(413, 15);
+            this.panel5.Location = new System.Drawing.Point(413, 12);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(213, 35);
+            this.panel5.Size = new System.Drawing.Size(213, 45);
             this.panel5.TabIndex = 90;
             // 
             // chkAnual
             // 
             this.chkAnual.AutoSize = true;
-            this.chkAnual.Location = new System.Drawing.Point(143, 8);
+            this.chkAnual.Location = new System.Drawing.Point(143, 13);
             this.chkAnual.Name = "chkAnual";
             this.chkAnual.Size = new System.Drawing.Size(63, 21);
             this.chkAnual.TabIndex = 78;
@@ -653,7 +632,7 @@
             // chkMensual
             // 
             this.chkMensual.AutoSize = true;
-            this.chkMensual.Location = new System.Drawing.Point(14, 7);
+            this.chkMensual.Location = new System.Drawing.Point(14, 12);
             this.chkMensual.Name = "chkMensual";
             this.chkMensual.Size = new System.Drawing.Size(80, 21);
             this.chkMensual.TabIndex = 77;
@@ -665,7 +644,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label16.Location = new System.Drawing.Point(351, 23);
+            this.label16.Location = new System.Drawing.Point(351, 25);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(40, 17);
             this.label16.TabIndex = 89;
@@ -694,6 +673,30 @@
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
+            // lblRenovar
+            // 
+            this.lblRenovar.AutoSize = true;
+            this.lblRenovar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.lblRenovar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRenovar.Location = new System.Drawing.Point(696, 26);
+            this.lblRenovar.Name = "lblRenovar";
+            this.lblRenovar.Size = new System.Drawing.Size(129, 20);
+            this.lblRenovar.TabIndex = 94;
+            this.lblRenovar.Text = "Renovar Cuota";
+            // 
+            // btnRenovarCuota
+            // 
+            this.btnRenovarCuota.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            this.btnRenovarCuota.IconColor = System.Drawing.Color.Black;
+            this.btnRenovarCuota.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRenovarCuota.Location = new System.Drawing.Point(639, 12);
+            this.btnRenovarCuota.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRenovarCuota.Name = "btnRenovarCuota";
+            this.btnRenovarCuota.Size = new System.Drawing.Size(45, 45);
+            this.btnRenovarCuota.TabIndex = 93;
+            this.btnRenovarCuota.UseVisualStyleBackColor = true;
+            this.btnRenovarCuota.Click += new System.EventHandler(this.btnRenovarCuota_Click);
+            // 
             // frmEditarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -707,6 +710,7 @@
             this.Controls.Add(this.label10);
             this.Name = "frmEditarSocio";
             this.Text = "frmEditarSocio";
+            this.Load += new System.EventHandler(this.frmEditarSocio_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -759,9 +763,7 @@
         private FontAwesome.Sharp.IconButton btnDireccion;
         private FontAwesome.Sharp.IconButton btnCiudad;
         private FontAwesome.Sharp.IconButton btnNroDocumento;
-        private FontAwesome.Sharp.IconButton btnFechaNacimiento;
         private FontAwesome.Sharp.IconButton btnNombreYApellido;
-        private FontAwesome.Sharp.IconButton btnId;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
@@ -772,5 +774,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cboEstado;
         private FontAwesome.Sharp.IconButton btnConfirmar;
+        private System.Windows.Forms.Label lblRenovar;
+        private FontAwesome.Sharp.IconButton btnRenovarCuota;
     }
 }

@@ -63,7 +63,7 @@ namespace Vista
 
         private void cargarGrid()
         {
-            // Para el Grid - MOSTRAR TODOS LOS USUARIOS
+            // Para el Grid - MOSTRAR TODOS LOS Rango 
             List<RangoHorario> listaRangoHorario = new ControladorGymRangoHorario().Listar();
             foreach (RangoHorario item in listaRangoHorario)
             {

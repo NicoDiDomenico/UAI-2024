@@ -207,7 +207,6 @@ CREATE TABLE Permiso (
     FechaRegistro DATETIME DEFAULT GETDATE()
 );
 
--- NUEVO --> Listo  --
 ALTER TABLE Permiso
 ADD Descripcion VARCHAR(255) NULL;
 
@@ -537,7 +536,7 @@ CREATE TABLE Permiso (
 );
 */
 
-/* NUEVO */
+
 -- Rangos Horarios --
 CREATE TABLE RangoHorario (
     IdRangoHorario INT PRIMARY KEY IDENTITY,
@@ -657,6 +656,7 @@ select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo from RangoHorario
 
 select * from RangoHorario_Usuario
 
+
 /* Socio */
 CREATE TABLE Socio (
     IdSocio INT PRIMARY KEY IDENTITY,
@@ -768,7 +768,6 @@ BEGIN
 END
 GO
 
-
 /* Rutina */
 CREATE TABLE Rutina (
 	IdRutina INT PRIMARY KEY IDENTITY,
@@ -779,3 +778,369 @@ CREATE TABLE Rutina (
 );
 
 select * from Rutina
+
+/* NUEVO */
+SELECT s.IdSocio, s.NombreYApellido, s.Email, s.Telefono, s.Direccion, s.Ciudad, 
+       s.NroDocumento, s.Genero, s.FechaNacimiento, s.ObraSocial, s.[Plan], 
+       s.EstadoSocio, s.FechaInicioActividades, s.FechaFinActividades, 
+       s.FechaNotificacion, s.RespuestaNotificacion, r.IdRutina, r.Dia
+FROM Socio s
+left join Rutina r
+on s.IdSocio = r.IdSocio
+
+UPDATE Rutina 
+SET Dia = 'Miercoles' 
+WHERE IdRutina = 2 AND IdSocio = 2;
+
+CREATE PROCEDURE SP_ActualizarSocio
+(
+    @IdSocio INT,
+    @NombreYApellido VARCHAR(100),
+    @FechaNacimiento DATE,
+    @Genero VARCHAR(50),
+    @NroDocumento INT,
+    @Ciudad VARCHAR(50),
+    @Direccion VARCHAR(50),
+    @Telefono VARCHAR(50),
+    @Email VARCHAR(50),
+    @ObraSocial VARCHAR(50),
+    @Plan VARCHAR(50),
+    @EstadoSocio VARCHAR(50),
+    @FechaInicioActividades DATE NULL,
+    @FechaFinActividades DATE NULL,
+    @FechaNotificacion DATE NULL,
+    @RespuestaNotificacion BIT NULL,
+    @Rutinas ETabla_Rutinas READONLY,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = '';
+
+        BEGIN TRANSACTION;
+
+        -- Actualizar los datos del socio (sin tocar rutinas)
+        UPDATE Socio
+        SET NombreYApellido = @NombreYApellido,
+            FechaNacimiento = @FechaNacimiento,
+            Genero = @Genero,
+            NroDocumento = @NroDocumento,
+            Ciudad = @Ciudad,
+            Direccion = @Direccion,
+            Telefono = @Telefono,
+            Email = @Email,
+            ObraSocial = @ObraSocial,
+            [Plan] = @Plan,
+            EstadoSocio = @EstadoSocio,
+            FechaInicioActividades = @FechaInicioActividades,
+            FechaFinActividades = @FechaFinActividades,
+            FechaNotificacion = @FechaNotificacion,
+            RespuestaNotificacion = @RespuestaNotificacion
+        WHERE IdSocio = @IdSocio;
+
+        -- Eliminar solo las rutinas que ya no están en la nueva lista
+        DELETE FROM Rutina
+        WHERE IdSocio = @IdSocio
+        AND Dia NOT IN (SELECT Dia FROM @Rutinas);
+
+        -- Insertar solo las rutinas nuevas (que no existían antes)
+        INSERT INTO Rutina (IdSocio, FechaModificacion, Dia)
+        SELECT @IdSocio, GETDATE(), Dia 
+        FROM @Rutinas
+        WHERE Dia NOT IN (SELECT Dia FROM Rutina WHERE IdSocio = @IdSocio);
+
+        COMMIT TRANSACTION;
+        SET @Mensaje = 'Socio actualizado correctamente con sus nuevos días de asistencia.';
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH
+END;
+
+EXEC sp_helptext 'SP_ActualizarSocio'
+EXEC sp_help 'ETabla_Rutinas';
+
+INSERT INTO dbo.Socio (
+    NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, 
+    Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, 
+    FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
+) 
+VALUES (
+    'Carlos Pérez', '1985-06-15', 'Masculino', 40123456, 'Buenos Aires', 
+    'Av. Corrientes 1234', '1134567890', 'carlos.perez@email.com', 'OSDE', 'Mensual', 'Suspendido', 
+    '2024-01-01', '2024-02-01', '2024-01-30', 0
+);
+
+INSERT INTO dbo.Socio (
+    NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, 
+    Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, 
+    FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
+) 
+VALUES (
+    'Mariana Gómez', '1992-09-10', 'Femenino', 40234567, 'Rosario', 
+    'Calle San Martín 567', '3416789123', 'mariana.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
+    '2023-03-15', '2024-03-15', '2024-03-14', 0
+);
+
+INSERT INTO dbo.Socio (
+    NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, 
+    Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, 
+    FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
+) 
+VALUES (
+    'Angie Gómez', '1992-09-10', 'Femenino', 39786454, 'Rosario', 
+    'Calle San Martín 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
+    '2023-03-15', '2024-03-15', '2024-03-14', 0
+);
+
+INSERT INTO dbo.Socio (
+    NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, 
+    Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, 
+    FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
+) 
+VALUES (
+    'Angela Gómez', '1992-09-10', 'Femenino', 49786454, 'Rosario', 
+    'Calle San Martín 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
+    '2023-03-15', '2024-03-15', '2024-03-14', 0
+);
+
+INSERT INTO dbo.Socio (
+    NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, 
+    Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, 
+    FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
+) 
+VALUES (
+    'Angelarda Gómez', '1992-09-10', 'Femenino', 59786454, 'Rosario', 
+    'Calle San Martín 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Mensual', 'Suspendido', 
+    '2023-03-15', '2024-03-15', '2024-03-14', 0
+);
+
+CREATE PROCEDURE SP_ELIMINARSOCIO
+    @IdSocio INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET @Respuesta = 0;
+    SET @Mensaje = '';
+
+    -- Verificar si el socio tiene rutinas asignadas
+    IF EXISTS (SELECT 1 FROM Rutina WHERE IdSocio = @IdSocio)
+    BEGIN
+        SET @Mensaje = 'No se puede eliminar el socio porque tiene rutinas asignadas.';
+        RETURN;
+    END
+
+    -- Intentar eliminar el socio
+    BEGIN TRY
+        DELETE FROM Socio WHERE IdSocio = @IdSocio;
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Socio eliminado correctamente.';
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END
+
+/* Turno */
+CREATE TABLE Turno (
+    IdTurno INT IDENTITY(1,1) PRIMARY KEY,  -- Clave primaria autoincremental
+    IdRangoHorario INT NOT NULL,            -- Relación con RangoHorario_Usuario
+    IdUsuario INT NOT NULL,                 -- Relación con RangoHorario_Usuario
+    IdSocio INT NOT NULL,                   -- Relación con Socio
+    FechaTurno DATE NOT NULL,               -- Fecha del turno
+    EstadoTurno VARCHAR(50) NOT NULL,       -- Estado del turno
+    CodigoIngreso VARCHAR(10) NOT NULL,     -- Código único para el ingreso
+
+    -- Clave foránea compuesta con RangoHorario_Usuario
+    CONSTRAINT FK_Turno_RangoHorarioUsuario 
+    FOREIGN KEY (IdRangoHorario, IdUsuario) 
+    REFERENCES RangoHorario_Usuario(IdRangoHorario, IdUsuario),
+
+    -- Clave foránea con Socio
+    CONSTRAINT FK_Turno_Socio 
+    FOREIGN KEY (IdSocio) 
+    REFERENCES Socio(IdSocio)
+);
+ 
+Select rh_u.IdRangoHorario, rh_u.IdUsuario, rh.HoraDesde, rh.HoraHasta, rh.CupoActual, rh.CupoMaximo, u.NombreYApellido
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u
+on rh_u.IdUsuario = u.IdUsuario
+
+CREATE PROCEDURE SP_REGISTRARTURNO
+    @IdRangoHorario INT,
+    @IdUsuario INT,
+    @IdSocio INT,
+    @FechaTurno DATE,
+    @EstadoTurno VARCHAR(50),
+    @CodigoIngreso VARCHAR(4),
+    @IdTurnoResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @CupoActual INT, @CupoMaximo INT, @HoraDesde TIME, @HoraHasta TIME;
+
+    -- Validar que la fecha del turno sea hoy o futura
+    IF @FechaTurno < CAST(GETDATE() AS DATE)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno para una fecha pasada.';
+        RETURN;
+    END
+
+    -- Obtener la información del Rango Horario (hora de inicio y fin, cupo)
+    SELECT @CupoActual = CupoActual, @CupoMaximo = CupoMaximo, 
+           @HoraDesde = HoraDesde, @HoraHasta = HoraHasta
+    FROM RangoHorario WHERE IdRangoHorario = @IdRangoHorario;
+
+    -- Si el turno es para hoy, validar que el horario no haya pasado
+    IF @FechaTurno = CAST(GETDATE() AS DATE) AND @HoraDesde <= CAST(GETDATE() AS TIME)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno en un horario que ya pasó.';
+        RETURN;
+    END
+
+    -- Validar que el RangoHorario y el Usuario existan en RangoHorario_Usuario
+    IF NOT EXISTS (
+        SELECT 1 FROM RangoHorario_Usuario 
+        WHERE IdRangoHorario = @IdRangoHorario AND IdUsuario = @IdUsuario
+    )
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: El Rango Horario y Usuario especificados no existen.';
+        RETURN;
+    END
+
+    -- Validar que el Socio existe
+    IF NOT EXISTS (SELECT 1 FROM Socio WHERE IdSocio = @IdSocio)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: El Socio especificado no existe.';
+        RETURN;
+    END
+
+    -- Validar que el Socio no tenga otro turno en la misma fecha
+    IF EXISTS (
+        SELECT 1 FROM Turno 
+        WHERE IdSocio = @IdSocio AND FechaTurno = @FechaTurno
+    )
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: Un socio no puede reservar más de un turno para la misma fecha.';
+        RETURN;
+    END
+
+    -- Validar si hay cupos disponibles
+    IF @CupoActual >= @CupoMaximo
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No hay cupos disponibles para este rango horario.';
+        RETURN;
+    END
+
+    -- Insertar el Turno
+    BEGIN TRY
+        INSERT INTO Turno (IdRangoHorario, IdUsuario, IdSocio, FechaTurno, EstadoTurno, CodigoIngreso)
+        VALUES (@IdRangoHorario, @IdUsuario, @IdSocio, @FechaTurno, @EstadoTurno, @CodigoIngreso);
+
+        -- Obtener el ID del Turno insertado
+        SET @IdTurnoResultado = SCOPE_IDENTITY();
+
+        -- Aumentar el CupoActual en RangoHorario (+1)
+        UPDATE RangoHorario 
+        SET CupoActual = CupoActual + 1 
+        WHERE IdRangoHorario = @IdRangoHorario;
+
+        -- Mensaje de éxito con el Código de Ingreso generado
+        SET @Mensaje = CONCAT('Turno registrado exitosamente. Código de Ingreso: ', @CodigoIngreso);
+    END TRY
+    BEGIN CATCH
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH;
+END;
+
+
+select * from Turno
+DBCC CHECKIDENT ('Turno', NORESEED);
+DBCC CHECKIDENT ('Turno', RESEED, 0);
+
+select * from RangoHorario
+/*
+FALTA:
+
+Listo --> validar que el turno que se esta sacando es para una fecha actual o superior,
+Listo --> mostrar los intervalos horarios menores a la hora actual para que no registre un turno en una hora que sea imposible asister porque ya paso,
+reiniciar los CuposACtuales despues de las 00:00 hs,
+cuando el Socio no asiste o asiste se tiene que disminuir el cupo actual en 1 y cambiar el estado del turno a Finalizado,
+Cuadno se cancela el turno se tiene que disminuir el cupo actual en 1 y cambiar el estado del turno a Cancelado,
+Listo --> Un Socio no puede sacar mas de un turnopara una misma fecha (con esta validacion ya no haria falta validar que no saque mas de un turno en el mismo rango horario)
+Listo --> Reiniciar manualmente la tabla turno y los cupos actuales de los rangos horarios. No olvidarse rde reiniciar los id.
+
+*/
+
+ SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, t.EstadoTurno, t.CodigoIngreso, 
+        u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
+        s.IdSocio, s.NombreYApellido AS NombreSocio
+ FROM Turno t
+ INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+ INNER JOIN Socio s ON t.IdSocio = s.IdSocio
+ INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+
+CREATE PROCEDURE SP_ELIMINARTURNO
+    @IdTurno INT,
+    @IdRangoHorario INT,
+    @Respuesta INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Verificar si el turno existe
+    IF NOT EXISTS (SELECT 1 FROM Turno WHERE IdTurno = @IdTurno)
+    BEGIN
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El turno no existe.';
+        RETURN;
+    END
+
+    -- Verificar si el rango horario existe
+    IF NOT EXISTS (SELECT 1 FROM RangoHorario WHERE IdRangoHorario = @IdRangoHorario)
+    BEGIN
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El rango horario no existe.';
+        RETURN;
+    END
+
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        -- Eliminar el turno
+        DELETE FROM Turno WHERE IdTurno = @IdTurno;
+
+        -- Actualizar el CupoActual del RangoHorario (restando 1)
+        UPDATE RangoHorario
+        SET CupoActual = CASE 
+                            WHEN CupoActual > 0 THEN CupoActual - 1 
+                            ELSE 0 
+                         END
+        WHERE IdRangoHorario = @IdRangoHorario;
+
+        COMMIT TRANSACTION;
+
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Turno eliminado correctamente y cupo actualizado.';
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        SET @Respuesta = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END;

@@ -19,9 +19,22 @@ namespace Vista
         #region "Variables"
         private static Form formularioActivo = null;
         private static int idSocioSeleccionado;
+        private static string nombreSocioSeleccionado;
         #endregion
 
         #region "Métodos"
+        private void BloquearBotones()
+        {
+            btnConsultar.Enabled = false;
+            btnConsultar.BackColor = Color.Gray;
+
+            btnEliminar.Enabled = false;
+            btnEliminar.BackColor = Color.Gray;
+
+            btnTurno.Enabled = false;
+            btnTurno.BackColor = Color.Gray;
+        }
+
         private void PersonalizarFormulario(Form formulario)
         {
             // No creo que haga falta
@@ -36,6 +49,11 @@ namespace Vista
                 formulario.Top += 95;
             };
             formulario.ShowDialog(); // Muestra como ventana modal
+
+            BloquearBotones();
+
+            dgvData.Rows.Clear();
+            cargarGrid();
         }
 
         private void cargarGrid()
@@ -60,15 +78,14 @@ namespace Vista
                     item.ObraSocial,
                     item.Plan,
                     item.EstadoSocio,
-                    item.FechaInicioActividades,
-                    item.FechaFinActividades,
-                    item.FechaNotificacion,
+                    item.FechaInicioActividades?.ToShortDateString() ?? "", // Si es null, devuelve una cadena vacía
+                    item.FechaFinActividades?.ToShortDateString() ?? "",    // Aplicar formato para mostrar solo la fecha
+                    item.FechaNotificacion?.ToShortDateString() ?? "",
                     item.RespuestaNotificacion,
                 });
 
                 // Obtener la fecha de vencimiento y verificar si es menor o igual a la fecha actual
-                // Quedaria buscar la forma de cambiar los estados
-                if (item.FechaFinActividades <= fechaActual)
+                if (item.FechaFinActividades.HasValue && item.FechaFinActividades.Value <= fechaActual)
                 {
                     dgvData.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Red;
                 }
@@ -83,11 +100,9 @@ namespace Vista
         }
         private void frmSocios_Load(object sender, EventArgs e)
         {
-            btnConsultar.Enabled = false;
-            btnConsultar.BackColor = Color.Gray;
+            dgvData.Rows.Clear();
 
-            btnEliminar.Enabled = false;
-            btnEliminar.BackColor = Color.Gray;
+            BloquearBotones();
 
             // Para ComboBox de filtrado - con Items.Add
             foreach (DataGridViewColumn columna in dgvData.Columns)
@@ -212,12 +227,16 @@ namespace Vista
 
                     // Guardar el IdSocio de la fila seleccionada
                     idSocioSeleccionado = Convert.ToInt32(dgvData.Rows[indice].Cells["IdSocio"].Value);
+                    nombreSocioSeleccionado = Convert.ToString(dgvData.Rows[indice].Cells["NombreYApellido"].Value);
 
                     btnConsultar.Enabled = true;
                     btnConsultar.BackColor = Color.RoyalBlue;
 
                     btnEliminar.Enabled = true;
                     btnEliminar.BackColor = Color.Firebrick;
+
+                    btnTurno.Enabled = true;
+                    btnTurno.BackColor = Color.White;
 
                     // Refrescar la vista
                     dgvData.Refresh();
@@ -243,7 +262,41 @@ namespace Vista
 
         private void btnLimpiarBuscador_Click(object sender, EventArgs e)
         {
+            cboBusqueda.SelectedIndex = -1;
             txtBusqueda.Clear();
+            dgvData.Rows.Clear();
+            BloquearBotones();
+            cargarGrid();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idSocioSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un socio para eliminar.", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Socio socio = new Socio() { IdSocio = idSocioSeleccionado };
+            string mensaje = string.Empty;
+
+            bool eliminado = new ControladorGymSocio().Eliminar(socio, out mensaje);
+
+            if (eliminado)
+            {
+                MessageBox.Show("Socio eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvData.Rows.Clear();
+                cargarGrid(); // Recargar la lista de socios
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnTurno_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new frmTurno(idSocioSeleccionado, nombreSocioSeleccionado));
         }
     }
 }

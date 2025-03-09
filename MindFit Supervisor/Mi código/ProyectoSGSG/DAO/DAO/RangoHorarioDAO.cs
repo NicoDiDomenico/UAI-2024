@@ -107,6 +107,57 @@ namespace DAO
             return lista;
         }
 
+        public List<RangoHorario> ListarParaTurno()
+        {
+            List<RangoHorario> lista = new List<RangoHorario>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        Select rh_u.IdRangoHorario, rh_u.IdUsuario, rh.HoraDesde, rh.HoraHasta, rh.CupoActual, rh.CupoMaximo, u.NombreYApellido
+                        from RangoHorario rh
+                        inner join RangoHorario_Usuario rh_u
+                        on rh.IdRangoHorario = rh_u.IdRangoHorario
+                        inner join Usuario u
+                        on rh_u.IdUsuario = u.IdUsuario
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            RangoHorario unRangoHorario = new RangoHorario();
+
+                            unRangoHorario.IdRangoHorario = Convert.ToInt32(dr["IdRangoHorario"]);
+                            unRangoHorario.HoraDesde = (TimeSpan)dr["HoraDesde"];
+                            unRangoHorario.HoraHasta = (TimeSpan)dr["HoraHasta"];
+                            unRangoHorario.CupoActual = Convert.ToInt32(dr["CupoActual"]);
+                            unRangoHorario.CupoMaximo = Convert.ToInt32(dr["CupoMaximo"]);
+                            
+                            unRangoHorario.UnUsuario = new Usuario();
+                            unRangoHorario.UnUsuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
+                            unRangoHorario.UnUsuario.NombreYApellido = Convert.ToString(dr["NombreYApellido"]);
+                            
+
+                            lista.Add(unRangoHorario);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<RangoHorario>();
+                }
+            }
+            return lista;
+        }
         public bool Registrar(int IdRangoHorario, int IdUsuario, out string mensaje)
         {
             bool resultado = false;

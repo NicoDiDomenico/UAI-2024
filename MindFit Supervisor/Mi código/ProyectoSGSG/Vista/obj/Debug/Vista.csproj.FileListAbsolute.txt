@@ -84,3 +84,7 @@ C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources

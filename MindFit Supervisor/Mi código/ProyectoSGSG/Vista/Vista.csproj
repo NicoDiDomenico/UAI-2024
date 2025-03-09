@@ -138,11 +138,23 @@
     <Compile Include="frmGestionarGimnasioMenus\frmModificarRoles.Designer.cs">
       <DependentUpon>frmModificarRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNuevoTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNuevoTurno.Designer.cs">
+      <DependentUpon>frmNuevoTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSocios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmSocios.Designer.cs">
       <DependentUpon>frmSocios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTurno.Designer.cs">
+      <DependentUpon>frmTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -200,8 +212,14 @@
     <EmbeddedResource Include="frmGestionarGimnasioMenus\frmModificarRoles.resx">
       <DependentUpon>frmModificarRoles.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoTurno.resx">
+      <DependentUpon>frmNuevoTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSocios.resx">
       <DependentUpon>frmSocios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTurno.resx">
+      <DependentUpon>frmTurno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

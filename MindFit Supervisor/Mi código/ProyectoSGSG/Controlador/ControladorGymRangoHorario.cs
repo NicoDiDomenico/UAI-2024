@@ -21,6 +21,10 @@ namespace Controlador
         {
             return objcd_RangoHorario.ListarTodo();
         }
+        public List<RangoHorario> ListarParaTurno()
+        {
+            return objcd_RangoHorario.ListarParaTurno();
+        }
 
         public bool Registrar(int idRH, int idU, out string mensaje)
         {

@@ -17,12 +17,12 @@ namespace DAO
                 try
                 {
                     string query = @"
-                SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
-                       NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
-                       EstadoSocio, FechaInicioActividades, FechaFinActividades, 
-                       FechaNotificacion, RespuestaNotificacion
-                FROM Socio
-            ";
+                    SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
+                           NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
+                           EstadoSocio, FechaInicioActividades, FechaFinActividades, 
+                           FechaNotificacion, RespuestaNotificacion
+                    FROM Socio
+                    ";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -63,6 +63,85 @@ namespace DAO
                 }
             }
             return lista;
+        }
+
+        public Socio GetSocio(int IdSocio)
+        {
+            Socio unSocio = null; // Se inicializa como null para validar si se encontró un socio
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                    SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
+                           NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
+                           EstadoSocio, FechaInicioActividades, FechaFinActividades, 
+                           FechaNotificacion, RespuestaNotificacion
+                    FROM Socio
+                    WHERE IdSocio = @IdSocio;
+
+                    SELECT IdRutina, IdSocio, FechaModificacion, Dia 
+                    FROM Rutina
+                    WHERE IdSocio = @IdSocio;";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@IdSocio", IdSocio); // Se agrega el parámetro
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        // Leer datos del socio
+                        if (dr.Read()) // Verifica si encontró un socio
+                        {
+                            unSocio = new Socio
+                            {
+                                IdSocio = Convert.ToInt32(dr["IdSocio"]),
+                                NombreYApellido = dr["NombreYApellido"].ToString(),
+                                Email = dr["Email"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Direccion = dr["Direccion"].ToString(),
+                                Ciudad = dr["Ciudad"].ToString(),
+                                NroDocumento = Convert.ToInt32(dr["NroDocumento"]),
+                                Genero = dr["Genero"].ToString(),
+                                FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]),
+                                ObraSocial = dr["ObraSocial"] != DBNull.Value ? dr["ObraSocial"].ToString() : null,
+                                Plan = dr["Plan"] != DBNull.Value ? dr["Plan"].ToString() : null,
+                                EstadoSocio = dr["EstadoSocio"].ToString(),
+                                FechaInicioActividades = dr["FechaInicioActividades"] != DBNull.Value ? Convert.ToDateTime(dr["FechaInicioActividades"]) : (DateTime?)null,
+                                FechaFinActividades = dr["FechaFinActividades"] != DBNull.Value ? Convert.ToDateTime(dr["FechaFinActividades"]) : (DateTime?)null,
+                                FechaNotificacion = dr["FechaNotificacion"] != DBNull.Value ? Convert.ToDateTime(dr["FechaNotificacion"]) : (DateTime?)null,
+                                RespuestaNotificacion = dr["RespuestaNotificacion"] != DBNull.Value ? Convert.ToBoolean(dr["RespuestaNotificacion"]) : (bool?)null,
+                                Rutinas = new List<Rutina>() // Inicializar la lista de rutinas
+                            };
+                        }
+
+                        // Pasar a la segunda consulta (Rutinas)
+                        if (unSocio != null && dr.NextResult())
+                        {
+                            while (dr.Read()) // Leer las rutinas asociadas
+                            {
+                                Rutina rutina = new Rutina
+                                {
+                                    IdRutina = Convert.ToInt32(dr["IdRutina"]),
+                                    IdSocio = Convert.ToInt32(dr["IdSocio"]),
+                                    FechaModificacion = Convert.ToDateTime(dr["FechaModificacion"]),
+                                    Dia = dr["Dia"].ToString()
+                                };
+                                unSocio.Rutinas.Add(rutina);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error en GetSocio: {ex.Message}");
+                    unSocio = null; // En caso de error, se devuelve null
+                }
+            }
+            return unSocio; // Retorna el socio encontrado con sus rutinas o null si no existe
         }
 
         public int Registrar(Socio unSocio, out string mensaje)
@@ -132,6 +211,98 @@ namespace DAO
             }
 
             return idSocioGenerado;
+        }
+        public Boolean Actualizar(Socio unSocio, out string mensaje)
+        {
+            Boolean rta = false;
+            mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ActualizarSocio", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros del socio
+                    cmd.Parameters.AddWithValue("@IdSocio", unSocio.IdSocio);
+                    cmd.Parameters.AddWithValue("@NombreYApellido", unSocio.NombreYApellido);
+                    cmd.Parameters.AddWithValue("@FechaNacimiento", unSocio.FechaNacimiento);
+                    cmd.Parameters.AddWithValue("@Genero", unSocio.Genero);
+                    cmd.Parameters.AddWithValue("@NroDocumento", unSocio.NroDocumento);
+                    cmd.Parameters.AddWithValue("@Ciudad", unSocio.Ciudad);
+                    cmd.Parameters.AddWithValue("@Direccion", unSocio.Direccion);
+                    cmd.Parameters.AddWithValue("@Telefono", unSocio.Telefono);
+                    cmd.Parameters.AddWithValue("@Email", unSocio.Email);
+                    cmd.Parameters.AddWithValue("@ObraSocial", (object)unSocio.ObraSocial ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@Plan", (object)unSocio.Plan ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@EstadoSocio", unSocio.EstadoSocio);
+                    cmd.Parameters.AddWithValue("@FechaInicioActividades", (object)unSocio.FechaInicioActividades ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FechaFinActividades", (object)unSocio.FechaFinActividades ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@FechaNotificacion", (object)unSocio.FechaNotificacion ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RespuestaNotificacion", (object)unSocio.RespuestaNotificacion ?? DBNull.Value);
+
+                    SqlParameter pMensaje = new SqlParameter("@Mensaje", SqlDbType.VarChar, 500);
+                    pMensaje.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(pMensaje);
+
+                    // **Actualizar rutinas sin borrar todas**
+                    DataTable tablaRutinas = new DataTable();
+                    tablaRutinas.Columns.Add("FechaModificacion", typeof(DateTime));
+                    tablaRutinas.Columns.Add("Dia", typeof(string));
+
+                    foreach (var rutina in unSocio.Rutinas)
+                    {
+                        tablaRutinas.Rows.Add(DateTime.Now, rutina.Dia);
+                    }
+
+                    SqlParameter pRutinas = cmd.Parameters.AddWithValue("@Rutinas", tablaRutinas);
+                    pRutinas.SqlDbType = SqlDbType.Structured;
+
+                    // Ejecutar consulta
+                    conexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    rta = true;
+                    mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error al actualizar el socio: " + ex.Message;
+            }
+
+            return rta;
+        }
+
+        public bool Eliminar(Socio obj, out string Mensaje)
+        {
+            bool respuesta = false;
+            Mensaje = string.Empty;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINARSOCIO", oconexion);
+                    cmd.Parameters.AddWithValue("@IdSocio", obj.IdSocio);
+                    cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
+                    Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                Mensaje = ex.Message;
+            }
+            return respuesta;
         }
     }
 }

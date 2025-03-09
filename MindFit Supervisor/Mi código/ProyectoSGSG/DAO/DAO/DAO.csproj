@@ -49,6 +49,7 @@
     <Compile Include="RangoHorarioDAO.cs" />
     <Compile Include="RolDAO.cs" />
     <Compile Include="SocioDAO.cs" />
+    <Compile Include="TurnoDAO.cs" />
     <Compile Include="UsuarioDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
