@@ -57,9 +57,9 @@ namespace Controlador
             return daoTurno.Eliminar(idTurno, horarioId, out mensaje);
         }
 
-        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario)
+        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario, out string mensaje)
         {
-            return daoTurno.ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario);
+            return daoTurno.ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario, out mensaje);
         }
         public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario)
         {

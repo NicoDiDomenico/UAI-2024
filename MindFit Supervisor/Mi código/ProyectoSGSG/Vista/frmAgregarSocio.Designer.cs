@@ -466,6 +466,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label10);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAgregarSocio";
             this.Text = "frmAgregarSocio";
             this.Load += new System.EventHandler(this.frmAgregarSocio_Load);

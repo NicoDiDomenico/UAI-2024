@@ -48,8 +48,9 @@ namespace Vista
                 // Ajustar la posición para que la ventana baje 50 píxeles desde la posición centrada
                 formulario.Top += 95;
             };
-            formulario.ShowDialog(); // Muestra como ventana modal
 
+            formulario.ShowDialog(); // Muestra como ventana modal
+            
             BloquearBotones();
 
             dgvData.Rows.Clear();

@@ -171,6 +171,7 @@ namespace Vista
             {
                 formularioActivo.Close();
                 botones.Visible = true;
+                this.Refresh();
             }
         }
 

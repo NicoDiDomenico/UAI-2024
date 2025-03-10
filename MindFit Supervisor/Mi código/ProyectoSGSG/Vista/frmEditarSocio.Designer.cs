@@ -68,6 +68,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.lblRenovar = new System.Windows.Forms.Label();
+            this.btnRenovarCuota = new FontAwesome.Sharp.IconButton();
             this.lblMensajeEstado = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
@@ -76,8 +78,6 @@
             this.chkMensual = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnConfirmar = new FontAwesome.Sharp.IconButton();
-            this.lblRenovar = new System.Windows.Forms.Label();
-            this.btnRenovarCuota = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -577,6 +577,30 @@
             this.panel4.Size = new System.Drawing.Size(1359, 104);
             this.panel4.TabIndex = 91;
             // 
+            // lblRenovar
+            // 
+            this.lblRenovar.AutoSize = true;
+            this.lblRenovar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.lblRenovar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRenovar.Location = new System.Drawing.Point(696, 26);
+            this.lblRenovar.Name = "lblRenovar";
+            this.lblRenovar.Size = new System.Drawing.Size(129, 20);
+            this.lblRenovar.TabIndex = 94;
+            this.lblRenovar.Text = "Renovar Cuota";
+            // 
+            // btnRenovarCuota
+            // 
+            this.btnRenovarCuota.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
+            this.btnRenovarCuota.IconColor = System.Drawing.Color.Black;
+            this.btnRenovarCuota.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRenovarCuota.Location = new System.Drawing.Point(639, 12);
+            this.btnRenovarCuota.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRenovarCuota.Name = "btnRenovarCuota";
+            this.btnRenovarCuota.Size = new System.Drawing.Size(45, 45);
+            this.btnRenovarCuota.TabIndex = 93;
+            this.btnRenovarCuota.UseVisualStyleBackColor = true;
+            this.btnRenovarCuota.Click += new System.EventHandler(this.btnRenovarCuota_Click);
+            // 
             // lblMensajeEstado
             // 
             this.lblMensajeEstado.AutoSize = true;
@@ -673,30 +697,6 @@
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // lblRenovar
-            // 
-            this.lblRenovar.AutoSize = true;
-            this.lblRenovar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.lblRenovar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRenovar.Location = new System.Drawing.Point(696, 26);
-            this.lblRenovar.Name = "lblRenovar";
-            this.lblRenovar.Size = new System.Drawing.Size(129, 20);
-            this.lblRenovar.TabIndex = 94;
-            this.lblRenovar.Text = "Renovar Cuota";
-            // 
-            // btnRenovarCuota
-            // 
-            this.btnRenovarCuota.IconChar = FontAwesome.Sharp.IconChar.SyncAlt;
-            this.btnRenovarCuota.IconColor = System.Drawing.Color.Black;
-            this.btnRenovarCuota.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRenovarCuota.Location = new System.Drawing.Point(639, 12);
-            this.btnRenovarCuota.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRenovarCuota.Name = "btnRenovarCuota";
-            this.btnRenovarCuota.Size = new System.Drawing.Size(45, 45);
-            this.btnRenovarCuota.TabIndex = 93;
-            this.btnRenovarCuota.UseVisualStyleBackColor = true;
-            this.btnRenovarCuota.Click += new System.EventHandler(this.btnRenovarCuota_Click);
-            // 
             // frmEditarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -708,6 +708,8 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label10);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditarSocio";
             this.Text = "frmEditarSocio";
             this.Load += new System.EventHandler(this.frmEditarSocio_Load);

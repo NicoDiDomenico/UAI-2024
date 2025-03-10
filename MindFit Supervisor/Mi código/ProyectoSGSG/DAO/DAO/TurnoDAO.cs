@@ -232,10 +232,12 @@ namespace DAO
             return respuesta;
         }
 
-        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario)
+        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario, out string mensaje)
         {
             idTurno = 0;
             idRangoHorario = 0;
+            mensaje = string.Empty;
+
             DateTime fechaActual = DateTime.Today;
             TimeSpan horaActual = DateTime.Now.TimeOfDay;
 
@@ -244,18 +246,14 @@ namespace DAO
                 try
                 {
                     string query = @"
-                        SELECT t.IdTurno, t.IdRangoHorario, t.FechaTurno, rh.HoraDesde 
+                        SELECT t.IdTurno, t.IdRangoHorario, t.FechaTurno, rh.HoraDesde, rh.HoraHasta
                         FROM Turno t
                         INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
                         WHERE t.CodigoIngreso = @CodigoIngreso
-                        AND t.FechaTurno = @FechaActual
-                        AND rh.HoraDesde < @HoraActual
                     ";
-        
+
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.Parameters.AddWithValue("@CodigoIngreso", codigo);
-                    cmd.Parameters.AddWithValue("@FechaActual", fechaActual);
-                    cmd.Parameters.AddWithValue("@HoraActual", horaActual);
 
                     oconexion.Open();
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -264,17 +262,48 @@ namespace DAO
                         {
                             idTurno = Convert.ToInt32(dr["IdTurno"]);
                             idRangoHorario = Convert.ToInt32(dr["IdRangoHorario"]);
-                            return true;
+                            DateTime fechaTurno = Convert.ToDateTime(dr["FechaTurno"]);
+                            TimeSpan horaDesde = (TimeSpan)dr["HoraDesde"];
+                            TimeSpan horaHasta = (TimeSpan)dr["HoraHasta"];
+
+                            // Validar la fecha del turno
+                            if (fechaTurno != fechaActual)
+                            {
+                                mensaje = "El turno no corresponde a la fecha actual.";
+                                return false;
+                            }
+
+                            // Validar que no sea demasiado temprano para ingresar
+                            if (horaDesde > horaActual)
+                            {
+                                mensaje = "Es demasiado temprano para ingresar. El turno aún no ha comenzado.";
+                                return false;
+                            }
+
+                            // Validar que no haya pasado el tiempo del turno
+                            if (horaHasta < horaActual)
+                            {
+                                mensaje = "El turno ha expirado. No puede ingresar.";
+                                return false;
+                            }
+
+                            return true; // Todas las validaciones pasaron correctamente
+                        }
+                        else
+                        {
+                            mensaje = "Código de ingreso no encontrado.";
+                            return false;
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    mensaje = "Error en la validación del ingreso: " + ex.Message;
                     return false;
                 }
             }
-            return false;
         }
+
 
         public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario)
         {

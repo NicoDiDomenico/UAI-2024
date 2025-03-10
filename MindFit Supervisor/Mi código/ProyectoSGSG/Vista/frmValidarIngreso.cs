@@ -34,11 +34,12 @@ namespace Vista
             }
 
             int idTurno, idRangoHorario;
-            bool turnoValido = new ControladorGymTurno().ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario);
+            string mensaje = "";
+            bool turnoValido = new ControladorGymTurno().ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario, out mensaje);
 
             if (!turnoValido)
             {
-                MessageBox.Show("Código incorrecto, la fecha no coincide o el horario aún no ha comenzado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -1197,3 +1197,5 @@ BEGIN
     END CATCH
 END;
 
+ALTER TABLE Turno
+ADD CONSTRAINT UQ_CodigoIngreso UNIQUE (CodigoIngreso);

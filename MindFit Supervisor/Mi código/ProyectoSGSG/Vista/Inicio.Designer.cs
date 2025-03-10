@@ -275,7 +275,8 @@
             // 
             // picLogoInicio
             // 
-            this.picLogoInicio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picLogoInicio.BackColor = System.Drawing.Color.Black;
+            this.picLogoInicio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picLogoInicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLogoInicio.Location = new System.Drawing.Point(22, 21);
             this.picLogoInicio.Name = "picLogoInicio";

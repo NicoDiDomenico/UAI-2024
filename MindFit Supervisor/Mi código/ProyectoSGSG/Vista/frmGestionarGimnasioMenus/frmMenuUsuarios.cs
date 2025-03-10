@@ -159,7 +159,7 @@ namespace Vista
 
                         if (idUsuarioGenerado != 0)
                         {
-                            
+
                             dgvData.Rows.Clear();
                             cargarGrid();
                             limpiarCampos();
@@ -251,6 +251,7 @@ namespace Vista
 
                 if (indice >= 0)
                 {
+                    cboRol.Enabled = true;
                     ////
                     // Desmarcar todas las filas primero
                     foreach (DataGridViewRow row in dgvData.Rows)
@@ -264,6 +265,7 @@ namespace Vista
                     // Refrescar la vista
                     dgvData.Refresh();
                     ////
+                    ///
                     txtIndice.Text = indice.ToString();
                     txtId.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
                     txtNombreYApellido.Text = dgvData.Rows[indice].Cells["NombreYApellido"].Value.ToString();
@@ -321,10 +323,10 @@ namespace Vista
                         if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["IdRol"].Value))
                         {
                             // Si encuentra coincidencia, obtiene el índice del ítem correspondiente en el combo box
-                            int indice_combo = cboRol.Items.IndexOf(oc);
+                            int indice_combo_rol = cboRol.Items.IndexOf(oc);
 
                             // Establece el ítem encontrado como el seleccionado en el combo box
-                            cboRol.SelectedIndex = indice_combo;
+                            cboRol.SelectedIndex = indice_combo_rol;
 
                             // Sale del bucle una vez encontrado el valor para evitar búsquedas innecesarias
                             break;
@@ -347,6 +349,9 @@ namespace Vista
                             break;
                         }
                     }
+
+
+                    if (Convert.ToInt32(txtId.Text) == usuarioIniciado.IdUsuario) cboRol.Enabled = false;
                 }
             }
         }
