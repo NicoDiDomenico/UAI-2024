@@ -38,6 +38,50 @@ namespace DAO
 
             return codigos;
         }
+        public bool ModificarEstadoTurno(int idTurno, string nuevoEstado)
+        {
+            bool respuesta = false;
+
+            try
+            {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                {
+                    string query = @"
+                        UPDATE Turno 
+                        SET EstadoTurno = @EstadoTurno 
+                        WHERE IdTurno = @IdTurno;
+
+                        -- Restar en 1 el CupoActual si el turno se cancela
+                        IF @EstadoTurno = 'Cancelado'
+                        BEGIN
+                            UPDATE RangoHorario 
+                            SET CupoActual = CupoActual - 1
+                            WHERE IdRangoHorario = (SELECT IdRangoHorario FROM Turno WHERE IdTurno = @IdTurno)
+                            AND CupoActual > 0; -- Evita valores negativos
+                        END
+                    ";
+
+                    using (SqlCommand cmd = new SqlCommand(query, oconexion))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@EstadoTurno", nuevoEstado);
+                        cmd.Parameters.AddWithValue("@IdTurno", idTurno);
+
+                        oconexion.Open();
+                        int filasAfectadas = cmd.ExecuteNonQuery();
+                        respuesta = filasAfectadas > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al modificar el estado del turno: {ex.Message}");
+                respuesta = false;
+            }
+
+            return respuesta;
+        }
+
 
         public List<Turno> Listar(int idSocioSeleccionado)
         {
@@ -151,7 +195,7 @@ namespace DAO
             return idTurnoGenerado;
         }
 
-        public bool Eliminar(int idTurno, int horarioId, out string mensaje)
+        public bool Eliminar(int idTurno, int idRangoHorario, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
@@ -161,15 +205,20 @@ namespace DAO
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     SqlCommand cmd = new SqlCommand("SP_ELIMINARTURNO", oconexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros de entrada
                     cmd.Parameters.AddWithValue("@IdTurno", idTurno);
-                    cmd.Parameters.AddWithValue("@IdRangoHorario", horarioId);
+                    cmd.Parameters.AddWithValue("@IdRangoHorario", idRangoHorario);
+
+                    // Parámetros de salida
                     cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
-                    cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
 
+                    // Obtener valores de los parámetros de salida
                     respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
                     mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
@@ -181,6 +230,88 @@ namespace DAO
             }
 
             return respuesta;
+        }
+
+        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario)
+        {
+            idTurno = 0;
+            idRangoHorario = 0;
+            DateTime fechaActual = DateTime.Today;
+            TimeSpan horaActual = DateTime.Now.TimeOfDay;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT t.IdTurno, t.IdRangoHorario, t.FechaTurno, rh.HoraDesde 
+                        FROM Turno t
+                        INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+                        WHERE t.CodigoIngreso = @CodigoIngreso
+                        AND t.FechaTurno = @FechaActual
+                        AND rh.HoraDesde < @HoraActual
+                    ";
+        
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@CodigoIngreso", codigo);
+                    cmd.Parameters.AddWithValue("@FechaActual", fechaActual);
+                    cmd.Parameters.AddWithValue("@HoraActual", horaActual);
+
+                    oconexion.Open();
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            idTurno = Convert.ToInt32(dr["IdTurno"]);
+                            idRangoHorario = Convert.ToInt32(dr["IdRangoHorario"]);
+                            return true;
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario)
+        {
+            bool resultado = false;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        UPDATE Turno
+                        SET EstadoTurno = 'Finalizado'
+                        WHERE IdTurno = @IdTurno;
+
+                        UPDATE RangoHorario
+                        SET CupoActual = CASE 
+                                            WHEN CupoActual > 0 THEN CupoActual - 1 
+                                            ELSE 0 
+                                         END
+                        WHERE IdRangoHorario = @IdRangoHorario;
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@IdTurno", idTurno);
+                    cmd.Parameters.AddWithValue("@IdRangoHorario", idRangoHorario);
+
+                    oconexion.Open();
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+                    resultado = filasAfectadas > 0;
+                }
+                catch (Exception)
+                {
+                    resultado = false;
+                }
+            }
+
+            return resultado;
         }
     }
 }

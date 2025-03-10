@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,18 @@ namespace Controlador
         }
         public List<Turno> Listar(int idSocioSeleccionado)
         {
-            return daoTurno.Listar(idSocioSeleccionado);
+            List<Turno> turnos = daoTurno.Listar(idSocioSeleccionado);
+
+            foreach (Turno turno in turnos)
+            {
+                if (turno.FechaTurno < DateTime.Today && turno.EstadoTurno != "Finalizado" && turno.EstadoTurno != "Cancelado" && turno.EstadoTurno != "Vencido") // no implementado vencido
+                {
+                    turno.EstadoTurno = "Cancelado";
+                    daoTurno.ModificarEstadoTurno(turno.IdTurno, turno.EstadoTurno);
+                }
+            }
+
+            return turnos;
         }
 
         public int Registrar(Turno obj, out string mensaje)
@@ -41,7 +53,19 @@ namespace Controlador
 
         public bool Eliminar(int idTurno, int horarioId, out string mensaje)
         {
-            return new TurnoDAO().Eliminar(idTurno, horarioId, out mensaje);
+            // En el SP se resta el cupo si el turno que se quiere eliminar tiene el estado 'En Curso'
+            return daoTurno.Eliminar(idTurno, horarioId, out mensaje);
         }
+
+        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario)
+        {
+            return daoTurno.ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario);
+        }
+        public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario)
+        {
+            return daoTurno.ActualizarEstadoTurno(idTurno, idRangoHorario);
+        }
+
+
     }
 }

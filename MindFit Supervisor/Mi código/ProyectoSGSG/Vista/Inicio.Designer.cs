@@ -42,7 +42,7 @@
             this.menuTitulo = new System.Windows.Forms.MenuStrip();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.picLogoInicio = new System.Windows.Forms.PictureBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnValidar = new FontAwesome.Sharp.IconButton();
             this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             this.lblLogo = new System.Windows.Forms.Label();
             this.botonesTop = new System.Windows.Forms.MenuStrip();
@@ -285,20 +285,24 @@
             this.picLogoInicio.TabStop = false;
             this.picLogoInicio.Click += new System.EventHandler(this.picLogo_Click);
             // 
-            // iconButton1
+            // btnValidar
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 135;
-            this.iconButton1.Location = new System.Drawing.Point(815, 16);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(25, 5, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(175, 130);
-            this.iconButton1.TabIndex = 10;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnValidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.btnValidar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnValidar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.btnValidar.FlatAppearance.BorderSize = 3;
+            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidar.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
+            this.btnValidar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.btnValidar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnValidar.IconSize = 130;
+            this.btnValidar.Location = new System.Drawing.Point(815, 21);
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Padding = new System.Windows.Forms.Padding(25, 5, 0, 0);
+            this.btnValidar.Size = new System.Drawing.Size(166, 123);
+            this.btnValidar.TabIndex = 10;
+            this.btnValidar.UseVisualStyleBackColor = false;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
             // 
             // iconSplitButton1
             // 
@@ -519,7 +523,7 @@
             this.ClientSize = new System.Drawing.Size(1804, 941);
             this.Controls.Add(this.botonesTop);
             this.Controls.Add(this.lblLogo);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.btnValidar);
             this.Controls.Add(this.picLogoInicio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblUsuario);
@@ -551,7 +555,7 @@
         private System.Windows.Forms.MenuStrip menuTitulo;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.PictureBox picLogoInicio;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnValidar;
         private FontAwesome.Sharp.IconSplitButton iconSplitButton1;
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.MenuStrip botones;

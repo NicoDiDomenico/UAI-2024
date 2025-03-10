@@ -156,6 +156,12 @@
     <Compile Include="frmTurno.Designer.cs">
       <DependentUpon>frmTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmValidarIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmValidarIngreso.Designer.cs">
+      <DependentUpon>frmValidarIngreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTurno.resx">
       <DependentUpon>frmTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmValidarIngreso.resx">
+      <DependentUpon>frmValidarIngreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>

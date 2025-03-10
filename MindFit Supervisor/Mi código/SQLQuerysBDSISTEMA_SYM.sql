@@ -1094,7 +1094,8 @@ Listo --> Reiniciar manualmente la tabla turno y los cupos actuales de los rango
  INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
  INNER JOIN Socio s ON t.IdSocio = s.IdSocio
  INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
-
+ /*
+ -- ESTE NO PORQUE NO QUIERO RESTAR EL CUPO CUANDO SE ELIMINA EL TURNO, SOLO QUIERO QUE PASE ESTO CUANDO SE HACE EL INGRESO DEL SOCIO AL GYM (FINALZIADO) O CUANDO NO SE PRESNETA EN EL DIA DE LA FECHA (CANCELADO O VENCIDO)
 CREATE PROCEDURE SP_ELIMINARTURNO
     @IdTurno INT,
     @IdRangoHorario INT,
@@ -1144,3 +1145,55 @@ BEGIN
         SET @Mensaje = ERROR_MESSAGE();
     END CATCH
 END;
+*/
+CREATE PROCEDURE SP_ELIMINARTURNO
+    @IdTurno INT,
+    @IdRangoHorario INT,
+    @Respuesta INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @EstadoTurno VARCHAR(50);
+
+    -- Verificar si el turno existe y obtener su estado
+    IF NOT EXISTS (SELECT 1 FROM Turno WHERE IdTurno = @IdTurno)
+    BEGIN
+        SET @Respuesta = 0;
+        SET @Mensaje = 'El turno no existe.';
+        RETURN;
+    END
+
+    -- Obtener el EstadoTurno del turno
+    SELECT @EstadoTurno = EstadoTurno
+    FROM Turno WHERE IdTurno = @IdTurno;
+
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        -- Eliminar el turno
+        DELETE FROM Turno WHERE IdTurno = @IdTurno;
+
+        -- Si el estado del turno era "En Curso", restar 1 al cupo del rango horario
+        IF @EstadoTurno = 'En Curso'
+        BEGIN
+            UPDATE RangoHorario
+            SET CupoActual = CASE 
+                                WHEN CupoActual > 0 THEN CupoActual - 1 
+                                ELSE 0 
+                             END
+            WHERE IdRangoHorario = @IdRangoHorario;
+        END
+
+        COMMIT TRANSACTION;
+
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Turno eliminado correctamente.';
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        SET @Respuesta = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END;
+

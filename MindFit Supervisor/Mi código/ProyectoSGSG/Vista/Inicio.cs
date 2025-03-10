@@ -11,6 +11,7 @@ using FontAwesome.Sharp;
 using Modelo;
 using Controlador;
 using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace Vista
 {
@@ -179,6 +180,12 @@ namespace Vista
             {
                 this.Close();
             }
+        }
+
+        private void btnValidar_Click(object sender, EventArgs e)
+        {
+            frmValidarIngreso formulario = new frmValidarIngreso();
+            formulario.ShowDialog(); // Muestra el formulario en modo modal
         }
     }
 }
