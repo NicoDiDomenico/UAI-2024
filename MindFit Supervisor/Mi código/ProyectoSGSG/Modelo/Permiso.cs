@@ -10,8 +10,8 @@ namespace Modelo
     {
         public int IdPermiso { get; set; }
         public Rol Rol { get; set; }
-        public string NombreMenu { get; set; }
-        public string Descripcion { get; set; }
+        public Grupo Grupo { get; set; }    
+        public Accion Accion { get; set; }    
         public DateTime FechaRegistro { get; set; }
     }
 }

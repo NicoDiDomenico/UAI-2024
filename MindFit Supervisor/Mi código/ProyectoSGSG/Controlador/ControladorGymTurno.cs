@@ -66,6 +66,9 @@ namespace Controlador
             return daoTurno.ActualizarEstadoTurno(idTurno, idRangoHorario);
         }
 
-
+        public List<Turno> ListarTurnosHorarioActual()
+        {
+            return daoTurno.ListarTurnosHorarioActual();
+        }
     }
 }

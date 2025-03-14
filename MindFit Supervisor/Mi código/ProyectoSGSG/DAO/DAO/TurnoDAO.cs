@@ -82,7 +82,6 @@ namespace DAO
             return respuesta;
         }
 
-
         public List<Turno> Listar(int idSocioSeleccionado)
         {
             List<Turno> lista = new List<Turno>();
@@ -149,9 +148,79 @@ namespace DAO
                     Console.WriteLine($"Error al listar turnos: {ex.Message}");
                 }
             }
+            return lista;
+        }
+
+        public List<Turno> ListarTurnosHorarioActual()
+        {
+            List<Turno> lista = new List<Turno>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, 
+                           t.EstadoTurno, t.CodigoIngreso, 
+                           u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
+                           s.IdSocio, s.NombreYApellido AS NombreSocio, rh.CupoActual, rh.CupoMaximo
+                        FROM Turno t
+                        INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+                        INNER JOIN Socio s ON t.IdSocio = s.IdSocio
+                        INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+                        WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
+                        AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
+                        AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todavía dentro del horario
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Turno unTurno = new Turno
+                            {
+                                IdTurno = Convert.ToInt32(dr["IdTurno"]),
+                                FechaTurno = Convert.ToDateTime(dr["FechaTurno"]),
+                                unRangoHorario = new RangoHorario
+                                {
+                                    IdRangoHorario = Convert.ToInt32(dr["IdRangoHorario"]),
+                                    HoraDesde = (TimeSpan)dr["HoraDesde"],
+                                    HoraHasta = (TimeSpan)dr["HoraHasta"],
+                                    CupoActual = dr["CupoActual"] != DBNull.Value ? Convert.ToInt32(dr["CupoActual"]) : 0,
+                                    CupoMaximo = dr["CupoMaximo"] != DBNull.Value ? Convert.ToInt32(dr["CupoMaximo"]) : 0
+                                },
+                                EstadoTurno = dr["EstadoTurno"].ToString(),
+                                CodigoIngreso = dr["CodigoIngreso"].ToString(),
+                                unUsuario = new Usuario
+                                {
+                                    IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                    NombreYApellido = dr["NombreEntrenador"].ToString()
+                                },
+                                unSocio = new Socio
+                                {
+                                    IdSocio = Convert.ToInt32(dr["IdSocio"]),
+                                    NombreYApellido = dr["NombreSocio"].ToString()
+                                }
+                            };
+
+                            lista.Add(unTurno);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error en ListarTurnosHorarioActual: " + ex.Message);
+                    lista = new List<Turno>();
+                }
+            }
 
             return lista;
         }
+
 
         public int Registrar(Turno obj, out string Mensaje)
         {

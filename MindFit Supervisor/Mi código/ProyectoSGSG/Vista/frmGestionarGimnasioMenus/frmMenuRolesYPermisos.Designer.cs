@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescripcionPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.gbPermiso.SuspendLayout();
@@ -201,29 +202,30 @@
             // 
             this.dgvPermisosSeleccionados.AllowUserToAddRows = false;
             this.dgvPermisosSeleccionados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPermisosSeleccionados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPermisosSeleccionados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPermisosSeleccionados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPermisosSeleccionados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descripcion,
             this.NombreMenu,
             this.DescripcionPermiso,
+            this.IdGrupo,
             this.btnEliminar});
             this.dgvPermisosSeleccionados.Location = new System.Drawing.Point(504, 40);
             this.dgvPermisosSeleccionados.MultiSelect = false;
             this.dgvPermisosSeleccionados.Name = "dgvPermisosSeleccionados";
             this.dgvPermisosSeleccionados.ReadOnly = true;
             this.dgvPermisosSeleccionados.RowHeadersWidth = 34;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvPermisosSeleccionados.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvPermisosSeleccionados.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvPermisosSeleccionados.RowTemplate.Height = 42;
             this.dgvPermisosSeleccionados.Size = new System.Drawing.Size(1238, 553);
             this.dgvPermisosSeleccionados.TabIndex = 64;
@@ -261,6 +263,13 @@
             this.DescripcionPermiso.Name = "DescripcionPermiso";
             this.DescripcionPermiso.ReadOnly = true;
             this.DescripcionPermiso.Width = 800;
+            // 
+            // IdGrupo
+            // 
+            this.IdGrupo.HeaderText = "IdGrupo";
+            this.IdGrupo.Name = "IdGrupo";
+            this.IdGrupo.ReadOnly = true;
+            this.IdGrupo.Visible = false;
             // 
             // btnEliminar
             // 
@@ -310,6 +319,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionPermiso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdGrupo;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
     }
 }

@@ -138,8 +138,9 @@ namespace Vista
             {
                 dgvDataPermisos.Rows.Add(new object[] {
                     "",
-                    item.NombreMenu,
-                    item.Descripcion
+                    item.Grupo.NombreMenu,
+                    item.Grupo.Descripcion,
+                    item.Grupo.IdGrupo
                 });
             }
 
@@ -181,7 +182,6 @@ namespace Vista
                     {
                         row.Cells["Seleccionado2"].Value = false;
                     }
-
                     // Activar el check2 solo en la fila clickeada
                     dgvDataPermisos.Rows[indice].Cells["Seleccionado2"].Value = true;
 
@@ -200,16 +200,13 @@ namespace Vista
         {
             // Crear DataTable para los permisos seleccionados
             DataTable tablaPermisos = new DataTable();
-            tablaPermisos.Columns.Add("NombreMenu", typeof(string));
-            tablaPermisos.Columns.Add("Descripcion", typeof(string));
+            tablaPermisos.Columns.Add("IdGrupo", typeof(int));
 
             // Agregar los permisos seleccionados a la tabla
             foreach (DataGridViewRow row in dgvDataPermisos.Rows)
             {
-                tablaPermisos.Rows.Add(
-                    row.Cells["NombreMenu"].Value.ToString(),
-                    row.Cells["Descripcion"].Value.ToString()
-                );
+                int idGrupo = Convert.ToInt32(row.Cells["IdGrupo"].Value);
+                tablaPermisos.Rows.Add(idGrupo);
             }
 
             // Obtener la descripción del rol desde el formulario

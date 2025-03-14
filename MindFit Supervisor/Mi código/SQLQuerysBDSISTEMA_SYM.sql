@@ -198,7 +198,6 @@ BEGIN
 END
 GO
 
-
 /* Permiso */
 CREATE TABLE Permiso (
     IdPermiso INT PRIMARY KEY IDENTITY,
@@ -509,31 +508,6 @@ DBCC CHECKIDENT ('Rol', RESEED, 3);
 
 DBCC CHECKIDENT ('Permiso', NORESEED);
 DBCC CHECKIDENT ('Permiso', RESEED, 5);
-
----- CORRECCION MODULO SEGURIDAD ----
-
--- Accion, en vez de asignarle un rol, le asigno cada accion directamente. --
-CREATE TABLE Accion (
-	IdAccion INT PRIMARY KEY IDENTITY,
-	IdUsuario INT REFERENCES Usuario(IdUsuario),
-	IdGrupo INT NOT NULL REFERENCES Grupo(IdGrupo),
-	NombreSubMenu VARCHAR(100)
-);
-
--- Grupo, cada accion tiene un menu que tambien tiene que ser accedido si elije determianada accion, por lo tanto sseran 3 filas nomas (los 3 menus).
-CREATE TABLE Grupo (
-	IdGrupo INT PRIMARY KEY IDENTITY,
-	NombreMenu VARCHAR(100)
-);
-
--- Permiso, queda igual. --
-CREATE TABLE Permiso (
-    IdPermiso INT PRIMARY KEY IDENTITY,
-    IdRol INT REFERENCES rol(idRol),
-    NombreMenu VARCHAR(100),
-    FechaRegistro DATETIME DEFAULT GETDATE(),
-	Descripcion VARCHAR(255) NULL
-);
 */
 
 
@@ -788,9 +762,11 @@ FROM Socio s
 left join Rutina r
 on s.IdSocio = r.IdSocio
 
+Select * from Rutina
+
 UPDATE Rutina 
 SET Dia = 'Miercoles' 
-WHERE IdRutina = 2 AND IdSocio = 2;
+WHERE IdRutina = 2
 
 CREATE PROCEDURE SP_ActualizarSocio
 (
@@ -1079,9 +1055,9 @@ FALTA:
 
 Listo --> validar que el turno que se esta sacando es para una fecha actual o superior,
 Listo --> mostrar los intervalos horarios menores a la hora actual para que no registre un turno en una hora que sea imposible asister porque ya paso,
-reiniciar los CuposACtuales despues de las 00:00 hs,
-cuando el Socio no asiste o asiste se tiene que disminuir el cupo actual en 1 y cambiar el estado del turno a Finalizado,
-Cuadno se cancela el turno se tiene que disminuir el cupo actual en 1 y cambiar el estado del turno a Cancelado,
+Listo --> reiniciar los CuposACtuales despues de las 00:00 hs,
+Listo --> cuando el Socio no asiste o asiste se tiene que disminuir el cupo actual en 1 y cambiar el estado del turno a Finalizado,
+Listo --> Cuadno se cancela el turno se tiene que disminuir el cupo actual en 1 y cambiar el estado del turno a Cancelado,
 Listo --> Un Socio no puede sacar mas de un turnopara una misma fecha (con esta validacion ya no haria falta validar que no saque mas de un turno en el mismo rango horario)
 Listo --> Reiniciar manualmente la tabla turno y los cupos actuales de los rangos horarios. No olvidarse rde reiniciar los id.
 
@@ -1199,3 +1175,524 @@ END;
 
 ALTER TABLE Turno
 ADD CONSTRAINT UQ_CodigoIngreso UNIQUE (CodigoIngreso);
+
+/* NUEVO */
+ALTER PROCEDURE SP_REGISTRARTURNO
+    @IdRangoHorario INT,
+    @IdUsuario INT,
+    @IdSocio INT,
+    @FechaTurno DATE,
+    @EstadoTurno VARCHAR(50),
+    @CodigoIngreso VARCHAR(4),
+    @IdTurnoResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @CupoActual INT, @CupoMaximo INT, @HoraDesde TIME, @HoraHasta TIME, @EstadoSocio VARCHAR(50);
+
+    -- Obtener el estado del socio
+    SELECT @EstadoSocio = EstadoSocio 
+    FROM Socio 
+    WHERE IdSocio = @IdSocio;
+
+    -- Validar si el socio está Suspendido o Eliminado
+    IF @EstadoSocio IN ('Suspendido', 'Eliminado')
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno porque el socio está suspendido o eliminado.';
+        RETURN;
+    END
+
+    -- Validar que la fecha del turno sea hoy o futura
+    IF @FechaTurno < CAST(GETDATE() AS DATE)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno para una fecha pasada.';
+        RETURN;
+    END
+
+    -- Obtener la información del Rango Horario (hora de inicio y fin, cupo)
+    SELECT @CupoActual = CupoActual, @CupoMaximo = CupoMaximo, 
+           @HoraDesde = HoraDesde, @HoraHasta = HoraHasta
+    FROM RangoHorario WHERE IdRangoHorario = @IdRangoHorario;
+
+    -- Si el turno es para hoy, validar que el horario no haya pasado
+    IF @FechaTurno = CAST(GETDATE() AS DATE) AND @HoraDesde <= CAST(GETDATE() AS TIME)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno en un horario que ya pasó.';
+        RETURN;
+    END
+
+    -- Validar que el RangoHorario y el Usuario existan en RangoHorario_Usuario
+    IF NOT EXISTS (
+        SELECT 1 FROM RangoHorario_Usuario 
+        WHERE IdRangoHorario = @IdRangoHorario AND IdUsuario = @IdUsuario
+    )
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: El Rango Horario y Usuario especificados no existen.';
+        RETURN;
+    END
+
+    -- Validar que el Socio existe
+    IF NOT EXISTS (SELECT 1 FROM Socio WHERE IdSocio = @IdSocio)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: El Socio especificado no existe.';
+        RETURN;
+    END
+
+    -- Validar que el Socio no tenga otro turno en la misma fecha
+    IF EXISTS (
+        SELECT 1 FROM Turno 
+        WHERE IdSocio = @IdSocio AND FechaTurno = @FechaTurno
+    )
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: Un socio no puede reservar más de un turno para la misma fecha.';
+        RETURN;
+    END
+
+    -- Validar si hay cupos disponibles
+    IF @CupoActual >= @CupoMaximo
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No hay cupos disponibles para este rango horario.';
+        RETURN;
+    END
+
+    -- Insertar el Turno
+    BEGIN TRY
+        INSERT INTO Turno (IdRangoHorario, IdUsuario, IdSocio, FechaTurno, EstadoTurno, CodigoIngreso)
+        VALUES (@IdRangoHorario, @IdUsuario, @IdSocio, @FechaTurno, @EstadoTurno, @CodigoIngreso);
+
+        -- Obtener el ID del Turno insertado
+        SET @IdTurnoResultado = SCOPE_IDENTITY();
+
+        -- Aumentar el CupoActual en RangoHorario (+1)
+        UPDATE RangoHorario 
+        SET CupoActual = CupoActual + 1 
+        WHERE IdRangoHorario = @IdRangoHorario;
+
+        -- Mensaje de éxito con el Código de Ingreso generado
+        SET @Mensaje = CONCAT('Turno registrado exitosamente. Código de Ingreso: ', @CodigoIngreso);
+    END TRY
+    BEGIN CATCH
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH;
+END;
+
+SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, 
+                       t.EstadoTurno, t.CodigoIngreso, 
+                       u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
+                       s.IdSocio, s.NombreYApellido AS NombreSocio, rh.CupoActual, rh.CupoMaximo
+                FROM Turno t
+                INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+                INNER JOIN Socio s ON t.IdSocio = s.IdSocio
+                INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+                WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
+                AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
+                AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todavía dentro del horario
+
+select * from RangoHorario
+
+select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo 
+from RangoHorario
+
+---- CORRECCION MODULO SEGURIDAD ----
+-- Grupo, cada accion tiene un menu que tambien tiene que ser accedido si elije determianada accion, por lo tanto sseran 3 filas nomas (los 3 menus).
+CREATE TABLE Grupo (
+    IdGrupo INT PRIMARY KEY IDENTITY,
+    NombreMenu VARCHAR(100) NOT NULL UNIQUE,
+    Descripcion VARCHAR(255) NULL
+);
+
+INSERT INTO Grupo (NombreMenu, Descripcion)
+SELECT DISTINCT NombreMenu, Descripcion FROM Permiso;
+
+ALTER TABLE Permiso ADD IdGrupo INT NULL;
+
+UPDATE Permiso
+SET IdGrupo = (SELECT IdGrupo FROM Grupo WHERE Grupo.NombreMenu = Permiso.NombreMenu);
+
+ALTER TABLE Permiso 
+ADD CONSTRAINT FK_Permiso_Grupo FOREIGN KEY (IdGrupo) REFERENCES Grupo(IdGrupo);
+
+ALTER TABLE Permiso DROP COLUMN NombreMenu, Descripcion;
+
+/*
+-- Este yano va:
+SELECT p.IdRol, p.NombreMenu 
+FROM PERMISO p
+INNER JOIN ROL r ON r.IdRol = p.IdRol
+INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+WHERE u.IdUsuario = 1
+*/
+
+-- Este si:
+SELECT p.IdRol, g.NombreMenu 
+FROM PERMISO p
+INNER JOIN ROL r ON r.IdRol = p.IdRol
+INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+INNER JOIN GRUPO g on p.IdGrupo = g.IdGrupo
+WHERE u.IdUsuario = 1 /*Reemplazar 1 por @idusuario en el query del backend --> Listo*/
+
+-- Accion, en vez de asignarle un rol, le asigno cada accion directamente. --
+CREATE TABLE Accion (
+	IdAccion INT PRIMARY KEY IDENTITY,
+ -- IdGrupo INT NOT NULL REFERENCES Grupo(IdGrupo),
+	NombreAccion VARCHAR(100) NOT NULL,
+	Descripcion VARCHAR(255) NULL
+);
+
+ALTER TABLE Permiso ADD IdAccion INT NULL;
+ALTER TABLE Permiso ADD CONSTRAINT FK_Permiso_Accion FOREIGN KEY (IdAccion) REFERENCES Accion(IdAccion);
+
+/*
+Un permiso puede estar asociado a un grupo (IdGrupo).
+Un permiso también puede estar asociado a una acción específica (IdAccion).
+Se puede dejar IdGrupo o IdAccion en NULL, permitiendo que el permiso sea flexible.
+*/
+
+SELECT p.IdRol, g.NombreMenu, a.NombreAccion
+                FROM PERMISO p
+                INNER JOIN ROL r ON r.IdRol = p.IdRol
+                INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+                LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
+                LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+                WHERE u.IdUsuario = 1 -- @idusuario
+
+select * from Permiso
+
+select * from Grupo
+
+-- Cambio esto:
+select NombreMenu, Descripcion
+from Permiso
+group by NombreMenu, Descripcion
+-- Por esto:
+select IdGrupo, NombreMenu, Descripcion
+from Grupo
+
+-- Cambio esto:
+SELECT p.NombreMenu, p.Descripcion from Permiso p
+inner join Rol r
+on p.IdRol = r.IdRol
+Where p.IdRol = @IdRol
+-- Por esto:
+SELECT g.NombreMenu, g.Descripcion, g.IdGrupo 
+from Permiso p
+inner join Rol r
+on p.IdRol = r.IdRol
+inner join Grupo g
+on p.IdGrupo = g.IdGrupo
+Where p.IdRol = 5 -- @IdRol
+
+DROP PROCEDURE IF EXISTS SP_REGISTRARROL;
+DROP PROCEDURE IF EXISTS SP_ACTUALIZARROL;
+DROP PROCEDURE IF EXISTS SP_ELIMINARROL;
+
+DROP TYPE IF EXISTS [dbo].[ETabla_Permisos];
+GO
+
+CREATE TYPE [dbo].[ETabla_Permisos] AS TABLE (
+    [IdGrupo] INT NOT NULL -- Se usará solo para almacenar grupos
+);
+GO
+
+CREATE PROCEDURE SP_REGISTRARROL(
+    @Descripcion VARCHAR(50),
+    @Permisos ETabla_Permisos READONLY, -- Ahora usa el nuevo tipo de tabla
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT -- Indica éxito o error
+)
+AS
+BEGIN
+    BEGIN TRY
+        DECLARE @IdRol INT
+        SET @Mensaje = ''
+        SET @Resultado = 0  -- Por defecto, fallido
+
+        BEGIN TRANSACTION  -- Iniciar transacción para evitar inconsistencias
+
+        -- Verifica si el rol ya existe
+        IF NOT EXISTS (SELECT 1 FROM Rol WHERE Descripcion = @Descripcion)
+        BEGIN
+            -- Insertar el nuevo rol
+            INSERT INTO Rol (Descripcion) VALUES (@Descripcion);
+            SET @IdRol = SCOPE_IDENTITY();
+
+            -- Insertar los grupos asociados al rol
+            INSERT INTO Permiso (IdRol, IdGrupo)
+            SELECT @IdRol, IdGrupo FROM @Permisos;
+
+            -- Si todo está bien, marcar como éxito
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol registrado correctamente'
+            COMMIT TRANSACTION  -- Confirmar los cambios
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'No se puede tener más de un rol con la misma descripción'
+            ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION -- Revertir cambios si hay error
+    END CATCH
+END
+GO
+---
+SELECT * FROM Permiso WHERE IdRol = 3;
+
+CREATE PROCEDURE SP_ACTUALIZARROL(
+    @IdRol INT, -- Identifica qué rol actualizar
+    @Descripcion VARCHAR(50),
+    @Permisos ETabla_Permisos READONLY, -- Tipo tabla con los permisos actualizados
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT -- Indica éxito o error
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @Resultado = 0  -- Por defecto, fallido
+
+        BEGIN TRANSACTION  -- Iniciar transacción para evitar inconsistencias
+
+        -- Verifica si el rol existe
+        IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
+        BEGIN
+            -- Actualizar la descripción del rol
+            UPDATE Rol 
+            SET Descripcion = @Descripcion 
+            WHERE IdRol = @IdRol;
+
+            -- Eliminar los grupos actuales asociados a este rol
+            DELETE FROM Permiso WHERE IdRol = @IdRol;
+
+            -- Insertar los nuevos grupos
+            INSERT INTO Permiso (IdRol, IdGrupo)
+            SELECT @IdRol, IdGrupo FROM @Permisos;
+
+            -- Si todo está bien, marcar como éxito
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol actualizado correctamente'
+            COMMIT TRANSACTION  -- Confirmar los cambios
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El rol no existe'
+            ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION -- Revertir cambios si hay error
+    END CATCH
+END
+GO
+
+CREATE PROCEDURE SP_ELIMINARROL (
+    @IdRol INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Respuesta = 0
+        SET @Mensaje = ''
+        DECLARE @pasoreglas BIT = 1
+
+        -- Evita eliminar roles protegidos
+        IF @IdRol IN (1, 2, 3)
+        BEGIN
+            SET @pasoreglas = 0
+            SET @Mensaje = 'No se puede eliminar este rol'
+        END
+
+        -- Verifica si el rol está en uso en otras tablas (ejemplo: Usuario)
+        IF EXISTS (SELECT * FROM Usuario WHERE IdRol = @IdRol)
+        BEGIN
+            SET @pasoreglas = 0
+            SET @Mensaje = 'No se puede eliminar este rol porque está en uso en la tabla Usuario'
+        END
+
+        IF @pasoreglas = 1
+        BEGIN
+            BEGIN TRANSACTION
+
+            -- Eliminar los permisos asociados al rol
+            DELETE FROM Permiso WHERE IdRol = @IdRol
+
+            -- Eliminar el rol
+            DELETE FROM Rol WHERE IdRol = @IdRol
+
+            SET @Respuesta = 1
+            SET @Mensaje = 'Rol eliminado correctamente'
+
+            COMMIT TRANSACTION
+        END
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION
+        SET @Respuesta = 0
+        SET @Mensaje = ERROR_MESSAGE()
+    END CATCH
+END
+Go
+
+ALTER TABLE Permiso
+ADD IdUsuario INT NULL;
+
+ALTER TABLE Permiso
+ADD CONSTRAINT FK_Permiso_Usuario
+FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario);
+
+-- Traigo los permisos de un usuario (1) que pueden ser por Grupo (tiene rol) o por accion (tiene usuario)
+SELECT 
+    p.IdPermiso, p.IdRol, p.IdUsuario, 
+    g.NombreMenu AS Grupo, a.NombreAccion AS Accion
+FROM Permiso p
+LEFT JOIN Grupo g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN Accion a ON p.IdAccion = a.IdAccion
+WHERE p.IdUsuario = 1 OR p.IdRol = (SELECT IdRol FROM Usuario WHERE IdUsuario = 1);
+
+ALTER TABLE Accion
+ADD IdGrupo INT NOT NULL;
+
+ALTER TABLE Accion
+ADD CONSTRAINT FK_Accion_Grupo
+FOREIGN KEY (IdGrupo) REFERENCES Grupo(IdGrupo);
+-- Cambio esto:
+SELECT p.IdPermiso, p.IdRol, g.NombreMenu, a.NombreAccion
+FROM PERMISO p
+INNER JOIN ROL r ON r.IdRol = p.IdRol
+INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+WHERE u.IdUsuario = 1 -- @idusuario
+-- Por esto - COALESCE() devolverá el primer valor no nulo entre NombreAccionGrupo y NombreAccion::
+SELECT p.IdPermiso, p.IdRol, g.NombreMenu, 
+       COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+INNER JOIN ROL r ON r.IdRol = p.IdRol
+INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Puede ser NULL
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+WHERE u.IdUsuario = 1 -- @idusuario
+
+INSERT INTO Accion (NombreAccion, Descripcion, IdGrupo) VALUES
+('menuUsuarios', 'Gestionar usuarios', 1),
+('menuRoles', 'Gestionar roles', 1),
+('menuMaquinas', 'Gestionar maquinas', 1),
+('menuEjercicios', 'Gestionar ejercicios', 1),
+('menuEquipamiento', 'Gestionar equipamiento', 1),
+('menuRangosHorarios', 'Gestionar rangos horarios', 1),
+('menuNegocio', 'Consultar los datos del gimnasio y su logo', 1),
+('btnMenuAgregar', 'Agregar un nuevo socio al sistema', 3),
+('btnMenuConsultar', 'Ver y modificar un Socio actual', 3),
+('btnMenuEliminar', 'Eliminar un socio actual', 3),
+('btnMenuTurno', 'Consultar los turnos actuales y anteriores de los socios registrados y agregar uno nuevo', 3);
+
+SELECT name 
+FROM sys.foreign_keys 
+WHERE parent_object_id = OBJECT_ID('Permiso');
+
+ALTER TABLE Permiso DROP CONSTRAINT FK_Permiso_Usuario;
+
+ALTER TABLE Permiso DROP COLUMN IdUsuario;
+/*
+// no hacer
+CREATE TABLE Usuario_Accion (
+    IdUsuario INT NOT NULL,
+    IdAccion INT NOT NULL,
+    FechaRegistro DATETIME DEFAULT GETDATE(),
+    PRIMARY KEY (IdUsuario, IdAccion),
+    FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (IdAccion) REFERENCES Accion(IdAccion) ON DELETE CASCADE ON UPDATE CASCADE
+);
+*/
+
+ALTER TABLE Permiso
+ADD IdUsuario INT NULL;
+
+ALTER TABLE Permiso
+ADD CONSTRAINT FK_Permiso_Usuario FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario);
+
+select u.IdUsuario, NombreYApellido, u.Email, u.Telefono, u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, FechaNacimiento, u.NombreUsuario, u.Clave, r.IdRol, r.Descripcion, u.Estado, u.FechaRegistro
+from Usuario u
+inner join Rol r
+on r.IdRol = u.IdRol
+
+SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+                       u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+                       u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+                       u.IdRol, r.Descripcion AS RolDescripcion, 
+                       u.Estado, u.FechaRegistro
+                FROM Usuario u
+                LEFT JOIN Rol r ON r.IdRol = u.IdRol
+
+SELECT p.IdPermiso, p.IdRol, g.NombreMenu, 
+       COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+INNER JOIN ROL r ON r.IdRol = p.IdRol
+INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Puede ser NULL
+WHERE u.IdUsuario = 1 --@idusuario
+
+SELECT p.IdPermiso, p.IdRol, g.NombreMenu, ac.NombreAccion, a.NombreAccion 
+FROM PERMISO p
+INNER JOIN ROL r ON r.IdRol = p.IdRol
+INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Puede ser NULL
+WHERE u.IdUsuario = 1
+
+select p.IdPermiso, g.NombreMenu, a.NombreAccion
+from Permiso p
+INNER JOIN USUARIO u ON p.IdUsuario = u.IdUsuario
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo -- Puede ser NULL
+WHERE u.IdUsuario = 6
+
+SELECT p.IdPermiso, p.IdRol, g.NombreMenu, 
+       COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol -- Cambié de INNER JOIN a LEFT JOIN
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario -- Incluir usuarios sin rol, pero con permisos directos
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Puede ser NULL
+WHERE u.IdUsuario = 6 -- @idusuario
+
+-- CLAVE LE SALIO
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    COALESCE(g.NombreMenu, am.NombreMenu) AS NombreMenu, 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acción directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 6 -- @idusuario

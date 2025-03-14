@@ -20,19 +20,20 @@ namespace Vista
         private static Form formularioActivo = null;
         private static int idSocioSeleccionado;
         private static string nombreSocioSeleccionado;
+        private static Usuario usuario;
         #endregion
 
         #region "Métodos"
         private void BloquearBotones()
         {
-            btnConsultar.Enabled = false;
-            btnConsultar.BackColor = Color.Gray;
+            btnMenuConsultar.Enabled = false;
+            btnMenuConsultar.BackColor = Color.Gray;
 
-            btnEliminar.Enabled = false;
-            btnEliminar.BackColor = Color.Gray;
+            btnMenuEliminar.Enabled = false;
+            btnMenuEliminar.BackColor = Color.Gray;
 
-            btnTurno.Enabled = false;
-            btnTurno.BackColor = Color.Gray;
+            btnMenuTurno.Enabled = false;
+            btnMenuTurno.BackColor = Color.Gray;
         }
 
         private void PersonalizarFormulario(Form formulario)
@@ -93,14 +94,40 @@ namespace Vista
             }
         }
 
+        private void validarPermisos()
+        {
+            List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
+
+            // Lista de botones a validar
+            List<IconButton> botones = new List<IconButton> { btnMenuAgregar, btnMenuConsultar, btnMenuEliminar, btnMenuTurno };
+
+            foreach (IconButton boton in botones)
+            {
+                // Verificar si el usuario tiene permiso por Grupo o por Acción
+                bool tienePermiso = listaPermisos.Any(p =>
+                    (p.Grupo != null && p.Grupo.NombreMenu == boton.Name) ||
+                    (p.Accion != null && p.Accion.NombreAccion == boton.Name)
+                );
+
+                if (!tienePermiso)
+                {
+                    boton.Visible = false; // En lo botones cambio .Enabled por .Visible para evitar que al hacer clica un usuario igualmente se active aunque no tenga el permiso.
+                    boton.BackColor = Color.Gainsboro;
+                }
+            }
+        }
+
         #endregion
 
-        public frmSocios()
+        public frmSocios(Usuario usuarioActual)
         {
+            usuario = usuarioActual;
             InitializeComponent();
         }
         private void frmSocios_Load(object sender, EventArgs e)
         {
+            validarPermisos();
+
             dgvData.Rows.Clear();
 
             BloquearBotones();
@@ -230,14 +257,14 @@ namespace Vista
                     idSocioSeleccionado = Convert.ToInt32(dgvData.Rows[indice].Cells["IdSocio"].Value);
                     nombreSocioSeleccionado = Convert.ToString(dgvData.Rows[indice].Cells["NombreYApellido"].Value);
 
-                    btnConsultar.Enabled = true;
-                    btnConsultar.BackColor = Color.RoyalBlue;
+                    btnMenuConsultar.Enabled = true;
+                    btnMenuConsultar.BackColor = Color.RoyalBlue;
 
-                    btnEliminar.Enabled = true;
-                    btnEliminar.BackColor = Color.Firebrick;
+                    btnMenuEliminar.Enabled = true;
+                    btnMenuEliminar.BackColor = Color.Firebrick;
 
-                    btnTurno.Enabled = true;
-                    btnTurno.BackColor = Color.White;
+                    btnMenuTurno.Enabled = true;
+                    btnMenuTurno.BackColor = Color.White;
 
                     // Refrescar la vista
                     dgvData.Refresh();

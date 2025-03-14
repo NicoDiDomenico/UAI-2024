@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControladorGymGimnasio.cs" />
+    <Compile Include="ControladorGymGrupo.cs" />
     <Compile Include="ControladorGymPermiso.cs" />
     <Compile Include="ControladorGymRangoHorario.cs" />
     <Compile Include="ControladorGymRol.cs" />

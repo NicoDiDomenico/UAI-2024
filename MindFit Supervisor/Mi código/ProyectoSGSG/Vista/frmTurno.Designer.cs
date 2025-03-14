@@ -34,6 +34,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnNuevoTurno = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblSocio = new System.Windows.Forms.Label();
             this.IdTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdRangoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +49,6 @@
             this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblSocio = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
@@ -74,7 +74,7 @@
             this.btnNuevoTurno.IconColor = System.Drawing.Color.Black;
             this.btnNuevoTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnNuevoTurno.IconSize = 30;
-            this.btnNuevoTurno.Location = new System.Drawing.Point(787, 589);
+            this.btnNuevoTurno.Location = new System.Drawing.Point(787, 599);
             this.btnNuevoTurno.Name = "btnNuevoTurno";
             this.btnNuevoTurno.Size = new System.Drawing.Size(170, 56);
             this.btnNuevoTurno.TabIndex = 97;
@@ -115,7 +115,7 @@
             this.NombreSocio,
             this.btnEliminar});
             this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.dgvData.Location = new System.Drawing.Point(108, 15);
+            this.dgvData.Location = new System.Drawing.Point(165, 30);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -140,94 +140,10 @@
             this.dgvData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvData.RowTemplate.Height = 40;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(1475, 553);
+            this.dgvData.Size = new System.Drawing.Size(1435, 553);
             this.dgvData.TabIndex = 66;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
-            // 
-            // IdTurno
-            // 
-            this.IdTurno.HeaderText = "IdTurno";
-            this.IdTurno.Name = "IdTurno";
-            this.IdTurno.ReadOnly = true;
-            this.IdTurno.Visible = false;
-            // 
-            // FechaTurno
-            // 
-            this.FechaTurno.HeaderText = "Fecha Turno";
-            this.FechaTurno.Name = "FechaTurno";
-            this.FechaTurno.ReadOnly = true;
-            this.FechaTurno.Width = 210;
-            // 
-            // IdRangoHorario
-            // 
-            this.IdRangoHorario.HeaderText = "IdRangoHorario";
-            this.IdRangoHorario.Name = "IdRangoHorario";
-            this.IdRangoHorario.ReadOnly = true;
-            this.IdRangoHorario.Visible = false;
-            // 
-            // HoraDesde
-            // 
-            this.HoraDesde.HeaderText = "Hora Desde";
-            this.HoraDesde.Name = "HoraDesde";
-            this.HoraDesde.ReadOnly = true;
-            this.HoraDesde.Width = 150;
-            // 
-            // HoraHasta
-            // 
-            this.HoraHasta.HeaderText = "Hora Hasta";
-            this.HoraHasta.Name = "HoraHasta";
-            this.HoraHasta.ReadOnly = true;
-            this.HoraHasta.Width = 150;
-            // 
-            // EstadoTurno
-            // 
-            this.EstadoTurno.HeaderText = "Estado Turno";
-            this.EstadoTurno.Name = "EstadoTurno";
-            this.EstadoTurno.ReadOnly = true;
-            this.EstadoTurno.Width = 210;
-            // 
-            // CodigoIngreso
-            // 
-            this.CodigoIngreso.HeaderText = "Codigo Ingreso";
-            this.CodigoIngreso.Name = "CodigoIngreso";
-            this.CodigoIngreso.ReadOnly = true;
-            this.CodigoIngreso.Width = 210;
-            // 
-            // IdUsuario
-            // 
-            this.IdUsuario.HeaderText = "IdUsuario";
-            this.IdUsuario.Name = "IdUsuario";
-            this.IdUsuario.ReadOnly = true;
-            this.IdUsuario.Visible = false;
-            // 
-            // NombreEntrenador
-            // 
-            this.NombreEntrenador.HeaderText = "Entrenador";
-            this.NombreEntrenador.Name = "NombreEntrenador";
-            this.NombreEntrenador.ReadOnly = true;
-            this.NombreEntrenador.Width = 250;
-            // 
-            // IdSocio
-            // 
-            this.IdSocio.HeaderText = "IdSocio";
-            this.IdSocio.Name = "IdSocio";
-            this.IdSocio.ReadOnly = true;
-            this.IdSocio.Visible = false;
-            // 
-            // NombreSocio
-            // 
-            this.NombreSocio.HeaderText = "Socio";
-            this.NombreSocio.Name = "NombreSocio";
-            this.NombreSocio.ReadOnly = true;
-            this.NombreSocio.Width = 250;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.HeaderText = "";
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.ReadOnly = true;
-            this.btnEliminar.Width = 45;
             // 
             // label1
             // 
@@ -243,7 +159,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1088, 18);
+            this.label2.Location = new System.Drawing.Point(1153, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 2;
@@ -253,11 +169,96 @@
             // 
             this.lblSocio.AutoSize = true;
             this.lblSocio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSocio.Location = new System.Drawing.Point(1213, 18);
+            this.lblSocio.Location = new System.Drawing.Point(1278, 18);
             this.lblSocio.Name = "lblSocio";
             this.lblSocio.Size = new System.Drawing.Size(64, 20);
             this.lblSocio.TabIndex = 3;
             this.lblSocio.Text = "lblSocio";
+            // 
+            // IdTurno
+            // 
+            this.IdTurno.HeaderText = "IdTurno";
+            this.IdTurno.Name = "IdTurno";
+            this.IdTurno.ReadOnly = true;
+            this.IdTurno.Visible = false;
+            // 
+            // FechaTurno
+            // 
+            this.FechaTurno.HeaderText = "Fecha Turno";
+            this.FechaTurno.Name = "FechaTurno";
+            this.FechaTurno.ReadOnly = true;
+            this.FechaTurno.Width = 250;
+            // 
+            // IdRangoHorario
+            // 
+            this.IdRangoHorario.HeaderText = "IdRangoHorario";
+            this.IdRangoHorario.Name = "IdRangoHorario";
+            this.IdRangoHorario.ReadOnly = true;
+            this.IdRangoHorario.Visible = false;
+            // 
+            // HoraDesde
+            // 
+            this.HoraDesde.HeaderText = "Hora Desde";
+            this.HoraDesde.Name = "HoraDesde";
+            this.HoraDesde.ReadOnly = true;
+            this.HoraDesde.Width = 170;
+            // 
+            // HoraHasta
+            // 
+            this.HoraHasta.HeaderText = "Hora Hasta";
+            this.HoraHasta.Name = "HoraHasta";
+            this.HoraHasta.ReadOnly = true;
+            this.HoraHasta.Width = 170;
+            // 
+            // EstadoTurno
+            // 
+            this.EstadoTurno.HeaderText = "Estado Turno";
+            this.EstadoTurno.Name = "EstadoTurno";
+            this.EstadoTurno.ReadOnly = true;
+            this.EstadoTurno.Width = 250;
+            // 
+            // CodigoIngreso
+            // 
+            this.CodigoIngreso.HeaderText = "Codigo Ingreso";
+            this.CodigoIngreso.Name = "CodigoIngreso";
+            this.CodigoIngreso.ReadOnly = true;
+            this.CodigoIngreso.Width = 250;
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Visible = false;
+            // 
+            // NombreEntrenador
+            // 
+            this.NombreEntrenador.HeaderText = "Entrenador";
+            this.NombreEntrenador.Name = "NombreEntrenador";
+            this.NombreEntrenador.ReadOnly = true;
+            this.NombreEntrenador.Width = 300;
+            // 
+            // IdSocio
+            // 
+            this.IdSocio.HeaderText = "IdSocio";
+            this.IdSocio.Name = "IdSocio";
+            this.IdSocio.ReadOnly = true;
+            this.IdSocio.Visible = false;
+            // 
+            // NombreSocio
+            // 
+            this.NombreSocio.HeaderText = "Socio";
+            this.NombreSocio.Name = "NombreSocio";
+            this.NombreSocio.ReadOnly = true;
+            this.NombreSocio.Visible = false;
+            this.NombreSocio.Width = 250;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.HeaderText = "";
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.ReadOnly = true;
+            this.btnEliminar.Width = 45;
             // 
             // frmTurno
             // 

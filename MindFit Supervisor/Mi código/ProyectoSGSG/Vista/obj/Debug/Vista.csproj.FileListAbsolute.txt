@@ -89,3 +89,12 @@ C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources

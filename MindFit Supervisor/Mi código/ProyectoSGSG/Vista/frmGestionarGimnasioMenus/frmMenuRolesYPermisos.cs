@@ -35,13 +35,11 @@ namespace Vista
         private void frmMenuRolesYPermisos_Load(object sender, EventArgs e)
         {
             // Para ComboBox de Permiso 
-            List<Permiso> permisos = new ControladorGymPermiso().ListarTodos();
+            List<Grupo> permisos = new ControladorGymGrupo().Listar();
             
-            foreach (Permiso item in permisos)
+            foreach (Grupo item in permisos)
             {
-                int count = 0;
-                cboPermiso.Items.Add(new OpcionCombo() { Valor = count, Texto = item.NombreMenu, DescripcionPermiso = item.Descripcion });
-                count++;
+                cboPermiso.Items.Add(new OpcionCombo() { Valor = item.IdGrupo, Texto = item.NombreMenu, DescripcionPermiso = item.Descripcion });
             }
 
             cboPermiso.DisplayMember = "Texto";
@@ -81,6 +79,7 @@ namespace Vista
             string nuevaDescripcion = txtDescripcion.Text.ToUpper();
             string nuevaDescripcionPermiso = (string)((OpcionCombo)cboPermiso.SelectedItem).DescripcionPermiso;
             string nuevoPermiso = ((OpcionCombo)cboPermiso.SelectedItem).Texto;
+            int nuevoId = (int)((OpcionCombo)cboPermiso.SelectedItem).Valor;
 
             // Verifica si el permiso ya existe en alguna fila del DataGridView
             foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows)
@@ -93,7 +92,7 @@ namespace Vista
             }
 
             // Si no existe, agregar la nueva descripción y permiso
-            dgvPermisosSeleccionados.Rows.Add(new object[] { nuevaDescripcion, nuevoPermiso, nuevaDescripcionPermiso });
+            dgvPermisosSeleccionados.Rows.Add(new object[] { nuevaDescripcion, nuevoPermiso, nuevaDescripcionPermiso, nuevoId });
         }
 
         private void btnRegistrarRol_Click(object sender, EventArgs e)
@@ -114,16 +113,19 @@ namespace Vista
 
             // Crear DataTable para los permisos seleccionados
             DataTable tablaPermisos = new DataTable();
-            tablaPermisos.Columns.Add("NombreMenu", typeof(string));
-            tablaPermisos.Columns.Add("Descripcion", typeof(string));
+            //tablaGrupos.Columns.Add("NombreMenu", typeof(string));
+            //tablaGrupos.Columns.Add("Descripcion", typeof(string));
+            tablaPermisos.Columns.Add("IdGrupo", typeof(int));
 
             // Agregar los permisos seleccionados a la tabla
             foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows)
             {
-                tablaPermisos.Rows.Add(
+                /*tablaGrupos.Rows.Add(
                     row.Cells["NombreMenu"].Value.ToString(),
                     row.Cells["DescripcionPermiso"].Value.ToString() 
-                );
+                );*/
+                int idGrupo = Convert.ToInt32(row.Cells["IdGrupo"].Value);
+                tablaPermisos.Rows.Add(idGrupo);
             }
 
             // Obtener la descripción del rol desde el formulario

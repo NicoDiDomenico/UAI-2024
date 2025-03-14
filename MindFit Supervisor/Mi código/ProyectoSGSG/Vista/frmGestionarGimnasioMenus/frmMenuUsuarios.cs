@@ -19,6 +19,7 @@ namespace Vista
     {
         #region "Variables"
         private static Usuario usuarioIniciado;
+        private List<Accion> accionesSeleccionadas;
         #endregion
 
         #region "Métodos"
@@ -71,6 +72,36 @@ namespace Vista
                 item.Estado == true ? "Activo" : "No Activo",
                 item.FechaRegistro
                 });
+            }
+        }
+        private void AbrirFormulario(Form formulario)
+        {
+            formulario.StartPosition = FormStartPosition.CenterScreen; // Centra la ventana
+            formulario.Load += (s, e) =>
+            {
+                // Ajustar la posición para que la ventana baje 50 píxeles desde la posición centrada
+                formulario.Top += 155;
+                formulario.Left += 232;
+            };
+            formulario.ShowDialog(); // Muestra como ventana modal
+        }
+
+        private void RegistrarUsuario(Usuario unUsuario, string mensaje)
+        {
+            int idUsuarioGenerado = new ControladorGymUsuario().Registrar(unUsuario, out mensaje);
+
+            if (idUsuarioGenerado != 0)
+            {
+
+                dgvData.Rows.Clear();
+                cargarGrid();
+                limpiarCampos();
+                // Me falto configurar el mensaje en la BD, por eso se muestar vacio
+                MessageBox.Show(mensaje);
+            }
+            else
+            {
+                MessageBox.Show(mensaje);
             }
         }
         #endregion
@@ -148,27 +179,54 @@ namespace Vista
                         NombreUsuario = txtNombreUsuario.Text,
                         Clave = txtClave.Text,
                         Genero = Convert.ToInt32(((OpcionCombo)cboGenero.SelectedItem).Valor) == 1 ? "Femenino" : "Masculino",
-                        Rol = new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor) },
+                        Rol = cboRol.SelectedItem != null ?
+                            new Rol() { IdRol = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor) }
+                            : null,
+                        Acciones = accionesSeleccionadas,
                         Estado = Convert.ToInt32(((OpcionCombo)cboEstado.SelectedItem).Valor) == 1 ? true : false
                     };
                     string mensaje = string.Empty;
 
                     if (unUsuario.IdUsuario == 0)
                     {
-                        int idUsuarioGenerado = new ControladorGymUsuario().Registrar(unUsuario, out mensaje);
-
-                        if (idUsuarioGenerado != 0)
+                        //RegistrarUsuario(unUsuario, mensaje);
+                        
+                        if (unUsuario.Rol != null && (accionesSeleccionadas == null || !accionesSeleccionadas.Any()))
                         {
+                            // Si tiene un rol, guarda el usuario con su rol
+                            /*
+                            int idUsuarioGenerado = new ControladorGymUsuario().Registrar(unUsuario, out mensaje);
 
-                            dgvData.Rows.Clear();
-                            cargarGrid();
-                            limpiarCampos();
-                            // Me falto configurar el mensaje en la BD, por eso se muestar vacio
-                            MessageBox.Show(mensaje);
+                            if (idUsuarioGenerado != 0)
+                            {
+
+                                dgvData.Rows.Clear();
+                                cargarGrid();
+                                limpiarCampos();
+                                // Me falto configurar el mensaje en la BD, por eso se muestar vacio
+                                MessageBox.Show(mensaje);
+                            }
+                            else
+                            {
+                                MessageBox.Show(mensaje);
+                            }
+                            */
+                            RegistrarUsuario(unUsuario, mensaje);
                         }
-                        else
+                        else if (unUsuario.Rol == null && accionesSeleccionadas != null && accionesSeleccionadas.Any())
+                        {   /* // FALTA IMPLEMENTAR
+                            // Si no tiene rol, asignamos acciones en la tabla de Permisos
+                            List<int> accionesSeleccionadas = new List<int>(); // Simula las acciones seleccionadas por el usuario --> Esto lo hara el evento btnAccion_Click();
+                            accionesSeleccionadas.Add(1); // Por ejemplo, el usuario seleccionó la acción con IdAccion = 1
+                            accionesSeleccionadas.Add(3); // También seleccionó la acción con IdAccion = 3
+
+                            bool rta = new ControladorGymUsuario().RegistrarConAcciones(unUsuario, accionesSeleccionadas, out mensaje);
+                            */
+
+                            RegistrarUsuario(unUsuario, mensaje);
+                        } else
                         {
-                            MessageBox.Show(mensaje);
+                            MessageBox.Show("Debe asignar un permiso", "Advertencia");
                         }
                     }
                     else
@@ -223,21 +281,6 @@ namespace Vista
 
                     e.Graphics.DrawImage(Properties.Resources.check2, new Rectangle(x, y, w, h));
                 }
-                /*
-                // Obtiene el ancho y alto del recurso (icono o imagen "check220")
-                var w = Properties.Resources.check2.Width;
-                var h = Properties.Resources.check2.Height;
-
-                // Calcula la posición X para centrar la imagen horizontalmente
-                var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-
-                // Calcula la posición Y para centrar la imagen verticalmente
-                var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
-
-                // Dibuja la imagen "check2" en la celda, centrada
-                e.Graphics.DrawImage(Properties.Resources.check2, new Rectangle(x, y, w, h));
-                */
-                // Indica que la celda ha sido manejada y no necesita ser pintada nuevamente
                 e.Handled = true;
             }
         }
@@ -247,6 +290,8 @@ namespace Vista
         {
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
+                accionesSeleccionadas.Clear();
+
                 int indice = e.RowIndex;
 
                 if (indice >= 0)
@@ -359,6 +404,7 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarCampos();
+            accionesSeleccionadas.Clear();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -416,6 +462,34 @@ namespace Vista
         private void btnLimpiarBuscador_Click(object sender, EventArgs e)
         {
             txtBusqueda.Clear();
+        }
+
+        private void btnGrupo_Click(object sender, EventArgs e)
+        {
+            panelRol.Enabled = true;
+        }
+
+        private void btnAccion_Click(object sender, EventArgs e)
+        {
+            cboRol.SelectedIndex = -1; // Se deselecciona el rol
+            panelRol.Enabled = false;
+
+            frmAcciones formAcciones = new frmAcciones(Convert.ToInt32(txtId.Text), accionesSeleccionadas);
+
+            // Abre el formulario modal con la ubicación deseada
+            AbrirFormulario(formAcciones);
+
+            // Verifica si el usuario seleccionó acciones antes de cerrar el formulario
+            if (formAcciones.DialogResult == DialogResult.OK)
+            {
+                //accionesSeleccionadas = formAcciones.AccionesSeleccionadas;
+                accionesSeleccionadas = formAcciones.AccionesSeleccionadas ?? new List<Accion>(); // Asegura que no sea null
+
+                if (accionesSeleccionadas != null && accionesSeleccionadas.Count > 0)
+                {
+                    MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
+                }
+            }
         }
     }
 }

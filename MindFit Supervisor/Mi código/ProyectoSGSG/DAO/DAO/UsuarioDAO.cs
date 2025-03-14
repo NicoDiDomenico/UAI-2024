@@ -20,14 +20,16 @@ namespace DAO
                 try
                 {
                     string query = @"
-                        select u.IdUsuario, NombreYApellido, u.Email, u.Telefono, u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, FechaNacimiento, u.NombreUsuario, u.Clave, r.IdRol, r.Descripcion, u.Estado, u.FechaRegistro
-                        from Usuario u
-                        inner join Rol r
-                        on r.IdRol = u.IdRol
+                        SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+                               u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+                               u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+                               u.IdRol, r.Descripcion AS RolDescripcion, 
+                               u.Estado, u.FechaRegistro
+                        FROM Usuario u
+                        LEFT JOIN Rol r ON r.IdRol = u.IdRol
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
-
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -36,22 +38,36 @@ namespace DAO
                     {
                         while (dr.Read())
                         {
-                            Usuario unUsuario = new Usuario();
-                            
-                            unUsuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
-                            unUsuario.NombreYApellido = dr["NombreYApellido"].ToString();
-                            unUsuario.Email = dr["Email"].ToString();
-                            unUsuario.Telefono = dr["Telefono"].ToString();
-                            unUsuario.Direccion = dr["Direccion"].ToString();
-                            unUsuario.Ciudad = dr["Ciudad"].ToString();
-                            unUsuario.NroDocumento = Convert.ToInt32(dr["NroDocumento"]);
-                            unUsuario.Genero = dr["Genero"].ToString();
-                            unUsuario.FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]);
-                            unUsuario.NombreUsuario = dr["NombreUsuario"].ToString();
-                            unUsuario.Clave = dr["Clave"].ToString();
-                            unUsuario.Rol = new Rol { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() };
-                            unUsuario.Estado = Convert.ToBoolean(dr["Estado"]);
-                            unUsuario.FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"]);
+                            Usuario unUsuario = new Usuario
+                            {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                NombreYApellido = dr["NombreYApellido"].ToString(),
+                                Email = dr["Email"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Direccion = dr["Direccion"].ToString(),
+                                Ciudad = dr["Ciudad"].ToString(),
+                                NroDocumento = Convert.ToInt32(dr["NroDocumento"]),
+                                Genero = dr["Genero"].ToString(),
+                                FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]),
+                                NombreUsuario = dr["NombreUsuario"].ToString(),
+                                Clave = dr["Clave"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"]),
+                                FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"])
+                            };
+
+                            // Si IdRol es NULL, no asignamos un rol
+                            if (dr["IdRol"] != DBNull.Value)
+                            {
+                                unUsuario.Rol = new Rol
+                                {
+                                    IdRol = Convert.ToInt32(dr["IdRol"]),
+                                    Descripcion = dr["RolDescripcion"].ToString()
+                                };
+                            }
+                            else
+                            {
+                                unUsuario.Rol = null; // El usuario no tiene rol, pero puede tener permisos por acciones
+                            }
 
                             lista.Add(unUsuario);
                         }
@@ -86,31 +102,66 @@ namespace DAO
                     cmd.Parameters.AddWithValue("@Genero", obj.Genero);
                     cmd.Parameters.AddWithValue("@FechaNacimiento", obj.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
-                    cmd.Parameters.AddWithValue("@Estado", obj.Estado);
 
+                    // Si tiene un rol, se asigna el valor. Si no, se pasa NULL
+                    cmd.Parameters.AddWithValue("@IdRol", obj.Rol != null ? (object)obj.Rol.IdRol : DBNull.Value);
+
+                    cmd.Parameters.AddWithValue("@Estado", obj.Estado);
                     cmd.Parameters.Add("@IdUsuarioResultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
 
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     oconexion.Open();
-
                     cmd.ExecuteNonQuery();
 
-                    // Se obtienen los valores de los parámetros de salida después de la ejecución del procedimiento
+                    // Obtener el ID del usuario generado
                     idusuariogenerado = Convert.ToInt32(cmd.Parameters["@IdUsuarioResultado"].Value);
                     Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
+                }
+
+                // **Registrar acciones en Permiso si existen acciones seleccionadas**
+                if (idusuariogenerado > 0 && obj.Acciones != null && obj.Acciones.Count > 0)
+                {
+                    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                    {
+                        oconexion.Open();
+
+                        foreach (var accion in obj.Acciones)
+                        {
+                            // **Buscar el IdAccion correspondiente al NombreAccion**
+                            int idAccion = 0;
+                            using (SqlCommand cmdAccion = new SqlCommand("SELECT IdAccion FROM Accion WHERE NombreAccion = @NombreAccion", oconexion))
+                            {
+                                cmdAccion.Parameters.AddWithValue("@NombreAccion", accion.NombreAccion);
+                                var resultado = cmdAccion.ExecuteScalar();
+                                if (resultado != null)
+                                {
+                                    idAccion = Convert.ToInt32(resultado);
+                                }
+                            }
+
+                            // **Si encontró un IdAccion válido, insertar en Permiso**
+                            if (idAccion > 0)
+                            {
+                                using (SqlCommand cmdInsertPermiso = new SqlCommand("INSERT INTO Permiso (IdUsuario, IdAccion) VALUES (@IdUsuario, @IdAccion)", oconexion))
+                                {
+                                    cmdInsertPermiso.Parameters.AddWithValue("@IdUsuario", idusuariogenerado);
+                                    cmdInsertPermiso.Parameters.AddWithValue("@IdAccion", idAccion);
+                                    cmdInsertPermiso.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                // Si hay un error, se captura la excepción y se devuelve un ID de usuario 0 con el mensaje de error
                 idusuariogenerado = 0;
                 Mensaje = ex.Message;
             }
 
-            return idusuariogenerado; // Retorna el ID del usuario generado o 0 si hubo error
+            return idusuariogenerado;
         }
 
         public bool Editar(Usuario obj, out string Mensaje)

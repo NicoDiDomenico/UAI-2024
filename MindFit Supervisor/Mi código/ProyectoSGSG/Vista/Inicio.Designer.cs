@@ -28,22 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSalir = new FontAwesome.Sharp.IconButton();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.contenedor = new System.Windows.Forms.Panel();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
+            this.lblHoraActual = new System.Windows.Forms.Label();
+            this.dgvData = new System.Windows.Forms.DataGridView();
+            this.IdTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdRangoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraDesde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraHasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEntrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CupoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CupoMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoTurno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.botones = new System.Windows.Forms.MenuStrip();
             this.menuGestionarRutinas = new FontAwesome.Sharp.IconMenuItem();
             this.menuSocios = new FontAwesome.Sharp.IconMenuItem();
             this.menuGestionarGimnasio = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem2 = new FontAwesome.Sharp.IconMenuItem();
-            this.iconMenuItem1 = new FontAwesome.Sharp.IconMenuItem();
-            this.menuMantenedor = new FontAwesome.Sharp.IconMenuItem();
-            this.menuVentas = new FontAwesome.Sharp.IconMenuItem();
             this.menuTitulo = new System.Windows.Forms.MenuStrip();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.picLogoInicio = new System.Windows.Forms.PictureBox();
-            this.btnValidar = new FontAwesome.Sharp.IconButton();
-            this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
             this.lblLogo = new System.Windows.Forms.Label();
             this.botonesTop = new System.Windows.Forms.MenuStrip();
             this.menuTopGestionarRutinas = new FontAwesome.Sharp.IconMenuItem();
@@ -55,29 +67,19 @@
             this.iconMenuItem9 = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem10 = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItem11 = new FontAwesome.Sharp.IconMenuItem();
+            this.btnValidar = new FontAwesome.Sharp.IconButton();
+            this.picLogoInicio = new System.Windows.Forms.PictureBox();
+            this.btnSalir = new FontAwesome.Sharp.IconButton();
+            this.iconSplitButton1 = new FontAwesome.Sharp.IconSplitButton();
+            this.iconSplitButton2 = new FontAwesome.Sharp.IconSplitButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contenedor.SuspendLayout();
+            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.botones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicio)).BeginInit();
             this.botonesTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicio)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
-            this.btnSalir.IconColor = System.Drawing.Color.White;
-            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSalir.IconSize = 60;
-            this.btnSalir.Location = new System.Drawing.Point(1712, 16);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.btnSalir.Size = new System.Drawing.Size(80, 60);
-            this.btnSalir.TabIndex = 13;
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // label2
             // 
@@ -85,7 +87,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(1334, 35);
+            this.label2.Location = new System.Drawing.Point(1312, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 20);
             this.label2.TabIndex = 11;
@@ -94,12 +96,189 @@
             // contenedor
             // 
             this.contenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.contenedor.Controls.Add(this.panelPrincipal);
             this.contenedor.Controls.Add(this.botones);
             this.contenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contenedor.Location = new System.Drawing.Point(0, 162);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(1804, 779);
+            this.contenedor.Size = new System.Drawing.Size(1796, 772);
             this.contenedor.TabIndex = 10;
+            // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Controls.Add(this.lblHoraActual);
+            this.panelPrincipal.Controls.Add(this.dgvData);
+            this.panelPrincipal.Location = new System.Drawing.Point(24, 18);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(1746, 622);
+            this.panelPrincipal.TabIndex = 2;
+            // 
+            // lblHoraActual
+            // 
+            this.lblHoraActual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.lblHoraActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHoraActual.ForeColor = System.Drawing.Color.Black;
+            this.lblHoraActual.Location = new System.Drawing.Point(165, 2);
+            this.lblHoraActual.Name = "lblHoraActual";
+            this.lblHoraActual.Size = new System.Drawing.Size(790, 36);
+            this.lblHoraActual.TabIndex = 17;
+            this.lblHoraActual.Text = "Turnos ...";
+            this.lblHoraActual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dgvData
+            // 
+            this.dgvData.AllowUserToAddRows = false;
+            this.dgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdTurno,
+            this.FechaTurno,
+            this.IdRangoHorario,
+            this.HoraDesde,
+            this.HoraHasta,
+            this.CodigoIngreso,
+            this.IdUsuario,
+            this.NombreSocio,
+            this.NombreEntrenador,
+            this.IdSocio,
+            this.CupoActual,
+            this.CupoMaximo,
+            this.EstadoTurno});
+            this.dgvData.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.dgvData.Location = new System.Drawing.Point(165, 51);
+            this.dgvData.MultiSelect = false;
+            this.dgvData.Name = "dgvData";
+            this.dgvData.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvData.RowHeadersVisible = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dgvData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.SteelBlue;
+            this.dgvData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvData.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvData.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            this.dgvData.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvData.RowTemplate.Height = 40;
+            this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvData.Size = new System.Drawing.Size(1401, 568);
+            this.dgvData.TabIndex = 66;
+            // 
+            // IdTurno
+            // 
+            this.IdTurno.HeaderText = "IdTurno";
+            this.IdTurno.Name = "IdTurno";
+            this.IdTurno.ReadOnly = true;
+            this.IdTurno.Visible = false;
+            // 
+            // FechaTurno
+            // 
+            this.FechaTurno.HeaderText = "Fecha Turno";
+            this.FechaTurno.Name = "FechaTurno";
+            this.FechaTurno.ReadOnly = true;
+            this.FechaTurno.Visible = false;
+            this.FechaTurno.Width = 250;
+            // 
+            // IdRangoHorario
+            // 
+            this.IdRangoHorario.HeaderText = "IdRangoHorario";
+            this.IdRangoHorario.Name = "IdRangoHorario";
+            this.IdRangoHorario.ReadOnly = true;
+            this.IdRangoHorario.Visible = false;
+            // 
+            // HoraDesde
+            // 
+            this.HoraDesde.HeaderText = "Hora Desde";
+            this.HoraDesde.Name = "HoraDesde";
+            this.HoraDesde.ReadOnly = true;
+            this.HoraDesde.Visible = false;
+            this.HoraDesde.Width = 170;
+            // 
+            // HoraHasta
+            // 
+            this.HoraHasta.HeaderText = "Hora Hasta";
+            this.HoraHasta.Name = "HoraHasta";
+            this.HoraHasta.ReadOnly = true;
+            this.HoraHasta.Visible = false;
+            this.HoraHasta.Width = 170;
+            // 
+            // CodigoIngreso
+            // 
+            this.CodigoIngreso.HeaderText = "Codigo Ingreso";
+            this.CodigoIngreso.Name = "CodigoIngreso";
+            this.CodigoIngreso.ReadOnly = true;
+            this.CodigoIngreso.Visible = false;
+            this.CodigoIngreso.Width = 250;
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Visible = false;
+            // 
+            // NombreSocio
+            // 
+            this.NombreSocio.HeaderText = "Socio";
+            this.NombreSocio.Name = "NombreSocio";
+            this.NombreSocio.ReadOnly = true;
+            this.NombreSocio.Width = 550;
+            // 
+            // NombreEntrenador
+            // 
+            this.NombreEntrenador.HeaderText = "Entrenador";
+            this.NombreEntrenador.Name = "NombreEntrenador";
+            this.NombreEntrenador.ReadOnly = true;
+            this.NombreEntrenador.Width = 550;
+            // 
+            // IdSocio
+            // 
+            this.IdSocio.HeaderText = "IdSocio";
+            this.IdSocio.Name = "IdSocio";
+            this.IdSocio.ReadOnly = true;
+            this.IdSocio.Visible = false;
+            // 
+            // CupoActual
+            // 
+            this.CupoActual.HeaderText = "CupoActual";
+            this.CupoActual.Name = "CupoActual";
+            this.CupoActual.ReadOnly = true;
+            this.CupoActual.Visible = false;
+            // 
+            // CupoMaximo
+            // 
+            this.CupoMaximo.HeaderText = "CupoMaximo";
+            this.CupoMaximo.Name = "CupoMaximo";
+            this.CupoMaximo.ReadOnly = true;
+            this.CupoMaximo.Visible = false;
+            // 
+            // EstadoTurno
+            // 
+            this.EstadoTurno.HeaderText = "Estado del Turno";
+            this.EstadoTurno.Name = "EstadoTurno";
+            this.EstadoTurno.ReadOnly = true;
+            this.EstadoTurno.Width = 300;
             // 
             // botones
             // 
@@ -109,14 +288,10 @@
             this.botones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuGestionarRutinas,
             this.menuSocios,
-            this.menuGestionarGimnasio,
-            this.iconMenuItem2,
-            this.iconMenuItem1,
-            this.menuMantenedor,
-            this.menuVentas});
-            this.botones.Location = new System.Drawing.Point(577, 482);
+            this.menuGestionarGimnasio});
+            this.botones.Location = new System.Drawing.Point(590, 643);
             this.botones.Name = "botones";
-            this.botones.Size = new System.Drawing.Size(616, 127);
+            this.botones.Size = new System.Drawing.Size(646, 127);
             this.botones.TabIndex = 1;
             this.botones.Text = "menuStrip1";
             // 
@@ -178,78 +353,6 @@
             this.menuGestionarGimnasio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuGestionarGimnasio.Click += new System.EventHandler(this.menuGestionarGimnasio_Click);
             // 
-            // iconMenuItem2
-            // 
-            this.iconMenuItem2.AutoSize = false;
-            this.iconMenuItem2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.iconMenuItem2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.iconMenuItem2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.iconMenuItem2.ForeColor = System.Drawing.Color.White;
-            this.iconMenuItem2.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
-            this.iconMenuItem2.IconColor = System.Drawing.Color.White;
-            this.iconMenuItem2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem2.IconSize = 50;
-            this.iconMenuItem2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem2.Margin = new System.Windows.Forms.Padding(20);
-            this.iconMenuItem2.Name = "iconMenuItem2";
-            this.iconMenuItem2.Size = new System.Drawing.Size(160, 80);
-            this.iconMenuItem2.Text = "Ver Socios";
-            this.iconMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // iconMenuItem1
-            // 
-            this.iconMenuItem1.AutoSize = false;
-            this.iconMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.iconMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.iconMenuItem1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.iconMenuItem1.ForeColor = System.Drawing.Color.White;
-            this.iconMenuItem1.IconChar = FontAwesome.Sharp.IconChar.Tags;
-            this.iconMenuItem1.IconColor = System.Drawing.Color.White;
-            this.iconMenuItem1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconMenuItem1.IconSize = 50;
-            this.iconMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.iconMenuItem1.Margin = new System.Windows.Forms.Padding(20);
-            this.iconMenuItem1.Name = "iconMenuItem1";
-            this.iconMenuItem1.Size = new System.Drawing.Size(170, 80);
-            this.iconMenuItem1.Text = "Gestionar Gimnasio";
-            this.iconMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // menuMantenedor
-            // 
-            this.menuMantenedor.AutoSize = false;
-            this.menuMantenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.menuMantenedor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.menuMantenedor.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.menuMantenedor.ForeColor = System.Drawing.Color.White;
-            this.menuMantenedor.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
-            this.menuMantenedor.IconColor = System.Drawing.Color.White;
-            this.menuMantenedor.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuMantenedor.IconSize = 50;
-            this.menuMantenedor.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuMantenedor.Margin = new System.Windows.Forms.Padding(20);
-            this.menuMantenedor.Name = "menuMantenedor";
-            this.menuMantenedor.Size = new System.Drawing.Size(160, 80);
-            this.menuMantenedor.Text = "Ver Socios";
-            this.menuMantenedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // menuVentas
-            // 
-            this.menuVentas.AutoSize = false;
-            this.menuVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.menuVentas.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.menuVentas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.menuVentas.ForeColor = System.Drawing.Color.White;
-            this.menuVentas.IconChar = FontAwesome.Sharp.IconChar.Tags;
-            this.menuVentas.IconColor = System.Drawing.Color.White;
-            this.menuVentas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuVentas.IconSize = 50;
-            this.menuVentas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuVentas.Margin = new System.Windows.Forms.Padding(20);
-            this.menuVentas.Name = "menuVentas";
-            this.menuVentas.Size = new System.Drawing.Size(160, 80);
-            this.menuVentas.Text = "Gestionar Gimnasio";
-            this.menuVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // menuTitulo
             // 
             this.menuTitulo.AutoSize = false;
@@ -257,7 +360,7 @@
             this.menuTitulo.Location = new System.Drawing.Point(0, 0);
             this.menuTitulo.Name = "menuTitulo";
             this.menuTitulo.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuTitulo.Size = new System.Drawing.Size(1804, 162);
+            this.menuTitulo.Size = new System.Drawing.Size(1796, 162);
             this.menuTitulo.TabIndex = 8;
             this.menuTitulo.Text = "menuStrip2";
             // 
@@ -267,55 +370,11 @@
             this.lblUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.lblUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(1431, 35);
+            this.lblUsuario.Location = new System.Drawing.Point(1409, 39);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(79, 20);
             this.lblUsuario.TabIndex = 12;
             this.lblUsuario.Text = "lblUsuario";
-            // 
-            // picLogoInicio
-            // 
-            this.picLogoInicio.BackColor = System.Drawing.Color.Black;
-            this.picLogoInicio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picLogoInicio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogoInicio.Location = new System.Drawing.Point(22, 21);
-            this.picLogoInicio.Name = "picLogoInicio";
-            this.picLogoInicio.Size = new System.Drawing.Size(180, 88);
-            this.picLogoInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogoInicio.TabIndex = 14;
-            this.picLogoInicio.TabStop = false;
-            this.picLogoInicio.Click += new System.EventHandler(this.picLogo_Click);
-            // 
-            // btnValidar
-            // 
-            this.btnValidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.btnValidar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnValidar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.btnValidar.FlatAppearance.BorderSize = 3;
-            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnValidar.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
-            this.btnValidar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.btnValidar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnValidar.IconSize = 130;
-            this.btnValidar.Location = new System.Drawing.Point(815, 21);
-            this.btnValidar.Name = "btnValidar";
-            this.btnValidar.Padding = new System.Windows.Forms.Padding(25, 5, 0, 0);
-            this.btnValidar.Size = new System.Drawing.Size(166, 123);
-            this.btnValidar.TabIndex = 10;
-            this.btnValidar.UseVisualStyleBackColor = false;
-            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
-            // 
-            // iconSplitButton1
-            // 
-            this.iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconSplitButton1.IconColor = System.Drawing.Color.Black;
-            this.iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSplitButton1.IconSize = 48;
-            this.iconSplitButton1.Name = "iconSplitButton1";
-            this.iconSplitButton1.Rotation = 0D;
-            this.iconSplitButton1.Size = new System.Drawing.Size(23, 23);
-            this.iconSplitButton1.Text = "iconSplitButton1";
             // 
             // lblLogo
             // 
@@ -345,9 +404,9 @@
             this.iconMenuItem9,
             this.iconMenuItem10,
             this.iconMenuItem11});
-            this.botonesTop.Location = new System.Drawing.Point(1338, 94);
+            this.botonesTop.Location = new System.Drawing.Point(1316, 98);
             this.botonesTop.Name = "botonesTop";
-            this.botonesTop.Padding = new System.Windows.Forms.Padding(1);
+            this.botonesTop.Padding = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.botonesTop.Size = new System.Drawing.Size(454, 52);
             this.botonesTop.TabIndex = 2;
             this.botonesTop.Text = "menuStrip1";
@@ -517,11 +576,90 @@
             this.iconMenuItem11.Text = "Gestionar Gimnasio";
             this.iconMenuItem11.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
+            // btnValidar
+            // 
+            this.btnValidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.btnValidar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnValidar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.btnValidar.FlatAppearance.BorderSize = 3;
+            this.btnValidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnValidar.IconChar = FontAwesome.Sharp.IconChar.UserCheck;
+            this.btnValidar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.btnValidar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnValidar.IconSize = 130;
+            this.btnValidar.Location = new System.Drawing.Point(813, 21);
+            this.btnValidar.Name = "btnValidar";
+            this.btnValidar.Padding = new System.Windows.Forms.Padding(25, 5, 0, 0);
+            this.btnValidar.Size = new System.Drawing.Size(166, 123);
+            this.btnValidar.TabIndex = 10;
+            this.btnValidar.UseVisualStyleBackColor = false;
+            this.btnValidar.Click += new System.EventHandler(this.btnValidar_Click);
+            // 
+            // picLogoInicio
+            // 
+            this.picLogoInicio.BackColor = System.Drawing.Color.Black;
+            this.picLogoInicio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picLogoInicio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLogoInicio.Location = new System.Drawing.Point(22, 21);
+            this.picLogoInicio.Name = "picLogoInicio";
+            this.picLogoInicio.Size = new System.Drawing.Size(180, 88);
+            this.picLogoInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogoInicio.TabIndex = 14;
+            this.picLogoInicio.TabStop = false;
+            this.picLogoInicio.Click += new System.EventHandler(this.picLogo_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.btnSalir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
+            this.btnSalir.IconColor = System.Drawing.Color.White;
+            this.btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSalir.IconSize = 60;
+            this.btnSalir.Location = new System.Drawing.Point(1690, 20);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
+            this.btnSalir.Size = new System.Drawing.Size(80, 60);
+            this.btnSalir.TabIndex = 13;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // iconSplitButton1
+            // 
+            this.iconSplitButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconSplitButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconSplitButton1.IconColor = System.Drawing.Color.Black;
+            this.iconSplitButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconSplitButton1.IconSize = 48;
+            this.iconSplitButton1.Name = "iconSplitButton1";
+            this.iconSplitButton1.Rotation = 0D;
+            this.iconSplitButton1.Size = new System.Drawing.Size(23, 23);
+            this.iconSplitButton1.Text = "iconSplitButton1";
+            // 
+            // iconSplitButton2
+            // 
+            this.iconSplitButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.iconSplitButton2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconSplitButton2.IconColor = System.Drawing.Color.Black;
+            this.iconSplitButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconSplitButton2.IconSize = 48;
+            this.iconSplitButton2.Name = "iconSplitButton2";
+            this.iconSplitButton2.Rotation = 0D;
+            this.iconSplitButton2.Size = new System.Drawing.Size(23, 23);
+            this.iconSplitButton2.Text = "iconSplitButton2";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1804, 941);
+            this.ClientSize = new System.Drawing.Size(1796, 934);
             this.Controls.Add(this.botonesTop);
             this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.btnValidar);
@@ -538,11 +676,13 @@
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.contenedor.ResumeLayout(false);
+            this.panelPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.botones.ResumeLayout(false);
             this.botones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicio)).EndInit();
             this.botonesTop.ResumeLayout(false);
             this.botonesTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoInicio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,21 +701,35 @@
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.MenuStrip botones;
         private FontAwesome.Sharp.IconMenuItem menuGestionarRutinas;
-        private FontAwesome.Sharp.IconMenuItem menuMantenedor;
-        private FontAwesome.Sharp.IconMenuItem menuVentas;
         private FontAwesome.Sharp.IconMenuItem menuSocios;
         private FontAwesome.Sharp.IconMenuItem menuGestionarGimnasio;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem2;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItem1;
         private System.Windows.Forms.MenuStrip botonesTop;
         private FontAwesome.Sharp.IconMenuItem menuTopGestionarRutinas;
+        private FontAwesome.Sharp.IconMenuItem menuTopSocios;
+        private FontAwesome.Sharp.IconMenuItem menuTopGestionarGimnasio;
+        private FontAwesome.Sharp.IconSplitButton iconSplitButton2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Panel panelPrincipal;
+        private System.Windows.Forms.Label lblHoraActual;
+        private System.Windows.Forms.DataGridView dgvData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdTurno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaTurno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdRangoHorario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraDesde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraHasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoIngreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreSocio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEntrenador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdSocio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CupoActual;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CupoMaximo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EstadoTurno;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem6;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem7;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem8;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem9;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem10;
         private FontAwesome.Sharp.IconMenuItem iconMenuItem11;
-        private FontAwesome.Sharp.IconMenuItem menuTopSocios;
-        private FontAwesome.Sharp.IconMenuItem menuTopGestionarGimnasio;
     }
 }

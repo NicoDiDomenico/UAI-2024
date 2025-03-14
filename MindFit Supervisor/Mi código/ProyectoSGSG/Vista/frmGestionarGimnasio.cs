@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using Controlador;
+using FontAwesome.Sharp;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,32 @@ namespace Vista
 
             formulario.Show();
         }
+
+        private void validarPermisos()
+        {
+            List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
+
+            foreach (IconMenuItem iconMenu in subBotones.Items)
+            {
+                if (iconMenu.Name != menuAcercaDe.Name)
+                {
+                    // Evitar que una comparación con NULL falle
+                    string nombreGrupo = iconMenu.Name;
+                    string nombreAccion = iconMenu.Name;
+
+                    bool tienePermiso = listaPermisos.Any(p =>
+                        (p.Grupo?.NombreMenu != null && p.Grupo.NombreMenu == nombreGrupo) ||
+                        (p.Accion?.NombreAccion != null && p.Accion.NombreAccion == nombreAccion)
+                    );
+
+                    if (!tienePermiso)
+                    {
+                        iconMenu.Enabled = false;
+                        iconMenu.BackColor = Color.Gainsboro;
+                    }
+                }
+            }
+        }
         #endregion
 
         public frmGestionarGimnasio(Usuario usuarioActual)
@@ -65,7 +92,7 @@ namespace Vista
 
         private void frmGestionarGimnasio_Load(object sender, EventArgs e)
         {
-            // No hace falta validar nada, ya se sabe que es el Admin.
+            validarPermisos();
         }
 
         private void menuUsuarios_Click(object sender, EventArgs e)
@@ -101,12 +128,13 @@ namespace Vista
         {
             AbrirFormulario((IconMenuItem)sender, new frmMenuRangosHorarios());
         }
-
+        /*
+        // Lo saque para que se encargue el Asistente
         private void menuHistorialTurnos_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmMenuHistorialTurnos());
         }
-
+        */
         private void menuNegocio_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmMenuNegocio());

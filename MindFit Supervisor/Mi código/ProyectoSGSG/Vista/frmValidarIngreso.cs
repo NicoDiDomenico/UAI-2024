@@ -50,6 +50,7 @@ namespace Vista
             {
                 MessageBox.Show("Ingreso validado correctamente. Turno finalizado.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtCodigoIngreso.Clear();
+                this.Close();
             }
             else
             {

@@ -1,34 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\",
+  "WorkspaceRootPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmvalidaringreso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmvalidaringreso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F2670CF-0C80-46B4-9FA4-364D34AC1929}|DAO\\DAO\\DAO.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\dao\\dao\\permisodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F2670CF-0C80-46B4-9FA4-364D34AC1929}|DAO\\DAO\\DAO.csproj|solutionrelative:dao\\dao\\permisodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\controlador\\controladorgymturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\controladorgymturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F2670CF-0C80-46B4-9FA4-364D34AC1929}|DAO\\DAO\\DAO.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\dao\\dao\\turnodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F2670CF-0C80-46B4-9FA4-364D34AC1929}|DAO\\DAO\\DAO.csproj|solutionrelative:dao\\dao\\turnodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\inicio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\vista\\frmvalidaringreso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmvalidaringreso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\vista\\frmgestionargimnasiomenus\\frmmenuusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\vista\\frmnuevoturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmnuevoturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F2670CF-0C80-46B4-9FA4-364D34AC1929}|DAO\\DAO\\DAO.csproj|C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\dao\\dao\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F2670CF-0C80-46B4-9FA4-364D34AC1929}|DAO\\DAO\\DAO.csproj|solutionrelative:dao\\dao\\usuariodao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26FFE000-4765-46F0-9964-B26BBDF8344F}|Modelo\\Modelo.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\modelo\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{26FFE000-4765-46F0-9964-B26BBDF8344F}|Modelo\\Modelo.csproj|solutionrelative:modelo\\turno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\vista\\frmgestionargimnasiomenus\\frmmenuusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuusuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\vista\\frmturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmturno.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmacciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmacciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\vista\\frmacciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmacciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\controlador\\controladorgymusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\controladorgymusuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,95 +46,125 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PermisoDAO.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\DAO\\DAO\\PermisoDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\DAO\\PermisoDAO.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\DAO\\DAO\\PermisoDAO.cs",
+              "RelativeToolTip": "DAO\\DAO\\PermisoDAO.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwDsAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T04:51:12.451Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmValidarIngreso.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmValidarIngreso.cs",
-              "RelativeDocumentMoniker": "Vista\\frmValidarIngreso.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmValidarIngreso.cs",
-              "RelativeToolTip": "Vista\\frmValidarIngreso.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAAowCUAAABNAAAA",
+              "DocumentIndex": 1,
+              "Title": "Inicio.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\Inicio.cs",
+              "RelativeDocumentMoniker": "Vista\\Inicio.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\Inicio.cs",
+              "RelativeToolTip": "Vista\\Inicio.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAowEQAAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:23:39.643Z",
+              "WhenOpened": "2025-03-14T04:50:34.882Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmValidarIngreso.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmValidarIngreso.cs",
-              "RelativeDocumentMoniker": "Vista\\frmValidarIngreso.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmValidarIngreso.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\frmValidarIngreso.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T01:23:36.311Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ControladorGymTurno.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymTurno.cs",
-              "RelativeDocumentMoniker": "Controlador\\ControladorGymTurno.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymTurno.cs",
-              "RelativeToolTip": "Controlador\\ControladorGymTurno.cs",
-              "ViewState": "AQIAACoAAAAAAAAAAAAIwDsAAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T23:10:33.793Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "TurnoDAO.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\DAO\\DAO\\TurnoDAO.cs",
-              "RelativeDocumentMoniker": "DAO\\DAO\\TurnoDAO.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\DAO\\DAO\\TurnoDAO.cs",
-              "RelativeToolTip": "DAO\\DAO\\TurnoDAO.cs",
-              "ViewState": "AQIAAOAAAAAAAAAAAAAiwOoAAABhAAAA",
+              "Title": "Inicio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\Inicio.cs",
+              "RelativeDocumentMoniker": "Vista\\Inicio.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\Inicio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\Inicio.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T22:56:18.654Z"
+              "WhenOpened": "2025-03-14T04:43:27.392Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Turno.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Modelo\\Turno.cs",
-              "RelativeDocumentMoniker": "Modelo\\Turno.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Modelo\\Turno.cs",
-              "RelativeToolTip": "Modelo\\Turno.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 8,
+              "Title": "ControladorGymUsuario.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymUsuario.cs",
+              "RelativeDocumentMoniker": "Controlador\\ControladorGymUsuario.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymUsuario.cs",
+              "RelativeToolTip": "Controlador\\ControladorGymUsuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwBAAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T22:54:28.264Z"
+              "WhenOpened": "2025-03-13T21:10:54.902Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "frmNuevoTurno.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmNuevoTurno.cs",
-              "RelativeDocumentMoniker": "Vista\\frmNuevoTurno.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmNuevoTurno.cs",
-              "RelativeToolTip": "Vista\\frmNuevoTurno.cs",
-              "ViewState": "AQIAAJoAAAAAAAAAAAAqwLUAAAAdAAAA",
+              "Title": "UsuarioDAO.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\DAO\\DAO\\UsuarioDAO.cs",
+              "RelativeDocumentMoniker": "DAO\\DAO\\UsuarioDAO.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\DAO\\DAO\\UsuarioDAO.cs",
+              "RelativeToolTip": "DAO\\DAO\\UsuarioDAO.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAiwBAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T19:09:34.382Z"
+              "WhenOpened": "2025-03-13T20:27:56.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmMenuUsuarios.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs",
+              "ViewState": "AQIAABMBAAAAAAAAAADwvyUBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T19:26:56.268Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "frmTurno.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmTurno.cs",
-              "RelativeDocumentMoniker": "Vista\\frmTurno.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmTurno.cs",
-              "RelativeToolTip": "Vista\\frmTurno.cs",
-              "ViewState": "AQIAAHQAAAAAAAAAAAAawIUAAABLAAAA",
+              "Title": "frmAcciones.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmAcciones.cs",
+              "RelativeDocumentMoniker": "Vista\\frmAcciones.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmAcciones.cs",
+              "RelativeToolTip": "Vista\\frmAcciones.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwDAAAABRAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:20:28.905Z"
+              "WhenOpened": "2025-03-12T00:57:25.691Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmAcciones.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmAcciones.cs",
+              "RelativeDocumentMoniker": "Vista\\frmAcciones.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmAcciones.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\frmAcciones.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T00:15:24.421Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmMenuUsuarios.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuUsuarios.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T23:26:00.106Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

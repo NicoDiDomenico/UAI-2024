@@ -23,5 +23,7 @@ namespace Modelo
         public bool Estado { get; set; }
         public DateTime FechaRegistro { get; set; }
         public List<RangoHorario> RangoHorario { get; set; }
+        public List<Accion> Acciones { get; set; }
+
     }
 }

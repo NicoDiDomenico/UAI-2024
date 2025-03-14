@@ -13,26 +13,34 @@ namespace DAO
     {
         public List<Permiso> Listar(int idUsuario)
         {
-            // Se crea una lista vacía para almacenar los usuarios que se obtendrán de la base de datos
             List<Permiso> lista = new List<Permiso>();
 
-            // Se establece la conexión a la base de datos utilizando la cadena de conexión definida en 'Conexion.cadena'
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
                 {
                     string query = @"
-                        SELECT p.IdRol, p.NombreMenu 
+                        SELECT 
+                            p.IdPermiso, 
+                            p.IdRol, 
+                            COALESCE(g.NombreMenu, am.NombreMenu) AS NombreMenu, 
+                            COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
                         FROM PERMISO p
-                        INNER JOIN ROL r ON r.IdRol = p.IdRol
-                        INNER JOIN USUARIO u ON u.IdRol = r.IdRol
+                        LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+                        LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+                        LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acción directa
+                        LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+                        LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+                        LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+                            SELECT a.IdAccion, g.NombreMenu 
+                            FROM ACCION a
+                            LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+                        ) am ON a.IdAccion = am.IdAccion
                         WHERE u.IdUsuario = @idusuario
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
-
                     cmd.Parameters.AddWithValue("@idusuario", idUsuario);
-
                     cmd.CommandType = CommandType.Text;
 
                     oconexion.Open();
@@ -41,50 +49,15 @@ namespace DAO
                     {
                         while (dr.Read())
                         {
-                            lista.Add(new Permiso()
+                            Permiso permiso = new Permiso
                             {
-                                Rol = new Rol { IdRol = Convert.ToInt32(dr["IdRol"]) },
-                                NombreMenu = dr["NombreMenu"].ToString()
-                            });
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    lista = new List<Permiso>();
-                }
-            }
-            return lista;
-        }
-        public List<Permiso> ListarTodos()
-        {
-            List<Permiso> lista = new List<Permiso>();
+                                IdPermiso = Convert.ToInt32(dr["IdPermiso"]),
+                                Rol = dr["IdRol"] != DBNull.Value ? new Rol { IdRol = Convert.ToInt32(dr["IdRol"]) } : null,
+                                Grupo = dr["NombreMenu"] != DBNull.Value ? new Grupo { NombreMenu = dr["NombreMenu"].ToString() } : null,
+                                Accion = dr["NombreAccion"] != DBNull.Value ? new Accion { NombreAccion = dr["NombreAccion"].ToString() } : null
+                            };
 
-            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
-            {
-                try
-                {
-                    string query = @"
-                        select NombreMenu, Descripcion
-                        from Permiso
-                        group by NombreMenu, Descripcion
-                    ";
-
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
-
-                    cmd.CommandType = CommandType.Text;
-
-                    oconexion.Open();
-
-                    using (SqlDataReader dr = cmd.ExecuteReader())
-                    {
-                        while (dr.Read())
-                        {
-                            lista.Add(new Permiso()
-                            {
-                                NombreMenu = dr["NombreMenu"].ToString(),
-                                Descripcion = dr["Descripcion"].ToString()
-                            });
+                            lista.Add(permiso);
                         }
                     }
                 }
@@ -109,10 +82,13 @@ namespace DAO
                     conexion.Open(); // Se abre la conexión
 
                     string query = @"
-                        SELECT p.NombreMenu, p.Descripcion from Permiso p
-                        inner join Rol r
-                        on p.IdRol = r.IdRol
-                        Where p.IdRol = @IdRol
+                        SELECT g.NombreMenu, g.Descripcion, g.IdGrupo 
+                    from Permiso p
+                    inner join Rol r
+                    on p.IdRol = r.IdRol
+                    inner join Grupo g
+                    on p.IdGrupo = g.IdGrupo
+                    Where p.IdRol = @IdRol
                     ";
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
@@ -130,8 +106,7 @@ namespace DAO
                             // Se agrega cada detalle de compra a la lista
                             oLista.Add(new Permiso()
                             {
-                                NombreMenu = dr["NombreMenu"].ToString(),
-                                Descripcion = dr["Descripcion"].ToString()
+                                Grupo = new Grupo { IdGrupo = Convert.ToInt32(dr["IdGrupo"]), NombreMenu = dr["NombreMenu"].ToString(), Descripcion = dr["Descripcion"].ToString()}
                             });
                         }
                     }

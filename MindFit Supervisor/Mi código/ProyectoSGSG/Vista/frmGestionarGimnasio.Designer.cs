@@ -30,19 +30,18 @@
         {
             this.subBotones = new System.Windows.Forms.MenuStrip();
             this.subContenedor = new System.Windows.Forms.Panel();
+            this.asdsadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asdasdasdasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuRoles = new FontAwesome.Sharp.IconMenuItem();
+            this.agregarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
+            this.editarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
             this.menuMaquinas = new FontAwesome.Sharp.IconMenuItem();
             this.menuEjercicios = new FontAwesome.Sharp.IconMenuItem();
             this.menuEquipamiento = new FontAwesome.Sharp.IconMenuItem();
             this.menuRangosHorarios = new FontAwesome.Sharp.IconMenuItem();
-            this.menuHistorialTurnos = new FontAwesome.Sharp.IconMenuItem();
             this.menuNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
-            this.asdsadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asdasdasdasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agregarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
-            this.editarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
             this.subBotones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,12 +56,11 @@
             this.menuEjercicios,
             this.menuEquipamiento,
             this.menuRangosHorarios,
-            this.menuHistorialTurnos,
             this.menuNegocio,
             this.menuAcercaDe});
             this.subBotones.Location = new System.Drawing.Point(0, 0);
             this.subBotones.Name = "subBotones";
-            this.subBotones.Padding = new System.Windows.Forms.Padding(20, 2, 0, 2);
+            this.subBotones.Padding = new System.Windows.Forms.Padding(60, 2, 0, 2);
             this.subBotones.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.subBotones.Size = new System.Drawing.Size(1788, 119);
             this.subBotones.TabIndex = 0;
@@ -77,6 +75,18 @@
             this.subContenedor.Size = new System.Drawing.Size(1788, 621);
             this.subContenedor.TabIndex = 11;
             // 
+            // asdsadsToolStripMenuItem
+            // 
+            this.asdsadsToolStripMenuItem.Name = "asdsadsToolStripMenuItem";
+            this.asdsadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asdsadsToolStripMenuItem.Text = "asdsads";
+            // 
+            // asdasdasdasToolStripMenuItem
+            // 
+            this.asdasdasdasToolStripMenuItem.Name = "asdasdasdasToolStripMenuItem";
+            this.asdasdasdasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asdasdasdasToolStripMenuItem.Text = "asdasdasdas";
+            // 
             // menuUsuarios
             // 
             this.menuUsuarios.AutoSize = false;
@@ -88,7 +98,7 @@
             this.menuUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuUsuarios.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.menuUsuarios.Name = "menuUsuarios";
-            this.menuUsuarios.Size = new System.Drawing.Size(195, 100);
+            this.menuUsuarios.Size = new System.Drawing.Size(210, 100);
             this.menuUsuarios.Text = "Usuarios";
             this.menuUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuUsuarios.Click += new System.EventHandler(this.menuUsuarios_Click);
@@ -107,126 +117,9 @@
             this.menuRoles.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuRoles.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.menuRoles.Name = "menuRoles";
-            this.menuRoles.Size = new System.Drawing.Size(195, 100);
+            this.menuRoles.Size = new System.Drawing.Size(210, 100);
             this.menuRoles.Text = "Roles y Permisos";
             this.menuRoles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // menuMaquinas
-            // 
-            this.menuMaquinas.AutoSize = false;
-            this.menuMaquinas.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuMaquinas.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
-            this.menuMaquinas.IconColor = System.Drawing.Color.Black;
-            this.menuMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuMaquinas.IconSize = 55;
-            this.menuMaquinas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuMaquinas.Name = "menuMaquinas";
-            this.menuMaquinas.Size = new System.Drawing.Size(195, 100);
-            this.menuMaquinas.Text = "Maquinas";
-            this.menuMaquinas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuMaquinas.Click += new System.EventHandler(this.menuMaquinas_Click);
-            // 
-            // menuEjercicios
-            // 
-            this.menuEjercicios.AutoSize = false;
-            this.menuEjercicios.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuEjercicios.IconChar = FontAwesome.Sharp.IconChar.Running;
-            this.menuEjercicios.IconColor = System.Drawing.Color.Black;
-            this.menuEjercicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuEjercicios.IconSize = 55;
-            this.menuEjercicios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuEjercicios.Name = "menuEjercicios";
-            this.menuEjercicios.Size = new System.Drawing.Size(195, 100);
-            this.menuEjercicios.Text = "Ejercicios";
-            this.menuEjercicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuEjercicios.Click += new System.EventHandler(this.menuEjercicios_Click);
-            // 
-            // menuEquipamiento
-            // 
-            this.menuEquipamiento.AutoSize = false;
-            this.menuEquipamiento.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuEquipamiento.IconChar = FontAwesome.Sharp.IconChar.Dumbbell;
-            this.menuEquipamiento.IconColor = System.Drawing.Color.Black;
-            this.menuEquipamiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuEquipamiento.IconSize = 55;
-            this.menuEquipamiento.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuEquipamiento.Name = "menuEquipamiento";
-            this.menuEquipamiento.Size = new System.Drawing.Size(195, 100);
-            this.menuEquipamiento.Text = "Equipamientos";
-            this.menuEquipamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuEquipamiento.Click += new System.EventHandler(this.menuEquipamiento_Click);
-            // 
-            // menuRangosHorarios
-            // 
-            this.menuRangosHorarios.AutoSize = false;
-            this.menuRangosHorarios.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuRangosHorarios.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
-            this.menuRangosHorarios.IconColor = System.Drawing.Color.Black;
-            this.menuRangosHorarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuRangosHorarios.IconSize = 55;
-            this.menuRangosHorarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuRangosHorarios.Name = "menuRangosHorarios";
-            this.menuRangosHorarios.Size = new System.Drawing.Size(195, 100);
-            this.menuRangosHorarios.Text = "Rangos Horarios";
-            this.menuRangosHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuRangosHorarios.Click += new System.EventHandler(this.menuRangosHorarios_Click);
-            // 
-            // menuHistorialTurnos
-            // 
-            this.menuHistorialTurnos.AutoSize = false;
-            this.menuHistorialTurnos.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuHistorialTurnos.IconChar = FontAwesome.Sharp.IconChar.History;
-            this.menuHistorialTurnos.IconColor = System.Drawing.Color.Black;
-            this.menuHistorialTurnos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuHistorialTurnos.IconSize = 55;
-            this.menuHistorialTurnos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuHistorialTurnos.Name = "menuHistorialTurnos";
-            this.menuHistorialTurnos.Size = new System.Drawing.Size(195, 100);
-            this.menuHistorialTurnos.Text = "Historial Turnos";
-            this.menuHistorialTurnos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuHistorialTurnos.Click += new System.EventHandler(this.menuHistorialTurnos_Click);
-            // 
-            // menuNegocio
-            // 
-            this.menuNegocio.AutoSize = false;
-            this.menuNegocio.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuNegocio.IconChar = FontAwesome.Sharp.IconChar.Briefcase;
-            this.menuNegocio.IconColor = System.Drawing.Color.Black;
-            this.menuNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuNegocio.IconSize = 55;
-            this.menuNegocio.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuNegocio.Name = "menuNegocio";
-            this.menuNegocio.Size = new System.Drawing.Size(195, 100);
-            this.menuNegocio.Text = "Negocio";
-            this.menuNegocio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuNegocio.Click += new System.EventHandler(this.menuNegocio_Click);
-            // 
-            // menuAcercaDe
-            // 
-            this.menuAcercaDe.AutoSize = false;
-            this.menuAcercaDe.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuAcercaDe.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
-            this.menuAcercaDe.IconColor = System.Drawing.Color.Black;
-            this.menuAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuAcercaDe.IconSize = 55;
-            this.menuAcercaDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuAcercaDe.Name = "menuAcercaDe";
-            this.menuAcercaDe.Size = new System.Drawing.Size(195, 100);
-            this.menuAcercaDe.Text = "Acerca de";
-            this.menuAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuAcercaDe.Click += new System.EventHandler(this.menuAcercaDe_Click);
-            // 
-            // asdsadsToolStripMenuItem
-            // 
-            this.asdsadsToolStripMenuItem.Name = "asdsadsToolStripMenuItem";
-            this.asdsadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asdsadsToolStripMenuItem.Text = "asdsads";
-            // 
-            // asdasdasdasToolStripMenuItem
-            // 
-            this.asdasdasdasToolStripMenuItem.Name = "asdasdasdasToolStripMenuItem";
-            this.asdasdasdasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asdasdasdasToolStripMenuItem.Text = "asdasdasdas";
             // 
             // agregarRolToolStripMenuItem
             // 
@@ -247,6 +140,96 @@
             this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.editarRolToolStripMenuItem.Text = "Editar Rol";
             this.editarRolToolStripMenuItem.Click += new System.EventHandler(this.editarRolToolStripMenuItem_Click);
+            // 
+            // menuMaquinas
+            // 
+            this.menuMaquinas.AutoSize = false;
+            this.menuMaquinas.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuMaquinas.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
+            this.menuMaquinas.IconColor = System.Drawing.Color.Black;
+            this.menuMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuMaquinas.IconSize = 55;
+            this.menuMaquinas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuMaquinas.Name = "menuMaquinas";
+            this.menuMaquinas.Size = new System.Drawing.Size(210, 100);
+            this.menuMaquinas.Text = "Maquinas";
+            this.menuMaquinas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuMaquinas.Click += new System.EventHandler(this.menuMaquinas_Click);
+            // 
+            // menuEjercicios
+            // 
+            this.menuEjercicios.AutoSize = false;
+            this.menuEjercicios.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuEjercicios.IconChar = FontAwesome.Sharp.IconChar.Running;
+            this.menuEjercicios.IconColor = System.Drawing.Color.Black;
+            this.menuEjercicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuEjercicios.IconSize = 55;
+            this.menuEjercicios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuEjercicios.Name = "menuEjercicios";
+            this.menuEjercicios.Size = new System.Drawing.Size(210, 100);
+            this.menuEjercicios.Text = "Ejercicios";
+            this.menuEjercicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuEjercicios.Click += new System.EventHandler(this.menuEjercicios_Click);
+            // 
+            // menuEquipamiento
+            // 
+            this.menuEquipamiento.AutoSize = false;
+            this.menuEquipamiento.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuEquipamiento.IconChar = FontAwesome.Sharp.IconChar.Dumbbell;
+            this.menuEquipamiento.IconColor = System.Drawing.Color.Black;
+            this.menuEquipamiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuEquipamiento.IconSize = 55;
+            this.menuEquipamiento.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuEquipamiento.Name = "menuEquipamiento";
+            this.menuEquipamiento.Size = new System.Drawing.Size(210, 100);
+            this.menuEquipamiento.Text = "Equipamientos";
+            this.menuEquipamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuEquipamiento.Click += new System.EventHandler(this.menuEquipamiento_Click);
+            // 
+            // menuRangosHorarios
+            // 
+            this.menuRangosHorarios.AutoSize = false;
+            this.menuRangosHorarios.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuRangosHorarios.IconChar = FontAwesome.Sharp.IconChar.ClockFour;
+            this.menuRangosHorarios.IconColor = System.Drawing.Color.Black;
+            this.menuRangosHorarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuRangosHorarios.IconSize = 55;
+            this.menuRangosHorarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuRangosHorarios.Name = "menuRangosHorarios";
+            this.menuRangosHorarios.Size = new System.Drawing.Size(210, 100);
+            this.menuRangosHorarios.Text = "Rangos Horarios";
+            this.menuRangosHorarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuRangosHorarios.Click += new System.EventHandler(this.menuRangosHorarios_Click);
+            // 
+            // menuNegocio
+            // 
+            this.menuNegocio.AutoSize = false;
+            this.menuNegocio.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuNegocio.IconChar = FontAwesome.Sharp.IconChar.Briefcase;
+            this.menuNegocio.IconColor = System.Drawing.Color.Black;
+            this.menuNegocio.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuNegocio.IconSize = 55;
+            this.menuNegocio.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuNegocio.Name = "menuNegocio";
+            this.menuNegocio.Size = new System.Drawing.Size(210, 100);
+            this.menuNegocio.Text = "Negocio";
+            this.menuNegocio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuNegocio.Click += new System.EventHandler(this.menuNegocio_Click);
+            // 
+            // menuAcercaDe
+            // 
+            this.menuAcercaDe.AutoSize = false;
+            this.menuAcercaDe.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuAcercaDe.IconChar = FontAwesome.Sharp.IconChar.CircleInfo;
+            this.menuAcercaDe.IconColor = System.Drawing.Color.Black;
+            this.menuAcercaDe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuAcercaDe.IconSize = 55;
+            this.menuAcercaDe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuAcercaDe.Name = "menuAcercaDe";
+            this.menuAcercaDe.Size = new System.Drawing.Size(210, 100);
+            this.menuAcercaDe.Text = "Acerca de";
+            this.menuAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuAcercaDe.Click += new System.EventHandler(this.menuAcercaDe_Click);
             // 
             // frmGestionarGimnasio
             // 
@@ -276,7 +259,6 @@
         private FontAwesome.Sharp.IconMenuItem menuEquipamiento;
 
         private FontAwesome.Sharp.IconMenuItem menuRangosHorarios;
-        private FontAwesome.Sharp.IconMenuItem menuHistorialTurnos;
         private System.Windows.Forms.Panel subContenedor;
         private FontAwesome.Sharp.IconMenuItem menuRoles;
         private System.Windows.Forms.ToolStripMenuItem asdsadsToolStripMenuItem;
