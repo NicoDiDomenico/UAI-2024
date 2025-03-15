@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Controlador;
 
 namespace Vista
 {
@@ -47,6 +48,26 @@ namespace Vista
             else
             {
                 // traer de la bd las acciones del usuario con id ultimoUsuarioId
+                List<Accion> acciones = new ControladorGymAccion().Listar(ultimoUsuarioId);
+
+                if (acciones.Count > 0 || acciones != null)
+                {
+                    foreach (Accion accion in acciones)
+                    {
+                        if (accion.NombreAccion == btnMenuAgregar.Name) btnMenuAgregar.Checked = true;
+                        if (accion.NombreAccion == btnMenuConsultar.Name) btnMenuConsultar.Checked = true;
+                        if (accion.NombreAccion == btnMenuEliminar.Name) btnMenuEliminar.Checked = true;
+                        if (accion.NombreAccion == btnMenuTurno.Name) btnMenuTurno.Checked = true;
+
+                        if (accion.NombreAccion == menuUsuarios.Name) menuUsuarios.Checked = true;
+                        if (accion.NombreAccion == menuRoles.Name) menuRoles.Checked = true;
+                        if (accion.NombreAccion == menuMaquinas.Name) menuMaquinas.Checked = true;
+                        if (accion.NombreAccion == menuEjercicios.Name) menuEjercicios.Checked = true;
+                        if (accion.NombreAccion == menuEquipamiento.Name) menuEquipamiento.Checked = true;
+                        if (accion.NombreAccion == menuRangosHorarios.Name) menuRangosHorarios.Checked = true;
+                        if (accion.NombreAccion == menuNegocio.Name) menuNegocio.Checked = true;
+                    }
+                }
             }
         }
 

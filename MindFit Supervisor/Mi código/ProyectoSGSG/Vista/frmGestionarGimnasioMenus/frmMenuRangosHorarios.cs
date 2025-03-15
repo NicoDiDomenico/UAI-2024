@@ -19,6 +19,10 @@ namespace Vista
     public partial class frmMenuRangosHorarios : Form
     {
         #region "Métodos"
+        private int indiceActual;
+        #endregion
+        
+        #region "Métodos"
         private void cargarCBO()
         {
             cboRangoHorario.Items.Clear();
@@ -63,8 +67,16 @@ namespace Vista
 
         private void cargarGrid()
         {
+            // Validar si el DataGridView o el controlador están inicializados
+            if (dgvData == null)
+            {
+                MessageBox.Show("El control dgvData no está inicializado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Para el Grid - MOSTRAR TODOS LOS Rango 
             List<RangoHorario> listaRangoHorario = new ControladorGymRangoHorario().Listar();
+
             foreach (RangoHorario item in listaRangoHorario)
             {
                 dgvData.Rows.Add(new object[] {
@@ -73,10 +85,8 @@ namespace Vista
                     item.HoraDesde,
                     item.HoraHasta,
                     item.CupoMaximo,
-                    /*
-                    item.UnUsuario.NombreYApellido,
-                    item.UnUsuario.IdUsuario
-                    */
+                    // item.UnUsuario.NombreYApellido,
+                    // item.UnUsuario.IdUsuario
                 });
             }
 
@@ -101,7 +111,12 @@ namespace Vista
 
         private void frmMenuRangosHorarios_Load(object sender, EventArgs e)
         {
-            //cargarCBO();
+            if (dgvData == null)
+            {
+                MessageBox.Show("El DataGridView no está disponible.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             btnEditarCupos.Enabled = false;
             cargarGrid();
         }
@@ -128,6 +143,7 @@ namespace Vista
             {
                 MessageBox.Show("Entrenador asignado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvEntrenadores.Rows.Clear();
+                limpiarCampos();
                 cargarGrid();
             }
             else
@@ -211,6 +227,7 @@ namespace Vista
             if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
                 int indice = e.RowIndex;
+                indiceActual = indice;
 
                 if (indice >= 0)
                 {
@@ -309,8 +326,10 @@ namespace Vista
                 {
                     MessageBox.Show("Cupo actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtCupoMaximo.Enabled = false;
-                    dgvData.Rows.Clear();  
+                    dgvData.Rows.Clear();
+                    dgvEntrenadores.Rows.Clear();
                     cargarGrid();
+                    dgvData.Rows[indiceActual].Cells["Seleccionado"].Value = true;
                 }
                 else
                 {

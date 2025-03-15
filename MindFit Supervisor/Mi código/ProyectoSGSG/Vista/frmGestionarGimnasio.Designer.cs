@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.subBotones = new System.Windows.Forms.MenuStrip();
-            this.subContenedor = new System.Windows.Forms.Panel();
-            this.asdsadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asdasdasdasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuUsuarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuRoles = new FontAwesome.Sharp.IconMenuItem();
             this.agregarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
             this.editarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
+            this.editarAccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMaquinas = new FontAwesome.Sharp.IconMenuItem();
             this.menuEjercicios = new FontAwesome.Sharp.IconMenuItem();
             this.menuEquipamiento = new FontAwesome.Sharp.IconMenuItem();
             this.menuRangosHorarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
+            this.subContenedor = new System.Windows.Forms.Panel();
+            this.asdsadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asdasdasdasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subBotones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,27 +67,6 @@
             this.subBotones.TabIndex = 0;
             this.subBotones.Text = "menuStrip1";
             // 
-            // subContenedor
-            // 
-            this.subContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.subContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.subContenedor.Location = new System.Drawing.Point(0, 119);
-            this.subContenedor.Name = "subContenedor";
-            this.subContenedor.Size = new System.Drawing.Size(1788, 621);
-            this.subContenedor.TabIndex = 11;
-            // 
-            // asdsadsToolStripMenuItem
-            // 
-            this.asdsadsToolStripMenuItem.Name = "asdsadsToolStripMenuItem";
-            this.asdsadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asdsadsToolStripMenuItem.Text = "asdsads";
-            // 
-            // asdasdasdasToolStripMenuItem
-            // 
-            this.asdasdasdasToolStripMenuItem.Name = "asdasdasdasToolStripMenuItem";
-            this.asdasdasdasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.asdasdasdasToolStripMenuItem.Text = "asdasdasdas";
-            // 
             // menuUsuarios
             // 
             this.menuUsuarios.AutoSize = false;
@@ -108,7 +88,8 @@
             this.menuRoles.AutoSize = false;
             this.menuRoles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.agregarRolToolStripMenuItem,
-            this.editarRolToolStripMenuItem});
+            this.editarRolToolStripMenuItem,
+            this.editarAccionToolStripMenuItem});
             this.menuRoles.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuRoles.IconChar = FontAwesome.Sharp.IconChar.UserShield;
             this.menuRoles.IconColor = System.Drawing.Color.Black;
@@ -128,7 +109,7 @@
             this.agregarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.agregarRolToolStripMenuItem.Name = "agregarRolToolStripMenuItem";
             this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.agregarRolToolStripMenuItem.Text = "Agregar  Rol";
+            this.agregarRolToolStripMenuItem.Text = "Agregar Rol";
             this.agregarRolToolStripMenuItem.Click += new System.EventHandler(this.agregarRolToolStripMenuItem_Click);
             // 
             // editarRolToolStripMenuItem
@@ -140,6 +121,13 @@
             this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.editarRolToolStripMenuItem.Text = "Editar Rol";
             this.editarRolToolStripMenuItem.Click += new System.EventHandler(this.editarRolToolStripMenuItem_Click);
+            // 
+            // editarAccionToolStripMenuItem
+            // 
+            this.editarAccionToolStripMenuItem.Name = "editarAccionToolStripMenuItem";
+            this.editarAccionToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.editarAccionToolStripMenuItem.Text = "Editar Acción";
+            this.editarAccionToolStripMenuItem.Click += new System.EventHandler(this.editarAccionToolStripMenuItem_Click);
             // 
             // menuMaquinas
             // 
@@ -231,6 +219,27 @@
             this.menuAcercaDe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuAcercaDe.Click += new System.EventHandler(this.menuAcercaDe_Click);
             // 
+            // subContenedor
+            // 
+            this.subContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.subContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.subContenedor.Location = new System.Drawing.Point(0, 119);
+            this.subContenedor.Name = "subContenedor";
+            this.subContenedor.Size = new System.Drawing.Size(1788, 621);
+            this.subContenedor.TabIndex = 11;
+            // 
+            // asdsadsToolStripMenuItem
+            // 
+            this.asdsadsToolStripMenuItem.Name = "asdsadsToolStripMenuItem";
+            this.asdsadsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asdsadsToolStripMenuItem.Text = "asdsads";
+            // 
+            // asdasdasdasToolStripMenuItem
+            // 
+            this.asdasdasdasToolStripMenuItem.Name = "asdasdasdasToolStripMenuItem";
+            this.asdasdasdasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.asdasdasdasToolStripMenuItem.Text = "asdasdasdas";
+            // 
             // frmGestionarGimnasio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,5 +274,6 @@
         private System.Windows.Forms.ToolStripMenuItem asdasdasdasToolStripMenuItem;
         private FontAwesome.Sharp.IconMenuItem agregarRolToolStripMenuItem;
         private FontAwesome.Sharp.IconMenuItem editarRolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarAccionToolStripMenuItem;
     }
 }

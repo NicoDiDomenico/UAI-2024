@@ -85,7 +85,7 @@ namespace DAO
             return Resultado;
         }
 
-        public bool Actualizar(Rol unRol, DataTable Permisos, out string Mensaje)
+        public bool Actualizar(Rol unRol, String IdGrupo, String DescripcionGrupo, out string Mensaje)
         {
             bool Resultado = false;
             Mensaje = string.Empty;
@@ -99,7 +99,9 @@ namespace DAO
 
                     cmd.Parameters.AddWithValue("@IdRol", unRol.IdRol);  // Se agrega el ID del rol a actualizar
                     cmd.Parameters.AddWithValue("@Descripcion", unRol.Descripcion);
-                    cmd.Parameters.Add("@Permisos", SqlDbType.Structured).Value = Permisos;  // Parámetro tipo tabla
+                    
+                    cmd.Parameters.AddWithValue("@IdGrupo", IdGrupo);
+                    cmd.Parameters.AddWithValue("@DescripcionGrupo", DescripcionGrupo);
 
                     cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;

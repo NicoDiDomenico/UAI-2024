@@ -59,12 +59,13 @@
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.dgvDataPermisos = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnSeleccionar2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NombreMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIdGrupo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -392,7 +393,7 @@
             // 
             // txtIndice
             // 
-            this.txtIndice.Location = new System.Drawing.Point(693, 89);
+            this.txtIndice.Location = new System.Drawing.Point(573, 89);
             this.txtIndice.Name = "txtIndice";
             this.txtIndice.Size = new System.Drawing.Size(28, 20);
             this.txtIndice.TabIndex = 71;
@@ -432,18 +433,6 @@
             this.dgvDataPermisos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPermisos_CellContentClick);
             this.dgvDataPermisos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDataPermisos_CellPainting);
             // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(566, 305);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1176, 67);
-            this.label4.TabIndex = 72;
-            this.label4.Text = "Lista de Permisos";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // btnSeleccionar2
             // 
             this.btnSeleccionar2.HeaderText = "";
@@ -481,12 +470,34 @@
             this.Seleccionado2.ReadOnly = true;
             this.Seleccionado2.Visible = false;
             // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(566, 305);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1176, 67);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "Lista de Permisos";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtIdGrupo
+            // 
+            this.txtIdGrupo.Location = new System.Drawing.Point(573, 379);
+            this.txtIdGrupo.Name = "txtIdGrupo";
+            this.txtIdGrupo.Size = new System.Drawing.Size(28, 20);
+            this.txtIdGrupo.TabIndex = 74;
+            this.txtIdGrupo.Text = "-1";
+            this.txtIdGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmModificarRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1772, 606);
+            this.Controls.Add(this.txtIdGrupo);
             this.Controls.Add(this.dgvDataPermisos);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtIndice);
@@ -544,5 +555,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdGrupo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado2;
+        private System.Windows.Forms.TextBox txtIdGrupo;
     }
 }

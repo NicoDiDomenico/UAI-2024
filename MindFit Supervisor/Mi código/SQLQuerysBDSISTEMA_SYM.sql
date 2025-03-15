@@ -1176,7 +1176,7 @@ END;
 ALTER TABLE Turno
 ADD CONSTRAINT UQ_CodigoIngreso UNIQUE (CodigoIngreso);
 
-/* NUEVO */
+/* NUEVO --> Listo */
 ALTER PROCEDURE SP_REGISTRARTURNO
     @IdRangoHorario INT,
     @IdUsuario INT,
@@ -1696,3 +1696,184 @@ LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
     LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
 ) am ON a.IdAccion = am.IdAccion
 WHERE u.IdUsuario = 6 -- @idusuario
+
+/* NUEVO - DE AHORA EN MAS EXTORTAR LA BD CON ESQUEMA Y DATOS */
+
+select a.NombreAccion
+from Accion a
+inner join Permiso p
+on a.IdAccion = p.IdAccion
+inner join Usuario u
+on a.IdAccion = p.IdAccion 
+where u.IdUsuario = 6
+
+SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+       u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+       u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+       u.IdRol, r.Descripcion AS RolDescripcion, 
+       u.Estado, u.FechaRegistro
+FROM Usuario u
+LEFT JOIN Rol r ON r.IdRol = u.IdRol
+
+--Cambio esto:
+select a.NombreAccion
+from Accion a
+inner join Permiso p
+on a.IdAccion = p.IdAccion
+inner join Usuario u
+on a.IdAccion = p.IdAccion 
+where u.IdUsuario = 2
+
+--Por esto:
+SELECT 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acción directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 6 -- @idusuario
+
+ALTER PROC [dbo].[SP_ELIMINARUSUARIO](
+    @IdUsuario int,
+    @Respuesta bit output,
+    @Mensaje varchar(500) output
+)
+AS
+BEGIN
+    SET @Respuesta = 0
+    SET @Mensaje = ''
+    DECLARE @pasoreglas bit = 1
+
+    -- Validaciones (agregar aquí las que necesites, por ejemplo, turnos asignados, rangos horarios, etc.)
+
+    IF (@pasoreglas = 1)
+    BEGIN
+        -- Eliminar los permisos del usuario en la tabla Permiso
+        DELETE FROM PERMISO WHERE IdUsuario = @IdUsuario
+
+        -- Eliminar el usuario de la tabla Usuario
+        DELETE FROM USUARIO WHERE IdUsuario = @IdUsuario
+
+        SET @Respuesta = 1
+        SET @Mensaje = 'Usuario eliminado correctamente junto con sus permisos'
+    END
+END
+
+ALTER PROCEDURE [dbo].[SP_ACTUALIZARROL](
+    @IdRol INT,  -- Identifica qué rol actualizar
+    @Descripcion VARCHAR(50),  -- Nueva descripción del rol
+    @IdGrupo INT,  -- Grupo asociado al rol
+    @DescripcionGrupo VARCHAR(255),  -- Nueva descripción del grupo
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT  -- Indica éxito o error
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @Resultado = 0  -- Por defecto, fallido
+
+        BEGIN TRANSACTION  -- Iniciar transacción para evitar inconsistencias
+
+        -- Verifica si el rol existe
+        IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
+        BEGIN
+            -- Actualizar la descripción del rol
+            UPDATE Rol 
+            SET Descripcion = @Descripcion 
+            WHERE IdRol = @IdRol;
+
+            -- Verifica si el grupo existe
+            IF EXISTS (SELECT 1 FROM Grupo WHERE IdGrupo = @IdGrupo)
+            BEGIN
+                -- Actualizar la descripción del grupo
+                UPDATE Grupo 
+                SET Descripcion = @DescripcionGrupo 
+                WHERE IdGrupo = @IdGrupo;
+            END
+            ELSE
+            BEGIN
+                SET @Mensaje = 'El grupo especificado no existe.'
+                ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
+                RETURN;
+            END
+
+            -- Si todo está bien, marcar como éxito
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol y grupo actualizados correctamente'
+            COMMIT TRANSACTION  -- Confirmar los cambios
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El rol especificado no existe.'
+            ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION -- Revertir cambios si hay error
+    END CATCH
+END
+
+select IdAccion, NombreAccion, Descripcion, IdGrupo
+from Accion
+
+CREATE PROCEDURE [dbo].[SP_MODIFICARACCION](
+    @IdAccion INT,               -- Identificador de la acción a modificar
+    @NombreAccion VARCHAR(100),  -- Nuevo nombre de la acción
+    @Descripcion VARCHAR(255),   -- Nueva descripción
+    @IdGrupo INT,                -- Nuevo ID de grupo asociado
+    @Resultado BIT OUTPUT,       -- Indica éxito (1) o fallo (0)
+    @Mensaje VARCHAR(500) OUTPUT -- Mensaje de confirmación o error
+)
+AS
+BEGIN
+    BEGIN TRY
+        -- Inicialización de variables de salida
+        SET @Mensaje = ''
+        SET @Resultado = 0
+
+        -- Verificar si la acción existe
+        IF NOT EXISTS (SELECT 1 FROM Accion WHERE IdAccion = @IdAccion)
+        BEGIN
+            SET @Mensaje = 'La acción especificada no existe.'
+            RETURN
+        END
+
+        -- Actualizar la acción en la tabla Accion
+        UPDATE Accion
+        SET NombreAccion = @NombreAccion,
+            Descripcion = @Descripcion,
+            IdGrupo = @IdGrupo
+        WHERE IdAccion = @IdAccion;
+
+        -- Si se actualiza correctamente
+        SET @Resultado = 1
+        SET @Mensaje = 'Acción actualizada correctamente.'
+    END TRY
+    BEGIN CATCH
+        -- Captura de errores y rollback en caso de falla
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+    END CATCH
+END
+GO
+
+select IdAccion, NombreAccion, Descripcion, IdGrupo
+from Accion
+
+SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+       u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+       u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+       u.IdRol, r.Descripcion AS RolDescripcion, 
+       u.Estado, u.FechaRegistro
+FROM Usuario u
+LEFT JOIN Rol r ON r.IdRol = u.IdRol

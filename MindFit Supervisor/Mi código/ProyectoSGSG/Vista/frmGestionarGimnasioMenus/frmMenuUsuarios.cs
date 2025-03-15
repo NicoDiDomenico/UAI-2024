@@ -43,6 +43,25 @@ namespace Vista
             cboEstado.SelectedIndex = -1;
 
             txtNombreYApellido.Select();
+
+            // Asegurar que la lista está inicializada antes de limpiar
+            if (accionesSeleccionadas == null)
+            {
+                accionesSeleccionadas = new List<Accion>();
+            }
+            else
+            {
+                accionesSeleccionadas.Clear();
+            }
+
+            // Desmarcar todas las filas en la columna "Seleccionado"
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                row.Cells["Seleccionado"].Value = false;
+            }
+
+            // Refrescar el DataGridView para reflejar los cambios
+            dgvData.Refresh();
         }
 
         private void cargarGrid()
@@ -53,26 +72,26 @@ namespace Vista
             foreach (Usuario item in listaUsuario)
             {
                 dgvData.Rows.Add(new object[] {
-                "",
-                item.IdUsuario,
-                item.NombreYApellido,
-                item.Email,
-                item.Telefono,
-                item.Direccion,
-                item.Ciudad,
-                item.NroDocumento,
-                item.FechaNacimiento,
-                item.NombreUsuario,
-                item.Clave,
-                //item.Genero == true ? 1 : 0,
-                item.Genero == "Masculino" ? "Masculino" : "Femenino",
-                item.Rol.IdRol,
-                item.Rol.Descripcion,
-                item.Estado == true ? 1 : 0,
-                item.Estado == true ? "Activo" : "No Activo",
-                item.FechaRegistro
+                    "",
+                    item.IdUsuario,
+                    item.NombreYApellido,
+                    item.Email,
+                    item.Telefono,
+                    item.Direccion,
+                    item.Ciudad,
+                    item.NroDocumento,
+                    item.FechaNacimiento,
+                    item.NombreUsuario,
+                    item.Clave,
+                    item.Genero == "Masculino" ? "Masculino" : "Femenino",
+                    item.Rol != null ? item.Rol.IdRol : (object)DBNull.Value,  // Manejo de NULL en IdRol
+                    item.Rol != null ? item.Rol.Descripcion : "Sin Rol",  // Si no tiene rol, muestra "Sin Rol"
+                    item.Estado == true ? 1 : 0,
+                    item.Estado == true ? "Activo" : "No Activo",
+                    item.FechaRegistro
                 });
             }
+
         }
         private void AbrirFormulario(Form formulario)
         {
@@ -114,6 +133,7 @@ namespace Vista
 
         private void frmMenuUsuarios_Load(object sender, EventArgs e)
         {
+            //accionesSeleccionadas.Clear();
             // Para ComboBox de Genero
             cboGenero.Items.Add(new OpcionCombo() { Valor = 1, Texto = "Femenino" });
             cboGenero.Items.Add(new OpcionCombo() { Valor = 0, Texto = "Masculino" });
@@ -193,37 +213,10 @@ namespace Vista
                         
                         if (unUsuario.Rol != null && (accionesSeleccionadas == null || !accionesSeleccionadas.Any()))
                         {
-                            // Si tiene un rol, guarda el usuario con su rol
-                            /*
-                            int idUsuarioGenerado = new ControladorGymUsuario().Registrar(unUsuario, out mensaje);
-
-                            if (idUsuarioGenerado != 0)
-                            {
-
-                                dgvData.Rows.Clear();
-                                cargarGrid();
-                                limpiarCampos();
-                                // Me falto configurar el mensaje en la BD, por eso se muestar vacio
-                                MessageBox.Show(mensaje);
-                            }
-                            else
-                            {
-                                MessageBox.Show(mensaje);
-                            }
-                            */
                             RegistrarUsuario(unUsuario, mensaje);
                         }
                         else if (unUsuario.Rol == null && accionesSeleccionadas != null && accionesSeleccionadas.Any())
-                        {   /* // FALTA IMPLEMENTAR
-                            // Si no tiene rol, asignamos acciones en la tabla de Permisos
-                            List<int> accionesSeleccionadas = new List<int>(); // Simula las acciones seleccionadas por el usuario --> Esto lo hara el evento btnAccion_Click();
-                            accionesSeleccionadas.Add(1); // Por ejemplo, el usuario seleccionó la acción con IdAccion = 1
-                            accionesSeleccionadas.Add(3); // También seleccionó la acción con IdAccion = 3
-
-                            bool rta = new ControladorGymUsuario().RegistrarConAcciones(unUsuario, accionesSeleccionadas, out mensaje);
-                            */
-
-                            RegistrarUsuario(unUsuario, mensaje);
+                        {   RegistrarUsuario(unUsuario, mensaje);
                         } else
                         {
                             MessageBox.Show("Debe asignar un permiso", "Advertencia");
@@ -288,42 +281,57 @@ namespace Vista
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
+            if (e.RowIndex >= 0 && dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
-                accionesSeleccionadas.Clear();
+                // Asegurar que la lista no sea null antes de limpiar
+                if (accionesSeleccionadas == null)
+                {
+                    accionesSeleccionadas = new List<Accion>();
+                }
+                else
+                {
+                    accionesSeleccionadas.Clear();
+                }
 
                 int indice = e.RowIndex;
 
                 if (indice >= 0)
                 {
+                    if (dgvData.Rows[indice].Cells["IdRol"]?.Value != DBNull.Value && dgvData.Rows[indice].Cells["IdRol"]?.Value != null) btnGrupo.Select();
+                    else btnAccion.Select();
+
                     cboRol.Enabled = true;
-                    ////
+
+                    // **Evitar excepciones verificando si la celda no es nula**
+                    if (dgvData.Rows[indice] == null) return;
+
                     // Desmarcar todas las filas primero
                     foreach (DataGridViewRow row in dgvData.Rows)
                     {
-                        row.Cells["Seleccionado"].Value = false;
+                        if (row.Cells["Seleccionado"] != null)
+                            row.Cells["Seleccionado"].Value = false;
                     }
 
                     // Activar el check2 solo en la fila clickeada
-                    dgvData.Rows[indice].Cells["Seleccionado"].Value = true;
+                    if (dgvData.Rows[indice].Cells["Seleccionado"] != null)
+                        dgvData.Rows[indice].Cells["Seleccionado"].Value = true;
 
-                    // Refrescar la vista
-                    dgvData.Refresh();
-                    ////
-                    ///
+                    dgvData.Refresh(); // Refrescar la vista
+
+                    // **Verificaciones antes de asignar valores**
                     txtIndice.Text = indice.ToString();
-                    txtId.Text = dgvData.Rows[indice].Cells["Id"].Value.ToString();
-                    txtNombreYApellido.Text = dgvData.Rows[indice].Cells["NombreYApellido"].Value.ToString();
-                    txtEmail.Text = dgvData.Rows[indice].Cells["Email"].Value.ToString();
-                    txtTelefono.Text = dgvData.Rows[indice].Cells["Telefono"].Value?.ToString();
-                    txtDireccion.Text = dgvData.Rows[indice].Cells["Direccion"].Value?.ToString();
-                    txtCiudad.Text = dgvData.Rows[indice].Cells["Ciudad"].Value?.ToString();
-                    txtNroDocumento.Text = dgvData.Rows[indice].Cells["NroDocumento"].Value.ToString();
-                    //dtpFechaNacimiento.Value = Convert.ToDateTime(dgvData.Rows[indice].Cells["FechaNacimiento"].Value);
-                    if (dgvData.Rows[indice].Cells["FechaNacimiento"].Value != DBNull.Value &&
-                        dgvData.Rows[indice].Cells["FechaNacimiento"].Value != null)
+                    txtId.Text = dgvData.Rows[indice].Cells["Id"]?.Value?.ToString() ?? "0";
+                    txtNombreYApellido.Text = dgvData.Rows[indice].Cells["NombreYApellido"]?.Value?.ToString() ?? "";
+                    txtEmail.Text = dgvData.Rows[indice].Cells["Email"]?.Value?.ToString() ?? "";
+                    txtTelefono.Text = dgvData.Rows[indice].Cells["Telefono"]?.Value?.ToString() ?? "";
+                    txtDireccion.Text = dgvData.Rows[indice].Cells["Direccion"]?.Value?.ToString() ?? "";
+                    txtCiudad.Text = dgvData.Rows[indice].Cells["Ciudad"]?.Value?.ToString() ?? "";
+                    txtNroDocumento.Text = dgvData.Rows[indice].Cells["NroDocumento"]?.Value?.ToString() ?? "0";
+
+                    // **Verificar FechaNacimiento antes de asignar**
+                    if (dgvData.Rows[indice].Cells["FechaNacimiento"]?.Value != DBNull.Value &&
+                        dgvData.Rows[indice].Cells["FechaNacimiento"]?.Value != null)
                     {
-                        // Intentar parsear el valor a DateTime
                         if (DateTime.TryParse(dgvData.Rows[indice].Cells["FechaNacimiento"].Value.ToString(), out DateTime fechaNacimiento))
                         {
                             dtpFechaNacimiento.Value = fechaNacimiento;
@@ -331,72 +339,81 @@ namespace Vista
                         else
                         {
                             MessageBox.Show("El formato de la fecha es incorrecto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            dtpFechaNacimiento.Value = DateTime.Today; // Asigna una fecha por defecto si hay un error
+                            dtpFechaNacimiento.Value = DateTime.Today;
                         }
                     }
                     else
                     {
-                        dtpFechaNacimiento.Value = DateTime.Today; // Valor por defecto si la celda está vacía o es nula
+                        dtpFechaNacimiento.Value = DateTime.Today;
                     }
 
-                    txtNombreUsuario.Text = dgvData.Rows[indice].Cells["NombreUsuario"].Value.ToString();
-                    txtClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
-                    txtConfirmarClave.Text = dgvData.Rows[indice].Cells["Clave"].Value.ToString();
+                    txtNombreUsuario.Text = dgvData.Rows[indice].Cells["NombreUsuario"]?.Value?.ToString() ?? "";
+                    txtClave.Text = dgvData.Rows[indice].Cells["Clave"]?.Value?.ToString() ?? "";
+                    txtConfirmarClave.Text = dgvData.Rows[indice].Cells["Clave"]?.Value?.ToString() ?? "";
 
-                    // Recorre todos los elementos dentro del ComboBox 'cboGenero'
-                    foreach (OpcionCombo oc in cboGenero.Items)
+                    // **Verificar Genero antes de asignar**
+                    if (dgvData.Rows[indice].Cells["Genero"]?.Value != DBNull.Value && dgvData.Rows[indice].Cells["Genero"]?.Value != null)
                     {
-                        // Compara el texto del ítem del ComboBox con el valor de la celda "Genero" en el DataGridView
-                        // La comparación es entre cadenas de texto (Ej: "Masculino" o "Femenino")
-                        if (oc.Texto == dgvData.Rows[indice].Cells["Genero"].Value.ToString())
+                        foreach (OpcionCombo oc in cboGenero.Items)
                         {
-                            // Si encuentra coincidencia, obtiene el índice del ítem dentro del ComboBox
-                            int indice_combo = cboGenero.Items.IndexOf(oc);
-
-                            // Establece el índice encontrado como el seleccionado en el ComboBox
-                            cboGenero.SelectedIndex = indice_combo;
-
-                            // Termina el bucle porque ya encontró el valor correcto y no necesita seguir buscando
-                            break;
+                            if (oc.Texto == dgvData.Rows[indice].Cells["Genero"].Value.ToString())
+                            {
+                                cboGenero.SelectedIndex = cboGenero.Items.IndexOf(oc);
+                                break;
+                            }
                         }
                     }
-
-                    // Recorre todos los ítems del combo box 'cboRol'
-                    foreach (OpcionCombo oc in cboRol.Items)
+                    else
                     {
-                        // Compara el valor del ítem del combo con el valor 'IdRol' de la fila seleccionada en el DataGridView
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["IdRol"].Value))
-                        {
-                            // Si encuentra coincidencia, obtiene el índice del ítem correspondiente en el combo box
-                            int indice_combo_rol = cboRol.Items.IndexOf(oc);
-
-                            // Establece el ítem encontrado como el seleccionado en el combo box
-                            cboRol.SelectedIndex = indice_combo_rol;
-
-                            // Sale del bucle una vez encontrado el valor para evitar búsquedas innecesarias
-                            break;
-                        }
+                        cboGenero.SelectedIndex = -1;
                     }
 
-                    // Recorre todos los ítems del combo box 'cboEstado'
-                    foreach (OpcionCombo oc in cboEstado.Items)
+                    // **Verificar IdRol antes de asignar**
+                    if (dgvData.Rows[indice].Cells["IdRol"]?.Value != DBNull.Value && dgvData.Rows[indice].Cells["IdRol"]?.Value != null)
                     {
-                        // Compara el valor del ítem del combo con el valor 'EstadoValor' de la fila seleccionada en el DataGridView
-                        if (Convert.ToInt32(oc.Valor) == Convert.ToInt32(dgvData.Rows[indice].Cells["EstadoValor"].Value))
+                        if (int.TryParse(dgvData.Rows[indice].Cells["IdRol"].Value.ToString(), out int idRol))
                         {
-                            // Si encuentra coincidencia, obtiene el índice del ítem correspondiente en el combo box
-                            int indice_combo = cboEstado.Items.IndexOf(oc);
-
-                            // Establece el ítem encontrado como el seleccionado en el combo box
-                            cboEstado.SelectedIndex = indice_combo;
-
-                            // Sale del bucle una vez encontrado el valor para evitar búsquedas innecesarias
-                            break;
+                            foreach (OpcionCombo oc in cboRol.Items)
+                            {
+                                if (Convert.ToInt32(oc.Valor) == idRol)
+                                {
+                                    cboRol.SelectedIndex = cboRol.Items.IndexOf(oc);
+                                    panelRol.Enabled = true;
+                                    break;
+                                }
+                            }
                         }
                     }
+                    else
+                    {
+                        cboRol.SelectedIndex = -1;
+                        panelRol.Enabled = false;
+                    }
 
+                    // **Verificar Estado antes de asignar**
+                    if (dgvData.Rows[indice].Cells["EstadoValor"]?.Value != DBNull.Value && dgvData.Rows[indice].Cells["EstadoValor"]?.Value != null)
+                    {
+                        if (int.TryParse(dgvData.Rows[indice].Cells["EstadoValor"].Value.ToString(), out int estadoValor))
+                        {
+                            foreach (OpcionCombo oc in cboEstado.Items)
+                            {
+                                if (Convert.ToInt32(oc.Valor) == estadoValor)
+                                {
+                                    cboEstado.SelectedIndex = cboEstado.Items.IndexOf(oc);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        cboEstado.SelectedIndex = -1;
+                    }
 
-                    if (Convert.ToInt32(txtId.Text) == usuarioIniciado.IdUsuario) cboRol.Enabled = false;
+                    if (int.TryParse(txtId.Text, out int idUsuario) && idUsuario == usuarioIniciado?.IdUsuario)
+                    {
+                        cboRol.Enabled = false;
+                    }
                 }
             }
         }
@@ -404,7 +421,6 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarCampos();
-            accionesSeleccionadas.Clear();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -428,7 +444,7 @@ namespace Vista
                             dgvData.Rows.Clear();
                             cargarGrid();
                             limpiarCampos();
-                            MessageBox.Show("");
+                            MessageBox.Show(mensaje, "Mensaje");
                         }
                         else
                         {

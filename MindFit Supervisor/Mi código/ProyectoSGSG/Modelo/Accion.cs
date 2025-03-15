@@ -11,5 +11,6 @@ namespace Modelo
         public int IdAccion { get; set; }
         public string NombreAccion { get; set; }
         public string Descripcion { get; set; }
+        public int IdGrupo { get; set; }
     }
 }

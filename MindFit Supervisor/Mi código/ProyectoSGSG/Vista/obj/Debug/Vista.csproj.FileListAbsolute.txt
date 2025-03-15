@@ -98,3 +98,10 @@ C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources

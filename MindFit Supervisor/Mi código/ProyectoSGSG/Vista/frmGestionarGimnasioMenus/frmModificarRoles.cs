@@ -22,6 +22,7 @@ namespace Vista
             txtId.Text = "0";
             txtDescripcion.Text = "";
             txtPermisoRol.Text = "";
+            txtIdGrupo.Text = "0";
         }
         private void cargarGrid()
         {
@@ -143,7 +144,6 @@ namespace Vista
                     item.Grupo.IdGrupo
                 });
             }
-
         }
 
         private void dgvDataPermisos_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -174,10 +174,14 @@ namespace Vista
         {
             if (dgvDataPermisos.Columns[e.ColumnIndex].Name == "btnSeleccionar2")
             {
+                txbDescripcion.Enabled = true;
+
                 int indice = e.RowIndex;
 
                 if (indice >= 0)
                 {
+                    txtIdGrupo.Text = Convert.ToString(dgvDataPermisos.Rows[indice].Cells["IdGrupo"].Value);
+
                     foreach (DataGridViewRow row in dgvDataPermisos.Rows)
                     {
                         row.Cells["Seleccionado2"].Value = false;
@@ -197,21 +201,21 @@ namespace Vista
             //txtPermisoRol.Enabled = true;
         }
         private void btnGuardar_Click(object sender, EventArgs e)
-        {
+        {   /*
             // Crear DataTable para los permisos seleccionados
             DataTable tablaPermisos = new DataTable();
             tablaPermisos.Columns.Add("IdGrupo", typeof(int));
-
+            
             // Agregar los permisos seleccionados a la tabla
             foreach (DataGridViewRow row in dgvDataPermisos.Rows)
             {
                 int idGrupo = Convert.ToInt32(row.Cells["IdGrupo"].Value);
                 tablaPermisos.Rows.Add(idGrupo);
             }
-
+            */
             // Obtener la descripción del rol desde el formulario
-            string descripcionRol = (txtDescripcion.Text.Trim()).ToUpper();
             int IdRol = Convert.ToInt32(txtId.Text);
+            string descripcionRol = (txtDescripcion.Text.Trim()).ToUpper();
 
             Rol unRol = new Rol() { IdRol = IdRol, Descripcion = descripcionRol };
 
@@ -219,7 +223,7 @@ namespace Vista
             string mensaje = string.Empty;
 
             // Intentar registrar el rol con sus permisos
-            bool respuesta = new ControladorGymRol().Actualizar(unRol, tablaPermisos, out mensaje);
+            bool respuesta = new ControladorGymRol().Actualizar(unRol, txtIdGrupo.Text, txbDescripcion.Text, out mensaje);
 
             // Si el rol se registró correctamente
             if (respuesta)
@@ -229,14 +233,34 @@ namespace Vista
                 // Limpiar los campos después del registro exitoso
                 txtDescripcion.Clear();
                 txtPermisoRol.Clear();
+                txbDescripcion.Clear();
                 txtIndice.Text = "-1";
                 txtId.Text = "0";
 
-                txtDescripcion.Enabled = !true;
-                txtPermisoRol.Enabled = !true;
+                txtDescripcion.Enabled = false;
+                txtPermisoRol.Enabled = false;
+                txbDescripcion.Enabled = false;
 
                 dgvData.Rows.Clear();
                 dgvDataPermisos.Rows.Clear();
+
+                // Desmarcar todas las filas en la columna "Seleccionado"
+                foreach (DataGridViewRow row in dgvData.Rows)
+                {
+                    row.Cells["Seleccionado"].Value = false;
+                }
+
+                // Refrescar el DataGridView para reflejar los cambios
+                dgvData.Refresh();
+
+                // Desmarcar todas las filas en la columna "Seleccionado"
+                foreach (DataGridViewRow row in dgvDataPermisos.Rows)
+                {
+                    row.Cells["Seleccionado2"].Value = false;
+                }
+
+                // Refrescar el DataGridView para reflejar los cambios
+                dgvDataPermisos.Refresh();
 
                 cargarGrid();
             }
@@ -255,12 +279,22 @@ namespace Vista
             txtIndice.Text = "-1";
             txtId.Text = "0";
 
-            txtDescripcion.Enabled = !true;
-            txtPermisoRol.Enabled = !true;
+            txtDescripcion.Enabled = false;
+            txtPermisoRol.Enabled = false;
+            txbDescripcion.Enabled = false;
 
             cargarGrid();
 
             dgvDataPermisos.Rows.Clear();
+
+            // Desmarcar todas las filas en la columna "Seleccionado"
+            foreach (DataGridViewRow row in dgvData.Rows)
+            {
+                row.Cells["Seleccionado"].Value = false;
+            }
+
+            // Refrescar el DataGridView para reflejar los cambios
+            dgvData.Refresh();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

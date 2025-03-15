@@ -25,34 +25,40 @@ namespace Vista.Modales
             // Para el Grid - MOSTRAR TODOS LOS USUARIOS
             List<Usuario> listaUsuario = new ControladorGymUsuario().Listar();
 
+            if (listaUsuario == null || listaUsuario.Count == 0)
+            {
+                MessageBox.Show("No se encontraron usuarios.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             foreach (Usuario item in listaUsuario)
             {
-                // Con IdRol 3 me quedo solo con los Entrenadores
-                if (item.Rol.IdRol == 3)
+                // Validación para evitar un NullReferenceException
+                if (item.Rol != null && item.Rol.IdRol == 3)
                 {
                     dgvData.Rows.Add(new object[] {
-                        "",
-                        item.IdUsuario,
-                        item.NombreYApellido,
-                        item.Email,
-                        item.Telefono,
-                        item.Direccion,
-                        item.Ciudad,
-                        item.NroDocumento,
-                        item.FechaNacimiento,
-                        item.NombreUsuario,
-                        item.Clave,
-                        //item.Genero == true ? 1 : 0,
-                        item.Genero == "Masculino" ? "Masculino" : "Femenino",
-                        item.Rol.IdRol,
-                        item.Rol.Descripcion,
-                        item.Estado == true ? 1 : 0,
-                        item.Estado == true ? "Activo" : "No Activo",
-                        item.FechaRegistro
-                    });
+                "",
+                item.IdUsuario,
+                item.NombreYApellido,
+                item.Email,
+                item.Telefono,
+                item.Direccion,
+                item.Ciudad,
+                item.NroDocumento,
+                item.FechaNacimiento,
+                item.NombreUsuario,
+                item.Clave,
+                item.Genero == "Masculino" ? "Masculino" : "Femenino",
+                item.Rol.IdRol,
+                item.Rol.Descripcion,
+                item.Estado ? 1 : 0,
+                item.Estado ? "Activo" : "No Activo",
+                item.FechaRegistro
+            });
                 }
             }
         }
+
         #endregion
 
         public mdEntrenador()

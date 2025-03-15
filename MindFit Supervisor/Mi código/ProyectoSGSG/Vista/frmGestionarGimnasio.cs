@@ -109,6 +109,11 @@ namespace Vista
             AbrirFormulario(menuRoles, new frmModificarRoles());
         }
 
+        private void editarAccionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuRoles, new frmModificarAcciones());
+        }
+
         private void menuMaquinas_Click(object sender, EventArgs e)
         {
            AbrirFormulario((IconMenuItem)sender, new frmMenuMaquinas());
