@@ -37,24 +37,24 @@ namespace Vista.Modales
                 if (item.Rol != null && item.Rol.IdRol == 3)
                 {
                     dgvData.Rows.Add(new object[] {
-                "",
-                item.IdUsuario,
-                item.NombreYApellido,
-                item.Email,
-                item.Telefono,
-                item.Direccion,
-                item.Ciudad,
-                item.NroDocumento,
-                item.FechaNacimiento,
-                item.NombreUsuario,
-                item.Clave,
-                item.Genero == "Masculino" ? "Masculino" : "Femenino",
-                item.Rol.IdRol,
-                item.Rol.Descripcion,
-                item.Estado ? 1 : 0,
-                item.Estado ? "Activo" : "No Activo",
-                item.FechaRegistro
-            });
+                        "",
+                        item.IdUsuario,
+                        item.NombreYApellido,
+                        item.Email,
+                        item.Telefono,
+                        item.Direccion,
+                        item.Ciudad,
+                        item.NroDocumento,
+                        item.FechaNacimiento,
+                        item.NombreUsuario,
+                        item.Clave,
+                        item.Genero == "Masculino" ? "Masculino" : "Femenino",
+                        item.Rol.IdRol,
+                        item.Rol.Descripcion,
+                        item.Estado ? 1 : 0,
+                        item.Estado ? "Activo" : "No Activo",
+                        item.FechaRegistro
+                    });
                 }
             }
         }

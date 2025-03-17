@@ -149,7 +149,7 @@ namespace Vista
                     item.unSocio.NombreYApellido,
                     item.unUsuario.NombreYApellido,
                     item.unSocio.IdSocio,
-                    item.unRangoHorario.CupoActual,
+                    item.unRangoHorario.CupoActual, // **Ahora obtiene de CupoFecha**
                     item.unRangoHorario.CupoMaximo,
                     item.EstadoTurno
                 });
@@ -213,18 +213,22 @@ namespace Vista
         private void menuTopGestionarRutinas_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmGestionarRutinas());
+            cargarGrid();
+            cargarTxt();
         }
 
         private void menuGestionarRutinas_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuTopGestionarRutinas, new frmGestionarRutinas());
+            cargarGrid();
+            cargarTxt();
         }
 
         // Ver Socios
         private void menuTopSocios_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmSocios(usuarioActual));
-            dgvData.Rows.Clear();
+            dgvData.Rows.Clear(); // Me parece que esta al pedo
             cargarGrid();
             cargarTxt();
         }
@@ -241,15 +245,23 @@ namespace Vista
         private void menuTopGestionarGimnasio_Click(object sender, EventArgs e)
         {
             AbrirFormulario((IconMenuItem)sender, new frmGestionarGimnasio(usuarioActual));
+            cargarGrid();
+            cargarTxt();
         }
 
         private void menuGestionarGimnasio_Click(object sender, EventArgs e)
         {
             AbrirFormulario(menuTopGestionarGimnasio, new frmGestionarGimnasio(usuarioActual));
+            cargarGrid();
+            cargarTxt();
         }
 
         private void picLogo_Click(object sender, EventArgs e)
         {
+            dgvData.Rows.Clear();
+            cargarGrid();
+            cargarTxt();
+
             if (formularioActivo != null)
             {
                 formularioActivo.Close();
@@ -276,7 +288,6 @@ namespace Vista
             formulario.ShowDialog(); // Muestra el formulario en modo modal
             dgvData.Rows.Clear();
             cargarGrid();
-
             cargarTxt();
         }
     }

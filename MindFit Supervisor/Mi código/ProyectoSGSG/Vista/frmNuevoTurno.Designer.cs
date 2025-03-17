@@ -37,11 +37,12 @@
             this.cboRangoHorario = new System.Windows.Forms.ComboBox();
             this.dtpFechaTurno = new System.Windows.Forms.DateTimePicker();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnRegistrarTurno = new FontAwesome.Sharp.IconButton();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Entrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CupoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnRegistrarTurno = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
@@ -118,6 +119,7 @@
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
+            this.IdUsuario,
             this.Entrenador,
             this.CupoActual,
             this.Seleccionado});
@@ -151,6 +153,28 @@
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
+            // btnRegistrarTurno
+            // 
+            this.btnRegistrarTurno.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnRegistrarTurno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarTurno.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnRegistrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarTurno.ForeColor = System.Drawing.Color.Black;
+            this.btnRegistrarTurno.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.btnRegistrarTurno.IconColor = System.Drawing.Color.Black;
+            this.btnRegistrarTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRegistrarTurno.IconSize = 30;
+            this.btnRegistrarTurno.Location = new System.Drawing.Point(510, 584);
+            this.btnRegistrarTurno.Name = "btnRegistrarTurno";
+            this.btnRegistrarTurno.Size = new System.Drawing.Size(185, 60);
+            this.btnRegistrarTurno.TabIndex = 97;
+            this.btnRegistrarTurno.Text = "Registrar Turno";
+            this.btnRegistrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrarTurno.UseVisualStyleBackColor = false;
+            this.btnRegistrarTurno.Click += new System.EventHandler(this.btnRegistrarTurno_Click);
+            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.HeaderText = "";
@@ -159,6 +183,13 @@
             this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnSeleccionar.Width = 35;
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Visible = false;
             // 
             // Entrenador
             // 
@@ -181,28 +212,6 @@
             this.Seleccionado.ReadOnly = true;
             this.Seleccionado.Visible = false;
             this.Seleccionado.Width = 200;
-            // 
-            // btnRegistrarTurno
-            // 
-            this.btnRegistrarTurno.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnRegistrarTurno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarTurno.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnRegistrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarTurno.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistrarTurno.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.btnRegistrarTurno.IconColor = System.Drawing.Color.Black;
-            this.btnRegistrarTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRegistrarTurno.IconSize = 30;
-            this.btnRegistrarTurno.Location = new System.Drawing.Point(510, 584);
-            this.btnRegistrarTurno.Name = "btnRegistrarTurno";
-            this.btnRegistrarTurno.Size = new System.Drawing.Size(185, 60);
-            this.btnRegistrarTurno.TabIndex = 97;
-            this.btnRegistrarTurno.Text = "Registrar Turno";
-            this.btnRegistrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegistrarTurno.UseVisualStyleBackColor = false;
-            this.btnRegistrarTurno.Click += new System.EventHandler(this.btnRegistrarTurno_Click);
             // 
             // frmNuevoTurno
             // 
@@ -233,6 +242,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Entrenador;
         private System.Windows.Forms.DataGridViewTextBoxColumn CupoActual;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;

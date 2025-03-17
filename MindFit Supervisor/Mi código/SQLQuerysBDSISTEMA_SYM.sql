@@ -1697,7 +1697,7 @@ LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
 ) am ON a.IdAccion = am.IdAccion
 WHERE u.IdUsuario = 6 -- @idusuario
 
-/* NUEVO - DE AHORA EN MAS EXTORTAR LA BD CON ESQUEMA Y DATOS */
+/* NUEVO - DE AHORA EN MAS EXPORTAR LA BD CON ESQUEMA Y DATOS */
 
 select a.NombreAccion
 from Accion a
@@ -1877,3 +1877,391 @@ SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono,
        u.Estado, u.FechaRegistro
 FROM Usuario u
 LEFT JOIN Rol r ON r.IdRol = u.IdRol
+
+/* Relacion Completa */
+select u.IdUsuario, u.NombreYApellido, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, t.IdTurno, t.FechaTurno, s.IdSocio, s.NombreYApellido, r.IdRutina, r.Dia
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u 
+on rh_u.IdUsuario = u.IdRol
+inner join Turno t on u.IdUsuario = t.IdUsuario
+inner join Socio s on t.IdSocio = s.IdSocio
+inner join Rutina r on s.IdSocio = r.IdSocio
+where t.EstadoTurno = 'En Curso'
+
+-- Cambio esto
+select rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, u.NombreYApellido, u.IdUsuario from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u 
+on rh_u.IdUsuario = u.IdRol
+
+-- Por esto:
+select rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, u.NombreYApellido, u.IdUsuario
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u 
+on rh.IdRangoHorario = rh_u.IdRangoHorario 
+inner join Usuario u on u.IdUsuario = rh_u.IdUsuario
+--
+select * 
+from RangoHorario rh
+inner join Turno t 
+on t.IdRangoHorario = rh.IdRangoHorario
+inner join RangoHorario_Usuario rh_u 
+on rh.IdRangoHorario = rh_u.IdRangoHorario 
+inner join Usuario u on u.IdUsuario = rh_u.IdUsuario
+
+select u.IdUsuario, u.NombreYApellido
+from Usuario u
+inner join RangoHorario_Usuario rh_u 
+on u.IdUsuario = rh_u.IdUsuario  
+inner join Turno t on t.IdRangoHorario = rh_u.IdRangoHorario
+where rh_u.IdRangoHorario = 1 -- @IdRangoHorario
+
+select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo 
+from RangoHorario
+
+-- ListarTodo()
+select rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, u.NombreYApellido, u.IdUsuario
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u 
+on rh.IdRangoHorario = rh_u.IdRangoHorario 
+inner join Usuario u on u.IdUsuario = rh_u.IdUsuario
+
+-- ListarParaTurno
+Select rh_u.IdRangoHorario, rh_u.IdUsuario, rh.HoraDesde, rh.HoraHasta, rh.CupoActual, rh.CupoMaximo, u.NombreYApellido
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u
+on rh_u.IdUsuario = u.IdUsuario
+
+-- ListarEntrenadoresDisponibles
+SELECT DISTINCT rh_u.IdUsuario, u.NombreYApellido 
+                FROM RangoHorario rh
+                INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
+                INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
+				where rh.CupoActual < rh.CupoMaximo and rh.IdRangoHorario = 1 -- @IdRangoHorario
+
+-- CORREGIR CUPOS SEGUN FECHA, NO SE COMO SERÁ LA LÓGICA 
+CREATE TABLE CupoFecha (
+    IdCupoFecha INT IDENTITY(1,1) PRIMARY KEY,
+    Fecha DATE NOT NULL,
+    IdRangoHorario INT NOT NULL,
+    CupoActual INT NOT NULL DEFAULT 0,
+    FOREIGN KEY (IdRangoHorario) REFERENCES RangoHorario(IdRangoHorario) ON DELETE CASCADE
+);
+
+USE [DBSISTEMA_GYM]
+GO
+
+ALTER PROCEDURE [dbo].[SP_REGISTRARTURNO]
+    @IdRangoHorario INT,
+    @IdUsuario INT,
+    @IdSocio INT,
+    @FechaTurno DATE,
+    @EstadoTurno VARCHAR(50),
+    @CodigoIngreso VARCHAR(4),
+    @IdTurnoResultado INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @CupoActual INT, @CupoMaximo INT, @EstadoSocio VARCHAR(50);
+
+    -- Obtener el estado del socio
+    SELECT @EstadoSocio = EstadoSocio 
+    FROM Socio 
+    WHERE IdSocio = @IdSocio;
+
+    -- Validar si el socio está Suspendido o Eliminado
+    IF @EstadoSocio IN ('Suspendido', 'Eliminado')
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno porque el socio está suspendido o eliminado.';
+        RETURN;
+    END
+
+    -- Validar que la fecha del turno sea hoy o futura
+    IF @FechaTurno < CAST(GETDATE() AS DATE)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No puede reservar un turno para una fecha pasada.';
+        RETURN;
+    END
+
+    -- Validar que el RangoHorario y el Usuario existan en RangoHorario_Usuario
+    IF NOT EXISTS (
+        SELECT 1 FROM RangoHorario_Usuario 
+        WHERE IdRangoHorario = @IdRangoHorario AND IdUsuario = @IdUsuario
+    )
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: El Rango Horario y Usuario especificados no existen.';
+        RETURN;
+    END
+
+    -- Validar que el Socio existe
+    IF NOT EXISTS (SELECT 1 FROM Socio WHERE IdSocio = @IdSocio)
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: El Socio especificado no existe.';
+        RETURN;
+    END
+
+    -- Validar que el Socio no tenga otro turno en la misma fecha
+    IF EXISTS (
+        SELECT 1 FROM Turno 
+        WHERE IdSocio = @IdSocio AND FechaTurno = @FechaTurno
+    )
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: Un socio no puede reservar más de un turno para la misma fecha.';
+        RETURN;
+    END
+
+    -- Obtener CupoMaximo desde RangoHorario
+    SELECT @CupoMaximo = CupoMaximo 
+    FROM RangoHorario 
+    WHERE IdRangoHorario = @IdRangoHorario;
+
+    -- Verificar si existe un registro en CupoFecha para la fecha dada
+    IF NOT EXISTS (
+        SELECT 1 FROM CupoFecha 
+        WHERE IdRangoHorario = @IdRangoHorario 
+          AND Fecha = @FechaTurno
+    )
+    BEGIN
+        -- Si no existe, lo creamos con CupoActual = 0
+        INSERT INTO CupoFecha (Fecha, IdRangoHorario, CupoActual)
+        VALUES (@FechaTurno, @IdRangoHorario, 0);
+    END
+
+    -- Obtener el CupoActual desde CupoFecha
+    SELECT @CupoActual = CupoActual 
+    FROM CupoFecha 
+    WHERE IdRangoHorario = @IdRangoHorario 
+      AND Fecha = @FechaTurno;
+
+    -- Validar si hay cupos disponibles
+    IF @CupoActual >= @CupoMaximo
+    BEGIN
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = 'Error: No hay cupos disponibles para este rango horario en esta fecha.';
+        RETURN;
+    END
+
+    -- Insertar el Turno
+    BEGIN TRY
+        INSERT INTO Turno (IdRangoHorario, IdUsuario, IdSocio, FechaTurno, EstadoTurno, CodigoIngreso)
+        VALUES (@IdRangoHorario, @IdUsuario, @IdSocio, @FechaTurno, @EstadoTurno, @CodigoIngreso);
+
+        -- Obtener el ID del Turno insertado
+        SET @IdTurnoResultado = SCOPE_IDENTITY();
+
+        -- Aumentar el CupoActual en CupoFecha (+1)
+        UPDATE CupoFecha 
+        SET CupoActual = CupoActual + 1 
+        WHERE IdRangoHorario = @IdRangoHorario AND Fecha = @FechaTurno;
+
+        -- Mensaje de éxito con el Código de Ingreso generado
+        SET @Mensaje = CONCAT('Turno registrado exitosamente. Código de Ingreso: ', @CodigoIngreso);
+    END TRY
+    BEGIN CATCH
+        SET @IdTurnoResultado = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH;
+END;
+
+-- Si funca
+select cf.*, rh.HoraDesde, rh.HoraHasta, t.FechaTurno from CupoFecha cf
+inner join RangoHorario rh
+on rh.IdRangoHorario = cf.IdRangoHorario
+inner join Turno t on t.IdRangoHorario = rh.IdRangoHorario
+
+select * from turno t
+inner join RangoHorario rh
+on t.IdRangoHorario = rh.IdRangoHorario
+inner join CupoFecha cf
+on rh.IdRangoHorario = cf.IdRangoHorario
+where t.FechaTurno = cf.Fecha
+
+select * from CupoFecha
+
+select * from RangoHorario
+
+ALTER PROCEDURE [dbo].[SP_ELIMINARTURNO]
+    @IdTurno INT,
+    @IdRangoHorario INT,
+    @FechaTurno DATE,
+    @Respuesta INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @EstadoTurno VARCHAR(50);
+
+    -- Verificar si el turno existe y obtener su estado
+    IF NOT EXISTS (SELECT 1 FROM Turno WHERE IdTurno = @IdTurno)
+    BEGIN
+        SET @Respuesta = 0;
+        SET @Mensaje = 'Error: El turno no existe.';
+        RETURN;
+    END
+
+    -- Obtener el EstadoTurno del turno
+    SELECT @EstadoTurno = EstadoTurno
+    FROM Turno 
+    WHERE IdTurno = @IdTurno;
+
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        -- Eliminar el turno
+        DELETE FROM Turno WHERE IdTurno = @IdTurno;
+
+        -- Verificar si existe un registro en CupoFecha para la fecha y el rango horario
+        IF EXISTS (
+            SELECT 1 FROM CupoFecha 
+            WHERE IdRangoHorario = @IdRangoHorario AND Fecha = @FechaTurno
+        )
+        BEGIN
+            -- Restar 1 al CupoActual en CupoFecha si hay cupos registrados
+            UPDATE CupoFecha
+            SET CupoActual = CASE 
+                                WHEN CupoActual > 0 THEN CupoActual - 1 
+                                ELSE 0 
+                             END
+            WHERE IdRangoHorario = @IdRangoHorario 
+              AND Fecha = @FechaTurno;
+        END
+
+        COMMIT TRANSACTION;
+
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Turno eliminado correctamente.';
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        SET @Respuesta = 0;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END;
+
+-- Cambio esto:
+SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, 
+   t.EstadoTurno, t.CodigoIngreso, 
+   u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
+   s.IdSocio, s.NombreYApellido AS NombreSocio, 
+   rh.CupoActual, rh.CupoMaximo
+FROM Turno t
+INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+INNER JOIN Socio s ON t.IdSocio = s.IdSocio
+INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
+AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
+AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todavía dentro del horario
+-- Por esto:
+SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, 
+       t.EstadoTurno, t.CodigoIngreso, 
+       u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
+       s.IdSocio, s.NombreYApellido AS NombreSocio, 
+       cf.CupoActual, rh.CupoMaximo -- CupoActual desde CupoFecha, CupoMaximo desde RangoHorario
+FROM Turno t
+INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+INNER JOIN Socio s ON t.IdSocio = s.IdSocio
+INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+INNER JOIN CupoFecha cf ON cf.IdRangoHorario = rh.IdRangoHorario 
+    AND cf.Fecha = t.FechaTurno -- Se obtiene el cupo exacto de esa fecha
+WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
+AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
+AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todavía dentro del horario
+
+select * from RangoHorario rh
+INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
+INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
+WHERE rh.CupoActual < rh.CupoMaximo 
+AND rh.IdRangoHorario = 1
+
+-- Cambio esto:
+SELECT DISTINCT rh_u.IdUsuario, u.NombreYApellido 
+FROM RangoHorario rh
+INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
+INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
+WHERE rh.CupoActual < rh.CupoMaximo 
+AND rh.IdRangoHorario = 1
+-- Por esto:
+SELECT DISTINCT rh_u.IdUsuario, u.NombreYApellido, rh.CupoMaximo, cf.CupoActual
+FROM RangoHorario rh
+INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
+INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
+left JOIN CupoFecha cf ON cf.IdRangoHorario = rh.IdRangoHorario 
+WHERE (cf.CupoActual < rh.CupoMaximo OR cf.CupoActual IS NULL) -- cf.CupoActual IS NULL quiere decir que no se registraron turnos para esa fecha, entonces es como que cupo actual es 0
+AND rh.IdRangoHorario = 1
+AND cf.Fecha = '2025-03-17' -- @FechaTurno
+-- Mejor esto:
+SELECT DISTINCT rh_u.IdUsuario, u.NombreYApellido, rh.CupoMaximo, 
+       COALESCE(cf.CupoActual, 0) AS CupoActual -- Si no hay registros en CupoFecha, se considera como 0
+FROM RangoHorario rh
+INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
+INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
+LEFT JOIN CupoFecha cf ON cf.IdRangoHorario = rh.IdRangoHorario 
+    AND cf.Fecha = '2025-03-16' -- @FechaTurno -- Se mueve aquí para permitir NULLs en el WHERE
+WHERE (COALESCE(cf.CupoActual, 0) < rh.CupoMaximo) -- Si cf.CupoActual es NULL, se trata como 0
+AND rh.IdRangoHorario = 20;
+-- pero no anda con query, asi que probmaos con SP --> SI anda.
+CREATE PROCEDURE SP_ListarEntrenadoresDisponibles
+    @IdRangoHorario INT,
+    @FechaTurno DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT DISTINCT 
+        rh_u.IdUsuario, 
+        u.NombreYApellido, 
+        rh.CupoMaximo, 
+        COALESCE(cf.CupoActual, 0) AS CupoActual -- Si no hay registros en CupoFecha, se considera como 0
+    FROM RangoHorario rh
+    INNER JOIN RangoHorario_Usuario rh_u 
+        ON rh.IdRangoHorario = rh_u.IdRangoHorario
+    INNER JOIN Usuario u 
+        ON rh_u.IdUsuario = u.IdUsuario
+    LEFT JOIN CupoFecha cf 
+        ON cf.IdRangoHorario = rh.IdRangoHorario 
+        AND cf.Fecha = @FechaTurno -- Se filtra por fecha específica
+    WHERE COALESCE(cf.CupoActual, 0) < rh.CupoMaximo
+    AND rh.IdRangoHorario = @IdRangoHorario;
+END;
+GO
+
+select * from Turno
+select * from RangoHorario
+select * from CupoFecha
+
+-- Chequeando Turnos --> Mal asignados lo entrenadores, LISTO y los cupos actuales ahora respetan la fecha del turno
+select rh.IdRangoHorario, u.NombreYApellido, rh.HoraDesde, rh.HoraHasta, t.FechaTurno, t.EstadoTurno from Turno t
+inner join Usuario u
+on t.IdUsuario = u.IdUsuario
+inner join RangoHorario rh
+on t.IdRangoHorario = rh.IdRangoHorario
+where t.EstadoTurno = 'En Curso'
+
+select rh_u.IdRangoHorario, u.NombreYApellido, rh.HoraDesde, rh.HoraHasta from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u
+on rh_u.IdUsuario = u.IdUsuario
+
+select * from Turno
+
+/*
+ELIMINAR TURNOS:
+24	María López	23:00:00.0000000	00:00:00.0000000	2025-03-17	En Curso
+15	María López	14:00:00.0000000	15:00:00.0000000	2025-03-17	En Curso
+19	María López	18:00:00.0000000	19:00:00.0000000	2025-03-17	En Curso
+*/
+DELETE FROM Turno
+WHERE IdTurno IN (9, 8, 7);

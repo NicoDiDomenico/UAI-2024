@@ -119,6 +119,7 @@ namespace Vista
                 {
                     int turnoId = Convert.ToInt32(dgvData.Rows[index].Cells["IdTurno"].Value);
                     int horarioId = Convert.ToInt32(dgvData.Rows[index].Cells["IdRangoHorario"].Value);
+                    DateTime fechaTurno = Convert.ToDateTime(dgvData.Rows[index].Cells["FechaTurno"].Value);
 
                     // Mostrar advertencia antes de eliminar
                     DialogResult result = MessageBox.Show(
@@ -131,7 +132,7 @@ namespace Vista
                     if (result == DialogResult.Yes) // Si confirma la eliminación
                     {
                         string mensaje;
-                        bool eliminado = new ControladorGymTurno().Eliminar(turnoId, horarioId, out mensaje);
+                        bool eliminado = new ControladorGymTurno().Eliminar(turnoId, horarioId, fechaTurno,out mensaje);
 
                         if (eliminado)
                         {

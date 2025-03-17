@@ -23,32 +23,6 @@ namespace Vista
         #endregion
         
         #region "Métodos"
-        private void cargarCBO()
-        {
-            cboRangoHorario.Items.Clear();
-
-            // Para ComboBox de Rango Horario
-            // Generamos rangos horarios de 1 hora (00:00 - 01:00 hasta 23:00 - 00:00)
-            for (int i = 0; i < 24; i++)
-            {
-                TimeSpan horaDesde = new TimeSpan(i, 0, 0);
-                TimeSpan horaHasta = (i == 23) ? new TimeSpan(0, 0, 0) : new TimeSpan(i + 1, 0, 0);
-
-                cboRangoHorario.Items.Add(new OpcionComboRangoHorario()
-                {
-                    Valor = i + 1, // Usamos un ID arbitrario
-                    Texto = $"{horaDesde:hh\\:mm} - {horaHasta:hh\\:mm}", // Formato HH:mm
-                    HoraDesde = horaDesde,
-                    HoraHasta = horaHasta,
-                    Cupo = 5 // Valor por defecto, se puede cambiar manualmente
-                });
-            }
-
-            // Configuramos la visualización y valores
-            cboRangoHorario.DisplayMember = "Texto";
-            cboRangoHorario.ValueMember = "Valor";
-            cboRangoHorario.SelectedIndex = -1;
-        }
 
         private void limpiarCampos()
         {
@@ -282,8 +256,6 @@ namespace Vista
                     }
 
                     txtCupoMaximo.Text = dgvData.Rows[indice].Cells["CupoMaximo"].Value.ToString();
-                    //txtNombreEntrenador.Text = dgvData.Rows[indice].Cells["NombreYApellido"].Value.ToString();
-                    //txtIdEntrenador.Text = dgvData.Rows[indice].Cells["IdUsuario"].Value.ToString();
                     btnBuscarEntrenador.Select();
                 }
             }

@@ -30,16 +30,34 @@ namespace Vista
 
             foreach (var item in rangoHorarios)
             {
-                OpcionComboRangoHorario opcion = new OpcionComboRangoHorario
-                {
-                    Valor = item.IdRangoHorario,  // ID del rango horario
-                    Texto = $"{item.HoraDesde:hh\\:mm} a {item.HoraHasta:hh\\:mm}",
-                    HoraDesde = item.HoraDesde,
-                    HoraHasta = item.HoraHasta,
-                    Cupo = item.CupoMaximo
-                };
+                string textoRango = $"{item.HoraDesde:hh\\:mm} a {item.HoraHasta:hh\\:mm}";
 
-                cboRangoHorario.Items.Add(opcion);
+                // Verificar si ya existe una opción con la misma HoraDesde y HoraHasta
+                bool existe = false;
+                foreach (var opc in cboRangoHorario.Items)
+                {
+                    OpcionComboRangoHorario opcionExistente = (OpcionComboRangoHorario)opc;
+                    if (opcionExistente.HoraDesde == item.HoraDesde && opcionExistente.HoraHasta == item.HoraHasta)
+                    {
+                        existe = true;
+                        break;
+                    }
+                }
+
+                // Solo agregar si no existe ya ese rango
+                if (!existe)
+                {
+                    OpcionComboRangoHorario opcion = new OpcionComboRangoHorario
+                    {
+                        Valor = item.IdRangoHorario,  // ID del rango horario
+                        Texto = textoRango,
+                        HoraDesde = item.HoraDesde,
+                        HoraHasta = item.HoraHasta,
+                        Cupo = item.CupoMaximo
+                    };
+
+                    cboRangoHorario.Items.Add(opcion);
+                }
             }
 
             cboRangoHorario.DisplayMember = "Texto"; // Lo que se mostrará en el combo
@@ -50,6 +68,7 @@ namespace Vista
 
         public frmNuevoTurno(int idSocio)
         {
+            // Arreglar
             idSocioSeleccionado = idSocio;
             InitializeComponent();
         }
@@ -65,23 +84,30 @@ namespace Vista
             {
                 OpcionComboRangoHorario seleccion = (OpcionComboRangoHorario)cboRangoHorario.SelectedItem;
 
-                // Filtrar el Rango Horario seleccionado
-                RangoHorario rangoSeleccionado = new ControladorGymRangoHorario().ListarParaTurno()
-                    .FirstOrDefault(rh => rh.IdRangoHorario == seleccion.Valor);
+                /*
+                var FechaTurno = dtpFechaTurno.Value;
+                MessageBox.Show("FechaTurno enviada: " + FechaTurno.ToString("yyyy-MM-dd"));
+                */
 
-                if (rangoSeleccionado != null)
+                // Obtener la lista de entrenadores para el rango horario seleccionado
+                List<RangoHorario> entrenadores = new ControladorGymRangoHorario().ListarEntrenadoresDisponibles(seleccion.Valor, dtpFechaTurno.Value);
+                
+                /*
+                foreach (var entrenador in entrenadores)
                 {
-                    dgvData.Rows.Clear(); // Limpiar la grilla antes de agregar datos
+                    MessageBox.Show($"Entrenador: {entrenador.UnUsuario.NombreYApellido}, CupoActual: {entrenador.CupoActual}");
+                }
+                */
 
-                    // Agregar una nueva fila y asignar valores en las columnas correctas
+                dgvData.Rows.Clear(); // Limpiar la grilla antes de agregar datos
+
+                foreach (var rangoSeleccionado in entrenadores)
+                {
                     int rowIndex = dgvData.Rows.Add();
-
+                    dgvData.Rows[rowIndex].Cells["IdUsuario"].Value = rangoSeleccionado.UnUsuario.IdUsuario;
                     dgvData.Rows[rowIndex].Cells["Entrenador"].Value = rangoSeleccionado.UnUsuario.NombreYApellido;
                     dgvData.Rows[rowIndex].Cells["CupoActual"].Value = $"{rangoSeleccionado.CupoActual:D2}/{rangoSeleccionado.CupoMaximo:D2}";
-
                 }
-
-                IdEntrenadoSeleccionado = rangoSeleccionado.UnUsuario.IdUsuario;
             }
         }
 
@@ -130,6 +156,9 @@ namespace Vista
 
                     // Activar el check2 solo en la fila clickeada
                     dgvData.Rows[indice].Cells["Seleccionado"].Value = true;
+
+                    // 🔹 Asignar el IdUsuario del entrenador seleccionado
+                    IdEntrenadoSeleccionado = Convert.ToInt32(dgvData.Rows[indice].Cells["IdUsuario"].Value);
 
                     // Refrescar la vista
                     dgvData.Refresh();

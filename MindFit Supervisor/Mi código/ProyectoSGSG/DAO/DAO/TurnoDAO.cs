@@ -8,6 +8,7 @@ namespace DAO
 {
     public class TurnoDAO
     {
+        // no afecta cupo actual
         public HashSet<string> ObtenerCodigosExistentes()
         {
             HashSet<string> codigos = new HashSet<string>();
@@ -38,7 +39,9 @@ namespace DAO
 
             return codigos;
         }
-        public bool ModificarEstadoTurno(int idTurno, string nuevoEstado)
+
+        // Corregido cupo actual
+        public bool ModificarEstadoTurno(int idTurno, string nuevoEstado, DateTime fechaTurno)
         {
             bool respuesta = false;
 
@@ -47,17 +50,21 @@ namespace DAO
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     string query = @"
+                        -- Actualizar el estado del turno
                         UPDATE Turno 
                         SET EstadoTurno = @EstadoTurno 
                         WHERE IdTurno = @IdTurno;
 
-                        -- Restar en 1 el CupoActual si el turno se cancela
+                        -- Si el turno se cancela, restar en 1 el CupoActual en la tabla CupoFecha
                         IF @EstadoTurno = 'Cancelado'
                         BEGIN
-                            UPDATE RangoHorario 
-                            SET CupoActual = CupoActual - 1
-                            WHERE IdRangoHorario = (SELECT IdRangoHorario FROM Turno WHERE IdTurno = @IdTurno)
-                            AND CupoActual > 0; -- Evita valores negativos
+                            UPDATE CupoFecha
+                            SET CupoActual = CASE 
+                                                WHEN CupoActual > 0 THEN CupoActual - 1
+                                                ELSE 0
+                                             END
+                            WHERE rangoHorario_id = (SELECT IdRangoHorario FROM Turno WHERE IdTurno = @IdTurno)
+                            AND fecha = @FechaTurno; -- Se asegura de actualizar la fecha correcta
                         END
                     ";
 
@@ -66,6 +73,7 @@ namespace DAO
                         cmd.CommandType = CommandType.Text;
                         cmd.Parameters.AddWithValue("@EstadoTurno", nuevoEstado);
                         cmd.Parameters.AddWithValue("@IdTurno", idTurno);
+                        cmd.Parameters.AddWithValue("@FechaTurno", fechaTurno);
 
                         oconexion.Open();
                         int filasAfectadas = cmd.ExecuteNonQuery();
@@ -82,6 +90,8 @@ namespace DAO
             return respuesta;
         }
 
+
+        // No hace falta corregir para CupoActual, pero si el controlador porque necesito obtener FechaTurno para ModificarEstadoTurno --> Listo
         public List<Turno> Listar(int idSocioSeleccionado)
         {
             List<Turno> lista = new List<Turno>();
@@ -151,6 +161,7 @@ namespace DAO
             return lista;
         }
 
+        // Corregido cupo actual
         public List<Turno> ListarTurnosHorarioActual()
         {
             List<Turno> lista = new List<Turno>();
@@ -161,13 +172,16 @@ namespace DAO
                 {
                     string query = @"
                         SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, 
-                           t.EstadoTurno, t.CodigoIngreso, 
-                           u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
-                           s.IdSocio, s.NombreYApellido AS NombreSocio, rh.CupoActual, rh.CupoMaximo
+                               t.EstadoTurno, t.CodigoIngreso, 
+                               u.IdUsuario, u.NombreYApellido AS NombreEntrenador, 
+                               s.IdSocio, s.NombreYApellido AS NombreSocio, 
+                               cf.CupoActual, rh.CupoMaximo -- CupoActual desde CupoFecha, CupoMaximo desde RangoHorario
                         FROM Turno t
                         INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
                         INNER JOIN Socio s ON t.IdSocio = s.IdSocio
                         INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+                        INNER JOIN CupoFecha cf ON cf.IdRangoHorario = rh.IdRangoHorario 
+                            AND cf.Fecha = t.FechaTurno -- Se obtiene el cupo exacto de esa fecha
                         WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
                         AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
                         AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todavía dentro del horario
@@ -190,7 +204,7 @@ namespace DAO
                                     IdRangoHorario = Convert.ToInt32(dr["IdRangoHorario"]),
                                     HoraDesde = (TimeSpan)dr["HoraDesde"],
                                     HoraHasta = (TimeSpan)dr["HoraHasta"],
-                                    CupoActual = dr["CupoActual"] != DBNull.Value ? Convert.ToInt32(dr["CupoActual"]) : 0,
+                                    CupoActual = dr["CupoActual"] != DBNull.Value ? Convert.ToInt32(dr["CupoActual"]) : 0, // Si bien Cupo Actual en la BD ya no esta mas en la tabla RangoHorario, de igual manera me sirve que el modleo RangoHorario lo tenga, ya que para una fecha en un rang0 horario determinado todos tendrtan el mismo cupoActual
                                     CupoMaximo = dr["CupoMaximo"] != DBNull.Value ? Convert.ToInt32(dr["CupoMaximo"]) : 0
                                 },
                                 EstadoTurno = dr["EstadoTurno"].ToString(),
@@ -221,7 +235,7 @@ namespace DAO
             return lista;
         }
 
-
+        // Corregido cupo actual
         public int Registrar(Turno obj, out string Mensaje)
         {
             int idTurnoGenerado = 0;
@@ -264,7 +278,8 @@ namespace DAO
             return idTurnoGenerado;
         }
 
-        public bool Eliminar(int idTurno, int idRangoHorario, out string mensaje)
+        // Corregido cupo actual
+        public bool Eliminar(int idTurno, int idRangoHorario, DateTime fechaTurno, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
@@ -279,6 +294,7 @@ namespace DAO
                     // Parámetros de entrada
                     cmd.Parameters.AddWithValue("@IdTurno", idTurno);
                     cmd.Parameters.AddWithValue("@IdRangoHorario", idRangoHorario);
+                    cmd.Parameters.AddWithValue("@FechaTurno", fechaTurno);
 
                     // Parámetros de salida
                     cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -301,10 +317,12 @@ namespace DAO
             return respuesta;
         }
 
-        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario, out string mensaje)
+        // Influye en cupo actual porque necesito trer la fecha en que se registro el turno --> Listo
+        public bool ValidarCodigoIngreso(string codigo, out int idTurno, out int idRangoHorario, out DateTime fechaTurno, out string mensaje)
         {
             idTurno = 0;
             idRangoHorario = 0;
+            fechaTurno = DateTime.MinValue; // Inicializar con un valor por defecto
             mensaje = string.Empty;
 
             DateTime fechaActual = DateTime.Today;
@@ -331,7 +349,7 @@ namespace DAO
                         {
                             idTurno = Convert.ToInt32(dr["IdTurno"]);
                             idRangoHorario = Convert.ToInt32(dr["IdRangoHorario"]);
-                            DateTime fechaTurno = Convert.ToDateTime(dr["FechaTurno"]);
+                            fechaTurno = Convert.ToDateTime(dr["FechaTurno"]); // Ahora se devuelve esta fecha
                             TimeSpan horaDesde = (TimeSpan)dr["HoraDesde"];
                             TimeSpan horaHasta = (TimeSpan)dr["HoraHasta"];
 
@@ -374,7 +392,8 @@ namespace DAO
         }
 
 
-        public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario)
+        // Corregido cupo actual
+        public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario, DateTime fechaTurno)
         {
             bool resultado = false;
 
@@ -383,21 +402,31 @@ namespace DAO
                 try
                 {
                     string query = @"
+                        -- Actualizar el estado del turno a 'Finalizado'
                         UPDATE Turno
                         SET EstadoTurno = 'Finalizado'
                         WHERE IdTurno = @IdTurno;
 
-                        UPDATE RangoHorario
-                        SET CupoActual = CASE 
-                                            WHEN CupoActual > 0 THEN CupoActual - 1 
-                                            ELSE 0 
-                                         END
-                        WHERE IdRangoHorario = @IdRangoHorario;
+                        -- Actualizar el CupoActual en CupoFecha para la fecha específica
+                        IF EXISTS (
+                            SELECT 1 FROM CupoFecha 
+                            WHERE IdRangoHorario = @IdRangoHorario AND Fecha = @FechaTurno
+                        )
+                        BEGIN
+                            UPDATE CupoFecha
+                            SET CupoActual = CASE 
+                                                WHEN CupoActual > 0 THEN CupoActual - 1 
+                                                ELSE 0 
+                                             END
+                            WHERE IdRangoHorario = @IdRangoHorario 
+                              AND Fecha = @FechaTurno;
+                        END
                     ";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.Parameters.AddWithValue("@IdTurno", idTurno);
                     cmd.Parameters.AddWithValue("@IdRangoHorario", idRangoHorario);
+                    cmd.Parameters.AddWithValue("@FechaTurno", fechaTurno);
 
                     oconexion.Open();
                     int filasAfectadas = cmd.ExecuteNonQuery();

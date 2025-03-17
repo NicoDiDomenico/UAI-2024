@@ -25,6 +25,10 @@ namespace Controlador
         {
             return objcd_RangoHorario.ListarParaTurno();
         }
+        public List<RangoHorario> ListarEntrenadoresDisponibles(int id, DateTime FechaTurno)
+        {
+            return objcd_RangoHorario.ListarEntrenadoresDisponibles(id, FechaTurno);
+        }
 
         public bool Registrar(int idRH, int idU, out string mensaje)
         {

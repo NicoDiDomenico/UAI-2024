@@ -34,8 +34,9 @@ namespace Vista
             }
 
             int idTurno, idRangoHorario;
+            DateTime fechaTurno;
             string mensaje = "";
-            bool turnoValido = new ControladorGymTurno().ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario, out mensaje);
+            bool turnoValido = new ControladorGymTurno().ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario, out fechaTurno, out mensaje);
 
             if (!turnoValido)
             {
@@ -44,7 +45,7 @@ namespace Vista
             }
 
             // Si el código es válido, actualizar el estado del turno y restar el cupo
-            bool actualizado = new ControladorGymTurno().ActualizarEstadoTurno(idTurno, idRangoHorario);
+            bool actualizado = new ControladorGymTurno().ActualizarEstadoTurno(idTurno, idRangoHorario, fechaTurno);
 
             if (actualizado)
             {
