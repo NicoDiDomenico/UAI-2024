@@ -232,6 +232,7 @@ namespace Vista
 
             if (idUsuarioGenerado != 0)
             {
+                MessageBox.Show(mensaje, "Confirmación");
                 // Cerrar el form
                 this.DialogResult = DialogResult.OK; // Indica que la acción fue confirmada
                 this.Close(); // Cierra el formulario

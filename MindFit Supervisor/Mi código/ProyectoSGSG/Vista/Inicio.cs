@@ -208,6 +208,14 @@ namespace Vista
             cargarGrid();
 
             cargarTxt();
+
+            /* Actualizar todos los estados de Socios que estan en curso pero ya vencieron */
+            List<Socio> socios = new ControladorGymSocio().Listar();
+
+            foreach (Socio socio in socios)
+            {
+                List <Turno> sociosActualizados = new ControladorGymTurno().Listar(socio.IdSocio);
+            }
         }
         // Gestionar Rutinas
         private void menuTopGestionarRutinas_Click(object sender, EventArgs e)

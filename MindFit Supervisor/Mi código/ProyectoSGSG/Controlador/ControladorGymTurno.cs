@@ -28,6 +28,7 @@ namespace Controlador
 
             return codigoGenerado;
         }
+       
         public List<Turno> Listar(int idSocioSeleccionado)
         {
             List<Turno> turnos = daoTurno.Listar(idSocioSeleccionado);

@@ -105,3 +105,4 @@ C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources

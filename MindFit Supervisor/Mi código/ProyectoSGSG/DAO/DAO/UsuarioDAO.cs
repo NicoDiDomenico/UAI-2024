@@ -239,5 +239,67 @@ namespace DAO
 
             return respuesta;
         }
+
+        public List<Usuario> ObtenerPorRangoHorario(int IdRangoHorario)
+        {
+            List<Usuario> lista = new List<Usuario>();
+            
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        Select u.IdUsuario, u.NombreYApellido
+                        from Usuario u
+                        inner join RangoHorario_Usuario rh_u
+                        on u.IdUsuario = rh_u.IdUsuario
+                        where rh_u.IdRangoHorario = @IdRangoHorario
+                        AND u.IdRol = 3
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@IdRangoHorario", IdRangoHorario);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Usuario unUsuario = new Usuario
+                            {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                NombreYApellido = dr["NombreYApellido"].ToString()
+                            };
+
+                            // Despues traeré otra vez todo los usuarios para validar permisos
+                            /*
+                            // Si IdRol es NULL, no asignamos un rol
+                            if (dr["IdRol"] != DBNull.Value)
+                            {
+                                unUsuario.Rol = new Rol
+                                {
+                                    IdRol = Convert.ToInt32(dr["IdRol"]),
+                                    Descripcion = dr["RolDescripcion"].ToString()
+                                };
+                            }
+                            else
+                            {
+                                unUsuario.Rol = null; // El usuario no tiene rol, pero puede tener permisos por acciones
+                            }
+                            */
+                            lista.Add(unUsuario);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<Usuario>();
+                }
+            }
+            return lista;
+        }
+
     }
 }

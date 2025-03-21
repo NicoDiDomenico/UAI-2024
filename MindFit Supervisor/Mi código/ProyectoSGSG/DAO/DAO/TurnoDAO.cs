@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -40,7 +41,6 @@ namespace DAO
             return codigos;
         }
 
-        // Corregido cupo actual
         public bool ModificarEstadoTurno(int idTurno, string nuevoEstado, DateTime fechaTurno)
         {
             bool respuesta = false;
@@ -50,6 +50,9 @@ namespace DAO
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
                     string query = @"
+                        -- Verificar si existe el turno antes de actualizar
+                        SELECT * FROM Turno WHERE IdTurno = @IdTurno;
+
                         -- Actualizar el estado del turno
                         UPDATE Turno 
                         SET EstadoTurno = @EstadoTurno 
@@ -63,33 +66,45 @@ namespace DAO
                                                 WHEN CupoActual > 0 THEN CupoActual - 1
                                                 ELSE 0
                                              END
-                            WHERE rangoHorario_id = (SELECT IdRangoHorario FROM Turno WHERE IdTurno = @IdTurno)
-                            AND fecha = @FechaTurno; -- Se asegura de actualizar la fecha correcta
+                            WHERE IdRangoHorario = (SELECT IdRangoHorario FROM Turno WHERE IdTurno = @IdTurno)
+                            AND fecha = @FechaTurno;
                         END
                     ";
 
                     using (SqlCommand cmd = new SqlCommand(query, oconexion))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("@EstadoTurno", nuevoEstado);
+                        cmd.Parameters.AddWithValue("@EstadoTurno", nuevoEstado.Trim());
                         cmd.Parameters.AddWithValue("@IdTurno", idTurno);
                         cmd.Parameters.AddWithValue("@FechaTurno", fechaTurno);
 
                         oconexion.Open();
                         int filasAfectadas = cmd.ExecuteNonQuery();
-                        respuesta = filasAfectadas > 0;
+
+                        // Para validar si se actualizaron los turnos
+                        /*
+                        if (filasAfectadas > 0)
+                        {
+                            MessageBox.Show($"Turno {idTurno} actualizado a {nuevoEstado}", "Actualización Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            respuesta = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show($"No se encontró el turno con ID {idTurno} o no se pudo actualizar.", "Error de actualización", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            respuesta = false;
+                        }
+                        */
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al modificar el estado del turno: {ex.Message}");
+                MessageBox.Show($"Error al modificar el estado del turno: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 respuesta = false;
             }
 
             return respuesta;
         }
-
 
         // No hace falta corregir para CupoActual, pero si el controlador porque necesito obtener FechaTurno para ModificarEstadoTurno --> Listo
         public List<Turno> Listar(int idSocioSeleccionado)

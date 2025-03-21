@@ -83,12 +83,12 @@ namespace DAO
 
                     string query = @"
                         SELECT g.NombreMenu, g.Descripcion, g.IdGrupo 
-                    from Permiso p
-                    inner join Rol r
-                    on p.IdRol = r.IdRol
-                    inner join Grupo g
-                    on p.IdGrupo = g.IdGrupo
-                    Where p.IdRol = @IdRol
+                        from Permiso p
+                        inner join Rol r
+                        on p.IdRol = r.IdRol
+                        inner join Grupo g
+                        on p.IdGrupo = g.IdGrupo
+                        Where p.IdRol = @IdRol
                     ";
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);

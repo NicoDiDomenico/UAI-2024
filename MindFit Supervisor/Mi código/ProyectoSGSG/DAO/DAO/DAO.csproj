@@ -50,6 +50,7 @@
     <Compile Include="PermisoDAO.cs" />
     <Compile Include="RangoHorarioDAO.cs" />
     <Compile Include="RolDAO.cs" />
+    <Compile Include="RutinaDAO.cs" />
     <Compile Include="SocioDAO.cs" />
     <Compile Include="TurnoDAO.cs" />
     <Compile Include="UsuarioDAO.cs" />

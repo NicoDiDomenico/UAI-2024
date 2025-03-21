@@ -2265,3 +2265,301 @@ ELIMINAR TURNOS:
 */
 DELETE FROM Turno
 WHERE IdTurno IN (9, 8, 7);
+
+SELECT s.IdSocio, s.NombreYApellido
+FROM Socio s
+inner join Turno t
+on s.IdSocio = t.IdSocio
+inner join Usuario u
+on t.IdUsuario = u.IdUsuario
+inner join RangoHorario rh
+on t.IdRangoHorario = rh.IdRangoHorario
+where u.IdUsuario = 10 and t.IdRangoHorario = 20 and t.EstadoTurno = 'En Curso'
+
+ALTER PROCEDURE [dbo].[SP_ELIMINARSOCIO]
+    @IdSocio INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET @Respuesta = 0;
+    SET @Mensaje = '';
+
+    DECLARE @FechaFinActividades DATE;
+
+    -- Obtener la FechaFinActividades del socio
+    SELECT @FechaFinActividades = FechaFinActividades 
+    FROM Socio 
+    WHERE IdSocio = @IdSocio;
+
+    -- Verificar si la fecha de fin de actividades aún no ha vencido
+    IF @FechaFinActividades > GETDATE()
+    BEGIN
+        SET @Mensaje = 'No se puede eliminar el socio porque su cuota aún está vigente.';
+        RETURN;
+    END
+
+    -- Verificar si el socio tiene turnos en curso
+    IF EXISTS (SELECT 1 FROM Turno WHERE IdSocio = @IdSocio AND EstadoTurno = 'En Curso')
+    BEGIN
+        SET @Mensaje = 'No se puede eliminar el socio porque tiene turnos en curso.';
+        RETURN;
+    END
+
+    -- Iniciar la transacción
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Eliminar los turnos asociados al socio (excepto los "En Curso", que ya fueron filtrados)
+        DELETE FROM Turno WHERE IdSocio = @IdSocio;
+
+        -- Eliminar las rutinas asociadas al socio
+        DELETE FROM Rutina WHERE IdSocio = @IdSocio;
+
+        -- Eliminar el socio
+        DELETE FROM Socio WHERE IdSocio = @IdSocio;
+
+        -- Confirmar la transacción si todo se ejecutó sin errores
+        COMMIT TRANSACTION;
+
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Socio eliminado correctamente junto con sus turnos y rutinas.';
+    END TRY
+    BEGIN CATCH
+        -- Si hay un error, revertir la transacción
+        ROLLBACK TRANSACTION;
+
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END;
+
+-- Eliminar los turnos de los socios que no tienen rutinas
+DELETE FROM Turno
+WHERE IdSocio NOT IN (SELECT DISTINCT IdSocio FROM Rutina);
+
+-- Ahora sí eliminar los socios que no tienen rutinas
+DELETE FROM Socio
+WHERE IdSocio NOT IN (SELECT DISTINCT IdSocio FROM Rutina);
+
+select * from turno
+
+select * from Socio
+
+select r.Dia, r.IdRutina 
+from Rutina r
+inner join Socio s
+on r.IdSocio = s.IdSocio
+where s.IdSocio = 1 -- @IdSocio
+
+/* NUEVO - Falta ejecutar... */
+/* Para Rutina */
+-- 1) Crear la tabla base para ElementoGimnasio
+CREATE TABLE ElementoGimnasio (
+    IdElemento INT PRIMARY KEY IDENTITY(1,1),
+    NombreElemento VARCHAR(100) NOT NULL
+);
+
+-- 2) Crear subclases de ElementoGimnasio
+CREATE TABLE Equipamiento (
+    IdElemento INT PRIMARY KEY,
+    Precio FLOAT NOT NULL,
+    FOREIGN KEY (IdElemento) REFERENCES ElementoGimnasio(IdElemento)
+);
+
+CREATE TABLE Ejercicio (
+    IdElemento INT PRIMARY KEY,
+    Descripcion VARCHAR(255) NOT NULL,
+    FOREIGN KEY (IdElemento) REFERENCES ElementoGimnasio(IdElemento)
+);
+
+CREATE TABLE Maquina (
+    IdElemento INT PRIMARY KEY,
+    FechaFabricacion DATE NOT NULL,
+    FechaCompra DATE NOT NULL,
+    Precio FLOAT NOT NULL,
+    Peso INT NOT NULL,
+    TipoMaquina VARCHAR(100) NOT NULL,
+    EsElectrica BIT NOT NULL,
+    FOREIGN KEY (IdElemento) REFERENCES ElementoGimnasio(IdElemento)
+);
+
+-- 3) Crear Estiramiento
+CREATE TABLE Estiramiento (
+    IdEstiramiento INT PRIMARY KEY IDENTITY(1,1),
+    DescripcionEstiramiento VARCHAR(255) NOT NULL
+);
+
+-- 4) Crear Calentamiento
+CREATE TABLE Calentamiento (
+    IdCalentamiento INT PRIMARY KEY IDENTITY(1,1),
+    IdMaquina INT NULL,
+    DescripcionCalentamiento VARCHAR(255) NOT NULL,
+    FOREIGN KEY (IdMaquina) REFERENCES Maquina(IdElemento) -- Relación con Maquina
+);
+
+-- 5) Crear Rutina_Estiramiento (Depende de Rutina y Estiramiento)
+CREATE TABLE Rutina_Estiramiento (
+    IdRutina INT NOT NULL,
+    IdEstiramiento INT NOT NULL,
+    Duracion INT NOT NULL,
+    PRIMARY KEY (IdRutina, IdEstiramiento),
+    FOREIGN KEY (IdRutina) REFERENCES Rutina(IdRutina),
+    FOREIGN KEY (IdEstiramiento) REFERENCES Estiramiento(IdEstiramiento)
+);
+
+-- 6) Crear Rutina_Calentamiento (Depende de Rutina y Calentamiento)
+CREATE TABLE Rutina_Calentamiento (
+    IdRutina INT NOT NULL,
+    IdCalentamiento INT NOT NULL,
+    Duracion INT NOT NULL,
+    PRIMARY KEY (IdRutina, IdCalentamiento),
+    FOREIGN KEY (IdRutina) REFERENCES Rutina(IdRutina),
+    FOREIGN KEY (IdCalentamiento) REFERENCES Calentamiento(IdCalentamiento)
+);
+
+-- 7) Crear Entrenamiento (Depende de Rutina y ElementoGimnasio)
+CREATE TABLE Entrenamiento (
+    IdEntrenamiento INT PRIMARY KEY IDENTITY(1,1),
+    IdRutina INT NOT NULL,
+    Series INT NOT NULL,
+    Repeticiones INT NOT NULL,
+    IdElementoGimnasio INT NULL,
+    FOREIGN KEY (IdElementoGimnasio) REFERENCES ElementoGimnasio(IdElemento),
+    FOREIGN KEY (IdRutina) REFERENCES Rutina(IdRutina)
+);
+
+/* Inserts: */
+-- Equipamiento
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Mancuernas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Barras olímpicas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Discos de peso');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Bandas de resistencia');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Cuerdas de batalla');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Esterillas de yoga');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Balones medicinales');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('TRX');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Step o escalón aeróbico');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Kettlebells');
+
+-- Máquinas
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Prensa de piernas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Poleas cruzadas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Máquina de remo');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Bicicleta estática');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Cinta de correr');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Elíptica');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Press de banca guiado');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Máquina de extensión de cuádriceps');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Máquina de curl de bíceps');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Máquina de aductores y abductores');
+
+-- Ejercicios
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Sentadillas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Peso muerto');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Press de banca');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Dominadas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Fondos en paralelas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Plancha abdominal');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Remo con barra');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Zancadas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Elevaciones laterales');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Crunch abdominal');
+
+-- Paso 2: Insertar en Equipamiento (Solo Equipamiento):
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (1, 5000.00);  -- Mancuernas
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (2, 8000.00);  -- Barras olímpicas
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (3, 3000.00);  -- Discos de peso
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (4, 2000.00);  -- Bandas de resistencia
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (5, 4000.00);  -- Cuerdas de batalla
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (6, 2500.00);  -- Esterillas de yoga
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (7, 4500.00);  -- Balones medicinales
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (8, 7000.00);  -- TRX
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (9, 3000.00);  -- Step o escalón aeróbico
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (10, 6000.00); -- Kettlebells
+
+-- Paso 3: Insertar en Ejercicio (Solo Ejercicios):
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (21, 'Ejercicio de Sentadillas');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (22, 'Ejercicio de Peso muerto');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (23, 'Ejercicio de Press de banca');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (24, 'Ejercicio de Dominadas');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (25, 'Ejercicio de Fondos en paralelas');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (26, 'Ejercicio de Plancha abdominal');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (27, 'Ejercicio de Remo con barra');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (28, 'Ejercicio de Zancadas');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (29, 'Ejercicio de Elevaciones laterales');
+INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (30, 'Ejercicio de Crunch abdominal');
+
+-- Paso 4: Insertar en Maquina (Solo Máquinas):
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (11, '2023-01-10', '2023-02-15', 35000.00, 120, 'Prensa de piernas', 0);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (12, '2022-12-05', '2023-03-10', 28000.00, 90, 'Poleas cruzadas', 0);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (13, '2024-01-20', '2024-02-15', 25000.00, 85, 'Máquina de remo', 1);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (14, '2023-10-11', '2023-11-10', 40000.00, 150, 'Bicicleta estática', 1);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (15, '2023-07-05', '2023-08-01', 45000.00, 140, 'Cinta de correr', 1);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (16, '2023-09-12', '2023-10-05', 42000.00, 135, 'Elíptica', 1);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (17, '2022-06-15', '2022-07-10', 32000.00, 125, 'Press de banca guiado', 0);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (18, '2023-02-14', '2023-03-20', 38000.00, 110, 'Máquina de extensión de cuádriceps', 0);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (19, '2024-03-05', '2024-03-25', 29000.00, 100, 'Máquina de curl de bíceps', 0);
+
+INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
+VALUES (20, '2022-11-10', '2022-12-15', 31000.00, 130, 'Máquina de aductores y abductores', 0);
+
+--  Verificar los datos insertados:
+SELECT * FROM ElementoGimnasio;
+SELECT * FROM Equipamiento;
+SELECT * FROM Ejercicio;
+SELECT * FROM Maquina;
+
+-- Paso 1: Insertar en Estiramiento:
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de isquiotibiales (tocarse la punta de los pies)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de cuádriceps (llevar el talón al glúteo)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de hombros (cruzar el brazo sobre el pecho)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de tríceps (mano detrás de la cabeza)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de espalda baja (postura del niño en yoga)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de cadera (posición de mariposa)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Balanceo de piernas');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Círculos con los brazos');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Giros de torso');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Elevaciones de rodillas al pecho');
+
+-- Paso 2: Insertar en Calentamiento:
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Saltar la cuerda', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Trotar en el lugar', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Jumping jacks', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Movilidad articular (rotaciones de tobillos, muñecas y cuello)', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Sentadillas con poco peso', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Flexiones de brazos suaves', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Remo con banda elástica', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
+VALUES ('Press de banca con la barra sola', 
+		(SELECT IdElemento FROM Maquina WHERE TipoMaquina = 'Press de banca guiado' LIMIT 1)); -- Asociado a máquina de press de banca
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
+VALUES ('Calentamiento en Bicicleta estática', 
+        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Bicicleta estática'));
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
+VALUES ('Calentamiento en Cinta de correr', 
+        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Cinta de correr'));
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
+VALUES ('Calentamiento en Elíptica', 
+        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Elíptica'));
+
+/* Rutina_Estiramiento y Rutina_Calentamiento se asignan cuando se asigne la rutina */
+
+SELECT * FROM Estiramiento;
+SELECT * FROM Calentamiento;

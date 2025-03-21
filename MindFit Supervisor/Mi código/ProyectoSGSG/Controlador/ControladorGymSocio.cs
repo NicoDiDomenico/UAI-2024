@@ -67,6 +67,11 @@ namespace Controlador
         {
             return objcd_Socio.Eliminar(obj, out Mensaje);
         }
+        
+        public List<Socio> ListarSociosActuales(int id, int idRangoHorarioActual)
+        {
+            return objcd_Socio.ListarSociosActuales(id, idRangoHorarioActual);
+        }
     }
 }
 

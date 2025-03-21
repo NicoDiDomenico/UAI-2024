@@ -304,5 +304,58 @@ namespace DAO
             }
             return respuesta;
         }
+
+        public List<Socio> ListarSociosActuales(int IdEntrenador, int idRangoHorarioActual)
+        {
+            List<Socio> lista = new List<Socio>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT s.IdSocio, s.NombreYApellido
+                        FROM Socio s
+                        INNER JOIN Turno t ON s.IdSocio = t.IdSocio
+                        INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+                        INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+                        WHERE u.IdUsuario = @IdEntrenador 
+                        AND t.IdRangoHorario = @idRangoHorarioActual 
+                        AND t.EstadoTurno = 'En Curso'
+                    ";
+
+                    using (SqlCommand cmd = new SqlCommand(query, oconexion))
+                    {
+                        cmd.CommandType = CommandType.Text;
+
+                        // 🔹 Corrección del parámetro
+                        cmd.Parameters.AddWithValue("@IdEntrenador", IdEntrenador);
+                        cmd.Parameters.AddWithValue("@idRangoHorarioActual", idRangoHorarioActual);
+
+                        oconexion.Open();
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            while (dr.Read())
+                            {
+                                Socio unSocio = new Socio
+                                {
+                                    IdSocio = Convert.ToInt32(dr["IdSocio"]),
+                                    NombreYApellido = dr["NombreYApellido"].ToString()
+                                };
+
+                                lista.Add(unSocio);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error en ListarSociosActuales: " + ex.Message);
+                    lista = new List<Socio>();
+                }
+            }
+            return lista;
+        }
     }
 }

@@ -79,5 +79,11 @@ namespace Controlador
         {
             return objcd_usuario.Eliminar(obj, out Mensaje);
         }
+
+        public List<Usuario> ObtenerPorRangoHorario(int idRangoHorario)
+        {
+            return objcd_usuario.ObtenerPorRangoHorario(idRangoHorario);
+        }
+
     }
 }
