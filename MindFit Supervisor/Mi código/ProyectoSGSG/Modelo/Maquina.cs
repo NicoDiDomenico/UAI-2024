@@ -12,7 +12,6 @@ namespace Modelo
         public DateTime FechaCompra { get; set; }
         public float Precio { get; set; }
         public int Peso { get; set; }
-        public string TipoMaquina { get; set; }
         public bool EsElectrica { get; set; }
     }
 }

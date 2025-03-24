@@ -22,6 +22,7 @@ namespace Vista
             txtId.Text = "0";
             txtBusqueda.Clear();
 
+            txbNombreElemento.Clear();
             dtpFechaFabricacion.Value = DateTime.Now;
             dtpFechaCompra.Value = DateTime.Now;
             txtPrecio.Text = "0";
@@ -62,13 +63,13 @@ namespace Vista
         #endregion
         public frmMenuMaquinas()
         {
-            limpiarCampos();
-
             InitializeComponent();
         }
 
         private void frmMenuMaquinas_Load(object sender, EventArgs e)
         {
+            limpiarCampos();
+
             // Para ComboBox de filtrado - con Items.Add
             foreach (DataGridViewColumn columna in dgvData.Columns)
             {
@@ -247,11 +248,45 @@ namespace Vista
                     txtPeso.Text = dgvData.Rows[indice].Cells["Peso"].Value?.ToString() ?? "0";
 
                     // Checkbox eléctrico
-                    bool esElectrica = false;
-                    bool.TryParse(dgvData.Rows[indice].Cells["EsElectrica"].Value?.ToString(), out esElectrica);
-                    cbSi.Checked = esElectrica;
-                    cbNo.Checked = !esElectrica;
+                    int valorElectrica = Convert.ToInt32(dgvData.Rows[indice].Cells["EsElectrica"].Value ?? 0);
+                    cbSi.Checked = valorElectrica == 1;
+                    cbNo.Checked = valorElectrica == 0;
                 }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtId.Text, out int IdElemento) && IdElemento > 0)
+            {
+                DialogResult result = MessageBox.Show("¿Está seguro de eliminar la maquina seleccionada?", "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    string mensaje = string.Empty;
+                    bool eliminado = new ControladorGymMaquina().Eliminar(IdElemento, out mensaje);
+
+                    if (eliminado)
+                    {
+                        dgvData.Rows.Clear();
+                        cargarGrid();
+                        limpiarCampos();
+                        MessageBox.Show("La maquina fue eliminada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar esta maquina.\n" + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un estiramiento para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

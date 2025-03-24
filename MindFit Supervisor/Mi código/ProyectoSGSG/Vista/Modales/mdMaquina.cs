@@ -35,7 +35,6 @@ namespace Vista.Modales
                     item.FechaCompra,
                     item.Precio,
                     item.Peso,
-                    item.TipoMaquina,
                     item.EsElectrica == true ? "Si" : "No",
                 });
             }
@@ -78,7 +77,6 @@ namespace Vista.Modales
                     FechaCompra = Convert.ToDateTime(dgvData.Rows[iRow].Cells["FechaCompra"].Value),
                     Precio = Convert.ToSingle(dgvData.Rows[iRow].Cells["Precio"].Value),
                     Peso = Convert.ToInt32(dgvData.Rows[iRow].Cells["Peso"].Value),
-                    TipoMaquina = dgvData.Rows[iRow].Cells["TipoMaquina"].Value.ToString(),
                     EsElectrica = dgvData.Rows[iRow].Cells["EsElectrica"].Value.ToString() == "Si" // desde string a bool
                 };
 

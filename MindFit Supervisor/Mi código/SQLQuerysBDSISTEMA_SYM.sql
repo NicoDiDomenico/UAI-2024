@@ -2604,10 +2604,37 @@ SELECT
     m.FechaCompra,
     m.Precio,
     m.Peso,
-    m.TipoMaquina,
     m.EsElectrica
 FROM Maquina m
 INNER JOIN ElementoGimnasio eg ON m.IdElemento = eg.IdElemento
 
 select IdEstiramiento, DescripcionEstiramiento 
 from Estiramiento
+
+ALTER TABLE Maquina
+DROP COLUMN TipoMaquina;
+
+SELECT 
+    eg.IdElemento,
+    eg.NombreElemento,
+    m.FechaFabricacion,
+    m.FechaCompra,
+    m.Precio,
+    m.Peso,
+    m.EsElectrica
+FROM Maquina m
+INNER JOIN ElementoGimnasio eg ON m.IdElemento = eg.IdElemento
+
+SELECT 
+    eg.IdElemento,
+    eg.NombreElemento,
+    e.Descripcion
+FROM Ejercicio e
+INNER JOIN ElementoGimnasio eg ON e.IdElemento = eg.IdElemento
+
+SELECT 
+    eg.IdElemento,
+    eg.NombreElemento,
+    e.Precio
+FROM Equipamiento e
+INNER JOIN ElementoGimnasio eg ON e.IdElemento = eg.IdElemento

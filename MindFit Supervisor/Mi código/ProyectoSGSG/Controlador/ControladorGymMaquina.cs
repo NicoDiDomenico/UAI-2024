@@ -2,6 +2,7 @@
 using Modelo;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +18,17 @@ namespace Controlador
             return objcd_Maquina.Listar();
         }
 
-        public List<Maquina> Registrar()
+        public bool Registrar(Maquina maquina, out string mensaje)
         {
-            return objcd_Maquina.Listar();
+            return objcd_Maquina.Registrar(maquina, out mensaje);
         }
-        
-        public List<Maquina> Editar()
+        public bool Editar(Maquina maquina, out string mensaje)
         {
-            return objcd_Maquina.Listar();
+            return objcd_Maquina.Editar(maquina, out mensaje);
+        }
+        public bool Eliminar(int IdElemento, out string mensaje)
+        {
+            return objcd_Maquina.Eliminar(IdElemento, out mensaje);
         }
     }
 }

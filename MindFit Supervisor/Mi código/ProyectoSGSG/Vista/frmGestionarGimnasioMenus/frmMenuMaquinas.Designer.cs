@@ -28,10 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txbNombreElemento = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFechaFabricacion = new System.Windows.Forms.Label();
+            this.dtpFechaFabricacion = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpFechaCompra = new System.Windows.Forms.DateTimePicker();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbNo = new System.Windows.Forms.CheckBox();
+            this.cbSi = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
@@ -46,32 +59,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.txtIndice = new System.Windows.Forms.TextBox();
-            this.cbSi = new System.Windows.Forms.CheckBox();
-            this.cbNo = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtPeso = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.dtpFechaCompra = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtFechaFabricacion = new System.Windows.Forms.Label();
-            this.dtpFechaFabricacion = new System.Windows.Forms.DateTimePicker();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdElemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreElemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFabricacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoMaquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EsElectrica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.txbNombreElemento = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -109,6 +109,125 @@
             this.groupBox1.Size = new System.Drawing.Size(439, 626);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
+            // 
+            // txbNombreElemento
+            // 
+            this.txbNombreElemento.Location = new System.Drawing.Point(140, 87);
+            this.txbNombreElemento.Multiline = true;
+            this.txbNombreElemento.Name = "txbNombreElemento";
+            this.txbNombreElemento.Size = new System.Drawing.Size(277, 181);
+            this.txbNombreElemento.TabIndex = 83;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label5.Location = new System.Drawing.Point(23, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(111, 13);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Nombre del Elemento:";
+            // 
+            // txtFechaFabricacion
+            // 
+            this.txtFechaFabricacion.AutoSize = true;
+            this.txtFechaFabricacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.txtFechaFabricacion.Location = new System.Drawing.Point(21, 290);
+            this.txtFechaFabricacion.Name = "txtFechaFabricacion";
+            this.txtFechaFabricacion.Size = new System.Drawing.Size(113, 13);
+            this.txtFechaFabricacion.TabIndex = 81;
+            this.txtFechaFabricacion.Text = "Fecha de Fabricacion:";
+            // 
+            // dtpFechaFabricacion
+            // 
+            this.dtpFechaFabricacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFabricacion.Location = new System.Drawing.Point(140, 286);
+            this.dtpFechaFabricacion.Name = "dtpFechaFabricacion";
+            this.dtpFechaFabricacion.Size = new System.Drawing.Size(277, 20);
+            this.dtpFechaFabricacion.TabIndex = 80;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label4.Location = new System.Drawing.Point(40, 327);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 13);
+            this.label4.TabIndex = 79;
+            this.label4.Text = "Fecha de Compra:";
+            // 
+            // dtpFechaCompra
+            // 
+            this.dtpFechaCompra.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaCompra.Location = new System.Drawing.Point(140, 323);
+            this.dtpFechaCompra.Name = "dtpFechaCompra";
+            this.dtpFechaCompra.Size = new System.Drawing.Size(277, 20);
+            this.dtpFechaCompra.TabIndex = 78;
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(140, 360);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(277, 20);
+            this.txtPrecio.TabIndex = 77;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label3.Location = new System.Drawing.Point(94, 363);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 76;
+            this.label3.Text = "Precio:";
+            // 
+            // txtPeso
+            // 
+            this.txtPeso.Location = new System.Drawing.Point(140, 397);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(277, 20);
+            this.txtPeso.TabIndex = 75;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label2.Location = new System.Drawing.Point(100, 400);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 74;
+            this.label2.Text = "Peso:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cbNo);
+            this.groupBox3.Controls.Add(this.cbSi);
+            this.groupBox3.Location = new System.Drawing.Point(140, 435);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(138, 51);
+            this.groupBox3.TabIndex = 73;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "¿Es eléctrica?";
+            // 
+            // cbNo
+            // 
+            this.cbNo.AutoSize = true;
+            this.cbNo.Location = new System.Drawing.Point(83, 21);
+            this.cbNo.Name = "cbNo";
+            this.cbNo.Size = new System.Drawing.Size(40, 17);
+            this.cbNo.TabIndex = 71;
+            this.cbNo.Text = "No";
+            this.cbNo.UseVisualStyleBackColor = true;
+            // 
+            // cbSi
+            // 
+            this.cbSi.AutoSize = true;
+            this.cbSi.Location = new System.Drawing.Point(26, 21);
+            this.cbSi.Name = "cbSi";
+            this.cbSi.Size = new System.Drawing.Size(35, 17);
+            this.cbSi.TabIndex = 70;
+            this.cbSi.Text = "Si";
+            this.cbSi.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
@@ -171,6 +290,7 @@
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiar
             // 
@@ -191,6 +311,7 @@
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox2
             // 
@@ -284,33 +405,33 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
             this.IdElemento,
+            this.NombreElemento,
             this.FechaFabricacion,
             this.FechaCompra,
             this.Precio,
             this.Peso,
-            this.TipoMaquina,
             this.EsElectrica,
             this.Seleccionado});
             this.dgvData.Location = new System.Drawing.Point(504, 86);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowTemplate.Height = 35;
             this.dgvData.Size = new System.Drawing.Size(1228, 552);
             this.dgvData.TabIndex = 70;
@@ -325,105 +446,6 @@
             this.txtIndice.TabIndex = 73;
             this.txtIndice.Text = "-1";
             this.txtIndice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // cbSi
-            // 
-            this.cbSi.AutoSize = true;
-            this.cbSi.Location = new System.Drawing.Point(26, 21);
-            this.cbSi.Name = "cbSi";
-            this.cbSi.Size = new System.Drawing.Size(35, 17);
-            this.cbSi.TabIndex = 70;
-            this.cbSi.Text = "Si";
-            this.cbSi.UseVisualStyleBackColor = true;
-            // 
-            // cbNo
-            // 
-            this.cbNo.AutoSize = true;
-            this.cbNo.Location = new System.Drawing.Point(83, 21);
-            this.cbNo.Name = "cbNo";
-            this.cbNo.Size = new System.Drawing.Size(40, 17);
-            this.cbNo.TabIndex = 71;
-            this.cbNo.Text = "No";
-            this.cbNo.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.cbNo);
-            this.groupBox3.Controls.Add(this.cbSi);
-            this.groupBox3.Location = new System.Drawing.Point(140, 435);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(138, 51);
-            this.groupBox3.TabIndex = 73;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "¿Es eléctrica?";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label2.Location = new System.Drawing.Point(100, 400);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 74;
-            this.label2.Text = "Peso:";
-            // 
-            // txtPeso
-            // 
-            this.txtPeso.Location = new System.Drawing.Point(140, 397);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(277, 20);
-            this.txtPeso.TabIndex = 75;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label3.Location = new System.Drawing.Point(94, 363);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 76;
-            this.label3.Text = "Precio:";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(140, 360);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(277, 20);
-            this.txtPrecio.TabIndex = 77;
-            // 
-            // dtpFechaCompra
-            // 
-            this.dtpFechaCompra.Location = new System.Drawing.Point(140, 323);
-            this.dtpFechaCompra.Name = "dtpFechaCompra";
-            this.dtpFechaCompra.Size = new System.Drawing.Size(277, 20);
-            this.dtpFechaCompra.TabIndex = 78;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label4.Location = new System.Drawing.Point(40, 327);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 13);
-            this.label4.TabIndex = 79;
-            this.label4.Text = "Fecha de Compra:";
-            // 
-            // txtFechaFabricacion
-            // 
-            this.txtFechaFabricacion.AutoSize = true;
-            this.txtFechaFabricacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.txtFechaFabricacion.Location = new System.Drawing.Point(21, 290);
-            this.txtFechaFabricacion.Name = "txtFechaFabricacion";
-            this.txtFechaFabricacion.Size = new System.Drawing.Size(113, 13);
-            this.txtFechaFabricacion.TabIndex = 81;
-            this.txtFechaFabricacion.Text = "Fecha de Fabricacion:";
-            // 
-            // dtpFechaFabricacion
-            // 
-            this.dtpFechaFabricacion.Location = new System.Drawing.Point(140, 286);
-            this.dtpFechaFabricacion.Name = "dtpFechaFabricacion";
-            this.dtpFechaFabricacion.Size = new System.Drawing.Size(277, 20);
-            this.dtpFechaFabricacion.TabIndex = 80;
             // 
             // btnSeleccionar
             // 
@@ -441,6 +463,13 @@
             this.IdElemento.ReadOnly = true;
             this.IdElemento.Visible = false;
             this.IdElemento.Width = 200;
+            // 
+            // NombreElemento
+            // 
+            this.NombreElemento.HeaderText = "Nombre del Elemento";
+            this.NombreElemento.Name = "NombreElemento";
+            this.NombreElemento.ReadOnly = true;
+            this.NombreElemento.Width = 230;
             // 
             // FechaFabricacion
             // 
@@ -470,13 +499,6 @@
             this.Peso.ReadOnly = true;
             this.Peso.Width = 230;
             // 
-            // TipoMaquina
-            // 
-            this.TipoMaquina.HeaderText = "Tipo de Maquina";
-            this.TipoMaquina.Name = "TipoMaquina";
-            this.TipoMaquina.ReadOnly = true;
-            this.TipoMaquina.Width = 230;
-            // 
             // EsElectrica
             // 
             this.EsElectrica.HeaderText = "EsElectrica";
@@ -491,24 +513,6 @@
             this.Seleccionado.Name = "Seleccionado";
             this.Seleccionado.ReadOnly = true;
             this.Seleccionado.Visible = false;
-            // 
-            // txbNombreElemento
-            // 
-            this.txbNombreElemento.Location = new System.Drawing.Point(140, 87);
-            this.txbNombreElemento.Multiline = true;
-            this.txbNombreElemento.Name = "txbNombreElemento";
-            this.txbNombreElemento.Size = new System.Drawing.Size(277, 181);
-            this.txbNombreElemento.TabIndex = 83;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label5.Location = new System.Drawing.Point(23, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 13);
-            this.label5.TabIndex = 82;
-            this.label5.Text = "Nombre del Elemento:";
             // 
             // frmMenuMaquinas
             // 
@@ -526,11 +530,11 @@
             this.Load += new System.EventHandler(this.frmMenuMaquinas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,16 +569,16 @@
         private System.Windows.Forms.DateTimePicker dtpFechaCompra;
         private System.Windows.Forms.Label txtFechaFabricacion;
         private System.Windows.Forms.DateTimePicker dtpFechaFabricacion;
+        private System.Windows.Forms.TextBox txbNombreElemento;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdElemento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreElemento;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFabricacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaCompra;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoMaquina;
         private System.Windows.Forms.DataGridViewTextBoxColumn EsElectrica;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
-        private System.Windows.Forms.TextBox txbNombreElemento;
-        private System.Windows.Forms.Label label5;
     }
 }

@@ -3,28 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenumaquinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenumaquinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenuequipamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuequipamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenumaquinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenumaquinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenuequipamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuequipamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\controlador\\controladorgymmaquina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\controladorgymmaquina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenucalentamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenucalentamiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenuestiramiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuestiramiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenuestiramiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuestiramiento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\users\\nicol\\desktop\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionargimnasiomenus\\frmmenuejercicios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasiomenus\\frmmenuejercicios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,87 +22,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmMenuCalentamiento.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuCalentamiento.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuCalentamiento.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuCalentamiento.cs",
-              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuCalentamiento.cs",
-              "ViewState": "AQIAAFAAAAAAAAAAAAAuwOYAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:42:06.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ControladorGymMaquina.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymMaquina.cs",
-              "RelativeDocumentMoniker": "Controlador\\ControladorGymMaquina.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymMaquina.cs",
-              "RelativeToolTip": "Controlador\\ControladorGymMaquina.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAIAzwBoAAAAqAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T20:42:01.745Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmMenuMaquinas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T19:54:35.082Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmMenuMaquinas.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs",
-              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuMaquinas.cs",
-              "ViewState": "AQIAAOIAAAAAAAAAAAAIwPwAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T19:53:09.225Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmMenuEstiramiento.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs",
-              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs",
-              "ViewState": "AQIAAJoAAAAAAAAAAAAcwMkAAAANAAAA",
+              "DocumentIndex": 0,
+              "Title": "frmMenuEquipamiento.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs",
+              "ViewState": "AQIAALAAAAAAAAAAAAAowO0AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-24T19:53:53.491Z",
+              "WhenOpened": "2025-03-24T22:52:51.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmMenuEstiramiento.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuEstiramiento.cs [Dise\u00F1o]",
+              "DocumentIndex": 1,
+              "Title": "frmMenuEquipamiento.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuEquipamiento.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T21:35:48.567Z",
+              "WhenOpened": "2025-03-24T22:44:44.123Z",
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMenuEjercicios.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEjercicios.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasioMenus\\frmMenuEjercicios.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarGimnasioMenus\\frmMenuEjercicios.cs",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasioMenus\\frmMenuEjercicios.cs",
+              "ViewState": "AQIAAKYAAAAAAAAAAAAgwMkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-24T22:08:00.689Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="ControladorGymAccion.cs" />
     <Compile Include="ControladorGymCalentamiento.cs" />
+    <Compile Include="ControladorGymEjercicio.cs" />
+    <Compile Include="ControladorGymEquipamiento.cs" />
     <Compile Include="ControladorGymEstiramiento.cs" />
     <Compile Include="ControladorGymGimnasio.cs" />
     <Compile Include="ControladorGymGrupo.cs" />

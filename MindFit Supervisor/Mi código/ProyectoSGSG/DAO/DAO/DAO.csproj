@@ -46,6 +46,8 @@
     <Compile Include="AccionDAO.cs" />
     <Compile Include="CalentamientoDAO.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="EjercicioDAO.cs" />
+    <Compile Include="EquipamientoDAO.cs" />
     <Compile Include="EstiramientoDAO.cs" />
     <Compile Include="GimnasioDAO.cs" />
     <Compile Include="GrupoDAO.cs" />
