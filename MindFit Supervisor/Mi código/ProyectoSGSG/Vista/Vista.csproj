@@ -57,10 +57,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAcciones.cs">
+    <Compile Include="frmGestionarGimnasioMenus\frmAcciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAcciones.Designer.cs">
+    <Compile Include="frmGestionarGimnasioMenus\frmAcciones.Designer.cs">
       <DependentUpon>frmAcciones.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAgregarSocio.cs">
@@ -141,11 +141,23 @@
     <Compile Include="frmGestionarGimnasioMenus\frmModificarRoles.Designer.cs">
       <DependentUpon>frmModificarRoles.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModificarAcciones.cs">
+    <Compile Include="frmGestionarGimnasioMenus\frmMenuCalentamiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModificarAcciones.Designer.cs">
+    <Compile Include="frmGestionarGimnasioMenus\frmMenuCalentamiento.Designer.cs">
+      <DependentUpon>frmMenuCalentamiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionarGimnasioMenus\frmModificarAcciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionarGimnasioMenus\frmModificarAcciones.Designer.cs">
       <DependentUpon>frmModificarAcciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionarGimnasioMenus\frmMenuEstiramiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionarGimnasioMenus\frmMenuEstiramiento.Designer.cs">
+      <DependentUpon>frmMenuEstiramiento.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNuevoTurno.cs">
       <SubType>Form</SubType>
@@ -195,11 +207,17 @@
     <Compile Include="Modales\mdEntrenador.Designer.cs">
       <DependentUpon>mdEntrenador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modales\mdMaquina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modales\mdMaquina.Designer.cs">
+      <DependentUpon>mdMaquina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
     <Compile Include="Utilidades\OpcionComboRangoHorario.cs" />
-    <EmbeddedResource Include="frmAcciones.resx">
+    <EmbeddedResource Include="frmGestionarGimnasioMenus\frmAcciones.resx">
       <DependentUpon>frmAcciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgregarSocio.resx">
@@ -217,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionarGimnasioMenus\frmMenuEquipamiento.resx">
       <DependentUpon>frmMenuEquipamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionarGimnasioMenus\frmMenuEstiramiento.resx">
+      <DependentUpon>frmMenuEstiramiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionarGimnasioMenus\frmMenuMaquinas.resx">
       <DependentUpon>frmMenuMaquinas.cs</DependentUpon>
@@ -239,7 +260,10 @@
     <EmbeddedResource Include="frmGestionarGimnasioMenus\frmModificarRoles.resx">
       <DependentUpon>frmModificarRoles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModificarAcciones.resx">
+    <EmbeddedResource Include="frmGestionarGimnasioMenus\frmMenuCalentamiento.resx">
+      <DependentUpon>frmMenuCalentamiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionarGimnasioMenus\frmModificarAcciones.resx">
       <DependentUpon>frmModificarAcciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoTurno.resx">
@@ -265,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modales\mdEntrenador.resx">
       <DependentUpon>mdEntrenador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modales\mdMaquina.resx">
+      <DependentUpon>mdMaquina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -44,9 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccionDAO.cs" />
+    <Compile Include="CalentamientoDAO.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="EstiramientoDAO.cs" />
     <Compile Include="GimnasioDAO.cs" />
     <Compile Include="GrupoDAO.cs" />
+    <Compile Include="MaquinaDAO.cs" />
     <Compile Include="PermisoDAO.cs" />
     <Compile Include="RangoHorarioDAO.cs" />
     <Compile Include="RolDAO.cs" />

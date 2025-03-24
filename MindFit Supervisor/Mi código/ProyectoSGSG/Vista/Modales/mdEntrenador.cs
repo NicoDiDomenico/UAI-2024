@@ -19,7 +19,6 @@ namespace Vista.Modales
         public Usuario _Usuario { get; set; }
         #endregion
         #region "Métodos"
-
         private void cargarGrid()
         {
             // Para el Grid - MOSTRAR TODOS LOS USUARIOS
@@ -58,7 +57,6 @@ namespace Vista.Modales
                 }
             }
         }
-
         #endregion
 
         public mdEntrenador()

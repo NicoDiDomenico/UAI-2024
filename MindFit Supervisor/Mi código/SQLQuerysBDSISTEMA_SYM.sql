@@ -2351,7 +2351,6 @@ inner join Socio s
 on r.IdSocio = s.IdSocio
 where s.IdSocio = 1 -- @IdSocio
 
-/* NUEVO - Falta ejecutar... */
 /* Para Rutina */
 -- 1) Crear la tabla base para ElementoGimnasio
 CREATE TABLE ElementoGimnasio (
@@ -2548,7 +2547,7 @@ INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Flexion
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Remo con banda elástica', NULL);
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
 VALUES ('Press de banca con la barra sola', 
-		(SELECT IdElemento FROM Maquina WHERE TipoMaquina = 'Press de banca guiado' LIMIT 1)); -- Asociado a máquina de press de banca
+		(SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Press de banca guiado')); -- Asociado a máquina de press de banca
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
 VALUES ('Calentamiento en Bicicleta estática', 
         (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Bicicleta estática'));
@@ -2563,3 +2562,52 @@ VALUES ('Calentamiento en Elíptica',
 
 SELECT * FROM Estiramiento;
 SELECT * FROM Calentamiento;
+
+select * from Accion
+
+UPDATE Accion  
+SET NombreAccion = 'menuCalentamiento'  
+WHERE IdAccion = 3;
+
+UPDATE Accion  
+SET Descripcion = 'Gestionar técnicas de calentamiento'  
+WHERE IdAccion = 3;
+
+UPDATE Accion  
+SET NombreAccion = 'menuElementosGym'  
+WHERE IdAccion = 4;
+
+UPDATE Accion  
+SET Descripcion = 'Gestionar elemetnos del gimnasio del tipo Calentamiento, Ejercicios y Máquinas'  
+WHERE IdAccion = 4;
+
+UPDATE Accion  
+SET NombreAccion = 'menuEstiramiento'  
+WHERE IdAccion = 5;
+
+UPDATE Accion  
+SET Descripcion = 'Gestionar diferentes formas de estirar'  
+WHERE IdAccion = 5;
+
+select IdCalentamiento, IdMaquina, DescripcionCalentamiento 
+from Calentamiento
+
+SELECT * FROM ElementoGimnasio;
+SELECT * FROM Maquina;
+SELECT * FROM Equipamiento;
+SELECT * FROM Ejercicio;
+
+SELECT 
+    eg.IdElemento,
+    eg.NombreElemento,
+    m.FechaFabricacion,
+    m.FechaCompra,
+    m.Precio,
+    m.Peso,
+    m.TipoMaquina,
+    m.EsElectrica
+FROM Maquina m
+INNER JOIN ElementoGimnasio eg ON m.IdElemento = eg.IdElemento
+
+select IdEstiramiento, DescripcionEstiramiento 
+from Estiramiento

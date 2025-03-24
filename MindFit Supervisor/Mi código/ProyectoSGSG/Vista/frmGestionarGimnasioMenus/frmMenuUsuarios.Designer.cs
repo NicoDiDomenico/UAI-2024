@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,8 +70,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnAccion = new FontAwesome.Sharp.IconButton();
-            this.btnGrupo = new FontAwesome.Sharp.IconButton();
             this.panelRol = new System.Windows.Forms.Panel();
             this.cboRol = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -89,12 +87,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new FontAwesome.Sharp.IconButton();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
+            this.btnAccion = new FontAwesome.Sharp.IconButton();
+            this.btnGrupo = new FontAwesome.Sharp.IconButton();
+            this.btnGuardar = new FontAwesome.Sharp.IconButton();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -137,15 +137,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -170,9 +170,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowTemplate.Height = 35;
             this.dgvData.Size = new System.Drawing.Size(1238, 502);
             this.dgvData.TabIndex = 47;
@@ -317,7 +317,7 @@
             // 
             // txtIndice
             // 
-            this.txtIndice.Location = new System.Drawing.Point(511, 89);
+            this.txtIndice.Location = new System.Drawing.Point(512, 90);
             this.txtIndice.Name = "txtIndice";
             this.txtIndice.Size = new System.Drawing.Size(28, 20);
             this.txtIndice.TabIndex = 55;
@@ -497,38 +497,6 @@
             this.panel1.Size = new System.Drawing.Size(319, 62);
             this.panel1.TabIndex = 68;
             // 
-            // btnAccion
-            // 
-            this.btnAccion.IconChar = FontAwesome.Sharp.IconChar.HandPointRight;
-            this.btnAccion.IconColor = System.Drawing.Color.Black;
-            this.btnAccion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAccion.IconSize = 22;
-            this.btnAccion.Location = new System.Drawing.Point(101, 1);
-            this.btnAccion.Name = "btnAccion";
-            this.btnAccion.Size = new System.Drawing.Size(90, 30);
-            this.btnAccion.TabIndex = 67;
-            this.btnAccion.Text = "Accion";
-            this.btnAccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAccion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAccion.UseVisualStyleBackColor = true;
-            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
-            // 
-            // btnGrupo
-            // 
-            this.btnGrupo.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnGrupo.IconColor = System.Drawing.Color.Black;
-            this.btnGrupo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGrupo.IconSize = 22;
-            this.btnGrupo.Location = new System.Drawing.Point(3, 1);
-            this.btnGrupo.Name = "btnGrupo";
-            this.btnGrupo.Size = new System.Drawing.Size(90, 30);
-            this.btnGrupo.TabIndex = 58;
-            this.btnGrupo.Text = "Grupo";
-            this.btnGrupo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGrupo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGrupo.UseVisualStyleBackColor = true;
-            this.btnGrupo.Click += new System.EventHandler(this.btnGrupo_Click);
-            // 
             // panelRol
             // 
             this.panelRol.Controls.Add(this.cboRol);
@@ -687,6 +655,90 @@
             this.txtNroDocumento.Size = new System.Drawing.Size(242, 20);
             this.txtNroDocumento.TabIndex = 51;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.cboBusqueda);
+            this.groupBox2.Controls.Add(this.txtBusqueda);
+            this.groupBox2.Controls.Add(this.btnBuscar);
+            this.groupBox2.Controls.Add(this.btnLimpiarBuscador);
+            this.groupBox2.Location = new System.Drawing.Point(1221, 16);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(511, 59);
+            this.groupBox2.TabIndex = 57;
+            this.groupBox2.TabStop = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.White;
+            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
+            this.btnBuscar.IconColor = System.Drawing.Color.Black;
+            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscar.IconSize = 20;
+            this.btnBuscar.Location = new System.Drawing.Point(407, 19);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 20);
+            this.btnBuscar.TabIndex = 54;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnLimpiarBuscador
+            // 
+            this.btnLimpiarBuscador.BackColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscador.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLimpiarBuscador.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiarBuscador.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
+            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
+            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnLimpiarBuscador.IconSize = 20;
+            this.btnLimpiarBuscador.Location = new System.Drawing.Point(453, 19);
+            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
+            this.btnLimpiarBuscador.Size = new System.Drawing.Size(40, 20);
+            this.btnLimpiarBuscador.TabIndex = 53;
+            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
+            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
+            // 
+            // btnAccion
+            // 
+            this.btnAccion.IconChar = FontAwesome.Sharp.IconChar.HandPointRight;
+            this.btnAccion.IconColor = System.Drawing.Color.Black;
+            this.btnAccion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAccion.IconSize = 22;
+            this.btnAccion.Location = new System.Drawing.Point(101, 1);
+            this.btnAccion.Name = "btnAccion";
+            this.btnAccion.Size = new System.Drawing.Size(90, 30);
+            this.btnAccion.TabIndex = 67;
+            this.btnAccion.Text = "Accion";
+            this.btnAccion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAccion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAccion.UseVisualStyleBackColor = true;
+            this.btnAccion.Click += new System.EventHandler(this.btnAccion_Click);
+            // 
+            // btnGrupo
+            // 
+            this.btnGrupo.IconChar = FontAwesome.Sharp.IconChar.Users;
+            this.btnGrupo.IconColor = System.Drawing.Color.Black;
+            this.btnGrupo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGrupo.IconSize = 22;
+            this.btnGrupo.Location = new System.Drawing.Point(3, 1);
+            this.btnGrupo.Name = "btnGrupo";
+            this.btnGrupo.Size = new System.Drawing.Size(90, 30);
+            this.btnGrupo.TabIndex = 58;
+            this.btnGrupo.Text = "Grupo";
+            this.btnGrupo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGrupo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGrupo.UseVisualStyleBackColor = true;
+            this.btnGrupo.Click += new System.EventHandler(this.btnGrupo_Click);
+            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.ForestGreen;
@@ -750,58 +802,6 @@
             this.btnLimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.White;
-            this.groupBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.cboBusqueda);
-            this.groupBox2.Controls.Add(this.txtBusqueda);
-            this.groupBox2.Controls.Add(this.btnBuscar);
-            this.groupBox2.Controls.Add(this.btnLimpiarBuscador);
-            this.groupBox2.Location = new System.Drawing.Point(1221, 16);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(511, 59);
-            this.groupBox2.TabIndex = 57;
-            this.groupBox2.TabStop = false;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.White;
-            this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Searchengin;
-            this.btnBuscar.IconColor = System.Drawing.Color.Black;
-            this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBuscar.IconSize = 20;
-            this.btnBuscar.Location = new System.Drawing.Point(407, 19);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 20);
-            this.btnBuscar.TabIndex = 54;
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnLimpiarBuscador
-            // 
-            this.btnLimpiarBuscador.BackColor = System.Drawing.Color.White;
-            this.btnLimpiarBuscador.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLimpiarBuscador.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscador.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarBuscador.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarBuscador.IconChar = FontAwesome.Sharp.IconChar.Broom;
-            this.btnLimpiarBuscador.IconColor = System.Drawing.Color.Black;
-            this.btnLimpiarBuscador.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLimpiarBuscador.IconSize = 20;
-            this.btnLimpiarBuscador.Location = new System.Drawing.Point(453, 19);
-            this.btnLimpiarBuscador.Name = "btnLimpiarBuscador";
-            this.btnLimpiarBuscador.Size = new System.Drawing.Size(40, 20);
-            this.btnLimpiarBuscador.TabIndex = 53;
-            this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
-            this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
             // frmMenuUsuarios
             // 

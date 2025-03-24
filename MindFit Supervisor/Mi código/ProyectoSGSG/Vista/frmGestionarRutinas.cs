@@ -264,9 +264,10 @@ namespace Vista
 
                     int IdSocio = Convert.ToInt32(dgvDataSocio.Rows[indice].Cells["IdSocio"].Value);
 
-                    List<Rutina> rutinasSocio = new ControladorGymRutina().Listar(IdSocio);
+                    // Acá hay un error que no encuentro!!!
+                    //List<Rutina> rutinasSocio = new ControladorGymRutina().Listar(IdSocio);
 
-                    RutinasActuales = rutinasSocio;
+                    //RutinasActuales = rutinasSocio;
                 }
             }
         }

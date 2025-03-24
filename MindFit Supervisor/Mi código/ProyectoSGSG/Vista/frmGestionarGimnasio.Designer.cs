@@ -34,9 +34,12 @@
             this.agregarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
             this.editarRolToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
             this.editarAccionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuMaquinas = new FontAwesome.Sharp.IconMenuItem();
-            this.menuEjercicios = new FontAwesome.Sharp.IconMenuItem();
-            this.menuEquipamiento = new FontAwesome.Sharp.IconMenuItem();
+            this.menuCalentamiento = new FontAwesome.Sharp.IconMenuItem();
+            this.menuElementosGym = new FontAwesome.Sharp.IconMenuItem();
+            this.equipamientoToolStripMenuItem = new FontAwesome.Sharp.IconMenuItem();
+            this.ejercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maquinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEstiramiento = new FontAwesome.Sharp.IconMenuItem();
             this.menuRangosHorarios = new FontAwesome.Sharp.IconMenuItem();
             this.menuNegocio = new FontAwesome.Sharp.IconMenuItem();
             this.menuAcercaDe = new FontAwesome.Sharp.IconMenuItem();
@@ -53,9 +56,9 @@
             this.subBotones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuUsuarios,
             this.menuRoles,
-            this.menuMaquinas,
-            this.menuEjercicios,
-            this.menuEquipamiento,
+            this.menuCalentamiento,
+            this.menuElementosGym,
+            this.menuEstiramiento,
             this.menuRangosHorarios,
             this.menuNegocio,
             this.menuAcercaDe});
@@ -108,7 +111,7 @@
             this.agregarRolToolStripMenuItem.IconColor = System.Drawing.Color.Black;
             this.agregarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.agregarRolToolStripMenuItem.Name = "agregarRolToolStripMenuItem";
-            this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.agregarRolToolStripMenuItem.Text = "Agregar Rol";
             this.agregarRolToolStripMenuItem.Click += new System.EventHandler(this.agregarRolToolStripMenuItem_Click);
             // 
@@ -118,61 +121,88 @@
             this.editarRolToolStripMenuItem.IconColor = System.Drawing.Color.Black;
             this.editarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.editarRolToolStripMenuItem.Name = "editarRolToolStripMenuItem";
-            this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.editarRolToolStripMenuItem.Text = "Editar Rol";
             this.editarRolToolStripMenuItem.Click += new System.EventHandler(this.editarRolToolStripMenuItem_Click);
             // 
             // editarAccionToolStripMenuItem
             // 
             this.editarAccionToolStripMenuItem.Name = "editarAccionToolStripMenuItem";
-            this.editarAccionToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.editarAccionToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
             this.editarAccionToolStripMenuItem.Text = "Editar Acción";
             this.editarAccionToolStripMenuItem.Click += new System.EventHandler(this.editarAccionToolStripMenuItem_Click);
             // 
-            // menuMaquinas
+            // menuCalentamiento
             // 
-            this.menuMaquinas.AutoSize = false;
-            this.menuMaquinas.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuMaquinas.IconChar = FontAwesome.Sharp.IconChar.ScrewdriverWrench;
-            this.menuMaquinas.IconColor = System.Drawing.Color.Black;
-            this.menuMaquinas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuMaquinas.IconSize = 55;
-            this.menuMaquinas.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuMaquinas.Name = "menuMaquinas";
-            this.menuMaquinas.Size = new System.Drawing.Size(210, 100);
-            this.menuMaquinas.Text = "Maquinas";
-            this.menuMaquinas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuMaquinas.Click += new System.EventHandler(this.menuMaquinas_Click);
+            this.menuCalentamiento.AutoSize = false;
+            this.menuCalentamiento.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuCalentamiento.IconChar = FontAwesome.Sharp.IconChar.Running;
+            this.menuCalentamiento.IconColor = System.Drawing.Color.Black;
+            this.menuCalentamiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuCalentamiento.IconSize = 55;
+            this.menuCalentamiento.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuCalentamiento.Name = "menuCalentamiento";
+            this.menuCalentamiento.Size = new System.Drawing.Size(210, 100);
+            this.menuCalentamiento.Text = "Calentamiento";
+            this.menuCalentamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuCalentamiento.Click += new System.EventHandler(this.menuCalentamiento_Click);
             // 
-            // menuEjercicios
+            // menuElementosGym
             // 
-            this.menuEjercicios.AutoSize = false;
-            this.menuEjercicios.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuEjercicios.IconChar = FontAwesome.Sharp.IconChar.Running;
-            this.menuEjercicios.IconColor = System.Drawing.Color.Black;
-            this.menuEjercicios.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuEjercicios.IconSize = 55;
-            this.menuEjercicios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuEjercicios.Name = "menuEjercicios";
-            this.menuEjercicios.Size = new System.Drawing.Size(210, 100);
-            this.menuEjercicios.Text = "Ejercicios";
-            this.menuEjercicios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuEjercicios.Click += new System.EventHandler(this.menuEjercicios_Click);
+            this.menuElementosGym.AutoSize = false;
+            this.menuElementosGym.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.equipamientoToolStripMenuItem,
+            this.ejercicioToolStripMenuItem,
+            this.maquinaToolStripMenuItem});
+            this.menuElementosGym.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuElementosGym.IconChar = FontAwesome.Sharp.IconChar.Dumbbell;
+            this.menuElementosGym.IconColor = System.Drawing.Color.Black;
+            this.menuElementosGym.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuElementosGym.IconSize = 55;
+            this.menuElementosGym.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuElementosGym.Name = "menuElementosGym";
+            this.menuElementosGym.Size = new System.Drawing.Size(210, 100);
+            this.menuElementosGym.Text = "Elementos Gym";
+            this.menuElementosGym.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
-            // menuEquipamiento
+            // equipamientoToolStripMenuItem
             // 
-            this.menuEquipamiento.AutoSize = false;
-            this.menuEquipamiento.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.menuEquipamiento.IconChar = FontAwesome.Sharp.IconChar.Dumbbell;
-            this.menuEquipamiento.IconColor = System.Drawing.Color.Black;
-            this.menuEquipamiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.menuEquipamiento.IconSize = 55;
-            this.menuEquipamiento.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.menuEquipamiento.Name = "menuEquipamiento";
-            this.menuEquipamiento.Size = new System.Drawing.Size(210, 100);
-            this.menuEquipamiento.Text = "Equipamientos";
-            this.menuEquipamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.menuEquipamiento.Click += new System.EventHandler(this.menuEquipamiento_Click);
+            this.equipamientoToolStripMenuItem.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.equipamientoToolStripMenuItem.IconColor = System.Drawing.Color.Black;
+            this.equipamientoToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.equipamientoToolStripMenuItem.Name = "equipamientoToolStripMenuItem";
+            this.equipamientoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.equipamientoToolStripMenuItem.Text = "Equipamiento";
+            this.equipamientoToolStripMenuItem.Click += new System.EventHandler(this.menuEquipamiento_Click);
+            // 
+            // ejercicioToolStripMenuItem
+            // 
+            this.ejercicioToolStripMenuItem.Name = "ejercicioToolStripMenuItem";
+            this.ejercicioToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.ejercicioToolStripMenuItem.Text = "Ejercicio";
+            this.ejercicioToolStripMenuItem.Click += new System.EventHandler(this.menuEjercicios_Click);
+            // 
+            // maquinaToolStripMenuItem
+            // 
+            this.maquinaToolStripMenuItem.Name = "maquinaToolStripMenuItem";
+            this.maquinaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.maquinaToolStripMenuItem.Text = "Máquina";
+            this.maquinaToolStripMenuItem.Click += new System.EventHandler(this.menuMaquinas_Click);
+            // 
+            // menuEstiramiento
+            // 
+            this.menuEstiramiento.AutoSize = false;
+            this.menuEstiramiento.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuEstiramiento.IconChar = FontAwesome.Sharp.IconChar.HandSpock;
+            this.menuEstiramiento.IconColor = System.Drawing.Color.Black;
+            this.menuEstiramiento.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.menuEstiramiento.IconSize = 55;
+            this.menuEstiramiento.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuEstiramiento.Name = "menuEstiramiento";
+            this.menuEstiramiento.Size = new System.Drawing.Size(210, 100);
+            this.menuEstiramiento.Text = "Estiramiento";
+            this.menuEstiramiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuEstiramiento.Click += new System.EventHandler(this.menuEstiramiento_Click);
             // 
             // menuRangosHorarios
             // 
@@ -263,9 +293,9 @@
         private FontAwesome.Sharp.IconMenuItem menuUsuarios;
         private FontAwesome.Sharp.IconMenuItem menuAcercaDe;
         private FontAwesome.Sharp.IconMenuItem menuNegocio;
-        private FontAwesome.Sharp.IconMenuItem menuMaquinas;
-        private FontAwesome.Sharp.IconMenuItem menuEjercicios;
-        private FontAwesome.Sharp.IconMenuItem menuEquipamiento;
+        private FontAwesome.Sharp.IconMenuItem menuCalentamiento;
+        private FontAwesome.Sharp.IconMenuItem menuElementosGym;
+        private FontAwesome.Sharp.IconMenuItem menuEstiramiento;
 
         private FontAwesome.Sharp.IconMenuItem menuRangosHorarios;
         private System.Windows.Forms.Panel subContenedor;
@@ -275,5 +305,8 @@
         private FontAwesome.Sharp.IconMenuItem agregarRolToolStripMenuItem;
         private FontAwesome.Sharp.IconMenuItem editarRolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarAccionToolStripMenuItem;
+        private FontAwesome.Sharp.IconMenuItem equipamientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ejercicioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maquinaToolStripMenuItem;
     }
 }

@@ -114,19 +114,29 @@ namespace Vista
             AbrirFormulario(menuRoles, new frmModificarAcciones());
         }
 
-        private void menuMaquinas_Click(object sender, EventArgs e)
+        private void menuCalentamiento_Click(object sender, EventArgs e)
         {
-           AbrirFormulario((IconMenuItem)sender, new frmMenuMaquinas());
-        }
-
-        private void menuEjercicios_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario((IconMenuItem)sender, new frmMenuEjercicios());
+            AbrirFormulario((IconMenuItem)sender, new frmMenuCalentamiento());
         }
 
         private void menuEquipamiento_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmMenuEquipamiento());
+            AbrirFormulario(menuElementosGym, new frmMenuEquipamiento());
+        }
+
+        private void menuEjercicios_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuElementosGym, new frmMenuEjercicios());
+        }
+
+        private void menuMaquinas_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(menuElementosGym, new frmMenuMaquinas());
+        } 
+
+        private void menuEstiramiento_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario((IconMenuItem)sender, new frmMenuEstiramiento());
         }
 
         private void menuRangosHorarios_Click(object sender, EventArgs e)

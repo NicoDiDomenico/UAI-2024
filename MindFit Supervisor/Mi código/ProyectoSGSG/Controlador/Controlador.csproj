@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControladorGymAccion.cs" />
+    <Compile Include="ControladorGymCalentamiento.cs" />
+    <Compile Include="ControladorGymEstiramiento.cs" />
     <Compile Include="ControladorGymGimnasio.cs" />
     <Compile Include="ControladorGymGrupo.cs" />
+    <Compile Include="ControladorGymMaquina.cs" />
     <Compile Include="ControladorGymPermiso.cs" />
     <Compile Include="ControladorGymRangoHorario.cs" />
     <Compile Include="ControladorGymRol.cs" />
