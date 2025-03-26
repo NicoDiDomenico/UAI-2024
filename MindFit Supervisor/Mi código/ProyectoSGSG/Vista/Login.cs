@@ -27,6 +27,31 @@ namespace CapaPresentacion
 
             this.Show();
         }
+
+        private void ingresoUsuario()
+        {
+            if (txtNombreUsuario.Text.Trim() != "" && txtClave.Text.Trim() != "")
+            {
+                Usuario unUsuario = (((new ControladorGymUsuario()).Listar()).Where(u => u.NombreUsuario == (txtNombreUsuario.Text).Trim() && u.Clave == (txtClave.Text).Trim())).FirstOrDefault();
+
+                if (unUsuario != null)
+                {
+                    Inicio form = new Inicio(unUsuario);
+
+                    form.Show();
+                    this.Hide();
+
+                    form.FormClosing += frm_closing; // Cada vez que el formulario Inicio se esté por cerrar (cuando el usuario haga clic en la "X" o cierre la ventana), se ejecutará el método Login_FormClosing.
+                }
+                else
+                {
+                    MessageBox.Show("No se encontró el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            } else
+            {
+                MessageBox.Show("Ingrese un usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
         #endregion
 
         public Login()
@@ -41,26 +66,28 @@ namespace CapaPresentacion
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Usuario unUsuario = (((new ControladorGymUsuario()).Listar()).Where(u => u.NombreUsuario == (txtNombreUsuario.Text).Trim() && u.Clave == (txtClave.Text).Trim())).FirstOrDefault();
-                      
-            if (unUsuario != null)
-            {
-                Inicio form = new Inicio(unUsuario);
-
-                form.Show();
-                this.Hide();
-
-                form.FormClosing += frm_closing; // Cada vez que el formulario Inicio se esté por cerrar (cuando el usuario haga clic en la "X" o cierre la ventana), se ejecutará el método Login_FormClosing.
-            }
-            else
-            {
-                MessageBox.Show("no se encontro el usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            ingresoUsuario();
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtClave_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Verifica si se presionó Enter
+            {
+                ingresoUsuario();
+            }
+        }
+
+        private void txtNombreUsuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) // Verifica si se presionó Enter
+            {
+                ingresoUsuario();
+            }
         }
     }
 }

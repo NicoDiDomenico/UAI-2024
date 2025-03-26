@@ -112,12 +112,25 @@ namespace Vista
 
         private void LimpiarBotones()
         {
-            btnLunes.BackColor = ColorTranslator.FromHtml("#E6EAEA");
-            btnMartes.BackColor = ColorTranslator.FromHtml("#E6EAEA");
-            btnMiercoles.BackColor = ColorTranslator.FromHtml("#E6EAEA");
-            btnJueves.BackColor = ColorTranslator.FromHtml("#E6EAEA");
-            btnViernes.BackColor = ColorTranslator.FromHtml("#E6EAEA");
-            btnSabado.BackColor = ColorTranslator.FromHtml("#E6EAEA");
+            btnLunes.BackColor = Color.White;
+            btnMartes.BackColor = Color.White; ;
+            btnMiercoles.BackColor = Color.White;
+            btnJueves.BackColor = Color.White;
+            btnViernes.BackColor = Color.White;
+            btnSabado.BackColor = Color.White;
+            //btnSabado.BackColor = ColorTranslator.FromHtml("#E6EAEA");
+        }
+
+        private void activarRutina()
+        {
+            gbRutina.Visible = true;
+            panelBotones.Visible = true;
+        }
+
+        private void desactivarRutina()
+        {
+            gbRutina.Visible = false;
+            panelBotones.Visible = false;
         }
         #endregion
 
@@ -128,6 +141,7 @@ namespace Vista
 
         private void frmGestionarRutinas_Load(object sender, EventArgs e)
         {
+            desactivarRutina();
             this.BackColor = ColorTranslator.FromHtml("#E6EAEA");
             lblMensaje.Visible = false;
             cargarCBO();
@@ -138,6 +152,7 @@ namespace Vista
         {
             dgvDataSocio.Rows.Clear();
             LimpiarBotones();
+            desactivarRutina();
 
             if (cboRangoHorario.SelectedItem != null)
             {
@@ -187,6 +202,7 @@ namespace Vista
         private void dgvDataEntrenador_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             LimpiarBotones();
+            desactivarRutina();
 
             if (dgvDataEntrenador.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
@@ -261,13 +277,14 @@ namespace Vista
 
                     // Traer Rutinas
                     PintarBotonDiaActual();
+                    activarRutina();
 
                     int IdSocio = Convert.ToInt32(dgvDataSocio.Rows[indice].Cells["IdSocio"].Value);
 
                     // Acá hay un error que no encuentro!!!
-                    //List<Rutina> rutinasSocio = new ControladorGymRutina().Listar(IdSocio);
+                    List<Rutina> rutinasSocio = new ControladorGymRutina().Listar(IdSocio);
 
-                    //RutinasActuales = rutinasSocio;
+                    RutinasActuales = rutinasSocio;
                 }
             }
         }
@@ -280,6 +297,9 @@ namespace Vista
             foreach (Rutina rutina in RutinasActuales)
             {
                 if (rutina.Dia == "Lunes")
+                {
+                    
+                } else
                 {
 
                 }

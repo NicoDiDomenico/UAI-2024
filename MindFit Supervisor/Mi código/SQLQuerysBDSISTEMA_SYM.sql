@@ -2638,3 +2638,7 @@ SELECT
     e.Precio
 FROM Equipamiento e
 INNER JOIN ElementoGimnasio eg ON e.IdElemento = eg.IdElemento
+
+select * from Socio s 
+inner join Rutina r
+on r.IdSocio = s.IdSocio
