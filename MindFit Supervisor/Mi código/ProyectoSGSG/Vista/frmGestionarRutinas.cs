@@ -123,14 +123,68 @@ namespace Vista
 
         private void activarRutina()
         {
-            gbRutina.Visible = true;
+            gbCalentamiento.Visible = true;
             panelBotones.Visible = true;
         }
 
         private void desactivarRutina()
         {
-            gbRutina.Visible = false;
+            gbCalentamiento.Visible = false;
             panelBotones.Visible = false;
+        }
+
+        private void AgregarFilaCalentamiento()
+        {
+            int rowIndex = tlpCalentamiento.RowCount++;
+            tlpCalentamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            ComboBox combo = new ComboBox();
+            combo.Width = 150;
+            combo.Items.AddRange(new string[] { "Bicicleta", "Caminadora", "Elíptica" }); // o cargás dinámicamente
+            tlpCalentamiento.Controls.Add(combo, 0, rowIndex);
+
+            NumericUpDown minutos = new NumericUpDown();
+            minutos.Minimum = 1;
+            minutos.Maximum = 60;
+            minutos.Value = 10;
+            minutos.Width = 60;
+            tlpCalentamiento.Controls.Add(minutos, 1, rowIndex);
+        }
+
+        private void AgregarFilaEntrenamiento()
+        {
+            int rowIndex = tlpEntrenamiento.RowCount++;
+            tlpEntrenamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            ComboBox combo = new ComboBox();
+            combo.Width = 150;
+            combo.Items.AddRange(new string[] { "Bicicleta", "Caminadora", "Elíptica" }); // o cargás dinámicamente
+            tlpEntrenamiento.Controls.Add(combo, 0, rowIndex);
+
+            NumericUpDown minutos = new NumericUpDown();
+            minutos.Minimum = 1;
+            minutos.Maximum = 60;
+            minutos.Value = 10;
+            minutos.Width = 60;
+            tlpEntrenamiento.Controls.Add(minutos, 1, rowIndex);
+        }
+
+        private void AgregarFilaEstiramiento()
+        {
+            int rowIndex = tlpEstiramiento.RowCount++;
+            tlpEstiramiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            ComboBox combo = new ComboBox();
+            combo.Width = 150;
+            combo.Items.AddRange(new string[] { "Bicicleta", "Caminadora", "Elíptica" }); // o cargás dinámicamente
+            tlpEstiramiento.Controls.Add(combo, 0, rowIndex);
+
+            NumericUpDown minutos = new NumericUpDown();
+            minutos.Minimum = 1;
+            minutos.Maximum = 60;
+            minutos.Value = 10;
+            minutos.Width = 60;
+            tlpEstiramiento.Controls.Add(minutos, 1, rowIndex);
         }
         #endregion
 
@@ -374,6 +428,21 @@ namespace Vista
 
                 }
             }
+        }
+
+        private void btnAgregarFilaCalentamiento_Click(object sender, EventArgs e)
+        {
+            AgregarFilaCalentamiento();
+        }
+
+        private void btnAgregarFilaEntrenamiento_Click(object sender, EventArgs e)
+        {
+            AgregarFilaEntrenamiento();
+        }
+
+        private void btnAgregarFilaEstiramiento_Click(object sender, EventArgs e)
+        {
+            AgregarFilaEstiramiento();
         }
     }
 }
