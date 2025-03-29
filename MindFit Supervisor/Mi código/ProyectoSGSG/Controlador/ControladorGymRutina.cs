@@ -17,5 +17,21 @@ namespace Controlador
 
             return rutinas;
         }
+
+        public bool GuardarCalentamientos(List<RutinaCalentamiento> lista, out string mensaje)
+        {
+            mensaje = "";
+
+            try
+            {
+                return new RutinaDAO().GuardarCalentamientos(lista, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error inesperado: " + ex.Message;
+                return false;
+            }
+        }
+
     }
 }

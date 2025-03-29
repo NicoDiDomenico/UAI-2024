@@ -216,6 +216,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilidades\OpcionCombo.cs" />
+    <Compile Include="Utilidades\OpcionComboCalentamiento.cs" />
     <Compile Include="Utilidades\OpcionComboRangoHorario.cs" />
     <EmbeddedResource Include="frmGestionarGimnasioMenus\frmAcciones.resx">
       <DependentUpon>frmAcciones.cs</DependentUpon>

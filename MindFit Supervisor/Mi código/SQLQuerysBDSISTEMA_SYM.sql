@@ -2642,3 +2642,35 @@ INNER JOIN ElementoGimnasio eg ON e.IdElemento = eg.IdElemento
 select * from Socio s 
 inner join Rutina r
 on r.IdSocio = s.IdSocio
+
+select r.*, s.NombreYApellido from Rutina r
+inner join Socio s
+on r.IdSocio = s.IdSocio
+
+select r.IdRutina, r.IdSocio, r.FechaModificacion, r.Dia  
+from Rutina r
+inner join Socio s
+on r.IdSocio = s.IdSocio
+where s.IdSocio = 1
+
+select * from Rutina_Calentamiento
+
+select * from Calentamiento
+
+select c.IdCalentamiento, c.IdMaquina, c.DescripcionCalentamiento
+from Calentamiento c
+
+select * from ElementoGimnasio
+
+select * from Rutina_Calentamiento rc
+
+SELECT * --rc.IdCalentamiento, rc.Duracion, r.Dia 
+FROM Rutina_Calentamiento rc
+inner join rutina r
+on rc.IdRutina = r.IdRutina
+WHERE rc.IdRutina = 22
+
+select * from rutina
+
+UPDATE Rutina SET Dia = 'Sábado' WHERE Dia = 'Sabado';
+UPDATE Rutina SET Dia = 'Miércoles' WHERE Dia = 'Miercoles';

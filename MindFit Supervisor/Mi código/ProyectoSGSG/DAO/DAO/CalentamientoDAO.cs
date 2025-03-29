@@ -168,5 +168,44 @@ namespace DAO
 
             return respuesta;
         }
+
+        public List<RutinaCalentamiento> ListarCalentamientosPorRutina(int idRutina)
+        {
+            List<RutinaCalentamiento> lista = new List<RutinaCalentamiento>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(@"
+                        SELECT IdCalentamiento, Duracion 
+                        FROM Rutina_Calentamiento 
+                        WHERE IdRutina = @IdRutina", conn);
+
+                    cmd.Parameters.AddWithValue("@IdRutina", idRutina);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new RutinaCalentamiento
+                            {
+                                IdRutina = idRutina,
+                                IdCalentamiento = Convert.ToInt32(reader["IdCalentamiento"]),
+                                Minutos = Convert.ToInt32(reader["Duracion"])
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Podés loguear o retornar una lista vacía, según tu necesidad
+                lista = new List<RutinaCalentamiento>();
+            }
+
+            return lista;
+        }
     }
 }

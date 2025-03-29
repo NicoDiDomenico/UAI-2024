@@ -126,9 +126,12 @@ namespace DAO
                                 Rutina rutina = new Rutina
                                 {
                                     IdRutina = Convert.ToInt32(dr["IdRutina"]),
-                                    IdSocio = Convert.ToInt32(dr["IdSocio"]),
                                     FechaModificacion = Convert.ToDateTime(dr["FechaModificacion"]),
-                                    Dia = dr["Dia"].ToString()
+                                    Dia = dr["Dia"].ToString(),
+                                    Socio = new Socio
+                                    {
+                                        IdSocio = Convert.ToInt32(dr["IdSocio"]) // Aquí se asigna el ID al objeto Socio
+                                    }
                                 };
                                 unSocio.Rutinas.Add(rutina);
                             }

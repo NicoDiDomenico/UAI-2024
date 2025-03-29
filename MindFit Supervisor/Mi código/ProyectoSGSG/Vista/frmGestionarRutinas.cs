@@ -19,6 +19,7 @@ namespace Vista
         #region "Variables"
         private int idRangoHorarioActual; // Variable global para almacenar el Id del rango horario actual
         private List<Rutina> RutinasActuales;
+        private Rutina RutinaSeleccionada;
         #endregion
         #region "Métodos"
         private void cargarCBO()
@@ -94,6 +95,21 @@ namespace Vista
             }
         }
 
+        private string TraducirDiaConTilde(string diaIngles)
+        {
+            switch (diaIngles)
+            {
+                case "Monday": return "Lunes";
+                case "Tuesday": return "Martes";
+                case "Wednesday": return "Miércoles";
+                case "Thursday": return "Jueves";
+                case "Friday": return "Viernes";
+                case "Saturday": return "Sábado";
+                case "Sunday": return "Domingo";
+                default: return "";
+            }
+        }
+
         private void PintarBotonDiaActual()
         {
             // Obtener el día actual en español
@@ -124,13 +140,181 @@ namespace Vista
         private void activarRutina()
         {
             gbCalentamiento.Visible = true;
+            gbEntrenamiento.Visible = true;
+            gbEstiramiento.Visible = true;
+
             panelBotones.Visible = true;
+
+            btnAgregarFilaCalentamiento.Visible = true;
+            btnAgregarFilaEntrenamiento.Visible = true;
+            btnAgregarFilaEstiramiento.Visible = true;
         }
 
         private void desactivarRutina()
         {
             gbCalentamiento.Visible = false;
+            gbEntrenamiento.Visible = false;
+            gbEstiramiento.Visible = false;
+
             panelBotones.Visible = false;
+
+            btnAgregarFilaCalentamiento.Visible = false;
+            btnAgregarFilaEntrenamiento.Visible = false;
+            btnAgregarFilaEstiramiento.Visible = false;
+        }
+
+        // Este método recorre todas las filas del TableLayoutPanel "tlpCalentamiento"
+        // y extrae los datos ingresados en los controles (ComboBox + NumericUpDown)
+        // para devolver una lista de objetos "RutinaCalentamiento"
+        private List<RutinaCalentamiento> ObtenerCalentamientosDesdeFormulario()
+        {
+            // Lista donde se almacenarán los objetos RutinaCalentamiento
+            List<RutinaCalentamiento> lista = new List<RutinaCalentamiento>();
+
+            // Recorre todas las filas del TableLayoutPanel
+            for (int row = 0; row < tlpCalentamiento.RowCount; row++)
+            {
+                // Intenta obtener el ComboBox que se encuentra en la columna 0 de la fila actual
+                ComboBox combo = tlpCalentamiento.GetControlFromPosition(0, row) as ComboBox;
+
+                // Intenta obtener el FlowLayoutPanel (que contiene el NumericUpDown y el Label)
+                // ubicado en la columna 1 de la misma fila
+                FlowLayoutPanel panel = tlpCalentamiento.GetControlFromPosition(1, row) as FlowLayoutPanel;
+
+                // Verifica que ambos controles existan y que el ComboBox tenga una opción seleccionada
+                if (combo != null && panel != null && combo.SelectedItem != null)
+                {
+                    // Convierte el ítem seleccionado del combo a OpcionComboCalentamiento
+                    var opcion = combo.SelectedItem as OpcionComboCalentamiento;
+
+                    // Busca dentro del panel el primer control de tipo NumericUpDown
+                    NumericUpDown minutos = panel.Controls.OfType<NumericUpDown>().FirstOrDefault();
+
+                    // Verifica que tanto la opción como el control de minutos sean válidos
+                    if (opcion != null && minutos != null)
+                    {
+                        // Agrega a la lista un nuevo objeto RutinaCalentamiento con los datos recolectados
+                        lista.Add(new RutinaCalentamiento
+                        {
+                            IdRutina = RutinaSeleccionada.IdRutina,        // ID de la rutina actual seleccionada
+                            IdCalentamiento = opcion.IdCalentamiento,      // ID del calentamiento seleccionado
+                            Minutos = (int)minutos.Value                   // Cantidad de minutos ingresados
+                        });
+                    }
+                }
+            }
+
+            // Devuelve la lista de calentamientos ingresados por el usuario
+            return lista;
+        }
+        private void CargarCalentamientos()
+        {
+            tlpCalentamiento.Controls.Clear(); // Limpiar filas anteriores
+            tlpCalentamiento.RowStyles.Clear();
+            tlpCalentamiento.RowCount = 0;
+
+            List<RutinaCalentamiento> lista = new ControladorGymCalentamiento().ListarCalentamientosPorRutina(RutinaSeleccionada.IdRutina);
+
+            foreach (var item in lista)
+            {
+                int rowIndex = tlpCalentamiento.RowCount++;
+                tlpCalentamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+                // ComboBox
+                ComboBox combo = new ComboBox
+                {
+                    Width = 400,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(20, 5, 5, 0)
+                };
+
+                List<Calentamiento> todos = new ControladorGymCalentamiento().Listar();
+                foreach (var calentamiento in todos)
+                {
+                    combo.Items.Add(new OpcionComboCalentamiento
+                    {
+                        IdCalentamiento = calentamiento.IdCalentamiento,
+                        IdMaquina = calentamiento.MaquinaTipoCardio?.IdElemento,
+                        DescripcionCalentamiento = calentamiento.DescripcionCalentamiento
+                    });
+                }
+
+                // Seleccionar el que corresponde
+                combo.SelectedItem = combo.Items
+                    .OfType<OpcionComboCalentamiento>()
+                    .FirstOrDefault(c => c.IdCalentamiento == item.IdCalentamiento);
+
+                tlpCalentamiento.Controls.Add(combo, 0, rowIndex);
+
+                // Panel minutos
+                FlowLayoutPanel panelMinutos = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    WrapContents = false,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(20, 5, 5, 0)
+                };
+
+                NumericUpDown minutos = new NumericUpDown
+                {
+                    Minimum = 0,
+                    Maximum = 60,
+                    Value = item.Minutos,
+                    Width = 60,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(0)
+                };
+
+                Label lblMinutos = new Label
+                {
+                    Text = "Minutos",
+                    AutoSize = true,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(5, 6, 0, 0)
+                };
+
+                panelMinutos.Controls.Add(minutos);
+                panelMinutos.Controls.Add(lblMinutos);
+                tlpCalentamiento.Controls.Add(panelMinutos, 1, rowIndex);
+
+                // Botón eliminar
+                Button btnEliminar = new Button
+                {
+                    Text = "✖",
+                    Width = 25,
+                    Height = 25,
+                    BackColor = Color.Red,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Anchor = AnchorStyles.Right,
+                    Margin = new Padding(5, 0, 15, 0),
+                    Tag = rowIndex,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                };
+                btnEliminar.FlatAppearance.BorderSize = 0;
+
+                btnEliminar.Click += (s, e) =>
+                {
+                    Button boton = (Button)s;
+                    int fila = tlpCalentamiento.GetRow(boton);
+                    for (int col = 0; col < tlpCalentamiento.ColumnCount; col++)
+                    {
+                        var ctrl = tlpCalentamiento.GetControlFromPosition(col, fila);
+                        if (ctrl != null)
+                            tlpCalentamiento.Controls.Remove(ctrl);
+                    }
+
+                    if (fila < tlpCalentamiento.RowStyles.Count)
+                        tlpCalentamiento.RowStyles.RemoveAt(fila);
+
+                    tlpCalentamiento.RowCount--;
+                };
+
+                tlpCalentamiento.Controls.Add(btnEliminar, 2, rowIndex);
+            }
         }
 
         private void AgregarFilaCalentamiento()
@@ -138,54 +322,136 @@ namespace Vista
             int rowIndex = tlpCalentamiento.RowCount++;
             tlpCalentamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-            ComboBox combo = new ComboBox();
-            combo.Width = 150;
-            combo.Items.AddRange(new string[] { "Bicicleta", "Caminadora", "Elíptica" }); // o cargás dinámicamente
+            // ComboBox
+            ComboBox combo = new ComboBox
+            {
+                Width = 400,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(20, 5, 5, 0)
+            };
+
+            List<Calentamiento> lista = new ControladorGymCalentamiento().Listar();
+            foreach (Calentamiento item in lista)
+            {
+                combo.Items.Add(new OpcionComboCalentamiento
+                {
+                    IdCalentamiento = item.IdCalentamiento,
+                    IdMaquina = item.MaquinaTipoCardio?.IdElemento,
+                    DescripcionCalentamiento = item.DescripcionCalentamiento
+                });
+            }
+
+            combo.SelectedIndex = -1;
             tlpCalentamiento.Controls.Add(combo, 0, rowIndex);
 
-            NumericUpDown minutos = new NumericUpDown();
-            minutos.Minimum = 1;
-            minutos.Maximum = 60;
-            minutos.Value = 10;
-            minutos.Width = 60;
-            tlpCalentamiento.Controls.Add(minutos, 1, rowIndex);
+            // Panel minutos
+            FlowLayoutPanel panelMinutos = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(20, 5, 5, 0)
+            };
+
+            NumericUpDown minutos = new NumericUpDown
+            {
+                Minimum = 0,
+                Maximum = 60,
+                Value = 0,
+                Width = 60,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(0)
+            };
+
+            Label lblMinutos = new Label
+            {
+                Text = "Minutos",
+                AutoSize = true,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(5, 6, 0, 0)
+            };
+
+            panelMinutos.Controls.Add(minutos);
+            panelMinutos.Controls.Add(lblMinutos);
+
+            tlpCalentamiento.Controls.Add(panelMinutos, 1, rowIndex);
+
+            // Botón eliminar fila
+            Button btnEliminar = new Button
+            {
+                Text = "✖",
+                Width = 25,
+                Height = 25,
+                BackColor = Color.Red,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Anchor = AnchorStyles.Right,
+                Margin = new Padding(5, 0, 15, 0), // separa un poco del borde derecho
+                Tag = rowIndex,
+                TextAlign = ContentAlignment.MiddleCenter, // <-- centra el texto
+                Font = new Font("Segoe UI", 8, FontStyle.Bold) // opcional para mejor visibilidad
+            };
+            // Quitar borde extra
+            btnEliminar.FlatAppearance.BorderSize = 0;
+
+            btnEliminar.Click += (s, e) =>
+            {
+                Button boton = (Button)s;
+                int fila = tlpCalentamiento.GetRow(boton);
+
+                // Eliminar controles de esa fila
+                for (int col = 0; col < tlpCalentamiento.ColumnCount; col++)
+                {
+                    var ctrl = tlpCalentamiento.GetControlFromPosition(col, fila);
+                    if (ctrl != null)
+                        tlpCalentamiento.Controls.Remove(ctrl);
+                }
+
+                // Solo si el índice es válido
+                if (fila < tlpCalentamiento.RowStyles.Count)
+                    tlpCalentamiento.RowStyles.RemoveAt(fila);
+
+                tlpCalentamiento.RowCount--;
+            };
+
+            tlpCalentamiento.Controls.Add(btnEliminar, 2, rowIndex);
         }
 
         private void AgregarFilaEntrenamiento()
         {
-            int rowIndex = tlpEntrenamiento.RowCount++;
-            tlpEntrenamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-
-            ComboBox combo = new ComboBox();
-            combo.Width = 150;
-            combo.Items.AddRange(new string[] { "Bicicleta", "Caminadora", "Elíptica" }); // o cargás dinámicamente
-            tlpEntrenamiento.Controls.Add(combo, 0, rowIndex);
-
-            NumericUpDown minutos = new NumericUpDown();
-            minutos.Minimum = 1;
-            minutos.Maximum = 60;
-            minutos.Value = 10;
-            minutos.Width = 60;
-            tlpEntrenamiento.Controls.Add(minutos, 1, rowIndex);
+            // Implmeentación parececida a Calentamiento pero con mas columnas y para Entrenamiento - NO HACER
         }
 
         private void AgregarFilaEstiramiento()
         {
-            int rowIndex = tlpEstiramiento.RowCount++;
-            tlpEstiramiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
-
-            ComboBox combo = new ComboBox();
-            combo.Width = 150;
-            combo.Items.AddRange(new string[] { "Bicicleta", "Caminadora", "Elíptica" }); // o cargás dinámicamente
-            tlpEstiramiento.Controls.Add(combo, 0, rowIndex);
-
-            NumericUpDown minutos = new NumericUpDown();
-            minutos.Minimum = 1;
-            minutos.Maximum = 60;
-            minutos.Value = 10;
-            minutos.Width = 60;
-            tlpEstiramiento.Controls.Add(minutos, 1, rowIndex);
+            // Implmeentación parececida a Calentamiento pero para Estiramiento - NO HACER
         }
+
+        private void SeleccionarDia(string dia, Button boton)
+        {
+            // Limpieza del panel
+            tlpCalentamiento.Controls.Clear();
+            tlpCalentamiento.RowStyles.Clear();
+            tlpCalentamiento.RowCount = 0;
+
+            // Limpieza visual
+            LimpiarBotones();
+            boton.BackColor = Color.SteelBlue;
+
+            // Buscar rutina del día
+            RutinaSeleccionada = RutinasActuales.FirstOrDefault(r => r.Dia.Equals(dia, StringComparison.OrdinalIgnoreCase));
+
+            if (RutinaSeleccionada != null)
+                CargarCalentamientos();
+            else
+            {
+                //MessageBox.Show($"No se encontró una rutina para el día {dia}.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Falta implementar un label o algo que indique que no hay rutinas para este dia
+            }
+        }
+
         #endregion
 
         public frmGestionarRutinas()
@@ -329,105 +595,67 @@ namespace Vista
                     // Refrescar la vista
                     dgvDataSocio.Refresh();
 
+                    LimpiarBotones();
                     // Traer Rutinas
                     PintarBotonDiaActual();
                     activarRutina();
 
                     int IdSocio = Convert.ToInt32(dgvDataSocio.Rows[indice].Cells["IdSocio"].Value);
 
-                    // Acá hay un error que no encuentro!!!
                     List<Rutina> rutinasSocio = new ControladorGymRutina().Listar(IdSocio);
 
                     RutinasActuales = rutinasSocio;
+                    
+                    // Obtener el día actual en español
+                    string diaActual = DateTime.Now.DayOfWeek.ToString();
+
+                    // Convertir el día al formato esperado
+                    string diaActualEsp = TraducirDiaConTilde(diaActual);
+
+                    RutinaSeleccionada = RutinasActuales.FirstOrDefault(r => r.Dia == diaActualEsp);
+
+
+                    if (RutinaSeleccionada != null)
+                    {
+                        //MessageBox.Show($"Dia: {RutinaSeleccionada.Dia}, IdRutina: {RutinaSeleccionada.IdRutina}", "Mensaje");
+                        CargarCalentamientos();
+                    } else
+                    {
+                        //MessageBox.Show($" El Socio no posee una rutina para el dia {diaActualEsp}", "Mensaje");
+                        // Acá hay que implementar un label que se active y muestre que no hay rutinas para este dia
+                    }
                 }
             }
         }
 
         private void btnLunes_Click(object sender, EventArgs e)
         {
-            LimpiarBotones();
-            btnLunes.BackColor = Color.SteelBlue;
-
-            foreach (Rutina rutina in RutinasActuales)
-            {
-                if (rutina.Dia == "Lunes")
-                {
-                    
-                } else
-                {
-
-                }
-            }
+            SeleccionarDia("Lunes", btnLunes);
         }
 
         private void btnMartes_Click(object sender, EventArgs e)
         {
-            LimpiarBotones();
-            btnMartes.BackColor = Color.SteelBlue;
-
-            foreach (Rutina rutina in RutinasActuales)
-            {
-                if (rutina.Dia == "Martes")
-                {
-
-                }
-            }
+            SeleccionarDia("Martes", btnMartes);
         }
 
         private void btnMiercoles_Click(object sender, EventArgs e)
         {
-            LimpiarBotones();
-            btnMiercoles.BackColor = Color.SteelBlue;
-
-            foreach (Rutina rutina in RutinasActuales)
-            {
-                if (rutina.Dia == "Miercoles")
-                {
-
-                }
-            }
+            SeleccionarDia("Miércoles", btnMiercoles); // ¡Con tilde!
         }
 
         private void btnJueves_Click(object sender, EventArgs e)
         {
-            LimpiarBotones();
-            btnJueves.BackColor = Color.SteelBlue;
-
-            foreach (Rutina rutina in RutinasActuales)
-            {
-                if (rutina.Dia == "Jueves")
-                {
-
-                }
-            }
+            SeleccionarDia("Jueves", btnJueves);
         }
 
         private void btnViernes_Click(object sender, EventArgs e)
         {
-            LimpiarBotones();
-            btnViernes.BackColor = Color.SteelBlue;
-
-            foreach (Rutina rutina in RutinasActuales)
-            {
-                if (rutina.Dia == "Viernes")
-                {
-
-                }
-            }
+            SeleccionarDia("Viernes", btnViernes);
         }
 
         private void btnSabado_Click(object sender, EventArgs e)
         {
-            LimpiarBotones();
-            btnSabado.BackColor = Color.SteelBlue;
-
-            foreach (Rutina rutina in RutinasActuales)
-            {
-                if (rutina.Dia == "Sabado")
-                {
-
-                }
-            }
+            SeleccionarDia("Sábado", btnSabado); // ¡Con tilde!
         }
 
         private void btnAgregarFilaCalentamiento_Click(object sender, EventArgs e)
@@ -443,6 +671,26 @@ namespace Vista
         private void btnAgregarFilaEstiramiento_Click(object sender, EventArgs e)
         {
             AgregarFilaEstiramiento();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            // Falta implementar para Editar 
+
+            if (RutinaSeleccionada == null)
+            {
+                MessageBox.Show("Debe seleccionar una rutina antes de guardar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            List<RutinaCalentamiento> listaCalentamientos = ObtenerCalentamientosDesdeFormulario();
+
+            bool exito = new ControladorGymRutina().GuardarCalentamientos(listaCalentamientos, out string mensaje);
+
+            if (exito)
+                MessageBox.Show("Calentamientos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("Error al guardar calentamientos: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

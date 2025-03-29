@@ -57,6 +57,7 @@
     <Compile Include="RangoHorario.cs" />
     <Compile Include="Rol.cs" />
     <Compile Include="Rutina.cs" />
+    <Compile Include="RutinaCalentamiento.cs" />
     <Compile Include="Socio.cs" />
     <Compile Include="Turno.cs" />
     <Compile Include="Usuario.cs" />

@@ -31,5 +31,9 @@ namespace Controlador
             return objcd_Calentamiento.Eliminar(idCalentamiento, out mensaje);
         }
 
+        public List<RutinaCalentamiento> ListarCalentamientosPorRutina(int IdRutina)
+        {
+            return objcd_Calentamiento.ListarCalentamientosPorRutina(IdRutina);
+        }
     }
 }

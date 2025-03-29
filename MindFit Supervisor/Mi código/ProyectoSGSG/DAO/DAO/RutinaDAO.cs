@@ -20,7 +20,7 @@ namespace DAO
                 try
                 {
                     string query = @"
-                        select r.Dia, r.IdRutina 
+                        select r.IdRutina, r.IdSocio, r.FechaModificacion, r.Dia  
                         from Rutina r
                         inner join Socio s
                         on r.IdSocio = s.IdSocio
@@ -40,8 +40,13 @@ namespace DAO
                             {
                                 Rutina unaRutina = new Rutina
                                 {
-                                    Dia = Convert.ToString(dr["Dia"]),
                                     IdRutina = dr["IdRutina"] != DBNull.Value ? Convert.ToInt32(dr["IdRutina"]) : 0,
+                                    Socio = new Socio
+                                    {
+                                        IdSocio = Convert.ToInt32(dr["IdSocio"]) // Aquí se asigna el ID al objeto Socio
+                                    },
+                                    FechaModificacion = Convert.ToDateTime(dr["FechaModificacion"]),
+                                    Dia = Convert.ToString(dr["Dia"])
                                 };
 
                                 lista.Add(unaRutina);
@@ -57,5 +62,46 @@ namespace DAO
             }
             return lista;
         }
+
+        public bool GuardarCalentamientos(List<RutinaCalentamiento> lista, out string mensaje)
+        {
+            mensaje = "";
+            bool exito = true;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                oconexion.Open();
+                SqlTransaction trans = oconexion.BeginTransaction();
+
+                try
+                {
+                    foreach (var item in lista)
+                    {
+                        string query = @"
+                            INSERT INTO Rutina_Calentamiento (IdRutina, IdCalentamiento, Duracion)
+                            VALUES (@IdRutina, @IdCalentamiento, @Minutos);
+                        ";
+
+                        SqlCommand cmd = new SqlCommand(query, oconexion, trans);
+                        cmd.Parameters.AddWithValue("@IdRutina", item.IdRutina);
+                        cmd.Parameters.AddWithValue("@IdCalentamiento", item.IdCalentamiento);
+                        cmd.Parameters.AddWithValue("@Minutos", item.Minutos);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    exito = false;
+                    mensaje = "Error en la base de datos: " + ex.Message;
+                }
+            }
+
+            return exito;
+        }
+
     }
 }
