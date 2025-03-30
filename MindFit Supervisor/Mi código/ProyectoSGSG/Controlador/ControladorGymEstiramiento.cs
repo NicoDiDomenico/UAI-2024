@@ -29,5 +29,10 @@ namespace Controlador
         {
             return objcd_Estiramiento.Eliminar(idEstiramiento, out mensaje);
         }
+
+        public List<RutinaEstiramiento> ListarEstiramientosPorRutina(int IdRutina)
+        {
+            return objcd_Estiramiento.ListarEstiramientosPorRutina(IdRutina);
+        }
     }
 }

@@ -75,6 +75,15 @@ namespace DAO
 
                 try
                 {
+                    if (lista.Count > 0)
+                    {
+                        // Borrar calentamientos anteriores de esa rutina
+                        string deleteQuery = "DELETE FROM Rutina_Calentamiento WHERE IdRutina = @IdRutina";
+                        SqlCommand deleteCmd = new SqlCommand(deleteQuery, oconexion, trans);
+                        deleteCmd.Parameters.AddWithValue("@IdRutina", lista[0].IdRutina);
+                        deleteCmd.ExecuteNonQuery();
+                    }
+
                     foreach (var item in lista)
                     {
                         string query = @"
@@ -99,9 +108,72 @@ namespace DAO
                     mensaje = "Error en la base de datos: " + ex.Message;
                 }
             }
-
             return exito;
         }
 
+        public bool GuardarEstiramientos(List<RutinaEstiramiento> lista, out string mensaje)
+        {
+            mensaje = "";
+            bool exito = true;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                oconexion.Open();
+                SqlTransaction trans = oconexion.BeginTransaction();
+
+                try
+                {
+                    if (lista.Count > 0)
+                    {
+                        // Borrar estiramientos anteriores de esa rutina
+                        string deleteQuery = "DELETE FROM Rutina_Estiramiento WHERE IdRutina = @IdRutina";
+                        SqlCommand deleteCmd = new SqlCommand(deleteQuery, oconexion, trans);
+                        deleteCmd.Parameters.AddWithValue("@IdRutina", lista[0].IdRutina);
+                        deleteCmd.ExecuteNonQuery();
+                    }
+
+                    foreach (var item in lista)
+                    {
+                        string query = @"
+                            INSERT INTO Rutina_Estiramiento (IdRutina, IdEstiramiento, Duracion)
+                            VALUES (@IdRutina, @IdEstiramiento, @Minutos);
+                        ";
+
+                        SqlCommand cmd = new SqlCommand(query, oconexion, trans);
+                        cmd.Parameters.AddWithValue("@IdRutina", item.IdRutina);
+                        cmd.Parameters.AddWithValue("@IdEstiramiento", item.IdEstiramiento);
+                        cmd.Parameters.AddWithValue("@Minutos", item.Minutos);
+
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    trans.Commit();
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    exito = false;
+                    mensaje = "Error en la base de datos: " + ex.Message;
+                }
+            }
+            return exito;
+        }
+
+
+        public bool ActualizarFechaModificacion(int idRutina)
+        {
+            using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+            {
+                string query = "UPDATE Rutina SET FechaModificacion = @Fecha WHERE IdRutina = @IdRutina";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Fecha", DateTime.Now);
+                cmd.Parameters.AddWithValue("@IdRutina", idRutina);
+
+                conn.Open();
+                int filasAfectadas = cmd.ExecuteNonQuery();
+                return filasAfectadas > 0;
+            }
+        }
     }
 }

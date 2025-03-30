@@ -1,6 +1,7 @@
 ﻿using DAO;
 using Modelo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,5 +34,31 @@ namespace Controlador
             }
         }
 
+        public bool GuardarEstiramientos(List<RutinaEstiramiento> lista, out string mensaje)
+        {
+            mensaje = "";
+
+            try
+            {
+                return new RutinaDAO().GuardarEstiramientos(lista, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error inesperado: " + ex.Message;
+                return false;
+            }
+        }
+
+        public bool CambiarEstadoRutina(int idRutina)
+        {
+            try
+            {
+                return new RutinaDAO().ActualizarFechaModificacion(idRutina);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

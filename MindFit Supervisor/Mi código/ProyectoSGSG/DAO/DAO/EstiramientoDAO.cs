@@ -152,5 +152,43 @@ namespace DAO
 
             return respuesta;
         }
+
+        public List<RutinaEstiramiento> ListarEstiramientosPorRutina(int idRutina)
+        {
+            List<RutinaEstiramiento> lista = new List<RutinaEstiramiento>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(@"
+                        SELECT IdEstiramiento, Duracion 
+                        FROM Rutina_Estiramiento 
+                        WHERE IdRutina = @IdRutina", conn);
+
+                    cmd.Parameters.AddWithValue("@IdRutina", idRutina);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            lista.Add(new RutinaEstiramiento
+                            {
+                                IdRutina = idRutina,
+                                IdEstiramiento = Convert.ToInt32(reader["IdEstiramiento"]),
+                                Minutos = Convert.ToInt32(reader["Duracion"])
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Podés loguear o retornar una lista vacía, según tu necesidad
+                lista = new List<RutinaEstiramiento>();
+            }
+            return lista;
+        }
     }
 }

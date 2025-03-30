@@ -2662,7 +2662,7 @@ from Calentamiento c
 
 select * from ElementoGimnasio
 
-select * from Rutina_Calentamiento rc
+select * from Rutina_Calentamiento
 
 SELECT * --rc.IdCalentamiento, rc.Duracion, r.Dia 
 FROM Rutina_Calentamiento rc
@@ -2674,3 +2674,8 @@ select * from rutina
 
 UPDATE Rutina SET Dia = 'Sábado' WHERE Dia = 'Sabado';
 UPDATE Rutina SET Dia = 'Miércoles' WHERE Dia = 'Miercoles';
+
+select IdEstiramiento, DescripcionEstiramiento 
+from Estiramiento
+
+select * from Rutina_Estiramiento
