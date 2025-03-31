@@ -44,6 +44,8 @@
     <Compile Include="ControladorGymAccion.cs" />
     <Compile Include="ControladorGymCalentamiento.cs" />
     <Compile Include="ControladorGymEjercicio.cs" />
+    <Compile Include="ControladorGymElementoGimnasio.cs" />
+    <Compile Include="ControladorGymEntrenamiento.cs" />
     <Compile Include="ControladorGymEquipamiento.cs" />
     <Compile Include="ControladorGymEstiramiento.cs" />
     <Compile Include="ControladorGymGimnasio.cs" />

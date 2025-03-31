@@ -34,6 +34,21 @@ namespace Controlador
             }
         }
 
+        public bool GuardarEntrenamientos(List<Entrenamiento> lista, out string mensaje)
+        {
+            mensaje = "";
+
+            try
+            {
+                return new RutinaDAO().GuardarEntrenamientos(lista, out mensaje);
+            }
+            catch (Exception ex)
+            {
+                mensaje = "Error inesperado: " + ex.Message;
+                return false;
+            }
+        }
+
         public bool GuardarEstiramientos(List<RutinaEstiramiento> lista, out string mensaje)
         {
             mensaje = "";
@@ -54,6 +69,18 @@ namespace Controlador
             try
             {
                 return new RutinaDAO().ActualizarFechaModificacion(idRutina);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool DesactivarRutina(int idRutina)
+        {
+            try
+            {
+                return new RutinaDAO().DesactivarRutina(idRutina);
             }
             catch (Exception)
             {

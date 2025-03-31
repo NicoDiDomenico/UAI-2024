@@ -2664,10 +2664,12 @@ select * from ElementoGimnasio
 
 select * from Rutina_Calentamiento
 
-SELECT * --rc.IdCalentamiento, rc.Duracion, r.Dia 
+SELECT rc.*, s.NombreYApellido --rc.IdCalentamiento, rc.Duracion, r.Dia 
 FROM Rutina_Calentamiento rc
 inner join rutina r
 on rc.IdRutina = r.IdRutina
+inner join Socio s
+on r.IdSocio = s.IdSocio
 WHERE rc.IdRutina = 22
 
 select * from rutina
@@ -2679,3 +2681,311 @@ select IdEstiramiento, DescripcionEstiramiento
 from Estiramiento
 
 select * from Rutina_Estiramiento
+
+select IdElemento, NombreElemento
+from ElementoGimnasio
+
+select eg.*, e.IdElemento, eq.IdElemento, m.IdElemento 
+from ElementoGimnasio eg
+left join Ejercicio e on eg.IdElemento = e.IdElemento
+left join Equipamiento eq on eg.IdElemento = eq.IdElemento
+left join Maquina m on eg.IdElemento = m.IdElemento
+
+DELETE FROM ElementoGimnasio
+WHERE IdElemento IN (32, 33);
+
+ALTER TABLE Entrenamiento
+ADD Peso INT NOT NULL DEFAULT 0;
+
+select * from Entrenamiento
+
+select * from Rutina
+
+ALTER TABLE Rutina
+ADD Activa BIT NOT NULL DEFAULT 0;
+
+-- No necesitás cambiar el tipo ETabla_Rutinas que ya creaste. Ese TYPE sigue siendo totalmente válido porque vos solo usás ETabla_Rutinas para pasar los días que el usuario eligió, no todas las rutinas.
+
+ALTER PROCEDURE [dbo].[SP_RegistrarSocio]
+(
+    @NombreYApellido VARCHAR(100),
+    @FechaNacimiento DATE,
+    @Genero VARCHAR(50),
+    @NroDocumento INT,
+    @Ciudad VARCHAR(50),
+    @Direccion VARCHAR(50),
+    @Telefono VARCHAR(50),
+    @Email VARCHAR(50),
+    @ObraSocial VARCHAR(50),
+    @Plan VARCHAR(50),
+    @EstadoSocio VARCHAR(50),
+    @FechaInicioActividades DATE,
+    @FechaFinActividades DATE,
+    @FechaNotificacion DATE,
+    @RespuestaNotificacion BIT,
+    @Rutinas ETabla_Rutinas READONLY, -- Lista de rutinas elegidas
+    @IdSocio INT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @IdSocio = 0
+
+        BEGIN TRANSACTION
+
+        -- Verificar si ya existe un socio con el mismo documento
+        IF EXISTS (SELECT 1 FROM Socio WHERE NroDocumento = @NroDocumento)
+        BEGIN
+            SET @Mensaje = 'El número de documento ya está registrado.'
+            ROLLBACK TRANSACTION
+            RETURN
+        END
+
+        -- Insertar el socio
+        INSERT INTO Socio 
+        (NombreYApellido, FechaNacimiento, Genero, NroDocumento, Ciudad, Direccion, Telefono, Email, ObraSocial, [Plan], EstadoSocio, FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion)
+        VALUES 
+        (@NombreYApellido, @FechaNacimiento, @Genero, @NroDocumento, @Ciudad, @Direccion, @Telefono, @Email, @ObraSocial, @Plan, @EstadoSocio, @FechaInicioActividades, @FechaFinActividades, @FechaNotificacion, @RespuestaNotificacion)
+
+        SET @IdSocio = SCOPE_IDENTITY()
+
+        -- Insertar TODAS las rutinas de lunes a sábado, activando solo las seleccionadas
+        INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
+        SELECT @IdSocio, GETDATE(), Dia,
+               CASE WHEN Dia IN (SELECT Dia FROM @Rutinas) THEN 1 ELSE 0 END
+        FROM (
+            SELECT 'Lunes' AS Dia UNION
+            SELECT 'Martes' UNION
+            SELECT 'Miércoles' UNION
+            SELECT 'Jueves' UNION
+            SELECT 'Viernes' UNION
+            SELECT 'Sábado'
+        ) AS DiasSemana
+
+        COMMIT TRANSACTION
+        SET @Mensaje = 'Socio registrado exitosamente con sus rutinas.'
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        ROLLBACK TRANSACTION
+    END CATCH
+END
+
+go
+
+ALTER PROCEDURE [dbo].[SP_ActualizarSocio]
+(
+    @IdSocio INT,
+    @NombreYApellido VARCHAR(100),
+    @FechaNacimiento DATE,
+    @Genero VARCHAR(50),
+    @NroDocumento INT,
+    @Ciudad VARCHAR(50),
+    @Direccion VARCHAR(50),
+    @Telefono VARCHAR(50),
+    @Email VARCHAR(50),
+    @ObraSocial VARCHAR(50),
+    @Plan VARCHAR(50),
+    @EstadoSocio VARCHAR(50),
+    @FechaInicioActividades DATE NULL,
+    @FechaFinActividades DATE NULL,
+    @FechaNotificacion DATE NULL,
+    @RespuestaNotificacion BIT NULL,
+    @Rutinas ETabla_Rutinas READONLY,
+    @Mensaje VARCHAR(500) OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = '';
+
+        BEGIN TRANSACTION;
+
+        -- Actualizar datos del socio
+        UPDATE Socio
+        SET NombreYApellido = @NombreYApellido,
+            FechaNacimiento = @FechaNacimiento,
+            Genero = @Genero,
+            NroDocumento = @NroDocumento,
+            Ciudad = @Ciudad,
+            Direccion = @Direccion,
+            Telefono = @Telefono,
+            Email = @Email,
+            ObraSocial = @ObraSocial,
+            [Plan] = @Plan,
+            EstadoSocio = @EstadoSocio,
+            FechaInicioActividades = @FechaInicioActividades,
+            FechaFinActividades = @FechaFinActividades,
+            FechaNotificacion = @FechaNotificacion,
+            RespuestaNotificacion = @RespuestaNotificacion
+        WHERE IdSocio = @IdSocio;
+
+        -- Desactivar rutinas no seleccionadas
+        UPDATE Rutina
+        SET Activa = 0
+        WHERE IdSocio = @IdSocio AND Dia NOT IN (SELECT Dia FROM @Rutinas);
+
+        -- Activar rutinas seleccionadas
+        UPDATE Rutina
+        SET Activa = 1, FechaModificacion = GETDATE()
+        WHERE IdSocio = @IdSocio AND Dia IN (SELECT Dia FROM @Rutinas);
+
+        COMMIT TRANSACTION;
+        SET @Mensaje = 'Socio actualizado correctamente con sus nuevos días de asistencia.';
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE();
+        ROLLBACK TRANSACTION;
+    END CATCH
+END;
+
+SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
+           NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
+           EstadoSocio, FechaInicioActividades, FechaFinActividades, 
+           FechaNotificacion, RespuestaNotificacion
+    FROM Socio
+    WHERE IdSocio = 13;
+
+    SELECT IdRutina, IdSocio, FechaModificacion, Dia 
+    FROM Rutina
+    WHERE IdSocio = 13 AND Activa = 1;
+
+select * from Rutina
+
+select r.IdRutina, r.IdSocio, r.FechaModificacion, r.Dia  
+from Rutina r
+inner join Socio s
+on r.IdSocio = s.IdSocio
+where s.IdSocio = 13 AND Activa = 1;
+
+ALTER PROCEDURE [dbo].[SP_ELIMINARSOCIO]
+    @IdSocio INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET @Respuesta = 0;
+    SET @Mensaje = '';
+
+    DECLARE @FechaFinActividades DATE;
+
+    -- Obtener la FechaFinActividades del socio
+    SELECT @FechaFinActividades = FechaFinActividades 
+    FROM Socio 
+    WHERE IdSocio = @IdSocio;
+
+    -- Verificar si la fecha de fin de actividades aún no ha vencido
+    IF @FechaFinActividades > GETDATE()
+    BEGIN
+        SET @Mensaje = 'No se puede eliminar el socio porque su cuota aún está vigente.';
+        RETURN;
+    END
+
+    -- Verificar si el socio tiene turnos en curso
+    IF EXISTS (SELECT 1 FROM Turno WHERE IdSocio = @IdSocio AND EstadoTurno = 'En Curso')
+    BEGIN
+        SET @Mensaje = 'No se puede eliminar el socio porque tiene turnos en curso.';
+        RETURN;
+    END
+
+    -- Iniciar la transacción
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Eliminar relaciones hijas manualmente
+        DELETE FROM Rutina_Calentamiento WHERE IdRutina IN (SELECT IdRutina FROM Rutina WHERE IdSocio = @IdSocio);
+        DELETE FROM Rutina_Estiramiento  WHERE IdRutina IN (SELECT IdRutina FROM Rutina WHERE IdSocio = @IdSocio);
+        DELETE FROM Entrenamiento        WHERE IdRutina IN (SELECT IdRutina FROM Rutina WHERE IdSocio = @IdSocio);
+
+        -- Eliminar rutinas
+        DELETE FROM Rutina WHERE IdSocio = @IdSocio;
+
+        -- Eliminar los turnos asociados al socio
+        DELETE FROM Turno WHERE IdSocio = @IdSocio;
+
+        -- Eliminar el socio
+        DELETE FROM Socio WHERE IdSocio = @IdSocio;
+
+        -- Confirmar la transacción si todo se ejecutó sin errores
+        COMMIT TRANSACTION;
+
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Socio eliminado correctamente junto con sus rutinas y turnos.';
+    END TRY
+    BEGIN CATCH
+        -- Si hay un error, revertir la transacción
+        ROLLBACK TRANSACTION;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END;
+
+-- Eliminando las restricciones:
+/*
+ALTER PROCEDURE [dbo].[SP_ELIMINARSOCIO]
+    @IdSocio INT,
+    @Respuesta BIT OUTPUT,
+    @Mensaje VARCHAR(500) OUTPUT
+AS
+BEGIN
+    SET @Respuesta = 0;
+    SET @Mensaje = '';
+
+    -- Iniciar la transacción
+    BEGIN TRANSACTION;
+
+    BEGIN TRY
+        -- Eliminar relaciones hijas manualmente
+        DELETE FROM Rutina_Calentamiento WHERE IdRutina IN (SELECT IdRutina FROM Rutina WHERE IdSocio = @IdSocio);
+        DELETE FROM Rutina_Estiramiento  WHERE IdRutina IN (SELECT IdRutina FROM Rutina WHERE IdSocio = @IdSocio);
+        DELETE FROM Entrenamiento        WHERE IdRutina IN (SELECT IdRutina FROM Rutina WHERE IdSocio = @IdSocio);
+
+        -- Eliminar rutinas
+        DELETE FROM Rutina WHERE IdSocio = @IdSocio;
+
+        -- Eliminar los turnos asociados al socio
+        DELETE FROM Turno WHERE IdSocio = @IdSocio;
+
+        -- Eliminar el socio
+        DELETE FROM Socio WHERE IdSocio = @IdSocio;
+
+        -- Confirmar la transacción si todo se ejecutó sin errores
+        COMMIT TRANSACTION;
+
+        SET @Respuesta = 1;
+        SET @Mensaje = 'Socio eliminado correctamente junto con sus rutinas y turnos.';
+    END TRY
+    BEGIN CATCH
+        -- Si hay un error, revertir la transacción
+        ROLLBACK TRANSACTION;
+        SET @Mensaje = ERROR_MESSAGE();
+    END CATCH
+END;
+*/
+
+UPDATE Rutina
+SET Activa = 1
+WHERE IdSocio <> 13
+AND Activa = 0;
+
+
+-- Tabla temporal con los días posibles
+DECLARE @dias TABLE (Dia VARCHAR(20));
+INSERT INTO @dias VALUES ('Lunes'), ('Martes'), ('Miércoles'), ('Jueves'), ('Viernes'), ('Sábado');
+
+-- Insertar días faltantes por socio (excepto el 13)
+INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
+SELECT s.IdSocio, GETDATE(), d.Dia, 0
+FROM Socio s
+CROSS JOIN @dias d
+WHERE s.IdSocio <> 13
+AND NOT EXISTS (
+    SELECT 1 FROM Rutina r
+    WHERE r.IdSocio = s.IdSocio AND r.Dia = d.Dia
+);
+
+select * from rutina
+order by IdSocio
+
+Select * from Socio 

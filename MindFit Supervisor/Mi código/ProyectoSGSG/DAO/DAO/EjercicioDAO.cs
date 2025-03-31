@@ -168,26 +168,37 @@ namespace DAO
                 {
                     oconexion.Open();
 
-                    string query = "DELETE FROM Ejercicio WHERE IdElemento = @IdElemento";
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.Parameters.AddWithValue("@IdElemento", idElemento);
+                    SqlTransaction transaccion = oconexion.BeginTransaction();
 
-                    int filas = cmd.ExecuteNonQuery();
-                    respuesta = filas > 0;
-
-                    if (respuesta)
+                    try
                     {
-                        mensaje = "Ejercicio eliminado correctamente.";
+                        // 1. Eliminar de Ejercicio (tabla hija)
+                        string queryEjercicio = "DELETE FROM Ejercicio WHERE IdElemento = @IdElemento";
+                        SqlCommand cmdEjercicio = new SqlCommand(queryEjercicio, oconexion, transaccion);
+                        cmdEjercicio.Parameters.AddWithValue("@IdElemento", idElemento);
+                        cmdEjercicio.ExecuteNonQuery();
+
+                        // 2. Eliminar de ElementoGimnasio (tabla padre)
+                        string queryElemento = "DELETE FROM ElementoGimnasio WHERE IdElemento = @IdElemento";
+                        SqlCommand cmdElemento = new SqlCommand(queryElemento, oconexion, transaccion);
+                        cmdElemento.Parameters.AddWithValue("@IdElemento", idElemento);
+                        int filasAfectadas = cmdElemento.ExecuteNonQuery();
+
+                        transaccion.Commit();
+
+                        respuesta = filasAfectadas > 0;
+                        mensaje = respuesta ? "Ejercicio y elemento eliminados correctamente." : "No se encontró el elemento para eliminar.";
                     }
-                    else
+                    catch (Exception ex2)
                     {
-                        mensaje = "No se encontró el ejercicio para eliminar.";
+                        transaccion.Rollback();
+                        mensaje = "Error durante la transacción: " + ex2.Message;
                     }
                 }
             }
             catch (Exception ex)
             {
-                mensaje = "Error al eliminar el ejercicio: " + ex.Message;
+                mensaje = "Error al conectar con la base de datos: " + ex.Message;
             }
 
             return respuesta;

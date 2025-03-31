@@ -191,7 +191,7 @@ namespace DAO
             return resultado;
         }
 
-        public bool Eliminar(int idMaquina, out string mensaje)
+        public bool Eliminar(int idElemento, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
@@ -200,21 +200,38 @@ namespace DAO
             {
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                 {
-                    string query = "DELETE FROM Maquina WHERE IdMaquina = @IdMaquina";
-
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("@IdMaquina", idMaquina);
-
                     oconexion.Open();
-                    int filasAfectadas = cmd.ExecuteNonQuery();
-                    respuesta = filasAfectadas > 0;
-                    mensaje = "Maquina eliminado exitosamente";
+                    SqlTransaction transaccion = oconexion.BeginTransaction();
+
+                    try
+                    {
+                        // 1. Eliminar de Maquina (tabla hija)
+                        string queryMaquina = "DELETE FROM Maquina WHERE IdElemento = @IdElemento";
+                        SqlCommand cmdMaquina = new SqlCommand(queryMaquina, oconexion, transaccion);
+                        cmdMaquina.Parameters.AddWithValue("@IdElemento", idElemento);
+                        cmdMaquina.ExecuteNonQuery();
+
+                        // 2. Eliminar de ElementoGimnasio (tabla padre)
+                        string queryElemento = "DELETE FROM ElementoGimnasio WHERE IdElemento = @IdElemento";
+                        SqlCommand cmdElemento = new SqlCommand(queryElemento, oconexion, transaccion);
+                        cmdElemento.Parameters.AddWithValue("@IdElemento", idElemento);
+                        int filasAfectadas = cmdElemento.ExecuteNonQuery();
+
+                        transaccion.Commit();
+
+                        respuesta = filasAfectadas > 0;
+                        mensaje = respuesta ? "Máquina eliminada correctamente." : "No se encontró la máquina para eliminar.";
+                    }
+                    catch (Exception ex2)
+                    {
+                        transaccion.Rollback();
+                        mensaje = "Error durante la transacción: " + ex2.Message;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                mensaje = "Error al eliminar el Maquina: " + ex.Message;
+                mensaje = "Error al conectar con la base de datos: " + ex.Message;
             }
 
             return respuesta;

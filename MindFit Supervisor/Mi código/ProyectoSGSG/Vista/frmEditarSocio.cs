@@ -177,10 +177,10 @@ namespace Vista
             {
                 if (R.Dia == "Lunes") chkLunes.Checked = true;
                 if (R.Dia == "Martes") chkMartes.Checked = true;
-                if (R.Dia == "Miercoles") chkMiercoles.Checked = true;
+                if (R.Dia == "Miércoles") chkMiercoles.Checked = true; // <- tildes
                 if (R.Dia == "Jueves") chkJueves.Checked = true;
                 if (R.Dia == "Viernes") chkViernes.Checked = true;
-                if (R.Dia == "Sabado") chkSabado.Checked = true;
+                if (R.Dia == "Sábado") chkSabado.Checked = true;       // <- tildes
             }
 
             if (socio.Plan == "Mensual") chkMensual.Checked = true;
@@ -251,10 +251,10 @@ namespace Vista
 
             if (chkLunes.Checked) rutinas.Add(new Rutina() { Dia = "Lunes" });
             if (chkMartes.Checked) rutinas.Add(new Rutina() { Dia = "Martes" });
-            if (chkMiercoles.Checked) rutinas.Add(new Rutina() { Dia = "Miercoles" });
+            if (chkMiercoles.Checked) rutinas.Add(new Rutina() { Dia = "Miércoles" }); // ← con tilde
             if (chkJueves.Checked) rutinas.Add(new Rutina() { Dia = "Jueves" });
             if (chkViernes.Checked) rutinas.Add(new Rutina() { Dia = "Viernes" });
-            if (chkSabado.Checked) rutinas.Add(new Rutina() { Dia = "Sabado" });
+            if (chkSabado.Checked) rutinas.Add(new Rutina() { Dia = "Sábado" });       // ← con tilde
 
             Socio socio = new Socio()
             {

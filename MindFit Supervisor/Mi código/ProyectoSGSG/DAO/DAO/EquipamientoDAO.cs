@@ -168,19 +168,37 @@ namespace DAO
                 {
                     oconexion.Open();
 
-                    string query = "DELETE FROM Equipamiento WHERE IdElemento = @IdElemento";
-                    SqlCommand cmd = new SqlCommand(query, oconexion);
-                    cmd.Parameters.AddWithValue("@IdElemento", idElemento);
+                    SqlTransaction transaccion = oconexion.BeginTransaction();
 
-                    int filas = cmd.ExecuteNonQuery();
-                    respuesta = filas > 0;
+                    try
+                    {
+                        // 1. Eliminar de Equipamiento (tabla hija)
+                        string queryEquipamiento = "DELETE FROM Equipamiento WHERE IdElemento = @IdElemento";
+                        SqlCommand cmdEquipamiento = new SqlCommand(queryEquipamiento, oconexion, transaccion);
+                        cmdEquipamiento.Parameters.AddWithValue("@IdElemento", idElemento);
+                        cmdEquipamiento.ExecuteNonQuery();
 
-                    mensaje = respuesta ? "Equipamiento eliminado correctamente." : "No se encontró el equipamiento para eliminar.";
+                        // 2. Eliminar de ElementoGimnasio (tabla padre)
+                        string queryElemento = "DELETE FROM ElementoGimnasio WHERE IdElemento = @IdElemento";
+                        SqlCommand cmdElemento = new SqlCommand(queryElemento, oconexion, transaccion);
+                        cmdElemento.Parameters.AddWithValue("@IdElemento", idElemento);
+                        int filasAfectadas = cmdElemento.ExecuteNonQuery();
+
+                        transaccion.Commit();
+
+                        respuesta = filasAfectadas > 0;
+                        mensaje = respuesta ? "Equipamiento y elemento eliminados correctamente." : "No se encontró el elemento para eliminar.";
+                    }
+                    catch (Exception ex2)
+                    {
+                        transaccion.Rollback();
+                        mensaje = "Error durante la transacción: " + ex2.Message;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                mensaje = "Error al eliminar el equipamiento: " + ex.Message;
+                mensaje = "Error al conectar con la base de datos: " + ex.Message;
             }
 
             return respuesta;

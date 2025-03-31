@@ -222,8 +222,47 @@ namespace Vista
                     }
                 }
             }
-
             // Devuelve la lista de calentamientos ingresados por el usuario
+            return lista;
+        }
+
+        private List<Entrenamiento> ObtenerEntrenamientosDesdeFormulario()
+        {
+            List<Entrenamiento> lista = new List<Entrenamiento>();
+
+            for (int row = 0; row < tlpEntrenamiento.RowCount; row++)
+            {
+                ComboBox combo = tlpEntrenamiento.GetControlFromPosition(0, row) as ComboBox;
+                FlowLayoutPanel panelSeries = tlpEntrenamiento.GetControlFromPosition(1, row) as FlowLayoutPanel;
+                FlowLayoutPanel panelReps = tlpEntrenamiento.GetControlFromPosition(2, row) as FlowLayoutPanel;
+                FlowLayoutPanel panelPeso = tlpEntrenamiento.GetControlFromPosition(3, row) as FlowLayoutPanel;
+
+                if (combo != null && combo.SelectedItem != null &&
+                    panelSeries != null && panelReps != null && panelPeso != null)
+                {
+                    var opcion = combo.SelectedItem as OpcionComboElementoGimnasio;
+                    NumericUpDown nudSeries = panelSeries.Controls.OfType<NumericUpDown>().FirstOrDefault();
+                    NumericUpDown nudReps = panelReps.Controls.OfType<NumericUpDown>().FirstOrDefault();
+                    NumericUpDown nudPeso = panelPeso.Controls.OfType<NumericUpDown>().FirstOrDefault();
+
+                    if (opcion != null && nudSeries != null && nudReps != null && nudPeso != null)
+                    {
+                        lista.Add(new Entrenamiento
+                        {
+                            IdRutina = RutinaSeleccionada.IdRutina,
+                            Series = (int)nudSeries.Value,
+                            Repeticiones = (int)nudReps.Value,
+                            Peso = (int)nudPeso.Value,
+                            ElementoGimnasio = new ElementoGimnasio
+                            {
+                                IdElemento = opcion.IdElemento,
+                                NombreElemento = opcion.NombreElemento
+                            }
+                        });
+                    }
+                }
+            }
+
             return lista;
         }
 
@@ -270,7 +309,7 @@ namespace Vista
         }
         private void CargarCalentamientos()
         {
-            tlpCalentamiento.Controls.Clear(); // Limpiar filas anteriores
+            tlpCalentamiento.Controls.Clear();
             tlpCalentamiento.RowStyles.Clear();
             tlpCalentamiento.RowCount = 0;
 
@@ -281,10 +320,9 @@ namespace Vista
                 int rowIndex = tlpCalentamiento.RowCount++;
                 tlpCalentamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-                // ComboBox
                 ComboBox combo = new ComboBox
                 {
-                    Width = 400,
+                    Width = 600,
                     DropDownStyle = ComboBoxStyle.DropDownList,
                     Anchor = AnchorStyles.Left,
                     Margin = new Padding(20, 5, 5, 0)
@@ -301,14 +339,12 @@ namespace Vista
                     });
                 }
 
-                // Seleccionar el que corresponde
                 combo.SelectedItem = combo.Items
                     .OfType<OpcionComboCalentamiento>()
                     .FirstOrDefault(c => c.IdCalentamiento == item.IdCalentamiento);
 
                 tlpCalentamiento.Controls.Add(combo, 0, rowIndex);
 
-                // Panel minutos
                 FlowLayoutPanel panelMinutos = new FlowLayoutPanel
                 {
                     AutoSize = true,
@@ -325,6 +361,7 @@ namespace Vista
                     Value = item.Minutos,
                     Width = 60,
                     Anchor = AnchorStyles.Left,
+                    TextAlign = HorizontalAlignment.Center,
                     Margin = new Padding(0)
                 };
 
@@ -340,7 +377,6 @@ namespace Vista
                 panelMinutos.Controls.Add(lblMinutos);
                 tlpCalentamiento.Controls.Add(panelMinutos, 1, rowIndex);
 
-                // Botón eliminar
                 Button btnEliminar = new Button
                 {
                     Text = "✖",
@@ -367,7 +403,6 @@ namespace Vista
                         if (ctrl != null)
                             tlpCalentamiento.Controls.Remove(ctrl);
                     }
-
                     if (fila < tlpCalentamiento.RowStyles.Count)
                         tlpCalentamiento.RowStyles.RemoveAt(fila);
 
@@ -377,10 +412,189 @@ namespace Vista
                 tlpCalentamiento.Controls.Add(btnEliminar, 2, rowIndex);
             }
         }
+        private void CargarEntrenamiento()
+        {
+            tlpEntrenamiento.Controls.Clear();
+            tlpEntrenamiento.RowStyles.Clear();
+            tlpEntrenamiento.RowCount = 0;
+
+            if (RutinaSeleccionada == null) return;
+
+            List<Entrenamiento> lista = new ControladorGymEntrenamiento().ListarPorRutina(RutinaSeleccionada.IdRutina);
+
+            List<ElementoGimnasio> elementos = new ControladorGymElementoGimnasio().Listar();
+
+            foreach (var item in lista)
+            {
+                int rowIndex = tlpEntrenamiento.RowCount++;
+                tlpEntrenamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+                // ComboBox de Elemento
+                ComboBox combo = new ComboBox
+                {
+                    Width = 600,
+                    DropDownStyle = ComboBoxStyle.DropDownList,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(20, 5, 5, 0)
+                };
+
+                foreach (var elem in elementos)
+                {
+                    combo.Items.Add(new OpcionComboElementoGimnasio
+                    {
+                        IdElemento = elem.IdElemento,
+                        NombreElemento = elem.NombreElemento
+                    });
+                }
+
+                combo.SelectedItem = combo.Items
+                    .OfType<OpcionComboElementoGimnasio>()
+                    .FirstOrDefault(x => x.IdElemento == item.ElementoGimnasio.IdElemento);
+
+                tlpEntrenamiento.Controls.Add(combo, 0, rowIndex);
+
+                // Series
+                FlowLayoutPanel panelSeries = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    WrapContents = false,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(10, 5, 5, 0)
+                };
+
+                NumericUpDown nudSeries = new NumericUpDown
+                {
+                    Minimum = 0,
+                    Maximum = 999,
+                    Value = item.Series,
+                    Width = 60,
+                    Anchor = AnchorStyles.Left,
+                    TextAlign = HorizontalAlignment.Center,
+                    Margin = new Padding(10, 0, 0, 0)
+                };
+
+                Label lblSeries = new Label
+                {
+                    Text = "Series",
+                    AutoSize = true,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(5, 6, 0, 0)
+                };
+
+                panelSeries.Controls.Add(nudSeries);
+                panelSeries.Controls.Add(lblSeries);
+                tlpEntrenamiento.Controls.Add(panelSeries, 1, rowIndex);
+
+                // Repeticiones
+                FlowLayoutPanel panelReps = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    WrapContents = false,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(10, 5, 5, 0)
+                };
+
+                NumericUpDown nudReps = new NumericUpDown
+                {
+                    Minimum = 0,
+                    Maximum = 999,
+                    Value = item.Repeticiones,
+                    Width = 60,
+                    Anchor = AnchorStyles.Left,
+                    TextAlign = HorizontalAlignment.Center,
+                    Margin = new Padding(0)
+                };
+
+                Label lblReps = new Label
+                {
+                    Text = "Repeticiones",
+                    AutoSize = true,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(5, 6, 0, 0)
+                };
+
+                panelReps.Controls.Add(nudReps);
+                panelReps.Controls.Add(lblReps);
+                tlpEntrenamiento.Controls.Add(panelReps, 2, rowIndex);
+
+                // Peso
+                FlowLayoutPanel panelPeso = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    WrapContents = false,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(10, 5, 5, 0)
+                };
+
+                NumericUpDown nudPeso = new NumericUpDown
+                {
+                    Minimum = 0,
+                    Maximum = 999,
+                    Value = item.Peso,
+                    Width = 60,
+                    Anchor = AnchorStyles.Left,
+                    TextAlign = HorizontalAlignment.Center,
+                    Margin = new Padding(9, 0, 0, 0)
+                };
+
+                Label lblKg = new Label
+                {
+                    Text = "kg",
+                    AutoSize = true,
+                    Anchor = AnchorStyles.Left,
+                    Margin = new Padding(5, 6, 0, 0)
+                };
+
+                panelPeso.Controls.Add(nudPeso);
+                panelPeso.Controls.Add(lblKg);
+                tlpEntrenamiento.Controls.Add(panelPeso, 3, rowIndex);
+
+                // Botón eliminar
+                Button btnEliminar = new Button
+                {
+                    Text = "✖",
+                    Width = 25,
+                    Height = 25,
+                    BackColor = Color.Red,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Anchor = AnchorStyles.Right,
+                    Margin = new Padding(5, 0, 15, 0),
+                    Tag = rowIndex,
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                };
+                btnEliminar.FlatAppearance.BorderSize = 0;
+
+                btnEliminar.Click += (s, e) =>
+                {
+                    Button boton = (Button)s;
+                    int fila = tlpEntrenamiento.GetRow(boton);
+
+                    for (int col = 0; col < tlpEntrenamiento.ColumnCount; col++)
+                    {
+                        var ctrl = tlpEntrenamiento.GetControlFromPosition(col, fila);
+                        if (ctrl != null)
+                            tlpEntrenamiento.Controls.Remove(ctrl);
+                    }
+
+                    if (fila < tlpEntrenamiento.RowStyles.Count)
+                        tlpEntrenamiento.RowStyles.RemoveAt(fila);
+
+                    tlpEntrenamiento.RowCount--;
+                };
+
+                tlpEntrenamiento.Controls.Add(btnEliminar, 4, rowIndex);
+            }
+        }
+
 
         private void CargarEstiramientos()
         {
-            tlpEstiramiento.Controls.Clear(); // Limpiar filas anteriores
+            tlpEstiramiento.Controls.Clear();
             tlpEstiramiento.RowStyles.Clear();
             tlpEstiramiento.RowCount = 0;
 
@@ -391,7 +605,6 @@ namespace Vista
                 int rowIndex = tlpEstiramiento.RowCount++;
                 tlpEstiramiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
-                // ComboBox
                 ComboBox combo = new ComboBox
                 {
                     Width = 820,
@@ -410,14 +623,12 @@ namespace Vista
                     });
                 }
 
-                // Seleccionar el que corresponde
                 combo.SelectedItem = combo.Items
                     .OfType<OpcionComboCalentamiento>()
                     .FirstOrDefault(c => c.IdCalentamiento == item.IdEstiramiento);
 
                 tlpEstiramiento.Controls.Add(combo, 0, rowIndex);
 
-                // Panel minutos
                 FlowLayoutPanel panelMinutos = new FlowLayoutPanel
                 {
                     AutoSize = true,
@@ -434,6 +645,7 @@ namespace Vista
                     Value = item.Minutos,
                     Width = 60,
                     Anchor = AnchorStyles.Left,
+                    TextAlign = HorizontalAlignment.Center,
                     Margin = new Padding(0)
                 };
 
@@ -449,7 +661,6 @@ namespace Vista
                 panelMinutos.Controls.Add(lblMinutos);
                 tlpEstiramiento.Controls.Add(panelMinutos, 1, rowIndex);
 
-                // Botón eliminar
                 Button btnEliminar = new Button
                 {
                     Text = "✖",
@@ -476,7 +687,6 @@ namespace Vista
                         if (ctrl != null)
                             tlpEstiramiento.Controls.Remove(ctrl);
                     }
-
                     if (fila < tlpEstiramiento.RowStyles.Count)
                         tlpEstiramiento.RowStyles.RemoveAt(fila);
 
@@ -495,7 +705,7 @@ namespace Vista
             // ComboBox
             ComboBox combo = new ComboBox
             {
-                Width = 400,
+                Width = 600,
                 DropDownStyle = ComboBoxStyle.DropDownList,
                 Anchor = AnchorStyles.Left,
                 Margin = new Padding(20, 5, 5, 0)
@@ -532,6 +742,7 @@ namespace Vista
                 Value = 0,
                 Width = 60,
                 Anchor = AnchorStyles.Left,
+                TextAlign = HorizontalAlignment.Center,
                 Margin = new Padding(0)
             };
 
@@ -591,8 +802,169 @@ namespace Vista
 
         private void AgregarFilaEntrenamiento()
         {
-            // Implmeentación parececida a Calentamiento pero con mas columnas y para Entrenamiento - NO HACER
+            int rowIndex = tlpEntrenamiento.RowCount++;
+            tlpEntrenamiento.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            // ComboBox de Elemento (puede ser Maquina, Ejercicio o Equipamiento)
+            ComboBox combo = new ComboBox
+            {
+                Width = 600,
+                DropDownStyle = ComboBoxStyle.DropDownList,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(20, 5, 5, 0)
+            };
+
+            // Cargar todos los elementos del gimnasio
+            List<ElementoGimnasio> elementos = new ControladorGymElementoGimnasio().Listar(); // Este método debe devolver todos los elementos
+            foreach (var elem in elementos)
+            {
+                combo.Items.Add(new OpcionComboElementoGimnasio
+                {
+                    IdElemento = elem.IdElemento,
+                    NombreElemento = elem.NombreElemento
+                });
+            }
+
+            combo.SelectedIndex = -1;
+            tlpEntrenamiento.Controls.Add(combo, 0, rowIndex);
+
+            // Panel series
+            FlowLayoutPanel panelSeries = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(10, 5, 5, 0)
+            };
+
+            NumericUpDown numSeries = new NumericUpDown
+            {
+                Minimum = 0,
+                Maximum = 999,
+                Value = 0,
+                Width = 60,
+                Anchor = AnchorStyles.Left,
+                TextAlign = HorizontalAlignment.Center,
+                Margin = new Padding(10, 0, 0, 0)
+            };
+
+            Label lblSeries = new Label
+            {
+                Text = "Series",
+                AutoSize = true,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(5, 6, 0, 0)
+            };
+
+            panelSeries.Controls.Add(numSeries);
+            panelSeries.Controls.Add(lblSeries);
+            tlpEntrenamiento.Controls.Add(panelSeries, 1, rowIndex);
+
+            // Panel repeticiones
+            FlowLayoutPanel panelReps = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(10, 5, 5, 0)
+            };
+
+            NumericUpDown numReps = new NumericUpDown
+            {
+                Minimum = 0,
+                Maximum = 999,
+                Value = 0,
+                Width = 60,
+                Anchor = AnchorStyles.Left,
+                TextAlign = HorizontalAlignment.Center,
+                Margin = new Padding(0)
+            };
+
+            Label lblReps = new Label
+            {
+                Text = "Repeticiones",
+                AutoSize = true,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(5, 6, 0, 0)
+            };
+
+            panelReps.Controls.Add(numReps);
+            panelReps.Controls.Add(lblReps);
+            tlpEntrenamiento.Controls.Add(panelReps, 2, rowIndex);
+
+            // Panel peso (opcional)
+            FlowLayoutPanel panelPeso = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                WrapContents = false,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(10, 5, 5, 0)
+            };
+
+            NumericUpDown numPeso = new NumericUpDown
+            {
+                Minimum = 0,
+                Maximum = 999,
+                Value = 0,
+                Width = 60,
+                Anchor = AnchorStyles.Left,
+                TextAlign = HorizontalAlignment.Center,
+                Margin = new Padding(9, 0, 0, 0)
+            };
+
+            Label lblKg = new Label
+            {
+                Text = "kg",
+                AutoSize = true,
+                Anchor = AnchorStyles.Left,
+                Margin = new Padding(5, 6, 0, 0)
+            };
+
+            panelPeso.Controls.Add(numPeso);
+            panelPeso.Controls.Add(lblKg);
+            tlpEntrenamiento.Controls.Add(panelPeso, 3, rowIndex);
+
+            // Botón eliminar
+            Button btnEliminar = new Button
+            {
+                Text = "✖",
+                Width = 25,
+                Height = 25,
+                BackColor = Color.Red,
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Anchor = AnchorStyles.Right,
+                Margin = new Padding(5, 0, 15, 0),
+                Tag = rowIndex,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Font = new Font("Segoe UI", 8, FontStyle.Bold)
+            };
+            btnEliminar.FlatAppearance.BorderSize = 0;
+
+            btnEliminar.Click += (s, e) =>
+            {
+                Button boton = (Button)s;
+                int fila = tlpEntrenamiento.GetRow(boton);
+
+                for (int col = 0; col < tlpEntrenamiento.ColumnCount; col++)
+                {
+                    var ctrl = tlpEntrenamiento.GetControlFromPosition(col, fila);
+                    if (ctrl != null)
+                        tlpEntrenamiento.Controls.Remove(ctrl);
+                }
+
+                if (fila < tlpEntrenamiento.RowStyles.Count)
+                    tlpEntrenamiento.RowStyles.RemoveAt(fila);
+
+                tlpEntrenamiento.RowCount--;
+            };
+
+            tlpEntrenamiento.Controls.Add(btnEliminar, 4, rowIndex);
         }
+
 
         private void AgregarFilaEstiramiento()
         {
@@ -638,6 +1010,7 @@ namespace Vista
                 Value = 0,
                 Width = 60,
                 Anchor = AnchorStyles.Left,
+                TextAlign = HorizontalAlignment.Center,
                 Margin = new Padding(0)
             };
 
@@ -702,6 +1075,10 @@ namespace Vista
             tlpCalentamiento.RowStyles.Clear();
             tlpCalentamiento.RowCount = 0;
 
+            tlpEntrenamiento.Controls.Clear();
+            tlpEntrenamiento.RowStyles.Clear();
+            tlpEntrenamiento.RowCount = 0;
+            
             tlpEstiramiento.Controls.Clear();
             tlpEstiramiento.RowStyles.Clear();
             tlpEstiramiento.RowCount = 0;
@@ -718,6 +1095,7 @@ namespace Vista
                 habilitarRutina();
                 msjRutina.Visible = false;
                 CargarCalentamientos();
+                CargarEntrenamiento();
                 CargarEstiramientos();
 
                 lblUltimaFecha.Visible = true;
@@ -730,7 +1108,6 @@ namespace Vista
                 lblUltimaFecha.Visible = false;
             }
         }
-
         #endregion
 
         public frmGestionarRutinas()
@@ -902,6 +1279,7 @@ namespace Vista
                         msjRutina.Visible = false;
                         //MessageBox.Show($"Dia: {RutinaSeleccionada.Dia}, IdRutina: {RutinaSeleccionada.IdRutina}", "Mensaje");
                         CargarCalentamientos();
+                        CargarEntrenamiento();
                         CargarEstiramientos();
 
                         lblUltimaFecha.Enabled = true;
@@ -910,7 +1288,7 @@ namespace Vista
                     {
                         msjRutina.Visible = true;
                         deshabilitarRutina();
-                        lblUltimaFecha.Enabled = false;
+                        lblUltimaFecha.Visible = false;
                     }
                 }
             }
@@ -964,6 +1342,7 @@ namespace Vista
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             // Falta implementar para Editar --> En realidad está implemmentado porque se borra la rutina anterior antes de insertar la nueva, tiene sentido porque son la misma sol oque actualizada
+            // Cuando guardo un tlb vacio se confu¿irma el alta pero se carga como estaba antes
 
             if (RutinaSeleccionada == null)
             {
@@ -972,25 +1351,96 @@ namespace Vista
             }
 
             List<RutinaCalentamiento> listaCalentamientos = ObtenerCalentamientosDesdeFormulario();
+            List<Entrenamiento> listaEntrenamientos = ObtenerEntrenamientosDesdeFormulario();
             List<RutinaEstiramiento> listaEstiramientos = ObtenerEstiramientosDesdeFormulario();
+            
+            bool exitoC = new ControladorGymRutina().GuardarCalentamientos(listaCalentamientos, out string mensajeC);
+            bool exitoT = new ControladorGymRutina().GuardarEntrenamientos(listaEntrenamientos, out string mensajeT);
+            bool exitoE = new ControladorGymRutina().GuardarEstiramientos(listaEstiramientos, out string mensajeE);
 
-            bool exitoC = new ControladorGymRutina().GuardarCalentamientos(listaCalentamientos, out string mensaje);
-            bool exitoE = new ControladorGymRutina().GuardarEstiramientos(listaEstiramientos, out string mensaje2);
-
-            if (exitoC || exitoE)
+            if (exitoC || exitoE || exitoT)
             {
                 new ControladorGymRutina().CambiarEstadoRutina(RutinaSeleccionada.IdRutina);
+                new ControladorGymSocio().ActualizarEstadoSocio(IdSocioActual, "Actualizado");
                 MessageBox.Show("Rutina guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //MessageBox.Show($"Dia: {RutinaSeleccionada.Dia}, IdRutina: {RutinaSeleccionada.IdRutina}", "Mensaje");
-                
-                // No me anda para volver a cargar la fecha :C
-                lblUltimaFecha.Text = "Última fecha de modificación: " + RutinaSeleccionada.FechaModificacion.ToString("dd/MM/yyyy");
-            } 
+                lblUltimaFecha.Text = "Última fecha de modificación: " + DateTime.Now.ToString("dd/MM/yyyy");
+            }
             else
             {
-                if (mensaje != null) MessageBox.Show("Error al guardar la rutina: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (mensaje2 != null) MessageBox.Show("Error al guardar la rutina: " + mensaje2, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //MessageBox.Show("Error al guardar la rutina: " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!exitoC && mensajeC != null)
+                    MessageBox.Show("Error al guardar calentamientos: " + mensajeC, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!exitoT && mensajeT != null)
+                    MessageBox.Show("Error al guardar entrenamientos: " + mensajeT, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (!exitoE && mensajeE != null)
+                    MessageBox.Show("Error al guardar estiramientos: " + mensajeE, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            tlpCalentamiento.Controls.Clear();
+            tlpCalentamiento.RowStyles.Clear();
+            tlpCalentamiento.RowCount = 0;
+
+            tlpEntrenamiento.Controls.Clear();
+            tlpEntrenamiento.RowStyles.Clear();
+            tlpEntrenamiento.RowCount = 0;
+
+            tlpEstiramiento.Controls.Clear();
+            tlpEstiramiento.RowStyles.Clear();
+            tlpEstiramiento.RowCount = 0;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            // Falta implementar
+            
+            if (RutinaSeleccionada != null)
+            {
+                DialogResult confirmacion = MessageBox.Show(
+                    $"¿Está seguro de que desea eliminar la rutina del día {RutinaSeleccionada.Dia}?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning);
+
+                if (confirmacion == DialogResult.Yes)
+                {
+                    bool rta = new ControladorGymRutina().DesactivarRutina(RutinaSeleccionada.IdRutina);
+
+                    if (rta)
+                    {
+                        // Limpiar visualmente la rutina eliminada
+                        tlpCalentamiento.Controls.Clear();
+                        tlpCalentamiento.RowStyles.Clear();
+                        tlpCalentamiento.RowCount = 0;
+
+                        tlpEntrenamiento.Controls.Clear();
+                        tlpEntrenamiento.RowStyles.Clear();
+                        tlpEntrenamiento.RowCount = 0;
+
+                        tlpEstiramiento.Controls.Clear();
+                        tlpEstiramiento.RowStyles.Clear();
+                        tlpEstiramiento.RowCount = 0;
+
+                        lblUltimaFecha.Text = "Última fecha de modificación: " + DateTime.Now.ToString("dd/MM/yyyy");
+                        msjRutina.Visible = true;
+                        deshabilitarRutina();
+
+                        // Eliminar de la lista actual y desasignar rutina seleccionada
+                        //RutinasActuales.Remove(RutinaSeleccionada);
+                        //RutinaSeleccionada = null;
+
+                        MessageBox.Show("La rutina fue eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrió un error al intentar eliminar la rutina.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una rutina antes de eliminarla.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

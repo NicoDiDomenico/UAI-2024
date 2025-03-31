@@ -49,7 +49,7 @@ namespace Vista
                 {
                     OpcionComboRangoHorario opcion = new OpcionComboRangoHorario
                     {
-                        Valor = item.IdRangoHorario,  // ID del rango horario
+                        Valor = item.IdRangoHorario,
                         Texto = textoRango,
                         HoraDesde = item.HoraDesde,
                         HoraHasta = item.HoraHasta,
@@ -60,10 +60,28 @@ namespace Vista
                 }
             }
 
-            cboRangoHorario.DisplayMember = "Texto"; // Lo que se mostrará en el combo
-            cboRangoHorario.ValueMember = "Valor"; // Lo que se usará como valor interno
-            cboRangoHorario.SelectedIndex = -1; // Sin selección inicial
+            cboRangoHorario.DisplayMember = "Texto";
+            cboRangoHorario.ValueMember = "Valor";
+
+            // 👇 Seleccionar el rango actual basado en la hora del sistema
+            TimeSpan ahora = DateTime.Now.TimeOfDay;
+            for (int i = 0; i < cboRangoHorario.Items.Count; i++)
+            {
+                OpcionComboRangoHorario opcion = (OpcionComboRangoHorario)cboRangoHorario.Items[i];
+                if (opcion.HoraDesde <= ahora && ahora < opcion.HoraHasta)
+                {
+                    cboRangoHorario.SelectedIndex = i;
+                    break;
+                }
+            }
+
+            // Si no se encontró ninguno válido, dejar sin selección
+            if (cboRangoHorario.SelectedIndex == -1 && cboRangoHorario.Items.Count > 0)
+            {
+                cboRangoHorario.SelectedIndex = 0;
+            }
         }
+
         #endregion
 
         public frmNuevoTurno(int idSocio)

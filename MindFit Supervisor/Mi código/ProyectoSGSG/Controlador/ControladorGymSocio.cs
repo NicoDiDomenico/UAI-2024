@@ -72,6 +72,11 @@ namespace Controlador
         {
             return objcd_Socio.ListarSociosActuales(id, idRangoHorarioActual);
         }
+
+        public bool ActualizarEstadoSocio(int idSocio, string nuevoEstado)
+        {
+            return objcd_Socio.ActualizarEstadoSocio(idSocio, nuevoEstado);
+        }
     }
 }
 

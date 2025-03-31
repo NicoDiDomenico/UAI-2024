@@ -74,16 +74,17 @@ namespace DAO
                 try
                 {
                     string query = @"
-                    SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
-                           NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
-                           EstadoSocio, FechaInicioActividades, FechaFinActividades, 
-                           FechaNotificacion, RespuestaNotificacion
-                    FROM Socio
-                    WHERE IdSocio = @IdSocio;
+                        SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
+                               NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
+                               EstadoSocio, FechaInicioActividades, FechaFinActividades, 
+                               FechaNotificacion, RespuestaNotificacion
+                        FROM Socio
+                        WHERE IdSocio = @IdSocio;
 
-                    SELECT IdRutina, IdSocio, FechaModificacion, Dia 
-                    FROM Rutina
-                    WHERE IdSocio = @IdSocio;";
+                        SELECT IdRutina, IdSocio, FechaModificacion, Dia 
+                        FROM Rutina
+                        WHERE IdSocio = @IdSocio AND Activa = 1;
+                    ";
 
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
@@ -359,6 +360,27 @@ namespace DAO
                 }
             }
             return lista;
+        }
+
+        public bool ActualizarEstadoSocio(int idSocio, string nuevoEstado)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(Conexion.cadena))
+                {
+                    string query = "UPDATE Socio SET EstadoSocio = @estado WHERE IdSocio = @id";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@estado", nuevoEstado);
+                    cmd.Parameters.AddWithValue("@id", idSocio);
+
+                    conn.Open();
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
