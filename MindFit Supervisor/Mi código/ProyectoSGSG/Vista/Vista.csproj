@@ -159,6 +159,12 @@
     <Compile Include="frmGestionarGimnasioMenus\frmMenuEstiramiento.Designer.cs">
       <DependentUpon>frmMenuEstiramiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHistorialRutinas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHistorialRutinas.Designer.cs">
+      <DependentUpon>frmHistorialRutinas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNuevoTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionarGimnasioMenus\frmModificarAcciones.resx">
       <DependentUpon>frmModificarAcciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHistorialRutinas.resx">
+      <DependentUpon>frmHistorialRutinas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoTurno.resx">
       <DependentUpon>frmNuevoTurno.cs</DependentUpon>

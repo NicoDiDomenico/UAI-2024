@@ -21,6 +21,8 @@ namespace Vista
         private int IdSocioActual;
         private List<Rutina> RutinasActuales;
         private Rutina RutinaSeleccionada;
+
+        private string DiaRestaurado = "";
         #endregion
         #region "Métodos"
         private void cargarCBO()
@@ -591,7 +593,6 @@ namespace Vista
             }
         }
 
-
         private void CargarEstiramientos()
         {
             tlpEstiramiento.Controls.Clear();
@@ -965,7 +966,6 @@ namespace Vista
             tlpEntrenamiento.Controls.Add(btnEliminar, 4, rowIndex);
         }
 
-
         private void AgregarFilaEstiramiento()
         {
             int rowIndex = tlpEstiramiento.RowCount++;
@@ -1108,11 +1108,94 @@ namespace Vista
                 lblUltimaFecha.Visible = false;
             }
         }
+
+        private void AbrirFormulario(Form formulario)
+        {
+            formulario.StartPosition = FormStartPosition.CenterScreen; // Centra la ventana
+            formulario.Load += (s, e) =>
+            {
+                // Ajustar la posición para que la ventana baje 50 píxeles desde la posición centrada
+                formulario.Top += 95;
+            };
+
+            formulario.ShowDialog(); // Muestra como ventana modal
+        }
+
+        public void CargarRutinaDesdeHistorial(List<RutinaCalentamiento> calentamientos, List<Entrenamiento> entrenamientos, List<RutinaEstiramiento> estiramientos)
+        {
+            btnLimpiar.PerformClick(); // Limpia los paneles primero
+
+            foreach (var item in calentamientos)
+            {
+                AgregarFilaCalentamiento();
+                int fila = tlpCalentamiento.RowCount - 1;
+
+                ComboBox combo = tlpCalentamiento.GetControlFromPosition(0, fila) as ComboBox;
+                FlowLayoutPanel panel = tlpCalentamiento.GetControlFromPosition(1, fila) as FlowLayoutPanel;
+                NumericUpDown minutos = panel?.Controls.OfType<NumericUpDown>().FirstOrDefault();
+
+                if (combo != null && minutos != null)
+                {
+                    combo.SelectedItem = combo.Items
+                        .OfType<OpcionComboCalentamiento>()
+                        .FirstOrDefault(c => c.IdCalentamiento == item.IdCalentamiento);
+                    minutos.Value = item.Minutos;
+                }
+            }
+
+            foreach (var item in entrenamientos)
+            {
+                AgregarFilaEntrenamiento();
+                int fila = tlpEntrenamiento.RowCount - 1;
+
+                ComboBox combo = tlpEntrenamiento.GetControlFromPosition(0, fila) as ComboBox;
+                FlowLayoutPanel panelSeries = tlpEntrenamiento.GetControlFromPosition(1, fila) as FlowLayoutPanel;
+                FlowLayoutPanel panelReps = tlpEntrenamiento.GetControlFromPosition(2, fila) as FlowLayoutPanel;
+                FlowLayoutPanel panelPeso = tlpEntrenamiento.GetControlFromPosition(3, fila) as FlowLayoutPanel;
+
+                NumericUpDown nudSeries = panelSeries?.Controls.OfType<NumericUpDown>().FirstOrDefault();
+                NumericUpDown nudReps = panelReps?.Controls.OfType<NumericUpDown>().FirstOrDefault();
+                NumericUpDown nudPeso = panelPeso?.Controls.OfType<NumericUpDown>().FirstOrDefault();
+
+                if (combo != null && nudSeries != null && nudReps != null && nudPeso != null)
+                {
+                    combo.SelectedItem = combo.Items
+                        .OfType<OpcionComboElementoGimnasio>()
+                        .FirstOrDefault(e => e.IdElemento == item.ElementoGimnasio.IdElemento);
+
+                    nudSeries.Value = item.Series;
+                    nudReps.Value = item.Repeticiones;
+                    nudPeso.Value = item.Peso;
+                }
+            }
+
+            foreach (var item in estiramientos)
+            {
+                AgregarFilaEstiramiento();
+                int fila = tlpEstiramiento.RowCount - 1;
+
+                ComboBox combo = tlpEstiramiento.GetControlFromPosition(0, fila) as ComboBox;
+                FlowLayoutPanel panel = tlpEstiramiento.GetControlFromPosition(1, fila) as FlowLayoutPanel;
+                NumericUpDown minutos = panel?.Controls.OfType<NumericUpDown>().FirstOrDefault();
+
+                if (combo != null && minutos != null)
+                {
+                    combo.SelectedItem = combo.Items
+                        .OfType<OpcionComboCalentamiento>()
+                        .FirstOrDefault(c => c.IdCalentamiento == item.IdEstiramiento);
+                    minutos.Value = item.Minutos;
+                }
+            }
+
+            MessageBox.Show("Rutina restaurada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         #endregion
 
-        public frmGestionarRutinas()
+        public frmGestionarRutinas(string dia = "")
         {
             InitializeComponent();
+            DiaRestaurado = dia; // nueva variable que debés declarar
         }
 
         private void frmGestionarRutinas_Load(object sender, EventArgs e)
@@ -1123,6 +1206,19 @@ namespace Vista
             lblMensaje.Visible = false;
             cargarCBO();
             LimpiarBotones();
+
+            if (!string.IsNullOrEmpty(DiaRestaurado))
+            {
+                switch (DiaRestaurado)
+                {
+                    case "Lunes": btnLunes.PerformClick(); break;
+                    case "Martes": btnMartes.PerformClick(); break;
+                    case "Miércoles": btnMiercoles.PerformClick(); break;
+                    case "Jueves": btnJueves.PerformClick(); break;
+                    case "Viernes": btnViernes.PerformClick(); break;
+                    case "Sábado": btnSabado.PerformClick(); break;
+                }
+            }
         }
 
         private void cboRangoHorario_SelectedIndexChanged(object sender, EventArgs e)
@@ -1353,15 +1449,37 @@ namespace Vista
             List<RutinaCalentamiento> listaCalentamientos = ObtenerCalentamientosDesdeFormulario();
             List<Entrenamiento> listaEntrenamientos = ObtenerEntrenamientosDesdeFormulario();
             List<RutinaEstiramiento> listaEstiramientos = ObtenerEstiramientosDesdeFormulario();
-            
+
             bool exitoC = new ControladorGymRutina().GuardarCalentamientos(listaCalentamientos, out string mensajeC);
             bool exitoT = new ControladorGymRutina().GuardarEntrenamientos(listaEntrenamientos, out string mensajeT);
             bool exitoE = new ControladorGymRutina().GuardarEstiramientos(listaEstiramientos, out string mensajeE);
 
-            if (exitoC || exitoE || exitoT)
+            if (exitoC || exitoT || exitoE)
             {
+                ControladorGymHistorialRutinas controladorHistorial = new ControladorGymHistorialRutinas();
+                int idHistorial = controladorHistorial.CrearHistorialRutina(IdSocioActual, RutinaSeleccionada.Dia, out string mensajeHistorial);
+
+                if (idHistorial > 0)
+                {
+                    bool exitoHC = controladorHistorial.GuardarHistorialCalentamientos(idHistorial, listaCalentamientos, out string mensajeHC);
+                    bool exitoHT = controladorHistorial.GuardarHistorialEntrenamientos(idHistorial, listaEntrenamientos, out string mensajeHT);
+                    bool exitoHE = controladorHistorial.GuardarHistorialEstiramientos(idHistorial, listaEstiramientos, out string mensajeHE);
+
+                    if (!exitoHC || !exitoHT || !exitoHE)
+                    {
+                        if (!exitoHC) MessageBox.Show("Error al guardar historial de calentamientos: " + mensajeHC, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (!exitoHT) MessageBox.Show("Error al guardar historial de entrenamientos: " + mensajeHT, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (!exitoHE) MessageBox.Show("Error al guardar historial de estiramientos: " + mensajeHE, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo crear el historial de rutina: " + mensajeHistorial, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 new ControladorGymRutina().CambiarEstadoRutina(RutinaSeleccionada.IdRutina);
                 new ControladorGymSocio().ActualizarEstadoSocio(IdSocioActual, "Actualizado");
+
                 MessageBox.Show("Rutina guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblUltimaFecha.Text = "Última fecha de modificación: " + DateTime.Now.ToString("dd/MM/yyyy");
             }
@@ -1442,6 +1560,19 @@ namespace Vista
             {
                 MessageBox.Show("Debe seleccionar una rutina antes de eliminarla.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnHistorial_Click(object sender, EventArgs e)
+        {
+            // Pasás 'this' como referencia al formulario padre
+            //var historial = new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia);
+            //historial.ShowDialog();
+            AbrirFormulario(new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia));
+        }
+
+        private void msjRutina_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

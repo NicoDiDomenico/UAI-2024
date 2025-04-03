@@ -34,3 +34,12 @@ C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDa
 C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
 C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.dll
 C:\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\bin\Debug\CapaDatos.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\bin\Debug\CapaEntidad.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\bin\Debug\CapaEntidad.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.csproj.AssemblyReference.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.csproj.Up2Date
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Proyecto de Referencia\CapaDatos\obj\Debug\CapaDatos.pdb

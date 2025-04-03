@@ -316,6 +316,8 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiarBuscador);
             this.Controls.Add(this.label10);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mdEntrenador";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mdEntrenador";

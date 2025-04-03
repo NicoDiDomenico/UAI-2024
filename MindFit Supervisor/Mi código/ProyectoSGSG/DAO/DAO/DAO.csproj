@@ -53,6 +53,10 @@
     <Compile Include="EstiramientoDAO.cs" />
     <Compile Include="GimnasioDAO.cs" />
     <Compile Include="GrupoDAO.cs" />
+    <Compile Include="HistorialCalentamientoDAO.cs" />
+    <Compile Include="HistorialEntrenamientoDAO.cs" />
+    <Compile Include="HistorialEstiramientoDAO.cs" />
+    <Compile Include="HistorialRutinaDAO.cs" />
     <Compile Include="MaquinaDAO.cs" />
     <Compile Include="PermisoDAO.cs" />
     <Compile Include="RangoHorarioDAO.cs" />

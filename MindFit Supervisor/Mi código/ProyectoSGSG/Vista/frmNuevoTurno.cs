@@ -63,7 +63,7 @@ namespace Vista
             cboRangoHorario.DisplayMember = "Texto";
             cboRangoHorario.ValueMember = "Valor";
 
-            // 👇 Seleccionar el rango actual basado en la hora del sistema
+            // Seleccionar el rango actual basado en la hora del sistema
             TimeSpan ahora = DateTime.Now.TimeOfDay;
             for (int i = 0; i < cboRangoHorario.Items.Count; i++)
             {
@@ -78,7 +78,7 @@ namespace Vista
             // Si no se encontró ninguno válido, dejar sin selección
             if (cboRangoHorario.SelectedIndex == -1 && cboRangoHorario.Items.Count > 0)
             {
-                cboRangoHorario.SelectedIndex = 0;
+                cboRangoHorario.SelectedIndex = -1;
             }
         }
 

@@ -2989,3 +2989,74 @@ select * from rutina
 order by IdSocio
 
 Select * from Socio 
+
+-- HistorialRutinas
+CREATE TABLE HistorialRutina (
+    IdHistorial INT IDENTITY(1,1) PRIMARY KEY,
+    IdSocio INT NOT NULL,
+    Dia NVARCHAR(20) NOT NULL,
+    FechaRegistro DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+CREATE TABLE Historial_Calentamiento (
+    IdHistorialCalentamiento INT IDENTITY(1,1) PRIMARY KEY,
+    IdHistorial INT FOREIGN KEY REFERENCES HistorialRutina(IdHistorial),
+    IdCalentamiento INT NOT NULL,
+    Duracion INT NOT NULL
+);
+
+CREATE TABLE Historial_Entrenamiento (
+    IdHistorialEntrenamiento INT IDENTITY(1,1) PRIMARY KEY,
+    IdHistorial INT FOREIGN KEY REFERENCES HistorialRutina(IdHistorial),
+    IdElementoGimnasio INT NOT NULL,
+    Series INT,
+    Repeticiones INT,
+    Peso INT
+);
+
+CREATE TABLE Historial_Estiramiento (
+    IdHistorialEstiramiento INT IDENTITY(1,1) PRIMARY KEY,
+    IdHistorial INT FOREIGN KEY REFERENCES HistorialRutina(IdHistorial),
+    IdEstiramiento INT NOT NULL,
+    Duracion INT NOT NULL
+);
+
+select * from HistorialRutina
+select * from Historial_Calentamiento
+select * from Historial_Entrenamiento
+select * from Historial_Estiramiento
+
+SELECT IdHistorial, IdSocio, Dia, FechaRegistro
+FROM HistorialRutina 
+where IdSocio = 13 and Dia = 'Lunes'
+Order by FechaRegistro Desc
+
+SELECT IdHistorial, IdSocio, Dia, FechaRegistro
+FROM HistorialRutina 
+WHERE IdSocio = 13 AND Dia = 'Martes'
+ORDER BY FechaRegistro DESC
+OFFSET 1 ROWS
+
+SELECT IdEstiramiento, Duracion 
+FROM Historial_Estiramiento 
+WHERE IdHistorial = 5
+
+SELECT e.IdEntrenamiento, e.IdRutina, e.Series, e.Repeticiones, e.Peso,
+       eg.IdElemento, eg.NombreElemento
+FROM Entrenamiento e
+INNER JOIN ElementoGimnasio eg ON eg.IdElemento = e.IdElementoGimnasio
+WHERE e.IdRutina = 1
+
+SELECT he.IdHistorialEntrenamiento, he.IdHistorial, he.Series, he.Repeticiones, he.Peso,
+       eg.IdElemento, eg.NombreElemento
+FROM Historial_Entrenamiento he
+INNER JOIN ElementoGimnasio eg ON eg.IdElemento = he.IdElementoGimnasio
+WHERE he.IdHistorial = 2 -- IdRutina equivale a IdHistorial
+
+SELECT IdCalentamiento, Duracion 
+FROM Rutina_Calentamiento 
+WHERE IdRutina = 1
+
+SELECT IdCalentamiento, Duracion 
+FROM Historial_Calentamiento 
+WHERE IdHistorial = 5

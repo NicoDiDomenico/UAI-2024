@@ -31,12 +31,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.cboBusqueda = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new FontAwesome.Sharp.IconButton();
-            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreElemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +41,12 @@
             this.TipoMaquina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EsElectrica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cboBusqueda = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new FontAwesome.Sharp.IconButton();
+            this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,6 +86,74 @@
             this.dgvData.Size = new System.Drawing.Size(755, 404);
             this.dgvData.TabIndex = 99;
             this.dgvData.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentDoubleClick);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Visible = false;
+            this.btnSeleccionar.Width = 35;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "IdElemento";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // NombreElemento
+            // 
+            this.NombreElemento.HeaderText = "Nombre";
+            this.NombreElemento.Name = "NombreElemento";
+            this.NombreElemento.ReadOnly = true;
+            this.NombreElemento.Width = 200;
+            // 
+            // FechaFabricacion
+            // 
+            this.FechaFabricacion.HeaderText = "Fecha de Fabricacion";
+            this.FechaFabricacion.Name = "FechaFabricacion";
+            this.FechaFabricacion.ReadOnly = true;
+            this.FechaFabricacion.Visible = false;
+            // 
+            // FechaCompra
+            // 
+            this.FechaCompra.HeaderText = "Fecha de Compra";
+            this.FechaCompra.Name = "FechaCompra";
+            this.FechaCompra.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            this.Peso.HeaderText = "Peso";
+            this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
+            // 
+            // TipoMaquina
+            // 
+            this.TipoMaquina.HeaderText = "Tipo de Maquina";
+            this.TipoMaquina.Name = "TipoMaquina";
+            this.TipoMaquina.ReadOnly = true;
+            // 
+            // EsElectrica
+            // 
+            this.EsElectrica.HeaderText = "Electrica";
+            this.EsElectrica.Name = "EsElectrica";
+            this.EsElectrica.ReadOnly = true;
+            // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
             // 
             // cboBusqueda
             // 
@@ -162,74 +230,6 @@
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Visible = false;
-            this.btnSeleccionar.Width = 35;
-            // 
-            // Id
-            // 
-            this.Id.HeaderText = "IdElemento";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // NombreElemento
-            // 
-            this.NombreElemento.HeaderText = "Nombre";
-            this.NombreElemento.Name = "NombreElemento";
-            this.NombreElemento.ReadOnly = true;
-            this.NombreElemento.Width = 200;
-            // 
-            // FechaFabricacion
-            // 
-            this.FechaFabricacion.HeaderText = "Fecha de Fabricacion";
-            this.FechaFabricacion.Name = "FechaFabricacion";
-            this.FechaFabricacion.ReadOnly = true;
-            this.FechaFabricacion.Visible = false;
-            // 
-            // FechaCompra
-            // 
-            this.FechaCompra.HeaderText = "Fecha de Compra";
-            this.FechaCompra.Name = "FechaCompra";
-            this.FechaCompra.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            // 
-            // Peso
-            // 
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
-            this.Peso.ReadOnly = true;
-            // 
-            // TipoMaquina
-            // 
-            this.TipoMaquina.HeaderText = "Tipo de Maquina";
-            this.TipoMaquina.Name = "TipoMaquina";
-            this.TipoMaquina.ReadOnly = true;
-            // 
-            // EsElectrica
-            // 
-            this.EsElectrica.HeaderText = "Electrica";
-            this.EsElectrica.Name = "EsElectrica";
-            this.EsElectrica.ReadOnly = true;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
-            // 
             // mdMaquina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,6 +242,8 @@
             this.Controls.Add(this.btnLimpiarBuscador);
             this.Controls.Add(this.txtBusqueda);
             this.Controls.Add(this.label10);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "mdMaquina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "mdMaquina";

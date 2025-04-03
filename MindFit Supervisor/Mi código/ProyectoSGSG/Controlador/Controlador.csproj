@@ -50,6 +50,10 @@
     <Compile Include="ControladorGymEstiramiento.cs" />
     <Compile Include="ControladorGymGimnasio.cs" />
     <Compile Include="ControladorGymGrupo.cs" />
+    <Compile Include="ControladorGymHistorialCalentamiento.cs" />
+    <Compile Include="ControladorGymHistorialEntrenamiento.cs" />
+    <Compile Include="ControladorGymHistorialEstiramiento.cs" />
+    <Compile Include="ControladorGymHistorialRutinas.cs" />
     <Compile Include="ControladorGymMaquina.cs" />
     <Compile Include="ControladorGymPermiso.cs" />
     <Compile Include="ControladorGymRangoHorario.cs" />
