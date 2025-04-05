@@ -3060,3 +3060,36 @@ WHERE IdRutina = 1
 SELECT IdCalentamiento, Duracion 
 FROM Historial_Calentamiento 
 WHERE IdHistorial = 5
+
+select * from Grupo
+
+select * from Accion a
+left join Grupo g
+on a.IdGrupo = g.IdGrupo
+
+insert into Accion values
+('btnEliminar', 'Dar de baja el dia de la rutina junto con la misma', 2),
+('btnHistorial', 'Consultar el historial de rutinas del socio seleccionado', 2),
+('btnGuardarRutina', 'Actualizar la rutina con los nuevos datos ingresados para el socio', 2),
+('btnRestaurar', 'Recuperar una rutina de una fecha anterior a la actual', 2)
+
+select * from Permiso
+where IdRol = 1
+
+select * from Usuario 
+where IdUsuario = 1
+
+SELECT 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acción directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 1

@@ -85,7 +85,7 @@ namespace Vista
                     item.Clave,
                     item.Genero == "Masculino" ? "Masculino" : "Femenino",
                     item.Rol != null ? item.Rol.IdRol : (object)DBNull.Value,  // Manejo de NULL en IdRol
-                    item.Rol != null ? item.Rol.Descripcion : "Sin Rol",  // Si no tiene rol, muestra "Sin Rol"
+                    item.Rol != null ? item.Rol.Descripcion : " - ",  // Si no tiene rol, muestra "Sin Rol"
                     item.Estado == true ? 1 : 0,
                     item.Estado == true ? "Activo" : "No Activo",
                     item.FechaRegistro
@@ -503,7 +503,7 @@ namespace Vista
 
                 if (accionesSeleccionadas != null && accionesSeleccionadas.Count > 0)
                 {
-                    MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
+                    //MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
                 }
             }
         }

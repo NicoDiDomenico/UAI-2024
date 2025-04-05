@@ -35,24 +35,27 @@
             this.btnMenuEliminar = new System.Windows.Forms.CheckBox();
             this.btnMenuTurno = new System.Windows.Forms.CheckBox();
             this.gbGestionRutinas = new System.Windows.Forms.GroupBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.btnRestaurar = new System.Windows.Forms.CheckBox();
+            this.btnHistorial = new System.Windows.Forms.CheckBox();
+            this.btnEliminar = new System.Windows.Forms.CheckBox();
+            this.btnGuardarRutina = new System.Windows.Forms.CheckBox();
             this.gbGestionGimnasion = new System.Windows.Forms.GroupBox();
             this.menuRangosHorarios = new System.Windows.Forms.CheckBox();
-            this.menuEquipamiento = new System.Windows.Forms.CheckBox();
-            this.menuEjercicios = new System.Windows.Forms.CheckBox();
+            this.menuEstiramiento = new System.Windows.Forms.CheckBox();
+            this.menuElementosGym = new System.Windows.Forms.CheckBox();
             this.menuNegocio = new System.Windows.Forms.CheckBox();
             this.menuRoles = new System.Windows.Forms.CheckBox();
-            this.menuMaquinas = new System.Windows.Forms.CheckBox();
+            this.menuCalentamiento = new System.Windows.Forms.CheckBox();
             this.menuUsuarios = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.cbTodo = new System.Windows.Forms.CheckBox();
             this.gbGestionSocios.SuspendLayout();
             this.gbGestionRutinas.SuspendLayout();
             this.gbGestionGimnasion.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -68,7 +71,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.White;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 24;
-            this.btnGuardar.Location = new System.Drawing.Point(602, 660);
+            this.btnGuardar.Location = new System.Drawing.Point(602, 675);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(121, 50);
             this.btnGuardar.TabIndex = 45;
@@ -95,7 +98,7 @@
             this.gbGestionSocios.Controls.Add(this.btnMenuTurno);
             this.gbGestionSocios.Controls.Add(this.btnMenuAgregar);
             this.gbGestionSocios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGestionSocios.Location = new System.Drawing.Point(39, 73);
+            this.gbGestionSocios.Location = new System.Drawing.Point(40, 62);
             this.gbGestionSocios.Name = "gbGestionSocios";
             this.gbGestionSocios.Size = new System.Drawing.Size(521, 246);
             this.gbGestionSocios.TabIndex = 48;
@@ -134,74 +137,69 @@
             // 
             // gbGestionRutinas
             // 
-            this.gbGestionRutinas.Controls.Add(this.checkBox5);
-            this.gbGestionRutinas.Controls.Add(this.checkBox6);
-            this.gbGestionRutinas.Controls.Add(this.checkBox7);
-            this.gbGestionRutinas.Controls.Add(this.checkBox8);
-            this.gbGestionRutinas.Enabled = false;
+            this.gbGestionRutinas.Controls.Add(this.btnRestaurar);
+            this.gbGestionRutinas.Controls.Add(this.btnHistorial);
+            this.gbGestionRutinas.Controls.Add(this.btnEliminar);
+            this.gbGestionRutinas.Controls.Add(this.btnGuardarRutina);
             this.gbGestionRutinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGestionRutinas.Location = new System.Drawing.Point(39, 337);
+            this.gbGestionRutinas.Location = new System.Drawing.Point(40, 326);
             this.gbGestionRutinas.Name = "gbGestionRutinas";
             this.gbGestionRutinas.Size = new System.Drawing.Size(521, 246);
             this.gbGestionRutinas.TabIndex = 51;
             this.gbGestionRutinas.TabStop = false;
             this.gbGestionRutinas.Text = "Gestión Rutinas";
             // 
-            // checkBox5
+            // btnRestaurar
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(288, 55);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(123, 28);
-            this.checkBox5.TabIndex = 50;
-            this.checkBox5.Text = "checkBox5";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            this.checkBox5.Visible = false;
+            this.btnRestaurar.AutoSize = true;
+            this.btnRestaurar.Location = new System.Drawing.Point(288, 55);
+            this.btnRestaurar.Name = "btnRestaurar";
+            this.btnRestaurar.Size = new System.Drawing.Size(167, 28);
+            this.btnRestaurar.TabIndex = 50;
+            this.btnRestaurar.Text = "Restaurar Rutina";
+            this.btnRestaurar.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // btnHistorial
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(29, 178);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(123, 28);
-            this.checkBox6.TabIndex = 49;
-            this.checkBox6.Text = "checkBox6";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            this.checkBox6.Visible = false;
+            this.btnHistorial.AutoSize = true;
+            this.btnHistorial.Location = new System.Drawing.Point(29, 178);
+            this.btnHistorial.Name = "btnHistorial";
+            this.btnHistorial.Size = new System.Drawing.Size(197, 28);
+            this.btnHistorial.TabIndex = 49;
+            this.btnHistorial.Text = "Ver Historial Rutinas";
+            this.btnHistorial.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // btnEliminar
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(288, 178);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(123, 28);
-            this.checkBox7.TabIndex = 48;
-            this.checkBox7.Text = "checkBox7";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            this.checkBox7.Visible = false;
+            this.btnEliminar.AutoSize = true;
+            this.btnEliminar.Location = new System.Drawing.Point(288, 178);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(214, 28);
+            this.btnEliminar.TabIndex = 48;
+            this.btnEliminar.Text = "Eliminar Dia de Rutina";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // btnGuardarRutina
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(29, 55);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(123, 28);
-            this.checkBox8.TabIndex = 47;
-            this.checkBox8.Text = "checkBox8";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            this.checkBox8.Visible = false;
+            this.btnGuardarRutina.AutoSize = true;
+            this.btnGuardarRutina.Location = new System.Drawing.Point(29, 55);
+            this.btnGuardarRutina.Name = "btnGuardarRutina";
+            this.btnGuardarRutina.Size = new System.Drawing.Size(168, 28);
+            this.btnGuardarRutina.TabIndex = 47;
+            this.btnGuardarRutina.Text = "Actualizar Rutina";
+            this.btnGuardarRutina.UseVisualStyleBackColor = true;
             // 
             // gbGestionGimnasion
             // 
             this.gbGestionGimnasion.Controls.Add(this.menuRangosHorarios);
-            this.gbGestionGimnasion.Controls.Add(this.menuEquipamiento);
-            this.gbGestionGimnasion.Controls.Add(this.menuEjercicios);
+            this.gbGestionGimnasion.Controls.Add(this.menuEstiramiento);
+            this.gbGestionGimnasion.Controls.Add(this.menuElementosGym);
             this.gbGestionGimnasion.Controls.Add(this.menuNegocio);
             this.gbGestionGimnasion.Controls.Add(this.menuRoles);
-            this.gbGestionGimnasion.Controls.Add(this.menuMaquinas);
+            this.gbGestionGimnasion.Controls.Add(this.menuCalentamiento);
             this.gbGestionGimnasion.Controls.Add(this.menuUsuarios);
             this.gbGestionGimnasion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGestionGimnasion.Location = new System.Drawing.Point(615, 73);
+            this.gbGestionGimnasion.Location = new System.Drawing.Point(616, 62);
             this.gbGestionGimnasion.Name = "gbGestionGimnasion";
             this.gbGestionGimnasion.Size = new System.Drawing.Size(539, 510);
             this.gbGestionGimnasion.TabIndex = 52;
@@ -218,25 +216,25 @@
             this.menuRangosHorarios.Text = "Asignar Horarios y Entrenadores";
             this.menuRangosHorarios.UseVisualStyleBackColor = true;
             // 
-            // menuEquipamiento
+            // menuEstiramiento
             // 
-            this.menuEquipamiento.AutoSize = true;
-            this.menuEquipamiento.Location = new System.Drawing.Point(29, 308);
-            this.menuEquipamiento.Name = "menuEquipamiento";
-            this.menuEquipamiento.Size = new System.Drawing.Size(231, 28);
-            this.menuEquipamiento.TabIndex = 52;
-            this.menuEquipamiento.Text = "Gestionar Equipamiento";
-            this.menuEquipamiento.UseVisualStyleBackColor = true;
+            this.menuEstiramiento.AutoSize = true;
+            this.menuEstiramiento.Location = new System.Drawing.Point(29, 308);
+            this.menuEstiramiento.Name = "menuEstiramiento";
+            this.menuEstiramiento.Size = new System.Drawing.Size(326, 28);
+            this.menuEstiramiento.TabIndex = 52;
+            this.menuEstiramiento.Text = "Gestionar Técnicas de Estiramiento";
+            this.menuEstiramiento.UseVisualStyleBackColor = true;
             // 
-            // menuEjercicios
+            // menuElementosGym
             // 
-            this.menuEjercicios.AutoSize = true;
-            this.menuEjercicios.Location = new System.Drawing.Point(29, 241);
-            this.menuEjercicios.Name = "menuEjercicios";
-            this.menuEjercicios.Size = new System.Drawing.Size(196, 28);
-            this.menuEjercicios.TabIndex = 51;
-            this.menuEjercicios.Text = "Gestionar Ejercicios";
-            this.menuEjercicios.UseVisualStyleBackColor = true;
+            this.menuElementosGym.AutoSize = true;
+            this.menuElementosGym.Location = new System.Drawing.Point(29, 241);
+            this.menuElementosGym.Name = "menuElementosGym";
+            this.menuElementosGym.Size = new System.Drawing.Size(364, 28);
+            this.menuElementosGym.TabIndex = 51;
+            this.menuElementosGym.Text = "Gestionar Elementos de Entrenamiento ";
+            this.menuElementosGym.UseVisualStyleBackColor = true;
             // 
             // menuNegocio
             // 
@@ -253,20 +251,20 @@
             this.menuRoles.AutoSize = true;
             this.menuRoles.Location = new System.Drawing.Point(29, 107);
             this.menuRoles.Name = "menuRoles";
-            this.menuRoles.Size = new System.Drawing.Size(315, 28);
+            this.menuRoles.Size = new System.Drawing.Size(319, 28);
             this.menuRoles.TabIndex = 49;
-            this.menuRoles.Text = "Modificar Rol y consultar permisos";
+            this.menuRoles.Text = "Modificar Rol y Consultar Permisos";
             this.menuRoles.UseVisualStyleBackColor = true;
             // 
-            // menuMaquinas
+            // menuCalentamiento
             // 
-            this.menuMaquinas.AutoSize = true;
-            this.menuMaquinas.Location = new System.Drawing.Point(29, 174);
-            this.menuMaquinas.Name = "menuMaquinas";
-            this.menuMaquinas.Size = new System.Drawing.Size(196, 28);
-            this.menuMaquinas.TabIndex = 48;
-            this.menuMaquinas.Text = "Gestionar Maquinas";
-            this.menuMaquinas.UseVisualStyleBackColor = true;
+            this.menuCalentamiento.AutoSize = true;
+            this.menuCalentamiento.Location = new System.Drawing.Point(29, 174);
+            this.menuCalentamiento.Name = "menuCalentamiento";
+            this.menuCalentamiento.Size = new System.Drawing.Size(396, 28);
+            this.menuCalentamiento.TabIndex = 48;
+            this.menuCalentamiento.Text = "Gestionar Calentamientos con/sin Máquinas";
+            this.menuCalentamiento.UseVisualStyleBackColor = true;
             // 
             // menuUsuarios
             // 
@@ -293,14 +291,36 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.gbGestionGimnasion);
             this.panel1.Controls.Add(this.gbGestionRutinas);
             this.panel1.Controls.Add(this.gbGestionSocios);
             this.panel1.Location = new System.Drawing.Point(67, 26);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1203, 611);
+            this.panel1.Size = new System.Drawing.Size(1203, 641);
             this.panel1.TabIndex = 54;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.cbTodo);
+            this.panel2.Location = new System.Drawing.Point(500, 585);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(177, 40);
+            this.panel2.TabIndex = 55;
+            // 
+            // cbTodo
+            // 
+            this.cbTodo.AutoSize = true;
+            this.cbTodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTodo.Location = new System.Drawing.Point(14, 7);
+            this.cbTodo.Name = "cbTodo";
+            this.cbTodo.Size = new System.Drawing.Size(151, 24);
+            this.cbTodo.TabIndex = 51;
+            this.cbTodo.Text = "Seleccionar Todo";
+            this.cbTodo.UseVisualStyleBackColor = true;
+            this.cbTodo.CheckedChanged += new System.EventHandler(this.cbTodo_CheckedChanged);
             // 
             // frmAcciones
             // 
@@ -322,6 +342,8 @@
             this.gbGestionGimnasion.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -335,19 +357,21 @@
         private System.Windows.Forms.CheckBox btnMenuEliminar;
         private System.Windows.Forms.CheckBox btnMenuTurno;
         private System.Windows.Forms.GroupBox gbGestionRutinas;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox btnRestaurar;
+        private System.Windows.Forms.CheckBox btnHistorial;
+        private System.Windows.Forms.CheckBox btnEliminar;
+        private System.Windows.Forms.CheckBox btnGuardarRutina;
         private System.Windows.Forms.GroupBox gbGestionGimnasion;
         private System.Windows.Forms.CheckBox menuRangosHorarios;
-        private System.Windows.Forms.CheckBox menuEquipamiento;
-        private System.Windows.Forms.CheckBox menuEjercicios;
+        private System.Windows.Forms.CheckBox menuEstiramiento;
+        private System.Windows.Forms.CheckBox menuElementosGym;
         private System.Windows.Forms.CheckBox menuNegocio;
         private System.Windows.Forms.CheckBox menuRoles;
-        private System.Windows.Forms.CheckBox menuMaquinas;
+        private System.Windows.Forms.CheckBox menuCalentamiento;
         private System.Windows.Forms.CheckBox menuUsuarios;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox cbTodo;
     }
 }

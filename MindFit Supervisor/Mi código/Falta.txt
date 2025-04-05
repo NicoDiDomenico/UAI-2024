@@ -1,4 +1,4 @@
 - Que se pueda elegir los rangos horarios de apertura que manejará el gimnasio, separando por día.
 - Que los sábado sean los turnos solo a la mañana.
-- Implementar Modulo de seguridad para Rutinas (3 acciones: Historial Rutinas, Guardar, eliminar)
+- Implementar Modulo de seguridad para Rutinas (3 acciones: Historial Rutinas, Guardar, eliminar) --> LISTO.
 - Hay forms que están como modals y los prefiero en en un contenedor (op).

@@ -77,7 +77,7 @@
             this.panelBotones = new System.Windows.Forms.Panel();
             this.lblUltimaFecha = new System.Windows.Forms.Label();
             this.btnHistorial = new FontAwesome.Sharp.IconButton();
-            this.btnGuardar = new FontAwesome.Sharp.IconButton();
+            this.btnGuardarRutina = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.gbEntrenamiento = new System.Windows.Forms.GroupBox();
@@ -596,7 +596,7 @@
             this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.panelBotones.Controls.Add(this.lblUltimaFecha);
             this.panelBotones.Controls.Add(this.btnHistorial);
-            this.panelBotones.Controls.Add(this.btnGuardar);
+            this.panelBotones.Controls.Add(this.btnGuardarRutina);
             this.panelBotones.Controls.Add(this.btnEliminar);
             this.panelBotones.Controls.Add(this.btnLimpiar);
             this.panelBotones.Location = new System.Drawing.Point(593, 678);
@@ -635,28 +635,28 @@
             this.btnHistorial.UseVisualStyleBackColor = false;
             this.btnHistorial.Click += new System.EventHandler(this.btnHistorial_Click);
             // 
-            // btnGuardar
+            // btnGuardarRutina
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.btnGuardar.IconColor = System.Drawing.Color.White;
-            this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGuardar.IconSize = 24;
-            this.btnGuardar.Location = new System.Drawing.Point(837, 6);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(110, 36);
-            this.btnGuardar.TabIndex = 47;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnGuardarRutina.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnGuardarRutina.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnGuardarRutina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGuardarRutina.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardarRutina.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardarRutina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarRutina.ForeColor = System.Drawing.Color.White;
+            this.btnGuardarRutina.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.btnGuardarRutina.IconColor = System.Drawing.Color.White;
+            this.btnGuardarRutina.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGuardarRutina.IconSize = 24;
+            this.btnGuardarRutina.Location = new System.Drawing.Point(837, 6);
+            this.btnGuardarRutina.Name = "btnGuardarRutina";
+            this.btnGuardarRutina.Size = new System.Drawing.Size(110, 36);
+            this.btnGuardarRutina.TabIndex = 47;
+            this.btnGuardarRutina.Text = "Guardar";
+            this.btnGuardarRutina.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardarRutina.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardarRutina.UseVisualStyleBackColor = false;
+            this.btnGuardarRutina.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEliminar
             // 
@@ -922,7 +922,7 @@
         private System.Windows.Forms.GroupBox gbCalentamiento;
         private System.Windows.Forms.Panel panelBotones;
         private FontAwesome.Sharp.IconButton btnHistorial;
-        private FontAwesome.Sharp.IconButton btnGuardar;
+        private FontAwesome.Sharp.IconButton btnGuardarRutina;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnLimpiar;
         private System.Windows.Forms.Label lblUltimaFecha;

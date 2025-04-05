@@ -116,7 +116,6 @@ namespace Vista
                 }
             }
         }
-
         #endregion
 
         public frmSocios(Usuario usuarioActual)

@@ -1,5 +1,6 @@
 ﻿using CapaPresentacion.Utilidades;
 using Controlador;
+using FontAwesome.Sharp;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace Vista
         private int IdSocioActual;
         private List<Rutina> RutinasActuales;
         private Rutina RutinaSeleccionada;
-
+        private Usuario usuario;
         private string DiaRestaurado = "";
         #endregion
         #region "Métodos"
@@ -1190,16 +1191,40 @@ namespace Vista
             MessageBox.Show("Rutina restaurada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void validarPermisos()
+        {
+            List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
+
+            // Lista de botones a validar
+            List<IconButton> botones = new List<IconButton> { btnEliminar, btnHistorial, btnGuardarRutina };
+
+            foreach (IconButton boton in botones)
+            {
+                // Verificar si el usuario tiene permiso por Grupo o por Acción
+                bool tienePermiso = listaPermisos.Any(p =>
+                    (p.Grupo != null && p.Grupo.NombreMenu == boton.Name) ||
+                    (p.Accion != null && p.Accion.NombreAccion == boton.Name)
+                );
+
+                if (!tienePermiso)
+                {
+                    boton.Visible = false; // En lo botones cambio .Enabled por .Visible para evitar que al hacer clica un usuario igualmente se active aunque no tenga el permiso.
+                    boton.BackColor = Color.Gainsboro;
+                }
+            }
+        }
         #endregion
 
-        public frmGestionarRutinas(string dia = "")
+        public frmGestionarRutinas(Usuario usuarioActual, string dia = "")
         {
+            usuario = usuarioActual;
             InitializeComponent();
             DiaRestaurado = dia; // nueva variable que debés declarar
         }
 
         private void frmGestionarRutinas_Load(object sender, EventArgs e)
         {
+            validarPermisos();
             desactivarRutina();
             deshabilitarRutina();
             this.BackColor = ColorTranslator.FromHtml("#E6EAEA");
@@ -1567,7 +1592,7 @@ namespace Vista
             // Pasás 'this' como referencia al formulario padre
             //var historial = new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia);
             //historial.ShowDialog();
-            AbrirFormulario(new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia));
+            AbrirFormulario(new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia, usuario));
         }
 
         private void msjRutina_Click(object sender, EventArgs e)

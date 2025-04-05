@@ -22,7 +22,7 @@ namespace Vista
         private Rutina RutinaSeleccionada;
         private string DiaActual;
         private string DiaPasado;
-
+        private Usuario usuario;
         private frmGestionarRutinas formularioPadre;
         #endregion
         #region "Métodos"
@@ -651,10 +651,34 @@ namespace Vista
             // Devuelve la lista de calentamientos ingresados por el usuario
             return lista;
         }
+
+        private void validarPermisos()
+        {
+            List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
+
+            // Lista de botones a validar
+            List<IconButton> botones = new List<IconButton> { btnRestaurar };
+
+            foreach (IconButton boton in botones)
+            {
+                // Verificar si el usuario tiene permiso por Grupo o por Acción
+                bool tienePermiso = listaPermisos.Any(p =>
+                    (p.Grupo != null && p.Grupo.NombreMenu == boton.Name) ||
+                    (p.Accion != null && p.Accion.NombreAccion == boton.Name)
+                );
+
+                if (!tienePermiso)
+                {
+                    boton.Visible = false; // En lo botones cambio .Enabled por .Visible para evitar que al hacer clica un usuario igualmente se active aunque no tenga el permiso.
+                    boton.BackColor = Color.Gainsboro;
+                }
+            }
+        }
         #endregion
 
-        public frmHistorialRutinas(frmGestionarRutinas padre, int IdSocio, string dia)
+        public frmHistorialRutinas(frmGestionarRutinas padre, int IdSocio, string dia, Usuario usuarioActual)
         {
+            usuario = usuarioActual;
             InitializeComponent();
             formularioPadre = padre;
             IdSocioActual = IdSocio;

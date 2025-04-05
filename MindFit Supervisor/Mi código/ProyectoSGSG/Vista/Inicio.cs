@@ -220,14 +220,14 @@ namespace Vista
         // Gestionar Rutinas
         private void menuTopGestionarRutinas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario((IconMenuItem)sender, new frmGestionarRutinas());
+            AbrirFormulario((IconMenuItem)sender, new frmGestionarRutinas(usuarioActual));
             cargarGrid();
             cargarTxt();
         }
 
         private void menuGestionarRutinas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(menuTopGestionarRutinas, new frmGestionarRutinas());
+            AbrirFormulario(menuTopGestionarRutinas, new frmGestionarRutinas(usuarioActual));
             cargarGrid();
             cargarTxt();
         }

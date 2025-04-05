@@ -14,60 +14,87 @@ namespace Vista
 {
     public partial class frmAcciones : Form
     {
+        #region "Variables"
         // Propiedad pública para almacenar las acciones seleccionadas
         public List<Accion> AccionesSeleccionadas { get; set; } // No inicializamos aquí
         private int ultimoUsuarioId;
+        #endregion
+        #region "Metodos"
+        private void MarcarAcciones(List<Accion> acciones)
+        {
+            foreach (Accion accion in acciones)
+            {
+                if (accion.NombreAccion == btnMenuAgregar.Name) btnMenuAgregar.Checked = true;
+                if (accion.NombreAccion == btnMenuConsultar.Name) btnMenuConsultar.Checked = true;
+                if (accion.NombreAccion == btnMenuEliminar.Name) btnMenuEliminar.Checked = true;
+                if (accion.NombreAccion == btnMenuTurno.Name) btnMenuTurno.Checked = true;
+
+                if (accion.NombreAccion == menuUsuarios.Name) menuUsuarios.Checked = true;
+                if (accion.NombreAccion == menuRoles.Name) menuRoles.Checked = true;
+                if (accion.NombreAccion == menuCalentamiento.Name) menuCalentamiento.Checked = true;
+                if (accion.NombreAccion == menuElementosGym.Name) menuElementosGym.Checked = true;
+                if (accion.NombreAccion == menuEstiramiento.Name) menuEstiramiento.Checked = true;
+                if (accion.NombreAccion == menuRangosHorarios.Name) menuRangosHorarios.Checked = true;
+                if (accion.NombreAccion == menuNegocio.Name) menuNegocio.Checked = true;
+
+                if (accion.NombreAccion == btnEliminar.Name) btnEliminar.Checked = true;
+                if (accion.NombreAccion == btnHistorial.Name) btnHistorial.Checked = true;
+                if (accion.NombreAccion == btnGuardarRutina.Name) btnGuardarRutina.Checked = true;
+                if (accion.NombreAccion == btnRestaurar.Name) btnRestaurar.Checked = true;
+            }
+        }
+        #endregion
 
         public frmAcciones(int id, List<Accion> accionesPrevias)
         {
             ultimoUsuarioId = id;
-            AccionesSeleccionadas = accionesPrevias ?? new List<Accion>(); // Si es null, inicializamos una nueva lista
+
+            // Clonamos la lista para no compartir referencia con el formulario padre
+            AccionesSeleccionadas = accionesPrevias != null
+                ? new List<Accion>(accionesPrevias.Select(a => new Accion { NombreAccion = a.NombreAccion }))
+                : new List<Accion>();
+
             InitializeComponent();
         }
 
         private void frmAcciones_Load(object sender, EventArgs e)
         {
-            if (ultimoUsuarioId == 0 && AccionesSeleccionadas != null && AccionesSeleccionadas.Count > 0)
+            if (AccionesSeleccionadas != null && AccionesSeleccionadas.Count > 0)
             {
-                foreach (Accion accion in AccionesSeleccionadas)
-                {
-                    if (accion.NombreAccion == btnMenuAgregar.Name) btnMenuAgregar.Checked = true;
-                    if (accion.NombreAccion == btnMenuConsultar.Name) btnMenuConsultar.Checked = true;
-                    if (accion.NombreAccion == btnMenuEliminar.Name) btnMenuEliminar.Checked = true;
-                    if (accion.NombreAccion == btnMenuTurno.Name) btnMenuTurno.Checked = true;
-
-                    if (accion.NombreAccion == menuUsuarios.Name) menuUsuarios.Checked = true;
-                    if (accion.NombreAccion == menuRoles.Name) menuRoles.Checked = true;
-                    if (accion.NombreAccion == menuMaquinas.Name) menuMaquinas.Checked = true;
-                    if (accion.NombreAccion == menuEjercicios.Name) menuEjercicios.Checked = true;
-                    if (accion.NombreAccion == menuEquipamiento.Name) menuEquipamiento.Checked = true;
-                    if (accion.NombreAccion == menuRangosHorarios.Name) menuRangosHorarios.Checked = true;
-                    if (accion.NombreAccion == menuNegocio.Name) menuNegocio.Checked = true;
-                }
+                MarcarAcciones(AccionesSeleccionadas);
             }
             else
             {
-                // traer de la bd las acciones del usuario con id ultimoUsuarioId
-                List<Accion> acciones = new ControladorGymAccion().Listar(ultimoUsuarioId);
+                // Solo traemos desde la base si no vino ninguna acción
+                List<Accion> accionesBD = new Controlador.ControladorGymAccion().Listar(ultimoUsuarioId);
+                AccionesSeleccionadas = accionesBD ?? new List<Accion>();
+                MarcarAcciones(AccionesSeleccionadas);
+            }
+            if (
+                btnMenuAgregar.Checked &&
+                btnMenuConsultar.Checked &&
+                btnMenuEliminar.Checked &&
+                btnMenuTurno.Checked &&
 
-                if (acciones.Count > 0 || acciones != null)
-                {
-                    foreach (Accion accion in acciones)
-                    {
-                        if (accion.NombreAccion == btnMenuAgregar.Name) btnMenuAgregar.Checked = true;
-                        if (accion.NombreAccion == btnMenuConsultar.Name) btnMenuConsultar.Checked = true;
-                        if (accion.NombreAccion == btnMenuEliminar.Name) btnMenuEliminar.Checked = true;
-                        if (accion.NombreAccion == btnMenuTurno.Name) btnMenuTurno.Checked = true;
+                menuUsuarios.Checked &&
+                menuRoles.Checked &&
+                menuCalentamiento.Checked &&
+                menuElementosGym.Checked &&
+                menuEstiramiento.Checked &&
+                menuRangosHorarios.Checked &&
+                menuNegocio.Checked &&
 
-                        if (accion.NombreAccion == menuUsuarios.Name) menuUsuarios.Checked = true;
-                        if (accion.NombreAccion == menuRoles.Name) menuRoles.Checked = true;
-                        if (accion.NombreAccion == menuMaquinas.Name) menuMaquinas.Checked = true;
-                        if (accion.NombreAccion == menuEjercicios.Name) menuEjercicios.Checked = true;
-                        if (accion.NombreAccion == menuEquipamiento.Name) menuEquipamiento.Checked = true;
-                        if (accion.NombreAccion == menuRangosHorarios.Name) menuRangosHorarios.Checked = true;
-                        if (accion.NombreAccion == menuNegocio.Name) menuNegocio.Checked = true;
-                    }
-                }
+                btnEliminar.Checked &&
+                btnHistorial.Checked &&
+                btnGuardarRutina.Checked &&
+                btnRestaurar.Checked
+)
+            {
+                cbTodo.Checked = true;
+            }
+            else
+            {
+                cbTodo.Checked = false;
             }
         }
 
@@ -75,59 +102,77 @@ namespace Vista
         {
             List<Accion> listaTemporal = new List<Accion>();
 
-            if (btnMenuAgregar.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = btnMenuAgregar.Name });
-            }
-            if (btnMenuConsultar.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = btnMenuConsultar.Name });
-            }
-            if (btnMenuEliminar.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = btnMenuEliminar.Name });
-            }
-            if (btnMenuTurno.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = btnMenuTurno.Name });
-            }
-            
-            if (menuUsuarios.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuUsuarios.Name });
-            }
-            if (menuRoles.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuRoles.Name });
-            }
-            if (menuMaquinas.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuMaquinas.Name });
-            }
-            if (menuEjercicios.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuEjercicios.Name });
-            }
-            if (menuEquipamiento.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuEquipamiento.Name });
-            }
-            if (menuRangosHorarios.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuRangosHorarios.Name });
-            }
-            if (menuNegocio.Checked == true) // Si está marcado
-            {
-                listaTemporal.Add(new Accion { NombreAccion = menuNegocio.Name });
-            }
+            // Verificar cada checkbox
+            if (btnMenuAgregar.Checked) listaTemporal.Add(new Accion { NombreAccion = btnMenuAgregar.Name });
+            if (btnMenuConsultar.Checked) listaTemporal.Add(new Accion { NombreAccion = btnMenuConsultar.Name });
+            if (btnMenuEliminar.Checked) listaTemporal.Add(new Accion { NombreAccion = btnMenuEliminar.Name });
+            if (btnMenuTurno.Checked) listaTemporal.Add(new Accion { NombreAccion = btnMenuTurno.Name });
 
-            AccionesSeleccionadas = listaTemporal.Any() ? listaTemporal : new List<Accion>();
+            if (menuUsuarios.Checked) listaTemporal.Add(new Accion { NombreAccion = menuUsuarios.Name });
+            if (menuRoles.Checked) listaTemporal.Add(new Accion { NombreAccion = menuRoles.Name });
+            if (menuCalentamiento.Checked) listaTemporal.Add(new Accion { NombreAccion = menuCalentamiento.Name });
+            if (menuElementosGym.Checked) listaTemporal.Add(new Accion { NombreAccion = menuElementosGym.Name });
+            if (menuEstiramiento.Checked) listaTemporal.Add(new Accion { NombreAccion = menuEstiramiento.Name });
+            if (menuRangosHorarios.Checked) listaTemporal.Add(new Accion { NombreAccion = menuRangosHorarios.Name });
+            if (menuNegocio.Checked) listaTemporal.Add(new Accion { NombreAccion = menuNegocio.Name });
 
-            // Ahora sí, mostrar el mensaje con seguridad
-            // MessageBox.Show($"Se seleccionaron {AccionesSeleccionadas.Count} acciones.");
+            if (btnEliminar.Checked) listaTemporal.Add(new Accion { NombreAccion = btnEliminar.Name });
+            if (btnHistorial.Checked) listaTemporal.Add(new Accion { NombreAccion = btnHistorial.Name });
+            if (btnGuardarRutina.Checked) listaTemporal.Add(new Accion { NombreAccion = btnGuardarRutina.Name });
+            if (btnRestaurar.Checked) listaTemporal.Add(new Accion { NombreAccion = btnRestaurar.Name });
 
+            // Actualizá la propiedad pública
+            AccionesSeleccionadas = listaTemporal;
+
+            // Cierra el formulario y devuelve OK
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void cbTodo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbTodo.Checked == true)
+            {
+                
+                btnMenuAgregar.Checked = true;
+                btnMenuConsultar.Checked = true;
+                btnMenuEliminar.Checked = true;
+                btnMenuTurno.Checked = true;
+
+                menuUsuarios.Checked = true;
+                menuRoles.Checked = true;
+                menuCalentamiento.Checked = true;
+                menuElementosGym.Checked = true;
+                menuEstiramiento.Checked = true;
+                menuRangosHorarios.Checked = true;
+                menuNegocio.Checked = true;
+
+                btnEliminar.Checked = true;
+                btnHistorial.Checked = true;
+                btnGuardarRutina.Checked = true;
+                btnRestaurar.Checked = true;
+            }
+            else {
+                
+                btnMenuAgregar.Checked = false;
+                btnMenuConsultar.Checked = false;
+                btnMenuEliminar.Checked = false;
+                btnMenuTurno.Checked = false;
+
+                menuUsuarios.Checked = false;
+                menuRoles.Checked = false;
+                menuCalentamiento.Checked = false;
+                menuElementosGym.Checked = false;
+                menuEstiramiento.Checked = false;
+                menuRangosHorarios.Checked = false;
+                menuNegocio.Checked = false;
+
+                btnEliminar.Checked = false;
+                btnHistorial.Checked = false;
+                btnGuardarRutina.Checked = false;
+                btnRestaurar.Checked = false;
+                
+            }
         }
     }
 }

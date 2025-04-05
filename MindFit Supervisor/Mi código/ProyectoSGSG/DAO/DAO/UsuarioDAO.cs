@@ -186,7 +186,15 @@ namespace DAO
                     cmd.Parameters.AddWithValue("@Genero", obj.Genero);
                     cmd.Parameters.AddWithValue("@FechaNacimiento", obj.FechaNacimiento);
                     cmd.Parameters.AddWithValue("@Clave", obj.Clave);
-                    cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
+
+                    // Error - IdRol puede ser null y no lo estoy permitiendo
+                    // cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
+                    // Forma correcta, mas entendible que registrar:
+                    if (obj.Rol != null)
+                        cmd.Parameters.AddWithValue("@IdRol", obj.Rol.IdRol);
+                    else
+                        cmd.Parameters.AddWithValue("@IdRol", DBNull.Value);
+
                     cmd.Parameters.AddWithValue("@Estado", obj.Estado);
 
                     cmd.Parameters.Add("@Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -199,6 +207,46 @@ namespace DAO
                     respuesta = Convert.ToBoolean(cmd.Parameters["@Respuesta"].Value);
                     Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
+
+                // Si se editó correctamente y hay acciones individuales
+                if (respuesta && obj.Acciones != null && obj.Acciones.Count > 0)
+                {
+                    // Primero eliminamos todos los permisos anteriores de ese usuario
+                    using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+                    {
+                        oconexion.Open();
+
+                        using (SqlCommand cmdDelete = new SqlCommand("DELETE FROM Permiso WHERE IdUsuario = @IdUsuario", oconexion))
+                        {
+                            cmdDelete.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
+                            cmdDelete.ExecuteNonQuery();
+                        }
+
+                        foreach (var accion in obj.Acciones)
+                        {
+                            int idAccion = 0;
+
+                            using (SqlCommand cmdAccion = new SqlCommand("SELECT IdAccion FROM Accion WHERE NombreAccion = @NombreAccion", oconexion))
+                            {
+                                cmdAccion.Parameters.AddWithValue("@NombreAccion", accion.NombreAccion);
+                                var resultado = cmdAccion.ExecuteScalar();
+                                if (resultado != null)
+                                    idAccion = Convert.ToInt32(resultado);
+                            }
+
+                            if (idAccion > 0)
+                            {
+                                using (SqlCommand cmdInsertPermiso = new SqlCommand("INSERT INTO Permiso (IdUsuario, IdAccion) VALUES (@IdUsuario, @IdAccion)", oconexion))
+                                {
+                                    cmdInsertPermiso.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
+                                    cmdInsertPermiso.Parameters.AddWithValue("@IdAccion", idAccion);
+                                    cmdInsertPermiso.ExecuteNonQuery();
+                                }
+                            }
+                        }
+                    }
+                }
+
             }
             catch (Exception ex)
             {
