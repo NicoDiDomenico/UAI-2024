@@ -12,5 +12,10 @@ namespace Modelo
         public string NombreGimnasio { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
+        public TimeSpan HoraAperturaLaV { get; set; }
+        public TimeSpan HoraCierreLaV { get; set; }
+        public TimeSpan HoraAperturaSabado { get; set; }
+        public TimeSpan HoraCierreSabado { get; set; }
+
     }
 }

@@ -43,6 +43,14 @@ namespace Controlador
         {
             return objcd_RangoHorario.EliminarRelacion(idRangoHorario, idUsuario, out mensaje);
         }
-        
+        public void SetActivo(int IdRangoHorario, Boolean Activo)
+        {
+            objcd_RangoHorario.SetActivo(IdRangoHorario, Activo);
+        }
+
+        public void ActualizarEstadoYRango(int id, bool activo, bool soloSabado)
+        {
+            objcd_RangoHorario.ActualizarEstadoYRango(id, activo, soloSabado);
+        }
     }
 }

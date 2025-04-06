@@ -37,18 +37,20 @@
             this.cboRangoHorario = new System.Windows.Forms.ComboBox();
             this.dtpFechaTurno = new System.Windows.Forms.DateTimePicker();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.btnRegistrarTurno = new FontAwesome.Sharp.IconButton();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Entrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CupoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btnRegistrarTurno = new FontAwesome.Sharp.IconButton();
+            this.lblSinEntrenadores = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblSinEntrenadores);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cboRangoHorario);
@@ -99,6 +101,7 @@
             this.dtpFechaTurno.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpFechaTurno.Size = new System.Drawing.Size(242, 20);
             this.dtpFechaTurno.TabIndex = 100;
+            this.dtpFechaTurno.ValueChanged += new System.EventHandler(this.dtpFechaTurno_ValueChanged);
             // 
             // dgvData
             // 
@@ -153,28 +156,6 @@
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
-            // btnRegistrarTurno
-            // 
-            this.btnRegistrarTurno.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnRegistrarTurno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegistrarTurno.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnRegistrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrarTurno.ForeColor = System.Drawing.Color.Black;
-            this.btnRegistrarTurno.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.btnRegistrarTurno.IconColor = System.Drawing.Color.Black;
-            this.btnRegistrarTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRegistrarTurno.IconSize = 30;
-            this.btnRegistrarTurno.Location = new System.Drawing.Point(510, 584);
-            this.btnRegistrarTurno.Name = "btnRegistrarTurno";
-            this.btnRegistrarTurno.Size = new System.Drawing.Size(185, 60);
-            this.btnRegistrarTurno.TabIndex = 97;
-            this.btnRegistrarTurno.Text = "Registrar Turno";
-            this.btnRegistrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegistrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegistrarTurno.UseVisualStyleBackColor = false;
-            this.btnRegistrarTurno.Click += new System.EventHandler(this.btnRegistrarTurno_Click);
-            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.HeaderText = "";
@@ -213,6 +194,41 @@
             this.Seleccionado.Visible = false;
             this.Seleccionado.Width = 200;
             // 
+            // btnRegistrarTurno
+            // 
+            this.btnRegistrarTurno.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnRegistrarTurno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrarTurno.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnRegistrarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrarTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarTurno.ForeColor = System.Drawing.Color.Black;
+            this.btnRegistrarTurno.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.btnRegistrarTurno.IconColor = System.Drawing.Color.Black;
+            this.btnRegistrarTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRegistrarTurno.IconSize = 30;
+            this.btnRegistrarTurno.Location = new System.Drawing.Point(510, 584);
+            this.btnRegistrarTurno.Name = "btnRegistrarTurno";
+            this.btnRegistrarTurno.Size = new System.Drawing.Size(185, 60);
+            this.btnRegistrarTurno.TabIndex = 97;
+            this.btnRegistrarTurno.Text = "Registrar Turno";
+            this.btnRegistrarTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistrarTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegistrarTurno.UseVisualStyleBackColor = false;
+            this.btnRegistrarTurno.Click += new System.EventHandler(this.btnRegistrarTurno_Click);
+            // 
+            // lblSinEntrenadores
+            // 
+            this.lblSinEntrenadores.AutoSize = true;
+            this.lblSinEntrenadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.lblSinEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSinEntrenadores.ForeColor = System.Drawing.Color.White;
+            this.lblSinEntrenadores.Location = new System.Drawing.Point(403, 338);
+            this.lblSinEntrenadores.Name = "lblSinEntrenadores";
+            this.lblSinEntrenadores.Size = new System.Drawing.Size(408, 18);
+            this.lblSinEntrenadores.TabIndex = 104;
+            this.lblSinEntrenadores.Text = "No hay entrenadores disponibles para el rango horario actual";
+            this.lblSinEntrenadores.Visible = false;
+            // 
             // frmNuevoTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Entrenador;
         private System.Windows.Forms.DataGridViewTextBoxColumn CupoActual;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
+        private System.Windows.Forms.Label lblSinEntrenadores;
     }
 }

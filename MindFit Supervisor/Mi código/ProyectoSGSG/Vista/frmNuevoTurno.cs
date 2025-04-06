@@ -28,35 +28,35 @@ namespace Vista
 
             cboRangoHorario.Items.Clear(); // Limpiamos los elementos previos
 
+            // Verificamos el día de la fecha seleccionada
+            bool esSabado = dtpFechaTurno.Value.DayOfWeek == DayOfWeek.Saturday;
+
             foreach (var item in rangoHorarios)
             {
-                string textoRango = $"{item.HoraDesde:hh\\:mm} a {item.HoraHasta:hh\\:mm}";
-
-                // Verificar si ya existe una opción con la misma HoraDesde y HoraHasta
-                bool existe = false;
-                foreach (var opc in cboRangoHorario.Items)
+                // Mostrar rangos activos si es día de semana, o solo los de sábado si es sábado
+                if ((esSabado && item.SoloSabado) || (!esSabado && item.Activo))
                 {
-                    OpcionComboRangoHorario opcionExistente = (OpcionComboRangoHorario)opc;
-                    if (opcionExistente.HoraDesde == item.HoraDesde && opcionExistente.HoraHasta == item.HoraHasta)
+                    string textoRango = $"{item.HoraDesde:hh\\:mm} a {item.HoraHasta:hh\\:mm}";
+
+                    // Verificar si ya existe una opción con la misma HoraDesde y HoraHasta
+                    bool existe = cboRangoHorario.Items
+                        .OfType<OpcionComboRangoHorario>()
+                        .Any(op => op.HoraDesde == item.HoraDesde && op.HoraHasta == item.HoraHasta);
+
+                    // Solo agregar si no existe ya ese rango
+                    if (!existe)
                     {
-                        existe = true;
-                        break;
+                        OpcionComboRangoHorario opcion = new OpcionComboRangoHorario
+                        {
+                            Valor = item.IdRangoHorario,
+                            Texto = textoRango,
+                            HoraDesde = item.HoraDesde,
+                            HoraHasta = item.HoraHasta,
+                            Cupo = item.CupoMaximo
+                        };
+
+                        cboRangoHorario.Items.Add(opcion);
                     }
-                }
-
-                // Solo agregar si no existe ya ese rango
-                if (!existe)
-                {
-                    OpcionComboRangoHorario opcion = new OpcionComboRangoHorario
-                    {
-                        Valor = item.IdRangoHorario,
-                        Texto = textoRango,
-                        HoraDesde = item.HoraDesde,
-                        HoraHasta = item.HoraHasta,
-                        Cupo = item.CupoMaximo
-                    };
-
-                    cboRangoHorario.Items.Add(opcion);
                 }
             }
 
@@ -82,6 +82,15 @@ namespace Vista
             }
         }
 
+        private void ValidarFecha(DateTime fecha)
+        {
+            if (fecha.DayOfWeek == DayOfWeek.Sunday)
+            {
+                MessageBox.Show("No se pueden asignar turnos los días domingo.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Mover automáticamente al lunes siguiente
+                dtpFechaTurno.Value = fecha.AddDays(1);
+            }
+        }
         #endregion
 
         public frmNuevoTurno(int idSocio)
@@ -94,6 +103,11 @@ namespace Vista
         private void frmNuevoTurno_Load(object sender, EventArgs e)
         {
             CargarComboRangoHorario();
+
+            // Bloquear selección de domingos
+            dtpFechaTurno.MinDate = DateTime.Today;
+            dtpFechaTurno.ValueChanged += dtpFechaTurno_ValueChanged;
+            ValidarFecha(dtpFechaTurno.Value); // Inicial
         }
 
         private void cboRangoHorario_SelectedIndexChanged(object sender, EventArgs e)
@@ -119,12 +133,21 @@ namespace Vista
 
                 dgvData.Rows.Clear(); // Limpiar la grilla antes de agregar datos
 
-                foreach (var rangoSeleccionado in entrenadores)
+                if (entrenadores.Count == 0)
                 {
-                    int rowIndex = dgvData.Rows.Add();
-                    dgvData.Rows[rowIndex].Cells["IdUsuario"].Value = rangoSeleccionado.UnUsuario.IdUsuario;
-                    dgvData.Rows[rowIndex].Cells["Entrenador"].Value = rangoSeleccionado.UnUsuario.NombreYApellido;
-                    dgvData.Rows[rowIndex].Cells["CupoActual"].Value = $"{rangoSeleccionado.CupoActual:D2}/{rangoSeleccionado.CupoMaximo:D2}";
+                    lblSinEntrenadores.Visible = true;
+                }
+                else
+                {
+                    lblSinEntrenadores.Visible = false;
+
+                    foreach (var rangoSeleccionado in entrenadores)
+                    {
+                        int rowIndex = dgvData.Rows.Add();
+                        dgvData.Rows[rowIndex].Cells["IdUsuario"].Value = rangoSeleccionado.UnUsuario.IdUsuario;
+                        dgvData.Rows[rowIndex].Cells["Entrenador"].Value = rangoSeleccionado.UnUsuario.NombreYApellido;
+                        dgvData.Rows[rowIndex].Cells["CupoActual"].Value = $"{rangoSeleccionado.CupoActual:D2}/{rangoSeleccionado.CupoMaximo:D2}";
+                    }
                 }
             }
         }
@@ -232,6 +255,12 @@ namespace Vista
             {
                 MessageBox.Show("Registrar Rurno " + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dtpFechaTurno_ValueChanged(object sender, EventArgs e)
+        {
+            ValidarFecha(dtpFechaTurno.Value);
+            CargarComboRangoHorario(); // <- esta línea actualiza el combo con rangos correctos
         }
     }
 }

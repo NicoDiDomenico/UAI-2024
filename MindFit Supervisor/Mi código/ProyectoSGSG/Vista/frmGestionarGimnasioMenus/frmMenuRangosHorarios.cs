@@ -48,23 +48,35 @@ namespace Vista
                 return;
             }
 
+            List<RangoHorario> listaTodoRangoHorario = new ControladorGymRangoHorario().ListarTodo();
+
+            // Contar la cantidad de entrenadores por rango horario
+            var cantidadPorRango = listaTodoRangoHorario
+                .GroupBy(r => r.IdRangoHorario)
+                .ToDictionary(g => g.Key, g => g.Count());
+
             // Para el Grid - MOSTRAR TODOS LOS Rango 
             List<RangoHorario> listaRangoHorario = new ControladorGymRangoHorario().Listar();
 
             foreach (RangoHorario item in listaRangoHorario)
             {
+                int cantidad = cantidadPorRango.ContainsKey(item.IdRangoHorario)
+                    ? cantidadPorRango[item.IdRangoHorario]
+                    : 0;
+
                 dgvData.Rows.Add(new object[] {
                     "",
                     item.IdRangoHorario,
                     item.HoraDesde,
                     item.HoraHasta,
                     item.CupoMaximo,
+                    item.Activo ? "Si" : "No",
+                    cantidad
                     // item.UnUsuario.NombreYApellido,
                     // item.UnUsuario.IdUsuario
                 });
             }
-
-            List<RangoHorario> listaTodoRangoHorario = new ControladorGymRangoHorario().ListarTodo();
+            
             foreach (RangoHorario item in listaTodoRangoHorario)
             {
                 dgvEntrenadores.Rows.Add(new object[] {
@@ -72,7 +84,7 @@ namespace Vista
                     item.IdRangoHorario,
                     item.HoraDesde,
                     item.HoraHasta,
-                    item.UnUsuario.IdUsuario
+                    item.UnUsuario.IdUsuario,
                 });
             }
         }
@@ -91,6 +103,7 @@ namespace Vista
                 return;
             }
 
+            cbActivo.Enabled = false;
             btnEditarCupos.Enabled = false;
             cargarGrid();
         }
@@ -216,6 +229,7 @@ namespace Vista
                     txtNombreEntrenador.Clear();
                     txtNombreEntrenador.Enabled = false;
                     btnEditarCupos.Enabled = true;
+                    cbActivo.Enabled = true;
 
                     // Marcar la fila actual como seleccionada
                     dgvData.Rows[indice].Cells["Seleccionado"].Value = true;
@@ -224,6 +238,8 @@ namespace Vista
                     // Asignar los valores de la fila seleccionada a los controles
                     txtIndice.Text = indice.ToString();
                     txtId.Text = dgvData.Rows[indice].Cells["IdRangoHorario"].Value.ToString();
+                    if (dgvData.Rows[indice].Cells["Activo"].Value.ToString() == "Si") cbActivo.Checked = true;
+                    else cbActivo.Checked = false;
 
                     // **Aquí inicializamos el valor de IdRangoHorario**
                     int idRangoHorarioSeleccionado = Convert.ToInt32(dgvData.Rows[indice].Cells["IdRangoHorario"].Value);
@@ -372,6 +388,23 @@ namespace Vista
                     }
                 }
             }
+        }
+
+        private void cbActivo_CheckedChanged(object sender, EventArgs e)
+        {
+            ControladorGymRangoHorario ControladorGymRangoHorario = new ControladorGymRangoHorario();
+
+            ControladorGymRangoHorario.SetActivo(Convert.ToInt32(txtId.Text), cbActivo.Checked);
+
+            dgvData.Rows.Clear();
+            dgvEntrenadores.Rows.Clear();
+            cargarGrid();
+            dgvData.Rows[indiceActual].Cells["Seleccionado"].Value = true;
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

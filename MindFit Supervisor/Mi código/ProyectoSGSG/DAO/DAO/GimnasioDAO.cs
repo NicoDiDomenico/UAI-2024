@@ -21,7 +21,14 @@ namespace DAO
                 {
                     conexion.Open();
 
-                    string query = "select IdGimnasio, NombreGimnasio, Direccion, Telefono from Gimnasio where IdGimnasio = '1'";
+                    string query = @"
+                        SELECT IdGimnasio, NombreGimnasio, Direccion, Telefono,
+                               HoraAperturaLaV, HoraCierreLaV,
+                               HoraAperturaSabado, HoraCierreSabado
+                        FROM Gimnasio
+                        WHERE IdGimnasio = 1
+                    ";
+
                     SqlCommand cmd = new SqlCommand(query, conexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -31,10 +38,14 @@ namespace DAO
                         {
                             obj = new Gimnasio()
                             {
-                                IdGimnasio = int.Parse(dr["IdGimnasio"].ToString()),
+                                IdGimnasio = Convert.ToInt32(dr["IdGimnasio"]),
                                 NombreGimnasio = dr["NombreGimnasio"].ToString(),
                                 Direccion = dr["Direccion"].ToString(),
-                                Telefono = dr["Telefono"].ToString()
+                                Telefono = dr["Telefono"].ToString(),
+                                HoraAperturaLaV = dr["HoraAperturaLaV"] != DBNull.Value ? (TimeSpan)dr["HoraAperturaLaV"] : TimeSpan.Zero,
+                                HoraCierreLaV = dr["HoraCierreLaV"] != DBNull.Value ? (TimeSpan)dr["HoraCierreLaV"] : TimeSpan.Zero,
+                                HoraAperturaSabado = dr["HoraAperturaSabado"] != DBNull.Value ? (TimeSpan)dr["HoraAperturaSabado"] : TimeSpan.Zero,
+                                HoraCierreSabado = dr["HoraCierreSabado"] != DBNull.Value ? (TimeSpan)dr["HoraCierreSabado"] : TimeSpan.Zero
                             };
                         }
                     }
@@ -42,7 +53,7 @@ namespace DAO
             }
             catch
             {
-                obj = new Gimnasio();
+                obj = new Gimnasio(); // Retornar objeto vacío en caso de error
             }
 
             return obj;
@@ -60,15 +71,24 @@ namespace DAO
                     conexion.Open();
 
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("update Gimnasio set NombreGimnasio = @nombre,");
+                    query.AppendLine("UPDATE Gimnasio SET");
+                    query.AppendLine("NombreGimnasio = @nombre,");
                     query.AppendLine("Telefono = @telefono,");
-                    query.AppendLine("Direccion = @direccion");
-                    query.AppendLine("where IdGimnasio = 1;");
+                    query.AppendLine("Direccion = @direccion,");
+                    query.AppendLine("HoraAperturaLaV = @horaAperturaLaV,");
+                    query.AppendLine("HoraCierreLaV = @horaCierreLaV,");
+                    query.AppendLine("HoraAperturaSabado = @horaAperturaSabado,");
+                    query.AppendLine("HoraCierreSabado = @horaCierreSabado");
+                    query.AppendLine("WHERE IdGimnasio = 1;");
 
                     SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
                     cmd.Parameters.AddWithValue("@nombre", objeto.NombreGimnasio);
                     cmd.Parameters.AddWithValue("@telefono", objeto.Telefono);
                     cmd.Parameters.AddWithValue("@direccion", objeto.Direccion);
+                    cmd.Parameters.AddWithValue("@horaAperturaLaV", objeto.HoraAperturaLaV);
+                    cmd.Parameters.AddWithValue("@horaCierreLaV", objeto.HoraCierreLaV);
+                    cmd.Parameters.AddWithValue("@horaAperturaSabado", objeto.HoraAperturaSabado);
+                    cmd.Parameters.AddWithValue("@horaCierreSabado", objeto.HoraCierreSabado);
                     cmd.CommandType = CommandType.Text;
 
                     if (cmd.ExecuteNonQuery() < 1)
@@ -86,6 +106,7 @@ namespace DAO
 
             return respuesta;
         }
+
 
         public byte[] ObtenerLogo(out bool obtenido)
         {

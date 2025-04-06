@@ -3093,3 +3093,111 @@ LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
     LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
 ) am ON a.IdAccion = am.IdAccion
 WHERE u.IdUsuario = 1
+
+select * from RangoHorario
+
+-- Agregar la columna 'Activo' a la tabla
+ALTER TABLE RangoHorario
+ADD Activo BIT NOT NULL DEFAULT 1;
+
+-- Actualizar todos los registros existentes y poner 'Activo' en 1
+UPDATE RangoHorario
+SET Activo = 1;
+
+select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo, Activo 
+from RangoHorario
+where Activo = 1
+
+-- ListarTodo()
+select rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, u.NombreYApellido, u.IdUsuario
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u 
+on rh.IdRangoHorario = rh_u.IdRangoHorario 
+inner join Usuario u on u.IdUsuario = rh_u.IdUsuario
+Order By u.NombreYApellido
+
+-- ListarParaTurno()
+Select rh_u.IdRangoHorario, rh_u.IdUsuario, rh.HoraDesde, rh.HoraHasta, rh.CupoMaximo, u.NombreYApellido
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u
+on rh_u.IdUsuario = u.IdUsuario
+where rh.Activo = 1
+/*
+-- Al final no lo voy a hacer asi
+-- Asignando dias a los rango horarios:
+CREATE TABLE Dia (
+    IdDia INT PRIMARY KEY IDENTITY(1,1),
+    NombreDia VARCHAR(20) NOT NULL UNIQUE
+);
+
+INSERT INTO Dia (NombreDia)
+VALUES 
+('Lunes'),
+('Martes'),
+('Miércoles'),
+('Jueves'),
+('Viernes'),
+('Sábado');
+
+select * from Dia
+
+CREATE TABLE RangoHorario_Dia (
+    IdRangoHorario INT NOT NULL,
+    IdDia INT NOT NULL,
+    PRIMARY KEY (IdRangoHorario, IdDia),
+    FOREIGN KEY (IdRangoHorario) REFERENCES RangoHorario(IdRangoHorario),
+    FOREIGN KEY (IdDia) REFERENCES Dia(IdDia)
+);
+
+ALTER TABLE RangoHorario_Dia
+ADD Activo BIT NOT NULL DEFAULT 1;
+
+SELECT * FROM RangoHorario_Dia
+
+-- Mejor separo por dia de la semana y finde:
+DELETE Dia where IdDia != 6
+
+INSERT INTO Dia (NombreDia)
+VALUES 
+('Lunes a Viernes')
+-- Tendre que modificar cada metodo de rango horario
+-- ademas Activo tiene que estar en RangoHorario_Dia y no solo en RangoHorario 
+*/
+
+-- Voy a tarabajar con esto mejor:
+ALTER TABLE RangoHorario ADD SoloSabado BIT NOT NULL DEFAULT 0;
+
+select * from RangoHorario
+
+-- En gimnasio establecer los limites de los dias de la semana SoloSabado 0, y para los findes SoloSabado 1
+-- En la parte de un nuevo turno no dejar que saque para el dia domingo (Listo) y limitar los rangos horarios para SoloSabado 1 si efectivamente es sabado
+
+select IdRangoHorario, HoraDesde, HoraHasta, CupoMaximo, Activo, SoloSabado 
+from RangoHorario
+
+select * from Gimnasio
+
+ALTER TABLE Gimnasio
+ADD HoraAperturaLaV TIME,
+    HoraCierreLaV TIME,
+    HoraAperturaSabado TIME,
+    HoraCierreSabado TIME;
+
+Select rh_u.IdRangoHorario, rh_u.IdUsuario, rh.HoraDesde, rh.HoraHasta, rh.CupoMaximo, u.NombreYApellido, rh.Activo, rh.SoloSabado
+from RangoHorario rh
+inner join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+inner join Usuario u
+on rh_u.IdUsuario = u.IdUsuario
+where rh.Activo = 1 or rh.SoloSabado = 1
+
+-- Traer los rh aunque no tengan Entrenadores asignados --> Mostrare un cartel de que no hay entrenadores asignados al rh
+Select rh.IdRangoHorario, rh_u.IdUsuario, rh.HoraDesde, rh.HoraHasta, rh.CupoMaximo, u.NombreYApellido, rh.Activo, rh.SoloSabado
+from RangoHorario rh
+left join RangoHorario_Usuario rh_u
+on rh.IdRangoHorario = rh_u.IdRangoHorario
+left join Usuario u
+on rh_u.IdUsuario = u.IdUsuario
+where rh.Activo = 1 or rh.SoloSabado = 1

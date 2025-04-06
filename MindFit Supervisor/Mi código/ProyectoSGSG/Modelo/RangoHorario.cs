@@ -14,7 +14,9 @@ namespace Modelo
         public DateTime Fecha { get; set; }
         public int CupoActual { get; set; }
         public int CupoMaximo { get; set; }
-        
+        public Boolean Activo { get; set; }
+        public Boolean SoloSabado { get; set; }
+
         public Usuario UnUsuario { get; set; }
         
     }

@@ -52,20 +52,23 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.txtIndice = new System.Windows.Forms.TextBox();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdRangoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraDesde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraHasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CupoMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvEntrenadores = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
             this.NombreYApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdRangoHorario2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraDesde2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoraHasta2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbActivo = new System.Windows.Forms.CheckBox();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdRangoHorario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraDesde = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoraHasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CupoMaximo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Activo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entrenadoresAsignados = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             this.gbEntrenador.SuspendLayout();
             this.gbRangoHorario.SuspendLayout();
@@ -125,7 +128,7 @@
             this.gbEntrenador.Controls.Add(this.btnBuscarEntrenador);
             this.gbEntrenador.Controls.Add(this.txtNombreEntrenador);
             this.gbEntrenador.Controls.Add(this.Nombre);
-            this.gbEntrenador.Location = new System.Drawing.Point(21, 254);
+            this.gbEntrenador.Location = new System.Drawing.Point(21, 302);
             this.gbEntrenador.Name = "gbEntrenador";
             this.gbEntrenador.Size = new System.Drawing.Size(334, 85);
             this.gbEntrenador.TabIndex = 66;
@@ -182,6 +185,7 @@
             // 
             this.gbRangoHorario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.gbRangoHorario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gbRangoHorario.Controls.Add(this.cbActivo);
             this.gbRangoHorario.Controls.Add(this.btnEditarCupos);
             this.gbRangoHorario.Controls.Add(this.label2);
             this.gbRangoHorario.Controls.Add(this.cboRangoHorario);
@@ -189,7 +193,7 @@
             this.gbRangoHorario.Controls.Add(this.label7);
             this.gbRangoHorario.Location = new System.Drawing.Point(21, 86);
             this.gbRangoHorario.Name = "gbRangoHorario";
-            this.gbRangoHorario.Size = new System.Drawing.Size(334, 149);
+            this.gbRangoHorario.Size = new System.Drawing.Size(334, 187);
             this.gbRangoHorario.TabIndex = 64;
             this.gbRangoHorario.TabStop = false;
             this.gbRangoHorario.Text = "Rango Horario";
@@ -206,7 +210,7 @@
             this.btnEditarCupos.IconColor = System.Drawing.Color.Black;
             this.btnEditarCupos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEditarCupos.IconSize = 20;
-            this.btnEditarCupos.Location = new System.Drawing.Point(264, 100);
+            this.btnEditarCupos.Location = new System.Drawing.Point(264, 145);
             this.btnEditarCupos.Name = "btnEditarCupos";
             this.btnEditarCupos.Size = new System.Drawing.Size(36, 20);
             this.btnEditarCupos.TabIndex = 32;
@@ -217,7 +221,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label2.Location = new System.Drawing.Point(12, 80);
+            this.label2.Location = new System.Drawing.Point(12, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 13);
             this.label2.TabIndex = 32;
@@ -226,7 +230,7 @@
             // txtCupoMaximo
             // 
             this.txtCupoMaximo.Enabled = false;
-            this.txtCupoMaximo.Location = new System.Drawing.Point(17, 101);
+            this.txtCupoMaximo.Location = new System.Drawing.Point(17, 146);
             this.txtCupoMaximo.Name = "txtCupoMaximo";
             this.txtCupoMaximo.Size = new System.Drawing.Size(213, 20);
             this.txtCupoMaximo.TabIndex = 65;
@@ -266,7 +270,7 @@
             this.btnRegistrar.IconColor = System.Drawing.Color.White;
             this.btnRegistrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRegistrar.IconSize = 20;
-            this.btnRegistrar.Location = new System.Drawing.Point(88, 388);
+            this.btnRegistrar.Location = new System.Drawing.Point(88, 436);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(199, 29);
             this.btnRegistrar.TabIndex = 44;
@@ -287,7 +291,7 @@
             this.btnLimpiar.IconColor = System.Drawing.Color.White;
             this.btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLimpiar.IconSize = 20;
-            this.btnLimpiar.Location = new System.Drawing.Point(88, 424);
+            this.btnLimpiar.Location = new System.Drawing.Point(88, 472);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(199, 29);
             this.btnLimpiar.TabIndex = 43;
@@ -302,12 +306,13 @@
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(505, 25);
+            this.label10.Location = new System.Drawing.Point(480, 25);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(560, 67);
+            this.label10.Size = new System.Drawing.Size(775, 67);
             this.label10.TabIndex = 68;
             this.label10.Text = "Lista de Rangos Horarios:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // dgvData
             // 
@@ -329,8 +334,10 @@
             this.HoraDesde,
             this.HoraHasta,
             this.CupoMaximo,
+            this.Activo,
+            this.entrenadoresAsignados,
             this.Seleccionado});
-            this.dgvData.Location = new System.Drawing.Point(505, 95);
+            this.dgvData.Location = new System.Drawing.Point(480, 95);
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
@@ -338,63 +345,19 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowTemplate.Height = 35;
-            this.dgvData.Size = new System.Drawing.Size(560, 533);
+            this.dgvData.Size = new System.Drawing.Size(775, 533);
             this.dgvData.TabIndex = 67;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
             // txtIndice
             // 
-            this.txtIndice.Location = new System.Drawing.Point(512, 100);
+            this.txtIndice.Location = new System.Drawing.Point(484, 100);
             this.txtIndice.Name = "txtIndice";
             this.txtIndice.Size = new System.Drawing.Size(28, 20);
             this.txtIndice.TabIndex = 69;
             this.txtIndice.Text = "-1";
             this.txtIndice.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 35;
-            // 
-            // IdRangoHorario
-            // 
-            this.IdRangoHorario.HeaderText = "IdRangoHorario";
-            this.IdRangoHorario.Name = "IdRangoHorario";
-            this.IdRangoHorario.ReadOnly = true;
-            this.IdRangoHorario.Visible = false;
-            // 
-            // HoraDesde
-            // 
-            this.HoraDesde.HeaderText = "Hora Desde";
-            this.HoraDesde.Name = "HoraDesde";
-            this.HoraDesde.ReadOnly = true;
-            this.HoraDesde.Width = 150;
-            // 
-            // HoraHasta
-            // 
-            this.HoraHasta.HeaderText = "Hora Hasta";
-            this.HoraHasta.Name = "HoraHasta";
-            this.HoraHasta.ReadOnly = true;
-            this.HoraHasta.Width = 150;
-            // 
-            // CupoMaximo
-            // 
-            this.CupoMaximo.HeaderText = "Cupo Maximo";
-            this.CupoMaximo.Name = "CupoMaximo";
-            this.CupoMaximo.ReadOnly = true;
-            this.CupoMaximo.Width = 150;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
             // 
             // dgvEntrenadores
             // 
@@ -417,7 +380,7 @@
             this.HoraHasta2,
             this.IdUsuario,
             this.btnEliminar});
-            this.dgvEntrenadores.Location = new System.Drawing.Point(1091, 95);
+            this.dgvEntrenadores.Location = new System.Drawing.Point(1269, 95);
             this.dgvEntrenadores.MultiSelect = false;
             this.dgvEntrenadores.Name = "dgvEntrenadores";
             this.dgvEntrenadores.ReadOnly = true;
@@ -425,22 +388,10 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvEntrenadores.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEntrenadores.RowTemplate.Height = 35;
-            this.dgvEntrenadores.Size = new System.Drawing.Size(492, 533);
+            this.dgvEntrenadores.Size = new System.Drawing.Size(501, 533);
             this.dgvEntrenadores.TabIndex = 70;
             this.dgvEntrenadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntrenadores_CellContentClick);
             this.dgvEntrenadores.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvEntrenadores_CellPainting);
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1091, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(492, 67);
-            this.label3.TabIndex = 71;
-            this.label3.Text = "Horarios Entrenadores:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // NombreYApellido
             // 
@@ -481,6 +432,88 @@
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.ReadOnly = true;
             this.btnEliminar.Width = 35;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1269, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(501, 67);
+            this.label3.TabIndex = 71;
+            this.label3.Text = "Horarios Entrenadores:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbActivo
+            // 
+            this.cbActivo.AutoSize = true;
+            this.cbActivo.Enabled = false;
+            this.cbActivo.Location = new System.Drawing.Point(17, 83);
+            this.cbActivo.Name = "cbActivo";
+            this.cbActivo.Size = new System.Drawing.Size(136, 17);
+            this.cbActivo.TabIndex = 66;
+            this.cbActivo.Text = "Habilitar Rango Horario";
+            this.cbActivo.UseVisualStyleBackColor = true;
+            this.cbActivo.CheckedChanged += new System.EventHandler(this.cbActivo_CheckedChanged);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 35;
+            // 
+            // IdRangoHorario
+            // 
+            this.IdRangoHorario.HeaderText = "IdRangoHorario";
+            this.IdRangoHorario.Name = "IdRangoHorario";
+            this.IdRangoHorario.ReadOnly = true;
+            this.IdRangoHorario.Visible = false;
+            // 
+            // HoraDesde
+            // 
+            this.HoraDesde.HeaderText = "Hora Desde";
+            this.HoraDesde.Name = "HoraDesde";
+            this.HoraDesde.ReadOnly = true;
+            this.HoraDesde.Width = 150;
+            // 
+            // HoraHasta
+            // 
+            this.HoraHasta.HeaderText = "Hora Hasta";
+            this.HoraHasta.Name = "HoraHasta";
+            this.HoraHasta.ReadOnly = true;
+            this.HoraHasta.Width = 150;
+            // 
+            // CupoMaximo
+            // 
+            this.CupoMaximo.HeaderText = "Cupo Maximo";
+            this.CupoMaximo.Name = "CupoMaximo";
+            this.CupoMaximo.ReadOnly = true;
+            this.CupoMaximo.Width = 150;
+            // 
+            // Activo
+            // 
+            this.Activo.HeaderText = "Activo";
+            this.Activo.Name = "Activo";
+            this.Activo.ReadOnly = true;
+            this.Activo.Width = 50;
+            // 
+            // entrenadoresAsignados
+            // 
+            this.entrenadoresAsignados.HeaderText = "Entrenadores Asignados";
+            this.entrenadoresAsignados.Name = "entrenadoresAsignados";
+            this.entrenadoresAsignados.ReadOnly = true;
+            this.entrenadoresAsignados.Width = 180;
+            // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
             // 
             // frmMenuRangosHorarios
             // 
@@ -532,12 +565,6 @@
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.TextBox txtIndice;
         private FontAwesome.Sharp.IconButton btnEditarCupos;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdRangoHorario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraDesde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraHasta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CupoMaximo;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
         private System.Windows.Forms.DataGridView dgvEntrenadores;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreYApellido;
@@ -546,5 +573,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HoraHasta2;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
         private System.Windows.Forms.DataGridViewButtonColumn btnEliminar;
+        private System.Windows.Forms.CheckBox cbActivo;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdRangoHorario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraDesde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoraHasta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CupoMaximo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Activo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn entrenadoresAsignados;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
     }
 }

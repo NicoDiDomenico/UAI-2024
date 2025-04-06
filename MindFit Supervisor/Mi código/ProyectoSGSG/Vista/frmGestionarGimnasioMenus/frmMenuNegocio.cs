@@ -33,6 +33,58 @@ namespace Vista
             // Retorna la imagen convertida
             return image;
         }
+
+        public void ActualizarRangosHorariosSegunHorario(TimeSpan aperturaLaV, TimeSpan cierreLaV, TimeSpan aperturaSabado, TimeSpan cierreSabado)
+        {
+            List<RangoHorario> rangos = new ControladorGymRangoHorario().Listar(); // trae TODOS los rangos
+
+            foreach (RangoHorario rh in rangos)
+            {
+                bool esSoloSabado = false;
+                bool estaActivo = false;
+
+                /*
+                // Rango dentro de LaV
+                if (rh.HoraDesde >= aperturaLaV && rh.HoraHasta <= cierreLaV)
+                {
+                    estaActivo = true;
+                }
+
+                // Rango dentro de Sábado
+                if (rh.HoraDesde >= aperturaSabado && rh.HoraHasta <= cierreSabado)
+                {
+                    esSoloSabado = true;
+                }
+                */
+
+                // Validamos que el rango sea lógico (no cruzado)
+                bool rangoValido = rh.HoraDesde < rh.HoraHasta;
+
+                if (!rangoValido)
+                {
+                    estaActivo = false;
+                    esSoloSabado = false;
+                }
+                else
+                {
+                    // Rango válido dentro de lunes a viernes
+                    if (rh.HoraDesde >= aperturaLaV && rh.HoraHasta <= cierreLaV)
+                    {
+                        estaActivo = true;
+                    }
+
+                    // Rango válido dentro de sábado
+                    if (rh.HoraDesde >= aperturaSabado && rh.HoraHasta <= cierreSabado)
+                    {
+                        esSoloSabado = true;
+                    }
+                }
+
+                // Actualizar el RangoHorario
+                new ControladorGymRangoHorario().ActualizarEstadoYRango(rh.IdRangoHorario, estaActivo, esSoloSabado);
+            }
+        }
+
         #endregion
         public frmMenuNegocio()
         {
@@ -55,6 +107,10 @@ namespace Vista
             txtNombre.Text = datos.NombreGimnasio;
             txtTelefono.Text = datos.Telefono;
             txtDireccion.Text = datos.Direccion;
+            nudAperturaLaV.Value = datos.HoraAperturaLaV.Hours;
+            nudCierreLaV.Value = datos.HoraCierreLaV.Hours;
+            nudAperturaS.Value = datos.HoraAperturaSabado.Hours;
+            nudCierreS.Value = datos.HoraCierreSabado.Hours;
         }
 
         private void btnSubir_Click(object sender, EventArgs e)
@@ -82,24 +138,38 @@ namespace Vista
         {
             string mensaje = string.Empty;
 
+            // Primero obtenemos los horarios seleccionados desde los NumericUpDown
+            TimeSpan aperturaLaV = new TimeSpan((int)nudAperturaLaV.Value, 0, 0);
+            TimeSpan cierreLaV = new TimeSpan((int)nudCierreLaV.Value, 0, 0);
+            TimeSpan aperturaS = new TimeSpan((int)nudAperturaS.Value, 0, 0);
+            TimeSpan cierreS = new TimeSpan((int)nudCierreS.Value, 0, 0);
+
+            // Creamos el objeto Gimnasio con todos los datos
             Gimnasio obj = new Gimnasio()
             {
-                NombreGimnasio = txtNombre.Text, 
-                Telefono = txtTelefono.Text,      
-                Direccion = txtDireccion.Text 
+                NombreGimnasio = txtNombre.Text,
+                Telefono = txtTelefono.Text,
+                Direccion = txtDireccion.Text,
+                HoraAperturaLaV = aperturaLaV,
+                HoraCierreLaV = cierreLaV,
+                HoraAperturaSabado = aperturaS,
+                HoraCierreSabado = cierreS
             };
 
+            // Guardamos en la base de datos
             bool respuesta = new ControladorGymGimnasio().GuardarDatos(obj, out mensaje);
 
             if (respuesta)
+            {
                 MessageBox.Show("Los cambios fueron guardados", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Actualizamos los rangos horarios activos según los nuevos horarios
+                ActualizarRangosHorariosSegunHorario(aperturaLaV, cierreLaV, aperturaS, cierreS);
+            }
             else
+            {
                 MessageBox.Show("No se pudo guardar los cambios", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }
