@@ -3201,3 +3201,5 @@ on rh.IdRangoHorario = rh_u.IdRangoHorario
 left join Usuario u
 on rh_u.IdUsuario = u.IdUsuario
 where rh.Activo = 1 or rh.SoloSabado = 1
+
+select * from CupoFecha

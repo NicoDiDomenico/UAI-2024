@@ -312,11 +312,12 @@ namespace Vista
         }
         private void CargarCalentamientos()
         {
-            tlpCalentamiento.Controls.Clear();
-            tlpCalentamiento.RowStyles.Clear();
-            tlpCalentamiento.RowCount = 0;
+            LimpiezaPanelCalentamiento();
 
             List<RutinaCalentamiento> lista = new ControladorGymCalentamiento().ListarCalentamientosPorRutina(RutinaSeleccionada.IdRutina);
+
+            if (lista.Count() == 0) msjCalentamiento.Visible = true;
+            else msjCalentamiento.Visible = false;
 
             foreach (var item in lista)
             {
@@ -417,13 +418,14 @@ namespace Vista
         }
         private void CargarEntrenamiento()
         {
-            tlpEntrenamiento.Controls.Clear();
-            tlpEntrenamiento.RowStyles.Clear();
-            tlpEntrenamiento.RowCount = 0;
+            LimpiezaPanelEntrenamiento();
 
             if (RutinaSeleccionada == null) return;
 
             List<Entrenamiento> lista = new ControladorGymEntrenamiento().ListarPorRutina(RutinaSeleccionada.IdRutina);
+            
+            if (lista.Count() == 0) msjEntrenamiento.Visible = true;
+            else msjEntrenamiento.Visible = false;
 
             List<ElementoGimnasio> elementos = new ControladorGymElementoGimnasio().Listar();
 
@@ -596,11 +598,12 @@ namespace Vista
 
         private void CargarEstiramientos()
         {
-            tlpEstiramiento.Controls.Clear();
-            tlpEstiramiento.RowStyles.Clear();
-            tlpEstiramiento.RowCount = 0;
+            LimpiezaPaneltlpEstiramiento();
 
             List<RutinaEstiramiento> lista = new ControladorGymEstiramiento().ListarEstiramientosPorRutina(RutinaSeleccionada.IdRutina);
+            
+            if (lista.Count() == 0) msjEstiramiento.Visible = true;
+            else msjEstiramiento.Visible = false;
 
             foreach (var item in lista)
             {
@@ -1072,17 +1075,7 @@ namespace Vista
         private void SeleccionarDia(string dia, Button boton)
         {
             // Limpieza del panel
-            tlpCalentamiento.Controls.Clear();
-            tlpCalentamiento.RowStyles.Clear();
-            tlpCalentamiento.RowCount = 0;
-
-            tlpEntrenamiento.Controls.Clear();
-            tlpEntrenamiento.RowStyles.Clear();
-            tlpEntrenamiento.RowCount = 0;
-            
-            tlpEstiramiento.Controls.Clear();
-            tlpEstiramiento.RowStyles.Clear();
-            tlpEstiramiento.RowCount = 0;
+            LimpiezaDelPanel();
 
             // Limpieza visual
             LimpiarBotones();
@@ -1105,6 +1098,10 @@ namespace Vista
             else
             {
                 deshabilitarRutina();
+                msjCalentamiento.Visible = false;
+                msjEntrenamiento.Visible = false;
+                msjEstiramiento.Visible = false;
+                msjRutina.Text = $"El Socio no asiste los dias {dia}.";
                 msjRutina.Visible = true;
                 lblUltimaFecha.Visible = false;
             }
@@ -1213,6 +1210,31 @@ namespace Vista
                 }
             }
         }
+        private void LimpiezaPanelCalentamiento()
+        {
+            tlpCalentamiento.Controls.Clear();
+            tlpCalentamiento.RowStyles.Clear();
+            tlpCalentamiento.RowCount = 0;
+        }
+        private void LimpiezaPanelEntrenamiento()
+        {
+            tlpEntrenamiento.Controls.Clear();
+            tlpEntrenamiento.RowStyles.Clear();
+            tlpEntrenamiento.RowCount = 0;
+        }
+        private void LimpiezaPaneltlpEstiramiento()
+        {
+            tlpEstiramiento.Controls.Clear();
+            tlpEstiramiento.RowStyles.Clear();
+            tlpEstiramiento.RowCount = 0;
+        }
+        
+        private void LimpiezaDelPanel()
+        {
+            LimpiezaPanelCalentamiento();
+            LimpiezaPanelEntrenamiento();
+            LimpiezaPaneltlpEstiramiento();
+        }
         #endregion
 
         public frmGestionarRutinas(Usuario usuarioActual, string dia = "")
@@ -1300,12 +1322,13 @@ namespace Vista
 
         private void dgvDataEntrenador_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            LimpiarBotones();
-            desactivarRutina();
-            deshabilitarRutina();
-
             if (dgvDataEntrenador.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
+                LimpiezaDelPanel();
+                LimpiarBotones();
+                desactivarRutina();
+                deshabilitarRutina();
+
                 int indice = e.RowIndex;
 
                 if (indice >= 0)
@@ -1375,6 +1398,8 @@ namespace Vista
                     // Refrescar la vista
                     dgvDataSocio.Refresh();
 
+                    LimpiezaDelPanel();
+
                     LimpiarBotones();
                     // Traer Rutinas
                     PintarBotonDiaActual();
@@ -1403,10 +1428,14 @@ namespace Vista
                         CargarEntrenamiento();
                         CargarEstiramientos();
 
-                        lblUltimaFecha.Enabled = true;
+                        lblUltimaFecha.Visible = true;
                         lblUltimaFecha.Text = "Última fecha de modificación: " + RutinaSeleccionada.FechaModificacion.ToString("dd/MM/yyyy");
                     } else
                     {
+                        msjCalentamiento.Visible = false;
+                        msjEntrenamiento.Visible = false;
+                        msjEstiramiento.Visible = false;
+                        msjRutina.Text = $"El Socio no asiste los dias {diaActualEsp}.";
                         msjRutina.Visible = true;
                         deshabilitarRutina();
                         lblUltimaFecha.Visible = false;
@@ -1447,16 +1476,19 @@ namespace Vista
 
         private void btnAgregarFilaCalentamiento_Click(object sender, EventArgs e)
         {
+            msjCalentamiento.Visible = false;
             AgregarFilaCalentamiento();
         }
 
         private void btnAgregarFilaEntrenamiento_Click(object sender, EventArgs e)
         {
+            msjEntrenamiento.Visible = false;
             AgregarFilaEntrenamiento();
         }
 
         private void btnAgregarFilaEstiramiento_Click(object sender, EventArgs e)
         {
+            msjEstiramiento.Visible = false;
             AgregarFilaEstiramiento();
         }
 
@@ -1503,6 +1535,7 @@ namespace Vista
                 }
 
                 new ControladorGymRutina().CambiarEstadoRutina(RutinaSeleccionada.IdRutina);
+                RutinaSeleccionada.FechaModificacion = DateTime.Now;
                 new ControladorGymSocio().ActualizarEstadoSocio(IdSocioActual, "Actualizado");
 
                 MessageBox.Show("Rutina guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1521,17 +1554,10 @@ namespace Vista
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            tlpCalentamiento.Controls.Clear();
-            tlpCalentamiento.RowStyles.Clear();
-            tlpCalentamiento.RowCount = 0;
-
-            tlpEntrenamiento.Controls.Clear();
-            tlpEntrenamiento.RowStyles.Clear();
-            tlpEntrenamiento.RowCount = 0;
-
-            tlpEstiramiento.Controls.Clear();
-            tlpEstiramiento.RowStyles.Clear();
-            tlpEstiramiento.RowCount = 0;
+            msjCalentamiento.Visible = false;
+            msjEntrenamiento.Visible = false;
+            msjEstiramiento.Visible = false;
+            LimpiezaDelPanel();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -1553,17 +1579,7 @@ namespace Vista
                     if (rta)
                     {
                         // Limpiar visualmente la rutina eliminada
-                        tlpCalentamiento.Controls.Clear();
-                        tlpCalentamiento.RowStyles.Clear();
-                        tlpCalentamiento.RowCount = 0;
-
-                        tlpEntrenamiento.Controls.Clear();
-                        tlpEntrenamiento.RowStyles.Clear();
-                        tlpEntrenamiento.RowCount = 0;
-
-                        tlpEstiramiento.Controls.Clear();
-                        tlpEstiramiento.RowStyles.Clear();
-                        tlpEstiramiento.RowCount = 0;
+                        LimpiezaDelPanel();
 
                         lblUltimaFecha.Text = "Última fecha de modificación: " + DateTime.Now.ToString("dd/MM/yyyy");
                         msjRutina.Visible = true;
@@ -1593,11 +1609,6 @@ namespace Vista
             //var historial = new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia);
             //historial.ShowDialog();
             AbrirFormulario(new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia, usuario));
-        }
-
-        private void msjRutina_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

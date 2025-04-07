@@ -32,18 +32,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSinEntrenadores = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cboRangoHorario = new System.Windows.Forms.ComboBox();
             this.dtpFechaTurno = new System.Windows.Forms.DateTimePicker();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnRegistrarTurno = new FontAwesome.Sharp.IconButton();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Entrenador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CupoActual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnRegistrarTurno = new FontAwesome.Sharp.IconButton();
-            this.lblSinEntrenadores = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1199, 675);
             this.panel1.TabIndex = 1;
+            // 
+            // lblSinEntrenadores
+            // 
+            this.lblSinEntrenadores.AutoSize = true;
+            this.lblSinEntrenadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            this.lblSinEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSinEntrenadores.ForeColor = System.Drawing.Color.White;
+            this.lblSinEntrenadores.Location = new System.Drawing.Point(403, 338);
+            this.lblSinEntrenadores.Name = "lblSinEntrenadores";
+            this.lblSinEntrenadores.Size = new System.Drawing.Size(408, 18);
+            this.lblSinEntrenadores.TabIndex = 104;
+            this.lblSinEntrenadores.Text = "No hay entrenadores disponibles para el rango horario actual";
+            this.lblSinEntrenadores.Visible = false;
             // 
             // label2
             // 
@@ -156,44 +169,6 @@
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 35;
-            // 
-            // IdUsuario
-            // 
-            this.IdUsuario.HeaderText = "IdUsuario";
-            this.IdUsuario.Name = "IdUsuario";
-            this.IdUsuario.ReadOnly = true;
-            this.IdUsuario.Visible = false;
-            // 
-            // Entrenador
-            // 
-            this.Entrenador.HeaderText = "Entrenador";
-            this.Entrenador.Name = "Entrenador";
-            this.Entrenador.ReadOnly = true;
-            this.Entrenador.Width = 500;
-            // 
-            // CupoActual
-            // 
-            this.CupoActual.HeaderText = "Disponibilidad";
-            this.CupoActual.Name = "CupoActual";
-            this.CupoActual.ReadOnly = true;
-            this.CupoActual.Width = 500;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
-            this.Seleccionado.Width = 200;
-            // 
             // btnRegistrarTurno
             // 
             this.btnRegistrarTurno.BackColor = System.Drawing.Color.AliceBlue;
@@ -216,18 +191,43 @@
             this.btnRegistrarTurno.UseVisualStyleBackColor = false;
             this.btnRegistrarTurno.Click += new System.EventHandler(this.btnRegistrarTurno_Click);
             // 
-            // lblSinEntrenadores
+            // btnSeleccionar
             // 
-            this.lblSinEntrenadores.AutoSize = true;
-            this.lblSinEntrenadores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.lblSinEntrenadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSinEntrenadores.ForeColor = System.Drawing.Color.White;
-            this.lblSinEntrenadores.Location = new System.Drawing.Point(403, 338);
-            this.lblSinEntrenadores.Name = "lblSinEntrenadores";
-            this.lblSinEntrenadores.Size = new System.Drawing.Size(408, 18);
-            this.lblSinEntrenadores.TabIndex = 104;
-            this.lblSinEntrenadores.Text = "No hay entrenadores disponibles para el rango horario actual";
-            this.lblSinEntrenadores.Visible = false;
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 34;
+            // 
+            // IdUsuario
+            // 
+            this.IdUsuario.HeaderText = "IdUsuario";
+            this.IdUsuario.Name = "IdUsuario";
+            this.IdUsuario.ReadOnly = true;
+            this.IdUsuario.Visible = false;
+            // 
+            // Entrenador
+            // 
+            this.Entrenador.HeaderText = "Entrenador";
+            this.Entrenador.Name = "Entrenador";
+            this.Entrenador.ReadOnly = true;
+            this.Entrenador.Width = 501;
+            // 
+            // CupoActual
+            // 
+            this.CupoActual.HeaderText = "Disponibilidad";
+            this.CupoActual.Name = "CupoActual";
+            this.CupoActual.ReadOnly = true;
+            this.CupoActual.Width = 500;
+            // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
+            this.Seleccionado.Width = 200;
             // 
             // frmNuevoTurno
             // 
@@ -257,11 +257,11 @@
         private System.Windows.Forms.ComboBox cboRangoHorario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSinEntrenadores;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn Entrenador;
         private System.Windows.Forms.DataGridViewTextBoxColumn CupoActual;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
-        private System.Windows.Forms.Label lblSinEntrenadores;
     }
 }

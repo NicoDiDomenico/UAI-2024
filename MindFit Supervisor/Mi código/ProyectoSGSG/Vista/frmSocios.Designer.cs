@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -40,6 +40,12 @@
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnMenuTurno = new FontAwesome.Sharp.IconButton();
+            this.btnMenuConsultar = new FontAwesome.Sharp.IconButton();
+            this.btnMenuEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnMenuAgregar = new FontAwesome.Sharp.IconButton();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreYApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,12 +64,6 @@
             this.FechaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RespuestaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnMenuTurno = new FontAwesome.Sharp.IconButton();
-            this.btnMenuConsultar = new FontAwesome.Sharp.IconButton();
-            this.btnMenuEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnMenuAgregar = new FontAwesome.Sharp.IconButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.panel3.SuspendLayout();
@@ -179,15 +179,15 @@
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvData.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dgvData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -213,19 +213,19 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvData.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dgvData.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.SteelBlue;
             this.dgvData.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,134 +237,6 @@
             this.dgvData.TabIndex = 65;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick_1);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting_1);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 35;
-            // 
-            // IdSocio
-            // 
-            this.IdSocio.HeaderText = "IdSocio";
-            this.IdSocio.Name = "IdSocio";
-            this.IdSocio.ReadOnly = true;
-            this.IdSocio.Visible = false;
-            // 
-            // NombreYApellido
-            // 
-            this.NombreYApellido.HeaderText = "Socio";
-            this.NombreYApellido.Name = "NombreYApellido";
-            this.NombreYApellido.ReadOnly = true;
-            this.NombreYApellido.Width = 500;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.HeaderText = "FechaNacimiento";
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.ReadOnly = true;
-            this.FechaNacimiento.Visible = false;
-            // 
-            // Genero
-            // 
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            this.Genero.Visible = false;
-            // 
-            // NroDocumento
-            // 
-            this.NroDocumento.HeaderText = "NroDocumento";
-            this.NroDocumento.Name = "NroDocumento";
-            this.NroDocumento.ReadOnly = true;
-            this.NroDocumento.Visible = false;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            this.Ciudad.Visible = false;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            this.Direccion.Visible = false;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Visible = false;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Visible = false;
-            // 
-            // ObraSocial
-            // 
-            this.ObraSocial.HeaderText = "ObraSocial";
-            this.ObraSocial.Name = "ObraSocial";
-            this.ObraSocial.ReadOnly = true;
-            this.ObraSocial.Visible = false;
-            // 
-            // Plan
-            // 
-            this.Plan.HeaderText = "Plan";
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
-            this.Plan.Visible = false;
-            // 
-            // EstadoSocio
-            // 
-            this.EstadoSocio.HeaderText = "Estado";
-            this.EstadoSocio.Name = "EstadoSocio";
-            this.EstadoSocio.ReadOnly = true;
-            this.EstadoSocio.Width = 500;
-            // 
-            // FechaInicioActividades
-            // 
-            this.FechaInicioActividades.HeaderText = "FechaInicioActividades";
-            this.FechaInicioActividades.Name = "FechaInicioActividades";
-            this.FechaInicioActividades.ReadOnly = true;
-            this.FechaInicioActividades.Visible = false;
-            // 
-            // FechaFinActividades
-            // 
-            this.FechaFinActividades.HeaderText = "Fecha Vencimiento Cuota";
-            this.FechaFinActividades.Name = "FechaFinActividades";
-            this.FechaFinActividades.ReadOnly = true;
-            this.FechaFinActividades.Width = 501;
-            // 
-            // FechaNotificacion
-            // 
-            this.FechaNotificacion.HeaderText = "FechaNotificacion";
-            this.FechaNotificacion.Name = "FechaNotificacion";
-            this.FechaNotificacion.ReadOnly = true;
-            this.FechaNotificacion.Visible = false;
-            // 
-            // RespuestaNotificacion
-            // 
-            this.RespuestaNotificacion.HeaderText = "RespuestaNotificacion";
-            this.RespuestaNotificacion.Name = "RespuestaNotificacion";
-            this.RespuestaNotificacion.ReadOnly = true;
-            this.RespuestaNotificacion.Visible = false;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
             // 
             // label2
             // 
@@ -477,6 +349,134 @@
             this.btnMenuAgregar.UseVisualStyleBackColor = false;
             this.btnMenuAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 34;
+            // 
+            // IdSocio
+            // 
+            this.IdSocio.HeaderText = "IdSocio";
+            this.IdSocio.Name = "IdSocio";
+            this.IdSocio.ReadOnly = true;
+            this.IdSocio.Visible = false;
+            // 
+            // NombreYApellido
+            // 
+            this.NombreYApellido.HeaderText = "Socio";
+            this.NombreYApellido.Name = "NombreYApellido";
+            this.NombreYApellido.ReadOnly = true;
+            this.NombreYApellido.Width = 500;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.HeaderText = "FechaNacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Visible = false;
+            // 
+            // Genero
+            // 
+            this.Genero.HeaderText = "Genero";
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            this.Genero.Visible = false;
+            // 
+            // NroDocumento
+            // 
+            this.NroDocumento.HeaderText = "NroDocumento";
+            this.NroDocumento.Name = "NroDocumento";
+            this.NroDocumento.ReadOnly = true;
+            this.NroDocumento.Visible = false;
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
+            this.Ciudad.Visible = false;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Visible = false;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Visible = false;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Visible = false;
+            // 
+            // ObraSocial
+            // 
+            this.ObraSocial.HeaderText = "ObraSocial";
+            this.ObraSocial.Name = "ObraSocial";
+            this.ObraSocial.ReadOnly = true;
+            this.ObraSocial.Visible = false;
+            // 
+            // Plan
+            // 
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            this.Plan.Visible = false;
+            // 
+            // EstadoSocio
+            // 
+            this.EstadoSocio.HeaderText = "Estado";
+            this.EstadoSocio.Name = "EstadoSocio";
+            this.EstadoSocio.ReadOnly = true;
+            this.EstadoSocio.Width = 500;
+            // 
+            // FechaInicioActividades
+            // 
+            this.FechaInicioActividades.HeaderText = "FechaInicioActividades";
+            this.FechaInicioActividades.Name = "FechaInicioActividades";
+            this.FechaInicioActividades.ReadOnly = true;
+            this.FechaInicioActividades.Visible = false;
+            // 
+            // FechaFinActividades
+            // 
+            this.FechaFinActividades.HeaderText = "Fecha Vencimiento Cuota";
+            this.FechaFinActividades.Name = "FechaFinActividades";
+            this.FechaFinActividades.ReadOnly = true;
+            this.FechaFinActividades.Width = 503;
+            // 
+            // FechaNotificacion
+            // 
+            this.FechaNotificacion.HeaderText = "FechaNotificacion";
+            this.FechaNotificacion.Name = "FechaNotificacion";
+            this.FechaNotificacion.ReadOnly = true;
+            this.FechaNotificacion.Visible = false;
+            // 
+            // RespuestaNotificacion
+            // 
+            this.RespuestaNotificacion.HeaderText = "RespuestaNotificacion";
+            this.RespuestaNotificacion.Name = "RespuestaNotificacion";
+            this.RespuestaNotificacion.ReadOnly = true;
+            this.RespuestaNotificacion.Visible = false;
+            // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
+            // 
             // frmSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -518,6 +518,7 @@
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
+        private FontAwesome.Sharp.IconButton btnMenuTurno;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdSocio;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreYApellido;
@@ -536,6 +537,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNotificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaNotificacion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
-        private FontAwesome.Sharp.IconButton btnMenuTurno;
     }
 }
