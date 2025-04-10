@@ -18,6 +18,8 @@ namespace Vista
         // Propiedad pública para almacenar las acciones seleccionadas
         public List<Accion> AccionesSeleccionadas { get; set; } // No inicializamos aquí
         private int ultimoUsuarioId;
+        private ToolTip toolTipAcciones = new ToolTip();
+        private Dictionary<string, string> DescripcionesAcciones = new Dictionary<string, string>();
         #endregion
         #region "Metodos"
         private void MarcarAcciones(List<Accion> acciones)
@@ -43,6 +45,47 @@ namespace Vista
                 if (accion.NombreAccion == btnRestaurar.Name) btnRestaurar.Checked = true;
             }
         }
+
+        private void CargarDescripciones()
+        {
+            DescripcionesAcciones.Clear();
+            List<Accion> todas = new Controlador.ControladorGymAccion().ListarTodo();
+
+            foreach (Accion a in todas)
+            {
+                if (!DescripcionesAcciones.ContainsKey(a.NombreAccion))
+                {
+                    DescripcionesAcciones[a.NombreAccion] = a.Descripcion;
+                }
+            }
+        }
+
+        private void MostrarToolTipAccion(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            if (cb != null && DescripcionesAcciones.TryGetValue(cb.Name, out string descripcion))
+            {
+                toolTipAcciones.SetToolTip(cb, descripcion);
+            }
+        }
+
+        private void AsignarEventosToolTip(Control controlPadre)
+        {
+            foreach (Control control in controlPadre.Controls)
+            {
+                if (control is CheckBox cb)
+                {
+                    cb.MouseHover += MostrarToolTipAccion;
+                }
+
+                // Si el control contiene otros controles (GroupBox, Panel, etc.)
+                if (control.HasChildren)
+                {
+                    AsignarEventosToolTip(control);
+                }
+            }
+        }
+
         #endregion
 
         public frmAcciones(int id, List<Accion> accionesPrevias)
@@ -59,6 +102,16 @@ namespace Vista
 
         private void frmAcciones_Load(object sender, EventArgs e)
         {
+            CargarDescripciones();
+
+            // Asignar evento MouseHover a cada CheckBox
+            toolTipAcciones.AutoPopDelay = 5000;
+            toolTipAcciones.InitialDelay = 500;
+            toolTipAcciones.ReshowDelay = 500;
+            toolTipAcciones.ShowAlways = true;
+
+            AsignarEventosToolTip(this); // <- esto explora todo, incluso dentro de GroupBox
+
             if (AccionesSeleccionadas != null && AccionesSeleccionadas.Count > 0)
             {
                 MarcarAcciones(AccionesSeleccionadas);

@@ -47,14 +47,13 @@
             this.menuRoles = new System.Windows.Forms.CheckBox();
             this.menuCalentamiento = new System.Windows.Forms.CheckBox();
             this.menuUsuarios = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Panel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.cbTodo = new System.Windows.Forms.CheckBox();
             this.gbGestionSocios.SuspendLayout();
             this.gbGestionRutinas.SuspendLayout();
             this.gbGestionGimnasion.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.Panel.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +70,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.White;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 24;
-            this.btnGuardar.Location = new System.Drawing.Point(602, 675);
+            this.btnGuardar.Location = new System.Drawing.Point(608, 546);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(121, 50);
             this.btnGuardar.TabIndex = 45;
@@ -98,9 +97,9 @@
             this.gbGestionSocios.Controls.Add(this.btnMenuTurno);
             this.gbGestionSocios.Controls.Add(this.btnMenuAgregar);
             this.gbGestionSocios.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGestionSocios.Location = new System.Drawing.Point(40, 62);
+            this.gbGestionSocios.Location = new System.Drawing.Point(43, 23);
             this.gbGestionSocios.Name = "gbGestionSocios";
-            this.gbGestionSocios.Size = new System.Drawing.Size(521, 246);
+            this.gbGestionSocios.Size = new System.Drawing.Size(520, 200);
             this.gbGestionSocios.TabIndex = 48;
             this.gbGestionSocios.TabStop = false;
             this.gbGestionSocios.Text = "Gestión Socios";
@@ -118,7 +117,7 @@
             // btnMenuEliminar
             // 
             this.btnMenuEliminar.AutoSize = true;
-            this.btnMenuEliminar.Location = new System.Drawing.Point(29, 161);
+            this.btnMenuEliminar.Location = new System.Drawing.Point(29, 146);
             this.btnMenuEliminar.Name = "btnMenuEliminar";
             this.btnMenuEliminar.Size = new System.Drawing.Size(150, 28);
             this.btnMenuEliminar.TabIndex = 49;
@@ -128,7 +127,7 @@
             // btnMenuTurno
             // 
             this.btnMenuTurno.AutoSize = true;
-            this.btnMenuTurno.Location = new System.Drawing.Point(288, 161);
+            this.btnMenuTurno.Location = new System.Drawing.Point(288, 146);
             this.btnMenuTurno.Name = "btnMenuTurno";
             this.btnMenuTurno.Size = new System.Drawing.Size(174, 28);
             this.btnMenuTurno.TabIndex = 48;
@@ -142,9 +141,9 @@
             this.gbGestionRutinas.Controls.Add(this.btnEliminar);
             this.gbGestionRutinas.Controls.Add(this.btnGuardarRutina);
             this.gbGestionRutinas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGestionRutinas.Location = new System.Drawing.Point(40, 326);
+            this.gbGestionRutinas.Location = new System.Drawing.Point(43, 233);
             this.gbGestionRutinas.Name = "gbGestionRutinas";
-            this.gbGestionRutinas.Size = new System.Drawing.Size(521, 246);
+            this.gbGestionRutinas.Size = new System.Drawing.Size(520, 200);
             this.gbGestionRutinas.TabIndex = 51;
             this.gbGestionRutinas.TabStop = false;
             this.gbGestionRutinas.Text = "Gestión Rutinas";
@@ -152,7 +151,7 @@
             // btnRestaurar
             // 
             this.btnRestaurar.AutoSize = true;
-            this.btnRestaurar.Location = new System.Drawing.Point(288, 55);
+            this.btnRestaurar.Location = new System.Drawing.Point(288, 40);
             this.btnRestaurar.Name = "btnRestaurar";
             this.btnRestaurar.Size = new System.Drawing.Size(167, 28);
             this.btnRestaurar.TabIndex = 50;
@@ -162,7 +161,7 @@
             // btnHistorial
             // 
             this.btnHistorial.AutoSize = true;
-            this.btnHistorial.Location = new System.Drawing.Point(29, 178);
+            this.btnHistorial.Location = new System.Drawing.Point(29, 146);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(197, 28);
             this.btnHistorial.TabIndex = 49;
@@ -172,7 +171,7 @@
             // btnEliminar
             // 
             this.btnEliminar.AutoSize = true;
-            this.btnEliminar.Location = new System.Drawing.Point(288, 178);
+            this.btnEliminar.Location = new System.Drawing.Point(288, 146);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(214, 28);
             this.btnEliminar.TabIndex = 48;
@@ -182,7 +181,7 @@
             // btnGuardarRutina
             // 
             this.btnGuardarRutina.AutoSize = true;
-            this.btnGuardarRutina.Location = new System.Drawing.Point(29, 55);
+            this.btnGuardarRutina.Location = new System.Drawing.Point(29, 40);
             this.btnGuardarRutina.Name = "btnGuardarRutina";
             this.btnGuardarRutina.Size = new System.Drawing.Size(168, 28);
             this.btnGuardarRutina.TabIndex = 47;
@@ -199,9 +198,9 @@
             this.gbGestionGimnasion.Controls.Add(this.menuCalentamiento);
             this.gbGestionGimnasion.Controls.Add(this.menuUsuarios);
             this.gbGestionGimnasion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbGestionGimnasion.Location = new System.Drawing.Point(616, 62);
+            this.gbGestionGimnasion.Location = new System.Drawing.Point(619, 23);
             this.gbGestionGimnasion.Name = "gbGestionGimnasion";
-            this.gbGestionGimnasion.Size = new System.Drawing.Size(539, 510);
+            this.gbGestionGimnasion.Size = new System.Drawing.Size(540, 410);
             this.gbGestionGimnasion.TabIndex = 52;
             this.gbGestionGimnasion.TabStop = false;
             this.gbGestionGimnasion.Text = "Gestión Gimnasio";
@@ -209,7 +208,7 @@
             // menuRangosHorarios
             // 
             this.menuRangosHorarios.AutoSize = true;
-            this.menuRangosHorarios.Location = new System.Drawing.Point(29, 375);
+            this.menuRangosHorarios.Location = new System.Drawing.Point(29, 303);
             this.menuRangosHorarios.Name = "menuRangosHorarios";
             this.menuRangosHorarios.Size = new System.Drawing.Size(302, 28);
             this.menuRangosHorarios.TabIndex = 53;
@@ -219,7 +218,7 @@
             // menuEstiramiento
             // 
             this.menuEstiramiento.AutoSize = true;
-            this.menuEstiramiento.Location = new System.Drawing.Point(29, 308);
+            this.menuEstiramiento.Location = new System.Drawing.Point(29, 250);
             this.menuEstiramiento.Name = "menuEstiramiento";
             this.menuEstiramiento.Size = new System.Drawing.Size(326, 28);
             this.menuEstiramiento.TabIndex = 52;
@@ -229,7 +228,7 @@
             // menuElementosGym
             // 
             this.menuElementosGym.AutoSize = true;
-            this.menuElementosGym.Location = new System.Drawing.Point(29, 241);
+            this.menuElementosGym.Location = new System.Drawing.Point(29, 198);
             this.menuElementosGym.Name = "menuElementosGym";
             this.menuElementosGym.Size = new System.Drawing.Size(364, 28);
             this.menuElementosGym.TabIndex = 51;
@@ -239,7 +238,7 @@
             // menuNegocio
             // 
             this.menuNegocio.AutoSize = true;
-            this.menuNegocio.Location = new System.Drawing.Point(29, 442);
+            this.menuNegocio.Location = new System.Drawing.Point(29, 356);
             this.menuNegocio.Name = "menuNegocio";
             this.menuNegocio.Size = new System.Drawing.Size(244, 28);
             this.menuNegocio.TabIndex = 50;
@@ -249,7 +248,7 @@
             // menuRoles
             // 
             this.menuRoles.AutoSize = true;
-            this.menuRoles.Location = new System.Drawing.Point(29, 107);
+            this.menuRoles.Location = new System.Drawing.Point(29, 93);
             this.menuRoles.Name = "menuRoles";
             this.menuRoles.Size = new System.Drawing.Size(319, 28);
             this.menuRoles.TabIndex = 49;
@@ -259,7 +258,7 @@
             // menuCalentamiento
             // 
             this.menuCalentamiento.AutoSize = true;
-            this.menuCalentamiento.Location = new System.Drawing.Point(29, 174);
+            this.menuCalentamiento.Location = new System.Drawing.Point(29, 146);
             this.menuCalentamiento.Name = "menuCalentamiento";
             this.menuCalentamiento.Size = new System.Drawing.Size(396, 28);
             this.menuCalentamiento.TabIndex = 48;
@@ -269,43 +268,31 @@
             // menuUsuarios
             // 
             this.menuUsuarios.AutoSize = true;
-            this.menuUsuarios.Location = new System.Drawing.Point(29, 40);
+            this.menuUsuarios.Location = new System.Drawing.Point(31, 40);
             this.menuUsuarios.Name = "menuUsuarios";
             this.menuUsuarios.Size = new System.Drawing.Size(362, 28);
             this.menuUsuarios.TabIndex = 47;
             this.menuUsuarios.Text = "Administrar Usuario y Agregar Permisos";
             this.menuUsuarios.UseVisualStyleBackColor = true;
             // 
-            // label9
+            // Panel
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(305, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(538, 29);
-            this.label9.TabIndex = 53;
-            this.label9.Text = "Asiganar permisos al socio dentro del sitema";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.gbGestionGimnasion);
-            this.panel1.Controls.Add(this.gbGestionRutinas);
-            this.panel1.Controls.Add(this.gbGestionSocios);
-            this.panel1.Location = new System.Drawing.Point(67, 26);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1203, 641);
-            this.panel1.TabIndex = 54;
+            this.Panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Panel.Controls.Add(this.gbGestionRutinas);
+            this.Panel.Controls.Add(this.panel2);
+            this.Panel.Controls.Add(this.gbGestionGimnasion);
+            this.Panel.Controls.Add(this.gbGestionSocios);
+            this.Panel.Location = new System.Drawing.Point(67, 19);
+            this.Panel.Name = "Panel";
+            this.Panel.Size = new System.Drawing.Size(1203, 515);
+            this.Panel.TabIndex = 54;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.cbTodo);
-            this.panel2.Location = new System.Drawing.Point(500, 585);
+            this.panel2.Location = new System.Drawing.Point(505, 452);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(177, 40);
             this.panel2.TabIndex = 55;
@@ -327,8 +314,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
-            this.ClientSize = new System.Drawing.Size(1347, 734);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1319, 611);
+            this.Controls.Add(this.Panel);
             this.Controls.Add(this.btnGuardar);
             this.Name = "frmAcciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -340,8 +327,7 @@
             this.gbGestionRutinas.PerformLayout();
             this.gbGestionGimnasion.ResumeLayout(false);
             this.gbGestionGimnasion.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Panel.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -369,8 +355,7 @@
         private System.Windows.Forms.CheckBox menuRoles;
         private System.Windows.Forms.CheckBox menuCalentamiento;
         private System.Windows.Forms.CheckBox menuUsuarios;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Panel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.CheckBox cbTodo;
     }

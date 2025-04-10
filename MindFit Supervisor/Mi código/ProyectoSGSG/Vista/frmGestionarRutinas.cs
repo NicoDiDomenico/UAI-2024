@@ -1562,7 +1562,7 @@ namespace Vista
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Falta implementar
+            // Podria hacer que se 
             
             if (RutinaSeleccionada != null)
             {

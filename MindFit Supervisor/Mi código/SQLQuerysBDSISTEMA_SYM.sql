@@ -3203,3 +3203,51 @@ on rh_u.IdUsuario = u.IdUsuario
 where rh.Activo = 1 or rh.SoloSabado = 1
 
 select * from CupoFecha
+
+SELECT 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion, 
+	ac.Descripcion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acción directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 1
+
+select * from Accion
+
+UPDATE Accion SET Descripcion = 'Administrar usuarios del gimnasio, darles de alta o baja, y asignar permisos personalizados.' WHERE NombreAccion = 'menuUsuarios';
+
+UPDATE Accion SET Descripcion = 'Asignar, modificar o consultar los roles y permisos asignados a los usuarios del sistema.' WHERE NombreAccion = 'menuRoles';
+
+UPDATE Accion SET Descripcion = 'Gestionar los ejercicios de calentamiento, con o sin uso de máquinas de tipo cardio.' WHERE NombreAccion = 'menuCalentamiento';
+
+UPDATE Accion SET Descripcion = 'Registrar, editar y eliminar elementos del gimnasio como máquinas, pesas o accesorios utilizados en los entrenamientos.' WHERE NombreAccion = 'menuElementosGym';
+
+UPDATE Accion SET Descripcion = 'Administrar técnicas de estiramiento que pueden formar parte de una rutina para los socios.' WHERE NombreAccion = 'menuEstiramiento';
+
+UPDATE Accion SET Descripcion = 'Configurar los diferentes rangos horarios en los que se puede entrenar y asignarlos a entrenadores y socios.' WHERE NombreAccion = 'menuRangosHorarios';
+
+UPDATE Accion SET Descripcion = 'Actualizar los datos de la empresa, como razón social, dirección, nombre del gimnasio y horarios de atención.' WHERE NombreAccion = 'menuNegocio';
+
+UPDATE Accion SET Descripcion = 'Dar de alta un nuevo socio en el sistema, registrando todos sus datos personales y de contacto.' WHERE NombreAccion = 'btnMenuAgregar';
+
+UPDATE Accion SET Descripcion = 'Consultar información personal del socio, incluyendo rutina activa, historial y estado de cuota.' WHERE NombreAccion = 'btnMenuConsultar';
+
+UPDATE Accion SET Descripcion = 'Eliminar un socio del sistema y mover sus datos a la base de datos histórica o de respaldo.' WHERE NombreAccion = 'btnMenuEliminar';
+
+UPDATE Accion SET Descripcion = 'Visualizar y gestionar los turnos asignados a un socio, incluyendo altas, bajas y reasignaciones.' WHERE NombreAccion = 'btnMenuTurno';
+
+UPDATE Accion SET Descripcion = 'Dar de baja una rutina activa y eliminar los datos de esa jornada para un socio específico.' WHERE NombreAccion = 'btnEliminar';
+
+UPDATE Accion SET Descripcion = 'Consultar el historial completo de rutinas realizadas por un socio para su seguimiento y evolución.' WHERE NombreAccion = 'btnHistorial';
+
+UPDATE Accion SET Descripcion = 'Guardar la rutina armada para un socio, incluyendo calentamiento, entrenamiento y estiramiento del día.' WHERE NombreAccion = 'btnGuardarRutina';
+
+UPDATE Accion SET Descripcion = 'Recuperar una rutina anterior cargada por el entrenador, restaurándola al estado original en una fecha específica.' WHERE NombreAccion = 'btnRestaurar';
