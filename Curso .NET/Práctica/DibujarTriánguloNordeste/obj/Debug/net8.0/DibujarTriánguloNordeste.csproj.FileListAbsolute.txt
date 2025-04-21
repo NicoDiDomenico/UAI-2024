@@ -1,0 +1,15 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\bin\Debug\net8.0\DibujarTriánguloNordeste.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\bin\Debug\net8.0\DibujarTriánguloNordeste.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\bin\Debug\net8.0\DibujarTriánguloNordeste.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\bin\Debug\net8.0\DibujarTriánguloNordeste.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\bin\Debug\net8.0\DibujarTriánguloNordeste.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\refint\DibujarTriánguloNordeste.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\DibujarTriánguloNordeste.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriánguloNordeste\obj\Debug\net8.0\ref\DibujarTriánguloNordeste.dll

@@ -1,0 +1,15 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\bin\Debug\net8.0\DibujarTriangulo.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\bin\Debug\net8.0\DibujarTriangulo.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\bin\Debug\net8.0\DibujarTriangulo.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\bin\Debug\net8.0\DibujarTriangulo.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\bin\Debug\net8.0\DibujarTriangulo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\refint\DibujarTriangulo.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\DibujarTriangulo.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Práctica\DibujarTriangulo\obj\Debug\net8.0\ref\DibujarTriangulo.dll

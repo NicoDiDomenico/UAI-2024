@@ -1,0 +1,390 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 06\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 08\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 09 a 10\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 11\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 12\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 14 a 16\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 18\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 19 - Bucle While - Ejercicio\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 21 - Bucle Do While\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 22 - Excepciones\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 23 - Excepciones 2\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24 - Excepciones con filtro\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 24b - Excepcion con Checked\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25 - Excepcion 3\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 25b - Excepcion 3 - throw\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 26 - Excepcion 4\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 28 - POO - Creación de clases e instancias\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 29 - POO - Encapsulación y convenciones\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 30 - POO - Constructores\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 31 - POO - Getters y Setters\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 32 - POO - Visual Studio y POO\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\OneDrive\Desktop\UAI-2024\Curso .NET\Clase 33 - POO - Llamadas y clase Math\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 34 - POO - Variables y métodos static\obj\Debug\net8.0\ref\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\bin\Debug\net8.0\PrimeraApp.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\bin\Debug\net8.0\PrimeraApp.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\bin\Debug\net8.0\PrimeraApp.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\bin\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\bin\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\refint\PrimeraApp.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\PrimeraApp.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Clase 36 - Arrays I\obj\Debug\net8.0\ref\PrimeraApp.dll

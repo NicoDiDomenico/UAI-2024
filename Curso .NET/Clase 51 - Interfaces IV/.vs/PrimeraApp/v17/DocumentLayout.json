@@ -1,0 +1,72 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F34124F7-D480-4B94-A241-790FBD07F90C}|PrimeraApp.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\clase 51 - interfaces iv\\primeraapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34124F7-D480-4B94-A241-790FBD07F90C}|PrimeraApp.csproj|solutionrelative:primeraapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F34124F7-D480-4B94-A241-790FBD07F90C}|PrimeraApp.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\clase 51 - interfaces iv\\avisostrafico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34124F7-D480-4B94-A241-790FBD07F90C}|PrimeraApp.csproj|solutionrelative:avisostrafico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F34124F7-D480-4B94-A241-790FBD07F90C}|PrimeraApp.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso .net\\clase 51 - interfaces iv\\iavisos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34124F7-D480-4B94-A241-790FBD07F90C}|PrimeraApp.csproj|solutionrelative:iavisos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IAvisos.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\IAvisos.cs",
+              "RelativeDocumentMoniker": "IAvisos.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\IAvisos.cs",
+              "RelativeToolTip": "IAvisos.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T21:56:10.665Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AvisosTrafico.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\AvisosTrafico.cs",
+              "RelativeDocumentMoniker": "AvisosTrafico.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\AvisosTrafico.cs",
+              "RelativeToolTip": "AvisosTrafico.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAgwBoAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T21:58:21.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PrimeraApp.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\PrimeraApp.cs",
+              "RelativeDocumentMoniker": "PrimeraApp.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso .NET\\Clase 51 - Interfaces IV\\PrimeraApp.cs",
+              "RelativeToolTip": "PrimeraApp.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-03T02:43:05.945Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
