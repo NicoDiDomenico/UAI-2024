@@ -3251,3 +3251,7 @@ UPDATE Accion SET Descripcion = 'Consultar el historial completo de rutinas real
 UPDATE Accion SET Descripcion = 'Guardar la rutina armada para un socio, incluyendo calentamiento, entrenamiento y estiramiento del día.' WHERE NombreAccion = 'btnGuardarRutina';
 
 UPDATE Accion SET Descripcion = 'Recuperar una rutina anterior cargada por el entrenador, restaurándola al estado original en una fecha específica.' WHERE NombreAccion = 'btnRestaurar';
+
+select * from CupoFecha
+
+select * from RangoHorario 
