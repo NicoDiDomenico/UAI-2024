@@ -35,21 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.nudAperturaLaV = new System.Windows.Forms.NumericUpDown();
-            this.nudCierreLaV = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -59,15 +44,31 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nudCierreLaV = new System.Windows.Forms.NumericUpDown();
+            this.nudAperturaLaV = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnReporte = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAperturaLaV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCierreLaV)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCierreS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAperturaS)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCierreLaV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAperturaLaV)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -82,7 +83,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.Black;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 20;
-            this.btnGuardar.Location = new System.Drawing.Point(286, 604);
+            this.btnGuardar.Location = new System.Drawing.Point(347, 606);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(118, 29);
             this.btnGuardar.TabIndex = 24;
@@ -169,163 +170,11 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(47, 305);
+            this.panel1.Location = new System.Drawing.Point(47, 304);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(600, 285);
             this.panel1.TabIndex = 27;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(16, 44);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(561, 20);
-            this.txtNombre.TabIndex = 29;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(16, 93);
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(561, 20);
-            this.txtTelefono.TabIndex = 28;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Location = new System.Drawing.Point(16, 144);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(561, 20);
-            this.txtDireccion.TabIndex = 27;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Dirección:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Teléfono:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(12, 27);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Nombre Negocio:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(10, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Horario de Apertura:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(23, 50);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Horario de Cierre:";
-            // 
-            // nudAperturaLaV
-            // 
-            this.nudAperturaLaV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudAperturaLaV.Location = new System.Drawing.Point(123, 19);
-            this.nudAperturaLaV.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.nudAperturaLaV.Name = "nudAperturaLaV";
-            this.nudAperturaLaV.Size = new System.Drawing.Size(42, 16);
-            this.nudAperturaLaV.TabIndex = 32;
-            this.nudAperturaLaV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudAperturaLaV.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            // 
-            // nudCierreLaV
-            // 
-            this.nudCierreLaV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nudCierreLaV.Location = new System.Drawing.Point(123, 50);
-            this.nudCierreLaV.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-            this.nudCierreLaV.Name = "nudCierreLaV";
-            this.nudCierreLaV.Size = new System.Drawing.Size(42, 16);
-            this.nudCierreLaV.TabIndex = 33;
-            this.nudCierreLaV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.nudCierreLaV.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(165, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = ": 00 hs";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(165, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 35;
-            this.label8.Text = ": 00 hs";
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Location = new System.Drawing.Point(116, 14);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(95, 25);
-            this.panel2.TabIndex = 36;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Location = new System.Drawing.Point(116, 45);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(95, 25);
-            this.panel3.TabIndex = 37;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.nudCierreLaV);
-            this.groupBox1.Controls.Add(this.nudAperturaLaV);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Location = new System.Drawing.Point(17, 178);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(235, 79);
-            this.groupBox1.TabIndex = 38;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Lunes a Viernes";
             // 
             // groupBox3
             // 
@@ -428,12 +277,187 @@
             this.panel5.Size = new System.Drawing.Size(95, 25);
             this.panel5.TabIndex = 37;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.nudCierreLaV);
+            this.groupBox1.Controls.Add(this.nudAperturaLaV);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.panel3);
+            this.groupBox1.Location = new System.Drawing.Point(17, 178);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(235, 79);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Lunes a Viernes";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(165, 50);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 35;
+            this.label8.Text = ": 00 hs";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(165, 19);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 34;
+            this.label7.Text = ": 00 hs";
+            // 
+            // nudCierreLaV
+            // 
+            this.nudCierreLaV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudCierreLaV.Location = new System.Drawing.Point(123, 50);
+            this.nudCierreLaV.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nudCierreLaV.Name = "nudCierreLaV";
+            this.nudCierreLaV.Size = new System.Drawing.Size(42, 16);
+            this.nudCierreLaV.TabIndex = 33;
+            this.nudCierreLaV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudCierreLaV.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // nudAperturaLaV
+            // 
+            this.nudAperturaLaV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.nudAperturaLaV.Location = new System.Drawing.Point(123, 19);
+            this.nudAperturaLaV.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+            this.nudAperturaLaV.Name = "nudAperturaLaV";
+            this.nudAperturaLaV.Size = new System.Drawing.Size(42, 16);
+            this.nudAperturaLaV.TabIndex = 32;
+            this.nudAperturaLaV.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudAperturaLaV.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(23, 50);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Horario de Cierre:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(10, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Horario de Apertura:";
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Location = new System.Drawing.Point(116, 14);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(95, 25);
+            this.panel2.TabIndex = 36;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Location = new System.Drawing.Point(116, 45);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(95, 25);
+            this.panel3.TabIndex = 37;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(16, 44);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(561, 20);
+            this.txtNombre.TabIndex = 29;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(16, 93);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(561, 20);
+            this.txtTelefono.TabIndex = 28;
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Location = new System.Drawing.Point(16, 144);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(561, 20);
+            this.txtDireccion.TabIndex = 27;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "Dirección:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(12, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 25;
+            this.label3.Text = "Teléfono:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(12, 27);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Nombre Negocio:";
+            // 
+            // btnReporte
+            // 
+            this.btnReporte.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnReporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReporte.ForeColor = System.Drawing.Color.Black;
+            this.btnReporte.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnReporte.IconColor = System.Drawing.Color.Black;
+            this.btnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReporte.IconSize = 20;
+            this.btnReporte.Location = new System.Drawing.Point(213, 606);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(118, 29);
+            this.btnReporte.TabIndex = 28;
+            this.btnReporte.Text = "Imprimir Reporte";
+            this.btnReporte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReporte.UseVisualStyleBackColor = false;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
             // frmMenuNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.ClientSize = new System.Drawing.Size(1772, 812);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox2);
@@ -446,14 +470,14 @@
             this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAperturaLaV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCierreLaV)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCierreS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudAperturaS)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCierreLaV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAperturaLaV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -491,5 +515,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.GroupBox groupBox1;
+        private FontAwesome.Sharp.IconButton btnReporte;
     }
 }
