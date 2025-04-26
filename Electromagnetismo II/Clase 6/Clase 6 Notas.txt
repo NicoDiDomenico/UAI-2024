@@ -1,0 +1,5 @@
+Clase 1 a 5
+Guía de Problemas Unidad 3: Diodos. Veremos desde el ej 10)
+
+Para el ejercicio 10) se agregó:
+Agregar dos circuitos mas, fuente 3V y 3 diodos en serie y 3 en paralelo. y despues podria probra ponerle una resistencia de 1K.
