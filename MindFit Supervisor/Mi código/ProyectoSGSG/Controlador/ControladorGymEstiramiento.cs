@@ -16,6 +16,11 @@ namespace Controlador
         {
             return objcd_Estiramiento.Listar();
         }
+        public Estiramiento ObtenerPorId(int id)
+        {
+            return Listar().FirstOrDefault(e => e.IdEstiramiento == id);
+        }
+
         public bool Registrar(Estiramiento estiramiento, out string mensaje)
         {
             return objcd_Estiramiento.Registrar(estiramiento, out mensaje);

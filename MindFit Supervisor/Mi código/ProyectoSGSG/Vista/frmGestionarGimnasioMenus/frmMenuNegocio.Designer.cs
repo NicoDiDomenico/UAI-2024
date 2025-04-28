@@ -431,7 +431,7 @@
             // 
             // btnReporte
             // 
-            this.btnReporte.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnReporte.BackColor = System.Drawing.Color.Silver;
             this.btnReporte.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnReporte.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReporte.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -445,7 +445,7 @@
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(118, 29);
             this.btnReporte.TabIndex = 28;
-            this.btnReporte.Text = "Imprimir Reporte";
+            this.btnReporte.Text = "Reporte";
             this.btnReporte.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReporte.UseVisualStyleBackColor = false;

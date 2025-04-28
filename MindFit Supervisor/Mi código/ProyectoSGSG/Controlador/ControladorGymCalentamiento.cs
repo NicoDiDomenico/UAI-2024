@@ -17,6 +17,12 @@ namespace Controlador
         {
             return objcd_Calentamiento.Listar();
         }
+
+        public Calentamiento ObtenerPorId(int id)
+        {
+            return Listar().FirstOrDefault(c => c.IdCalentamiento == id);
+        }
+
         public bool Registrar(Calentamiento calentamiento, out string mensaje)
         {
             return objcd_Calentamiento.Registrar(calentamiento, out mensaje);

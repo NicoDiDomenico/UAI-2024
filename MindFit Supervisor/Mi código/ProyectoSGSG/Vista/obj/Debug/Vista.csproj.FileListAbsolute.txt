@@ -119,3 +119,8 @@ C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
 C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml

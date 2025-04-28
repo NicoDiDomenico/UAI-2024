@@ -1,12 +1,16 @@
 ﻿using CapaPresentacion.Utilidades;
 using Controlador;
 using FontAwesome.Sharp;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
 using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +24,7 @@ namespace Vista
         #region "Variables"
         private int idRangoHorarioActual; // Variable global para almacenar el Id del rango horario actual
         private int IdSocioActual;
+        private Socio socioActual;
         private List<Rutina> RutinasActuales;
         private Rutina RutinaSeleccionada;
         private Usuario usuario;
@@ -393,7 +398,7 @@ namespace Vista
                     Margin = new Padding(5, 0, 15, 0),
                     Tag = rowIndex,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                    Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Bold)
                 };
                 btnEliminar.FlatAppearance.BorderSize = 0;
 
@@ -570,7 +575,7 @@ namespace Vista
                     Margin = new Padding(5, 0, 15, 0),
                     Tag = rowIndex,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                    Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Bold)
                 };
                 btnEliminar.FlatAppearance.BorderSize = 0;
 
@@ -678,7 +683,7 @@ namespace Vista
                     Margin = new Padding(5, 0, 15, 0),
                     Tag = rowIndex,
                     TextAlign = ContentAlignment.MiddleCenter,
-                    Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                    Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Bold)
                 };
                 btnEliminar.FlatAppearance.BorderSize = 0;
 
@@ -777,7 +782,7 @@ namespace Vista
                 Margin = new Padding(5, 0, 15, 0), // separa un poco del borde derecho
                 Tag = rowIndex,
                 TextAlign = ContentAlignment.MiddleCenter, // <-- centra el texto
-                Font = new Font("Segoe UI", 8, FontStyle.Bold) // opcional para mejor visibilidad
+                Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Bold)
             };
             // Quitar borde extra
             btnEliminar.FlatAppearance.BorderSize = 0;
@@ -945,7 +950,7 @@ namespace Vista
                 Margin = new Padding(5, 0, 15, 0),
                 Tag = rowIndex,
                 TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Segoe UI", 8, FontStyle.Bold)
+                Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Bold)
             };
             btnEliminar.FlatAppearance.BorderSize = 0;
 
@@ -1044,7 +1049,7 @@ namespace Vista
                 Margin = new Padding(5, 0, 15, 0), // separa un poco del borde derecho
                 Tag = rowIndex,
                 TextAlign = ContentAlignment.MiddleCenter, // <-- centra el texto
-                Font = new Font("Segoe UI", 8, FontStyle.Bold) // opcional para mejor visibilidad
+                Font = new System.Drawing.Font("Segoe UI", 8, System.Drawing.FontStyle.Bold)
             };
             // Quitar borde extra
             btnEliminarE.FlatAppearance.BorderSize = 0;
@@ -1314,7 +1319,7 @@ namespace Vista
                     var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                     var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                    e.Graphics.DrawImage(Properties.Resources.check2, new Rectangle(x, y, w, h));
+                    e.Graphics.DrawImage(Properties.Resources.check2, new System.Drawing.Rectangle(x, y, w, h));
                 }
                 e.Handled = true;
             }
@@ -1372,7 +1377,7 @@ namespace Vista
                     var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                     var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                    e.Graphics.DrawImage(Properties.Resources.check2, new Rectangle(x, y, w, h));
+                    e.Graphics.DrawImage(Properties.Resources.check2, new System.Drawing.Rectangle(x, y, w, h));
                 }
                 e.Handled = true;
             }
@@ -1409,6 +1414,8 @@ namespace Vista
                     IdSocioActual = Convert.ToInt32(dgvDataSocio.Rows[indice].Cells["IdSocio"].Value);
 
                     RutinasActuales = new ControladorGymRutina().Listar(IdSocioActual);
+
+                    socioActual = new ControladorGymSocio().GetSocio(IdSocioActual);
                     
                     // Obtener el día actual en español
                     string diaActual = DateTime.Now.DayOfWeek.ToString();
@@ -1609,6 +1616,96 @@ namespace Vista
             //var historial = new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia);
             //historial.ShowDialog();
             AbrirFormulario(new frmHistorialRutinas(this, IdSocioActual, RutinaSeleccionada.Dia, usuario));
+        }
+
+        // Falta compilar, no lo hice porque era domingo y no sea visiaulizaba el btnReporte al no poder cargar socios.
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            if (RutinaSeleccionada == null)
+            {
+                MessageBox.Show("Debe seleccionar una rutina antes de generar el reporte.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.FileName = "Rutina_" + socioActual.NombreYApellido.Replace(" ", "_") + "_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss") + ".pdf";
+            guardar.Filter = "Archivos PDF (*.pdf)|*.pdf";
+
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                // 1. Cargar la plantilla
+                string paginahtml_texto = Properties.Resources.plantillaRutina.ToString();
+                paginahtml_texto = paginahtml_texto.Replace("@NOMBRE", socioActual.NombreYApellido.ToUpper());
+                paginahtml_texto = paginahtml_texto.Replace("@DIRECCION", socioActual.Direccion);
+                paginahtml_texto = paginahtml_texto.Replace("@TELEFONO", socioActual.Telefono);
+                paginahtml_texto = paginahtml_texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
+
+                // 2. Reemplazar las secciones dinámicamente
+
+                // Calentamientos
+                List<RutinaCalentamiento> listaCalentamientos = ObtenerCalentamientosDesdeFormulario();
+                StringBuilder filasCalentamientos = new StringBuilder();
+
+                foreach (var cal in listaCalentamientos)
+                {
+                    string descripcion = new ControladorGymCalentamiento().ObtenerPorId(cal.IdCalentamiento)?.DescripcionCalentamiento ?? "N/A";
+                    filasCalentamientos.AppendLine($"<tr><td>{descripcion}</td><td>{cal.Minutos}</td></tr>");
+                }
+
+                if (filasCalentamientos.Length == 0)
+                    filasCalentamientos.AppendLine("<tr><td colspan='2'>No se registraron calentamientos.</td></tr>");
+
+                paginahtml_texto = paginahtml_texto.Replace("@CALENTAMIENTOS", filasCalentamientos.ToString());
+
+                // Entrenamientos
+                List<Entrenamiento> listaEntrenamientos = ObtenerEntrenamientosDesdeFormulario();
+                StringBuilder filasEntrenamientos = new StringBuilder();
+
+                foreach (var ent in listaEntrenamientos)
+                {
+                    filasEntrenamientos.AppendLine($"<tr><td>{ent.ElementoGimnasio.NombreElemento}</td><td>{ent.Series}</td><td>{ent.Repeticiones}</td><td>{ent.Peso}</td></tr>");
+                }
+
+                if (filasEntrenamientos.Length == 0)
+                    filasEntrenamientos.AppendLine("<tr><td colspan='4'>No se registraron entrenamientos.</td></tr>");
+
+                paginahtml_texto = paginahtml_texto.Replace("@ENTRENAMIENTOS", filasEntrenamientos.ToString());
+
+                // Estiramientos
+                List<RutinaEstiramiento> listaEstiramientos = ObtenerEstiramientosDesdeFormulario();
+                StringBuilder filasEstiramientos = new StringBuilder();
+
+                foreach (var est in listaEstiramientos)
+                {
+                    string descripcion = new ControladorGymEstiramiento().ObtenerPorId(est.IdEstiramiento)?.DescripcionEstiramiento ?? "N/A";
+                    filasEstiramientos.AppendLine($"<tr><td>{descripcion}</td><td>{est.Minutos}</td></tr>");
+                }
+
+                if (filasEstiramientos.Length == 0)
+                    filasEstiramientos.AppendLine("<tr><td colspan='2'>No se registraron estiramientos.</td></tr>");
+
+                paginahtml_texto = paginahtml_texto.Replace("@ESTIRAMIENTOS", filasEstiramientos.ToString());
+
+                // 3. Crear el PDF
+                using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                    pdfDoc.Open();
+                    pdfDoc.Add(new Phrase("")); // Espacio arriba
+
+                    using (StringReader sr = new StringReader(paginahtml_texto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+
+                MessageBox.Show("Reporte generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
