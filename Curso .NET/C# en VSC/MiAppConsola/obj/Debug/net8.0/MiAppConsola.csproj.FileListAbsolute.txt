@@ -1,0 +1,14 @@
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\bin\Debug\net8.0\MiAppConsola.exe
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\bin\Debug\net8.0\MiAppConsola.deps.json
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\bin\Debug\net8.0\MiAppConsola.runtimeconfig.json
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\bin\Debug\net8.0\MiAppConsola.dll
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\bin\Debug\net8.0\MiAppConsola.pdb
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.dll
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\refint\MiAppConsola.dll
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.pdb
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\MiAppConsola.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\C# en VSC\MiAppConsola\obj\Debug\net8.0\ref\MiAppConsola.dll
