@@ -17148,8 +17148,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 445,
-							"top": 1228,
+							"left": 456,
+							"top": 1224,
 							"width": 162.4833984375,
 							"height": 25,
 							"text": "planAlimentacionAsociado"
@@ -17161,8 +17161,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 630,
-							"top": 1231,
+							"left": 624,
+							"top": 1224,
 							"width": 38,
 							"height": 25,
 							"text": "0..1"
