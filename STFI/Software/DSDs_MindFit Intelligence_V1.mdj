@@ -12863,9 +12863,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 40.72998046875,
+													"left": 38.55908203125,
 													"top": 5,
-													"width": 297.654296875,
+													"width": 277.3037109375,
 													"height": 13,
 													"text": "CUD01 - Gestionar Socio y CUD05 - Eliminar Socio"
 												},
@@ -12879,7 +12879,7 @@
 													"parentStyle": true,
 													"left": 21,
 													"top": 5,
-													"width": 13.72998046875,
+													"width": 11.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -12914,9 +12914,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 103.9599609375,
+													"left": 100.3291015625,
 													"top": 1189,
-													"width": 18.78271484375,
+													"width": 16.6181640625,
 													"height": 13,
 													"text": "OP"
 												},
@@ -12930,7 +12930,7 @@
 													"parentStyle": true,
 													"left": 77,
 													"top": 1189,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -13089,9 +13089,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 663.9599609375,
+													"left": 660.3291015625,
 													"top": 797,
-													"width": 36.12451171875,
+													"width": 33.947265625,
 													"height": 13,
 													"text": "LOOP"
 												},
@@ -13105,7 +13105,7 @@
 													"parentStyle": true,
 													"left": 637,
 													"top": 797,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -14645,9 +14645,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 55.9599609375,
+													"left": 52.3291015625,
 													"top": 405,
-													"width": 18.78271484375,
+													"width": 16.6181640625,
 													"height": 13,
 													"text": "OP"
 												},
@@ -14661,7 +14661,7 @@
 													"parentStyle": true,
 													"left": 29,
 													"top": 405,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -17873,9 +17873,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 903.9599609375,
+													"left": 900.3291015625,
 													"top": 213,
-													"width": 87.08349609375,
+													"width": 84.82373046875,
 													"height": 13,
 													"text": "unR === NULL"
 												},
@@ -17889,7 +17889,7 @@
 													"parentStyle": true,
 													"left": 877,
 													"top": 213,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -17923,7 +17923,7 @@
 																	"parentStyle": true,
 																	"left": 892,
 																	"top": 246,
-																	"width": 127.5244140625,
+																	"width": 119.234375,
 																	"height": 13,
 																	"text": "[confirmacion = False]"
 																}
@@ -17958,7 +17958,7 @@
 																	"parentStyle": true,
 																	"left": 892,
 																	"top": 289,
-																	"width": 121.98291015625,
+																	"width": 115.87646484375,
 																	"height": 13,
 																	"text": "[confirmacion = True]"
 																}
@@ -19607,7 +19607,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGQhb+f41nYvHA="
 							},
-							"name": "Role15"
+							"name": "Role15",
+							"type": ""
 						}
 					]
 				}
@@ -19666,9 +19667,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 136.55712890625,
+											"width": 126.724609375,
 											"height": 13,
 											"text": "CUD02 - Agregar Socio"
 										},
@@ -19682,7 +19683,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -21669,9 +21670,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 423.9599609375,
+											"left": 420.3291015625,
 											"top": 301,
-											"width": 36.12451171875,
+											"width": 33.947265625,
 											"height": 13,
 											"text": "LOOP"
 										},
@@ -21685,7 +21686,7 @@
 											"parentStyle": true,
 											"left": 397,
 											"top": 301,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -23214,9 +23215,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 145.9453125,
+											"width": 134.69091796875,
 											"height": 13,
 											"text": "CUD03 - Consultar Socio"
 										},
@@ -23230,7 +23231,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -26135,9 +26136,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 143.04443359375,
+											"width": 136.119140625,
 											"height": 13,
 											"text": "CUD04 - Modificar Socio"
 										},
@@ -26151,7 +26152,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -28019,9 +28020,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 32.72998046875,
+											"left": 30.55908203125,
 											"top": 5,
-											"width": 140.16259765625,
+											"width": 131.79638671875,
 											"height": 13,
 											"text": "CUD05 – Eliminar Socio"
 										},
@@ -28035,7 +28036,7 @@
 											"parentStyle": true,
 											"left": 13,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -29593,9 +29594,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 200.64306640625,
+											"width": 185.21826171875,
 											"height": 13,
 											"text": "CUD09 – Validar Ingreso del Socio"
 										},
@@ -29609,7 +29610,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -31080,9 +31081,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 967.9599609375,
+											"left": 964.3291015625,
 											"top": 205,
-											"width": 36.12451171875,
+											"width": 33.947265625,
 											"height": 13,
 											"text": "LOOP"
 										},
@@ -31096,7 +31097,7 @@
 											"parentStyle": true,
 											"left": 941,
 											"top": 205,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -32913,7 +32914,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGQiP7RPcCFFf8="
 					},
-					"name": "Role9"
+					"name": "Role9",
+					"type": ""
 				}
 			]
 		},
@@ -32959,9 +32961,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 147.62744140625,
+											"width": 136.37939453125,
 											"height": 13,
 											"text": "CUD06 - Gestionar Turno"
 										},
@@ -32975,7 +32977,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -33633,9 +33635,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 1238.9599609375,
+											"left": 1235.3291015625,
 											"top": 194,
-											"width": 36.12451171875,
+											"width": 33.947265625,
 											"height": 13,
 											"text": "LOOP"
 										},
@@ -33649,7 +33651,7 @@
 											"parentStyle": true,
 											"left": 1212,
 											"top": 194,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -33740,9 +33742,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 1255.9599609375,
+											"left": 1252.3291015625,
 											"top": 349,
-											"width": 169.23486328125,
+											"width": 156.67919921875,
 											"height": 13,
 											"text": "OP: socioValido === Boolean"
 										},
@@ -33756,7 +33758,7 @@
 											"parentStyle": true,
 											"left": 1229,
 											"top": 349,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -35853,9 +35855,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 55.9599609375,
+											"left": 52.3291015625,
 											"top": 645,
-											"width": 18.78271484375,
+											"width": 16.6181640625,
 											"height": 13,
 											"text": "OP"
 										},
@@ -35869,7 +35871,7 @@
 											"parentStyle": true,
 											"left": 29,
 											"top": 645,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -40956,7 +40958,7 @@
 									"top": 168,
 									"width": 296,
 									"height": 147,
-									"text": "r = SELECT * \nFROM Responsable r\nINNER JOIN RangoHorario_Responsable rh_r\nON rh_r.idPersona = r.idPersona \nINNER JOIN Rango_Horario rh \nON rh.idRangoHorario = rh_r.idRangoHorario\nWHERE r.idPersona = :idEntrenador\nAND rh.fechaTurno = :fechaTurno\nAND rh_r.idRangoHorario = :idRangoHorario\n"
+									"text": "entrenador = SELECT 1 \nFROM Responsable r\nINNER JOIN RangoHorario_Responsable rh_r\nON rh_r.idPersona = r.idPersona \nINNER JOIN Rango_Horario rh \nON rh.idRangoHorario = rh_r.idRangoHorario\nWHERE r.idPersona = :idEntrenador\nAND rh.fechaTurno = :fechaTurno\nAND rh_r.idRangoHorario = :idRangoHorario\n"
 								},
 								{
 									"_type": "UMLSeqLifelineView",
@@ -41068,7 +41070,7 @@
 											"left": 1109,
 											"top": 413,
 											"width": 1,
-											"height": 51
+											"height": 61
 										}
 									],
 									"font": "Arial;13;0",
@@ -41076,7 +41078,7 @@
 									"left": 1040,
 									"top": 372,
 									"width": 137.939453125,
-									"height": 92,
+									"height": 102,
 									"nameCompartment": {
 										"$ref": "AAAAAAGSL+9XnBdGxSY="
 									},
@@ -43757,7 +43759,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGQiP+KosWRn3o="
 					},
-					"name": "Role13"
+					"name": "Role13",
+					"type": ""
 				},
 				{
 					"_type": "UMLAttribute",
@@ -43765,7 +43768,8 @@
 					"_parent": {
 						"$ref": "AAAAAAGQiP+KosWRn3o="
 					},
-					"name": "Role14"
+					"name": "Role14",
+					"type": ""
 				}
 			]
 		},
@@ -43811,9 +43815,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 138.22021484375,
+											"width": 131.32666015625,
 											"height": 13,
 											"text": "CUD08 - Eliminar Turno"
 										},
@@ -43827,7 +43831,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -45431,9 +45435,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 815.9599609375,
+											"left": 812.3291015625,
 											"top": 229,
-											"width": 36.12451171875,
+											"width": 33.947265625,
 											"height": 13,
 											"text": "LOOP"
 										},
@@ -45447,7 +45451,7 @@
 											"parentStyle": true,
 											"left": 789,
 											"top": 229,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -45538,9 +45542,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 759.9599609375,
+											"left": 756.3291015625,
 											"top": 197,
-											"width": 149.10009765625,
+											"width": 137.31884765625,
 											"height": 13,
 											"text": "OP: esAnticipado == True"
 										},
@@ -45554,7 +45558,7 @@
 											"parentStyle": true,
 											"left": 733,
 											"top": 197,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -46608,9 +46612,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 72.72998046875,
+											"left": 70.55908203125,
 											"top": 1765,
-											"width": 151.72802734375,
+											"width": 139.73095703125,
 											"height": 13,
 											"text": "CUD10 - Gestionar Rutina"
 										},
@@ -46624,7 +46628,7 @@
 											"parentStyle": true,
 											"left": 53,
 											"top": 1765,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -48497,9 +48501,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 831.9599609375,
+											"left": 828.3291015625,
 											"top": 285,
-											"width": 87.08349609375,
+											"width": 84.82373046875,
 											"height": 13,
 											"text": "unR === NULL"
 										},
@@ -48513,7 +48517,7 @@
 											"parentStyle": true,
 											"left": 805,
 											"top": 285,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -48547,7 +48551,7 @@
 															"parentStyle": true,
 															"left": 820,
 															"top": 318,
-															"width": 127.5244140625,
+															"width": 119.234375,
 															"height": 13,
 															"text": "[confirmacion = False]"
 														}
@@ -48583,7 +48587,7 @@
 															"parentStyle": true,
 															"left": 820,
 															"top": 361,
-															"width": 121.98291015625,
+															"width": 115.87646484375,
 															"height": 13,
 															"text": "[confirmacion = True]"
 														}
@@ -50550,9 +50554,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 40.72998046875,
+											"left": 38.55908203125,
 											"top": 5,
-											"width": 152.9404296875,
+											"width": 141.43212890625,
 											"height": 13,
 											"text": "CUD11 – Consultar Rutina"
 										},
@@ -50566,7 +50570,7 @@
 											"parentStyle": true,
 											"left": 21,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -51081,9 +51085,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 55.9599609375,
+											"left": 52.3291015625,
 											"top": 437,
-											"width": 18.78271484375,
+											"width": 16.6181640625,
 											"height": 13,
 											"text": "OP"
 										},
@@ -51097,7 +51101,7 @@
 											"parentStyle": true,
 											"left": 29,
 											"top": 437,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -53553,9 +53557,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 144.51708984375,
+											"width": 133.9482421875,
 											"height": 13,
 											"text": "CUD12 – Agregar Rutina"
 										},
@@ -53569,7 +53573,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -57118,9 +57122,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 151.00439453125,
+											"width": 143.3427734375,
 											"height": 13,
 											"text": "CUD13 – Modificar Rutina"
 										},
@@ -57134,7 +57138,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -60042,9 +60046,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 192.91796875,
+											"width": 178.73095703125,
 											"height": 13,
 											"text": "CUD14 – Ver Historial de Rutinas"
 										},
@@ -60058,7 +60062,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -62616,9 +62620,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 145.2216796875,
+											"width": 136.84912109375,
 											"height": 13,
 											"text": "CUD15 – Eliminar Rutina"
 										},
@@ -62632,7 +62636,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
