@@ -37,6 +37,7 @@
             this.btnIngresar = new FontAwesome.Sharp.IconButton();
             this.btnCancelar = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.liblRecuperar = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +68,7 @@
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(277, 20);
             this.txtNombreUsuario.TabIndex = 3;
+            this.txtNombreUsuario.TextChanged += new System.EventHandler(this.txtNombreUsuario_TextChanged);
             this.txtNombreUsuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreUsuario_KeyDown);
             // 
             // txtClave
@@ -76,6 +78,7 @@
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(277, 20);
             this.txtClave.TabIndex = 4;
+            this.txtClave.TextChanged += new System.EventHandler(this.txtClave_TextChanged);
             this.txtClave.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClave_KeyDown);
             // 
             // label3
@@ -88,6 +91,7 @@
             this.label3.Size = new System.Drawing.Size(150, 20);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nombre de Usuario:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -99,6 +103,7 @@
             this.label4.Size = new System.Drawing.Size(52, 20);
             this.label4.TabIndex = 6;
             this.label4.Text = "Clave:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnIngresar
             // 
@@ -112,7 +117,7 @@
             this.btnIngresar.IconColor = System.Drawing.Color.White;
             this.btnIngresar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnIngresar.IconSize = 25;
-            this.btnIngresar.Location = new System.Drawing.Point(226, 444);
+            this.btnIngresar.Location = new System.Drawing.Point(224, 432);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(120, 36);
             this.btnIngresar.TabIndex = 7;
@@ -134,7 +139,7 @@
             this.btnCancelar.IconColor = System.Drawing.Color.White;
             this.btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCancelar.IconSize = 25;
-            this.btnCancelar.Location = new System.Drawing.Point(379, 444);
+            this.btnCancelar.Location = new System.Drawing.Point(381, 432);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 36);
             this.btnCancelar.TabIndex = 8;
@@ -162,12 +167,25 @@
             this.iconPictureBox1.TabIndex = 2;
             this.iconPictureBox1.TabStop = false;
             // 
+            // liblRecuperar
+            // 
+            this.liblRecuperar.AutoSize = true;
+            this.liblRecuperar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.liblRecuperar.Location = new System.Drawing.Point(282, 497);
+            this.liblRecuperar.Name = "liblRecuperar";
+            this.liblRecuperar.Size = new System.Drawing.Size(161, 16);
+            this.liblRecuperar.TabIndex = 9;
+            this.liblRecuperar.TabStop = true;
+            this.liblRecuperar.Text = "¿Olvidaste tu contraseña?";
+            this.liblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.liblRecuperar_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.ClientSize = new System.Drawing.Size(713, 553);
+            this.Controls.Add(this.liblRecuperar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.label4);
@@ -199,5 +217,6 @@
         private FontAwesome.Sharp.IconButton btnIngresar;
         private FontAwesome.Sharp.IconButton btnCancelar;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
+        private System.Windows.Forms.LinkLabel liblRecuperar;
     }
 }

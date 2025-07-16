@@ -89,5 +89,35 @@ namespace CapaPresentacion
                 ingresoUsuario();
             }
         }
+
+        private void liblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmRecuperar form = new frmRecuperar();
+
+            form.Show();
+            this.Hide();
+
+            form.FormClosing += frm_closing;
+        }
+
+        private void txtNombreUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtClave_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

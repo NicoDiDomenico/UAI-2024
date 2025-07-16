@@ -60,9 +60,16 @@ namespace Vista
 
         private void cargarGrid()
         {
-            // Para el Grid - MOSTRAR TODOS LOS USUARIOS
+            dgvData.Rows.Clear(); // Asegura que se borren los datos anteriores
+
             List<Socio> listaSocio = new ControladorGymSocio().Listar();
             DateTime fechaActual = DateTime.Today;
+
+            // Filtrar según el estado del CheckBox
+            if (!ckbMostrarEliminados.Checked)
+            {
+                listaSocio = listaSocio.Where(s => s.EstadoSocio != "Eliminado").ToList();
+            }
 
             foreach (Socio item in listaSocio)
             {
@@ -80,19 +87,19 @@ namespace Vista
                     item.ObraSocial,
                     item.Plan,
                     item.EstadoSocio,
-                    item.FechaInicioActividades?.ToShortDateString() ?? "", // Si es null, devuelve una cadena vacía
-                    item.FechaFinActividades?.ToShortDateString() ?? "",    // Aplicar formato para mostrar solo la fecha
+                    item.FechaInicioActividades?.ToShortDateString() ?? "",
+                    item.FechaFinActividades?.ToShortDateString() ?? "",
                     item.FechaNotificacion?.ToShortDateString() ?? "",
                     item.RespuestaNotificacion,
                 });
 
-                // Obtener la fecha de vencimiento y verificar si es menor o igual a la fecha actual
                 if (item.FechaFinActividades.HasValue && item.FechaFinActividades.Value <= fechaActual)
                 {
                     dgvData.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Red;
                 }
             }
         }
+
 
         private void validarPermisos()
         {
@@ -324,6 +331,11 @@ namespace Vista
         private void btnTurno_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new frmTurno(idSocioSeleccionado, nombreSocioSeleccionado));
+        }
+
+        private void ckbMostrarEliminados_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarGrid();
         }
     }
 }

@@ -180,6 +180,12 @@
     <Compile Include="frmNuevoTurno.Designer.cs">
       <DependentUpon>frmNuevoTurno.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRecuperar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecuperar.Designer.cs">
+      <DependentUpon>frmRecuperar.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSocios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoTurno.resx">
       <DependentUpon>frmNuevoTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecuperar.resx">
+      <DependentUpon>frmRecuperar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSocios.resx">
       <DependentUpon>frmSocios.cs</DependentUpon>

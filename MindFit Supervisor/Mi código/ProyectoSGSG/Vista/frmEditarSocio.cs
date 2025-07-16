@@ -35,6 +35,8 @@ namespace Vista
             txtTelefono.Enabled = false;
             txtEmail.Enabled = false;
             txtObraSocial.Enabled = false;
+
+            cboEstado.Enabled = false;
         }
         private void validarCamposSocio()
         {
@@ -101,6 +103,8 @@ namespace Vista
 
             if (cboEstado.SelectedItem is OpcionCombo opcionSeleccionada)
             {
+                //MessageBox.Show("Estado seleccionado: " + opcionSeleccionada.Texto);
+
                 switch (opcionSeleccionada.Texto)
                 {
                     case "Nuevo":
@@ -120,6 +124,11 @@ namespace Vista
                         break;
                 }
             }
+            /*else
+            {
+                MessageBox.Show("No hay estado seleccionado en el ComboBox");
+            }*/
+
         }
         #endregion
         public frmEditarSocio(int idSocio)
@@ -158,15 +167,26 @@ namespace Vista
             txtId.Text = Convert.ToString(socio.IdSocio);
             txtNombreYApellido.Text = socio.NombreYApellido;
             dtpFechaNacimiento.Value = socio.FechaNacimiento;
+
             foreach (OpcionCombo oc in cboGenero.Items)
             {
-                if (oc.Texto == socio.Genero)
+                if (oc.Texto.Equals(socio.Genero, StringComparison.OrdinalIgnoreCase))
                 {
-                    int indice_combo = cboGenero.Items.IndexOf(oc);
-                    cboGenero.SelectedIndex = indice_combo;
+                    cboGenero.SelectedItem = oc;
                     break;
                 }
             }
+
+            foreach (OpcionCombo oc in cboEstado.Items)
+            {
+                if (oc.Texto.Equals(socio.EstadoSocio, StringComparison.OrdinalIgnoreCase))
+                {
+                    cboEstado.SelectedItem = oc;
+                    MensajeEstado();
+                    break;
+                }
+            }
+
             txtNroDocumento.Text = Convert.ToString(socio.NroDocumento);
             txtCiudad.Text = socio.Ciudad;
             txtDireccion.Text = socio.Direccion;
@@ -471,6 +491,7 @@ namespace Vista
                     if (oc.Texto.Equals("Actualizado", StringComparison.OrdinalIgnoreCase))
                     {
                         cboEstado.SelectedItem = oc;
+                        MensajeEstado();
                         break;
                     }
                 }

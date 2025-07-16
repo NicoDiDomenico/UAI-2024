@@ -203,7 +203,10 @@ namespace Vista
             lblLogo.Text = gym.NombreGimnasio;
 
             validarPermisos();
+
             lblUsuario.Text = usuarioActual.NombreYApellido;
+            string nombreRol = usuarioActual.Rol.Descripcion;
+            lblRol.Text = char.ToUpper(nombreRol[0]) + nombreRol.Substring(1).ToLower();
 
             cargarGrid();
 

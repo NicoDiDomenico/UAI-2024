@@ -15,7 +15,16 @@ namespace Controlador
 
             foreach (Socio socio in socios)
             {
-                if (socio.FechaFinActividades <= DateTime.Now.Date) socio.EstadoSocio = "Suspendido";
+                if (socio.FechaFinActividades <= DateTime.Now.Date)
+                {
+                    socio.EstadoSocio = "Suspendido";
+                    objcd_Socio.ActualizarEstadoSocio(socio.IdSocio, socio.EstadoSocio);
+                    if (socio.FechaFinActividades.Value.AddDays(30) <= DateTime.Now.Date)
+                    {
+                        socio.EstadoSocio = "Eliminado";
+                        objcd_Socio.ActualizarEstadoSocio(socio.IdSocio, socio.EstadoSocio);
+                    }
+                }
             }
 
             return socios;
@@ -77,6 +86,11 @@ namespace Controlador
         {
             return objcd_Socio.ActualizarEstadoSocio(idSocio, nuevoEstado);
         }
+        public List<Socio> ListarSociosInactivos(int dias)
+        {
+            return objcd_Socio.ListarSociosInactivos(dias);
+        }
+        
     }
 }
 

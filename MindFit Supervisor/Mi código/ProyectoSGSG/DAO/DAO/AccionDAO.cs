@@ -53,6 +53,56 @@ namespace DAO
             }
             return lista;
         }
+        
+        public List<Accion> ListarAccionesConGrupo()
+        {
+            List<Accion> lista = new List<Accion>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        select a.IdAccion, a.NombreAccion, a.Descripcion, g.IdGrupo, g.NombreMenu, g.Descripcion AS DescGrupo
+                        from Accion a
+                        inner join Grupo g
+                        on g.IdGrupo = a.IdGrupo
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Accion Accion = new Accion
+                            {
+                                IdAccion = Convert.ToInt32(dr["IdAccion"]),
+                                NombreAccion = dr["NombreAccion"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString(),
+                                IdGrupo = Convert.ToInt32(dr["IdGrupo"]),
+                                unGrupo = new Grupo
+                                {
+                                    IdGrupo = Convert.ToInt32(dr["IdGrupo"]),
+                                    NombreMenu = dr["NombreMenu"].ToString(),
+                                    Descripcion = dr["DescGrupo"].ToString()
+                                }
+                            };
+
+                            lista.Add(Accion);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Accion>();
+                }
+            }
+            return lista;
+        }
 
         public List<Accion> Listar(int idusuario)
         {

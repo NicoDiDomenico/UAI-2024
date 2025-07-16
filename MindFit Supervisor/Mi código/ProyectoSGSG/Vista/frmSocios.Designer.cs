@@ -40,12 +40,6 @@
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnMenuTurno = new FontAwesome.Sharp.IconButton();
-            this.btnMenuConsultar = new FontAwesome.Sharp.IconButton();
-            this.btnMenuEliminar = new FontAwesome.Sharp.IconButton();
-            this.btnMenuAgregar = new FontAwesome.Sharp.IconButton();
             this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreYApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +58,13 @@
             this.FechaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RespuestaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ckbMostrarEliminados = new System.Windows.Forms.CheckBox();
+            this.btnMenuTurno = new FontAwesome.Sharp.IconButton();
+            this.btnMenuConsultar = new FontAwesome.Sharp.IconButton();
+            this.btnMenuEliminar = new FontAwesome.Sharp.IconButton();
+            this.btnMenuAgregar = new FontAwesome.Sharp.IconButton();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.panel3.SuspendLayout();
@@ -238,117 +239,6 @@
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick_1);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting_1);
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(117, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1545, 660);
-            this.label2.TabIndex = 66;
-            // 
-            // panel3
-            // 
-            this.panel3.AutoSize = true;
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panel3.Controls.Add(this.btnMenuTurno);
-            this.panel3.Controls.Add(this.btnMenuConsultar);
-            this.panel3.Controls.Add(this.btnMenuEliminar);
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1804, 896);
-            this.panel3.TabIndex = 95;
-            // 
-            // btnMenuTurno
-            // 
-            this.btnMenuTurno.BackColor = System.Drawing.Color.AliceBlue;
-            this.btnMenuTurno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuTurno.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnMenuTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuTurno.ForeColor = System.Drawing.Color.Black;
-            this.btnMenuTurno.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
-            this.btnMenuTurno.IconColor = System.Drawing.Color.Black;
-            this.btnMenuTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMenuTurno.IconSize = 30;
-            this.btnMenuTurno.Location = new System.Drawing.Point(1344, 705);
-            this.btnMenuTurno.Name = "btnMenuTurno";
-            this.btnMenuTurno.Size = new System.Drawing.Size(150, 50);
-            this.btnMenuTurno.TabIndex = 96;
-            this.btnMenuTurno.Text = "Turnos";
-            this.btnMenuTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMenuTurno.UseVisualStyleBackColor = false;
-            this.btnMenuTurno.Click += new System.EventHandler(this.btnTurno_Click);
-            // 
-            // btnMenuConsultar
-            // 
-            this.btnMenuConsultar.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnMenuConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuConsultar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnMenuConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnMenuConsultar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
-            this.btnMenuConsultar.IconColor = System.Drawing.Color.White;
-            this.btnMenuConsultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMenuConsultar.IconSize = 30;
-            this.btnMenuConsultar.Location = new System.Drawing.Point(530, 705);
-            this.btnMenuConsultar.Name = "btnMenuConsultar";
-            this.btnMenuConsultar.Size = new System.Drawing.Size(150, 50);
-            this.btnMenuConsultar.TabIndex = 62;
-            this.btnMenuConsultar.Text = "Consultar";
-            this.btnMenuConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMenuConsultar.UseVisualStyleBackColor = false;
-            this.btnMenuConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnMenuEliminar
-            // 
-            this.btnMenuEliminar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnMenuEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnMenuEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnMenuEliminar.IconChar = FontAwesome.Sharp.IconChar.UserXmark;
-            this.btnMenuEliminar.IconColor = System.Drawing.Color.White;
-            this.btnMenuEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMenuEliminar.IconSize = 30;
-            this.btnMenuEliminar.Location = new System.Drawing.Point(742, 705);
-            this.btnMenuEliminar.Name = "btnMenuEliminar";
-            this.btnMenuEliminar.Size = new System.Drawing.Size(150, 50);
-            this.btnMenuEliminar.TabIndex = 64;
-            this.btnMenuEliminar.Text = "Eliminar";
-            this.btnMenuEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMenuEliminar.UseVisualStyleBackColor = false;
-            this.btnMenuEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnMenuAgregar
-            // 
-            this.btnMenuAgregar.BackColor = System.Drawing.Color.ForestGreen;
-            this.btnMenuAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMenuAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnMenuAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnMenuAgregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
-            this.btnMenuAgregar.IconColor = System.Drawing.Color.White;
-            this.btnMenuAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnMenuAgregar.IconSize = 30;
-            this.btnMenuAgregar.Location = new System.Drawing.Point(318, 705);
-            this.btnMenuAgregar.Name = "btnMenuAgregar";
-            this.btnMenuAgregar.Size = new System.Drawing.Size(150, 50);
-            this.btnMenuAgregar.TabIndex = 63;
-            this.btnMenuAgregar.Text = "Agregar";
-            this.btnMenuAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMenuAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMenuAgregar.UseVisualStyleBackColor = false;
-            this.btnMenuAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.HeaderText = "";
@@ -477,6 +367,131 @@
             this.Seleccionado.ReadOnly = true;
             this.Seleccionado.Visible = false;
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(117, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1545, 660);
+            this.label2.TabIndex = 66;
+            // 
+            // panel3
+            // 
+            this.panel3.AutoSize = true;
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panel3.Controls.Add(this.ckbMostrarEliminados);
+            this.panel3.Controls.Add(this.btnMenuTurno);
+            this.panel3.Controls.Add(this.btnMenuConsultar);
+            this.panel3.Controls.Add(this.btnMenuEliminar);
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1804, 896);
+            this.panel3.TabIndex = 95;
+            // 
+            // ckbMostrarEliminados
+            // 
+            this.ckbMostrarEliminados.AutoSize = true;
+            this.ckbMostrarEliminados.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckbMostrarEliminados.ForeColor = System.Drawing.Color.Black;
+            this.ckbMostrarEliminados.Location = new System.Drawing.Point(928, 721);
+            this.ckbMostrarEliminados.Name = "ckbMostrarEliminados";
+            this.ckbMostrarEliminados.Size = new System.Drawing.Size(207, 22);
+            this.ckbMostrarEliminados.TabIndex = 0;
+            this.ckbMostrarEliminados.Text = "Mostrar Socios Eliminados";
+            this.ckbMostrarEliminados.UseVisualStyleBackColor = true;
+            this.ckbMostrarEliminados.CheckedChanged += new System.EventHandler(this.ckbMostrarEliminados_CheckedChanged);
+            // 
+            // btnMenuTurno
+            // 
+            this.btnMenuTurno.BackColor = System.Drawing.Color.AliceBlue;
+            this.btnMenuTurno.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuTurno.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnMenuTurno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuTurno.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuTurno.ForeColor = System.Drawing.Color.Black;
+            this.btnMenuTurno.IconChar = FontAwesome.Sharp.IconChar.ClipboardList;
+            this.btnMenuTurno.IconColor = System.Drawing.Color.Black;
+            this.btnMenuTurno.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMenuTurno.IconSize = 30;
+            this.btnMenuTurno.Location = new System.Drawing.Point(1344, 705);
+            this.btnMenuTurno.Name = "btnMenuTurno";
+            this.btnMenuTurno.Size = new System.Drawing.Size(150, 50);
+            this.btnMenuTurno.TabIndex = 96;
+            this.btnMenuTurno.Text = "Turnos";
+            this.btnMenuTurno.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuTurno.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMenuTurno.UseVisualStyleBackColor = false;
+            this.btnMenuTurno.Click += new System.EventHandler(this.btnTurno_Click);
+            // 
+            // btnMenuConsultar
+            // 
+            this.btnMenuConsultar.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnMenuConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuConsultar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnMenuConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuConsultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuConsultar.ForeColor = System.Drawing.Color.White;
+            this.btnMenuConsultar.IconChar = FontAwesome.Sharp.IconChar.UserEdit;
+            this.btnMenuConsultar.IconColor = System.Drawing.Color.White;
+            this.btnMenuConsultar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMenuConsultar.IconSize = 30;
+            this.btnMenuConsultar.Location = new System.Drawing.Point(530, 705);
+            this.btnMenuConsultar.Name = "btnMenuConsultar";
+            this.btnMenuConsultar.Size = new System.Drawing.Size(150, 50);
+            this.btnMenuConsultar.TabIndex = 62;
+            this.btnMenuConsultar.Text = "Consultar";
+            this.btnMenuConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMenuConsultar.UseVisualStyleBackColor = false;
+            this.btnMenuConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnMenuEliminar
+            // 
+            this.btnMenuEliminar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnMenuEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuEliminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnMenuEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnMenuEliminar.IconChar = FontAwesome.Sharp.IconChar.UserXmark;
+            this.btnMenuEliminar.IconColor = System.Drawing.Color.White;
+            this.btnMenuEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMenuEliminar.IconSize = 30;
+            this.btnMenuEliminar.Location = new System.Drawing.Point(742, 705);
+            this.btnMenuEliminar.Name = "btnMenuEliminar";
+            this.btnMenuEliminar.Size = new System.Drawing.Size(150, 50);
+            this.btnMenuEliminar.TabIndex = 64;
+            this.btnMenuEliminar.Text = "Eliminar";
+            this.btnMenuEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMenuEliminar.UseVisualStyleBackColor = false;
+            this.btnMenuEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnMenuAgregar
+            // 
+            this.btnMenuAgregar.BackColor = System.Drawing.Color.ForestGreen;
+            this.btnMenuAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMenuAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnMenuAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnMenuAgregar.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.btnMenuAgregar.IconColor = System.Drawing.Color.White;
+            this.btnMenuAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnMenuAgregar.IconSize = 30;
+            this.btnMenuAgregar.Location = new System.Drawing.Point(318, 705);
+            this.btnMenuAgregar.Name = "btnMenuAgregar";
+            this.btnMenuAgregar.Size = new System.Drawing.Size(150, 50);
+            this.btnMenuAgregar.TabIndex = 63;
+            this.btnMenuAgregar.Text = "Agregar";
+            this.btnMenuAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnMenuAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnMenuAgregar.UseVisualStyleBackColor = false;
+            this.btnMenuAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // frmSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,6 +513,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,5 +553,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNotificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaNotificacion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
+        private System.Windows.Forms.CheckBox ckbMostrarEliminados;
     }
 }

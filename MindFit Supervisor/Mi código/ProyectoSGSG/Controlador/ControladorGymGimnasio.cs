@@ -36,6 +36,11 @@ namespace Controlador
                 Mensaje += "Es necesaria la direccion del Negocio\n";
             }
 
+            if (obj.Email == "")
+            {
+                Mensaje += "Es necesario el correo del Negocio\n";
+            }
+
             if (Mensaje != string.Empty)
             {
                 return false;

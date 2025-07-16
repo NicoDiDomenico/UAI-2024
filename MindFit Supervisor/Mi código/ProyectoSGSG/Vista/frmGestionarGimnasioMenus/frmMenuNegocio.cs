@@ -111,6 +111,7 @@ namespace Vista
             txtNombre.Text = datos.NombreGimnasio;
             txtTelefono.Text = datos.Telefono;
             txtDireccion.Text = datos.Direccion;
+            txtCorreo.Text = datos.Email;
             nudAperturaLaV.Value = datos.HoraAperturaLaV.Hours;
             nudCierreLaV.Value = datos.HoraCierreLaV.Hours;
             nudAperturaS.Value = datos.HoraAperturaSabado.Hours;
@@ -154,6 +155,7 @@ namespace Vista
                 NombreGimnasio = txtNombre.Text,
                 Telefono = txtTelefono.Text,
                 Direccion = txtDireccion.Text,
+                Email = txtCorreo.Text, // <--- agregado
                 HoraAperturaLaV = aperturaLaV,
                 HoraCierreLaV = cierreLaV,
                 HoraAperturaSabado = aperturaS,
@@ -179,15 +181,47 @@ namespace Vista
         private void btnReporte_Click(object sender, EventArgs e)
         {
             SaveFileDialog guardar = new SaveFileDialog();
-            guardar.FileName = "Reporte" + txtNombre.Text + "_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss") + ".pdf";
-            
+            guardar.FileName = "Reporte_" + txtNombre.Text + "_" + DateTime.Now.ToString("dd-MM-yyyy_HH-mm-ss") + ".pdf";
+
+            // Cargamos la plantilla HTML
             string paginahtml_texto = Properties.Resources.plantilla.ToString();
-            paginahtml_texto = paginahtml_texto.Replace("@NOMBRE",(txtNombre.Text).ToUpper());
-            paginahtml_texto = paginahtml_texto.Replace("@DIRECCION",txtDireccion.Text);
-            paginahtml_texto = paginahtml_texto.Replace("@TELEFONO",txtTelefono.Text);
-            
+
+            // Reemplazo de campos generales del gimnasio
+            paginahtml_texto = paginahtml_texto.Replace("@NOMBRE", txtNombre.Text.ToUpper());
+            paginahtml_texto = paginahtml_texto.Replace("@DIRECCION", txtDireccion.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@TELEFONO", txtTelefono.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@CORREO", txtCorreo.Text);
+            paginahtml_texto = paginahtml_texto.Replace("@HORARIOLAV", $"{nudAperturaLaV.Value:00}:00 - {nudCierreLaV.Value:00}:00");
+            paginahtml_texto = paginahtml_texto.Replace("@HORARIOSAB", $"{nudAperturaS.Value:00}:00 - {nudCierreS.Value:00}:00");
             paginahtml_texto = paginahtml_texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
 
+            // Guardamos el logo temporalmente
+            string tempLogoPath = Path.Combine(Path.GetTempPath(), "logo_gym.png");
+            picLogo.Image.Save(tempLogoPath, System.Drawing.Imaging.ImageFormat.Png);
+            paginahtml_texto = paginahtml_texto.Replace("@LOGOPATH", tempLogoPath.Replace("\\", "/"));
+
+            // --- BLOQUE NUEVO: Generar tabla con socios inactivos hace más de 30 días ---
+            List<Socio> sociosInactivos = new ControladorGymSocio().ListarSociosInactivos(30); // <-- Asegurate de tener este método implementado
+
+            string filasSociosInactivos = string.Empty;
+
+            foreach (Socio s in sociosInactivos)
+            {
+                string fechaUltimoTurno = s.FechaUltimoTurno.HasValue
+                    ? s.FechaUltimoTurno.Value.ToString("dd/MM/yyyy")
+                    : "Sin turnos";
+
+                filasSociosInactivos += $"<tr>" +
+                                        $"<td>{s.NombreCompleto}</td>" +
+                                        $"<td>{s.Email}</td>" +
+                                        $"<td>{s.Estado}</td>" +
+                                        $"<td>{fechaUltimoTurno}</td>" +
+                                        $"</tr>";
+            }
+
+            paginahtml_texto = paginahtml_texto.Replace("@DETALLE_SOCIOS_INACTIVOS", filasSociosInactivos);
+
+            // --- Generación del PDF ---
             if (guardar.ShowDialog() == DialogResult.OK)
             {
                 using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
@@ -196,7 +230,6 @@ namespace Vista
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
                     pdfDoc.Open();
-                    pdfDoc.Add(new Phrase(""));
 
                     using (StringReader sr = new StringReader(paginahtml_texto))
                     {
@@ -206,6 +239,8 @@ namespace Vista
                     pdfDoc.Close();
                     stream.Close();
                 }
+
+                MessageBox.Show("Reporte generado correctamente", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

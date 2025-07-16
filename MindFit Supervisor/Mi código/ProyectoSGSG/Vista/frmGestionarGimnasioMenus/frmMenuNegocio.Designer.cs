@@ -35,6 +35,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -105,9 +107,9 @@
             this.btnSubir.IconColor = System.Drawing.Color.Black;
             this.btnSubir.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSubir.IconSize = 20;
-            this.btnSubir.Location = new System.Drawing.Point(162, 205);
+            this.btnSubir.Location = new System.Drawing.Point(151, 171);
             this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(118, 29);
+            this.btnSubir.Size = new System.Drawing.Size(117, 29);
             this.btnSubir.TabIndex = 17;
             this.btnSubir.Text = "Subir";
             this.btnSubir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -118,9 +120,9 @@
             // picLogo
             // 
             this.picLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picLogo.Location = new System.Drawing.Point(43, 19);
+            this.picLogo.Location = new System.Drawing.Point(48, 19);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(360, 176);
+            this.picLogo.Size = new System.Drawing.Size(323, 146);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 0;
             this.picLogo.TabStop = false;
@@ -154,7 +156,7 @@
             this.groupBox2.Controls.Add(this.btnSubir);
             this.groupBox2.Location = new System.Drawing.Point(124, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(445, 245);
+            this.groupBox2.Size = new System.Drawing.Size(419, 207);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Logo";
@@ -162,6 +164,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtCorreo);
+            this.panel1.Controls.Add(this.label14);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.txtNombre);
@@ -170,11 +174,28 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(47, 304);
+            this.panel1.Location = new System.Drawing.Point(47, 259);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 285);
+            this.panel1.Size = new System.Drawing.Size(600, 330);
             this.panel1.TabIndex = 27;
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Location = new System.Drawing.Point(15, 192);
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(561, 20);
+            this.txtCorreo.TabIndex = 41;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(13, 175);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 13);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "Correo:";
             // 
             // groupBox3
             // 
@@ -186,7 +207,7 @@
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.panel4);
             this.groupBox3.Controls.Add(this.panel5);
-            this.groupBox3.Location = new System.Drawing.Point(342, 178);
+            this.groupBox3.Location = new System.Drawing.Point(342, 228);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(235, 79);
             this.groupBox3.TabIndex = 39;
@@ -287,7 +308,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Location = new System.Drawing.Point(17, 178);
+            this.groupBox1.Location = new System.Drawing.Point(17, 228);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(235, 79);
             this.groupBox1.TabIndex = 38;
@@ -516,5 +537,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.GroupBox groupBox1;
         private FontAwesome.Sharp.IconButton btnReporte;
+        private System.Windows.Forms.TextBox txtCorreo;
+        private System.Windows.Forms.Label label14;
     }
 }

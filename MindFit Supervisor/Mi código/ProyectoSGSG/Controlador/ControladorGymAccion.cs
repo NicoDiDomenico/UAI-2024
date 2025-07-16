@@ -22,6 +22,11 @@ namespace Controlador
             return acciondao.ListarTodo();
         }
 
+        public List<Accion> ListarAccionesConGrupo()
+        {
+            return acciondao.ListarAccionesConGrupo();
+        }
+
         public bool Modificar(Accion unaAccion, out string mensaje)
         {
             return acciondao.Modificar(unaAccion, out mensaje);

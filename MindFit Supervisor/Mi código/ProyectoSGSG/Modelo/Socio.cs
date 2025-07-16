@@ -27,5 +27,10 @@ namespace Modelo
 
         // Relación con Rutina (Lista de Rutinas asociadas al Socio)
         public List<Rutina> Rutinas { get; set; }
+
+        public DateTime? FechaUltimoTurno { get; set; }
+        public string NombreCompleto => NombreYApellido;
+        public string Estado => EstadoSocio;
+
     }
 }

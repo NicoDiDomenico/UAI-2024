@@ -71,54 +71,68 @@ namespace DAO
 
         public List<Permiso> ObtenerPermisosRol(int IdRol)
         {
-            // Se crea una lista para almacenar los detalles de la compra
-            List<Permiso> oLista = new List<Permiso>();
+            List<Permiso> lista = new List<Permiso>();
 
-            try
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
             {
-                // Se establece la conexión con la base de datos
-                using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+                conexion.Open();
+
+                SqlCommand cmd = new SqlCommand("SP_OBTENER_PERMISOS_POR_ROL", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdRol", IdRol);
+
+                using (SqlDataReader dr = cmd.ExecuteReader())
                 {
-                    conexion.Open(); // Se abre la conexión
+                    List<Permiso> permisosGrupo = new List<Permiso>();
+                    List<Permiso> permisosAccion = new List<Permiso>();
 
-                    string query = @"
-                        SELECT g.NombreMenu, g.Descripcion, g.IdGrupo 
-                        from Permiso p
-                        inner join Rol r
-                        on p.IdRol = r.IdRol
-                        inner join Grupo g
-                        on p.IdGrupo = g.IdGrupo
-                        Where p.IdRol = @IdRol
-                    ";
-
-                    SqlCommand cmd = new SqlCommand(query.ToString(), conexion);
-
-                    cmd.Parameters.AddWithValue("@IdRol", IdRol);
-
-                    cmd.CommandType = CommandType.Text;
-
-                    // Se ejecuta la consulta y se obtiene el resultado
-                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    while (dr.Read())
                     {
-                        // Se recorren los registros obtenidos
-                        while (dr.Read())
+                        string tipo = dr["TipoPermiso"].ToString();
+
+                        Permiso p = new Permiso
                         {
-                            // Se agrega cada detalle de compra a la lista
-                            oLista.Add(new Permiso()
+                            TipoPermiso = tipo,
+                            Grupo = new Grupo
                             {
-                                Grupo = new Grupo { IdGrupo = Convert.ToInt32(dr["IdGrupo"]), NombreMenu = dr["NombreMenu"].ToString(), Descripcion = dr["Descripcion"].ToString()}
-                            });
+                                IdGrupo = Convert.ToInt32(dr["IdGrupo"]),
+                                NombreMenu = dr["NombreMenu"].ToString(),
+                                Descripcion = dr["Descripcion"].ToString()
+                            }
+                        };
+
+                        if (tipo == "Accion")
+                        {
+                            p.Accion = new Accion
+                            {
+                                IdAccion = Convert.ToInt32(dr["IdAccion"]),
+                                NombreAccion = dr["NombreAccion"].ToString(),
+                                Descripcion = dr["DescAccion"].ToString()
+                            };
+                            permisosAccion.Add(p);
+                        }
+                        else if (tipo == "Grupo")
+                        {
+                            permisosGrupo.Add(p);
+                        }
+                    }
+
+                    // Agregar todos los permisos de acción
+                    lista.AddRange(permisosAccion);
+
+                    // Agregar permisos de grupo solo si no hay acción asociada
+                    foreach (var permisoGrupo in permisosGrupo)
+                    {
+                        bool yaExisteAccion = permisosAccion.Any(pa => pa.Grupo.IdGrupo == permisoGrupo.Grupo.IdGrupo);
+                        if (!yaExisteAccion)
+                        {
+                            lista.Add(permisoGrupo);
                         }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                oLista = new List<Permiso>();
-            }
 
-            // Se retorna la lista con los detalles de la compra
-            return oLista;
+            return lista;
         }
     }
 }

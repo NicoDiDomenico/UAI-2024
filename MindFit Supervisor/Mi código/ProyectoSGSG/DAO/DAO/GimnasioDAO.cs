@@ -23,6 +23,7 @@ namespace DAO
 
                     string query = @"
                         SELECT IdGimnasio, NombreGimnasio, Direccion, Telefono,
+                               Email,
                                HoraAperturaLaV, HoraCierreLaV,
                                HoraAperturaSabado, HoraCierreSabado
                         FROM Gimnasio
@@ -42,6 +43,7 @@ namespace DAO
                                 NombreGimnasio = dr["NombreGimnasio"].ToString(),
                                 Direccion = dr["Direccion"].ToString(),
                                 Telefono = dr["Telefono"].ToString(),
+                                Email = dr["Email"].ToString(), // <--- AGREGADO
                                 HoraAperturaLaV = dr["HoraAperturaLaV"] != DBNull.Value ? (TimeSpan)dr["HoraAperturaLaV"] : TimeSpan.Zero,
                                 HoraCierreLaV = dr["HoraCierreLaV"] != DBNull.Value ? (TimeSpan)dr["HoraCierreLaV"] : TimeSpan.Zero,
                                 HoraAperturaSabado = dr["HoraAperturaSabado"] != DBNull.Value ? (TimeSpan)dr["HoraAperturaSabado"] : TimeSpan.Zero,
@@ -75,6 +77,7 @@ namespace DAO
                     query.AppendLine("NombreGimnasio = @nombre,");
                     query.AppendLine("Telefono = @telefono,");
                     query.AppendLine("Direccion = @direccion,");
+                    query.AppendLine("Email = @correo,"); // <-- AGREGADO
                     query.AppendLine("HoraAperturaLaV = @horaAperturaLaV,");
                     query.AppendLine("HoraCierreLaV = @horaCierreLaV,");
                     query.AppendLine("HoraAperturaSabado = @horaAperturaSabado,");
@@ -85,6 +88,7 @@ namespace DAO
                     cmd.Parameters.AddWithValue("@nombre", objeto.NombreGimnasio);
                     cmd.Parameters.AddWithValue("@telefono", objeto.Telefono);
                     cmd.Parameters.AddWithValue("@direccion", objeto.Direccion);
+                    cmd.Parameters.AddWithValue("@correo", objeto.Email); // <-- AGREGADO
                     cmd.Parameters.AddWithValue("@horaAperturaLaV", objeto.HoraAperturaLaV);
                     cmd.Parameters.AddWithValue("@horaCierreLaV", objeto.HoraCierreLaV);
                     cmd.Parameters.AddWithValue("@horaAperturaSabado", objeto.HoraAperturaSabado);
@@ -106,7 +110,6 @@ namespace DAO
 
             return respuesta;
         }
-
 
         public byte[] ObtenerLogo(out bool obtenido)
         {

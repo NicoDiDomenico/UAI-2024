@@ -382,5 +382,62 @@ namespace DAO
                 return false;
             }
         }
+
+        public List<Socio> ListarSociosInactivos(int dias)
+        {
+            List<Socio> lista = new List<Socio>();
+
+            string query = @"
+                SELECT 
+                    s.IdSocio,
+                    s.NombreYApellido,
+                    s.Email,
+                    s.EstadoSocio,
+                    MAX(t.FechaTurno) AS UltimoTurno
+                FROM Socio s
+                LEFT JOIN Turno t ON t.IdSocio = s.IdSocio
+                GROUP BY s.IdSocio, s.NombreYApellido, s.Email, s.EstadoSocio
+                HAVING 
+                    MAX(t.FechaTurno) IS NULL 
+                    OR MAX(t.FechaTurno) < DATEADD(DAY, -@Dias, GETDATE())
+            ";
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@Dias", dias);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Socio socio = new Socio()
+                        {
+                            IdSocio = Convert.ToInt32(reader["IdSocio"]),
+                            NombreYApellido = reader["NombreYApellido"].ToString(),
+                            Email = reader["Email"].ToString(),
+                            EstadoSocio = reader["EstadoSocio"].ToString(),
+                            FechaUltimoTurno = reader["UltimoTurno"] != DBNull.Value
+                                ? Convert.ToDateTime(reader["UltimoTurno"])
+                                : (DateTime?)null
+                        };
+
+                        lista.Add(socio);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al listar socios inactivos: " + ex.Message);
+                }
+            }
+
+            return lista;
+        }
+
     }
 }

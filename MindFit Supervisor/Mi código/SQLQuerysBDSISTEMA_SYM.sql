@@ -3255,3 +3255,427 @@ UPDATE Accion SET Descripcion = 'Recuperar una rutina anterior cargada por el en
 select * from CupoFecha
 
 select * from RangoHorario 
+
+SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+       u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+       u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+       u.IdRol, r.Descripcion AS RolDescripcion, 
+       u.Estado, u.FechaRegistro
+FROM Usuario u
+LEFT JOIN Rol r ON r.IdRol = u.IdRol
+
+select * from Gimnasio
+
+ALTER TABLE Gimnasio
+ADD Email NVARCHAR(100) NOT NULL DEFAULT '';
+
+SELECT * FROM Turno
+
+SELECT * FROM Socio
+
+SELECT S.IdSocio, S.NombreYApellido, S.Email, MAX(T.FechaTurno) AS UltimoTurno
+FROM Socio S
+LEFT JOIN Turno T ON S.IdSocio = T.IdSocio
+GROUP BY S.IdSocio, S.NombreYApellido, S.Email
+HAVING MAX(T.FechaTurno) IS NULL OR MAX(T.FechaTurno) < DATEADD(DAY, -30, GETDATE())
+
+
+SELECT 
+    s.IdSocio,
+    s.NombreYApellido,
+    s.Email,
+    s.EstadoSocio,
+    MAX(t.FechaTurno) AS UltimoTurno
+FROM Socio s
+LEFT JOIN Turno t ON t.IdSocio = s.IdSocio
+GROUP BY s.IdSocio, s.NombreYApellido, s.Email, s.EstadoSocio
+HAVING 
+    MAX(t.FechaTurno) IS NULL 
+    OR MAX(t.FechaTurno) < DATEADD(DAY, 365, GETDATE())
+
+select * from Usuario
+
+select IdAccion, NombreAccion, Descripcion, IdGrupo
+from Accion
+
+select * from rol
+
+select * from Grupo
+
+select * from Accion
+
+select p.IdPermiso, p.IdUsuario, u.NombreYApellido, p.IdRol, r.Descripcion, p.IdGrupo, g.NombreMenu, p.IdAccion, a.NombreAccion 
+from permiso p
+left join Usuario u
+on u.IdUsuario = p.IdUsuario
+left join Rol r
+on r.IdRol = p.IdRol
+left join Grupo g
+on g.IdGrupo = p.IdGrupo
+left join Accion a
+on a.IdAccion = p.IdAccion
+
+DROP PROCEDURE SP_REGISTRARROL;
+
+DROP TYPE ETabla_Permisos; -- solo si necesitás eliminarlo
+
+CREATE TYPE ETabla_Permisos AS TABLE
+(
+    TipoPermiso VARCHAR(10),      -- 'Grupo' o 'Accion'
+    IdGrupo INT NULL,
+    IdAccion INT NULL
+);
+
+CREATE PROCEDURE [dbo].[SP_REGISTRARROL](
+    @Descripcion VARCHAR(50),
+    @Permisos ETabla_Permisos READONLY,
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        DECLARE @IdRol INT
+        SET @Mensaje = ''
+        SET @Resultado = 0
+
+        BEGIN TRANSACTION
+
+        IF NOT EXISTS (SELECT 1 FROM Rol WHERE Descripcion = @Descripcion)
+        BEGIN
+            INSERT INTO Rol (Descripcion) VALUES (@Descripcion);
+            SET @IdRol = SCOPE_IDENTITY();
+
+            -- Insertar permisos por grupo
+            INSERT INTO Permiso (IdRol, IdGrupo)
+            SELECT @IdRol, IdGrupo
+            FROM @Permisos
+            WHERE TipoPermiso = 'Grupo';
+
+            -- Insertar permisos por acción
+            INSERT INTO Permiso (IdRol, IdAccion)
+            SELECT @IdRol, IdAccion
+            FROM @Permisos
+            WHERE TipoPermiso = 'Accion';
+
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol registrado correctamente'
+            COMMIT TRANSACTION
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'No se puede tener más de un rol con la misma descripción'
+            ROLLBACK TRANSACTION
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION
+    END CATCH
+END
+
+
+SELECT * FROM Rol
+
+SELECT * FROM Rol WHERE IdRol = 1
+
+select * from permiso
+
+---- TODAVIA NO LO EJECUTÉ --> LISTO
+-- Crear tipo tabla si no existe
+IF NOT EXISTS (SELECT * FROM sys.types WHERE name = 'TipoPermiso')
+BEGIN
+    CREATE TYPE TipoPermiso AS TABLE
+    (
+        IdGrupo INT,
+        IdAccion INT,
+        IdUsuario INT
+    )
+END
+GO
+
+-- Procedimiento
+ALTER PROCEDURE [dbo].[SP_ACTUALIZARROL]
+(
+    @IdRol INT,
+    @Descripcion VARCHAR(50),
+    @IdGrupo INT,
+    @DescripcionGrupo VARCHAR(255),
+    @Permisos TipoPermiso READONLY,
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @Resultado = 0
+
+        BEGIN TRANSACTION
+
+        IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
+        BEGIN
+            UPDATE Rol 
+            SET Descripcion = @Descripcion 
+            WHERE IdRol = @IdRol;
+
+            IF EXISTS (SELECT 1 FROM Grupo WHERE IdGrupo = @IdGrupo)
+            BEGIN
+                UPDATE Grupo 
+                SET Descripcion = @DescripcionGrupo 
+                WHERE IdGrupo = @IdGrupo;
+            END
+            ELSE
+            BEGIN
+                SET @Mensaje = 'El grupo especificado no existe.'
+                ROLLBACK TRANSACTION
+                RETURN;
+            END
+
+            -- Eliminar permisos antiguos
+            DELETE FROM Permiso WHERE IdRol = @IdRol;
+
+            -- Insertar nuevos permisos
+            INSERT INTO Permiso(IdRol, IdGrupo, IdAccion, IdUsuario, FechaRegistro)
+            SELECT @IdRol, p.IdGrupo, p.IdAccion, p.IdUsuario, GETDATE()
+            FROM @Permisos p;
+
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol, grupo y permisos actualizados correctamente'
+            COMMIT TRANSACTION
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El rol especificado no existe.'
+            ROLLBACK TRANSACTION
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION
+    END CATCH
+END
+----
+
+SELECT * FROM Permiso
+
+select a.*, g.NombreMenu from Accion a
+left join Grupo g
+on g.IdGrupo = a.IdGrupo
+
+SELECT g.NombreMenu, g.Descripcion, g.IdGrupo, p.IdRol 
+from Permiso p
+left join Rol r
+on p.IdRol = r.IdRol
+left join Grupo g
+on p.IdGrupo = g.IdGrupo
+Where p.IdRol = 11
+
+CREATE PROCEDURE SP_OBTENER_PERMISOS_POR_ROL
+(
+    @IdRol INT
+)
+AS
+BEGIN
+    -- Permisos por GRUPO
+    SELECT 
+        'Grupo' AS TipoPermiso,
+        g.IdGrupo,
+        g.NombreMenu,
+        g.Descripcion,
+        NULL AS IdAccion,
+        NULL AS NombreAccion,
+        NULL AS DescAccion
+    FROM Permiso p
+    INNER JOIN Grupo g ON p.IdGrupo = g.IdGrupo
+    WHERE p.IdRol = @IdRol AND p.IdGrupo IS NOT NULL
+
+    UNION
+
+    -- Permisos por ACCIÓN
+    SELECT 
+        'Accion' AS TipoPermiso,
+        a.IdGrupo,
+        g.NombreMenu,
+        g.Descripcion,
+        a.IdAccion,
+        a.NombreAccion,
+        a.Descripcion
+    FROM Permiso p
+    INNER JOIN Accion a ON p.IdAccion = a.IdAccion
+    INNER JOIN Grupo g ON a.IdGrupo = g.IdGrupo
+    WHERE p.IdRol = @IdRol AND p.IdAccion IS NOT NULL
+END
+
+USE [DBSISTEMA_GYM]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[SP_ACTUALIZARROL]
+(
+    @IdRol INT,
+    @Descripcion VARCHAR(50),
+    @IdGrupo INT,
+    @DescripcionGrupo VARCHAR(255),
+    @Permisos TipoPermiso READONLY,
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @Resultado = 0
+
+        BEGIN TRANSACTION
+
+        IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
+        BEGIN
+            -- Actualizar descripción del rol
+            UPDATE Rol 
+            SET Descripcion = @Descripcion 
+            WHERE IdRol = @IdRol;
+
+            -- Solo actualizar el grupo si el IdGrupo es distinto de -1
+            IF @IdGrupo <> -1
+            BEGIN
+                IF EXISTS (SELECT 1 FROM Grupo WHERE IdGrupo = @IdGrupo)
+                BEGIN
+                    UPDATE Grupo 
+                    SET Descripcion = @DescripcionGrupo 
+                    WHERE IdGrupo = @IdGrupo;
+                END
+                ELSE
+                BEGIN
+                    SET @Mensaje = 'El grupo especificado no existe.'
+                    ROLLBACK TRANSACTION
+                    RETURN;
+                END
+            END
+
+            -- Eliminar permisos anteriores del rol
+            DELETE FROM Permiso WHERE IdRol = @IdRol;
+
+            -- Insertar nuevos permisos desde el tipo tabla
+            INSERT INTO Permiso(IdRol, IdGrupo, IdAccion, IdUsuario, FechaRegistro)
+            SELECT @IdRol, p.IdGrupo, p.IdAccion, p.IdUsuario, GETDATE()
+            FROM @Permisos p;
+
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol, grupo y permisos actualizados correctamente'
+            COMMIT TRANSACTION
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El rol especificado no existe.'
+            ROLLBACK TRANSACTION
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION
+    END CATCH
+END
+
+USE [DBSISTEMA_GYM]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- Procedimiento actualizado
+ALTER PROCEDURE [dbo].[SP_ACTUALIZARROL]
+(
+    @IdRol INT,
+    @Descripcion VARCHAR(50),
+    @IdGrupo INT,
+    @DescripcionGrupo VARCHAR(255),
+    @Permisos TipoPermiso READONLY,
+    @Mensaje VARCHAR(500) OUTPUT,
+    @Resultado BIT OUTPUT
+)
+AS
+BEGIN
+    BEGIN TRY
+        SET @Mensaje = ''
+        SET @Resultado = 0
+
+        BEGIN TRANSACTION
+
+        IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
+        BEGIN
+            -- Actualizar descripción del rol
+            UPDATE Rol 
+            SET Descripcion = @Descripcion 
+            WHERE IdRol = @IdRol;
+
+            -- Solo actualizar grupo si se indica uno válido
+            IF @IdGrupo <> -1
+            BEGIN
+                IF EXISTS (SELECT 1 FROM Grupo WHERE IdGrupo = @IdGrupo)
+                BEGIN
+                    UPDATE Grupo 
+                    SET Descripcion = @DescripcionGrupo 
+                    WHERE IdGrupo = @IdGrupo;
+                END
+                ELSE
+                BEGIN
+                    SET @Mensaje = 'El grupo especificado no existe.'
+                    ROLLBACK TRANSACTION
+                    RETURN;
+                END
+            END
+
+            -- Comparar permisos antes de actualizar
+            IF EXISTS (
+                SELECT 1
+                FROM Permiso pr
+                FULL OUTER JOIN @Permisos tmp
+                    ON pr.IdGrupo = tmp.IdGrupo AND pr.IdAccion = tmp.IdAccion AND pr.IdUsuario = tmp.IdUsuario
+                WHERE pr.IdRol = @IdRol
+                  AND (pr.IdGrupo IS NULL OR tmp.IdGrupo IS NULL
+                       OR pr.IdAccion IS NULL OR tmp.IdAccion IS NULL
+                       OR pr.IdUsuario IS NULL OR tmp.IdUsuario IS NULL)
+            )
+            BEGIN
+                -- Eliminar permisos antiguos
+                DELETE FROM Permiso WHERE IdRol = @IdRol;
+
+                -- Insertar nuevos permisos
+                INSERT INTO Permiso(IdRol, IdGrupo, IdAccion, IdUsuario, FechaRegistro)
+                SELECT @IdRol, p.IdGrupo, p.IdAccion, p.IdUsuario, GETDATE()
+                FROM @Permisos p;
+            END
+
+            SET @Resultado = 1
+            SET @Mensaje = 'Rol, grupo y permisos actualizados correctamente'
+            COMMIT TRANSACTION
+        END
+        ELSE
+        BEGIN
+            SET @Mensaje = 'El rol especificado no existe.'
+            ROLLBACK TRANSACTION
+        END
+    END TRY
+    BEGIN CATCH
+        SET @Mensaje = ERROR_MESSAGE()
+        SET @Resultado = 0
+        ROLLBACK TRANSACTION
+    END CATCH
+END
+
+select * from accion
+
+select a.IdAccion, a.NombreAccion, a.Descripcion, g.IdGrupo, g.NombreMenu, g.Descripcion AS DescGrupo
+from Accion a
+inner join Grupo g
+on g.IdGrupo = a.IdGrupo
+
+

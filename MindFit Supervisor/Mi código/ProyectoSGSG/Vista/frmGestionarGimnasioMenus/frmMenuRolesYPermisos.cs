@@ -21,10 +21,10 @@ namespace Vista
         private void limpiarCampos()
         {
             txtDescripcion.Clear();
-            cboPermiso.SelectedIndex = -1;
+            cboGrupo.SelectedIndex = -1;
             dgvPermisosSeleccionados.Rows.Clear();
             txtDescripcion.Enabled = true;
-            gbPermiso.Enabled = false;
+            gbGrupo.Enabled = false;
         }
         #endregion
 
@@ -34,17 +34,41 @@ namespace Vista
         }
         private void frmMenuRolesYPermisos_Load(object sender, EventArgs e)
         {
-            // Para ComboBox de Permiso 
-            List<Grupo> permisos = new ControladorGymGrupo().Listar();
-            
-            foreach (Grupo item in permisos)
+            gbPermisos.Visible = false;
+            gbGrupo.Enabled = false;
+            gbAccion.Enabled = false;
+
+            // Cargar GRUPOS
+            List<Grupo> grupos = new ControladorGymGrupo().Listar();
+            foreach (Grupo item in grupos)
             {
-                cboPermiso.Items.Add(new OpcionCombo() { Valor = item.IdGrupo, Texto = item.NombreMenu, DescripcionPermiso = item.Descripcion });
+                cboGrupo.Items.Add(new OpcionCombo()
+                {
+                    Valor = item.IdGrupo,
+                    Texto = item.NombreMenu,
+                    DescripcionPermiso = item.Descripcion
+                });
             }
 
-            cboPermiso.DisplayMember = "Texto";
-            cboPermiso.ValueMember = "Valor";
-            cboPermiso.SelectedIndex = -1;
+            // Cargar ACCIONES
+            List<Accion> acciones = new ControladorGymAccion().ListarTodo();
+            foreach (Accion item in acciones)
+            {
+                cboAccion.Items.Add(new OpcionCombo()
+                {
+                    Valor = item.IdAccion,
+                    Texto = item.NombreAccion,
+                    DescripcionPermiso = item.Descripcion
+                });
+            }
+
+            cboGrupo.DisplayMember = "Texto";
+            cboGrupo.ValueMember = "Valor";
+            cboGrupo.SelectedIndex = -1;
+
+            cboAccion.DisplayMember = "Texto";
+            cboAccion.ValueMember = "Valor";
+            cboAccion.SelectedIndex = -1;
 
             txtDescripcion.Select();
         }
@@ -56,9 +80,9 @@ namespace Vista
             if (e.KeyData == Keys.Enter)
             {
                 if (descripcionActual != "") {
+                    gbPermisos.Visible = true;
                     txtDescripcion.Enabled = false;
-                    gbPermiso.Enabled = true;
-                    gbPermiso.Select();
+                    gbGrupo.Enabled = false;
                 } else
                 {
                     MessageBox.Show("Debe ingresar una descripcion para el Rol", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -70,29 +94,39 @@ namespace Vista
         private void btnAgreagar_Click(object sender, EventArgs e)
         {
             // Verifica si se ha seleccionado un permiso
-            if (cboPermiso.SelectedItem == null)
+            if (cboGrupo.SelectedItem == null)
             {
-                MessageBox.Show("Debe seleccionar un permiso antes de agregar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Sale del método para evitar errores
+                MessageBox.Show("Debe seleccionar un grupo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            string nuevaDescripcion = txtDescripcion.Text.ToUpper();
-            string nuevaDescripcionPermiso = (string)((OpcionCombo)cboPermiso.SelectedItem).DescripcionPermiso;
-            string nuevoPermiso = ((OpcionCombo)cboPermiso.SelectedItem).Texto;
-            int nuevoId = (int)((OpcionCombo)cboPermiso.SelectedItem).Valor;
+            // Obtener los datos seleccionados
+            string descripcionRol = txtDescripcion.Text.ToUpper();
+            string descripcionPermiso = (string)((OpcionCombo)cboGrupo.SelectedItem).DescripcionPermiso;
+            string nombreMenu = ((OpcionCombo)cboGrupo.SelectedItem).Texto;
+            int idGrupo = (int)((OpcionCombo)cboGrupo.SelectedItem).Valor;
 
-            // Verifica si el permiso ya existe en alguna fila del DataGridView
+            // Validar duplicados
             foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows)
             {
-                if (row.Cells["NombreMenu"].Value != null && row.Cells["NombreMenu"].Value.ToString() == nuevoPermiso)
+                if (row.Cells["TipoPermiso"].Value.ToString() == "Grupo" &&
+                    Convert.ToInt32(row.Cells["IdGrupo"].Value) == idGrupo)
                 {
-                    MessageBox.Show("Este permiso ya ha sido agregado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return; // Evita que se agregue duplicado
+                    MessageBox.Show("Este grupo ya fue agregado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
             }
 
-            // Si no existe, agregar la nueva descripción y permiso
-            dgvPermisosSeleccionados.Rows.Add(new object[] { nuevaDescripcion, nuevoPermiso, nuevaDescripcionPermiso, nuevoId });
+            // Agregar fila
+            dgvPermisosSeleccionados.Rows.Add(
+                descripcionRol,     // Descripcion (del rol)
+                "Grupo",            // TipoPermiso
+                nombreMenu,         // NombreMenu
+                "-",                 // nombreAccion vacío
+                descripcionPermiso, // DescripcionPermiso
+                idGrupo,            // IdGrupo
+                DBNull.Value        // IdAccion
+            );
         }
 
         private void btnRegistrarRol_Click(object sender, EventArgs e)
@@ -111,43 +145,47 @@ namespace Vista
                 return;
             }
 
-            // Crear DataTable para los permisos seleccionados
+            // Crear nuevo DataTable con la estructura del tipo ETabla_Permisos
             DataTable tablaPermisos = new DataTable();
-            //tablaGrupos.Columns.Add("NombreMenu", typeof(string));
-            //tablaGrupos.Columns.Add("Descripcion", typeof(string));
+            tablaPermisos.Columns.Add("TipoPermiso", typeof(string));
             tablaPermisos.Columns.Add("IdGrupo", typeof(int));
+            tablaPermisos.Columns.Add("IdAccion", typeof(int));
 
             // Agregar los permisos seleccionados a la tabla
             foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows)
             {
-                /*tablaGrupos.Rows.Add(
-                    row.Cells["NombreMenu"].Value.ToString(),
-                    row.Cells["DescripcionPermiso"].Value.ToString() 
-                );*/
-                int idGrupo = Convert.ToInt32(row.Cells["IdGrupo"].Value);
-                tablaPermisos.Rows.Add(idGrupo);
+                string tipoPermiso = row.Cells["TipoPermiso"].Value.ToString();
+
+                object idGrupo = row.Cells["IdGrupo"].Value;
+                object idAccion = row.Cells["IdAccion"].Value;
+
+                // Asegurar valores nulos correctamente
+                int? idGrupoVal = (idGrupo == DBNull.Value) ? (int?)null : Convert.ToInt32(idGrupo);
+                int? idAccionVal = (idAccion == DBNull.Value) ? (int?)null : Convert.ToInt32(idAccion);
+
+                tablaPermisos.Rows.Add(
+                    tipoPermiso,
+                    idGrupoVal.HasValue ? idGrupoVal.Value : (object)DBNull.Value,
+                    idAccionVal.HasValue ? idAccionVal.Value : (object)DBNull.Value
+                );
             }
 
-            // Obtener la descripción del rol desde el formulario
-            string descripcionRol = (txtDescripcion.Text.Trim()).ToUpper();
+            // Obtener la descripción del rol
+            string descripcionRol = txtDescripcion.Text.Trim().ToUpper();
 
-            // Variable para almacenar el mensaje de resultado
+            // Variable para el mensaje
             string mensaje = string.Empty;
 
-            // Intentar registrar el rol con sus permisos
+            // Llamar al controlador
             bool respuesta = new ControladorGymRol().Registrar(descripcionRol, tablaPermisos, out mensaje);
 
-            // Si el rol se registró correctamente
             if (respuesta)
             {
                 MessageBox.Show("Rol registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Limpiar los campos después del registro exitoso
                 limpiarCampos();
             }
             else
             {
-                // Si hubo un error, mostrar el mensaje
                 MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -159,7 +197,7 @@ namespace Vista
                 return;
 
             // Verifica que está en la primera columna (columna de botones)
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 7)
             {
                 // Pinta la celda con sus partes predeterminadas
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
@@ -197,6 +235,61 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarCampos();
+        }
+
+        private void btnGrupo_Click(object sender, EventArgs e)
+        {
+            dgvPermisosSeleccionados.Rows.Clear();
+            cboAccion.SelectedIndex = -1;
+            gbAccion.Enabled = false;
+            gbGrupo.Enabled = true;
+        }
+
+        private void btnAccion_Click(object sender, EventArgs e)
+        {
+            dgvPermisosSeleccionados.Rows.Clear();
+            cboGrupo.SelectedIndex = -1;
+            gbGrupo.Enabled = false;
+            gbAccion.Enabled = true;
+
+        }
+
+        private void btnAgregarAccion_Click(object sender, EventArgs e)
+        {
+            if (cboAccion.SelectedItem == null)
+            {
+                MessageBox.Show("Debe seleccionar  una acción.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtener info de combo
+            string descripcionRol = txtDescripcion.Text.ToUpper();
+            string nombreAccion = ((OpcionCombo)cboAccion.SelectedItem).Texto;
+            string descripcionPermiso = (string)((OpcionCombo)cboAccion.SelectedItem).DescripcionPermiso;
+            int idAccion = (int)((OpcionCombo)cboAccion.SelectedItem).Valor;
+
+            
+            // Validar duplicado
+            foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows)
+            {
+                if (row.Cells["TipoPermiso"].Value.ToString() == "Accion" &&
+                    Convert.ToInt32(row.Cells["IdAccion"].Value) == idAccion)
+                {
+                    MessageBox.Show("Esta acción ya fue agregada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // Agregar fila
+            dgvPermisosSeleccionados.Rows.Add(
+                descripcionRol,     // Descripcion (rol)
+                "Accion",           // TipoPermiso
+                "-",         // NombreMenu
+                nombreAccion,       // nombreAccion
+                descripcionPermiso, // DescripcionPermiso
+                DBNull.Value,            // IdGrupo
+                idAccion            // IdAccion
+            );
         }
     }
 }

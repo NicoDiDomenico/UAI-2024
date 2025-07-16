@@ -13,5 +13,6 @@ namespace Modelo
         public Grupo Grupo { get; set; }    
         public Accion Accion { get; set; }    
         public DateTime FechaRegistro { get; set; }
+        public string TipoPermiso { get; set; }
     }
 }

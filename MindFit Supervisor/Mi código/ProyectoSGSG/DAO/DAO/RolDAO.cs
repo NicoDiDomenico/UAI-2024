@@ -85,7 +85,7 @@ namespace DAO
             return Resultado;
         }
 
-        public bool Actualizar(Rol unRol, String IdGrupo, String DescripcionGrupo, out string Mensaje)
+        public bool Actualizar(Rol unRol, DataTable Permisos, int IdGrupo, String DescripcionGrupo, out string Mensaje)
         {
             bool Resultado = false;
             Mensaje = string.Empty;
@@ -97,11 +97,11 @@ namespace DAO
                     SqlCommand cmd = new SqlCommand("SP_ACTUALIZARROL", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@IdRol", unRol.IdRol);  // Se agrega el ID del rol a actualizar
+                    cmd.Parameters.AddWithValue("@IdRol", unRol.IdRol);
                     cmd.Parameters.AddWithValue("@Descripcion", unRol.Descripcion);
-                    
                     cmd.Parameters.AddWithValue("@IdGrupo", IdGrupo);
                     cmd.Parameters.AddWithValue("@DescripcionGrupo", DescripcionGrupo);
+                    cmd.Parameters.AddWithValue("@Permisos", Permisos); // este es el parámetro nuevo
 
                     cmd.Parameters.Add("@Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;

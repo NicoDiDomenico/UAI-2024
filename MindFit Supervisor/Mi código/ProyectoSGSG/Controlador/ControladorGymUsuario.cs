@@ -17,6 +17,15 @@ namespace Controlador
             return objcd_usuario.Listar();
         }
 
+        public List<Usuario> ListarPorCorreo(string correo)
+        {
+            return objcd_usuario.ListarPorCorreo(correo);
+        }
+        public bool CambiarClave(int idUsuario, string nuevaClave)
+        {
+            return objcd_usuario.CambiarClave(idUsuario, nuevaClave);
+        }
+
         public int Registrar(Usuario obj, out string Mensaje)
         {
             Mensaje = string.Empty;

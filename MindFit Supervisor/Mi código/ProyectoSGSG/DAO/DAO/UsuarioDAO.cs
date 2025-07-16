@@ -80,6 +80,87 @@ namespace DAO
             }
             return lista;
         }
+
+        public List<Usuario> ListarPorCorreo(string correo)
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT IdUsuario, NombreYApellido, Email, Telefono, 
+                               Direccion, Ciudad, NroDocumento, Genero, 
+                               FechaNacimiento, NombreUsuario, Clave, 
+                               Estado, FechaRegistro
+                        FROM Usuario
+                        WHERE Email = @correo";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@correo", correo);
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Usuario unUsuario = new Usuario
+                            {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                NombreYApellido = dr["NombreYApellido"].ToString(),
+                                Email = dr["Email"].ToString(),
+                                Telefono = dr["Telefono"].ToString(),
+                                Direccion = dr["Direccion"].ToString(),
+                                Ciudad = dr["Ciudad"].ToString(),
+                                NroDocumento = Convert.ToInt32(dr["NroDocumento"]),
+                                Genero = dr["Genero"].ToString(),
+                                FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]),
+                                NombreUsuario = dr["NombreUsuario"].ToString(),
+                                Clave = dr["Clave"].ToString(),
+                                Estado = Convert.ToBoolean(dr["Estado"]),
+                                FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"])
+                            };
+
+                            lista.Add(unUsuario);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<Usuario>();
+                }
+            }
+            return lista;
+        }
+
+        public bool CambiarClave(int idUsuario, string nuevaClave)
+        {
+            bool resultado = false;
+
+            using (SqlConnection con = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = "UPDATE Usuario SET Clave = @clave WHERE IdUsuario = @idUsuario";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@clave", nuevaClave);
+                    cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
+
+                    con.Open();
+                    resultado = cmd.ExecuteNonQuery() > 0;
+                }
+                catch
+                {
+                    resultado = false;
+                }
+            }
+
+            return resultado;
+        }
+
         public int Registrar(Usuario obj, out string Mensaje)
         {
             int idusuariogenerado = 0;
