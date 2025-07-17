@@ -154,7 +154,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.groupBox2.Controls.Add(this.picLogo);
             this.groupBox2.Controls.Add(this.btnSubir);
-            this.groupBox2.Location = new System.Drawing.Point(124, 42);
+            this.groupBox2.Location = new System.Drawing.Point(135, 37);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(419, 207);
             this.groupBox2.TabIndex = 25;

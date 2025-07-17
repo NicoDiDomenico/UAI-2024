@@ -17,6 +17,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vista.Utilidades;
 
+using System.Windows.Forms.DataVisualization.Charting;
+
+
 namespace Vista
 {
     public partial class frmGestionarRutinas : Form
@@ -1240,6 +1243,26 @@ namespace Vista
             LimpiezaPanelEntrenamiento();
             LimpiezaPaneltlpEstiramiento();
         }
+
+        private void activarDias()
+        {
+            btnLunes.Enabled = true;
+            btnMartes.Enabled = true;
+            btnMiercoles.Enabled = true;
+            btnJueves.Enabled = true;
+            btnViernes.Enabled = true;
+            btnSabado.Enabled = true;
+        }
+
+        private void desactivarDias()
+        {
+            btnLunes.Enabled = false;
+            btnMartes.Enabled = false;
+            btnMiercoles.Enabled = false;
+            btnJueves.Enabled = false;
+            btnViernes.Enabled = false;
+            btnSabado.Enabled = false;
+        }
         #endregion
 
         public frmGestionarRutinas(Usuario usuarioActual, string dia = "")
@@ -1251,6 +1274,7 @@ namespace Vista
 
         private void frmGestionarRutinas_Load(object sender, EventArgs e)
         {
+            desactivarDias();
             validarPermisos();
             desactivarRutina();
             deshabilitarRutina();
@@ -1403,6 +1427,8 @@ namespace Vista
                     // Refrescar la vista
                     dgvDataSocio.Refresh();
 
+                    activarDias();
+
                     LimpiezaDelPanel();
 
                     LimpiarBotones();
@@ -1543,7 +1569,7 @@ namespace Vista
 
                 new ControladorGymRutina().CambiarEstadoRutina(RutinaSeleccionada.IdRutina);
                 RutinaSeleccionada.FechaModificacion = DateTime.Now;
-                new ControladorGymSocio().ActualizarEstadoSocio(IdSocioActual, "Actualizado");
+                new ControladorGymSocio().ActualizarEstadoSocio(socioActual, "Actualizado");
 
                 MessageBox.Show("Rutina guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblUltimaFecha.Text = "Última fecha de modificación: " + DateTime.Now.ToString("dd/MM/yyyy");

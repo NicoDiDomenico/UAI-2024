@@ -35,6 +35,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -43,6 +47,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbPermisos = new System.Windows.Forms.GroupBox();
+            this.panelGrupo = new System.Windows.Forms.Panel();
+            this.gbAccion = new System.Windows.Forms.GroupBox();
+            this.cboAccion = new System.Windows.Forms.ComboBox();
+            this.btnAgregarAccion = new FontAwesome.Sharp.IconButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.gbGrupo = new System.Windows.Forms.GroupBox();
+            this.btnAgreagar1 = new FontAwesome.Sharp.IconButton();
+            this.cboGrupo = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txbDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,21 +73,6 @@
             this.dgvDataPermisos = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIdGrupo = new System.Windows.Forms.TextBox();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.gbPermisos = new System.Windows.Forms.GroupBox();
-            this.panelGrupo = new System.Windows.Forms.Panel();
-            this.gbAccion = new System.Windows.Forms.GroupBox();
-            this.cboAccion = new System.Windows.Forms.ComboBox();
-            this.btnAgregarAccion = new FontAwesome.Sharp.IconButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.gbGrupo = new System.Windows.Forms.GroupBox();
-            this.btnAgreagar1 = new FontAwesome.Sharp.IconButton();
-            this.cboGrupo = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnSeleccionar2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.NombreMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,12 +86,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataPermisos)).BeginInit();
             this.gbPermisos.SuspendLayout();
             this.panelGrupo.SuspendLayout();
             this.gbAccion.SuspendLayout();
             this.panel1.SuspendLayout();
             this.gbGrupo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataPermisos)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLimpiarBuscador
@@ -142,6 +142,35 @@
             this.dgvData.TabIndex = 69;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 35;
+            // 
+            // IdRol
+            // 
+            this.IdRol.HeaderText = "IdRol";
+            this.IdRol.Name = "IdRol";
+            this.IdRol.ReadOnly = true;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Width = 981;
+            // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
             // 
             // btnBuscar
             // 
@@ -245,6 +274,131 @@
             this.groupBox1.Size = new System.Drawing.Size(453, 579);
             this.groupBox1.TabIndex = 70;
             this.groupBox1.TabStop = false;
+            // 
+            // gbPermisos
+            // 
+            this.gbPermisos.Controls.Add(this.panelGrupo);
+            this.gbPermisos.Controls.Add(this.panel1);
+            this.gbPermisos.Location = new System.Drawing.Point(52, 318);
+            this.gbPermisos.Name = "gbPermisos";
+            this.gbPermisos.Size = new System.Drawing.Size(369, 193);
+            this.gbPermisos.TabIndex = 68;
+            this.gbPermisos.TabStop = false;
+            this.gbPermisos.Text = "Permisos por";
+            // 
+            // panelGrupo
+            // 
+            this.panelGrupo.Controls.Add(this.gbAccion);
+            this.panelGrupo.Location = new System.Drawing.Point(6, 103);
+            this.panelGrupo.Name = "panelGrupo";
+            this.panelGrupo.Size = new System.Drawing.Size(357, 83);
+            this.panelGrupo.TabIndex = 69;
+            // 
+            // gbAccion
+            // 
+            this.gbAccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.gbAccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gbAccion.Controls.Add(this.cboAccion);
+            this.gbAccion.Controls.Add(this.btnAgregarAccion);
+            this.gbAccion.Controls.Add(this.label6);
+            this.gbAccion.Enabled = false;
+            this.gbAccion.Location = new System.Drawing.Point(3, 3);
+            this.gbAccion.Name = "gbAccion";
+            this.gbAccion.Size = new System.Drawing.Size(334, 74);
+            this.gbAccion.TabIndex = 64;
+            this.gbAccion.TabStop = false;
+            this.gbAccion.Text = "Acción";
+            // 
+            // cboAccion
+            // 
+            this.cboAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboAccion.FormattingEnabled = true;
+            this.cboAccion.Location = new System.Drawing.Point(17, 31);
+            this.cboAccion.Name = "cboAccion";
+            this.cboAccion.Size = new System.Drawing.Size(218, 21);
+            this.cboAccion.TabIndex = 40;
+            // 
+            // btnAgregarAccion
+            // 
+            this.btnAgregarAccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarAccion.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAgregarAccion.IconColor = System.Drawing.Color.ForestGreen;
+            this.btnAgregarAccion.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregarAccion.IconSize = 55;
+            this.btnAgregarAccion.Location = new System.Drawing.Point(254, 15);
+            this.btnAgregarAccion.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAgregarAccion.Name = "btnAgregarAccion";
+            this.btnAgregarAccion.Padding = new System.Windows.Forms.Padding(2, 6, 0, 0);
+            this.btnAgregarAccion.Size = new System.Drawing.Size(50, 50);
+            this.btnAgregarAccion.TabIndex = 63;
+            this.btnAgregarAccion.UseVisualStyleBackColor = true;
+            this.btnAgregarAccion.Click += new System.EventHandler(this.btnAgregarAccion_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label6.Location = new System.Drawing.Point(11, 34);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 39;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.gbGrupo);
+            this.panel1.Location = new System.Drawing.Point(6, 14);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(357, 83);
+            this.panel1.TabIndex = 68;
+            // 
+            // gbGrupo
+            // 
+            this.gbGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.gbGrupo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.gbGrupo.Controls.Add(this.btnAgreagar1);
+            this.gbGrupo.Controls.Add(this.cboGrupo);
+            this.gbGrupo.Controls.Add(this.label7);
+            this.gbGrupo.Enabled = false;
+            this.gbGrupo.Location = new System.Drawing.Point(3, 3);
+            this.gbGrupo.Name = "gbGrupo";
+            this.gbGrupo.Size = new System.Drawing.Size(334, 74);
+            this.gbGrupo.TabIndex = 64;
+            this.gbGrupo.TabStop = false;
+            this.gbGrupo.Text = "Grupo";
+            // 
+            // btnAgreagar1
+            // 
+            this.btnAgreagar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgreagar1.IconChar = FontAwesome.Sharp.IconChar.Plus;
+            this.btnAgreagar1.IconColor = System.Drawing.Color.ForestGreen;
+            this.btnAgreagar1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgreagar1.IconSize = 55;
+            this.btnAgreagar1.Location = new System.Drawing.Point(254, 15);
+            this.btnAgreagar1.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAgreagar1.Name = "btnAgreagar1";
+            this.btnAgreagar1.Padding = new System.Windows.Forms.Padding(2, 6, 0, 0);
+            this.btnAgreagar1.Size = new System.Drawing.Size(50, 50);
+            this.btnAgreagar1.TabIndex = 64;
+            this.btnAgreagar1.UseVisualStyleBackColor = true;
+            this.btnAgreagar1.Click += new System.EventHandler(this.btnAgreagar1_Click);
+            // 
+            // cboGrupo
+            // 
+            this.cboGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGrupo.FormattingEnabled = true;
+            this.cboGrupo.Location = new System.Drawing.Point(17, 31);
+            this.cboGrupo.Name = "cboGrupo";
+            this.cboGrupo.Size = new System.Drawing.Size(218, 21);
+            this.cboGrupo.TabIndex = 40;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label7.Location = new System.Drawing.Point(11, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 39;
             // 
             // txbDescripcion
             // 
@@ -397,7 +551,6 @@
             // dgvDataPermisos
             // 
             this.dgvDataPermisos.AllowUserToAddRows = false;
-            this.dgvDataPermisos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDataPermisos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -428,6 +581,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDataPermisos.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvDataPermisos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dgvDataPermisos.Location = new System.Drawing.Point(566, 375);
             this.dgvDataPermisos.MultiSelect = false;
             this.dgvDataPermisos.Name = "dgvDataPermisos";
@@ -435,7 +589,7 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvDataPermisos.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDataPermisos.RowTemplate.Height = 35;
+            this.dgvDataPermisos.RowTemplate.Height = 50;
             this.dgvDataPermisos.Size = new System.Drawing.Size(1176, 211);
             this.dgvDataPermisos.TabIndex = 73;
             this.dgvDataPermisos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPermisos_CellContentClick);
@@ -462,160 +616,6 @@
             this.txtIdGrupo.Text = "-1";
             this.txtIdGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 35;
-            // 
-            // IdRol
-            // 
-            this.IdRol.HeaderText = "IdRol";
-            this.IdRol.Name = "IdRol";
-            this.IdRol.ReadOnly = true;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            this.Rol.Width = 981;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
-            // 
-            // gbPermisos
-            // 
-            this.gbPermisos.Controls.Add(this.panelGrupo);
-            this.gbPermisos.Controls.Add(this.panel1);
-            this.gbPermisos.Location = new System.Drawing.Point(52, 318);
-            this.gbPermisos.Name = "gbPermisos";
-            this.gbPermisos.Size = new System.Drawing.Size(369, 193);
-            this.gbPermisos.TabIndex = 68;
-            this.gbPermisos.TabStop = false;
-            this.gbPermisos.Text = "Permisos por";
-            // 
-            // panelGrupo
-            // 
-            this.panelGrupo.Controls.Add(this.gbAccion);
-            this.panelGrupo.Location = new System.Drawing.Point(6, 103);
-            this.panelGrupo.Name = "panelGrupo";
-            this.panelGrupo.Size = new System.Drawing.Size(357, 83);
-            this.panelGrupo.TabIndex = 69;
-            // 
-            // gbAccion
-            // 
-            this.gbAccion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.gbAccion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gbAccion.Controls.Add(this.cboAccion);
-            this.gbAccion.Controls.Add(this.btnAgregarAccion);
-            this.gbAccion.Controls.Add(this.label6);
-            this.gbAccion.Enabled = false;
-            this.gbAccion.Location = new System.Drawing.Point(3, 3);
-            this.gbAccion.Name = "gbAccion";
-            this.gbAccion.Size = new System.Drawing.Size(334, 74);
-            this.gbAccion.TabIndex = 64;
-            this.gbAccion.TabStop = false;
-            this.gbAccion.Text = "Acción";
-            // 
-            // cboAccion
-            // 
-            this.cboAccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboAccion.FormattingEnabled = true;
-            this.cboAccion.Location = new System.Drawing.Point(17, 31);
-            this.cboAccion.Name = "cboAccion";
-            this.cboAccion.Size = new System.Drawing.Size(218, 21);
-            this.cboAccion.TabIndex = 40;
-            // 
-            // btnAgregarAccion
-            // 
-            this.btnAgregarAccion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregarAccion.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnAgregarAccion.IconColor = System.Drawing.Color.ForestGreen;
-            this.btnAgregarAccion.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregarAccion.IconSize = 55;
-            this.btnAgregarAccion.Location = new System.Drawing.Point(254, 15);
-            this.btnAgregarAccion.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAgregarAccion.Name = "btnAgregarAccion";
-            this.btnAgregarAccion.Padding = new System.Windows.Forms.Padding(2, 6, 0, 0);
-            this.btnAgregarAccion.Size = new System.Drawing.Size(50, 50);
-            this.btnAgregarAccion.TabIndex = 63;
-            this.btnAgregarAccion.UseVisualStyleBackColor = true;
-            this.btnAgregarAccion.Click += new System.EventHandler(this.btnAgregarAccion_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label6.Location = new System.Drawing.Point(11, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 13);
-            this.label6.TabIndex = 39;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.gbGrupo);
-            this.panel1.Location = new System.Drawing.Point(6, 14);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(357, 83);
-            this.panel1.TabIndex = 68;
-            // 
-            // gbGrupo
-            // 
-            this.gbGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.gbGrupo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gbGrupo.Controls.Add(this.btnAgreagar1);
-            this.gbGrupo.Controls.Add(this.cboGrupo);
-            this.gbGrupo.Controls.Add(this.label7);
-            this.gbGrupo.Enabled = false;
-            this.gbGrupo.Location = new System.Drawing.Point(3, 3);
-            this.gbGrupo.Name = "gbGrupo";
-            this.gbGrupo.Size = new System.Drawing.Size(334, 74);
-            this.gbGrupo.TabIndex = 64;
-            this.gbGrupo.TabStop = false;
-            this.gbGrupo.Text = "Grupo";
-            // 
-            // btnAgreagar1
-            // 
-            this.btnAgreagar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgreagar1.IconChar = FontAwesome.Sharp.IconChar.Plus;
-            this.btnAgreagar1.IconColor = System.Drawing.Color.ForestGreen;
-            this.btnAgreagar1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgreagar1.IconSize = 55;
-            this.btnAgreagar1.Location = new System.Drawing.Point(254, 15);
-            this.btnAgreagar1.Margin = new System.Windows.Forms.Padding(0);
-            this.btnAgreagar1.Name = "btnAgreagar1";
-            this.btnAgreagar1.Padding = new System.Windows.Forms.Padding(2, 6, 0, 0);
-            this.btnAgreagar1.Size = new System.Drawing.Size(50, 50);
-            this.btnAgreagar1.TabIndex = 64;
-            this.btnAgreagar1.UseVisualStyleBackColor = true;
-            this.btnAgreagar1.Click += new System.EventHandler(this.btnAgreagar1_Click);
-            // 
-            // cboGrupo
-            // 
-            this.cboGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGrupo.FormattingEnabled = true;
-            this.cboGrupo.Location = new System.Drawing.Point(17, 31);
-            this.cboGrupo.Name = "cboGrupo";
-            this.cboGrupo.Size = new System.Drawing.Size(218, 21);
-            this.cboGrupo.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label7.Location = new System.Drawing.Point(11, 34);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 13);
-            this.label7.TabIndex = 39;
-            // 
             // btnSeleccionar2
             // 
             this.btnSeleccionar2.HeaderText = "";
@@ -623,7 +623,7 @@
             this.btnSeleccionar2.ReadOnly = true;
             this.btnSeleccionar2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnSeleccionar2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar2.Width = 35;
+            this.btnSeleccionar2.Width = 50;
             // 
             // NombreMenu
             // 
@@ -651,7 +651,7 @@
             this.TipoPermiso.HeaderText = "Tipo Permiso";
             this.TipoPermiso.Name = "TipoPermiso";
             this.TipoPermiso.ReadOnly = true;
-            this.TipoPermiso.Width = 152;
+            this.TipoPermiso.Width = 120;
             // 
             // NombreAccion
             // 
@@ -711,7 +711,6 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDataPermisos)).EndInit();
             this.gbPermisos.ResumeLayout(false);
             this.panelGrupo.ResumeLayout(false);
             this.gbAccion.ResumeLayout(false);
@@ -719,6 +718,7 @@
             this.panel1.ResumeLayout(false);
             this.gbGrupo.ResumeLayout(false);
             this.gbGrupo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDataPermisos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -81,30 +81,41 @@ namespace Vista.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkGrande {
+            get {
+                object obj = ResourceManager.GetObject("checkGrande", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;title&gt;Reporte del Gimnasio&lt;/title&gt;
         ///    &lt;style&gt;
-        ///        table.border {
-        ///            border-collapse: collapse;
+        ///        body {
+        ///            font-family: Arial, sans-serif;
+        ///            font-size: 12px;
         ///        }
         ///
-        ///            table.border th {
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            width: 100%;
+        ///        }
+        ///
+        ///            table.border th, table.border td {
         ///                padding: 5px;
         ///                border: 1px solid black;
         ///            }
         ///
-        ///            table.border td {
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
-        ///    &lt;/style&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    &lt;table style=&quot;width:100%&quot;&gt;
-        ///        &lt;tr&gt;
-        ///            &lt;td style=&quot;width:20%&quot;&gt;&lt;/ [resto de la cadena truncado]&quot;;.
+        ///        .centrado {
+        ///            text-align: center;
+        ///        }
+        ///
+        ///        .sepa [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string plantilla {
             get {
@@ -116,31 +127,38 @@ namespace Vista.Properties {
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///&lt;head&gt;
-        ///    &lt;title&gt;Web Page Design&lt;/title&gt;
+        ///    &lt;title&gt;Rutina de Entrenamiento&lt;/title&gt;
         ///    &lt;style&gt;
         ///        table.border {
         ///            border-collapse: collapse;
+        ///            width: 100%;
         ///        }
         ///
-        ///            table.border th {
-        ///                padding: 5px;
+        ///            table.border th, table.border td {
         ///                border: 1px solid black;
+        ///                padding: 8px;
+        ///                text-align: center;
         ///            }
         ///
-        ///            table.border td {
-        ///                padding: 5px;
-        ///                border: 1px solid black;
-        ///            }
-        ///    &lt;/style&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///    &lt;table style=&quot;width:100%&quot;&gt;
-        ///        &lt;tr&gt;
-        ///            &lt;td style=&quot;width:20%&quot;&gt;&lt;/ [resto de la cadena truncado]&quot;;.
+        ///        .section-title {
+        ///            background-color: #B0B0B0;
+        ///            font-weight: bold;
+        ///            text-align: center;
+        ///            p [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string plantillaRutina {
             get {
                 return ResourceManager.GetString("plantillaRutina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap target {
+            get {
+                object obj = ResourceManager.GetObject("target", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

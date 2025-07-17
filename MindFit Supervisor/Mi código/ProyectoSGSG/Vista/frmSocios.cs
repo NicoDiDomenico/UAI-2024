@@ -19,6 +19,7 @@ namespace Vista
         #region "Variables"
         private static Form formularioActivo = null;
         private static int idSocioSeleccionado;
+        private static DateTime vencimientoCuota;
         private static string nombreSocioSeleccionado;
         private static Usuario usuario;
         #endregion
@@ -262,6 +263,7 @@ namespace Vista
                     // Guardar el IdSocio de la fila seleccionada
                     idSocioSeleccionado = Convert.ToInt32(dgvData.Rows[indice].Cells["IdSocio"].Value);
                     nombreSocioSeleccionado = Convert.ToString(dgvData.Rows[indice].Cells["NombreYApellido"].Value);
+                    vencimientoCuota = Convert.ToDateTime(dgvData.Rows[indice].Cells["FechaFinActividades"].Value);
 
                     btnMenuConsultar.Enabled = true;
                     btnMenuConsultar.BackColor = Color.RoyalBlue;
@@ -311,10 +313,15 @@ namespace Vista
                 return;
             }
 
-            Socio socio = new Socio() { IdSocio = idSocioSeleccionado };
-            string mensaje = string.Empty;
+            // Validación: no permitir eliminar si la cuota sigue vigente
+            if (vencimientoCuota > DateTime.Today)
+            {
+                MessageBox.Show("No se puede eliminar un socio que aún tiene la cuota vigente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            bool eliminado = new ControladorGymSocio().Eliminar(socio, out mensaje);
+            Socio socio = new Socio() { IdSocio = idSocioSeleccionado, FechaFinActividades = vencimientoCuota };
+            bool eliminado = new ControladorGymSocio().ActualizarEstadoSocio(socio, "Eliminado");
 
             if (eliminado)
             {
@@ -324,7 +331,7 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se puede eliminar un socio que aún tiene la cuota vigente.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

@@ -131,14 +131,14 @@ namespace Vista
                 //// Verifica si la celda actual tiene el valor "true" en la columna "Seleccionado"
                 bool isSelected = Convert.ToBoolean(dgvData.Rows[e.RowIndex].Cells["Seleccionado"].Value);
 
-                if (isSelected) // Solo dibuja el check2 si la celda está seleccionada
+                if (isSelected) // Solo dibuja el checkGrande si la celda está seleccionada
                 {
-                    var w = Properties.Resources.check2.Width;
-                    var h = Properties.Resources.check2.Height;
+                    var w = Properties.Resources.checkGrande.Width;
+                    var h = Properties.Resources.checkGrande.Height;
                     var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
                     var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
 
-                    e.Graphics.DrawImage(Properties.Resources.check2, new Rectangle(x, y, w, h));
+                    e.Graphics.DrawImage(Properties.Resources.checkGrande, new Rectangle(x, y, w, h));
                 }
                 e.Handled = true;
             }
@@ -163,7 +163,7 @@ namespace Vista
                         row.Cells["Seleccionado"].Value = false;
                     }
 
-                    // Activar el check2 solo en la fila clickeada
+                    // Activar el checkGrande solo en la fila clickeada
                     dgvData.Rows[indice].Cells["Seleccionado"].Value = true;
 
                     // Refrescar la vista
@@ -226,13 +226,17 @@ namespace Vista
 
                 if (isSelected)
                 {
-                    var w = Properties.Resources.check2.Width;
-                    var h = Properties.Resources.check2.Height;
-                    var x = e.CellBounds.Left + (e.CellBounds.Width - w) / 2;
-                    var y = e.CellBounds.Top + (e.CellBounds.Height - h) / 2;
+                    // Calcular tamaño proporcional al alto y ancho de la celda (con margen)
+                    int iconSize = Math.Min(e.CellBounds.Width, e.CellBounds.Height) - 6;
 
-                    e.Graphics.DrawImage(Properties.Resources.check2, new Rectangle(x, y, w, h));
+                    // Centrado de la imagen
+                    int x = e.CellBounds.Left + (e.CellBounds.Width - iconSize) / 2;
+                    int y = e.CellBounds.Top + (e.CellBounds.Height - iconSize) / 2;
+
+                    // Dibujar la imagen escalada
+                    e.Graphics.DrawImage(Properties.Resources.target, new Rectangle(x, y, iconSize, iconSize));
                 }
+
                 e.Handled = true;
             }
 
@@ -275,7 +279,7 @@ namespace Vista
                     {
                         row.Cells["Seleccionado2"].Value = false;
                     }
-                    // Activar el check2 solo en la fila clickeada
+                    // Activar el checkGrande solo en la fila clickeada
                     dgvDataPermisos.Rows[indice].Cells["Seleccionado2"].Value = true;
 
                     // Refrescar la vista

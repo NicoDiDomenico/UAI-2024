@@ -212,6 +212,16 @@ namespace Vista
                 {
                     int indice_combo = cboEstado.Items.IndexOf(oc);
                     cboEstado.SelectedIndex = indice_combo;
+                    if (socio.EstadoSocio == "Eliminado")
+                    {
+                        panelRecuperar.Visible = true;
+                        panelEliminar.Visible = true;
+                    }
+                    else
+                    {
+                        panelRecuperar.Visible = false;
+                        panelEliminar.Visible = false;
+                    }
                     break;
                 }
             }
@@ -455,7 +465,7 @@ namespace Vista
                     if (chkMensual.Checked)
                     {
                         iFechaFinActividades = iFechaFinActividades.Value.AddDays(30);
-                        iFechaNotificacion = iFechaFinActividades.Value.AddDays(29);
+                        iFechaNotificacion = iFechaFinActividades.Value.AddDays(29); // Esto esta como el culo porque es 30+29 y no solo +29
                     }
                     else if (chkAnual.Checked) // Verificar si es anual
                     {
@@ -497,8 +507,75 @@ namespace Vista
                 }
 
                 MensajeEstado();
+                panelRecuperar.Visible = false;
+                panelEliminar.Visible = false;
 
-                MessageBox.Show("Cuota renovada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cuota renovada correctamente.\n¡Debe confirmar para guardar los cambios!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnRevertirASuspendido_Click(object sender, EventArgs e)
+        {
+            if (idSocioSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un socio válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Obtener el socio completo
+            Socio socio = new ControladorGymSocio().GetSocio(idSocioSeleccionado);
+            string mensaje;
+
+            bool exito = new ControladorGymSocio().RevertirAEstadoSuspendido(socio, out mensaje);
+
+            if (exito)
+            {
+                // Refrescar el estado visual en el formulario
+                foreach (OpcionCombo oc in cboEstado.Items)
+                {
+                    if (oc.Texto == "Suspendido")
+                    {
+                        cboEstado.SelectedItem = oc;
+                        break;
+                    }
+                }
+
+                MensajeEstado(); // Actualiza el label visual
+                panelRecuperar.Visible = false;
+                panelEliminar.Visible = false;
+
+                MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(mensaje, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idSocioSeleccionado == 0)
+            {
+                MessageBox.Show("Seleccione un socio válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show("¿Está seguro que desea eliminar permanentemente este socio?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                string mensaje;
+                bool exito = new ControladorGymSocio().Eliminar(new Socio() { IdSocio = idSocioSeleccionado}, out mensaje);
+
+                if (exito)
+                {
+                    MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close(); // Cierra el formulario actual
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el socio:\n" + mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

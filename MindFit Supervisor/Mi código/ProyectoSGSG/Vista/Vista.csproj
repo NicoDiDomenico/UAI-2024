@@ -53,6 +53,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -371,6 +372,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plantillaRutina.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\checkGrande.png" />
+    <Content Include="Resources\target.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

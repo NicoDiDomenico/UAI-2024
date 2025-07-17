@@ -3678,4 +3678,85 @@ from Accion a
 inner join Grupo g
 on g.IdGrupo = a.IdGrupo
 
+select * from Socio
+SELECT IdSocio, NombreYApellido, Email, Telefono, Direccion, Ciudad, 
+       NroDocumento, Genero, FechaNacimiento, ObraSocial, [Plan], 
+       EstadoSocio, FechaInicioActividades, FechaFinActividades, 
+       FechaNotificacion, RespuestaNotificacion
+FROM Socio
+UPDATE Socio
+SET EstadoSocio = 'Actualizado'
+WHERE IdSocio = 11;
 
+INSERT INTO Socio (
+    NombreYApellido,
+    FechaNacimiento,
+    Genero,
+    NroDocumento,
+    Ciudad,
+    Direccion,
+    Telefono,
+    Email,
+    ObraSocial,
+    [Plan],
+    EstadoSocio,
+    FechaInicioActividades,
+    FechaFinActividades,
+    FechaNotificacion,
+    RespuestaNotificacion
+) VALUES (
+    'Lucas Biagini',
+    '1990-05-20',
+    'Masculino',
+    30987654,
+    'Rosario',
+    'Laprida 111',
+    '3415550011',
+    'lucasbiagini@gmail.com',
+    'OSDE',
+    'Mensual',
+    'Suspendido',
+    '2025-05-16',
+    '2025-07-10', -- Venció hace 6 días
+    NULL,
+    NULL
+);
+
+INSERT INTO Socio (
+    NombreYApellido,
+    FechaNacimiento,
+    Genero,
+    NroDocumento,
+    Ciudad,
+    Direccion,
+    Telefono,
+    Email,
+    ObraSocial,
+    [Plan],
+    EstadoSocio,
+    FechaInicioActividades,
+    FechaFinActividades,
+    FechaNotificacion,
+    RespuestaNotificacion
+)
+VALUES (
+    'Juan Ejemplo',
+    '1990-05-20',
+    'Masculino',
+    '30200123',
+    'Rosario',
+    'Calle Falsa 123',
+    '3415000000',
+    'juan.ejemplo@gmail.com',
+    'OSDE',
+    'Mensual',
+    'Eliminado',
+    '2025-03-01',
+    '2025-04-01',  -- vencida hace más de 30 días
+    NULL,
+    NULL
+);
+
+-- select * from HistorialRutinas --> No tiene nada
+
+select * from HistorialRutina

@@ -20,6 +20,9 @@ namespace Vista
         #region "Métodos"
         private void limpiarCampos()
         {
+            chbGrupo.Checked = false;
+            chbAccion.Checked = false;
+
             txtDescripcion.Clear();
             cboGrupo.SelectedIndex = -1;
             dgvPermisosSeleccionados.Rows.Clear();
@@ -239,6 +242,7 @@ namespace Vista
 
         private void btnGrupo_Click(object sender, EventArgs e)
         {
+            chbAccion.Checked = false;
             dgvPermisosSeleccionados.Rows.Clear();
             cboAccion.SelectedIndex = -1;
             gbAccion.Enabled = false;
@@ -247,6 +251,7 @@ namespace Vista
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
+            chbGrupo.Checked = false;
             dgvPermisosSeleccionados.Rows.Clear();
             cboGrupo.SelectedIndex = -1;
             gbGrupo.Enabled = false;
@@ -290,6 +295,87 @@ namespace Vista
                 DBNull.Value,            // IdGrupo
                 idAccion            // IdAccion
             );
+        }
+
+        private void chbGrupo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbGrupo.Checked)
+            {
+                // Evitar duplicados: limpiar solo si querés un inicio limpio
+                dgvPermisosSeleccionados.Rows.Clear();
+
+                string descripcionRol = txtDescripcion.Text.ToUpper();
+                List<Grupo> grupos = new ControladorGymGrupo().Listar();
+
+                foreach (Grupo grupo in grupos)
+                {
+                    // Validar si ya existe
+                    bool yaExiste = dgvPermisosSeleccionados.Rows
+                        .Cast<DataGridViewRow>()
+                        .Any(r => r.Cells["TipoPermiso"].Value.ToString() == "Grupo" &&
+                                  Convert.ToInt32(r.Cells["IdGrupo"].Value) == grupo.IdGrupo);
+
+                    if (!yaExiste)
+                    {
+                        dgvPermisosSeleccionados.Rows.Add(
+                            descripcionRol,
+                            "Grupo",
+                            grupo.NombreMenu,
+                            "-",
+                            grupo.Descripcion,
+                            grupo.IdGrupo,
+                            DBNull.Value
+                        );
+                    }
+                }
+            }
+            else
+            {
+                // Si desmarcás, podés remover solo los grupos
+                foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["TipoPermiso"].Value.ToString() == "Grupo").ToList())
+                {
+                    dgvPermisosSeleccionados.Rows.Remove(row);
+                }
+            }
+        }
+
+        private void chbAccion_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbAccion.Checked)
+            {
+                string descripcionRol = txtDescripcion.Text.ToUpper();
+                List<Accion> acciones = new ControladorGymAccion().ListarTodo();
+
+                foreach (Accion accion in acciones)
+                {
+                    // Validar si ya existe
+                    bool yaExiste = dgvPermisosSeleccionados.Rows
+                        .Cast<DataGridViewRow>()
+                        .Any(r => r.Cells["TipoPermiso"].Value.ToString() == "Accion" &&
+                                  Convert.ToInt32(r.Cells["IdAccion"].Value) == accion.IdAccion);
+
+                    if (!yaExiste)
+                    {
+                        dgvPermisosSeleccionados.Rows.Add(
+                            descripcionRol,
+                            "Accion",
+                            "-",
+                            accion.NombreAccion,
+                            accion.Descripcion,
+                            DBNull.Value,
+                            accion.IdAccion
+                        );
+                    }
+                }
+            }
+            else
+            {
+                // Si desmarcás, podés remover solo las acciones
+                foreach (DataGridViewRow row in dgvPermisosSeleccionados.Rows.Cast<DataGridViewRow>().Where(r => r.Cells["TipoPermiso"].Value.ToString() == "Accion").ToList())
+                {
+                    dgvPermisosSeleccionados.Rows.Remove(row);
+                }
+            }
         }
     }
 }

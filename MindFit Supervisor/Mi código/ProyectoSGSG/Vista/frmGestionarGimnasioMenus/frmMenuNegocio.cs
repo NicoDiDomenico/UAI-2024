@@ -17,6 +17,8 @@ using System.IO;
 using Modelo;
 using Controlador;
 
+using System.Windows.Forms.DataVisualization.Charting;
+
 namespace Vista
 {
     public partial class frmMenuNegocio : Form
@@ -224,6 +226,48 @@ namespace Vista
             // --- Generación del PDF ---
             if (guardar.ShowDialog() == DialogResult.OK)
             {
+                //// --- Generar gráfico de estados dinámicamente ---
+                Dictionary<string, int> conteoEstados = new ControladorGymSocio().ContarSociosPorEstado();
+
+                var chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+                chart.Width = 600;
+                chart.Height = 400;
+                chart.BackColor = System.Drawing.Color.White;
+
+                chart.ChartAreas.Add(new System.Windows.Forms.DataVisualization.Charting.ChartArea());
+
+                chart.Legends.Add(new Legend("EstadoSocio")
+                {
+                    Docking = Docking.Right,
+                    Alignment = StringAlignment.Center
+                });
+
+                var series = new Series
+                {
+                    ChartType = SeriesChartType.Pie,
+                    IsValueShownAsLabel = true,
+                    Label = "#VAL (#PERCENT)", // Ej: 5 (25.0%)
+                    LegendText = "#VALX" // Texto en la leyenda
+                };
+
+                foreach (var kvp in conteoEstados)
+                {
+                    series.Points.AddXY(kvp.Key, kvp.Value);
+                }
+
+                chart.Series.Add(series);
+
+                // Guardar el gráfico en memoria
+                MemoryStream chartImageStream = new MemoryStream();
+                chart.SaveImage(chartImageStream, System.Windows.Forms.DataVisualization.Charting.ChartImageFormat.Png);
+                chartImageStream.Position = 0;
+
+                // Convertirlo a imagen para iTextSharp
+                iTextSharp.text.Image graficoEstadosImg = iTextSharp.text.Image.GetInstance(chartImageStream);
+                graficoEstadosImg.ScaleToFit(400f, 300f);
+                graficoEstadosImg.Alignment = Element.ALIGN_CENTER;
+                ////
+
                 using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
                 {
                     Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
@@ -234,6 +278,19 @@ namespace Vista
                     using (StringReader sr = new StringReader(paginahtml_texto))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+
+                        pdfDoc.Add(new Paragraph("\n")); // Espacio vertical
+
+                        //// Título del gráfico
+                        var fuenteTitulo = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14f, iTextSharp.text.Font.BOLD);
+                        var tituloGrafico = new Paragraph("Distribución de Socios por Estado", fuenteTitulo);
+                        tituloGrafico.Alignment = Element.ALIGN_CENTER;
+                        pdfDoc.Add(tituloGrafico);
+
+                        // Insertar gráfico
+                        pdfDoc.Add(graficoEstadosImg);
+                        ////
+
                     }
 
                     pdfDoc.Close();
