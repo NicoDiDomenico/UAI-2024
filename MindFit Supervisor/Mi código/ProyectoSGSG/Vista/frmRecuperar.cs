@@ -12,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Controlador.Observer;
+
 namespace Vista
 {
     public partial class frmRecuperar : Form
@@ -58,7 +60,8 @@ namespace Vista
                 MessageBox.Show("Ingrese un correo válido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-        public static class CorreoHelper
+        /*
+        public static class CorreoHelper // Lo mande a EmailUtilidades
         {
             public static bool EnviarCorreo(string destino, string asunto, string cuerpo)
             {
@@ -92,6 +95,7 @@ namespace Vista
                 }
             }
         }
+        */
         #endregion
 
         public frmRecuperar()
@@ -154,7 +158,8 @@ namespace Vista
             string asunto = "Verificación de cambio de contraseña";
             string cuerpo = $"Hola {usuarioActual.NombreYApellido},\n\nTu código de verificación es: {codigoVerificacionGenerado}\n\nSi no pediste este cambio, ignorá este mensaje.";
 
-            bool enviado = CorreoHelper.EnviarCorreo(usuarioActual.Email, asunto, cuerpo); // Usá tu clase de envío
+            //bool enviado = CorreoHelper.EnviarCorreo(usuarioActual.Email, asunto, cuerpo);
+            bool enviado = EmailUtilidades.EnviarCorreo(usuarioActual.Email, asunto, cuerpo);
 
             if (enviado)
             {

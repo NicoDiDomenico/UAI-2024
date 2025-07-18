@@ -234,6 +234,18 @@ namespace Vista
             // Obtener el rango horario seleccionado
             OpcionComboRangoHorario seleccion = (OpcionComboRangoHorario)cboRangoHorario.SelectedItem;
 
+            // Validar si el socio tiene rutina activa para el día seleccionado
+            string diaSeleccionado = dtpFechaTurno.Value.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
+
+            // Usamos el controlador para consultar si el socio tiene rutina para ese día
+            bool tieneRutinaEseDia = new ControladorGymRutina().TieneRutinaActivaEnDia(idSocioSeleccionado, diaSeleccionado);
+
+            if (!tieneRutinaEseDia)
+            {
+                MessageBox.Show($"El socio no tiene asignada una rutina para el día {diaSeleccionado}. No se puede registrar el turno.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // Crear el objeto Turno con las validaciones correctas
             Turno nuevoTurno = new Turno()
             {

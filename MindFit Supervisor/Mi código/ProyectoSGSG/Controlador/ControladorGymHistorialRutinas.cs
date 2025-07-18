@@ -79,5 +79,10 @@ namespace Controlador
                 return false;
             }
         }
+
+        public Dictionary<string, int> ObtenerCantidadModificacionesPorDia(int idSocio)
+        {
+            return daoHistorialRutina.ObtenerCantidadModificacionesPorDia(idSocio);
+        }
     }
 }

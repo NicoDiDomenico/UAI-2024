@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DAO
 {
@@ -250,7 +251,34 @@ namespace DAO
                 Console.WriteLine("Error al desactivar rutina: " + ex.Message);
                 resultado = false;
             }
+            return resultado;
+        }
 
+        public bool TieneRutinaActivaEnDia(int idSocio, string dia)
+        {
+            bool resultado = false;
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                string query = "SELECT COUNT(*) FROM Rutina WHERE IdSocio = @idSocio AND Dia = @dia AND Activa = 1";
+
+                using (SqlCommand cmd = new SqlCommand(query, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@idSocio", idSocio);
+                    cmd.Parameters.AddWithValue("@dia", dia);
+
+                    try
+                    {
+                        conexion.Open();
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        resultado = count > 0;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al validar la rutina: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
             return resultado;
         }
     }

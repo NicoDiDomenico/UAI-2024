@@ -62,6 +62,10 @@
     <Compile Include="ControladorGymSocio.cs" />
     <Compile Include="ControladorGymTurno.cs" />
     <Compile Include="ControladorGymUsuario.cs" />
+    <Compile Include="Observer\EmailObserver.cs" />
+    <Compile Include="Observer\EmailUtilidades.cs" />
+    <Compile Include="Observer\GestorRenovacionCuota.cs" />
+    <Compile Include="Observer\ICuotaObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,15 +2,12 @@
 using Controlador;
 using FontAwesome.Sharp;
 using iTextSharp.text.pdf;
-using iTextSharp.text;
 using iTextSharp.tool.xml;
 using Modelo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +15,10 @@ using System.Windows.Forms;
 using Vista.Utilidades;
 
 using System.Windows.Forms.DataVisualization.Charting;
-
+using System.IO;
+using iTextSharp.text;
+using System.Drawing;
+using System.Globalization; // Asegurate de tener este using
 
 namespace Vista
 {
@@ -32,6 +32,8 @@ namespace Vista
         private Rutina RutinaSeleccionada;
         private Usuario usuario;
         private string DiaRestaurado = "";
+        private string DiaActual = DateTime.Now.DayOfWeek.ToString();
+        private string entrenadorActual;
         #endregion
         #region "Métodos"
         private void cargarCBO()
@@ -1263,6 +1265,55 @@ namespace Vista
             btnViernes.Enabled = false;
             btnSabado.Enabled = false;
         }
+
+        private byte[] CrearGraficoHistorial(Dictionary<string, int> dataHistorial)
+        {
+            Chart chart = new Chart();
+            chart.Width = 600;
+            chart.Height = 300;
+
+            ChartArea chartArea = new ChartArea();
+            chartArea.AxisX.Title = "Día";
+            chartArea.AxisY.Title = "Cantidad de Modificaciones";
+            chartArea.AxisX.MajorGrid.LineColor = Color.LightGray;
+            chartArea.AxisY.MajorGrid.LineColor = Color.LightGray;
+            chartArea.AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dash;
+            chart.ChartAreas.Add(chartArea);
+
+            Series series = new Series
+            {
+                ChartType = SeriesChartType.Column,
+                Color = Color.SkyBlue,
+                IsValueShownAsLabel = true,
+                LabelForeColor = Color.Black
+            };
+
+            foreach (var kvp in dataHistorial)
+            {
+                series.Points.AddXY(kvp.Key, kvp.Value);
+            }
+
+            chart.Series.Add(series);
+            chart.Legends.Clear();
+
+            // Nuevo título más representativo
+            Title titulo = new Title
+            {
+                Text = "Historial de modificaciones semanales de la rutina",
+                Font = new System.Drawing.Font("Arial", 12, FontStyle.Bold),
+                ForeColor = Color.Black,
+                Alignment = ContentAlignment.TopCenter
+            };
+
+            chart.Titles.Add(titulo);
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                chart.SaveImage(stream, ChartImageFormat.Png);
+                return stream.ToArray();
+            }
+        }
+
         #endregion
 
         public frmGestionarRutinas(Usuario usuarioActual, string dia = "")
@@ -1370,6 +1421,9 @@ namespace Vista
 
                     // Activar el check2 solo en la fila clickeada
                     dgvDataEntrenador.Rows[indice].Cells["Seleccionado"].Value = true;
+
+                    // Gaurdo el entrenador actual
+                    entrenadorActual = (string)dgvDataEntrenador.Rows[indice].Cells["NombreYApellido"].Value; ;
 
                     // Refrescar la vista
                     dgvDataEntrenador.Refresh();
@@ -1480,31 +1534,37 @@ namespace Vista
         private void btnLunes_Click(object sender, EventArgs e)
         {
             SeleccionarDia("Lunes", btnLunes);
+            DiaActual = "Lunes";
         }
 
         private void btnMartes_Click(object sender, EventArgs e)
         {
             SeleccionarDia("Martes", btnMartes);
+            DiaActual = "Martes";
         }
 
         private void btnMiercoles_Click(object sender, EventArgs e)
         {
             SeleccionarDia("Miércoles", btnMiercoles); // ¡Con tilde!
+            DiaActual = "Miércoles";
         }
 
         private void btnJueves_Click(object sender, EventArgs e)
         {
             SeleccionarDia("Jueves", btnJueves);
+            DiaActual = "Jueves";
         }
 
         private void btnViernes_Click(object sender, EventArgs e)
         {
             SeleccionarDia("Viernes", btnViernes);
+            DiaActual = "Viernes";
         }
 
         private void btnSabado_Click(object sender, EventArgs e)
         {
             SeleccionarDia("Sábado", btnSabado); // ¡Con tilde!
+            DiaActual = "Sábado";
         }
 
         private void btnAgregarFilaCalentamiento_Click(object sender, EventArgs e)
@@ -1665,6 +1725,8 @@ namespace Vista
                 paginahtml_texto = paginahtml_texto.Replace("@DIRECCION", socioActual.Direccion);
                 paginahtml_texto = paginahtml_texto.Replace("@TELEFONO", socioActual.Telefono);
                 paginahtml_texto = paginahtml_texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
+                paginahtml_texto = paginahtml_texto.Replace("@DIA", DiaActual);
+                paginahtml_texto = paginahtml_texto.Replace("@ENTRENADOR", entrenadorActual);
 
                 // 2. Reemplazar las secciones dinámicamente
 
@@ -1725,6 +1787,18 @@ namespace Vista
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                     }
+
+                    // 4. Agregar gráfico de historial
+                    var dataHistorial = new ControladorGymHistorialRutinas().ObtenerCantidadModificacionesPorDia(IdSocioActual);
+                    byte[] graficoBytes = CrearGraficoHistorial(dataHistorial);
+
+                    // Convertir a imagen para iTextSharp
+                    iTextSharp.text.Image grafico = iTextSharp.text.Image.GetInstance(graficoBytes);
+                    grafico.Alignment = Element.ALIGN_CENTER;
+                    grafico.ScaleToFit(500f, 300f); // ajusta tamaño
+
+                    pdfDoc.Add(new Paragraph("\n\n")); // espacio
+                    pdfDoc.Add(grafico);
 
                     pdfDoc.Close();
                     stream.Close();

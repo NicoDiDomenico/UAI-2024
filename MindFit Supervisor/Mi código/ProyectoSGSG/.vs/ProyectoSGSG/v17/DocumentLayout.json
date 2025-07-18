@@ -3,20 +3,40 @@
   "WorkspaceRootPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmhistorialrutinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmhistorialrutinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmeditarsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmeditarsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionarrutinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionarrutinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmeditarsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmeditarsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\resources\\plantillarutina.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\resources\\plantillarutina.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\controlador\\observer\\gestorrenovacioncuota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\observer\\gestorrenovacioncuota.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmgestionarrutinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionarrutinas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\controlador\\observer\\icuotaobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\observer\\icuotaobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmrecuperar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmrecuperar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\controlador\\controladorgymsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\controladorgymsocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\controlador\\observer\\emailobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\observer\\emailobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\controlador\\observer\\emailutilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\observer\\emailutilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|c:\\githubproyectos\\uai-2024\\mindfit supervisor\\mi c\u00F3digo\\proyectosgsg\\vista\\frmrecuperar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmrecuperar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,52 +54,117 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmHistorialRutinas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmHistorialRutinas.cs",
-              "RelativeDocumentMoniker": "Vista\\frmHistorialRutinas.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmHistorialRutinas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\frmHistorialRutinas.cs [Dise\u00F1o]",
+              "DocumentIndex": 5,
+              "Title": "ControladorGymSocio.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymSocio.cs",
+              "RelativeDocumentMoniker": "Controlador\\ControladorGymSocio.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\ControladorGymSocio.cs",
+              "RelativeToolTip": "Controlador\\ControladorGymSocio.cs",
+              "ViewState": "AQIAAFgAAAAAAAAAAAAUwGcAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-17T02:44:32.947Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "plantillaRutina.html",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\Resources\\plantillaRutina.html",
-              "RelativeDocumentMoniker": "Vista\\Resources\\plantillaRutina.html",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\Resources\\plantillaRutina.html",
-              "RelativeToolTip": "Vista\\Resources\\plantillaRutina.html",
-              "ViewState": "AQIAADUAAAAAAAAAAAAAAEsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-07-16T23:23:10.305Z",
+              "WhenOpened": "2025-07-18T05:33:08.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmGestionarRutinas.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarRutinas.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarRutinas.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarRutinas.cs",
-              "RelativeToolTip": "Vista\\frmGestionarRutinas.cs",
-              "ViewState": "AQIAAIYGAAAAAAAAAAD4v3EGAAAMAAAA",
+              "DocumentIndex": 6,
+              "Title": "EmailObserver.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\EmailObserver.cs",
+              "RelativeDocumentMoniker": "Controlador\\Observer\\EmailObserver.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\EmailObserver.cs",
+              "RelativeToolTip": "Controlador\\Observer\\EmailObserver.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T23:18:33.56Z",
+              "WhenOpened": "2025-07-18T05:15:29.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "EmailUtilidades.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\EmailUtilidades.cs",
+              "RelativeDocumentMoniker": "Controlador\\Observer\\EmailUtilidades.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\EmailUtilidades.cs",
+              "RelativeToolTip": "Controlador\\Observer\\EmailUtilidades.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA7wCsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T05:15:27.604Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "frmGestionarRutinas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarRutinas.cs",
-              "RelativeDocumentMoniker": "Vista\\frmGestionarRutinas.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmGestionarRutinas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\frmGestionarRutinas.cs [Dise\u00F1o]",
+              "Title": "ICuotaObserver.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\ICuotaObserver.cs",
+              "RelativeDocumentMoniker": "Controlador\\Observer\\ICuotaObserver.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\ICuotaObserver.cs",
+              "RelativeToolTip": "Controlador\\Observer\\ICuotaObserver.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T23:17:39.988Z",
+              "WhenOpened": "2025-07-18T05:15:15.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GestorRenovacionCuota.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\GestorRenovacionCuota.cs",
+              "RelativeDocumentMoniker": "Controlador\\Observer\\GestorRenovacionCuota.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Controlador\\Observer\\GestorRenovacionCuota.cs",
+              "RelativeToolTip": "Controlador\\Observer\\GestorRenovacionCuota.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAiwBAAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T03:24:12.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmEditarSocio.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmEditarSocio.cs",
+              "RelativeDocumentMoniker": "Vista\\frmEditarSocio.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmEditarSocio.cs",
+              "RelativeToolTip": "Vista\\frmEditarSocio.cs",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAUwEYBAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T03:12:47.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmEditarSocio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmEditarSocio.cs",
+              "RelativeDocumentMoniker": "Vista\\frmEditarSocio.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmEditarSocio.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\frmEditarSocio.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T03:12:41.856Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmRecuperar.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmRecuperar.cs",
+              "RelativeDocumentMoniker": "Vista\\frmRecuperar.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmRecuperar.cs",
+              "RelativeToolTip": "Vista\\frmRecuperar.cs",
+              "ViewState": "AQIAALAAAAAAAAAAAAAkwMkAAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T04:30:01.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmRecuperar.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmRecuperar.cs",
+              "RelativeDocumentMoniker": "Vista\\frmRecuperar.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\MindFit Supervisor\\Mi c\u00F3digo\\ProyectoSGSG\\Vista\\frmRecuperar.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\frmRecuperar.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T04:29:54.857Z",
               "EditorCaption": " [Dise\u00F1o]"
             }
           ]

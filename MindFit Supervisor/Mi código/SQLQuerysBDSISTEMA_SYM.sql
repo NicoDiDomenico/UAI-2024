@@ -3760,3 +3760,5 @@ VALUES (
 -- select * from HistorialRutinas --> No tiene nada
 
 select * from HistorialRutina
+
+select * from rutina

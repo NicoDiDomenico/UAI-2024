@@ -7,10 +7,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows.Forms;
+
+using Controlador.Observer;
 
 namespace Vista
 {
@@ -23,7 +26,7 @@ namespace Vista
         private static DateTime? iFechaFinActividades; // Ahora puede ser null
         private static DateTime? iFechaNotificacion; // Ahora puede ser null
         private static bool? iRespuestaNotificacion; // Ahora puede ser null
-
+        private static bool cuotaRenovada;
         #endregion
         #region "Metodos"
         private void BloquearCampos()
@@ -138,6 +141,7 @@ namespace Vista
         }
         private void frmEditarSocio_Load(object sender, EventArgs e)
         {
+            cuotaRenovada = false;
             BloquearCampos();
 
             // Para ComboBox de Genero
@@ -313,6 +317,14 @@ namespace Vista
 
             if (socioActualzado)
             {
+                // Luego de actualizar el socio, notificar por correo
+                if (cuotaRenovada)
+                {
+                    GestorRenovacionCuota gestor = new GestorRenovacionCuota();
+                    gestor.AgregarObserver(new EmailObserver());
+                    gestor.NotificarSolo(socio); // Este método solo notifica, no actualiza
+                }
+
                 MessageBox.Show("Socio actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -465,12 +477,12 @@ namespace Vista
                     if (chkMensual.Checked)
                     {
                         iFechaFinActividades = iFechaFinActividades.Value.AddDays(30);
-                        iFechaNotificacion = iFechaFinActividades.Value.AddDays(29); // Esto esta como el culo porque es 30+29 y no solo +29
+                        iFechaNotificacion = iFechaFinActividades.Value.AddDays(-1); // En la BD algunos quedaron mal
                     }
                     else if (chkAnual.Checked) // Verificar si es anual
                     {
                         iFechaFinActividades = iFechaFinActividades.Value.AddDays(365);
-                        iFechaNotificacion = iFechaFinActividades.Value.AddDays(364);
+                        iFechaNotificacion = iFechaFinActividades.Value.AddDays(-1); // En la BD algunos quedaron mal
                     }
                     else
                     {
@@ -495,6 +507,7 @@ namespace Vista
                         return; // Evita que continúe el código si no hay plan seleccionado
                     }
                 }
+
                 // Actualizar el estado del socio a "Actualizado"
                 foreach (OpcionCombo oc in cboEstado.Items)
                 {
@@ -510,6 +523,7 @@ namespace Vista
                 panelRecuperar.Visible = false;
                 panelEliminar.Visible = false;
 
+                cuotaRenovada = true;
                 MessageBox.Show("Cuota renovada correctamente.\n¡Debe confirmar para guardar los cambios!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

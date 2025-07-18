@@ -214,5 +214,45 @@ namespace DAO
 
             return exito;
         }
+
+        public Dictionary<string, int> ObtenerCantidadModificacionesPorDia(int idSocio)
+        {
+            Dictionary<string, int> resultado = new Dictionary<string, int>()
+            {
+                { "Lunes", 0 },
+                { "Martes", 0 },
+                { "Miércoles", 0 },
+                { "Jueves", 0 },
+                { "Viernes", 0 },
+                { "Sábado", 0 }
+            };
+
+            string query = @"
+                SELECT Dia, COUNT(*) as Cantidad
+                FROM HistorialRutina
+                WHERE IdSocio = @IdSocio
+                GROUP BY Dia
+            ";
+
+            using (SqlConnection conexion = new SqlConnection(Conexion.cadena))
+            {
+                SqlCommand cmd = new SqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@IdSocio", idSocio);
+
+                conexion.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string dia = reader["Dia"].ToString();
+                    int cantidad = Convert.ToInt32(reader["Cantidad"]);
+
+                    if (resultado.ContainsKey(dia))
+                        resultado[dia] = cantidad;
+                }
+            }
+
+            return resultado;
+        }
     }
 }

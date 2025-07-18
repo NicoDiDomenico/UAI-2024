@@ -87,5 +87,10 @@ namespace Controlador
                 return false;
             }
         }
+
+        public bool TieneRutinaActivaEnDia(int idSocio, string dia)
+        {
+            return daoRutina.TieneRutinaActivaEnDia(idSocio, dia);
+        }
     }
 }
