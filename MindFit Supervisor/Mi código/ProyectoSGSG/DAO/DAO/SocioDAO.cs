@@ -325,7 +325,7 @@ namespace DAO
                         INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
                         WHERE u.IdUsuario = @IdEntrenador 
                         AND t.IdRangoHorario = @idRangoHorarioActual 
-                        AND t.EstadoTurno = 'En Curso'
+                        AND t.EstadoTurno IN ('En Curso', 'Finalizado')
                     ";
 
                     using (SqlCommand cmd = new SqlCommand(query, oconexion))

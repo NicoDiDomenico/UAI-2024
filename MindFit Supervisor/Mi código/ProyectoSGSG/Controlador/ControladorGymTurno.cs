@@ -7,27 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Controlador.State.Turno; // arriba del archivo
+
 namespace Controlador
 {
     public class ControladorGymTurno
     {
         private TurnoDAO daoTurno = new TurnoDAO();
-        private string GenerarCodigoIngreso()
-        {
-            const string caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            Random random = new Random();
-            string codigoGenerado;
-            HashSet<string> codigosExistentes = daoTurno.ObtenerCodigosExistentes();
-
-            do
-            {
-                codigoGenerado = new string(Enumerable.Repeat(caracteres, 4)
-                    .Select(s => s[random.Next(s.Length)]).ToArray());
-            }
-            while (codigosExistentes.Contains(codigoGenerado)); // Asegurar que sea único
-
-            return codigoGenerado;
-        }
        
         public List<Turno> Listar(int idSocioSeleccionado)
         {
@@ -35,11 +21,8 @@ namespace Controlador
 
             foreach (Turno turno in turnos)
             {
-                if (turno.FechaTurno < DateTime.Today && turno.EstadoTurno != "Finalizado" && turno.EstadoTurno != "Cancelado" && turno.EstadoTurno != "Vencido") // No implementado "Vencido"
-                {
-                    turno.EstadoTurno = "Cancelado";
-                    daoTurno.ModificarEstadoTurno(turno.IdTurno, turno.EstadoTurno, turno.FechaTurno);
-                }
+                var estado = EstadoFactoryTurno.ObtenerEstado(turno.EstadoTurno);
+                estado?.Evaluar(turno, daoTurno);
             }
 
             return turnos;
@@ -47,9 +30,21 @@ namespace Controlador
 
         public int Registrar(Turno obj, out string mensaje)
         {
+            /*
             obj.CodigoIngreso = GenerarCodigoIngreso();
             obj.EstadoTurno = "En Curso"; // RF21
             return daoTurno.Registrar(obj, out mensaje);
+            */
+            obj.EstadoTurno = "En Curso"; // RF21
+            var estado = EstadoFactoryTurno.ObtenerEstado(obj.EstadoTurno);
+
+            if (estado == null)
+            {
+                mensaje = "El estado del turno no es válido.";
+                return -1;
+            }
+
+            return estado.Registrar(obj, daoTurno, out mensaje);
         }
 
         public bool Eliminar(int idTurno, int horarioId, DateTime fechaTurno, out string mensaje)
@@ -64,7 +59,10 @@ namespace Controlador
         }
         public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario, DateTime fechaTurno)
         {
-            return daoTurno.ActualizarEstadoTurno(idTurno, idRangoHorario, fechaTurno);
+
+            var estado = EstadoFactoryTurno.ObtenerEstado("Finalizado");
+            if (estado == null) return false;
+            return estado.ActualizarEstadoTurno(idTurno, daoTurno, idRangoHorario, fechaTurno);
         }
 
         public List<Turno> ListarTurnosHorarioActual()

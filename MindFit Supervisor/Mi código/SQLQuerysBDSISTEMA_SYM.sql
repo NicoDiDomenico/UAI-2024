@@ -3762,3 +3762,14 @@ VALUES (
 select * from HistorialRutina
 
 select * from rutina
+
+select * from Turno
+
+SELECT s.IdSocio, s.NombreYApellido, t.EstadoTurno
+FROM Socio s
+INNER JOIN Turno t ON s.IdSocio = t.IdSocio
+INNER JOIN Usuario u ON t.IdUsuario = u.IdUsuario
+INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
+WHERE u.IdUsuario = 1
+AND t.IdRangoHorario = 8 
+AND t.EstadoTurno IN ('En Curso', 'Finalizado')

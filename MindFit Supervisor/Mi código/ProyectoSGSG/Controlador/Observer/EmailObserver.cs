@@ -8,7 +8,7 @@ using Modelo;
 
 namespace Controlador.Observer
 {
-    public class EmailObserver : ICuotaObserver
+    public class EmailObserver : ICuotaObserver // Obervador
     {
         public void NotificarRenovacion(Socio socio)
         {
