@@ -45,7 +45,8 @@ namespace Vista
             }
 
             // Si el código es válido, actualizar el estado del turno y restar el cupo
-            bool actualizado = new ControladorGymTurno().ActualizarEstadoTurno(idTurno, idRangoHorario, fechaTurno);
+            string EstadoTurno = "Finalizado";
+            bool actualizado = new ControladorGymTurno().ActualizarEstadoTurno(idTurno, idRangoHorario, fechaTurno, EstadoTurno);
 
             if (actualizado)
             {

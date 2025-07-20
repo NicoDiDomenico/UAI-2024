@@ -28,6 +28,11 @@ namespace Controlador
             return turnos;
         }
 
+        public Turno getTurno(int idTurno)
+        {
+            return daoTurno.getTurno(idTurno);
+        }
+
         public int Registrar(Turno obj, out string mensaje)
         {
             /*
@@ -57,10 +62,11 @@ namespace Controlador
         {
             return daoTurno.ValidarCodigoIngreso(codigo, out idTurno, out idRangoHorario, out fechaTurno, out mensaje);
         }
-        public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario, DateTime fechaTurno)
+
+        public bool ActualizarEstadoTurno(int idTurno, int idRangoHorario, DateTime fechaTurno, string EstadoTurno)
         {
 
-            var estado = EstadoFactoryTurno.ObtenerEstado("Finalizado");
+            var estado = EstadoFactoryTurno.ObtenerEstado(EstadoTurno);
             if (estado == null) return false;
             return estado.ActualizarEstadoTurno(idTurno, daoTurno, idRangoHorario, fechaTurno);
         }

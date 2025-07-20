@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accion.cs" />
+    <Compile Include="AuditoriaAcceso.cs" />
+    <Compile Include="AuditoriaTurno.cs" />
     <Compile Include="Calentamiento.cs" />
     <Compile Include="CupoFecha.cs" />
     <Compile Include="Ejercicio.cs" />

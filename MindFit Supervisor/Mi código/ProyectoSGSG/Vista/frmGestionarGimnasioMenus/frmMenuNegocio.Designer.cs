@@ -62,6 +62,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnReporte = new FontAwesome.Sharp.IconButton();
+            this.btnAuditoria = new FontAwesome.Sharp.IconButton();
+            this.panel6 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -85,7 +87,7 @@
             this.btnGuardar.IconColor = System.Drawing.Color.Black;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGuardar.IconSize = 20;
-            this.btnGuardar.Location = new System.Drawing.Point(347, 606);
+            this.btnGuardar.Location = new System.Drawing.Point(216, 602);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(118, 29);
             this.btnGuardar.TabIndex = 24;
@@ -132,7 +134,7 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(42, 9);
+            this.label9.Location = new System.Drawing.Point(24, 9);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(165, 25);
             this.label9.TabIndex = 23;
@@ -146,7 +148,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(699, 812);
+            this.label1.Size = new System.Drawing.Size(552, 812);
             this.label1.TabIndex = 22;
             // 
             // groupBox2
@@ -154,7 +156,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.groupBox2.Controls.Add(this.picLogo);
             this.groupBox2.Controls.Add(this.btnSubir);
-            this.groupBox2.Location = new System.Drawing.Point(135, 37);
+            this.groupBox2.Location = new System.Drawing.Point(68, 37);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(419, 207);
             this.groupBox2.TabIndex = 25;
@@ -174,17 +176,17 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Location = new System.Drawing.Point(47, 259);
+            this.panel1.Location = new System.Drawing.Point(13, 259);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 330);
+            this.panel1.Size = new System.Drawing.Size(526, 330);
             this.panel1.TabIndex = 27;
             // 
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(15, 192);
             this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(561, 20);
+            this.txtCorreo.Size = new System.Drawing.Size(492, 20);
             this.txtCorreo.TabIndex = 41;
             // 
             // label14
@@ -207,7 +209,7 @@
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.panel4);
             this.groupBox3.Controls.Add(this.panel5);
-            this.groupBox3.Location = new System.Drawing.Point(342, 228);
+            this.groupBox3.Location = new System.Drawing.Point(272, 228);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(235, 79);
             this.groupBox3.TabIndex = 39;
@@ -403,21 +405,21 @@
             // 
             this.txtNombre.Location = new System.Drawing.Point(16, 44);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(561, 20);
+            this.txtNombre.Size = new System.Drawing.Size(492, 20);
             this.txtNombre.TabIndex = 29;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(16, 93);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(561, 20);
+            this.txtTelefono.Size = new System.Drawing.Size(492, 20);
             this.txtTelefono.TabIndex = 28;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(16, 144);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(561, 20);
+            this.txtDireccion.Size = new System.Drawing.Size(492, 20);
             this.txtDireccion.TabIndex = 27;
             // 
             // label4
@@ -462,7 +464,7 @@
             this.btnReporte.IconColor = System.Drawing.Color.Black;
             this.btnReporte.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReporte.IconSize = 20;
-            this.btnReporte.Location = new System.Drawing.Point(213, 606);
+            this.btnReporte.Location = new System.Drawing.Point(82, 602);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(118, 29);
             this.btnReporte.TabIndex = 28;
@@ -472,12 +474,43 @@
             this.btnReporte.UseVisualStyleBackColor = false;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
+            // btnAuditoria
+            // 
+            this.btnAuditoria.BackColor = System.Drawing.Color.Silver;
+            this.btnAuditoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnAuditoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAuditoria.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAuditoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAuditoria.ForeColor = System.Drawing.Color.Black;
+            this.btnAuditoria.IconChar = FontAwesome.Sharp.IconChar.UsersGear;
+            this.btnAuditoria.IconColor = System.Drawing.Color.Black;
+            this.btnAuditoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAuditoria.IconSize = 20;
+            this.btnAuditoria.Location = new System.Drawing.Point(350, 602);
+            this.btnAuditoria.Name = "btnAuditoria";
+            this.btnAuditoria.Size = new System.Drawing.Size(118, 29);
+            this.btnAuditoria.TabIndex = 29;
+            this.btnAuditoria.Text = "Auditoria";
+            this.btnAuditoria.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAuditoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAuditoria.UseVisualStyleBackColor = false;
+            this.btnAuditoria.Click += new System.EventHandler(this.btnAuditoria_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(558, 9);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1207, 622);
+            this.panel6.TabIndex = 30;
+            // 
             // frmMenuNegocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(76)))), ((int)(((byte)(127)))));
             this.ClientSize = new System.Drawing.Size(1772, 812);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.btnAuditoria);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnGuardar);
@@ -539,5 +572,7 @@
         private FontAwesome.Sharp.IconButton btnReporte;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.Label label14;
+        private FontAwesome.Sharp.IconButton btnAuditoria;
+        private System.Windows.Forms.Panel panel6;
     }
 }

@@ -41,6 +41,62 @@ namespace DAO
             return codigos;
         }
 
+        public Turno getTurno(int idTurno)
+        {
+            Turno unTurno = null;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT IdTurno, IdRangoHorario, IdUsuario, IdSocio, FechaTurno, EstadoTurno, CodigoIngreso
+                        FROM Turno
+                        WHERE IdTurno = @IdTurno;
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@IdTurno", idTurno); // Fijate que ahora es idTurno
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            unTurno = new Turno
+                            {
+                                IdTurno = Convert.ToInt32(dr["IdTurno"]),
+                                unUsuario = new Usuario
+                                {
+                                    IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                },
+                                unSocio = new Socio
+                                {
+                                    IdSocio = Convert.ToInt32(dr["IdSocio"]),
+                                },
+                                unRangoHorario = new RangoHorario
+                                {
+                                    IdRangoHorario = Convert.ToInt32(dr["IdRangoHorario"])
+                                },
+                                FechaTurno = Convert.ToDateTime(dr["FechaTurno"]),
+                                EstadoTurno = dr["EstadoTurno"].ToString(),
+                                CodigoIngreso = dr["CodigoIngreso"].ToString()
+                            };
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error en getTurno: {ex.Message}");
+                    unTurno = null;
+                }
+            }
+
+            return unTurno;
+        }
+
         public bool ModificarEstadoTurno(int idTurno, string nuevoEstado, DateTime fechaTurno)
         {
             bool respuesta = false;
@@ -94,6 +150,7 @@ namespace DAO
                             respuesta = false;
                         }
                         */
+                        respuesta = filasAfectadas > 0;
                     }
                 }
             }

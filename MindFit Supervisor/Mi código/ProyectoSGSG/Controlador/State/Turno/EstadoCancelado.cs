@@ -11,7 +11,7 @@ namespace Controlador.State.Turno
 
         public bool ActualizarEstadoTurno(int idTurno, TurnoDAO daoTurno, int idRangoHorario, DateTime fechaTurno)
         {
-            throw new NotImplementedException();
+            return daoTurno.ModificarEstadoTurno(idTurno, "Cancelado", fechaTurno);
         }
 
         public void Evaluar(Modelo.Turno turno, TurnoDAO dao)

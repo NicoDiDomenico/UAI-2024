@@ -1,5 +1,6 @@
 ﻿using CapaPresentacion.Utilidades;
 using Controlador;
+using Controlador.State.Socio;
 using FontAwesome.Sharp;
 using Modelo;
 using System;
@@ -19,6 +20,7 @@ namespace Vista
         #region "Variables"
         private static Form formularioActivo = null;
         private static int idSocioSeleccionado;
+        private static string EstadoSocioSeleccionado;
         private static DateTime vencimientoCuota;
         private static string nombreSocioSeleccionado;
         private static Usuario usuario;
@@ -262,14 +264,23 @@ namespace Vista
 
                     // Guardar el IdSocio de la fila seleccionada
                     idSocioSeleccionado = Convert.ToInt32(dgvData.Rows[indice].Cells["IdSocio"].Value);
+                    EstadoSocioSeleccionado = Convert.ToString(dgvData.Rows[indice].Cells["EstadoSocio"].Value);
                     nombreSocioSeleccionado = Convert.ToString(dgvData.Rows[indice].Cells["NombreYApellido"].Value);
                     vencimientoCuota = Convert.ToDateTime(dgvData.Rows[indice].Cells["FechaFinActividades"].Value);
 
                     btnMenuConsultar.Enabled = true;
                     btnMenuConsultar.BackColor = Color.RoyalBlue;
 
-                    btnMenuEliminar.Enabled = true;
-                    btnMenuEliminar.BackColor = Color.Firebrick;
+                    if (EstadoSocioSeleccionado != "Eliminado")
+                    {
+                        btnMenuEliminar.Enabled = true;
+                        btnMenuEliminar.BackColor = Color.Firebrick;
+                    }
+                    else
+                    {
+                        btnMenuEliminar.Enabled = false;
+                        btnMenuEliminar.BackColor = Color.Gray;
+                    }
 
                     btnMenuTurno.Enabled = true;
                     btnMenuTurno.BackColor = Color.White;
@@ -321,6 +332,13 @@ namespace Vista
             }
 
             Socio socio = new Socio() { IdSocio = idSocioSeleccionado, FechaFinActividades = vencimientoCuota };
+
+            if (EstadoSocioSeleccionado == "Eliminado")
+            {
+                MessageBox.Show("Este socio ya fue eliminado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             bool eliminado = new ControladorGymSocio().ActualizarEstadoSocio(socio, "Eliminado");
 
             if (eliminado)

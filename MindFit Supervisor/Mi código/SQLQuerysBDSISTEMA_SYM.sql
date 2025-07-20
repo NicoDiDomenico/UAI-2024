@@ -3708,7 +3708,7 @@ INSERT INTO Socio (
     'Lucas Biagini',
     '1990-05-20',
     'Masculino',
-    30987654,
+    32987654,
     'Rosario',
     'Laprida 111',
     '3415550011',
@@ -3773,3 +3773,143 @@ INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
 WHERE u.IdUsuario = 1
 AND t.IdRangoHorario = 8 
 AND t.EstadoTurno IN ('En Curso', 'Finalizado')
+
+select * from Socio
+
+select * from Rutina
+
+select * from Turno
+
+select * from CupoFecha
+
+-- Insertar rutinas para el socio 14
+INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa) VALUES 
+(14, GETDATE(), 'Lunes', 0),
+(14, GETDATE(), 'Martes', 0),
+(14, GETDATE(), 'Miércoles', 0),
+(14, GETDATE(), 'Jueves', 0),
+(14, GETDATE(), 'Viernes', 0),
+(14, GETDATE(), 'Sábado', 0);
+
+-- Insertar rutinas para el socio 19
+INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa) VALUES 
+(19, GETDATE(), 'Lunes', 0),
+(19, GETDATE(), 'Martes', 0),
+(19, GETDATE(), 'Miércoles', 0),
+(19, GETDATE(), 'Jueves', 0),
+(19, GETDATE(), 'Viernes', 0),
+(19, GETDATE(), 'Sábado', 0);
+
+
+---- AUDITORIA
+-- TRAZABILIDAD: REALIZAR AUDITORÍA SOBRE AL MENOS UN ELEMENTO CRÍTICO QUE COMPONEN EL PRODUCTO, EL SISTEMA REGISTRARÁ LA TRAZABILIDAD COMPLETA DE DICHO ELEMENTO, DE MANERA TAL QUE PUEDA ESTABLECERSE EL ESTADO SITUACIÓN ORIGINAL DEL ELEMENTO Y SUS RESPECTIVAS TRANSFORMACIONES. DE ESTA FORMA PODRÁ CONOCERSE QUE USUARIO REALIZÓ UNA ACCIÓN, LA FECHA Y HORA EN QUE LO HIZO, QUE DATOS REGISTRÓ, MODIFICÓ O ELIMINÓ, Y CUÁLES ERAN LOS VALORES ORIGINALES.
+CREATE TABLE AuditoriaTurno (
+    IdAuditoria INT PRIMARY KEY IDENTITY,
+    IdTurno INT,
+    IdUsuario INT,
+    FechaHora DATETIME DEFAULT GETDATE(),
+    Accion VARCHAR(20), -- 'Insertar', 'Modificar', 'Eliminar'
+    DatosOriginales NVARCHAR(MAX),
+    DatosNuevos NVARCHAR(MAX)
+);
+
+CREATE TRIGGER trg_AuditoriaTurno
+ON Turno
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Accion VARCHAR(20);
+
+    -- INSERT
+    IF EXISTS (SELECT * FROM inserted) AND NOT EXISTS (SELECT * FROM deleted)
+    BEGIN
+        SET @Accion = 'Insertar';
+        INSERT INTO AuditoriaTurno (IdTurno, IdUsuario, Accion, DatosOriginales, DatosNuevos)
+        SELECT 
+            i.IdTurno,
+            i.IdUsuario,
+            @Accion,
+            NULL,
+            CONCAT(
+                'IdRangoHorario: ', i.IdRangoHorario, ', ',
+                'IdSocio: ', i.IdSocio, ', ',
+                'Fecha: ', CONVERT(VARCHAR, i.FechaTurno, 120), ', ',
+                'Estado: ', i.EstadoTurno, ', ',
+                'Codigo: ', i.CodigoIngreso
+            )
+        FROM inserted i;
+    END
+
+    -- UPDATE
+    IF EXISTS (SELECT * FROM inserted) AND EXISTS (SELECT * FROM deleted)
+    BEGIN
+        SET @Accion = 'Modificar';
+        INSERT INTO AuditoriaTurno (IdTurno, IdUsuario, Accion, DatosOriginales, DatosNuevos)
+        SELECT 
+            i.IdTurno,
+            i.IdUsuario,
+            @Accion,
+            CONCAT(
+                'IdRangoHorario: ', d.IdRangoHorario, ', ',
+                'IdSocio: ', d.IdSocio, ', ',
+                'Fecha: ', CONVERT(VARCHAR, d.FechaTurno, 120), ', ',
+                'Estado: ', d.EstadoTurno, ', ',
+                'Codigo: ', d.CodigoIngreso
+            ),
+            CONCAT(
+                'IdRangoHorario: ', i.IdRangoHorario, ', ',
+                'IdSocio: ', i.IdSocio, ', ',
+                'Fecha: ', CONVERT(VARCHAR, i.FechaTurno, 120), ', ',
+                'Estado: ', i.EstadoTurno, ', ',
+                'Codigo: ', i.CodigoIngreso
+            )
+        FROM inserted i
+        INNER JOIN deleted d ON i.IdTurno = d.IdTurno;
+    END
+
+    -- DELETE
+    IF NOT EXISTS (SELECT * FROM inserted) AND EXISTS (SELECT * FROM deleted)
+    BEGIN
+        SET @Accion = 'Eliminar';
+        INSERT INTO AuditoriaTurno (IdTurno, IdUsuario, Accion, DatosOriginales, DatosNuevos)
+        SELECT 
+            d.IdTurno,
+            d.IdUsuario,
+            @Accion,
+            CONCAT(
+                'IdRangoHorario: ', d.IdRangoHorario, ', ',
+                'IdSocio: ', d.IdSocio, ', ',
+                'Fecha: ', CONVERT(VARCHAR, d.FechaTurno, 120), ', ',
+                'Estado: ', d.EstadoTurno, ', ',
+                'Codigo: ', d.CodigoIngreso
+            ),
+            NULL
+        FROM deleted d;
+    END
+END;
+
+SELECT * FROM AuditoriaTurno ORDER BY FechaHora DESC;
+
+-- LOGIN-LOGOUT: ADEMÁS, DEBERÁ DESARROLLAR LA AUDITORÍA SOBRE LOS INICIOS Y CIERRES DE SESIÓN.
+CREATE TABLE AuditoriaAccesos (
+    IdAuditoria INT PRIMARY KEY IDENTITY,
+    IdUsuario INT NOT NULL,
+    FechaHora DATETIME DEFAULT GETDATE(),
+    TipoEvento VARCHAR(20) NOT NULL -- 'Login' o 'Logout'
+);
+
+CREATE TABLE AuditoriaAccesos (
+    IdAuditoria INT PRIMARY KEY IDENTITY,
+    IdUsuario INT NOT NULL,
+    FechaHora DATETIME DEFAULT GETDATE(),
+    TipoEvento VARCHAR(20) NOT NULL -- 'Login' o 'Logout'
+);
+
+SELECT * FROM AuditoriaAccesos ORDER BY FechaHora DESC;
+
+-- REPORTES: DEBERÁ INCLUIR EN EL SISTEMA REPORTES DE AUDITORÍA QUE MUESTREN ESTA INFORMACIÓN.
+
+SELECT * FROM AuditoriaTurno ORDER BY FechaHora DESC;
+SELECT * FROM AuditoriaAccesos ORDER BY FechaHora DESC;

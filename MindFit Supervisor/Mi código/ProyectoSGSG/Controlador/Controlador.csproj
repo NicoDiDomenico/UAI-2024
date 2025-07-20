@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControladorGymAccion.cs" />
+    <Compile Include="ControladorGymAuditoria.cs" />
+    <Compile Include="ControladorGymAuditoriaAcceso.cs" />
+    <Compile Include="ControladorGymAuditoriaTurno.cs" />
     <Compile Include="ControladorGymCalentamiento.cs" />
     <Compile Include="ControladorGymEjercicio.cs" />
     <Compile Include="ControladorGymElementoGimnasio.cs" />
@@ -67,6 +70,12 @@
     <Compile Include="Observer\GestorRenovacionCuota.cs" />
     <Compile Include="Observer\ICuotaObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\Socio\EstadoActualizado.cs" />
+    <Compile Include="State\Socio\EstadoEliminado.cs" />
+    <Compile Include="State\Socio\EstadoFactorySocio.cs" />
+    <Compile Include="State\Socio\EstadoNuevo.cs" />
+    <Compile Include="State\Socio\EstadoSuspendido.cs" />
+    <Compile Include="State\Socio\IEstadoSocio.cs" />
     <Compile Include="State\Turno\EstadoCancelado.cs" />
     <Compile Include="State\Turno\EstadoEnCurso.cs" />
     <Compile Include="State\Turno\EstadoFactoryTurno.cs" />

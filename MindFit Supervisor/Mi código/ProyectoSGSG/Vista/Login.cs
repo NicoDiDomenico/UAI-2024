@@ -36,6 +36,9 @@ namespace CapaPresentacion
 
                 if (unUsuario != null)
                 {
+                    // 🔹 Auditar login
+                    AuditoriaAccesosService.RegistrarEvento(unUsuario.IdUsuario, "Login");
+
                     Inicio form = new Inicio(unUsuario);
 
                     form.Show();

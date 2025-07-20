@@ -1,4 +1,6 @@
-﻿using DAO;
+﻿using Controlador.State.Turno;
+using Controlador.State.Socio;
+using DAO;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,7 @@ namespace Controlador
 
             foreach (Socio socio in socios)
             {
+                /*
                 // 👉 Evitar forzar el estado si ya es Eliminado
                 if (socio.EstadoSocio == "Eliminado")
                     continue;
@@ -33,6 +36,10 @@ namespace Controlador
                         objcd_Socio.ActualizarEstadoSocio(socio.IdSocio, socio.EstadoSocio);
                     }
                 }
+                */
+
+                var estado = EstadoFactorySocio.ObtenerEstado(socio.EstadoSocio);
+                estado?.ActualizarEstadoSocio(socio, objcd_Socio);
             }
 
             return socios;
@@ -76,7 +83,7 @@ namespace Controlador
         public bool RevertirAEstadoSuspendido(Socio socio, out string mensaje)
         {
             mensaje = "";
-
+            /*
             // Si ya está eliminado, verificar si se puede volver a suspender
             if (socio.EstadoSocio == "Eliminado")
             {
@@ -99,6 +106,10 @@ namespace Controlador
             // Si no está eliminado, no hace falta revertir
             mensaje = "El socio no está en estado Eliminado, no es necesario revertir.";
             return false;
+            */
+
+            var estado = EstadoFactorySocio.ObtenerEstado(socio.EstadoSocio);
+            return estado.VerificarSuspension(socio, out mensaje, objcd_Socio);
         }
 
         public Boolean Actualizar(Socio unSocio, out string mensaje)

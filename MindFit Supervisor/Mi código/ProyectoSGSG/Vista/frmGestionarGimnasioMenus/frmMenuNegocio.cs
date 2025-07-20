@@ -18,6 +18,7 @@ using Modelo;
 using Controlador;
 
 using System.Windows.Forms.DataVisualization.Charting;
+using FontAwesome.Sharp;
 
 namespace Vista
 {
@@ -91,6 +92,17 @@ namespace Vista
             }
         }
 
+        private void AbrirFormulario(Form formulario)
+        {
+            formulario.StartPosition = FormStartPosition.CenterScreen; // Centra la ventana
+            formulario.Load += (s, e) =>
+            {
+                // Ajustar la posición para que la ventana baje 50 píxeles desde la posición centrada
+                formulario.Top += 155;
+                formulario.Left += 276;
+            };
+            formulario.ShowDialog(); // Muestra como ventana modal
+        }
         #endregion
         public frmMenuNegocio()
         {
@@ -299,6 +311,14 @@ namespace Vista
 
                 MessageBox.Show("Reporte generado correctamente", "Reporte", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnAuditoria_Click(object sender, EventArgs e)
+        {
+            frmReporteAuditoria frmReporteAuditoria = new frmReporteAuditoria();
+
+            // Abre el formulario modal con la ubicación deseada
+            AbrirFormulario(frmReporteAuditoria);
         }
     }
 }

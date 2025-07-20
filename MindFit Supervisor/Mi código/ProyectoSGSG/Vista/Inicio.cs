@@ -289,6 +289,9 @@ namespace Vista
         {
             if (MessageBox.Show("¿Desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                // 🔹 Auditar logout
+                AuditoriaAccesosService.RegistrarEvento(usuarioActual.IdUsuario, "Logout");
+
                 this.Close();
             }
         }
@@ -300,6 +303,11 @@ namespace Vista
             dgvData.Rows.Clear();
             cargarGrid();
             cargarTxt();
+        }
+
+        private void menuTitulo_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
