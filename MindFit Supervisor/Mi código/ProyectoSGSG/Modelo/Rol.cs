@@ -12,5 +12,7 @@ namespace Modelo
         public string Descripcion { get; set; }
         public List<Permiso> Permisos { get; set; }
         public DateTime FechaRegistro { get; set; }
+
+        public List<string> Acciones {  get; set; }
     }
 }

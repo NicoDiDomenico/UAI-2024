@@ -59,8 +59,16 @@ namespace Vista
 
         private void validarPermisos()
         {
+            /*
+            Tipo de Permiso         |   Condición
+            ------------------------|----------------------------------------------------------
+            Grupo                   |   NombreMenuGrupo y NombreAccionGrupo no son null
+            Acción individual       |   NombreMenuAccion y NombreAccionIndividual no son null
+            Combinado               |   Ambos conjuntos tienen valores
+            */
+            /*
             List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
-
+            
             foreach (IconMenuItem iconMenu in subBotones.Items)
             {
                 if (iconMenu.Name != menuAcercaDe.Name)
@@ -72,6 +80,28 @@ namespace Vista
                     bool tienePermiso = listaPermisos.Any(p =>
                         (p.Grupo?.NombreMenu != null && p.Grupo.NombreMenu == nombreGrupo) ||
                         (p.Accion?.NombreAccion != null && p.Accion.NombreAccion == nombreAccion)
+                    );
+
+                    if (!tienePermiso)
+                    {
+                        iconMenu.Enabled = false;
+                        iconMenu.BackColor = Color.Gainsboro;
+                    }
+                }
+            }
+            */
+            
+            List<PermisoPersonalizado3> listaPermisos = new ControladorGymPermiso().ListarPermisoPersonalizado3(usuario.IdUsuario);
+
+            foreach (IconMenuItem iconMenu in subBotones.Items)
+            {
+                if (iconMenu.Name != menuAcercaDe.Name)
+                {
+                    string nombreBoton = iconMenu.Name;
+
+                    bool tienePermiso = listaPermisos.Any(p =>
+                        !string.IsNullOrEmpty(p.NombreAccion) && // Esto comprueba que el campo NombreAccion no esté vacío ni sea nulo, para evitar errores al comparar.
+                        p.NombreAccion.Equals(nombreBoton, StringComparison.OrdinalIgnoreCase) // ¿El nombre de la acción (p.NombreAccion) es igual al nombre del botón (nombreBoton)? (Ignorando mayúsculas/minúsculas (StringComparison.OrdinalIgnoreCase))
                     );
 
                     if (!tienePermiso)

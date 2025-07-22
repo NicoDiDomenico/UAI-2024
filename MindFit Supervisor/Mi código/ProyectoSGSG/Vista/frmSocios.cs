@@ -106,17 +106,18 @@ namespace Vista
 
         private void validarPermisos()
         {
-            List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
+            List<PermisoPersonalizado3> listaPermisos = new ControladorGymPermiso().ListarPermisoPersonalizado3(usuario.IdUsuario);
 
             // Lista de botones a validar
             List<IconButton> botones = new List<IconButton> { btnMenuAgregar, btnMenuConsultar, btnMenuEliminar, btnMenuTurno };
 
             foreach (IconButton boton in botones)
             {
-                // Verificar si el usuario tiene permiso por Grupo o por Acción
+                string nombreBoton = boton.Name;
+
                 bool tienePermiso = listaPermisos.Any(p =>
-                    (p.Grupo != null && p.Grupo.NombreMenu == boton.Name) ||
-                    (p.Accion != null && p.Accion.NombreAccion == boton.Name)
+                    !string.IsNullOrEmpty(p.NombreAccion) && // Esto comprueba que el campo NombreAccion no esté vacío ni sea nulo, para evitar errores al comparar.
+                    p.NombreAccion.Equals(nombreBoton, StringComparison.OrdinalIgnoreCase) // ¿El nombre de la acción (p.NombreAccion) es igual al nombre del botón (nombreBoton)? (Ignorando mayúsculas/minúsculas (StringComparison.OrdinalIgnoreCase))
                 );
 
                 if (!tienePermiso)

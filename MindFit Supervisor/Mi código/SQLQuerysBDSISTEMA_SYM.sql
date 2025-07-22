@@ -1,4 +1,4 @@
-/* Proyecto Gym */
+Ôªø/* Proyecto Gym */
 CREATE database DBSISTEMA_GYM
 
 USE DBSISTEMA_GYM
@@ -57,7 +57,7 @@ CREATE PROCEDURE SP_REGISTRARROL(
     @Descripcion VARCHAR(50),
     @Permisos ETabla_Permisos READONLY, -- Tipo tabla
     @Mensaje VARCHAR(500) OUTPUT,
-    @Resultado BIT OUTPUT -- Indica Èxito o error
+    @Resultado BIT OUTPUT -- Indica √©xito o error
 )
 AS
 BEGIN
@@ -66,7 +66,7 @@ BEGIN
         SET @Mensaje = ''
         SET @Resultado = 0  -- Por defecto, fallido
 
-        BEGIN TRANSACTION  -- Iniciar transacciÛn para evitar inconsistencias
+        BEGIN TRANSACTION  -- Iniciar transacci√≥n para evitar inconsistencias
 
         -- Verifica si el rol ya existe
         IF NOT EXISTS (SELECT * FROM Rol WHERE Descripcion = @Descripcion)
@@ -79,14 +79,14 @@ BEGIN
             INSERT INTO Permiso (IdRol, NombreMenu, Descripcion)
             SELECT @IdRol, NombreMenu, Descripcion FROM @Permisos
 
-            -- Si todo est· bien, marcar como Èxito
+            -- Si todo est√° bien, marcar como √©xito
             SET @Resultado = 1
             SET @Mensaje = 'Rol registrado correctamente'
             COMMIT TRANSACTION  -- Confirmar los cambios
         END
         ELSE
         BEGIN
-            SET @Mensaje = 'No se puede tener m·s de un rol con la misma descripciÛn'
+            SET @Mensaje = 'No se puede tener m√°s de un rol con la misma descripci√≥n'
             ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
         END
     END TRY
@@ -99,11 +99,11 @@ END
 GO
 ---
 CREATE PROCEDURE SP_ACTUALIZARROL(
-    @IdRol INT, -- Ahora recibimos el IdRol para identificar quÈ rol actualizar
+    @IdRol INT, -- Ahora recibimos el IdRol para identificar qu√© rol actualizar
     @Descripcion VARCHAR(50),
     @Permisos ETabla_Permisos READONLY, -- Tipo tabla con los permisos actualizados
     @Mensaje VARCHAR(500) OUTPUT,
-    @Resultado BIT OUTPUT -- Indica Èxito o error
+    @Resultado BIT OUTPUT -- Indica √©xito o error
 )
 AS
 BEGIN
@@ -111,12 +111,12 @@ BEGIN
         SET @Mensaje = ''
         SET @Resultado = 0  -- Por defecto, fallido
 
-        BEGIN TRANSACTION  -- Iniciar transacciÛn para evitar inconsistencias
+        BEGIN TRANSACTION  -- Iniciar transacci√≥n para evitar inconsistencias
 
         -- Verifica si el rol existe
         IF EXISTS (SELECT * FROM Rol WHERE IdRol = @IdRol)
         BEGIN
-            -- Actualizar la descripciÛn del rol
+            -- Actualizar la descripci√≥n del rol
             UPDATE Rol 
             SET Descripcion = @Descripcion 
             WHERE IdRol = @IdRol;
@@ -129,7 +129,7 @@ BEGIN
             -- Insertar los permisos actualizados
             INSERT INTO Permiso (IdRol, NombreMenu, Descripcion)
             SELECT @IdRol, NombreMenu, Descripcion FROM @Permisos;
-            -- Si todo est· bien, marcar como Èxito
+            -- Si todo est√° bien, marcar como √©xito
             SET @Resultado = 1
             SET @Mensaje = 'Rol actualizado correctamente'
             COMMIT TRANSACTION  -- Confirmar los cambios
@@ -167,11 +167,11 @@ BEGIN
             SET @Mensaje = 'No se puede eliminar este rol'
         END
 
-        -- Verifica si el rol est· en uso en otras tablas (ejemplo: Usuario)
+        -- Verifica si el rol est√° en uso en otras tablas (ejemplo: Usuario)
         IF EXISTS (SELECT * FROM Usuario WHERE IdRol = @IdRol)
         BEGIN
             SET @pasoreglas = 0
-            SET @Mensaje = 'No se puede eliminar este rol porque est· en uso en la tabla Usuario'
+            SET @Mensaje = 'No se puede eliminar este rol porque est√° en uso en la tabla Usuario'
         END
 
         IF @pasoreglas = 1
@@ -217,13 +217,13 @@ INSERT INTO Permiso (idRol, nombreMenu) VALUES
 (3, 'menuGestionarRutinas');
 
 UPDATE Permiso
-SET Descripcion = 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignaciÛn y modificaciÛn.'
+SET Descripcion = 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignaci√≥n y modificaci√≥n.'
 WHERE NombreMenu = 'menuGestionarRutinas';
 UPDATE Permiso
-SET Descripcion = 'Permite registrar, editar y eliminar socios, asÌ como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'
+SET Descripcion = 'Permite registrar, editar y eliminar socios, as√≠ como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'
 WHERE NombreMenu = 'menuSocios';
 UPDATE Permiso
-SET Descripcion = 'Permite la gestiÛn completa del gimnasio, incluyendo usuarios, m·quinas y equipamientos, adem·s de la visualizaciÛn y administraciÛn de turnos.'
+SET Descripcion = 'Permite la gesti√≥n completa del gimnasio, incluyendo usuarios, m√°quinas y equipamientos, adem√°s de la visualizaci√≥n y administraci√≥n de turnos.'
 WHERE NombreMenu = 'menuGestionarGimnasio';
 
 SELECT * FROM Permiso;
@@ -245,7 +245,7 @@ group by NombreMenu, Descripcion
 /* Usuario */
 CREATE TABLE Usuario (
     IdUsuario INT PRIMARY KEY IDENTITY,
---  idGimnasio INT NOT NULL,  -- Clave for·nea (suponiendo que hay una tabla Gimnasio)
+--  idGimnasio INT NOT NULL,  -- Clave for√°nea (suponiendo que hay una tabla Gimnasio)
     NombreYApellido VARCHAR(100) NOT NULL,
     Email VARCHAR(50) NOT NULL UNIQUE,
     Telefono VARCHAR(50),
@@ -296,7 +296,7 @@ begin
 		
 	end
 	else
-		set @Mensaje = 'No se puede repetir el documento para m·s de un usuario'
+		set @Mensaje = 'No se puede repetir el documento para m√°s de un usuario'
 
 end
 
@@ -344,7 +344,7 @@ begin
 		set @Mensaje = 'Usuario actualizado correctamente' 
 	end
 	else
-		set @Mensaje = 'No se puede repetir el documento para m·s de un usuario'
+		set @Mensaje = 'No se puede repetir el documento para m√°s de un usuario'
 end
 
 create PROC SP_ELIMINARUSUARIO(
@@ -394,8 +394,8 @@ INSERT INTO Usuario
     (nombreUsuario, nombreYApellido, email, telefono, direccion, ciudad, nroDocumento, genero, fechaNacimiento, clave, idRol, estado) 
 VALUES
     ('adm', 'Administrador General', 'admin@example.com', '123456789', 'Av. Principal 123', 'Ciudad Ejemplo', 12345678, 'Masculino', '1980-05-15 08:30:00', 'admin123', 1, 1),
-    ('asistente1', 'Juan PÈrez', 'juan.perez@example.com', '987654321', 'Calle Secundaria 456', 'Ciudad Ejemplo', 87654321, 'Masculino', '1990-08-20 14:45:00', 'asistente2024', 2, 1),
-    ('entrenador1', 'MarÌa LÛpez', 'maria.lopez@example.com', '555111222', 'Avenida Fitness 789', 'Ciudad Deportiva', 13579246, 'Femenino', '1985-12-10 19:15:00', 'trainerfit', 3, 1);
+    ('asistente1', 'Juan P√©rez', 'juan.perez@example.com', '987654321', 'Calle Secundaria 456', 'Ciudad Ejemplo', 87654321, 'Masculino', '1990-08-20 14:45:00', 'asistente2024', 2, 1),
+    ('entrenador1', 'Mar√≠a L√≥pez', 'maria.lopez@example.com', '555111222', 'Avenida Fitness 789', 'Ciudad Deportiva', 13579246, 'Femenino', '1985-12-10 19:15:00', 'trainerfit', 3, 1);
 
 select * from Usuario
 
@@ -493,11 +493,11 @@ SELECT * FROM Permiso;
 DELETE FROM Permiso;
 DBCC CHECKIDENT ('Permiso', RESEED, 0);
 INSERT INTO Permiso (IdRol, NombreMenu, FechaRegistro, Descripcion) VALUES
-(1, 'menuGestionarRutinas', GETDATE(), 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignaciÛn y modificaciÛn.'),
-(1, 'menuSocios', GETDATE(), 'Permite registrar, editar y eliminar socios, asÌ como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'),
-(1, 'menuGestionarGimnasio', GETDATE(), 'Permite la gestiÛn completa del gimnasio, incluyendo usuarios, m·quinas y equipamientos, adem·s de la visualizaciÛn y administraciÛn de turnos.'),
-(2, 'menuSocios', GETDATE(), 'Permite registrar, editar y eliminar socios, asÌ como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'),
-(3, 'menuGestionarRutinas', GETDATE(), 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignaciÛn y modificaciÛn.');
+(1, 'menuGestionarRutinas', GETDATE(), 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignaci√≥n y modificaci√≥n.'),
+(1, 'menuSocios', GETDATE(), 'Permite registrar, editar y eliminar socios, as√≠ como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'),
+(1, 'menuGestionarGimnasio', GETDATE(), 'Permite la gesti√≥n completa del gimnasio, incluyendo usuarios, m√°quinas y equipamientos, adem√°s de la visualizaci√≥n y administraci√≥n de turnos.'),
+(2, 'menuSocios', GETDATE(), 'Permite registrar, editar y eliminar socios, as√≠ como gestionar sus turnos para asistir al gimnasio en la fecha y hora de su preferencia.'),
+(3, 'menuGestionarRutinas', GETDATE(), 'Permite gestionar las rutinas de los socios del gimnasio, incluyendo su asignaci√≥n y modificaci√≥n.');
 
 SELECT * FROM Permiso;
 
@@ -675,8 +675,8 @@ VALUES ('Test Usuario', '1990-01-01', 'Masculino', 12345678, 'Ciudad Prueba', 'C
 DBCC CHECKIDENT ('Socio', NORESEED);
 
 CREATE TYPE [dbo].[ETabla_Rutinas] AS TABLE(
-    FechaModificacion DATE NOT NULL,    -- Fecha de modificaciÛn de la rutina
-    Dia VARCHAR(20) NOT NULL            -- DÌa de la rutina ("Lunes", "Martes", etc.)
+    FechaModificacion DATE NOT NULL,    -- Fecha de modificaci√≥n de la rutina
+    Dia VARCHAR(20) NOT NULL            -- D√≠a de la rutina ("Lunes", "Martes", etc.)
 );
 GO
 
@@ -712,7 +712,7 @@ BEGIN
         -- Verificar si ya existe un socio con el mismo documento
         IF EXISTS (SELECT 1 FROM Socio WHERE NroDocumento = @NroDocumento)
         BEGIN
-            SET @Mensaje = 'El n˙mero de documento ya est· registrado.'
+            SET @Mensaje = 'El n√∫mero de documento ya est√° registrado.'
             ROLLBACK TRANSACTION
             RETURN
         END
@@ -730,7 +730,7 @@ BEGIN
         INSERT INTO Rutina (IdSocio, FechaModificacion, Dia)
         SELECT @IdSocio, FechaModificacion, Dia FROM @Rutinas
 
-        -- Confirmar transacciÛn
+        -- Confirmar transacci√≥n
         COMMIT TRANSACTION
         SET @Mensaje = 'Socio registrado exitosamente con sus rutinas.'
 
@@ -815,19 +815,19 @@ BEGIN
             RespuestaNotificacion = @RespuestaNotificacion
         WHERE IdSocio = @IdSocio;
 
-        -- Eliminar solo las rutinas que ya no est·n en la nueva lista
+        -- Eliminar solo las rutinas que ya no est√°n en la nueva lista
         DELETE FROM Rutina
         WHERE IdSocio = @IdSocio
         AND Dia NOT IN (SELECT Dia FROM @Rutinas);
 
-        -- Insertar solo las rutinas nuevas (que no existÌan antes)
+        -- Insertar solo las rutinas nuevas (que no exist√≠an antes)
         INSERT INTO Rutina (IdSocio, FechaModificacion, Dia)
         SELECT @IdSocio, GETDATE(), Dia 
         FROM @Rutinas
         WHERE Dia NOT IN (SELECT Dia FROM Rutina WHERE IdSocio = @IdSocio);
 
         COMMIT TRANSACTION;
-        SET @Mensaje = 'Socio actualizado correctamente con sus nuevos dÌas de asistencia.';
+        SET @Mensaje = 'Socio actualizado correctamente con sus nuevos d√≠as de asistencia.';
     END TRY
     BEGIN CATCH
         SET @Mensaje = ERROR_MESSAGE();
@@ -844,7 +844,7 @@ INSERT INTO dbo.Socio (
     FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
 ) 
 VALUES (
-    'Carlos PÈrez', '1985-06-15', 'Masculino', 40123456, 'Buenos Aires', 
+    'Carlos P√©rez', '1985-06-15', 'Masculino', 40123456, 'Buenos Aires', 
     'Av. Corrientes 1234', '1134567890', 'carlos.perez@email.com', 'OSDE', 'Mensual', 'Suspendido', 
     '2024-01-01', '2024-02-01', '2024-01-30', 0
 );
@@ -855,8 +855,8 @@ INSERT INTO dbo.Socio (
     FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
 ) 
 VALUES (
-    'Mariana GÛmez', '1992-09-10', 'Femenino', 40234567, 'Rosario', 
-    'Calle San MartÌn 567', '3416789123', 'mariana.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
+    'Mariana G√≥mez', '1992-09-10', 'Femenino', 40234567, 'Rosario', 
+    'Calle San Mart√≠n 567', '3416789123', 'mariana.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
     '2023-03-15', '2024-03-15', '2024-03-14', 0
 );
 
@@ -866,8 +866,8 @@ INSERT INTO dbo.Socio (
     FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
 ) 
 VALUES (
-    'Angie GÛmez', '1992-09-10', 'Femenino', 39786454, 'Rosario', 
-    'Calle San MartÌn 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
+    'Angie G√≥mez', '1992-09-10', 'Femenino', 39786454, 'Rosario', 
+    'Calle San Mart√≠n 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
     '2023-03-15', '2024-03-15', '2024-03-14', 0
 );
 
@@ -877,8 +877,8 @@ INSERT INTO dbo.Socio (
     FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
 ) 
 VALUES (
-    'Angela GÛmez', '1992-09-10', 'Femenino', 49786454, 'Rosario', 
-    'Calle San MartÌn 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
+    'Angela G√≥mez', '1992-09-10', 'Femenino', 49786454, 'Rosario', 
+    'Calle San Mart√≠n 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Anual', 'Suspendido', 
     '2023-03-15', '2024-03-15', '2024-03-14', 0
 );
 
@@ -888,8 +888,8 @@ INSERT INTO dbo.Socio (
     FechaInicioActividades, FechaFinActividades, FechaNotificacion, RespuestaNotificacion
 ) 
 VALUES (
-    'Angelarda GÛmez', '1992-09-10', 'Femenino', 59786454, 'Rosario', 
-    'Calle San MartÌn 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Mensual', 'Suspendido', 
+    'Angelarda G√≥mez', '1992-09-10', 'Femenino', 59786454, 'Rosario', 
+    'Calle San Mart√≠n 567', '3416789123', 'Angie.gomez@email.com', 'Swiss Medical', 'Mensual', 'Suspendido', 
     '2023-03-15', '2024-03-15', '2024-03-14', 0
 );
 
@@ -923,19 +923,19 @@ END
 /* Turno */
 CREATE TABLE Turno (
     IdTurno INT IDENTITY(1,1) PRIMARY KEY,  -- Clave primaria autoincremental
-    IdRangoHorario INT NOT NULL,            -- RelaciÛn con RangoHorario_Usuario
-    IdUsuario INT NOT NULL,                 -- RelaciÛn con RangoHorario_Usuario
-    IdSocio INT NOT NULL,                   -- RelaciÛn con Socio
+    IdRangoHorario INT NOT NULL,            -- Relaci√≥n con RangoHorario_Usuario
+    IdUsuario INT NOT NULL,                 -- Relaci√≥n con RangoHorario_Usuario
+    IdSocio INT NOT NULL,                   -- Relaci√≥n con Socio
     FechaTurno DATE NOT NULL,               -- Fecha del turno
     EstadoTurno VARCHAR(50) NOT NULL,       -- Estado del turno
-    CodigoIngreso VARCHAR(10) NOT NULL,     -- CÛdigo ˙nico para el ingreso
+    CodigoIngreso VARCHAR(10) NOT NULL,     -- C√≥digo √∫nico para el ingreso
 
-    -- Clave for·nea compuesta con RangoHorario_Usuario
+    -- Clave for√°nea compuesta con RangoHorario_Usuario
     CONSTRAINT FK_Turno_RangoHorarioUsuario 
     FOREIGN KEY (IdRangoHorario, IdUsuario) 
     REFERENCES RangoHorario_Usuario(IdRangoHorario, IdUsuario),
 
-    -- Clave for·nea con Socio
+    -- Clave for√°nea con Socio
     CONSTRAINT FK_Turno_Socio 
     FOREIGN KEY (IdSocio) 
     REFERENCES Socio(IdSocio)
@@ -971,7 +971,7 @@ BEGIN
         RETURN;
     END
 
-    -- Obtener la informaciÛn del Rango Horario (hora de inicio y fin, cupo)
+    -- Obtener la informaci√≥n del Rango Horario (hora de inicio y fin, cupo)
     SELECT @CupoActual = CupoActual, @CupoMaximo = CupoMaximo, 
            @HoraDesde = HoraDesde, @HoraHasta = HoraHasta
     FROM RangoHorario WHERE IdRangoHorario = @IdRangoHorario;
@@ -980,7 +980,7 @@ BEGIN
     IF @FechaTurno = CAST(GETDATE() AS DATE) AND @HoraDesde <= CAST(GETDATE() AS TIME)
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: No puede reservar un turno en un horario que ya pasÛ.';
+        SET @Mensaje = 'Error: No puede reservar un turno en un horario que ya pas√≥.';
         RETURN;
     END
 
@@ -1010,7 +1010,7 @@ BEGIN
     )
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: Un socio no puede reservar m·s de un turno para la misma fecha.';
+        SET @Mensaje = 'Error: Un socio no puede reservar m√°s de un turno para la misma fecha.';
         RETURN;
     END
 
@@ -1035,8 +1035,8 @@ BEGIN
         SET CupoActual = CupoActual + 1 
         WHERE IdRangoHorario = @IdRangoHorario;
 
-        -- Mensaje de Èxito con el CÛdigo de Ingreso generado
-        SET @Mensaje = CONCAT('Turno registrado exitosamente. CÛdigo de Ingreso: ', @CodigoIngreso);
+        -- Mensaje de √©xito con el C√≥digo de Ingreso generado
+        SET @Mensaje = CONCAT('Turno registrado exitosamente. C√≥digo de Ingreso: ', @CodigoIngreso);
     END TRY
     BEGIN CATCH
         SET @IdTurnoResultado = 0;
@@ -1197,11 +1197,11 @@ BEGIN
     FROM Socio 
     WHERE IdSocio = @IdSocio;
 
-    -- Validar si el socio est· Suspendido o Eliminado
+    -- Validar si el socio est√° Suspendido o Eliminado
     IF @EstadoSocio IN ('Suspendido', 'Eliminado')
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: No puede reservar un turno porque el socio est· suspendido o eliminado.';
+        SET @Mensaje = 'Error: No puede reservar un turno porque el socio est√° suspendido o eliminado.';
         RETURN;
     END
 
@@ -1213,7 +1213,7 @@ BEGIN
         RETURN;
     END
 
-    -- Obtener la informaciÛn del Rango Horario (hora de inicio y fin, cupo)
+    -- Obtener la informaci√≥n del Rango Horario (hora de inicio y fin, cupo)
     SELECT @CupoActual = CupoActual, @CupoMaximo = CupoMaximo, 
            @HoraDesde = HoraDesde, @HoraHasta = HoraHasta
     FROM RangoHorario WHERE IdRangoHorario = @IdRangoHorario;
@@ -1222,7 +1222,7 @@ BEGIN
     IF @FechaTurno = CAST(GETDATE() AS DATE) AND @HoraDesde <= CAST(GETDATE() AS TIME)
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: No puede reservar un turno en un horario que ya pasÛ.';
+        SET @Mensaje = 'Error: No puede reservar un turno en un horario que ya pas√≥.';
         RETURN;
     END
 
@@ -1252,7 +1252,7 @@ BEGIN
     )
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: Un socio no puede reservar m·s de un turno para la misma fecha.';
+        SET @Mensaje = 'Error: Un socio no puede reservar m√°s de un turno para la misma fecha.';
         RETURN;
     END
 
@@ -1277,8 +1277,8 @@ BEGIN
         SET CupoActual = CupoActual + 1 
         WHERE IdRangoHorario = @IdRangoHorario;
 
-        -- Mensaje de Èxito con el CÛdigo de Ingreso generado
-        SET @Mensaje = CONCAT('Turno registrado exitosamente. CÛdigo de Ingreso: ', @CodigoIngreso);
+        -- Mensaje de √©xito con el C√≥digo de Ingreso generado
+        SET @Mensaje = CONCAT('Turno registrado exitosamente. C√≥digo de Ingreso: ', @CodigoIngreso);
     END TRY
     BEGIN CATCH
         SET @IdTurnoResultado = 0;
@@ -1296,7 +1296,7 @@ SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta,
                 INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
                 WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
                 AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
-                AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- TodavÌa dentro del horario
+                AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todav√≠a dentro del horario
 
 select * from RangoHorario
 
@@ -1354,7 +1354,7 @@ ALTER TABLE Permiso ADD CONSTRAINT FK_Permiso_Accion FOREIGN KEY (IdAccion) REFE
 
 /*
 Un permiso puede estar asociado a un grupo (IdGrupo).
-Un permiso tambiÈn puede estar asociado a una acciÛn especÌfica (IdAccion).
+Un permiso tambi√©n puede estar asociado a una acci√≥n espec√≠fica (IdAccion).
 Se puede dejar IdGrupo o IdAccion en NULL, permitiendo que el permiso sea flexible.
 */
 
@@ -1400,7 +1400,7 @@ DROP TYPE IF EXISTS [dbo].[ETabla_Permisos];
 GO
 
 CREATE TYPE [dbo].[ETabla_Permisos] AS TABLE (
-    [IdGrupo] INT NOT NULL -- Se usar· solo para almacenar grupos
+    [IdGrupo] INT NOT NULL -- Se usar√° solo para almacenar grupos
 );
 GO
 
@@ -1408,7 +1408,7 @@ CREATE PROCEDURE SP_REGISTRARROL(
     @Descripcion VARCHAR(50),
     @Permisos ETabla_Permisos READONLY, -- Ahora usa el nuevo tipo de tabla
     @Mensaje VARCHAR(500) OUTPUT,
-    @Resultado BIT OUTPUT -- Indica Èxito o error
+    @Resultado BIT OUTPUT -- Indica √©xito o error
 )
 AS
 BEGIN
@@ -1417,7 +1417,7 @@ BEGIN
         SET @Mensaje = ''
         SET @Resultado = 0  -- Por defecto, fallido
 
-        BEGIN TRANSACTION  -- Iniciar transacciÛn para evitar inconsistencias
+        BEGIN TRANSACTION  -- Iniciar transacci√≥n para evitar inconsistencias
 
         -- Verifica si el rol ya existe
         IF NOT EXISTS (SELECT 1 FROM Rol WHERE Descripcion = @Descripcion)
@@ -1430,14 +1430,14 @@ BEGIN
             INSERT INTO Permiso (IdRol, IdGrupo)
             SELECT @IdRol, IdGrupo FROM @Permisos;
 
-            -- Si todo est· bien, marcar como Èxito
+            -- Si todo est√° bien, marcar como √©xito
             SET @Resultado = 1
             SET @Mensaje = 'Rol registrado correctamente'
             COMMIT TRANSACTION  -- Confirmar los cambios
         END
         ELSE
         BEGIN
-            SET @Mensaje = 'No se puede tener m·s de un rol con la misma descripciÛn'
+            SET @Mensaje = 'No se puede tener m√°s de un rol con la misma descripci√≥n'
             ROLLBACK TRANSACTION  -- Revertir cambios en caso de error
         END
     END TRY
@@ -1452,11 +1452,11 @@ GO
 SELECT * FROM Permiso WHERE IdRol = 3;
 
 CREATE PROCEDURE SP_ACTUALIZARROL(
-    @IdRol INT, -- Identifica quÈ rol actualizar
+    @IdRol INT, -- Identifica qu√© rol actualizar
     @Descripcion VARCHAR(50),
     @Permisos ETabla_Permisos READONLY, -- Tipo tabla con los permisos actualizados
     @Mensaje VARCHAR(500) OUTPUT,
-    @Resultado BIT OUTPUT -- Indica Èxito o error
+    @Resultado BIT OUTPUT -- Indica √©xito o error
 )
 AS
 BEGIN
@@ -1464,12 +1464,12 @@ BEGIN
         SET @Mensaje = ''
         SET @Resultado = 0  -- Por defecto, fallido
 
-        BEGIN TRANSACTION  -- Iniciar transacciÛn para evitar inconsistencias
+        BEGIN TRANSACTION  -- Iniciar transacci√≥n para evitar inconsistencias
 
         -- Verifica si el rol existe
         IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
         BEGIN
-            -- Actualizar la descripciÛn del rol
+            -- Actualizar la descripci√≥n del rol
             UPDATE Rol 
             SET Descripcion = @Descripcion 
             WHERE IdRol = @IdRol;
@@ -1481,7 +1481,7 @@ BEGIN
             INSERT INTO Permiso (IdRol, IdGrupo)
             SELECT @IdRol, IdGrupo FROM @Permisos;
 
-            -- Si todo est· bien, marcar como Èxito
+            -- Si todo est√° bien, marcar como √©xito
             SET @Resultado = 1
             SET @Mensaje = 'Rol actualizado correctamente'
             COMMIT TRANSACTION  -- Confirmar los cambios
@@ -1519,11 +1519,11 @@ BEGIN
             SET @Mensaje = 'No se puede eliminar este rol'
         END
 
-        -- Verifica si el rol est· en uso en otras tablas (ejemplo: Usuario)
+        -- Verifica si el rol est√° en uso en otras tablas (ejemplo: Usuario)
         IF EXISTS (SELECT * FROM Usuario WHERE IdRol = @IdRol)
         BEGIN
             SET @pasoreglas = 0
-            SET @Mensaje = 'No se puede eliminar este rol porque est· en uso en la tabla Usuario'
+            SET @Mensaje = 'No se puede eliminar este rol porque est√° en uso en la tabla Usuario'
         END
 
         IF @pasoreglas = 1
@@ -1580,7 +1580,7 @@ INNER JOIN USUARIO u ON u.IdRol = r.IdRol
 LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
 LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
 WHERE u.IdUsuario = 1 -- @idusuario
--- Por esto - COALESCE() devolver· el primer valor no nulo entre NombreAccionGrupo y NombreAccion::
+-- Por esto - COALESCE() devolver√° el primer valor no nulo entre NombreAccionGrupo y NombreAccion::
 SELECT p.IdPermiso, p.IdRol, g.NombreMenu, 
        COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
 FROM PERMISO p
@@ -1671,7 +1671,7 @@ WHERE u.IdUsuario = 6
 SELECT p.IdPermiso, p.IdRol, g.NombreMenu, 
        COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
 FROM PERMISO p
-LEFT JOIN ROL r ON r.IdRol = p.IdRol -- CambiÈ de INNER JOIN a LEFT JOIN
+LEFT JOIN ROL r ON r.IdRol = p.IdRol -- Cambi√© de INNER JOIN a LEFT JOIN
 LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario -- Incluir usuarios sin rol, pero con permisos directos
 LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL
 LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Puede ser NULL
@@ -1687,7 +1687,7 @@ SELECT
 FROM PERMISO p
 LEFT JOIN ROL r ON r.IdRol = p.IdRol 
 LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
-LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acciÛn directa
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
 LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
 LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
 LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
@@ -1730,7 +1730,7 @@ SELECT
 FROM PERMISO p
 LEFT JOIN ROL r ON r.IdRol = p.IdRol 
 LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
-LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acciÛn directa
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
 LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
 LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
 LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
@@ -1751,7 +1751,7 @@ BEGIN
     SET @Mensaje = ''
     DECLARE @pasoreglas bit = 1
 
-    -- Validaciones (agregar aquÌ las que necesites, por ejemplo, turnos asignados, rangos horarios, etc.)
+    -- Validaciones (agregar aqu√≠ las que necesites, por ejemplo, turnos asignados, rangos horarios, etc.)
 
     IF (@pasoreglas = 1)
     BEGIN
@@ -1767,12 +1767,12 @@ BEGIN
 END
 
 ALTER PROCEDURE [dbo].[SP_ACTUALIZARROL](
-    @IdRol INT,  -- Identifica quÈ rol actualizar
-    @Descripcion VARCHAR(50),  -- Nueva descripciÛn del rol
+    @IdRol INT,  -- Identifica qu√© rol actualizar
+    @Descripcion VARCHAR(50),  -- Nueva descripci√≥n del rol
     @IdGrupo INT,  -- Grupo asociado al rol
-    @DescripcionGrupo VARCHAR(255),  -- Nueva descripciÛn del grupo
+    @DescripcionGrupo VARCHAR(255),  -- Nueva descripci√≥n del grupo
     @Mensaje VARCHAR(500) OUTPUT,
-    @Resultado BIT OUTPUT  -- Indica Èxito o error
+    @Resultado BIT OUTPUT  -- Indica √©xito o error
 )
 AS
 BEGIN
@@ -1780,12 +1780,12 @@ BEGIN
         SET @Mensaje = ''
         SET @Resultado = 0  -- Por defecto, fallido
 
-        BEGIN TRANSACTION  -- Iniciar transacciÛn para evitar inconsistencias
+        BEGIN TRANSACTION  -- Iniciar transacci√≥n para evitar inconsistencias
 
         -- Verifica si el rol existe
         IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
         BEGIN
-            -- Actualizar la descripciÛn del rol
+            -- Actualizar la descripci√≥n del rol
             UPDATE Rol 
             SET Descripcion = @Descripcion 
             WHERE IdRol = @IdRol;
@@ -1793,7 +1793,7 @@ BEGIN
             -- Verifica si el grupo existe
             IF EXISTS (SELECT 1 FROM Grupo WHERE IdGrupo = @IdGrupo)
             BEGIN
-                -- Actualizar la descripciÛn del grupo
+                -- Actualizar la descripci√≥n del grupo
                 UPDATE Grupo 
                 SET Descripcion = @DescripcionGrupo 
                 WHERE IdGrupo = @IdGrupo;
@@ -1805,7 +1805,7 @@ BEGIN
                 RETURN;
             END
 
-            -- Si todo est· bien, marcar como Èxito
+            -- Si todo est√° bien, marcar como √©xito
             SET @Resultado = 1
             SET @Mensaje = 'Rol y grupo actualizados correctamente'
             COMMIT TRANSACTION  -- Confirmar los cambios
@@ -1827,28 +1827,28 @@ select IdAccion, NombreAccion, Descripcion, IdGrupo
 from Accion
 
 CREATE PROCEDURE [dbo].[SP_MODIFICARACCION](
-    @IdAccion INT,               -- Identificador de la acciÛn a modificar
-    @NombreAccion VARCHAR(100),  -- Nuevo nombre de la acciÛn
-    @Descripcion VARCHAR(255),   -- Nueva descripciÛn
+    @IdAccion INT,               -- Identificador de la acci√≥n a modificar
+    @NombreAccion VARCHAR(100),  -- Nuevo nombre de la acci√≥n
+    @Descripcion VARCHAR(255),   -- Nueva descripci√≥n
     @IdGrupo INT,                -- Nuevo ID de grupo asociado
-    @Resultado BIT OUTPUT,       -- Indica Èxito (1) o fallo (0)
-    @Mensaje VARCHAR(500) OUTPUT -- Mensaje de confirmaciÛn o error
+    @Resultado BIT OUTPUT,       -- Indica √©xito (1) o fallo (0)
+    @Mensaje VARCHAR(500) OUTPUT -- Mensaje de confirmaci√≥n o error
 )
 AS
 BEGIN
     BEGIN TRY
-        -- InicializaciÛn de variables de salida
+        -- Inicializaci√≥n de variables de salida
         SET @Mensaje = ''
         SET @Resultado = 0
 
-        -- Verificar si la acciÛn existe
+        -- Verificar si la acci√≥n existe
         IF NOT EXISTS (SELECT 1 FROM Accion WHERE IdAccion = @IdAccion)
         BEGIN
-            SET @Mensaje = 'La acciÛn especificada no existe.'
+            SET @Mensaje = 'La acci√≥n especificada no existe.'
             RETURN
         END
 
-        -- Actualizar la acciÛn en la tabla Accion
+        -- Actualizar la acci√≥n en la tabla Accion
         UPDATE Accion
         SET NombreAccion = @NombreAccion,
             Descripcion = @Descripcion,
@@ -1857,7 +1857,7 @@ BEGIN
 
         -- Si se actualiza correctamente
         SET @Resultado = 1
-        SET @Mensaje = 'AcciÛn actualizada correctamente.'
+        SET @Mensaje = 'Acci√≥n actualizada correctamente.'
     END TRY
     BEGIN CATCH
         -- Captura de errores y rollback en caso de falla
@@ -1944,7 +1944,7 @@ SELECT DISTINCT rh_u.IdUsuario, u.NombreYApellido
                 INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
 				where rh.CupoActual < rh.CupoMaximo and rh.IdRangoHorario = 1 -- @IdRangoHorario
 
--- CORREGIR CUPOS SEGUN FECHA, NO SE COMO SER¡ LA L”GICA 
+-- CORREGIR CUPOS SEGUN FECHA, NO SE COMO SER√Å LA L√ìGICA 
 CREATE TABLE CupoFecha (
     IdCupoFecha INT IDENTITY(1,1) PRIMARY KEY,
     Fecha DATE NOT NULL,
@@ -1976,11 +1976,11 @@ BEGIN
     FROM Socio 
     WHERE IdSocio = @IdSocio;
 
-    -- Validar si el socio est· Suspendido o Eliminado
+    -- Validar si el socio est√° Suspendido o Eliminado
     IF @EstadoSocio IN ('Suspendido', 'Eliminado')
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: No puede reservar un turno porque el socio est· suspendido o eliminado.';
+        SET @Mensaje = 'Error: No puede reservar un turno porque el socio est√° suspendido o eliminado.';
         RETURN;
     END
 
@@ -2018,7 +2018,7 @@ BEGIN
     )
     BEGIN
         SET @IdTurnoResultado = 0;
-        SET @Mensaje = 'Error: Un socio no puede reservar m·s de un turno para la misma fecha.';
+        SET @Mensaje = 'Error: Un socio no puede reservar m√°s de un turno para la misma fecha.';
         RETURN;
     END
 
@@ -2066,8 +2066,8 @@ BEGIN
         SET CupoActual = CupoActual + 1 
         WHERE IdRangoHorario = @IdRangoHorario AND Fecha = @FechaTurno;
 
-        -- Mensaje de Èxito con el CÛdigo de Ingreso generado
-        SET @Mensaje = CONCAT('Turno registrado exitosamente. CÛdigo de Ingreso: ', @CodigoIngreso);
+        -- Mensaje de √©xito con el C√≥digo de Ingreso generado
+        SET @Mensaje = CONCAT('Turno registrado exitosamente. C√≥digo de Ingreso: ', @CodigoIngreso);
     END TRY
     BEGIN CATCH
         SET @IdTurnoResultado = 0;
@@ -2162,7 +2162,7 @@ INNER JOIN Socio s ON t.IdSocio = s.IdSocio
 INNER JOIN RangoHorario rh ON t.IdRangoHorario = rh.IdRangoHorario
 WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
 AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
-AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- TodavÌa dentro del horario
+AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todav√≠a dentro del horario
 -- Por esto:
 SELECT t.IdTurno, t.FechaTurno, rh.IdRangoHorario, rh.HoraDesde, rh.HoraHasta, 
        t.EstadoTurno, t.CodigoIngreso, 
@@ -2177,7 +2177,7 @@ INNER JOIN CupoFecha cf ON cf.IdRangoHorario = rh.IdRangoHorario
     AND cf.Fecha = t.FechaTurno -- Se obtiene el cupo exacto de esa fecha
 WHERE t.FechaTurno = CAST(GETDATE() AS DATE) -- Solo turnos de hoy
 AND rh.HoraDesde <= CAST(GETDATE() AS TIME)  -- Horario actual o anterior
-AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- TodavÌa dentro del horario
+AND rh.HoraHasta >= CAST(GETDATE() AS TIME)  -- Todav√≠a dentro del horario
 
 select * from RangoHorario rh
 INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
@@ -2208,7 +2208,7 @@ FROM RangoHorario rh
 INNER JOIN RangoHorario_Usuario rh_u ON rh.IdRangoHorario = rh_u.IdRangoHorario
 INNER JOIN Usuario u ON rh_u.IdUsuario = u.IdUsuario
 LEFT JOIN CupoFecha cf ON cf.IdRangoHorario = rh.IdRangoHorario 
-    AND cf.Fecha = '2025-03-16' -- @FechaTurno -- Se mueve aquÌ para permitir NULLs en el WHERE
+    AND cf.Fecha = '2025-03-16' -- @FechaTurno -- Se mueve aqu√≠ para permitir NULLs en el WHERE
 WHERE (COALESCE(cf.CupoActual, 0) < rh.CupoMaximo) -- Si cf.CupoActual es NULL, se trata como 0
 AND rh.IdRangoHorario = 20;
 -- pero no anda con query, asi que probmaos con SP --> SI anda.
@@ -2231,7 +2231,7 @@ BEGIN
         ON rh_u.IdUsuario = u.IdUsuario
     LEFT JOIN CupoFecha cf 
         ON cf.IdRangoHorario = rh.IdRangoHorario 
-        AND cf.Fecha = @FechaTurno -- Se filtra por fecha especÌfica
+        AND cf.Fecha = @FechaTurno -- Se filtra por fecha espec√≠fica
     WHERE COALESCE(cf.CupoActual, 0) < rh.CupoMaximo
     AND rh.IdRangoHorario = @IdRangoHorario;
 END;
@@ -2259,9 +2259,9 @@ select * from Turno
 
 /*
 ELIMINAR TURNOS:
-24	MarÌa LÛpez	23:00:00.0000000	00:00:00.0000000	2025-03-17	En Curso
-15	MarÌa LÛpez	14:00:00.0000000	15:00:00.0000000	2025-03-17	En Curso
-19	MarÌa LÛpez	18:00:00.0000000	19:00:00.0000000	2025-03-17	En Curso
+24	Mar√≠a L√≥pez	23:00:00.0000000	00:00:00.0000000	2025-03-17	En Curso
+15	Mar√≠a L√≥pez	14:00:00.0000000	15:00:00.0000000	2025-03-17	En Curso
+19	Mar√≠a L√≥pez	18:00:00.0000000	19:00:00.0000000	2025-03-17	En Curso
 */
 DELETE FROM Turno
 WHERE IdTurno IN (9, 8, 7);
@@ -2292,10 +2292,10 @@ BEGIN
     FROM Socio 
     WHERE IdSocio = @IdSocio;
 
-    -- Verificar si la fecha de fin de actividades a˙n no ha vencido
+    -- Verificar si la fecha de fin de actividades a√∫n no ha vencido
     IF @FechaFinActividades > GETDATE()
     BEGIN
-        SET @Mensaje = 'No se puede eliminar el socio porque su cuota a˙n est· vigente.';
+        SET @Mensaje = 'No se puede eliminar el socio porque su cuota a√∫n est√° vigente.';
         RETURN;
     END
 
@@ -2306,7 +2306,7 @@ BEGIN
         RETURN;
     END
 
-    -- Iniciar la transacciÛn
+    -- Iniciar la transacci√≥n
     BEGIN TRANSACTION;
 
     BEGIN TRY
@@ -2319,14 +2319,14 @@ BEGIN
         -- Eliminar el socio
         DELETE FROM Socio WHERE IdSocio = @IdSocio;
 
-        -- Confirmar la transacciÛn si todo se ejecutÛ sin errores
+        -- Confirmar la transacci√≥n si todo se ejecut√≥ sin errores
         COMMIT TRANSACTION;
 
         SET @Respuesta = 1;
         SET @Mensaje = 'Socio eliminado correctamente junto con sus turnos y rutinas.';
     END TRY
     BEGIN CATCH
-        -- Si hay un error, revertir la transacciÛn
+        -- Si hay un error, revertir la transacci√≥n
         ROLLBACK TRANSACTION;
 
         SET @Mensaje = ERROR_MESSAGE();
@@ -2337,7 +2337,7 @@ END;
 DELETE FROM Turno
 WHERE IdSocio NOT IN (SELECT DISTINCT IdSocio FROM Rutina);
 
--- Ahora sÌ eliminar los socios que no tienen rutinas
+-- Ahora s√≠ eliminar los socios que no tienen rutinas
 DELETE FROM Socio
 WHERE IdSocio NOT IN (SELECT DISTINCT IdSocio FROM Rutina);
 
@@ -2393,7 +2393,7 @@ CREATE TABLE Calentamiento (
     IdCalentamiento INT PRIMARY KEY IDENTITY(1,1),
     IdMaquina INT NULL,
     DescripcionCalentamiento VARCHAR(255) NOT NULL,
-    FOREIGN KEY (IdMaquina) REFERENCES Maquina(IdElemento) -- RelaciÛn con Maquina
+    FOREIGN KEY (IdMaquina) REFERENCES Maquina(IdElemento) -- Relaci√≥n con Maquina
 );
 
 -- 5) Crear Rutina_Estiramiento (Depende de Rutina y Estiramiento)
@@ -2430,27 +2430,27 @@ CREATE TABLE Entrenamiento (
 /* Inserts: */
 -- Equipamiento
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Mancuernas');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Barras olÌmpicas');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Barras ol√≠mpicas');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Discos de peso');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Bandas de resistencia');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Cuerdas de batalla');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Esterillas de yoga');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Balones medicinales');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('TRX');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Step o escalÛn aerÛbico');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Step o escal√≥n aer√≥bico');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Kettlebells');
 
--- M·quinas
+-- M√°quinas
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Prensa de piernas');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Poleas cruzadas');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M·quina de remo');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Bicicleta est·tica');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M√°quina de remo');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Bicicleta est√°tica');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Cinta de correr');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('ElÌptica');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('El√≠ptica');
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Press de banca guiado');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M·quina de extensiÛn de cu·driceps');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M·quina de curl de bÌceps');
-INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M·quina de aductores y abductores');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M√°quina de extensi√≥n de cu√°driceps');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M√°quina de curl de b√≠ceps');
+INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('M√°quina de aductores y abductores');
 
 -- Ejercicios
 INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Sentadillas');
@@ -2466,14 +2466,14 @@ INSERT INTO ElementoGimnasio (NombreElemento) VALUES ('Crunch abdominal');
 
 -- Paso 2: Insertar en Equipamiento (Solo Equipamiento):
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (1, 5000.00);  -- Mancuernas
-INSERT INTO Equipamiento (IdElemento, Precio) VALUES (2, 8000.00);  -- Barras olÌmpicas
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (2, 8000.00);  -- Barras ol√≠mpicas
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (3, 3000.00);  -- Discos de peso
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (4, 2000.00);  -- Bandas de resistencia
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (5, 4000.00);  -- Cuerdas de batalla
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (6, 2500.00);  -- Esterillas de yoga
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (7, 4500.00);  -- Balones medicinales
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (8, 7000.00);  -- TRX
-INSERT INTO Equipamiento (IdElemento, Precio) VALUES (9, 3000.00);  -- Step o escalÛn aerÛbico
+INSERT INTO Equipamiento (IdElemento, Precio) VALUES (9, 3000.00);  -- Step o escal√≥n aer√≥bico
 INSERT INTO Equipamiento (IdElemento, Precio) VALUES (10, 6000.00); -- Kettlebells
 
 -- Paso 3: Insertar en Ejercicio (Solo Ejercicios):
@@ -2488,7 +2488,7 @@ INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (28, 'Ejercicio de Zancad
 INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (29, 'Ejercicio de Elevaciones laterales');
 INSERT INTO Ejercicio (IdElemento, Descripcion) VALUES (30, 'Ejercicio de Crunch abdominal');
 
--- Paso 4: Insertar en Maquina (Solo M·quinas):
+-- Paso 4: Insertar en Maquina (Solo M√°quinas):
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
 VALUES (11, '2023-01-10', '2023-02-15', 35000.00, 120, 'Prensa de piernas', 0);
 
@@ -2496,28 +2496,28 @@ INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, Ti
 VALUES (12, '2022-12-05', '2023-03-10', 28000.00, 90, 'Poleas cruzadas', 0);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
-VALUES (13, '2024-01-20', '2024-02-15', 25000.00, 85, 'M·quina de remo', 1);
+VALUES (13, '2024-01-20', '2024-02-15', 25000.00, 85, 'M√°quina de remo', 1);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
-VALUES (14, '2023-10-11', '2023-11-10', 40000.00, 150, 'Bicicleta est·tica', 1);
+VALUES (14, '2023-10-11', '2023-11-10', 40000.00, 150, 'Bicicleta est√°tica', 1);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
 VALUES (15, '2023-07-05', '2023-08-01', 45000.00, 140, 'Cinta de correr', 1);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
-VALUES (16, '2023-09-12', '2023-10-05', 42000.00, 135, 'ElÌptica', 1);
+VALUES (16, '2023-09-12', '2023-10-05', 42000.00, 135, 'El√≠ptica', 1);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
 VALUES (17, '2022-06-15', '2022-07-10', 32000.00, 125, 'Press de banca guiado', 0);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
-VALUES (18, '2023-02-14', '2023-03-20', 38000.00, 110, 'M·quina de extensiÛn de cu·driceps', 0);
+VALUES (18, '2023-02-14', '2023-03-20', 38000.00, 110, 'M√°quina de extensi√≥n de cu√°driceps', 0);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
-VALUES (19, '2024-03-05', '2024-03-25', 29000.00, 100, 'M·quina de curl de bÌceps', 0);
+VALUES (19, '2024-03-05', '2024-03-25', 29000.00, 100, 'M√°quina de curl de b√≠ceps', 0);
 
 INSERT INTO Maquina (IdElemento, FechaFabricacion, FechaCompra, Precio, Peso, TipoMaquina, EsElectrica) 
-VALUES (20, '2022-11-10', '2022-12-15', 31000.00, 130, 'M·quina de aductores y abductores', 0);
+VALUES (20, '2022-11-10', '2022-12-15', 31000.00, 130, 'M√°quina de aductores y abductores', 0);
 
 --  Verificar los datos insertados:
 SELECT * FROM ElementoGimnasio;
@@ -2527,13 +2527,13 @@ SELECT * FROM Maquina;
 
 -- Paso 1: Insertar en Estiramiento:
 INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de isquiotibiales (tocarse la punta de los pies)');
-INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de cu·driceps (llevar el talÛn al gl˙teo)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de cu√°driceps (llevar el tal√≥n al gl√∫teo)');
 INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de hombros (cruzar el brazo sobre el pecho)');
-INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de trÌceps (mano detr·s de la cabeza)');
-INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de espalda baja (postura del niÒo en yoga)');
-INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de cadera (posiciÛn de mariposa)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de tr√≠ceps (mano detr√°s de la cabeza)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de espalda baja (postura del ni√±o en yoga)');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Estiramiento de cadera (posici√≥n de mariposa)');
 INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Balanceo de piernas');
-INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('CÌrculos con los brazos');
+INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('C√≠rculos con los brazos');
 INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Giros de torso');
 INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Elevaciones de rodillas al pecho');
 
@@ -2541,22 +2541,22 @@ INSERT INTO Estiramiento (DescripcionEstiramiento) VALUES ('Elevaciones de rodil
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Saltar la cuerda', NULL);
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Trotar en el lugar', NULL);
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Jumping jacks', NULL);
-INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Movilidad articular (rotaciones de tobillos, muÒecas y cuello)', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Movilidad articular (rotaciones de tobillos, mu√±ecas y cuello)', NULL);
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Sentadillas con poco peso', NULL);
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Flexiones de brazos suaves', NULL);
-INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Remo con banda el·stica', NULL);
+INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) VALUES ('Remo con banda el√°stica', NULL);
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
 VALUES ('Press de banca con la barra sola', 
-		(SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Press de banca guiado')); -- Asociado a m·quina de press de banca
+		(SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Press de banca guiado')); -- Asociado a m√°quina de press de banca
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
-VALUES ('Calentamiento en Bicicleta est·tica', 
-        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Bicicleta est·tica'));
+VALUES ('Calentamiento en Bicicleta est√°tica', 
+        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Bicicleta est√°tica'));
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
 VALUES ('Calentamiento en Cinta de correr', 
         (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'Cinta de correr'));
 INSERT INTO Calentamiento (DescripcionCalentamiento, IdMaquina) 
-VALUES ('Calentamiento en ElÌptica', 
-        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'ElÌptica'));
+VALUES ('Calentamiento en El√≠ptica', 
+        (SELECT TOP 1 IdElemento FROM Maquina WHERE TipoMaquina = 'El√≠ptica'));
 
 /* Rutina_Estiramiento y Rutina_Calentamiento se asignan cuando se asigne la rutina */
 
@@ -2570,7 +2570,7 @@ SET NombreAccion = 'menuCalentamiento'
 WHERE IdAccion = 3;
 
 UPDATE Accion  
-SET Descripcion = 'Gestionar tÈcnicas de calentamiento'  
+SET Descripcion = 'Gestionar t√©cnicas de calentamiento'  
 WHERE IdAccion = 3;
 
 UPDATE Accion  
@@ -2578,7 +2578,7 @@ SET NombreAccion = 'menuElementosGym'
 WHERE IdAccion = 4;
 
 UPDATE Accion  
-SET Descripcion = 'Gestionar elemetnos del gimnasio del tipo Calentamiento, Ejercicios y M·quinas'  
+SET Descripcion = 'Gestionar elemetnos del gimnasio del tipo Calentamiento, Ejercicios y M√°quinas'  
 WHERE IdAccion = 4;
 
 UPDATE Accion  
@@ -2674,8 +2674,8 @@ WHERE rc.IdRutina = 22
 
 select * from rutina
 
-UPDATE Rutina SET Dia = 'S·bado' WHERE Dia = 'Sabado';
-UPDATE Rutina SET Dia = 'MiÈrcoles' WHERE Dia = 'Miercoles';
+UPDATE Rutina SET Dia = 'S√°bado' WHERE Dia = 'Sabado';
+UPDATE Rutina SET Dia = 'Mi√©rcoles' WHERE Dia = 'Miercoles';
 
 select IdEstiramiento, DescripcionEstiramiento 
 from Estiramiento
@@ -2704,7 +2704,7 @@ select * from Rutina
 ALTER TABLE Rutina
 ADD Activa BIT NOT NULL DEFAULT 0;
 
--- No necesit·s cambiar el tipo ETabla_Rutinas que ya creaste. Ese TYPE sigue siendo totalmente v·lido porque vos solo us·s ETabla_Rutinas para pasar los dÌas que el usuario eligiÛ, no todas las rutinas.
+-- No necesit√°s cambiar el tipo ETabla_Rutinas que ya creaste. Ese TYPE sigue siendo totalmente v√°lido porque vos solo us√°s ETabla_Rutinas para pasar los d√≠as que el usuario eligi√≥, no todas las rutinas.
 
 ALTER PROCEDURE [dbo].[SP_RegistrarSocio]
 (
@@ -2738,7 +2738,7 @@ BEGIN
         -- Verificar si ya existe un socio con el mismo documento
         IF EXISTS (SELECT 1 FROM Socio WHERE NroDocumento = @NroDocumento)
         BEGIN
-            SET @Mensaje = 'El n˙mero de documento ya est· registrado.'
+            SET @Mensaje = 'El n√∫mero de documento ya est√° registrado.'
             ROLLBACK TRANSACTION
             RETURN
         END
@@ -2751,17 +2751,17 @@ BEGIN
 
         SET @IdSocio = SCOPE_IDENTITY()
 
-        -- Insertar TODAS las rutinas de lunes a s·bado, activando solo las seleccionadas
+        -- Insertar TODAS las rutinas de lunes a s√°bado, activando solo las seleccionadas
         INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
         SELECT @IdSocio, GETDATE(), Dia,
                CASE WHEN Dia IN (SELECT Dia FROM @Rutinas) THEN 1 ELSE 0 END
         FROM (
             SELECT 'Lunes' AS Dia UNION
             SELECT 'Martes' UNION
-            SELECT 'MiÈrcoles' UNION
+            SELECT 'Mi√©rcoles' UNION
             SELECT 'Jueves' UNION
             SELECT 'Viernes' UNION
-            SELECT 'S·bado'
+            SELECT 'S√°bado'
         ) AS DiasSemana
 
         COMMIT TRANSACTION
@@ -2833,7 +2833,7 @@ BEGIN
         WHERE IdSocio = @IdSocio AND Dia IN (SELECT Dia FROM @Rutinas);
 
         COMMIT TRANSACTION;
-        SET @Mensaje = 'Socio actualizado correctamente con sus nuevos dÌas de asistencia.';
+        SET @Mensaje = 'Socio actualizado correctamente con sus nuevos d√≠as de asistencia.';
     END TRY
     BEGIN CATCH
         SET @Mensaje = ERROR_MESSAGE();
@@ -2876,10 +2876,10 @@ BEGIN
     FROM Socio 
     WHERE IdSocio = @IdSocio;
 
-    -- Verificar si la fecha de fin de actividades a˙n no ha vencido
+    -- Verificar si la fecha de fin de actividades a√∫n no ha vencido
     IF @FechaFinActividades > GETDATE()
     BEGIN
-        SET @Mensaje = 'No se puede eliminar el socio porque su cuota a˙n est· vigente.';
+        SET @Mensaje = 'No se puede eliminar el socio porque su cuota a√∫n est√° vigente.';
         RETURN;
     END
 
@@ -2890,7 +2890,7 @@ BEGIN
         RETURN;
     END
 
-    -- Iniciar la transacciÛn
+    -- Iniciar la transacci√≥n
     BEGIN TRANSACTION;
 
     BEGIN TRY
@@ -2908,14 +2908,14 @@ BEGIN
         -- Eliminar el socio
         DELETE FROM Socio WHERE IdSocio = @IdSocio;
 
-        -- Confirmar la transacciÛn si todo se ejecutÛ sin errores
+        -- Confirmar la transacci√≥n si todo se ejecut√≥ sin errores
         COMMIT TRANSACTION;
 
         SET @Respuesta = 1;
         SET @Mensaje = 'Socio eliminado correctamente junto con sus rutinas y turnos.';
     END TRY
     BEGIN CATCH
-        -- Si hay un error, revertir la transacciÛn
+        -- Si hay un error, revertir la transacci√≥n
         ROLLBACK TRANSACTION;
         SET @Mensaje = ERROR_MESSAGE();
     END CATCH
@@ -2932,7 +2932,7 @@ BEGIN
     SET @Respuesta = 0;
     SET @Mensaje = '';
 
-    -- Iniciar la transacciÛn
+    -- Iniciar la transacci√≥n
     BEGIN TRANSACTION;
 
     BEGIN TRY
@@ -2950,14 +2950,14 @@ BEGIN
         -- Eliminar el socio
         DELETE FROM Socio WHERE IdSocio = @IdSocio;
 
-        -- Confirmar la transacciÛn si todo se ejecutÛ sin errores
+        -- Confirmar la transacci√≥n si todo se ejecut√≥ sin errores
         COMMIT TRANSACTION;
 
         SET @Respuesta = 1;
         SET @Mensaje = 'Socio eliminado correctamente junto con sus rutinas y turnos.';
     END TRY
     BEGIN CATCH
-        -- Si hay un error, revertir la transacciÛn
+        -- Si hay un error, revertir la transacci√≥n
         ROLLBACK TRANSACTION;
         SET @Mensaje = ERROR_MESSAGE();
     END CATCH
@@ -2970,11 +2970,11 @@ WHERE IdSocio <> 13
 AND Activa = 0;
 
 
--- Tabla temporal con los dÌas posibles
+-- Tabla temporal con los d√≠as posibles
 DECLARE @dias TABLE (Dia VARCHAR(20));
-INSERT INTO @dias VALUES ('Lunes'), ('Martes'), ('MiÈrcoles'), ('Jueves'), ('Viernes'), ('S·bado');
+INSERT INTO @dias VALUES ('Lunes'), ('Martes'), ('Mi√©rcoles'), ('Jueves'), ('Viernes'), ('S√°bado');
 
--- Insertar dÌas faltantes por socio (excepto el 13)
+-- Insertar d√≠as faltantes por socio (excepto el 13)
 INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
 SELECT s.IdSocio, GETDATE(), d.Dia, 0
 FROM Socio s
@@ -3084,7 +3084,7 @@ SELECT
 FROM PERMISO p
 LEFT JOIN ROL r ON r.IdRol = p.IdRol 
 LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
-LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acciÛn directa
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
 LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
 LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
 LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
@@ -3136,10 +3136,10 @@ INSERT INTO Dia (NombreDia)
 VALUES 
 ('Lunes'),
 ('Martes'),
-('MiÈrcoles'),
+('Mi√©rcoles'),
 ('Jueves'),
 ('Viernes'),
-('S·bado');
+('S√°bado');
 
 select * from Dia
 
@@ -3210,7 +3210,7 @@ SELECT
 FROM PERMISO p
 LEFT JOIN ROL r ON r.IdRol = p.IdRol 
 LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
-LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acciÛn directa
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
 LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
 LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
 LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
@@ -3226,31 +3226,31 @@ UPDATE Accion SET Descripcion = 'Administrar usuarios del gimnasio, darles de al
 
 UPDATE Accion SET Descripcion = 'Asignar, modificar o consultar los roles y permisos asignados a los usuarios del sistema.' WHERE NombreAccion = 'menuRoles';
 
-UPDATE Accion SET Descripcion = 'Gestionar los ejercicios de calentamiento, con o sin uso de m·quinas de tipo cardio.' WHERE NombreAccion = 'menuCalentamiento';
+UPDATE Accion SET Descripcion = 'Gestionar los ejercicios de calentamiento, con o sin uso de m√°quinas de tipo cardio.' WHERE NombreAccion = 'menuCalentamiento';
 
-UPDATE Accion SET Descripcion = 'Registrar, editar y eliminar elementos del gimnasio como m·quinas, pesas o accesorios utilizados en los entrenamientos.' WHERE NombreAccion = 'menuElementosGym';
+UPDATE Accion SET Descripcion = 'Registrar, editar y eliminar elementos del gimnasio como m√°quinas, pesas o accesorios utilizados en los entrenamientos.' WHERE NombreAccion = 'menuElementosGym';
 
-UPDATE Accion SET Descripcion = 'Administrar tÈcnicas de estiramiento que pueden formar parte de una rutina para los socios.' WHERE NombreAccion = 'menuEstiramiento';
+UPDATE Accion SET Descripcion = 'Administrar t√©cnicas de estiramiento que pueden formar parte de una rutina para los socios.' WHERE NombreAccion = 'menuEstiramiento';
 
 UPDATE Accion SET Descripcion = 'Configurar los diferentes rangos horarios en los que se puede entrenar y asignarlos a entrenadores y socios.' WHERE NombreAccion = 'menuRangosHorarios';
 
-UPDATE Accion SET Descripcion = 'Actualizar los datos de la empresa, como razÛn social, direcciÛn, nombre del gimnasio y horarios de atenciÛn.' WHERE NombreAccion = 'menuNegocio';
+UPDATE Accion SET Descripcion = 'Actualizar los datos de la empresa, como raz√≥n social, direcci√≥n, nombre del gimnasio y horarios de atenci√≥n.' WHERE NombreAccion = 'menuNegocio';
 
 UPDATE Accion SET Descripcion = 'Dar de alta un nuevo socio en el sistema, registrando todos sus datos personales y de contacto.' WHERE NombreAccion = 'btnMenuAgregar';
 
-UPDATE Accion SET Descripcion = 'Consultar informaciÛn personal del socio, incluyendo rutina activa, historial y estado de cuota.' WHERE NombreAccion = 'btnMenuConsultar';
+UPDATE Accion SET Descripcion = 'Consultar informaci√≥n personal del socio, incluyendo rutina activa, historial y estado de cuota.' WHERE NombreAccion = 'btnMenuConsultar';
 
-UPDATE Accion SET Descripcion = 'Eliminar un socio del sistema y mover sus datos a la base de datos histÛrica o de respaldo.' WHERE NombreAccion = 'btnMenuEliminar';
+UPDATE Accion SET Descripcion = 'Eliminar un socio del sistema y mover sus datos a la base de datos hist√≥rica o de respaldo.' WHERE NombreAccion = 'btnMenuEliminar';
 
 UPDATE Accion SET Descripcion = 'Visualizar y gestionar los turnos asignados a un socio, incluyendo altas, bajas y reasignaciones.' WHERE NombreAccion = 'btnMenuTurno';
 
-UPDATE Accion SET Descripcion = 'Dar de baja una rutina activa y eliminar los datos de esa jornada para un socio especÌfico.' WHERE NombreAccion = 'btnEliminar';
+UPDATE Accion SET Descripcion = 'Dar de baja una rutina activa y eliminar los datos de esa jornada para un socio espec√≠fico.' WHERE NombreAccion = 'btnEliminar';
 
-UPDATE Accion SET Descripcion = 'Consultar el historial completo de rutinas realizadas por un socio para su seguimiento y evoluciÛn.' WHERE NombreAccion = 'btnHistorial';
+UPDATE Accion SET Descripcion = 'Consultar el historial completo de rutinas realizadas por un socio para su seguimiento y evoluci√≥n.' WHERE NombreAccion = 'btnHistorial';
 
-UPDATE Accion SET Descripcion = 'Guardar la rutina armada para un socio, incluyendo calentamiento, entrenamiento y estiramiento del dÌa.' WHERE NombreAccion = 'btnGuardarRutina';
+UPDATE Accion SET Descripcion = 'Guardar la rutina armada para un socio, incluyendo calentamiento, entrenamiento y estiramiento del d√≠a.' WHERE NombreAccion = 'btnGuardarRutina';
 
-UPDATE Accion SET Descripcion = 'Recuperar una rutina anterior cargada por el entrenador, restaur·ndola al estado original en una fecha especÌfica.' WHERE NombreAccion = 'btnRestaurar';
+UPDATE Accion SET Descripcion = 'Recuperar una rutina anterior cargada por el entrenador, restaur√°ndola al estado original en una fecha espec√≠fica.' WHERE NombreAccion = 'btnRestaurar';
 
 select * from CupoFecha
 
@@ -3317,7 +3317,7 @@ on a.IdAccion = p.IdAccion
 
 DROP PROCEDURE SP_REGISTRARROL;
 
-DROP TYPE ETabla_Permisos; -- solo si necesit·s eliminarlo
+DROP TYPE ETabla_Permisos; -- solo si necesit√°s eliminarlo
 
 CREATE TYPE ETabla_Permisos AS TABLE
 (
@@ -3352,7 +3352,7 @@ BEGIN
             FROM @Permisos
             WHERE TipoPermiso = 'Grupo';
 
-            -- Insertar permisos por acciÛn
+            -- Insertar permisos por acci√≥n
             INSERT INTO Permiso (IdRol, IdAccion)
             SELECT @IdRol, IdAccion
             FROM @Permisos
@@ -3364,7 +3364,7 @@ BEGIN
         END
         ELSE
         BEGIN
-            SET @Mensaje = 'No se puede tener m·s de un rol con la misma descripciÛn'
+            SET @Mensaje = 'No se puede tener m√°s de un rol con la misma descripci√≥n'
             ROLLBACK TRANSACTION
         END
     END TRY
@@ -3382,7 +3382,7 @@ SELECT * FROM Rol WHERE IdRol = 1
 
 select * from permiso
 
----- TODAVIA NO LO EJECUT… --> LISTO
+---- TODAVIA NO LO EJECUT√â --> LISTO
 -- Crear tipo tabla si no existe
 IF NOT EXISTS (SELECT * FROM sys.types WHERE name = 'TipoPermiso')
 BEGIN
@@ -3494,7 +3494,7 @@ BEGIN
 
     UNION
 
-    -- Permisos por ACCI”N
+    -- Permisos por ACCI√ìN
     SELECT 
         'Accion' AS TipoPermiso,
         a.IdGrupo,
@@ -3536,7 +3536,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
         BEGIN
-            -- Actualizar descripciÛn del rol
+            -- Actualizar descripci√≥n del rol
             UPDATE Rol 
             SET Descripcion = @Descripcion 
             WHERE IdRol = @IdRol;
@@ -3611,12 +3611,12 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM Rol WHERE IdRol = @IdRol)
         BEGIN
-            -- Actualizar descripciÛn del rol
+            -- Actualizar descripci√≥n del rol
             UPDATE Rol 
             SET Descripcion = @Descripcion 
             WHERE IdRol = @IdRol;
 
-            -- Solo actualizar grupo si se indica uno v·lido
+            -- Solo actualizar grupo si se indica uno v√°lido
             IF @IdGrupo <> -1
             BEGIN
                 IF EXISTS (SELECT 1 FROM Grupo WHERE IdGrupo = @IdGrupo)
@@ -3717,7 +3717,7 @@ INSERT INTO Socio (
     'Mensual',
     'Suspendido',
     '2025-05-16',
-    '2025-07-10', -- VenciÛ hace 6 dÌas
+    '2025-07-10', -- Venci√≥ hace 6 d√≠as
     NULL,
     NULL
 );
@@ -3752,7 +3752,7 @@ VALUES (
     'Mensual',
     'Eliminado',
     '2025-03-01',
-    '2025-04-01',  -- vencida hace m·s de 30 dÌas
+    '2025-04-01',  -- vencida hace m√°s de 30 d√≠as
     NULL,
     NULL
 );
@@ -3786,23 +3786,23 @@ select * from CupoFecha
 INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa) VALUES 
 (14, GETDATE(), 'Lunes', 0),
 (14, GETDATE(), 'Martes', 0),
-(14, GETDATE(), 'MiÈrcoles', 0),
+(14, GETDATE(), 'Mi√©rcoles', 0),
 (14, GETDATE(), 'Jueves', 0),
 (14, GETDATE(), 'Viernes', 0),
-(14, GETDATE(), 'S·bado', 0);
+(14, GETDATE(), 'S√°bado', 0);
 
 -- Insertar rutinas para el socio 19
 INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa) VALUES 
 (19, GETDATE(), 'Lunes', 0),
 (19, GETDATE(), 'Martes', 0),
-(19, GETDATE(), 'MiÈrcoles', 0),
+(19, GETDATE(), 'Mi√©rcoles', 0),
 (19, GETDATE(), 'Jueves', 0),
 (19, GETDATE(), 'Viernes', 0),
-(19, GETDATE(), 'S·bado', 0);
+(19, GETDATE(), 'S√°bado', 0);
 
 
 ---- AUDITORIA
--- TRAZABILIDAD: REALIZAR AUDITORÕA SOBRE AL MENOS UN ELEMENTO CRÕTICO QUE COMPONEN EL PRODUCTO, EL SISTEMA REGISTRAR¡ LA TRAZABILIDAD COMPLETA DE DICHO ELEMENTO, DE MANERA TAL QUE PUEDA ESTABLECERSE EL ESTADO SITUACI”N ORIGINAL DEL ELEMENTO Y SUS RESPECTIVAS TRANSFORMACIONES. DE ESTA FORMA PODR¡ CONOCERSE QUE USUARIO REALIZ” UNA ACCI”N, LA FECHA Y HORA EN QUE LO HIZO, QUE DATOS REGISTR”, MODIFIC” O ELIMIN”, Y CU¡LES ERAN LOS VALORES ORIGINALES.
+-- TRAZABILIDAD: REALIZAR AUDITOR√çA SOBRE AL MENOS UN ELEMENTO CR√çTICO QUE COMPONEN EL PRODUCTO, EL SISTEMA REGISTRAR√Å LA TRAZABILIDAD COMPLETA DE DICHO ELEMENTO, DE MANERA TAL QUE PUEDA ESTABLECERSE EL ESTADO SITUACI√ìN ORIGINAL DEL ELEMENTO Y SUS RESPECTIVAS TRANSFORMACIONES. DE ESTA FORMA PODR√Å CONOCERSE QUE USUARIO REALIZ√ì UNA ACCI√ìN, LA FECHA Y HORA EN QUE LO HIZO, QUE DATOS REGISTR√ì, MODIFIC√ì O ELIMIN√ì, Y CU√ÅLES ERAN LOS VALORES ORIGINALES.
 CREATE TABLE AuditoriaTurno (
     IdAuditoria INT PRIMARY KEY IDENTITY,
     IdTurno INT,
@@ -3892,7 +3892,7 @@ END;
 
 SELECT * FROM AuditoriaTurno ORDER BY FechaHora DESC;
 
--- LOGIN-LOGOUT: ADEM¡S, DEBER¡ DESARROLLAR LA AUDITORÕA SOBRE LOS INICIOS Y CIERRES DE SESI”N.
+-- LOGIN-LOGOUT: ADEM√ÅS, DEBER√Å DESARROLLAR LA AUDITOR√çA SOBRE LOS INICIOS Y CIERRES DE SESI√ìN.
 CREATE TABLE AuditoriaAccesos (
     IdAuditoria INT PRIMARY KEY IDENTITY,
     IdUsuario INT NOT NULL,
@@ -3909,7 +3909,421 @@ CREATE TABLE AuditoriaAccesos (
 
 SELECT * FROM AuditoriaAccesos ORDER BY FechaHora DESC;
 
--- REPORTES: DEBER¡ INCLUIR EN EL SISTEMA REPORTES DE AUDITORÕA QUE MUESTREN ESTA INFORMACI”N.
+-- REPORTES: DEBER√Å INCLUIR EN EL SISTEMA REPORTES DE AUDITOR√çA QUE MUESTREN ESTA INFORMACI√ìN.
 
 SELECT * FROM AuditoriaTurno ORDER BY FechaHora DESC;
 SELECT * FROM AuditoriaAccesos ORDER BY FechaHora DESC;
+
+SELECT aa.IdAuditoria, aa.IdUsuario, aa.FechaHora, aa.TipoEvento, u.NombreYApellido
+FROM AuditoriaAccesos aa
+INNER JOIN Usuario u
+ON u.IdUsuario = aa.IdUsuario
+ORDER BY FechaHora DESC
+
+select * from Usuario
+
+select IdPermiso, IdRol, FechaRegistro, IdGrupo, IdAccion, IdUsuario 
+from Permiso
+
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    COALESCE(g.NombreMenu, am.NombreMenu) AS NombreMenu, 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 1
+
+-- Lo que tengo:
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    COALESCE(g.NombreMenu, am.NombreMenu) AS NombreMenu, 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 1
+
+-- SOLUCION DEFINITIVA
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    g.NombreMenu AS NombreMenuGrupo, 
+    am.NombreMenu AS NombreMenuAccion,
+    ac.NombreAccion AS NombreAccionGrupo, 
+    a.NombreAccion AS NombreAccionIndividual
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo 
+LEFT JOIN (
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 1
+
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    g.NombreMenu AS NombreMenuGrupo, 
+    am.NombreMenu AS NombreMenuAccion,
+    ac.NombreAccion AS NombreAccionGrupo, 
+    a.NombreAccion AS NombreAccionIndividual
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo 
+LEFT JOIN (
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 9
+
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    g.NombreMenu AS NombreMenuGrupo, 
+    am.NombreMenu AS NombreMenuAccion,
+    ac.NombreAccion AS NombreAccionGrupo, 
+    a.NombreAccion AS NombreAccionIndividual
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo 
+LEFT JOIN (
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 15
+
+-- select * from permiso
+
+-- Lo que yo necesito con la forma de acciones para un grupo personalizado:
+select p.IdPermiso, r.IdRol, g.NombreMenu, a.NombreAccion
+from usuario u
+inner join Rol r
+on r.IdRol = u.IdRol
+left join Permiso p
+on p.IdRol = r.IdRol
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+where u.IdUsuario = 15
+
+-- Nueva 2:
+-- Permisos directos asignados al usuario
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    g.NombreMenu AS NombreMenu,
+    a.NombreAccion AS NombreAccion
+FROM PERMISO p
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE p.IdUsuario = 15
+
+UNION
+
+-- Permisos asignados por el rol del usuario
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    g.NombreMenu AS NombreMenu,
+    a.NombreAccion AS NombreAccion
+FROM PERMISO p
+JOIN USUARIO u ON u.IdRol = p.IdRol
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE u.IdUsuario = 15
+
+
+-- 
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    p.IdGrupo,
+    p.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    CASE 
+        WHEN p.IdGrupo IS NOT NULL AND p.IdAccion IS NULL THEN 'Grupo'
+        WHEN p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL THEN 'Individual'
+        WHEN p.IdGrupo IS NOT NULL AND p.IdAccion IS NOT NULL THEN 'Combinado'
+        ELSE 'SinTipo'
+    END AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE u.IdUsuario = 9
+
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    p.IdGrupo,
+    p.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    CASE 
+        WHEN p.IdGrupo IS NOT NULL AND p.IdAccion IS NULL THEN 'Grupo'
+        WHEN p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL THEN 'Individual'
+        WHEN p.IdGrupo IS NOT NULL AND p.IdAccion IS NOT NULL THEN 'Combinado'
+        ELSE 'SinTipo'
+    END AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE u.IdUsuario = 9
+
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    p.IdGrupo,
+    p.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    CASE 
+        WHEN p.IdGrupo IS NOT NULL AND p.IdAccion IS NULL THEN 'Grupo'
+        WHEN p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL THEN 'Individual'
+        WHEN p.IdGrupo IS NOT NULL AND p.IdAccion IS NOT NULL THEN 'Combinado'
+        ELSE 'SinTipo'
+    END AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE u.IdUsuario = 9
+
+
+-- 1. Permisos por Grupo ‚Üí traer TODAS las acciones del grupo
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    g.IdGrupo,
+    a.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    'Grupo' AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+INNER JOIN ACCION a ON a.IdGrupo = g.IdGrupo
+WHERE p.IdAccion IS NULL AND u.IdUsuario = 16
+
+UNION ALL
+
+-- 2. Permisos Individuales
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    NULL AS IdGrupo,
+    a.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    'Individual' AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+WHERE p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL AND u.IdUsuario = 16
+
+UNION ALL
+
+-- 3. Permisos Combinados
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    g.IdGrupo,
+    a.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    'Combinado' AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE u.IdUsuario = 16
+
+-- Consultar que tengo que arreglar para que no traiga los individuales cuando tengo un id con solo Combinados:
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    NULL AS IdGrupo,
+    a.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    'Individual' AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdUsuario = p.IdUsuario
+INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+WHERE p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL AND u.IdUsuario = 17
+
+
+select * from rol r
+inner join Permiso p
+on p.IdRol = r.IdRol
+where r.idRol = 13
+
+select p.IdPermiso, p.IdRol, r.Descripcion, p.FechaRegistro, p.IdGrupo, p.IdAccion, p.IdUsuario
+from Permiso p
+inner join Rol r
+on r.IdRol = p.IdRol
+
+select p.*, u.IdUsuario, a.*
+from Permiso p
+inner join Usuario u
+on u.IdUsuario = p.IdUsuario
+inner join Accion a
+on a.IdAccion = p.IdAccion
+WHERE p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL AND u.IdUsuario = 15
+
+SELECT 
+    p.IdPermiso,
+    p.IdRol,
+    NULL AS IdGrupo,
+    p.IdAccion,
+    g.NombreMenu,
+    a.NombreAccion,
+    'Individual' AS TipoPermiso
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+WHERE 
+    p.IdGrupo IS NULL
+    AND p.IdAccion IS NOT NULL
+    AND u.IdUsuario = 15
+    -- NO debe existir permiso combinado para esa acci√≥n:
+    AND NOT EXISTS (
+        SELECT 1
+        FROM PERMISO pc
+        WHERE pc.IdAccion = p.IdAccion
+          AND pc.IdGrupo IS NOT NULL
+          AND (pc.IdUsuario = u.IdUsuario OR pc.IdRol = u.IdRol)
+    )
+
+
+	SELECT 
+		p.IdPermiso,
+		p.IdRol,
+		NULL AS IdGrupo,
+		a.IdAccion,
+		NULL AS NombreMenu, -- no corresponde a Individual
+		a.NombreAccion,
+		'Individual' AS TipoPermiso
+	FROM PERMISO p
+	INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+	INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+	LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo AND p.IdGrupo = g.IdGrupo
+	WHERE p.IdGrupo IS NULL 
+	  AND p.IdAccion IS NOT NULL 
+	  AND u.IdUsuario = 15
+
+
+SELECT r.IdRol, r.Descripcion, a.NombreAccion
+FROM Rol r
+inner join Permiso p
+on p.IdRol = r.IdRol
+left join Accion a
+on a.IdAccion = p.IdAccion
+
+SELECT IdRol, Descripcion FROM Rol
+
+select * from Usuario
+
+select * from Permiso
+
+SELECT 
+    p.IdPermiso, 
+    p.IdRol, 
+    COALESCE(g.NombreMenu, am.NombreMenu) AS NombreMenu, 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 16
+
+
+-- VIEJO --> public List<Accion> Listar(int idusuario)
+SELECT 
+    COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+FROM PERMISO p
+LEFT JOIN ROL r ON r.IdRol = p.IdRol 
+LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
+LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acci√≥n directa
+LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
+LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
+LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
+    SELECT a.IdAccion, g.NombreMenu 
+    FROM ACCION a
+    LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+) am ON a.IdAccion = am.IdAccion
+WHERE u.IdUsuario = 16
+
+-- Nuevo --> public List<Accion> Listar(int idusuario)
+-- 1. Permisos por Grupo ‚Üí traer TODAS las acciones del grupo
+SELECT 
+    a.NombreAccion
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+INNER JOIN ACCION a ON a.IdGrupo = g.IdGrupo
+WHERE p.IdAccion IS NULL AND u.IdUsuario = @idusuario
+
+UNION ALL
+
+-- 2. Permisos Individuales
+SELECT 
+    a.NombreAccion
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+WHERE p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL AND u.IdUsuario = @idusuario
+
+UNION ALL
+
+-- 3. Permisos Combinados
+SELECT 
+    a.NombreAccion
+FROM PERMISO p
+INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+WHERE u.IdUsuario = @idusuario

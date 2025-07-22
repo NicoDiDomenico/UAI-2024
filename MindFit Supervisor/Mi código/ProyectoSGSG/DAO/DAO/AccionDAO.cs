@@ -113,19 +113,36 @@ namespace DAO
                 try
                 {
                     string query = @"
+                        -- Nuevo --> public List<Accion> Listar(int idusuario)
+                        -- 🔹 1. Permisos por Grupo → traer TODAS las acciones del grupo
                         SELECT 
-                            COALESCE(ac.NombreAccion, a.NombreAccion) AS NombreAccion
+                            a.NombreAccion
                         FROM PERMISO p
-                        LEFT JOIN ROL r ON r.IdRol = p.IdRol 
-                        LEFT JOIN USUARIO u ON u.IdRol = r.IdRol OR u.IdUsuario = p.IdUsuario 
-                        LEFT JOIN GRUPO g ON p.IdGrupo = g.IdGrupo -- Puede ser NULL si es acción directa
-                        LEFT JOIN ACCION a ON p.IdAccion = a.IdAccion -- Acciones individuales
-                        LEFT JOIN ACCION ac ON g.IdGrupo = ac.IdGrupo -- Acciones que provienen de grupos
-                        LEFT JOIN ( -- Subconsulta para asignar el NombreMenu a acciones individuales
-                            SELECT a.IdAccion, g.NombreMenu 
-                            FROM ACCION a
-                            LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
-                        ) am ON a.IdAccion = am.IdAccion
+                        INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+                        INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+                        INNER JOIN ACCION a ON a.IdGrupo = g.IdGrupo
+                        WHERE p.IdAccion IS NULL AND u.IdUsuario = @idusuario
+
+                        UNION ALL
+
+                        -- 🔹 2. Permisos Individuales
+                        SELECT 
+                            a.NombreAccion
+                        FROM PERMISO p
+                        INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+                        INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+                        LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+                        WHERE p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL AND u.IdUsuario = @idusuario
+
+                        UNION ALL
+
+                        -- 🔹 3. Permisos Combinados
+                        SELECT 
+                            a.NombreAccion
+                        FROM PERMISO p
+                        INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+                        INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+                        INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
                         WHERE u.IdUsuario = @idusuario
                     ";
 

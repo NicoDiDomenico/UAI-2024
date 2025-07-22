@@ -16,6 +16,12 @@ namespace Controlador
         {
             return objcd_permiso.Listar(idUsuario);
         }
+
+        public List<PermisoPersonalizado3> ListarPermisoPersonalizado3(int idUsuario)
+        {
+            return objcd_permiso.ListarPermisoPersonalizado3(idUsuario);
+        }
+
         public List<Permiso> ObtenerPermisosRol(int IdRol)
         {
             return objcd_permiso.ObtenerPermisosRol(IdRol);

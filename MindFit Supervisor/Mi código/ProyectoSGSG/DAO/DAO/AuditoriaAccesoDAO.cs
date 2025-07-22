@@ -13,9 +13,12 @@ namespace DAO
 
             using (SqlConnection con = new SqlConnection(Conexion.cadena))
             {
-                string query = @"SELECT IdAuditoria, IdUsuario, FechaHora, TipoEvento
-                                 FROM AuditoriaAccesos
-                                 ORDER BY FechaHora DESC";
+                string query = @"SELECT aa.IdAuditoria, aa.IdUsuario, aa.FechaHora, aa.TipoEvento, u.NombreYApellido
+                FROM AuditoriaAccesos aa
+                INNER JOIN Usuario u
+                ON u.IdUsuario = aa.IdUsuario
+                ORDER BY FechaHora DESC
+                ";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 con.Open();
@@ -27,7 +30,11 @@ namespace DAO
                         AuditoriaAcceso acceso = new AuditoriaAcceso
                         {
                             IdAuditoria = Convert.ToInt32(dr["IdAuditoria"]),
-                            IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                            usuario = new Usuario
+                            {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                NombreYApellido = Convert.ToString(dr["NombreYApellido"])
+                            },
                             FechaHora = Convert.ToDateTime(dr["FechaHora"]),
                             TipoEvento = dr["TipoEvento"].ToString()
                         };

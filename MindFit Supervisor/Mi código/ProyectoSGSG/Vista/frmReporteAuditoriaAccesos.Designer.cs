@@ -31,6 +31,7 @@
             this.dgvAuditoriaAccesos = new System.Windows.Forms.DataGridView();
             this.IdAuditoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreYApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoEvento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuditoriaAccesos)).BeginInit();
@@ -43,6 +44,7 @@
             this.dgvAuditoriaAccesos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdAuditoria,
             this.IdUsuario,
+            this.NombreYApellido,
             this.FechaHora,
             this.TipoEvento});
             this.dgvAuditoriaAccesos.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -61,6 +63,11 @@
             // 
             this.IdUsuario.HeaderText = "IdUsuario";
             this.IdUsuario.Name = "IdUsuario";
+            // 
+            // NombreYApellido
+            // 
+            this.NombreYApellido.HeaderText = "Usuario";
+            this.NombreYApellido.Name = "NombreYApellido";
             // 
             // FechaHora
             // 
@@ -93,6 +100,7 @@
         private System.Windows.Forms.DataGridView dgvAuditoriaAccesos;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdAuditoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreYApellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaHora;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoEvento;
     }

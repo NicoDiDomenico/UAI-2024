@@ -1200,6 +1200,7 @@ namespace Vista
 
         private void validarPermisos()
         {
+            /*
             List<Permiso> listaPermisos = new ControladorGymPermiso().Listar(usuario.IdUsuario);
 
             // Lista de botones a validar
@@ -1211,6 +1212,26 @@ namespace Vista
                 bool tienePermiso = listaPermisos.Any(p =>
                     (p.Grupo != null && p.Grupo.NombreMenu == boton.Name) ||
                     (p.Accion != null && p.Accion.NombreAccion == boton.Name)
+                );
+
+                if (!tienePermiso)
+                {
+                    boton.Visible = false; // En lo botones cambio .Enabled por .Visible para evitar que al hacer clica un usuario igualmente se active aunque no tenga el permiso.
+                    boton.BackColor = Color.Gainsboro;
+                }
+            }
+            */
+            List<PermisoPersonalizado3> listaPermisos = new ControladorGymPermiso().ListarPermisoPersonalizado3(usuario.IdUsuario);
+
+            List<IconButton> botones = new List<IconButton> { btnEliminar, btnHistorial, btnGuardarRutina };
+
+            foreach (IconButton boton in botones)
+            {
+                string nombreBoton = boton.Name;
+
+                bool tienePermiso = listaPermisos.Any(p =>
+                    !string.IsNullOrEmpty(p.NombreAccion) && // Esto comprueba que el campo NombreAccion no esté vacío ni sea nulo, para evitar errores al comparar.
+                    p.NombreAccion.Equals(nombreBoton, StringComparison.OrdinalIgnoreCase) // ¿El nombre de la acción (p.NombreAccion) es igual al nombre del botón (nombreBoton)? (Ignorando mayúsculas/minúsculas (StringComparison.OrdinalIgnoreCase))
                 );
 
                 if (!tienePermiso)

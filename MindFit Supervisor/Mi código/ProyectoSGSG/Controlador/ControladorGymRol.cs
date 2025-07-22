@@ -19,6 +19,11 @@ namespace Controlador
             return objcd_rol.Listar();
         }
 
+        public List<Rol> ListarConAcciones()
+        {
+            return objcd_rol.ListarConAcciones();
+        }
+
         public bool Registrar(string Descripcion, DataTable Permisos, out string Mensaje)
         {
             return objcd_rol.Registrar(Descripcion, Permisos, out Mensaje);

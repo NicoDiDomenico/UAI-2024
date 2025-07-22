@@ -50,6 +50,65 @@ namespace DAO
             return lista;
         }
 
+        public List<Rol> ListarConAcciones()
+        {
+            List<Rol> lista = new List<Rol>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT r.IdRol, r.Descripcion, a.NombreAccion
+                        FROM Rol r
+                        INNER JOIN Permiso p ON p.IdRol = r.IdRol
+                        LEFT JOIN Accion a ON a.IdAccion = p.IdAccion
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        Dictionary<int, Rol> rolesMap = new Dictionary<int, Rol>();
+
+                        while (dr.Read())
+                        {
+                            int idRol = Convert.ToInt32(dr["IdRol"]);
+                            string descripcion = dr["Descripcion"].ToString();
+                            string nombreAccion = dr["NombreAccion"] != DBNull.Value ? dr["NombreAccion"].ToString() : null;
+
+                            if (!rolesMap.ContainsKey(idRol))
+                            {
+                                rolesMap[idRol] = new Rol()
+                                {
+                                    IdRol = idRol,
+                                    Descripcion = descripcion,
+                                    Acciones = new List<string>()
+                                };
+                            }
+
+                            if (!string.IsNullOrEmpty(nombreAccion))
+                            {
+                                rolesMap[idRol].Acciones.Add(nombreAccion);
+                            }
+                        }
+
+                        lista = rolesMap.Values.ToList();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lista = new List<Rol>();
+                }
+            }
+
+            return lista;
+        }
+
+
         public bool Registrar(string Descripcion, DataTable Permisos, out string Mensaje)
         {
             bool Resultado = false;

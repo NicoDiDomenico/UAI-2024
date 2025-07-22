@@ -14,5 +14,6 @@ namespace Modelo
         public Accion Accion { get; set; }    
         public DateTime FechaRegistro { get; set; }
         public string TipoPermiso { get; set; }
+        public Usuario usuario { get; set; }
     }
 }

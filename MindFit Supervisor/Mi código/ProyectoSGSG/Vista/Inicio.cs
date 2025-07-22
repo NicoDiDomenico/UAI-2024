@@ -102,6 +102,16 @@ namespace Vista
                     iconMenu.BackColor = Color.Gainsboro;
                 }
             }
+            /*
+            // Si no tiene un Rol quitar el gbRol --> LO MANDÉ AL 219
+            foreach (Permiso p in listaPermisos)
+            {
+                if (p.Grupo == null)
+                {
+                    gbRol.Visible = false;
+                }
+            }
+            */
         }
         public Image ByteToImage(byte[] imageBytes)
         {
@@ -202,11 +212,13 @@ namespace Vista
 
             lblLogo.Text = gym.NombreGimnasio;
 
-            validarPermisos();
-
             lblUsuario.Text = usuarioActual.NombreYApellido;
-            string nombreRol = usuarioActual.Rol.Descripcion;
-            lblRol.Text = char.ToUpper(nombreRol[0]) + nombreRol.Substring(1).ToLower();
+            if (usuarioActual.Rol != null ) {
+                string nombreRol = usuarioActual.Rol.Descripcion;
+                lblRol.Text = char.ToUpper(nombreRol[0]) + nombreRol.Substring(1).ToLower();
+            } else gbRol.Visible = false;
+
+            validarPermisos();
 
             cargarGrid();
 

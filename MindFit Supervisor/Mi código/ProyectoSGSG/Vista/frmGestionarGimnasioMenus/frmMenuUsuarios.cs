@@ -143,7 +143,8 @@ namespace Vista
             cboGenero.SelectedIndex = -1;
 
             // Para ComboBox de Rol 
-            List<Rol> listaRol = new ControladorGymRol().Listar();
+            //List<Rol> listaRol = new ControladorGymRol().Listar();
+            List<Rol> listaRol = new ControladorGymRol().ListarConAcciones();
 
             foreach (Rol item in listaRol)
             {
@@ -224,6 +225,9 @@ namespace Vista
                     }
                     else
                     {
+                        //int cantidad = unUsuario.Acciones.Count();
+                        //MessageBox.Show(Convert.ToString(cantidad));
+
                         bool rta = new ControladorGymUsuario().Editar(unUsuario, out mensaje);
 
                         if (rta)
@@ -483,6 +487,10 @@ namespace Vista
         private void btnGrupo_Click(object sender, EventArgs e)
         {
             panelRol.Enabled = true;
+
+            accionesSeleccionadas = new List<Accion>();
+            //MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
+            
         }
 
         private void btnAccion_Click(object sender, EventArgs e)
@@ -504,6 +512,28 @@ namespace Vista
                 if (accionesSeleccionadas != null && accionesSeleccionadas.Count > 0)
                 {
                     //MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
+                }
+            }
+        }
+
+        private void cboRol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstAccionesRol.Items.Clear();
+
+            if (cboRol.SelectedItem != null)
+            {
+                int idRolSeleccionado = Convert.ToInt32(((OpcionCombo)cboRol.SelectedItem).Valor);
+
+                // Buscar el Rol con ese ID
+                Rol rolSeleccionado = new ControladorGymRol().ListarConAcciones()
+                    .FirstOrDefault(r => r.IdRol == idRolSeleccionado);
+
+                if (rolSeleccionado != null && rolSeleccionado.Acciones != null)
+                {
+                    foreach (var accion in rolSeleccionado.Acciones)
+                    {
+                        lstAccionesRol.Items.Add(accion);
+                    }
                 }
             }
         }

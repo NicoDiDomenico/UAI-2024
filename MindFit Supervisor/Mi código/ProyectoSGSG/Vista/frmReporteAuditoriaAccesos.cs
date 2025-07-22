@@ -28,7 +28,8 @@ namespace Vista
                 dgvAuditoriaAccesos.Rows.Add(new object[]
                 {
                     item.IdAuditoria,
-                    item.IdUsuario,
+                    item.usuario.IdUsuario,
+                    item.usuario.NombreYApellido,
                     item.FechaHora,
                     item.TipoEvento
                 });

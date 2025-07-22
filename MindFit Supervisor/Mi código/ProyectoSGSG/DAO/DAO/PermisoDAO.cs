@@ -18,7 +18,7 @@ namespace DAO
             using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
             {
                 try
-                {
+                {   
                     string query = @"
                         SELECT 
                             p.IdPermiso, 
@@ -66,6 +66,99 @@ namespace DAO
                     lista = new List<Permiso>();
                 }
             }
+            return lista;
+        }
+
+        public List<PermisoPersonalizado3> ListarPermisoPersonalizado3(int idUsuario)
+        {
+            List<PermisoPersonalizado3> lista = new List<PermisoPersonalizado3>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        -- 🔹 1. Permisos por Grupo → traer TODAS las acciones del grupo
+                        SELECT 
+                            p.IdPermiso,
+                            p.IdRol,
+                            g.IdGrupo,
+                            a.IdAccion,
+                            g.NombreMenu,
+                            a.NombreAccion,
+                            'Grupo' AS TipoPermiso
+                        FROM PERMISO p
+                        INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+                        INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+                        INNER JOIN ACCION a ON a.IdGrupo = g.IdGrupo
+                        WHERE p.IdAccion IS NULL AND u.IdUsuario = @idusuario
+
+                        UNION ALL
+
+                        -- 🔹 2. Permisos Individuales
+                        SELECT 
+                            p.IdPermiso,
+                            p.IdRol,
+                            NULL AS IdGrupo,
+                            a.IdAccion,
+                            g.NombreMenu,
+                            a.NombreAccion,
+                            'Individual' AS TipoPermiso
+                        FROM PERMISO p
+                        INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+                        INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+                        LEFT JOIN GRUPO g ON a.IdGrupo = g.IdGrupo
+                        WHERE p.IdGrupo IS NULL AND p.IdAccion IS NOT NULL AND u.IdUsuario = @idusuario
+
+                        UNION ALL
+
+                        -- 🔹 3. Permisos Combinados
+                        SELECT 
+                            p.IdPermiso,
+                            p.IdRol,
+                            g.IdGrupo,
+                            a.IdAccion,
+                            g.NombreMenu,
+                            a.NombreAccion,
+                            'Combinado' AS TipoPermiso
+                        FROM PERMISO p
+                        INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
+                        INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
+                        INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
+                        WHERE u.IdUsuario = @idusuario
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.Parameters.AddWithValue("@idusuario", idUsuario);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            PermisoPersonalizado3 permiso = new PermisoPersonalizado3
+                            {
+                                IdPermiso = Convert.ToInt32(dr["IdPermiso"]),
+                                IdRol = dr["IdRol"] != DBNull.Value ? Convert.ToInt32(dr["IdRol"]) : (int?)null,
+                                IdGrupo = dr["IdGrupo"] != DBNull.Value ? Convert.ToInt32(dr["IdGrupo"]) : (int?)null,
+                                IdAccion = dr["IdAccion"] != DBNull.Value ? Convert.ToInt32(dr["IdAccion"]) : (int?)null,
+                                NombreMenu = dr["NombreMenu"] != DBNull.Value ? dr["NombreMenu"].ToString() : null,
+                                NombreAccion = dr["NombreAccion"] != DBNull.Value ? dr["NombreAccion"].ToString() : null,
+                                TipoPermiso = dr["TipoPermiso"].ToString()
+                            };
+
+                            lista.Add(permiso);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<PermisoPersonalizado3>();
+                }
+            }
+
             return lista;
         }
 

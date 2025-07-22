@@ -29,7 +29,8 @@ namespace Controlador.State.Socio
             else
             {
                 // Pasaron más de 30 días → no se puede volver a suspender
-                mensaje = "No se puede cambiar a estado Suspendido porque pasaron más de 30 días desde el vencimiento. El socio debe renovar la cuota.";
+                mensaje = "No se puede cambiar a estado Suspendido porque pasaron más de 30 días desde el vencimiento. " +
+                    "El socio debe renovar la cuota.";
                 return false;
             }
         }
