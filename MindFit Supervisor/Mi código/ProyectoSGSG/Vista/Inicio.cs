@@ -192,6 +192,8 @@ namespace Vista
             usuarioActual = ousuario;
 
             InitializeComponent();
+
+            this.FormClosing += Inicio_FormClosing;
         }
 
         private void Inicio_Load(object sender, EventArgs e)
@@ -301,9 +303,6 @@ namespace Vista
         {
             if (MessageBox.Show("¿Desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                // 🔹 Auditar logout
-                AuditoriaAccesosService.RegistrarEvento(usuarioActual.IdUsuario, "Logout");
-
                 this.Close();
             }
         }
@@ -321,5 +320,15 @@ namespace Vista
         {
 
         }
+        
+        private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Registrar el logout automáticamente si hay un usuario válido
+            if (usuarioActual != null)
+            {
+                AuditoriaAccesosService.RegistrarEvento(usuarioActual.IdUsuario, "Logout");
+            }
+        }
+       
     }
 }

@@ -20,6 +20,7 @@ namespace Vista
         #region "Variables"
         private static Usuario usuarioIniciado;
         private List<Accion> accionesSeleccionadas;
+        private int indiceEstado;
         #endregion
 
         #region "Métodos"
@@ -102,7 +103,9 @@ namespace Vista
                 formulario.Top += 155;
                 formulario.Left += 232;
             };
-            formulario.ShowDialog(); // Muestra como ventana modal
+
+            // Muestra como ventana modal
+            formulario.ShowDialog(); 
         }
 
         private void RegistrarUsuario(Usuario unUsuario, string mensaje)
@@ -285,6 +288,7 @@ namespace Vista
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            panelAcciones.Visible = false;
             if (e.RowIndex >= 0 && dgvData.Columns[e.ColumnIndex].Name == "btnSeleccionar")
             {
                 // Asegurar que la lista no sea null antes de limpiar
@@ -404,6 +408,7 @@ namespace Vista
                                 if (Convert.ToInt32(oc.Valor) == estadoValor)
                                 {
                                     cboEstado.SelectedIndex = cboEstado.Items.IndexOf(oc);
+                                    indiceEstado = cboEstado.Items.IndexOf(oc);
                                     break;
                                 }
                             }
@@ -495,6 +500,7 @@ namespace Vista
 
         private void btnAccion_Click(object sender, EventArgs e)
         {
+            
             cboRol.SelectedIndex = -1; // Se deselecciona el rol
             panelRol.Enabled = false;
 
@@ -514,6 +520,40 @@ namespace Vista
                     //MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
                 }
             }
+            
+            //// Intento de hacer que en el cboEstado se recupere el estado antes de apretar en acciones
+            /*
+            // Guardar los valores actuales antes de modificar
+            int rolSeleccionadoIndex = cboRol.SelectedIndex;
+            bool panelRolHabilitado = panelRol.Enabled;
+
+            // Limpiar selección de rol para trabajar solo con acciones
+            cboRol.SelectedIndex = -1;
+            panelRol.Enabled = false;
+
+            // Crear el formulario
+            frmAcciones formAcciones = new frmAcciones(Convert.ToInt32(txtId.Text), accionesSeleccionadas);
+
+            // Mostrar centrado usando tu método AbrirFormulario
+            AbrirFormulario(formAcciones);
+
+            // Una vez cerrado el formulario
+            if (formAcciones.DialogResult == DialogResult.OK)
+            {
+                // Guardó cambios -> Actualizar acciones seleccionadas
+                accionesSeleccionadas = formAcciones.AccionesSeleccionadas ?? new List<Accion>();
+            }
+            else
+            {
+                // Cerró con la X o canceló -> restaurar el estado previo
+                cboRol.SelectedIndex = rolSeleccionadoIndex;
+                panelRol.Enabled = panelRolHabilitado;
+                if (accionesSeleccionadas.Count() == 0)
+                {
+                    btnGrupo.Select();
+                } else btnAccion.Select();
+            }
+            */
         }
 
         private void cboRol_SelectedIndexChanged(object sender, EventArgs e)
@@ -536,6 +576,23 @@ namespace Vista
                     }
                 }
             }
+        }
+
+        private void btnVer_Click(object sender, EventArgs e)
+        {
+            /*
+            if (panelAcciones.Visible)
+            {
+                panelAcciones.Visible = false;
+            } else panelAcciones.Visible = true; 
+            */
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            /*
+            panelAcciones.Visible = false;
+            */
         }
     }
 }

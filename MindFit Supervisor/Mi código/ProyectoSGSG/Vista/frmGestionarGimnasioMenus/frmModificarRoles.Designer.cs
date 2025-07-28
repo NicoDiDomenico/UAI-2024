@@ -35,10 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -47,6 +43,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panelPermiso = new System.Windows.Forms.Panel();
+            this.txbDescripcion = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPermisoRol = new System.Windows.Forms.TextBox();
             this.gbPermisos = new System.Windows.Forms.GroupBox();
             this.panelGrupo = new System.Windows.Forms.Panel();
             this.gbAccion = new System.Windows.Forms.GroupBox();
@@ -58,34 +59,35 @@
             this.btnAgreagar1 = new FontAwesome.Sharp.IconButton();
             this.cboGrupo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txbDescripcion = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPermisoRol = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiar = new FontAwesome.Sharp.IconButton();
             this.txtIndice = new System.Windows.Forms.TextBox();
             this.dgvDataPermisos = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtIdGrupo = new System.Windows.Forms.TextBox();
+            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdRol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnSeleccionar2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TipoPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdGrupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoPermiso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombreAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DescAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IdAccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Seleccionado2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnEliminarFila = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtIdGrupo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panelPermiso.SuspendLayout();
             this.gbPermisos.SuspendLayout();
             this.panelGrupo.SuspendLayout();
             this.gbAccion.SuspendLayout();
@@ -142,35 +144,6 @@
             this.dgvData.TabIndex = 69;
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting);
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 35;
-            // 
-            // IdRol
-            // 
-            this.IdRol.HeaderText = "IdRol";
-            this.IdRol.Name = "IdRol";
-            this.IdRol.ReadOnly = true;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            this.Rol.Width = 981;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
             // 
             // btnBuscar
             // 
@@ -257,14 +230,11 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.groupBox1.Controls.Add(this.panelPermiso);
             this.groupBox1.Controls.Add(this.gbPermisos);
-            this.groupBox1.Controls.Add(this.txbDescripcion);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtPermisoRol);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.btnEliminar);
@@ -274,6 +244,54 @@
             this.groupBox1.Size = new System.Drawing.Size(453, 579);
             this.groupBox1.TabIndex = 70;
             this.groupBox1.TabStop = false;
+            // 
+            // panelPermiso
+            // 
+            this.panelPermiso.Controls.Add(this.txbDescripcion);
+            this.panelPermiso.Controls.Add(this.label5);
+            this.panelPermiso.Controls.Add(this.label3);
+            this.panelPermiso.Controls.Add(this.txtPermisoRol);
+            this.panelPermiso.Location = new System.Drawing.Point(6, 95);
+            this.panelPermiso.Name = "panelPermiso";
+            this.panelPermiso.Size = new System.Drawing.Size(428, 223);
+            this.panelPermiso.TabIndex = 69;
+            // 
+            // txbDescripcion
+            // 
+            this.txbDescripcion.Enabled = false;
+            this.txbDescripcion.Location = new System.Drawing.Point(138, 52);
+            this.txbDescripcion.Multiline = true;
+            this.txbDescripcion.Name = "txbDescripcion";
+            this.txbDescripcion.Size = new System.Drawing.Size(277, 165);
+            this.txbDescripcion.TabIndex = 67;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label5.Location = new System.Drawing.Point(9, 55);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 13);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Descripción del Permiso:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label3.Location = new System.Drawing.Point(66, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Permiso Rol:";
+            // 
+            // txtPermisoRol
+            // 
+            this.txtPermisoRol.Enabled = false;
+            this.txtPermisoRol.Location = new System.Drawing.Point(138, 12);
+            this.txtPermisoRol.Name = "txtPermisoRol";
+            this.txtPermisoRol.Size = new System.Drawing.Size(277, 20);
+            this.txtPermisoRol.TabIndex = 33;
             // 
             // gbPermisos
             // 
@@ -400,25 +418,6 @@
             this.label7.Size = new System.Drawing.Size(0, 13);
             this.label7.TabIndex = 39;
             // 
-            // txbDescripcion
-            // 
-            this.txbDescripcion.Enabled = false;
-            this.txbDescripcion.Location = new System.Drawing.Point(144, 147);
-            this.txbDescripcion.Multiline = true;
-            this.txbDescripcion.Name = "txbDescripcion";
-            this.txbDescripcion.Size = new System.Drawing.Size(277, 165);
-            this.txbDescripcion.TabIndex = 67;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label5.Location = new System.Drawing.Point(15, 150);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 13);
-            this.label5.TabIndex = 66;
-            this.label5.Text = "Descripción del Permiso:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -447,24 +446,6 @@
             this.label9.Size = new System.Drawing.Size(111, 25);
             this.label9.TabIndex = 46;
             this.label9.Text = "Detalle Rol:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label3.Location = new System.Drawing.Point(72, 110);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Permiso Rol:";
-            // 
-            // txtPermisoRol
-            // 
-            this.txtPermisoRol.Enabled = false;
-            this.txtPermisoRol.Location = new System.Drawing.Point(144, 107);
-            this.txtPermisoRol.Name = "txtPermisoRol";
-            this.txtPermisoRol.Size = new System.Drawing.Size(277, 20);
-            this.txtPermisoRol.TabIndex = 33;
             // 
             // txtId
             // 
@@ -564,10 +545,10 @@
             this.dgvDataPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDataPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar2,
+            this.TipoPermiso,
             this.NombreMenu,
             this.Descripcion,
             this.IdGrupo,
-            this.TipoPermiso,
             this.NombreAccion,
             this.DescAccion,
             this.IdAccion,
@@ -595,6 +576,56 @@
             this.dgvDataPermisos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataPermisos_CellContentClick);
             this.dgvDataPermisos.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvDataPermisos_CellPainting);
             // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(566, 305);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(1176, 67);
+            this.label4.TabIndex = 72;
+            this.label4.Text = "Lista de Permisos";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtIdGrupo
+            // 
+            this.txtIdGrupo.Location = new System.Drawing.Point(573, 379);
+            this.txtIdGrupo.Name = "txtIdGrupo";
+            this.txtIdGrupo.Size = new System.Drawing.Size(28, 20);
+            this.txtIdGrupo.TabIndex = 74;
+            this.txtIdGrupo.Text = "-1";
+            this.txtIdGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Width = 981;
+            // 
+            // IdRol
+            // 
+            this.IdRol.HeaderText = "IdRol";
+            this.IdRol.Name = "IdRol";
+            this.IdRol.ReadOnly = true;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 35;
+            // 
             // btnSeleccionar2
             // 
             this.btnSeleccionar2.HeaderText = "";
@@ -603,6 +634,13 @@
             this.btnSeleccionar2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.btnSeleccionar2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.btnSeleccionar2.Width = 50;
+            // 
+            // TipoPermiso
+            // 
+            this.TipoPermiso.HeaderText = "Tipo Permiso";
+            this.TipoPermiso.Name = "TipoPermiso";
+            this.TipoPermiso.ReadOnly = true;
+            this.TipoPermiso.Width = 120;
             // 
             // NombreMenu
             // 
@@ -624,13 +662,6 @@
             this.IdGrupo.Name = "IdGrupo";
             this.IdGrupo.ReadOnly = true;
             this.IdGrupo.Visible = false;
-            // 
-            // TipoPermiso
-            // 
-            this.TipoPermiso.HeaderText = "Tipo Permiso";
-            this.TipoPermiso.Name = "TipoPermiso";
-            this.TipoPermiso.ReadOnly = true;
-            this.TipoPermiso.Width = 120;
             // 
             // NombreAccion
             // 
@@ -667,27 +698,6 @@
             this.btnEliminarFila.ReadOnly = true;
             this.btnEliminarFila.Width = 50;
             // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(566, 305);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1176, 67);
-            this.label4.TabIndex = 72;
-            this.label4.Text = "Lista de Permisos";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtIdGrupo
-            // 
-            this.txtIdGrupo.Location = new System.Drawing.Point(573, 379);
-            this.txtIdGrupo.Name = "txtIdGrupo";
-            this.txtIdGrupo.Size = new System.Drawing.Size(28, 20);
-            this.txtIdGrupo.TabIndex = 74;
-            this.txtIdGrupo.Text = "-1";
-            this.txtIdGrupo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // frmModificarRoles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,6 +721,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelPermiso.ResumeLayout(false);
+            this.panelPermiso.PerformLayout();
             this.gbPermisos.ResumeLayout(false);
             this.panelGrupo.ResumeLayout(false);
             this.gbAccion.ResumeLayout(false);
@@ -751,10 +763,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txbDescripcion;
         private System.Windows.Forms.TextBox txtIdGrupo;
-        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdRol;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
         private System.Windows.Forms.GroupBox gbPermisos;
         private System.Windows.Forms.Panel panelGrupo;
         private System.Windows.Forms.GroupBox gbAccion;
@@ -766,11 +774,16 @@
         private FontAwesome.Sharp.IconButton btnAgreagar1;
         private System.Windows.Forms.ComboBox cboGrupo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panelPermiso;
+        private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdRol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPermiso;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdGrupo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TipoPermiso;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreAccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescAccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdAccion;

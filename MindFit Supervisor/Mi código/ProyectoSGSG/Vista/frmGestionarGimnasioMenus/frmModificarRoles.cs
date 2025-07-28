@@ -62,6 +62,7 @@ namespace Vista
 
         private void frmModificarRoles_Load(object sender, EventArgs e)
         {
+            panelPermiso.Visible = false;
             gbGrupo.Enabled = false;
             gbAccion.Enabled = false;
 
@@ -146,6 +147,7 @@ namespace Vista
 
         private void dgvData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            panelPermiso.Visible = false;
             txtIdGrupo.Text = "-1";
             cboGrupo.SelectedIndex = -1;
             cboAccion.SelectedIndex = -1;
@@ -184,10 +186,10 @@ namespace Vista
                 {
                     dgvDataPermisos.Rows.Add(new object[] {
                         "",
+                        "Grupo",
                         item.Grupo.NombreMenu,
                         item.Grupo.Descripcion,
                         item.Grupo.IdGrupo,
-                        "Grupo",
                         "-", 
                         "-", 
                         null
@@ -199,10 +201,10 @@ namespace Vista
                 {
                     dgvDataPermisos.Rows.Add(new object[] {
                         "",
+                        "Accion",
                         item.Grupo.NombreMenu,
                         item.Grupo.Descripcion,
                         item.Grupo.IdGrupo,
-                        "Accion",
                         item.Accion.NombreAccion,
                         item.Accion.Descripcion,
                         item.Accion.IdAccion
@@ -267,6 +269,7 @@ namespace Vista
         {
             if (dgvDataPermisos.Columns[e.ColumnIndex].Name == "btnSeleccionar2")
             {
+                panelPermiso.Visible = true;
                 txbDescripcion.Enabled = true;
 
                 int indice = e.RowIndex;
@@ -486,10 +489,10 @@ namespace Vista
             // Agregar fila
             dgvDataPermisos.Rows.Add(
                 "",
+                "Grupo",            // TipoPermiso
                 nombreMenu,         // NombreMenu
                 descripcionPermiso, // DescripcionPermiso
                 idGrupo,            // IdGrupo
-                "Grupo",            // TipoPermiso
                 "-",                 // nombreAccion vacío
                 "-",     // Descripcion (del rol)
                 DBNull.Value        // IdAccion
@@ -529,10 +532,10 @@ namespace Vista
             // Agregar fila
             dgvDataPermisos.Rows.Add(
                 "",
+                "Accion",           // TipoPermiso
                 NombreMenu,         // NombreMenu
                 DescripcionGrupo,         // DescripcionPermiso
                 idGrupo,            // IdGrupo
-                "Accion",           // TipoPermiso
                 nombreAccion,       // nombreAccion
                 descripcionPermiso, // DescripcionPermiso
                 idAccion            // IdAccion

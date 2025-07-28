@@ -102,7 +102,7 @@
             this.menuRoles.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.menuRoles.Name = "menuRoles";
             this.menuRoles.Size = new System.Drawing.Size(210, 100);
-            this.menuRoles.Text = "Roles y Permisos";
+            this.menuRoles.Text = "Permisos";
             this.menuRoles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // agregarRolToolStripMenuItem
@@ -111,7 +111,7 @@
             this.agregarRolToolStripMenuItem.IconColor = System.Drawing.Color.Black;
             this.agregarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.agregarRolToolStripMenuItem.Name = "agregarRolToolStripMenuItem";
-            this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.agregarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.agregarRolToolStripMenuItem.Text = "Agregar Rol";
             this.agregarRolToolStripMenuItem.Click += new System.EventHandler(this.agregarRolToolStripMenuItem_Click);
             // 
@@ -121,14 +121,14 @@
             this.editarRolToolStripMenuItem.IconColor = System.Drawing.Color.Black;
             this.editarRolToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.editarRolToolStripMenuItem.Name = "editarRolToolStripMenuItem";
-            this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.editarRolToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.editarRolToolStripMenuItem.Text = "Editar Rol";
             this.editarRolToolStripMenuItem.Click += new System.EventHandler(this.editarRolToolStripMenuItem_Click);
             // 
             // editarAccionToolStripMenuItem
             // 
             this.editarAccionToolStripMenuItem.Name = "editarAccionToolStripMenuItem";
-            this.editarAccionToolStripMenuItem.Size = new System.Drawing.Size(170, 26);
+            this.editarAccionToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.editarAccionToolStripMenuItem.Text = "Editar Acción";
             this.editarAccionToolStripMenuItem.Click += new System.EventHandler(this.editarAccionToolStripMenuItem_Click);
             // 
@@ -171,21 +171,21 @@
             this.equipamientoToolStripMenuItem.IconColor = System.Drawing.Color.Black;
             this.equipamientoToolStripMenuItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.equipamientoToolStripMenuItem.Name = "equipamientoToolStripMenuItem";
-            this.equipamientoToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.equipamientoToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
             this.equipamientoToolStripMenuItem.Text = "Equipamiento";
             this.equipamientoToolStripMenuItem.Click += new System.EventHandler(this.menuEquipamiento_Click);
             // 
             // ejercicioToolStripMenuItem
             // 
             this.ejercicioToolStripMenuItem.Name = "ejercicioToolStripMenuItem";
-            this.ejercicioToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.ejercicioToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
             this.ejercicioToolStripMenuItem.Text = "Ejercicio";
             this.ejercicioToolStripMenuItem.Click += new System.EventHandler(this.menuEjercicios_Click);
             // 
             // maquinaToolStripMenuItem
             // 
             this.maquinaToolStripMenuItem.Name = "maquinaToolStripMenuItem";
-            this.maquinaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.maquinaToolStripMenuItem.Size = new System.Drawing.Size(176, 26);
             this.maquinaToolStripMenuItem.Text = "Máquina";
             this.maquinaToolStripMenuItem.Click += new System.EventHandler(this.menuMaquinas_Click);
             // 

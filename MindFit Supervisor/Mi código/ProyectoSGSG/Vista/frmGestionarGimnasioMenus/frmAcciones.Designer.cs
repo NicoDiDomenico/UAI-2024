@@ -250,9 +250,9 @@
             this.menuRoles.AutoSize = true;
             this.menuRoles.Location = new System.Drawing.Point(29, 93);
             this.menuRoles.Name = "menuRoles";
-            this.menuRoles.Size = new System.Drawing.Size(319, 28);
+            this.menuRoles.Size = new System.Drawing.Size(320, 28);
             this.menuRoles.TabIndex = 49;
-            this.menuRoles.Text = "Modificar Rol y Consultar Permisos";
+            this.menuRoles.Text = "Modificar Rol y Consultar Acciones";
             this.menuRoles.UseVisualStyleBackColor = true;
             // 
             // menuCalentamiento
