@@ -4327,3 +4327,174 @@ INNER JOIN USUARIO u ON u.IdRol = p.IdRol OR u.IdUsuario = p.IdUsuario
 INNER JOIN GRUPO g ON p.IdGrupo = g.IdGrupo
 INNER JOIN ACCION a ON p.IdAccion = a.IdAccion
 WHERE u.IdUsuario = @idusuario
+
+select DISTINCT rh_u.IdUsuario, r.Descripcion, r.IdRol 
+from RangoHorario_Usuario rh_u
+inner join Usuario u
+on u.IdUsuario = rh_u.IdUsuario
+inner join Rol r
+on r.IdRol = u.IdRol
+
+ SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+                       u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+                       u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+                       u.IdRol, r.Descripcion AS RolDescripcion, 
+                       u.Estado, u.FechaRegistro
+                FROM Usuario u
+                LEFT JOIN Rol r ON r.IdRol = u.IdRol
+                WHERE u.IdUsuario = 10
+
+SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+       u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+       u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+       u.IdRol, r.Descripcion AS RolDescripcion, 
+       u.Estado, u.FechaRegistro
+FROM Usuario u
+LEFT JOIN Rol r ON r.IdRol = u.IdRol
+
+select * from Socio
+
+INSERT INTO Socio (
+    NombreYApellido,
+    FechaNacimiento,
+    Genero,
+    NroDocumento,
+    Ciudad,
+    Direccion,
+    Telefono,
+    Email,
+    ObraSocial,
+    [Plan],
+    EstadoSocio,
+    FechaInicioActividades,
+    FechaFinActividades,
+    FechaNotificacion,
+    RespuestaNotificacion
+)
+VALUES (
+    'Juan Pérez',
+    '1990-05-10',       -- FechaNacimiento
+    'Masculino',
+    12345678,
+    'Rosario',
+    'Calle Falsa 123',
+    '3415551234',
+    'juan.perez@email.com',
+    'OSDE',
+    '210',
+    'Nuevo',       -- EstadoSocio
+    DATEADD(MONTH, -1, DATEADD(DAY, -3, GETDATE())),  -- FechaInicioActividades
+    DATEADD(DAY, -3, GETDATE()),                      -- FechaFinActividades
+    NULL,                                             -- FechaNotificacion
+    0                                                 -- RespuestaNotificacion
+);
+
+select * from Rutina
+
+INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
+VALUES
+(22, GETDATE(), 'Lunes', 1),
+(22, GETDATE(), 'Martes', 1),
+(22, GETDATE(), 'Miércoles', 1),
+(22, GETDATE(), 'Sábado', 1);
+
+select s.NombreYApellido, r.* from Socio s
+inner join Rutina r
+on r.IdSocio = s.IdSocio
+order by s.NombreYApellido
+
+-- FechaFinActividades = hace 40 días
+-- FechaInicioActividades = 1 mes antes de esa fecha
+
+-- Socio Eliminado 1
+INSERT INTO Socio (
+    NombreYApellido,
+    FechaNacimiento,
+    Genero,
+    NroDocumento,
+    Ciudad,
+    Direccion,
+    Telefono,
+    Email,
+    ObraSocial,
+    [Plan],
+    EstadoSocio,
+    FechaInicioActividades,
+    FechaFinActividades,
+    FechaNotificacion,
+    RespuestaNotificacion
+)
+VALUES (
+    'Carlos López',
+    '1985-03-15',
+    'Masculino',
+    55555555,
+    'Rosario',
+    'Mitre 200',
+    '3415556789',
+    'carlos.lopez@email.com',
+    'Swiss Medical',
+    'Mensual',
+    'Eliminado',
+    DATEADD(MONTH, -1, DATEADD(DAY, -40, GETDATE())),  -- inicio
+    DATEADD(DAY, -40, GETDATE()),                      -- fin (40 días atrás)
+    NULL,
+    0
+);
+
+-- Socio Eliminado 2
+INSERT INTO Socio (
+    NombreYApellido,
+    FechaNacimiento,
+    Genero,
+    NroDocumento,
+    Ciudad,
+    Direccion,
+    Telefono,
+    Email,
+    ObraSocial,
+    [Plan],
+    EstadoSocio,
+    FechaInicioActividades,
+    FechaFinActividades,
+    FechaNotificacion,
+    RespuestaNotificacion
+)
+VALUES (
+    'María González',
+    '1992-07-22',
+    'Femenino',
+    66666666,
+    'Rosario',
+    'San Martín 350',
+    '3415559876',
+    'maria.gonzalez@email.com',
+    'OSDE',
+    'Mensual',
+    'Eliminado',
+    DATEADD(MONTH, -1, DATEADD(DAY, -40, GETDATE())),
+    DATEADD(DAY, -40, GETDATE()),
+    NULL,
+    0
+);
+
+-- Rutinas para el socio eliminado Id 23
+INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
+VALUES
+(23, GETDATE(), 'Lunes', 0),
+(23, GETDATE(), 'Martes', 0),
+(23, GETDATE(), 'Miércoles', 0),
+(23, GETDATE(), 'Jueves', 0),
+(23, GETDATE(), 'Viernes', 0),
+(23, GETDATE(), 'Sábado', 0);
+
+-- Rutinas para el socio eliminado Id 24
+INSERT INTO Rutina (IdSocio, FechaModificacion, Dia, Activa)
+VALUES
+(24, GETDATE(), 'Lunes', 0),
+(24, GETDATE(), 'Martes', 0),
+(24, GETDATE(), 'Miércoles', 0),
+(24, GETDATE(), 'Jueves', 0),
+(24, GETDATE(), 'Viernes', 0),
+(24, GETDATE(), 'Sábado', 0);
+

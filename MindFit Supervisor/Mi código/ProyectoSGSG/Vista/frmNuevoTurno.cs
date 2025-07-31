@@ -112,6 +112,7 @@ namespace Vista
 
         private void cboRangoHorario_SelectedIndexChanged(object sender, EventArgs e)
         {
+            IdEntrenadoSeleccionado = 0;
             if (cboRangoHorario.SelectedItem != null)
             {
                 OpcionComboRangoHorario seleccion = (OpcionComboRangoHorario)cboRangoHorario.SelectedItem;
@@ -234,6 +235,19 @@ namespace Vista
             // Obtener el rango horario seleccionado
             OpcionComboRangoHorario seleccion = (OpcionComboRangoHorario)cboRangoHorario.SelectedItem;
 
+            // Validar que no se registre en rangos pasados para el día de hoy
+            if (dtpFechaTurno.Value.Date == DateTime.Now.Date)
+            {
+                TimeSpan horaActual = DateTime.Now.TimeOfDay;
+                // Bloquear solo si la hora actual es mayor o igual a la hora de fin del rango
+                if (horaActual >= seleccion.HoraHasta)
+                {
+                    MessageBox.Show("No se puede registrar un turno en un horario que ya pasó.",
+                        "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             // Validar si el socio tiene rutina activa para el día seleccionado
             string diaSeleccionado = dtpFechaTurno.Value.ToString("dddd", new System.Globalization.CultureInfo("es-ES"));
 
@@ -271,6 +285,7 @@ namespace Vista
 
         private void dtpFechaTurno_ValueChanged(object sender, EventArgs e)
         {
+            IdEntrenadoSeleccionado = 0;
             ValidarFecha(dtpFechaTurno.Value);
             CargarComboRangoHorario(); // <- esta línea actualiza el combo con rangos correctos
         }

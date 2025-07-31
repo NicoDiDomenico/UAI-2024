@@ -40,24 +40,6 @@
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
-            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreYApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ObraSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EstadoSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicioActividades = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFinActividades = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RespuestaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ckbMostrarEliminados = new System.Windows.Forms.CheckBox();
@@ -65,6 +47,24 @@
             this.btnMenuConsultar = new FontAwesome.Sharp.IconButton();
             this.btnMenuEliminar = new FontAwesome.Sharp.IconButton();
             this.btnMenuAgregar = new FontAwesome.Sharp.IconButton();
+            this.Seleccionado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.RespuestaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNotificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFinActividades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicioActividades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EstadoSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ObraSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaNacimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreYApellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IdSocio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSeleccionar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.panel3.SuspendLayout();
@@ -239,134 +239,6 @@
             this.dgvData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellContentClick_1);
             this.dgvData.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvData_CellPainting_1);
             // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.HeaderText = "";
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.ReadOnly = true;
-            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.btnSeleccionar.Width = 34;
-            // 
-            // IdSocio
-            // 
-            this.IdSocio.HeaderText = "IdSocio";
-            this.IdSocio.Name = "IdSocio";
-            this.IdSocio.ReadOnly = true;
-            this.IdSocio.Visible = false;
-            // 
-            // NombreYApellido
-            // 
-            this.NombreYApellido.HeaderText = "Socio";
-            this.NombreYApellido.Name = "NombreYApellido";
-            this.NombreYApellido.ReadOnly = true;
-            this.NombreYApellido.Width = 500;
-            // 
-            // FechaNacimiento
-            // 
-            this.FechaNacimiento.HeaderText = "FechaNacimiento";
-            this.FechaNacimiento.Name = "FechaNacimiento";
-            this.FechaNacimiento.ReadOnly = true;
-            this.FechaNacimiento.Visible = false;
-            // 
-            // Genero
-            // 
-            this.Genero.HeaderText = "Genero";
-            this.Genero.Name = "Genero";
-            this.Genero.ReadOnly = true;
-            this.Genero.Visible = false;
-            // 
-            // NroDocumento
-            // 
-            this.NroDocumento.HeaderText = "NroDocumento";
-            this.NroDocumento.Name = "NroDocumento";
-            this.NroDocumento.ReadOnly = true;
-            this.NroDocumento.Visible = false;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            this.Ciudad.Visible = false;
-            // 
-            // Direccion
-            // 
-            this.Direccion.HeaderText = "Direccion";
-            this.Direccion.Name = "Direccion";
-            this.Direccion.ReadOnly = true;
-            this.Direccion.Visible = false;
-            // 
-            // Telefono
-            // 
-            this.Telefono.HeaderText = "Telefono";
-            this.Telefono.Name = "Telefono";
-            this.Telefono.ReadOnly = true;
-            this.Telefono.Visible = false;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Visible = false;
-            // 
-            // ObraSocial
-            // 
-            this.ObraSocial.HeaderText = "ObraSocial";
-            this.ObraSocial.Name = "ObraSocial";
-            this.ObraSocial.ReadOnly = true;
-            this.ObraSocial.Visible = false;
-            // 
-            // Plan
-            // 
-            this.Plan.HeaderText = "Plan";
-            this.Plan.Name = "Plan";
-            this.Plan.ReadOnly = true;
-            this.Plan.Visible = false;
-            // 
-            // EstadoSocio
-            // 
-            this.EstadoSocio.HeaderText = "Estado";
-            this.EstadoSocio.Name = "EstadoSocio";
-            this.EstadoSocio.ReadOnly = true;
-            this.EstadoSocio.Width = 500;
-            // 
-            // FechaInicioActividades
-            // 
-            this.FechaInicioActividades.HeaderText = "FechaInicioActividades";
-            this.FechaInicioActividades.Name = "FechaInicioActividades";
-            this.FechaInicioActividades.ReadOnly = true;
-            this.FechaInicioActividades.Visible = false;
-            // 
-            // FechaFinActividades
-            // 
-            this.FechaFinActividades.HeaderText = "Fecha Vencimiento Cuota";
-            this.FechaFinActividades.Name = "FechaFinActividades";
-            this.FechaFinActividades.ReadOnly = true;
-            this.FechaFinActividades.Width = 503;
-            // 
-            // FechaNotificacion
-            // 
-            this.FechaNotificacion.HeaderText = "FechaNotificacion";
-            this.FechaNotificacion.Name = "FechaNotificacion";
-            this.FechaNotificacion.ReadOnly = true;
-            this.FechaNotificacion.Visible = false;
-            // 
-            // RespuestaNotificacion
-            // 
-            this.RespuestaNotificacion.HeaderText = "RespuestaNotificacion";
-            this.RespuestaNotificacion.Name = "RespuestaNotificacion";
-            this.RespuestaNotificacion.ReadOnly = true;
-            this.RespuestaNotificacion.Visible = false;
-            // 
-            // Seleccionado
-            // 
-            this.Seleccionado.HeaderText = "Seleccionado";
-            this.Seleccionado.Name = "Seleccionado";
-            this.Seleccionado.ReadOnly = true;
-            this.Seleccionado.Visible = false;
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
@@ -492,6 +364,134 @@
             this.btnMenuAgregar.UseVisualStyleBackColor = false;
             this.btnMenuAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
+            // Seleccionado
+            // 
+            this.Seleccionado.HeaderText = "Seleccionado";
+            this.Seleccionado.Name = "Seleccionado";
+            this.Seleccionado.ReadOnly = true;
+            this.Seleccionado.Visible = false;
+            // 
+            // RespuestaNotificacion
+            // 
+            this.RespuestaNotificacion.HeaderText = "RespuestaNotificacion";
+            this.RespuestaNotificacion.Name = "RespuestaNotificacion";
+            this.RespuestaNotificacion.ReadOnly = true;
+            this.RespuestaNotificacion.Visible = false;
+            // 
+            // FechaNotificacion
+            // 
+            this.FechaNotificacion.HeaderText = "FechaNotificacion";
+            this.FechaNotificacion.Name = "FechaNotificacion";
+            this.FechaNotificacion.ReadOnly = true;
+            this.FechaNotificacion.Visible = false;
+            // 
+            // FechaFinActividades
+            // 
+            this.FechaFinActividades.HeaderText = "Fecha Vencimiento Cuota";
+            this.FechaFinActividades.Name = "FechaFinActividades";
+            this.FechaFinActividades.ReadOnly = true;
+            this.FechaFinActividades.Width = 503;
+            // 
+            // FechaInicioActividades
+            // 
+            this.FechaInicioActividades.HeaderText = "FechaInicioActividades";
+            this.FechaInicioActividades.Name = "FechaInicioActividades";
+            this.FechaInicioActividades.ReadOnly = true;
+            this.FechaInicioActividades.Visible = false;
+            // 
+            // EstadoSocio
+            // 
+            this.EstadoSocio.HeaderText = "Estado";
+            this.EstadoSocio.Name = "EstadoSocio";
+            this.EstadoSocio.ReadOnly = true;
+            this.EstadoSocio.Width = 500;
+            // 
+            // Plan
+            // 
+            this.Plan.HeaderText = "Plan";
+            this.Plan.Name = "Plan";
+            this.Plan.ReadOnly = true;
+            this.Plan.Visible = false;
+            // 
+            // ObraSocial
+            // 
+            this.ObraSocial.HeaderText = "ObraSocial";
+            this.ObraSocial.Name = "ObraSocial";
+            this.ObraSocial.ReadOnly = true;
+            this.ObraSocial.Visible = false;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            this.Email.Visible = false;
+            // 
+            // Telefono
+            // 
+            this.Telefono.HeaderText = "Telefono";
+            this.Telefono.Name = "Telefono";
+            this.Telefono.ReadOnly = true;
+            this.Telefono.Visible = false;
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
+            this.Direccion.ReadOnly = true;
+            this.Direccion.Visible = false;
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
+            this.Ciudad.Visible = false;
+            // 
+            // NroDocumento
+            // 
+            this.NroDocumento.HeaderText = "NroDocumento";
+            this.NroDocumento.Name = "NroDocumento";
+            this.NroDocumento.ReadOnly = true;
+            this.NroDocumento.Visible = false;
+            // 
+            // Genero
+            // 
+            this.Genero.HeaderText = "Genero";
+            this.Genero.Name = "Genero";
+            this.Genero.ReadOnly = true;
+            this.Genero.Visible = false;
+            // 
+            // FechaNacimiento
+            // 
+            this.FechaNacimiento.HeaderText = "FechaNacimiento";
+            this.FechaNacimiento.Name = "FechaNacimiento";
+            this.FechaNacimiento.ReadOnly = true;
+            this.FechaNacimiento.Visible = false;
+            // 
+            // NombreYApellido
+            // 
+            this.NombreYApellido.HeaderText = "Socio";
+            this.NombreYApellido.Name = "NombreYApellido";
+            this.NombreYApellido.ReadOnly = true;
+            this.NombreYApellido.Width = 500;
+            // 
+            // IdSocio
+            // 
+            this.IdSocio.HeaderText = "IdSocio";
+            this.IdSocio.Name = "IdSocio";
+            this.IdSocio.ReadOnly = true;
+            this.IdSocio.Visible = false;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.HeaderText = "";
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.ReadOnly = true;
+            this.btnSeleccionar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.btnSeleccionar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnSeleccionar.Width = 34;
+            // 
             // frmSocios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -535,6 +535,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private FontAwesome.Sharp.IconButton btnMenuTurno;
+        private System.Windows.Forms.CheckBox ckbMostrarEliminados;
         private System.Windows.Forms.DataGridViewButtonColumn btnSeleccionar;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdSocio;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreYApellido;
@@ -553,6 +554,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaNotificacion;
         private System.Windows.Forms.DataGridViewTextBoxColumn RespuestaNotificacion;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seleccionado;
-        private System.Windows.Forms.CheckBox ckbMostrarEliminados;
     }
 }

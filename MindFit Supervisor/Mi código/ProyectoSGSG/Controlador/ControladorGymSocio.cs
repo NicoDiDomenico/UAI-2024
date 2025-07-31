@@ -19,7 +19,7 @@ namespace Controlador
             foreach (Socio socio in socios)
             {
                 /*
-                // 👉 Evitar forzar el estado si ya es Eliminado
+                // Evitar forzar el estado si ya es Eliminado
                 if (socio.EstadoSocio == "Eliminado")
                     continue;
 

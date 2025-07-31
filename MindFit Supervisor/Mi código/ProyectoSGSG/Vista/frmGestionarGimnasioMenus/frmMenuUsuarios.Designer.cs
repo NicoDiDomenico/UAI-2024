@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cboBusqueda = new System.Windows.Forms.ComboBox();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -68,13 +68,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panelAcciones = new System.Windows.Forms.Panel();
+            this.btnCerrar = new FontAwesome.Sharp.IconButton();
             this.lstAccionesRol = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAccion = new FontAwesome.Sharp.IconButton();
             this.btnGrupo = new FontAwesome.Sharp.IconButton();
             this.panelRol = new System.Windows.Forms.Panel();
+            this.btnVer = new FontAwesome.Sharp.IconButton();
             this.cboRol = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cboGenero = new System.Windows.Forms.ComboBox();
@@ -95,17 +99,13 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new FontAwesome.Sharp.IconButton();
             this.btnLimpiarBuscador = new FontAwesome.Sharp.IconButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnVer = new FontAwesome.Sharp.IconButton();
-            this.panelAcciones = new System.Windows.Forms.Panel();
-            this.btnCerrar = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panelAcciones.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelRol.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panelAcciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // cboBusqueda
@@ -142,15 +142,15 @@
             // 
             this.dgvData.AllowUserToAddRows = false;
             this.dgvData.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnSeleccionar,
@@ -175,9 +175,9 @@
             this.dgvData.MultiSelect = false;
             this.dgvData.Name = "dgvData";
             this.dgvData.ReadOnly = true;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvData.RowTemplate.Height = 35;
             this.dgvData.Size = new System.Drawing.Size(1238, 558);
             this.dgvData.TabIndex = 47;
@@ -351,7 +351,7 @@
             this.txtCiudad.Location = new System.Drawing.Point(128, 184);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(242, 20);
-            this.txtCiudad.TabIndex = 38;
+            this.txtCiudad.TabIndex = 4;
             // 
             // label6
             // 
@@ -369,7 +369,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(128, 153);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(242, 20);
-            this.txtDireccion.TabIndex = 36;
+            this.txtDireccion.TabIndex = 3;
             // 
             // label5
             // 
@@ -386,21 +386,21 @@
             this.txtNombreYApellido.Location = new System.Drawing.Point(128, 60);
             this.txtNombreYApellido.Name = "txtNombreYApellido";
             this.txtNombreYApellido.Size = new System.Drawing.Size(242, 20);
-            this.txtNombreYApellido.TabIndex = 34;
+            this.txtNombreYApellido.TabIndex = 0;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(128, 91);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(242, 20);
-            this.txtEmail.TabIndex = 33;
+            this.txtEmail.TabIndex = 1;
             // 
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(128, 122);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(242, 20);
-            this.txtTelefono.TabIndex = 32;
+            this.txtTelefono.TabIndex = 2;
             // 
             // label4
             // 
@@ -483,6 +483,31 @@
             this.groupBox1.TabIndex = 56;
             this.groupBox1.TabStop = false;
             // 
+            // panelAcciones
+            // 
+            this.panelAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panelAcciones.Controls.Add(this.btnCerrar);
+            this.panelAcciones.Controls.Add(this.lstAccionesRol);
+            this.panelAcciones.Location = new System.Drawing.Point(19, 514);
+            this.panelAcciones.Name = "panelAcciones";
+            this.panelAcciones.Size = new System.Drawing.Size(103, 112);
+            this.panelAcciones.TabIndex = 58;
+            this.panelAcciones.Visible = false;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.X;
+            this.btnCerrar.IconColor = System.Drawing.Color.Black;
+            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCerrar.IconSize = 18;
+            this.btnCerrar.Location = new System.Drawing.Point(171, 3);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.btnCerrar.Size = new System.Drawing.Size(26, 22);
+            this.btnCerrar.TabIndex = 42;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // lstAccionesRol
             // 
             this.lstAccionesRol.Enabled = false;
@@ -559,6 +584,21 @@
             this.panelRol.Size = new System.Drawing.Size(271, 28);
             this.panelRol.TabIndex = 64;
             // 
+            // btnVer
+            // 
+            this.btnVer.IconChar = FontAwesome.Sharp.IconChar.Eye;
+            this.btnVer.IconColor = System.Drawing.Color.Black;
+            this.btnVer.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVer.IconSize = 24;
+            this.btnVer.Location = new System.Drawing.Point(245, 4);
+            this.btnVer.Name = "btnVer";
+            this.btnVer.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.btnVer.Size = new System.Drawing.Size(26, 22);
+            this.btnVer.TabIndex = 41;
+            this.btnVer.UseVisualStyleBackColor = true;
+            this.btnVer.Visible = false;
+            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
+            // 
             // cboRol
             // 
             this.cboRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -569,6 +609,16 @@
             this.cboRol.TabIndex = 40;
             this.cboRol.SelectedIndexChanged += new System.EventHandler(this.cboRol_SelectedIndexChanged);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label7.Location = new System.Drawing.Point(9, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(26, 13);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Rol:";
+            // 
             // cboEstado
             // 
             this.cboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -576,7 +626,7 @@
             this.cboEstado.Location = new System.Drawing.Point(128, 390);
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(199, 21);
-            this.cboEstado.TabIndex = 41;
+            this.cboEstado.TabIndex = 11;
             // 
             // label8
             // 
@@ -596,7 +646,7 @@
             this.cboGenero.Location = new System.Drawing.Point(128, 363);
             this.cboGenero.Name = "cboGenero";
             this.cboGenero.Size = new System.Drawing.Size(199, 21);
-            this.cboGenero.TabIndex = 63;
+            this.cboGenero.TabIndex = 10;
             // 
             // label17
             // 
@@ -614,7 +664,7 @@
             this.txtConfirmarClave.Name = "txtConfirmarClave";
             this.txtConfirmarClave.PasswordChar = '*';
             this.txtConfirmarClave.Size = new System.Drawing.Size(242, 20);
-            this.txtConfirmarClave.TabIndex = 62;
+            this.txtConfirmarClave.TabIndex = 9;
             // 
             // label16
             // 
@@ -632,7 +682,7 @@
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(242, 20);
-            this.txtClave.TabIndex = 60;
+            this.txtClave.TabIndex = 8;
             // 
             // label15
             // 
@@ -649,7 +699,7 @@
             this.txtNombreUsuario.Location = new System.Drawing.Point(128, 271);
             this.txtNombreUsuario.Name = "txtNombreUsuario";
             this.txtNombreUsuario.Size = new System.Drawing.Size(242, 20);
-            this.txtNombreUsuario.TabIndex = 58;
+            this.txtNombreUsuario.TabIndex = 7;
             // 
             // dtpFechaNacimiento
             // 
@@ -659,7 +709,7 @@
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(242, 20);
-            this.dtpFechaNacimiento.TabIndex = 56;
+            this.dtpFechaNacimiento.TabIndex = 6;
             // 
             // label14
             // 
@@ -696,7 +746,7 @@
             this.txtNroDocumento.Location = new System.Drawing.Point(128, 214);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(242, 20);
-            this.txtNroDocumento.TabIndex = 51;
+            this.txtNroDocumento.TabIndex = 5;
             // 
             // btnGuardar
             // 
@@ -814,56 +864,6 @@
             this.btnLimpiarBuscador.UseVisualStyleBackColor = false;
             this.btnLimpiarBuscador.Click += new System.EventHandler(this.btnLimpiarBuscador_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label7.Location = new System.Drawing.Point(9, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(26, 13);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Rol:";
-            // 
-            // btnVer
-            // 
-            this.btnVer.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            this.btnVer.IconColor = System.Drawing.Color.Black;
-            this.btnVer.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnVer.IconSize = 24;
-            this.btnVer.Location = new System.Drawing.Point(245, 4);
-            this.btnVer.Name = "btnVer";
-            this.btnVer.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.btnVer.Size = new System.Drawing.Size(26, 22);
-            this.btnVer.TabIndex = 41;
-            this.btnVer.UseVisualStyleBackColor = true;
-            this.btnVer.Visible = false;
-            this.btnVer.Click += new System.EventHandler(this.btnVer_Click);
-            // 
-            // panelAcciones
-            // 
-            this.panelAcciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.panelAcciones.Controls.Add(this.btnCerrar);
-            this.panelAcciones.Controls.Add(this.lstAccionesRol);
-            this.panelAcciones.Location = new System.Drawing.Point(19, 514);
-            this.panelAcciones.Name = "panelAcciones";
-            this.panelAcciones.Size = new System.Drawing.Size(103, 112);
-            this.panelAcciones.TabIndex = 58;
-            this.panelAcciones.Visible = false;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.IconChar = FontAwesome.Sharp.IconChar.X;
-            this.btnCerrar.IconColor = System.Drawing.Color.Black;
-            this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCerrar.IconSize = 18;
-            this.btnCerrar.Location = new System.Drawing.Point(171, 3);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.btnCerrar.Size = new System.Drawing.Size(26, 22);
-            this.btnCerrar.TabIndex = 42;
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
             // frmMenuUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -882,13 +882,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panelAcciones.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelRol.ResumeLayout(false);
             this.panelRol.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panelAcciones.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

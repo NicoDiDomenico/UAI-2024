@@ -430,5 +430,123 @@ namespace DAO
             return lista;
         }
 
+        public List<Usuario> ListarUsuariosPorRangoHorario()
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT DISTINCT rh_u.IdUsuario, r.Descripcion AS RolDescripcion, r.IdRol 
+                        FROM RangoHorario_Usuario rh_u
+                        INNER JOIN Usuario u ON u.IdUsuario = rh_u.IdUsuario
+                        INNER JOIN Rol r ON r.IdRol = u.IdRol
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, oconexion);
+                    cmd.CommandType = CommandType.Text;
+
+                    oconexion.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            Usuario unUsuario = new Usuario
+                            {
+                                IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                Rol = new Rol
+                                {
+                                    IdRol = Convert.ToInt32(dr["IdRol"]),
+                                    Descripcion = dr["RolDescripcion"].ToString()
+                                }
+                            };
+
+                            lista.Add(unUsuario);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    lista = new List<Usuario>();
+                }
+            }
+            return lista;
+        }
+
+        public Usuario getUsuario(int idUsuario)
+        {
+            Usuario unUsuario = null;
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
+            {
+                try
+                {
+                    string query = @"
+                        SELECT u.IdUsuario, u.NombreYApellido, u.Email, u.Telefono, 
+                               u.Direccion, u.Ciudad, u.NroDocumento, u.Genero, 
+                               u.FechaNacimiento, u.NombreUsuario, u.Clave, 
+                               u.IdRol, r.Descripcion AS RolDescripcion, 
+                               u.Estado, u.FechaRegistro
+                        FROM Usuario u
+                        LEFT JOIN Rol r ON r.IdRol = u.IdRol
+                        WHERE u.IdUsuario = @IdUsuario
+                    ";
+
+                    using (SqlCommand cmd = new SqlCommand(query, oconexion))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+                        oconexion.Open();
+
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            if (dr.Read())
+                            {
+                                unUsuario = new Usuario
+                                {
+                                    IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
+                                    NombreYApellido = dr["NombreYApellido"].ToString(),
+                                    Email = dr["Email"].ToString(),
+                                    Telefono = dr["Telefono"].ToString(),
+                                    Direccion = dr["Direccion"].ToString(),
+                                    Ciudad = dr["Ciudad"].ToString(),
+                                    NroDocumento = Convert.ToInt32(dr["NroDocumento"]),
+                                    Genero = dr["Genero"].ToString(),
+                                    FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]),
+                                    NombreUsuario = dr["NombreUsuario"].ToString(),
+                                    Clave = dr["Clave"].ToString(),
+                                    Estado = Convert.ToBoolean(dr["Estado"]),
+                                    FechaRegistro = Convert.ToDateTime(dr["FechaRegistro"])
+                                };
+
+                                if (dr["IdRol"] != DBNull.Value)
+                                {
+                                    unUsuario.Rol = new Rol
+                                    {
+                                        IdRol = Convert.ToInt32(dr["IdRol"]),
+                                        Descripcion = dr["RolDescripcion"].ToString()
+                                    };
+                                }
+                                else
+                                {
+                                    unUsuario.Rol = null;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    unUsuario = null;
+                }
+            }
+
+            return unUsuario;
+        }
+
     }
 }

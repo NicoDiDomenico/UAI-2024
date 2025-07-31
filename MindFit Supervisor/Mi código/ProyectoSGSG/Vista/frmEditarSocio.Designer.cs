@@ -68,6 +68,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panelEliminar = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.btnEliminar = new FontAwesome.Sharp.IconButton();
+            this.panelRecuperar = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnRevertirASuspendido = new FontAwesome.Sharp.IconButton();
             this.lblRenovar = new System.Windows.Forms.Label();
             this.btnRenovarCuota = new FontAwesome.Sharp.IconButton();
             this.lblMensajeEstado = new System.Windows.Forms.Label();
@@ -78,18 +84,12 @@
             this.chkMensual = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.btnConfirmar = new FontAwesome.Sharp.IconButton();
-            this.btnRevertirASuspendido = new FontAwesome.Sharp.IconButton();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panelRecuperar = new System.Windows.Forms.Panel();
-            this.panelEliminar = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panelRecuperar.SuspendLayout();
             this.panelEliminar.SuspendLayout();
+            this.panelRecuperar.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label10
@@ -118,7 +118,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label3.Location = new System.Drawing.Point(346, 296);
+            this.label3.Location = new System.Drawing.Point(346, 302);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 17);
             this.label3.TabIndex = 36;
@@ -129,7 +129,7 @@
             this.txtEmail.Location = new System.Drawing.Point(414, 299);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(492, 23);
-            this.txtEmail.TabIndex = 37;
+            this.txtEmail.TabIndex = 8;
             this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             // 
             // txtNombreYApellido
@@ -137,7 +137,7 @@
             this.txtNombreYApellido.Location = new System.Drawing.Point(414, 46);
             this.txtNombreYApellido.Name = "txtNombreYApellido";
             this.txtNombreYApellido.Size = new System.Drawing.Size(492, 23);
-            this.txtNombreYApellido.TabIndex = 38;
+            this.txtNombreYApellido.TabIndex = 1;
             this.txtNombreYApellido.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombreYApellido_KeyDown);
             // 
             // dtpFechaNacimiento
@@ -148,7 +148,7 @@
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             this.dtpFechaNacimiento.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dtpFechaNacimiento.Size = new System.Drawing.Size(492, 23);
-            this.dtpFechaNacimiento.TabIndex = 58;
+            this.dtpFechaNacimiento.TabIndex = 2;
             // 
             // label14
             // 
@@ -176,7 +176,7 @@
             this.txtId.Location = new System.Drawing.Point(414, 11);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(492, 23);
-            this.txtId.TabIndex = 60;
+            this.txtId.TabIndex = 0;
             // 
             // cboGenero
             // 
@@ -186,7 +186,7 @@
             this.cboGenero.Location = new System.Drawing.Point(414, 118);
             this.cboGenero.Name = "cboGenero";
             this.cboGenero.Size = new System.Drawing.Size(190, 24);
-            this.cboGenero.TabIndex = 65;
+            this.cboGenero.TabIndex = 3;
             // 
             // label13
             // 
@@ -213,7 +213,7 @@
             this.txtNroDocumento.Location = new System.Drawing.Point(414, 155);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(492, 23);
-            this.txtNroDocumento.TabIndex = 67;
+            this.txtNroDocumento.TabIndex = 4;
             this.txtNroDocumento.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNroDocumento_KeyDown);
             // 
             // label6
@@ -231,7 +231,7 @@
             this.txtCiudad.Location = new System.Drawing.Point(414, 191);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(492, 23);
-            this.txtCiudad.TabIndex = 69;
+            this.txtCiudad.TabIndex = 5;
             this.txtCiudad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCiudad_KeyDown);
             // 
             // label5
@@ -250,7 +250,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(414, 227);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(492, 23);
-            this.txtDireccion.TabIndex = 71;
+            this.txtDireccion.TabIndex = 6;
             this.txtDireccion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDireccion_KeyDown);
             // 
             // label4
@@ -268,7 +268,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(414, 263);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(492, 23);
-            this.txtTelefono.TabIndex = 73;
+            this.txtTelefono.TabIndex = 7;
             this.txtTelefono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTelefono_KeyDown);
             // 
             // txtObraSocial
@@ -276,7 +276,7 @@
             this.txtObraSocial.Location = new System.Drawing.Point(414, 335);
             this.txtObraSocial.Name = "txtObraSocial";
             this.txtObraSocial.Size = new System.Drawing.Size(492, 23);
-            this.txtObraSocial.TabIndex = 74;
+            this.txtObraSocial.TabIndex = 9;
             this.txtObraSocial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtObraSocial_KeyDown);
             // 
             // label7
@@ -587,6 +587,76 @@
             this.panel4.Size = new System.Drawing.Size(1359, 140);
             this.panel4.TabIndex = 91;
             // 
+            // panelEliminar
+            // 
+            this.panelEliminar.Controls.Add(this.label18);
+            this.panelEliminar.Controls.Add(this.btnEliminar);
+            this.panelEliminar.Location = new System.Drawing.Point(865, 57);
+            this.panelEliminar.Name = "panelEliminar";
+            this.panelEliminar.Size = new System.Drawing.Size(323, 51);
+            this.panelEliminar.TabIndex = 98;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.DarkRed;
+            this.label18.Location = new System.Drawing.Point(64, 14);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(239, 20);
+            this.label18.TabIndex = 96;
+            this.label18.Text = "Borrar Socio Definitivamente";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.OldLace;
+            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.UserLargeSlash;
+            this.btnEliminar.IconColor = System.Drawing.Color.DarkRed;
+            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnEliminar.IconSize = 38;
+            this.btnEliminar.Location = new System.Drawing.Point(7, 3);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(45, 45);
+            this.btnEliminar.TabIndex = 95;
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // panelRecuperar
+            // 
+            this.panelRecuperar.Controls.Add(this.label11);
+            this.panelRecuperar.Controls.Add(this.btnRevertirASuspendido);
+            this.panelRecuperar.Location = new System.Drawing.Point(632, 57);
+            this.panelRecuperar.Name = "panelRecuperar";
+            this.panelRecuperar.Size = new System.Drawing.Size(212, 51);
+            this.panelRecuperar.TabIndex = 97;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(64, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(143, 20);
+            this.label11.TabIndex = 96;
+            this.label11.Text = "Recuperar Socio";
+            // 
+            // btnRevertirASuspendido
+            // 
+            this.btnRevertirASuspendido.IconChar = FontAwesome.Sharp.IconChar.TrashRestore;
+            this.btnRevertirASuspendido.IconColor = System.Drawing.Color.Black;
+            this.btnRevertirASuspendido.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRevertirASuspendido.IconSize = 38;
+            this.btnRevertirASuspendido.Location = new System.Drawing.Point(7, 3);
+            this.btnRevertirASuspendido.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRevertirASuspendido.Name = "btnRevertirASuspendido";
+            this.btnRevertirASuspendido.Size = new System.Drawing.Size(45, 45);
+            this.btnRevertirASuspendido.TabIndex = 95;
+            this.btnRevertirASuspendido.UseVisualStyleBackColor = true;
+            this.btnRevertirASuspendido.Click += new System.EventHandler(this.btnRevertirASuspendido_Click);
+            // 
             // lblRenovar
             // 
             this.lblRenovar.AutoSize = true;
@@ -707,76 +777,6 @@
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
-            // btnRevertirASuspendido
-            // 
-            this.btnRevertirASuspendido.IconChar = FontAwesome.Sharp.IconChar.TrashRestore;
-            this.btnRevertirASuspendido.IconColor = System.Drawing.Color.Black;
-            this.btnRevertirASuspendido.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnRevertirASuspendido.IconSize = 38;
-            this.btnRevertirASuspendido.Location = new System.Drawing.Point(7, 3);
-            this.btnRevertirASuspendido.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRevertirASuspendido.Name = "btnRevertirASuspendido";
-            this.btnRevertirASuspendido.Size = new System.Drawing.Size(45, 45);
-            this.btnRevertirASuspendido.TabIndex = 95;
-            this.btnRevertirASuspendido.UseVisualStyleBackColor = true;
-            this.btnRevertirASuspendido.Click += new System.EventHandler(this.btnRevertirASuspendido_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(64, 14);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(143, 20);
-            this.label11.TabIndex = 96;
-            this.label11.Text = "Recuperar Socio";
-            // 
-            // panelRecuperar
-            // 
-            this.panelRecuperar.Controls.Add(this.label11);
-            this.panelRecuperar.Controls.Add(this.btnRevertirASuspendido);
-            this.panelRecuperar.Location = new System.Drawing.Point(632, 57);
-            this.panelRecuperar.Name = "panelRecuperar";
-            this.panelRecuperar.Size = new System.Drawing.Size(212, 51);
-            this.panelRecuperar.TabIndex = 97;
-            // 
-            // panelEliminar
-            // 
-            this.panelEliminar.Controls.Add(this.label18);
-            this.panelEliminar.Controls.Add(this.btnEliminar);
-            this.panelEliminar.Location = new System.Drawing.Point(865, 57);
-            this.panelEliminar.Name = "panelEliminar";
-            this.panelEliminar.Size = new System.Drawing.Size(323, 51);
-            this.panelEliminar.TabIndex = 98;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.DarkRed;
-            this.label18.Location = new System.Drawing.Point(64, 14);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(253, 20);
-            this.label18.TabIndex = 96;
-            this.label18.Text = "Eliminar Socio Definitivamente";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.OldLace;
-            this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.UserLargeSlash;
-            this.btnEliminar.IconColor = System.Drawing.Color.DarkRed;
-            this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.IconSize = 38;
-            this.btnEliminar.Location = new System.Drawing.Point(7, 3);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(45, 45);
-            this.btnEliminar.TabIndex = 95;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // frmEditarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -799,12 +799,12 @@
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panelRecuperar.ResumeLayout(false);
-            this.panelRecuperar.PerformLayout();
             this.panelEliminar.ResumeLayout(false);
             this.panelEliminar.PerformLayout();
+            this.panelRecuperar.ResumeLayout(false);
+            this.panelRecuperar.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

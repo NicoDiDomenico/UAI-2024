@@ -59,6 +59,25 @@ namespace Controlador
         {
             Mensaje = string.Empty;
 
+            List<Usuario> entrenadores = objcd_usuario.ListarUsuariosPorRangoHorario();
+
+            foreach (Usuario ent in entrenadores)
+            {
+                if (obj.IdUsuario == ent.IdUsuario)
+                {
+                    Usuario unU = objcd_usuario.getUsuario(obj.IdUsuario);
+                    // Mensaje += "No se puede editar un Entrenador que está asignado a un Rango Horario.\n";
+                    if (obj.Rol.IdRol != unU.Rol.IdRol)
+                    {
+                        Mensaje += "No se puede cambiar el rol de un Entrenador que está asignado a un Rango Horario.\n";
+                    }
+                    if (obj.Estado != unU.Estado)
+                    {
+                        Mensaje += "No se puede cambiar el estado de un Entrenador que está asignado a un Rango Horario.\n";
+                    }
+                }
+            }
+
             if (obj.NombreUsuario == "")
             {
                 Mensaje += "Es necesario el Nombre de Usuario\n";
@@ -93,6 +112,5 @@ namespace Controlador
         {
             return objcd_usuario.ObtenerPorRangoHorario(idRangoHorario);
         }
-
     }
 }

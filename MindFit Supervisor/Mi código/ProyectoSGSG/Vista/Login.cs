@@ -34,7 +34,22 @@ namespace CapaPresentacion
             {
                 Usuario unUsuario = (((new ControladorGymUsuario()).Listar()).Where(u => u.NombreUsuario == (txtNombreUsuario.Text).Trim() && u.Clave == (txtClave.Text).Trim())).FirstOrDefault();
 
-                if (unUsuario != null)
+                if (unUsuario == null)
+                {
+                    // Usuario no encontrado
+                    MessageBox.Show("Usuario o contraseña incorrectos.",
+                        "Acceso denegado",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (unUsuario.Estado == false)
+                {
+                    Gimnasio gym = new ControladorGymGimnasio().ObtenerDatos();
+                    string telefonoGym = gym.Telefono;
+                    MessageBox.Show("Usuario Desactivado\nComuniquese al teléfono " + telefonoGym, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                } else if (unUsuario != null)
                 {
                     // 🔹 Auditar login
                     AuditoriaAccesosService.RegistrarEvento(unUsuario.IdUsuario, "Login");
