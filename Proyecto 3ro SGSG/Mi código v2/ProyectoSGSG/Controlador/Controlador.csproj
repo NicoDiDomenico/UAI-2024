@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{134D6236-5620-4043-8DF9-D9CFC81D98BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Controlador</RootNamespace>
+    <AssemblyName>Controlador</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ControladorGymAccion.cs" />
+    <Compile Include="ControladorGymAuditoria.cs" />
+    <Compile Include="ControladorGymAuditoriaAcceso.cs" />
+    <Compile Include="ControladorGymAuditoriaTurno.cs" />
+    <Compile Include="ControladorGymCalentamiento.cs" />
+    <Compile Include="ControladorGymEjercicio.cs" />
+    <Compile Include="ControladorGymElementoGimnasio.cs" />
+    <Compile Include="ControladorGymEntrenamiento.cs" />
+    <Compile Include="ControladorGymEquipamiento.cs" />
+    <Compile Include="ControladorGymEstiramiento.cs" />
+    <Compile Include="ControladorGymGimnasio.cs" />
+    <Compile Include="ControladorGymGrupo.cs" />
+    <Compile Include="ControladorGymHistorialCalentamiento.cs" />
+    <Compile Include="ControladorGymHistorialEntrenamiento.cs" />
+    <Compile Include="ControladorGymHistorialEstiramiento.cs" />
+    <Compile Include="ControladorGymHistorialRutinas.cs" />
+    <Compile Include="ControladorGymMaquina.cs" />
+    <Compile Include="ControladorGymPermiso.cs" />
+    <Compile Include="ControladorGymRangoHorario.cs" />
+    <Compile Include="ControladorGymRol.cs" />
+    <Compile Include="ControladorGymRutina.cs" />
+    <Compile Include="ControladorGymSocio.cs" />
+    <Compile Include="ControladorGymTurno.cs" />
+    <Compile Include="ControladorGymUsuario.cs" />
+    <Compile Include="Observer\EmailObserver.cs" />
+    <Compile Include="Observer\EmailUtilidades.cs" />
+    <Compile Include="Observer\GestorRenovacionCuota.cs" />
+    <Compile Include="Observer\ICuotaObserver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="State\Socio\EstadoActualizado.cs" />
+    <Compile Include="State\Socio\EstadoEliminado.cs" />
+    <Compile Include="State\Socio\EstadoFactorySocio.cs" />
+    <Compile Include="State\Socio\EstadoNuevo.cs" />
+    <Compile Include="State\Socio\EstadoSuspendido.cs" />
+    <Compile Include="State\Socio\IEstadoSocio.cs" />
+    <Compile Include="State\Turno\EstadoCancelado.cs" />
+    <Compile Include="State\Turno\EstadoEnCurso.cs" />
+    <Compile Include="State\Turno\EstadoFactoryTurno.cs" />
+    <Compile Include="State\Turno\EstadoFinalizado.cs" />
+    <Compile Include="State\Turno\IEstadoTurno.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO\DAO.csproj">
+      <Project>{8f2670cf-0c80-46b4-9fa4-364d34ac1929}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{26ffe000-4765-46f0-9964-b26bbdf8344f}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
