@@ -493,7 +493,7 @@ namespace Vista
         {
             panelRol.Enabled = true;
 
-            accionesSeleccionadas = new List<Accion>();
+            //accionesSeleccionadas = new List<Accion>();
             //MessageBox.Show($"Se seleccionaron {accionesSeleccionadas.Count} acciones.");
             
         }

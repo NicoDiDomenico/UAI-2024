@@ -4498,3 +4498,12 @@ VALUES
 (24, GETDATE(), 'Viernes', 0),
 (24, GETDATE(), 'Sábado', 0);
 
+select * from Rol
+
+select * from Usuario where NroDocumento = 1561461 and idusuario != 13
+
+select * from Usuario
+
+select * from Permiso
+
+select * from Permiso WHERE IdUsuario = 13

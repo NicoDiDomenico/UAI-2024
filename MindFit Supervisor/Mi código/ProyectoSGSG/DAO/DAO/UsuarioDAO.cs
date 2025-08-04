@@ -289,10 +289,9 @@ namespace DAO
                     Mensaje = cmd.Parameters["@Mensaje"].Value.ToString();
                 }
 
-                // Si se editó correctamente y hay acciones individuales
-                if (respuesta && obj.Acciones != null && obj.Acciones.Count > 0)
+                // Siempre eliminar permisos anteriores al editar
+                if (respuesta)
                 {
-                    // Primero eliminamos todos los permisos anteriores de ese usuario
                     using (SqlConnection oconexion = new SqlConnection(Conexion.cadena))
                     {
                         oconexion.Open();
@@ -303,31 +302,34 @@ namespace DAO
                             cmdDelete.ExecuteNonQuery();
                         }
 
-                        foreach (var accion in obj.Acciones)
+                        // Si tiene acciones, volver a insertar
+                        if (obj.Acciones != null && obj.Acciones.Count > 0)
                         {
-                            int idAccion = 0;
-
-                            using (SqlCommand cmdAccion = new SqlCommand("SELECT IdAccion FROM Accion WHERE NombreAccion = @NombreAccion", oconexion))
+                            foreach (var accion in obj.Acciones)
                             {
-                                cmdAccion.Parameters.AddWithValue("@NombreAccion", accion.NombreAccion);
-                                var resultado = cmdAccion.ExecuteScalar();
-                                if (resultado != null)
-                                    idAccion = Convert.ToInt32(resultado);
-                            }
+                                int idAccion = 0;
 
-                            if (idAccion > 0)
-                            {
-                                using (SqlCommand cmdInsertPermiso = new SqlCommand("INSERT INTO Permiso (IdUsuario, IdAccion) VALUES (@IdUsuario, @IdAccion)", oconexion))
+                                using (SqlCommand cmdAccion = new SqlCommand("SELECT IdAccion FROM Accion WHERE NombreAccion = @NombreAccion", oconexion))
                                 {
-                                    cmdInsertPermiso.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
-                                    cmdInsertPermiso.Parameters.AddWithValue("@IdAccion", idAccion);
-                                    cmdInsertPermiso.ExecuteNonQuery();
+                                    cmdAccion.Parameters.AddWithValue("@NombreAccion", accion.NombreAccion);
+                                    var resultado = cmdAccion.ExecuteScalar();
+                                    if (resultado != null)
+                                        idAccion = Convert.ToInt32(resultado);
+                                }
+
+                                if (idAccion > 0)
+                                {
+                                    using (SqlCommand cmdInsertPermiso = new SqlCommand("INSERT INTO Permiso (IdUsuario, IdAccion) VALUES (@IdUsuario, @IdAccion)", oconexion))
+                                    {
+                                        cmdInsertPermiso.Parameters.AddWithValue("@IdUsuario", obj.IdUsuario);
+                                        cmdInsertPermiso.Parameters.AddWithValue("@IdAccion", idAccion);
+                                        cmdInsertPermiso.ExecuteNonQuery();
+                                    }
                                 }
                             }
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {
