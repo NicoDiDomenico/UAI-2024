@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = IntroCsharpBackend
-build_property.ProjectDir = C:\Users\Nicol\Desktop\UAI-2024\Curso .NET\Héctor de León\IntroCsharpBackend\IntroCsharpBackend\
+build_property.ProjectDir = C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\IntroCsharpBackend\IntroCsharpBackend\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

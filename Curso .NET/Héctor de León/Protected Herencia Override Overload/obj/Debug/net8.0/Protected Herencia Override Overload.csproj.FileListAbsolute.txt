@@ -1,0 +1,15 @@
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\bin\Debug\net8.0\Protected Herencia Override Overload.exe
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\bin\Debug\net8.0\Protected Herencia Override Overload.deps.json
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\bin\Debug\net8.0\Protected Herencia Override Overload.runtimeconfig.json
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\bin\Debug\net8.0\Protected Herencia Override Overload.dll
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\bin\Debug\net8.0\Protected Herencia Override Overload.pdb
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.AssemblyInfoInputs.cache
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.AssemblyInfo.cs
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.sourcelink.json
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.dll
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\refint\Protected Herencia Override Overload.dll
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.pdb
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\Protected Herencia Override Overload.genruntimeconfig.cache
+C:\GitHubProyectos\UAI-2024\Curso .NET\Héctor de León\Protected Herencia Override Overload\obj\Debug\net8.0\ref\Protected Herencia Override Overload.dll

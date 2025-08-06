@@ -65,7 +65,7 @@ public class Sale
 class SaleWithTaxes : Sale
 {
     public decimal Tax {  get; set; } 
-    public SaleWithTaxes(decimal total, decimal tax) : base(total)
+    public SaleWithTaxes(decimal total, decimal tax) : base(total) // llamar al constructor de la clase padre 
     {
         Tax = tax;
     }
@@ -91,4 +91,5 @@ class SaleWithTaxes : Sale
 
     /// Duda Futuro --> ¿Y cómo hago si quiero usar el getInfo() del Padre y alguno del hijo? ya que al hacer overriding no puedo acceder al del Padre
 }
+
 ////////
