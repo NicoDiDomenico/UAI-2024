@@ -1,0 +1,15 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\bin\Debug\net8.0\ProyectoJSON.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\bin\Debug\net8.0\ProyectoJSON.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\bin\Debug\net8.0\ProyectoJSON.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\bin\Debug\net8.0\ProyectoJSON.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\bin\Debug\net8.0\ProyectoJSON.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\refint\ProyectoJSON.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ProyectoJSON.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\SerializacionJSON\ProyectoJSON\obj\Debug\net8.0\ref\ProyectoJSON.dll
