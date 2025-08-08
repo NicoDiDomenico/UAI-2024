@@ -204,4 +204,59 @@ public string Nombre { get; set; }
 //// ✅ 7. Serialización y Deserialización en C#
 JsonSerializer.Serialize(objeto)  // --> retorna el json
 JsonSerializer.Deserialize<Tipo>(json) // --> retorna el objeto
+
+//// ✅ 11. Generics
+/*
+¿Qué es?: Permiten definir clases, interfaces o métodos que reciben un tipo de dato como parámetro.
+¿Para qué sirve?: Para reutilizar código y trabajar con distintos tipos de datos sin duplicar lógica.
+Ventajas:
+- Más eficiencia: el compilador genera código específico para el tipo usado (sin boxing/unboxing).
+- Más seguridad: se detectan errores de tipo en tiempo de compilación.
+- Más limpieza: no se necesitan conversiones explícitas.
+
+📌 Sintaxis: class NombreClase<T> { ... }
+T → Tipo de dato genérico (por convención T, pero puede ser cualquier nombre).
+*/
+
+// Ejemplo básico:
+public class Caja<T>
+{
+    public T Contenido { get; set; }
+}
+Caja<string> miCaja = new Caja<string>();
+miCaja.Contenido = "Juguete";
+
+// Ejemplo con lista genérica y límite:
+public class MyList<T>
+{
+    private List<T> _list;
+    private int _limit;
+
+    public MyList(int limite)
+    {
+        _limit = limite;
+        _list = new List<T>();
+    }
+
+    public void Add(T item)
+    {
+        if (_list.Count < _limit) _list.Add(item);
+    }
+
+    public string GetContent()
+    {
+        string content = "";
+        foreach (var item in _list)
+            content += item + " ";
+        return content;
+    }
+}
+
+// Ejemplo de uso con distintos tipos:
+var numbers = new MyList<int>(5);
+var names = new MyList<string>(5);
+var beers = new MyList<Beer>(5);
+
+//// 📚 Ejemplos de genéricos en .NET:
+List<T>, Dictionary<TKey, TValue>, Queue<T>, Stack<T>, Nullable<T>, Task<T>
 ```
