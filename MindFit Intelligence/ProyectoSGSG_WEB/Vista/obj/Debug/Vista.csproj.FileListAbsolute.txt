@@ -1,0 +1,317 @@
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Inicio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\CapaPresentacion.Login.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.exe.config
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.exe
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarGimnasio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.exe.config
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.exe
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Controlador.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\FontAwesome.Sharp.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Modelo.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\DAO.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Controlador.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Modelo.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\DAO.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarGimnasio.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Inicio.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\CapaPresentacion.Login.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdAcercaDe.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRangosHorarios.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdEntrenador.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.exe.config
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.exe
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Vista.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\FontAwesome.Sharp.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Modelo.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\DAO.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Modelo.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\DAO.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarGimnasio.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRangosHorarios.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Inicio.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\CapaPresentacion.Login.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdAcercaDe.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdEntrenador.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuCalentamiento.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdMaquina.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEstiramiento.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEstiramiento.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuCalentamiento.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdMaquina.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmHistorialRutinas.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmHistorialRutinas.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmRecuperar.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmRecuperar.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoria.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaAccesos.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaTurnos.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoria.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaAccesos.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaTurnos.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteNegocio.resources
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteRutina.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteNegocio.resources
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteRutina.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Vista.exe.config
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Vista.exe
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Vista.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Controlador.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\itextsharp.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Modelo.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\DAO.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Controlador.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Modelo.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\DAO.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarGimnasio.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEstiramiento.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRangosHorarios.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuCalentamiento.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmHistorialRutinas.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmRecuperar.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoria.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaAccesos.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaTurnos.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteNegocio.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteRutina.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Inicio.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\CapaPresentacion.Login.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdAcercaDe.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdEntrenador.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdMaquina.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Vista.exe.config
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Vista.exe
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\itextsharp.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarGimnasio.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEstiramiento.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRangosHorarios.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuCalentamiento.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmHistorialRutinas.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmRecuperar.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoria.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaAccesos.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaTurnos.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteNegocio.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteRutina.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Inicio.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\CapaPresentacion.Login.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdAcercaDe.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdEntrenador.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdMaquina.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Vista.exe.config
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Vista.exe
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Vista.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\DotNetEnv.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\itextsharp.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\itextsharp.xmlworker.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Sprache.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\itextsharp.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\Sprache.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmAcciones.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmAgregarSocio.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmEditarSocio.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarGimnasio.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEjercicios.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEquipamiento.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuEstiramiento.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuMaquinas.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuNegocio.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRangosHorarios.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuUsuarios.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmGestionarRutinas.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuRolesYPermisos.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarRoles.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmMenuCalentamiento.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmModificarAcciones.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmHistorialRutinas.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmNuevoTurno.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmRecuperar.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoria.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaAccesos.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteAuditoriaTurnos.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteNegocio.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmReporteRutina.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmSocios.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmTurno.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.frmValidarIngreso.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.Inicio.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\CapaPresentacion.Login.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdAcercaDe.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdEntrenador.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.Modales.mdMaquina.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\Users\Nicol\Desktop\ProyectoSGSG\Vista\obj\Debug\Vista.pdb

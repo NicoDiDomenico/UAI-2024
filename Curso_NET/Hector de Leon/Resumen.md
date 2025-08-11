@@ -259,4 +259,258 @@ var beers = new MyList<Beer>(5);
 
 //// 📚 Ejemplos de genéricos en .NET:
 List<T>, Dictionary<TKey, TValue>, Queue<T>, Stack<T>, Nullable<T>, Task<T>
+
+//// ✅ 12. Programación Funcional en C# (versión simplificada y con ejemplos claros)
+
+/*
+📌 PRINCIPIO CENTRAL: Funciones Puras
+- Deterministas: si la entrada es la misma, la salida siempre será igual.
+- Sin efectos colaterales: no cambian variables globales ni modifican objetos externos.
+*/
+
+// ❌ Ejemplo de función impura (modifica el objeto que recibe)
+void CambiarNombre(Beer b)
+{
+    b.Name = "Heineken"; // Afecta al objeto externo
+}
+
+// ✔️ Ejemplo de función pura (no toca el original)
+Beer CambiarNombrePuro(Beer b)
+{
+    Beer copia = new Beer();
+    copia.Name = "Heineken";
+    return copia;
+}
+
+/*
+------------------------------------------------------------
+📌 INMUTABILIDAD
+- Un dato inmutable no puede cambiar después de crearse.
+- Evita cambios accidentales y ayuda a mantener la pureza.
+- En C#, tipos como string o DateTime son inmutables.
+*/
+
+// Ejemplo con struct inmutable (DateTime) --> Struct se pasa por valor, al pasarse copias son inmutables.
+DateTime fecha = DateTime.Now;
+DateTime nuevaFecha = fecha.AddDays(5); // Crea un nuevo objeto
+Console.WriteLine(fecha);       // Original intacto
+Console.WriteLine(nuevaFecha);  // Fecha modificada (nueva instancia)
+
+// Ejemplo con class mutable (se puede alterar desde fuera) --> Los Objetos se pasan por referencia, por eso son mutables.
+public class Persona
+{
+    public string Nombre { get; set; }
+}
+
+void CambiarNombrePersona(Persona p)
+{
+    p.Nombre = "Juan"; // Cambia el original
+}
+
+Persona persona = new Persona { Nombre = "Nico" };
+CambiarNombrePersona(persona);
+Console.WriteLine(persona.Nombre); // "Juan"
+
+/*
+💡 Conexión:
+Programación funcional = funciones puras + datos inmutables.
+Un struct inmutable (como DateTime) es ideal para mantener la pureza.
+------------------------------------------------------------
+*/
+
+/*
+📌 FUNCIONES DE PRIMERA CLASE
+- Se pueden guardar en variables, pasar como parámetros y devolver.
+*/
+
+int Cuadrado(int numero)
+{
+    return numero * numero;
+}
+
+// Guardar en una variable (delegado Func)
+Func<int, int> funcionCuadrado = Cuadrado;
+Console.WriteLine(funcionCuadrado(4)); // 16
+
+// Pasar como parámetro
+void Ejecutar(Func<int, int> funcion, int valor)
+{
+    Console.WriteLine(funcion(valor));
+}
+Ejecutar(Cuadrado, 5); // 25
+
+/*
+------------------------------------------------------------
+📌 FUNCIONES DE ORDEN SUPERIOR
+- Reciben otra función como parámetro o devuelven una función.
+*/
+
+int Sumar(int a, int b) { return a + b; }
+int Multiplicar(int a, int b) { return a * b; }
+
+// Función que recibe otra función
+int Calcular(Func<int, int, int> operacion, int a, int b)
+{
+
+    return operacion(a, b);
+}
+Console.WriteLine(Calcular(Sumar, 3, 4));         // 7
+Console.WriteLine(Calcular(Multiplicar, 3, 4));   // 12
+
+// Función que devuelve otra función
+Func<int, int> Multiplicador(int factor)
+{
+    int FuncionInterna(int x)
+    {
+        return x * factor;
+    }
+    return FuncionInterna;
+}
+
+Func<int, int> por10 = Multiplicador(10);
+Console.WriteLine(por10(5)); // 50
+
+/*
+------------------------------------------------------------
+📌 DELEGADOS EN C#
+- Un delegado es un tipo que guarda la referencia a un método con firma específica.
+- Ya no se usan delegados (C# v1.0), en cambio se usan Action<> y Func<> (C# v3.0) que ya son delegados genéricos listos para usar.
+*/
+
+delegate void MostrarMensaje(string mensaje);
+
+void Saludar(string nombre)
+{
+    Console.WriteLine("Hola " + nombre);
+}
+
+// Uso de delegado explícito
+MostrarMensaje delegado = Saludar;
+delegado("Nico"); // Hola Nico
+
+Action<string> delegado = Saludar;
+delegado("Nico")
+
+// Action<T> → para métodos que no devuelven nada
+void MostrarEnPantalla(string texto)
+{
+    Console.WriteLine(texto);
+}
+Action<string> mostrar = MostrarEnPantalla;
+mostrar("Hola Juan");
+
+// Func<T> → para métodos que devuelven algo
+int SumarEnteros(int x, int y)
+{
+    return x + y;
+}
+Func<int, int, int> sumar = SumarEnteros;
+Console.WriteLine(sumar(3, 4)); // 7
+
+//// ✅ 13. Expresiones Lambda en C#
+
+/*
+📌 ¿Qué son?
+Son funciones anónimas (sin nombre) que pueden definirse directamente en el lugar donde se usan,
+sin necesidad de declararlas previamente. Muy útiles para funciones que se ejecutan una sola vez
+o que se pasan como parámetro a funciones de orden superior.
+*/
+
+/*
+📐 Sintaxis básica:
+(parámetros) => expresión
+*/
+
+//// Ejemplos:
+// Con dos parámetros (tipados explícitamente)
+(int a, int b) => a - b;
+
+// Con inferencia de tipos
+(a, b) => a + b;
+
+// Un solo parámetro, sin paréntesis
+a => a * 2;
+
+// Varias líneas de código (usar llaves y return)
+a => {
+    a += 1;
+    return a * 5;
+};
+
+/*
+🎯 Uso con funciones de orden superior
+Las lambdas pueden pasarse como parámetro a funciones que reciben otras funciones.
+*/
+
+// Función que recibe otra función y un número
+int Sum(Func<int, int, int> fn, int numero)
+{
+    return fn(numero, numero);
+}
+
+// Llamada con lambda inline
+var resultado = Sum((a, b) => a + b, 5); // resultado = 10
+
+/*
+✨ Beneficios:
+- Evitan crear funciones adicionales para lógica simple.
+- Más legibilidad en funciones pequeñas.
+- Combinan muy bien con LINQ y programación funcional en C#.
+*/
+
+//// ✅ 14. LINQ en C#
+/*
+📌 ¿Qué es?
+(Language Integrated Query) Extensión de C# para consultar y manipular colecciones
+(lista, array, datos de BD, XML, JSON, etc.) usando una sintaxis declarativa similar a SQL.
+
+💡 Permite: filtrar, ordenar, agrupar y proyectar datos sin escribir bucles manuales.
+*/
+
+/*
+📐 Partes de LINQ:
+1. Origen de datos → lista, array, base de datos, XML, JSON.
+2. Consulta → define filtro, orden y selección (sintaxis de consulta o de funciones).
+3. Ejecución:
+   - Diferida → se ejecuta al recorrer (foreach).
+   - Inmediata → usando .ToList(), .ToArray().
+*/
+
+//// 📝 Ejemplo con sintaxis de consulta:
+var names = new List<string>() { "Juan", "Pepe", "Ana", "Hugo", "Nico" };
+
+var namesResult = from n in names
+                  where n.Length > 3 && n.Length < 5
+                  orderby n
+                  select n;
+
+foreach (var name in namesResult)
+{
+    Console.WriteLine(name);
+}
+
+//// 📝 Ejemplo con sintaxis de funciones:
+var namesResult2 = names
+    .Where(n => n.Length > 3 && n.Length < 5)    // Filtra
+    .OrderByDescending(n => n)                   // Ordena descendente
+    .Select(n => n);                             // Selecciona
+
+foreach (var name in namesResult2)
+{
+    Console.WriteLine(name);
+}
+
+/*
+🎯 Métodos comunes:
+- Where(...) → Filtrar
+- OrderBy(...) / OrderByDescending(...) → Ordenar
+- Select(...) → Proyectar
+- GroupBy(...) → Agrupar
+- First(), FirstOrDefault(), Any(), Count(), Sum(), Max(), Min(), Average()
+
+✨ Tips:
+- LINQ no modifica la colección original.
+- El compilador traduce la sintaxis de consulta a funciones antes de ejecutarla.
+*/
+
 ```

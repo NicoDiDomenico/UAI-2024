@@ -4562,3 +4562,7 @@ BEGIN
         ROLLBACK TRANSACTION;
     END CATCH
 END;
+
+select * from Socio
+
+select * from Rutina

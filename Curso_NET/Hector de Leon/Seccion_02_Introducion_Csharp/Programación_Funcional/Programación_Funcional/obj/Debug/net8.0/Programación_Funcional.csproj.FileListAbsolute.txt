@@ -1,0 +1,15 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\bin\Debug\net8.0\Programación_Funcional.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\bin\Debug\net8.0\Programación_Funcional.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\bin\Debug\net8.0\Programación_Funcional.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\bin\Debug\net8.0\Programación_Funcional.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\bin\Debug\net8.0\Programación_Funcional.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\refint\Programación_Funcional.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\Programación_Funcional.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Programación_Funcional\Programación_Funcional\obj\Debug\net8.0\ref\Programación_Funcional.dll

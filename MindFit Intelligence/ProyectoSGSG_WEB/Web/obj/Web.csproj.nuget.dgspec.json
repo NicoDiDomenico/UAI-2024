@@ -1,0 +1,148 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj",
+        "projectName": "Controlador",
+        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj"
+              },
+              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj",
+        "projectName": "DAO",
+        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj",
+        "projectName": "Modelo",
+        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj",
+        "projectName": "Web",
+        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\Nicol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj": {
+                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj"
+              },
+              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj"
+              },
+              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

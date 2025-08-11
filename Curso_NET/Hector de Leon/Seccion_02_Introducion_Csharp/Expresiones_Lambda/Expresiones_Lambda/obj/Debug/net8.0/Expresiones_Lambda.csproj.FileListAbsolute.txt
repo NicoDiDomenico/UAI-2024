@@ -1,0 +1,15 @@
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\bin\Debug\net8.0\Expresiones_Lambda.exe
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\bin\Debug\net8.0\Expresiones_Lambda.deps.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\bin\Debug\net8.0\Expresiones_Lambda.runtimeconfig.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\bin\Debug\net8.0\Expresiones_Lambda.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\bin\Debug\net8.0\Expresiones_Lambda.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.AssemblyInfoInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.AssemblyInfo.cs
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.sourcelink.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\refint\Expresiones_Lambda.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.pdb
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\Expresiones_Lambda.genruntimeconfig.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Expresiones_Lambda\Expresiones_Lambda\obj\Debug\net8.0\ref\Expresiones_Lambda.dll
