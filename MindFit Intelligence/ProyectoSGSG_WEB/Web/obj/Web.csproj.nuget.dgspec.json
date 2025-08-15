@@ -1,22 +1,22 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj": {}
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj": {
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Controlador\\Controlador.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj",
+        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Controlador\\Controlador.csproj",
         "projectName": "Controlador",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj",
+        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Controlador\\Controlador.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj"
+              "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj"
               },
-              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
-                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj"
+              "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj"
               }
             }
           }
@@ -26,16 +26,16 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj": {
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj",
+        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
-                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj"
+              "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj"
               }
             }
           }
@@ -45,11 +45,11 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj",
+        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj",
         "projectName": "Modelo",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj",
+        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -60,21 +60,17 @@
         "net472": {}
       }
     },
-    "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj": {
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj",
+        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj",
+        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\Nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\",
+        "outputPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,14 +85,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj": {
-                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Controlador\\Controlador.csproj"
+              "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Controlador\\Controlador.csproj": {
+                "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Controlador\\Controlador.csproj"
               },
-              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\DAO\\DAO\\DAO.csproj"
+              "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\DAO\\DAO\\DAO.csproj"
               },
-              "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj": {
-                "projectPath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Modelo\\Modelo.csproj"
+              "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj": {
+                "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Modelo\\Modelo.csproj"
               }
             }
           }

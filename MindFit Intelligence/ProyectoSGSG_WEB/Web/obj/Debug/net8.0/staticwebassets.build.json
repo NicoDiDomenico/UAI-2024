@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9FEP6VAKKGDmNuz68w92uF4ZKY0AX9kr2f+6QpsDPwQ=",
+  "Hash": "SxPbVpke0MPDmtnezY0sgwd+SmngX+ZnkfVSIwX8sqQ=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "Web\\wwwroot",
       "Source": "Web",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Web.styles.css",
+      "Identity": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Web.styles.css",
       "SourceId": "Web",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/Web",
       "RelativePath": "Web.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Web.styles.css"
+      "OriginalItemSpec": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\Debug\\net8.0\\scopedcss\\bundle\\Web.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Web.bundle.scp.css",
+      "Identity": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Web.bundle.scp.css",
       "SourceId": "Web",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/Web",
       "RelativePath": "Web.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Web.bundle.scp.css"
+      "OriginalItemSpec": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Web.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\app.css",
+      "Identity": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\app.css",
       "SourceId": "Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\favicon.png",
+      "Identity": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\favicon.png",
       "SourceId": "Web",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\wwwroot\\",
+      "ContentRoot": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

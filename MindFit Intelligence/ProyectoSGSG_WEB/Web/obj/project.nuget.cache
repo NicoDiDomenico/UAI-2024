@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/zBqO+P0U8Q=",
+  "dgSpecHash": "HLKKe+dOVHo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nicol\\Desktop\\ProyectoSGSG V2\\Web\\Web.csproj",
+  "projectFilePath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\ProyectoSGSG_WEB\\Web\\Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicol\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Nicol\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

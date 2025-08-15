@@ -513,4 +513,57 @@ foreach (var name in namesResult2)
 - El compilador traduce la sintaxis de consulta a funciones antes de ejecutarla.
 */
 
+//// ✅ ASP.NET Core Web API – Conceptos clave nuevos
+
+// 🔹 Controladores
+// Clase que hereda de ControllerBase.
+// Define endpoints (URLs) que responden a solicitudes HTTP.
+// Convención: https://localhost:puerto/api/[NombreControladorSinController]
+
+// 🔹 Métodos HTTP (atributos)
+[HttpGet]     // Obtener datos
+[HttpPost]    // Crear datos
+[HttpPut]     // Actualizar datos
+[HttpDelete]  // Eliminar datos
+
+// 🔹 Parámetros
+// Por URL → GET (?a=10&b=22)
+// Por Body (JSON) → POST/PUT (deserializa a objeto C# automáticamente)
+public IActionResult Add([FromBody] Numbers n) { ... }
+
+// 🔹 Headers
+[FromHeader] string host
+[FromHeader(Name = "Content-Length")] int len
+// Headers personalizados: [FromHeader(Name = "X-Sum")] string sum
+
+// 🔹 Respuestas enriquecidas
+ActionResult<T> → Retorna datos + código HTTP (Ok(obj), NotFound())
+IActionResult  → Retorna solo código (NoContent(), BadRequest())
+
+// 🔹 Buenas prácticas
+// - Filtrar datos (First, Where, Contains) → evitar devolver todos sin necesidad.
+// - Usar códigos adecuados: 200 OK, 204 No Content, 400 Bad Request, 404 Not Found.
+// - Swagger → documentación y prueba rápida
+// - Postman → pruebas avanzadas y organización de requests
+
+// 🔹 Capa de Servicio
+// Separa la lógica de negocio del controlador.
+// Definida mediante interfaces (convención: prefijo 'I') y clases de implementación.
+// Ventaja: un solo punto de cambio para reglas usadas en varios controladores.
+
+// 🔹 Inyección de Dependencias (DI)
+// El controlador recibe servicios ya instanciados por el framework (no usa 'new').
+// Registro en Program.cs: builder.Services.AddSingleton<IPeopleService, PeopleService>();
+// Principio SOLID: depender de abstracciones (interfaces), no implementaciones.
+// Cambiar implementación requiere solo modificar el registro en Program.cs.
+
+// 🔹 DI por Clave (Key) – .NET 8
+// Permite registrar varias implementaciones de una interfaz y seleccionarlas por un key.
+// builder.Services.AddKeyedSingleton<IPeopleService, PeopleService>("PeopleService");
+// Uso en constructor: [FromKeyedServices("PeopleService")] IPeopleService service
+
+// 🔹 Ciclos de Vida en DI
+// Singleton → mismo objeto para toda la app.
+// Scoped → un objeto por solicitud HTTP.
+// Transient → un objeto nuevo en cada inyección, incluso en la misma solicitud.
 ```
