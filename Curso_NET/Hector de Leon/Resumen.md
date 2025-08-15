@@ -537,8 +537,9 @@ public IActionResult Add([FromBody] Numbers n) { ... }
 // Headers personalizados: [FromHeader(Name = "X-Sum")] string sum
 
 // 🔹 Respuestas enriquecidas
-ActionResult<T> → Retorna datos + código HTTP (Ok(obj), NotFound())
-IActionResult  → Retorna solo código (NoContent(), BadRequest())
+ActionResult<T> → Representa una respuesta HTTP que puede incluir datos de tipo T y un código de estado. Garantiza que, si hay datos, sean siempre del tipo especificado. Ejemplos: Ok(obj), NotFound().
+
+IActionResult → Representa una respuesta HTTP genérica que puede incluir solo código o código + datos de cualquier tipo. Ejemplos: NoContent(), BadRequest(), Ok(obj).
 
 // 🔹 Buenas prácticas
 // - Filtrar datos (First, Where, Contains) → evitar devolver todos sin necesidad.
@@ -566,4 +567,42 @@ IActionResult  → Retorna solo código (NoContent(), BadRequest())
 // Singleton → mismo objeto para toda la app.
 // Scoped → un objeto por solicitud HTTP.
 // Transient → un objeto nuevo en cada inyección, incluso en la misma solicitud.
+
+//// ✅ 15. Programación Asíncrona en C#
+
+/*
+📌 ¿Qué es?
+Permite ejecutar tareas en segundo plano sin bloquear el hilo principal, aprovechando el tiempo muerto de operaciones lentas (conexión a BD, lectura/escritura de archivos, llamadas HTTP).
+
+📌 Claves:
+- async → marca un método como asíncrono.
+- await → espera que termine una tarea antes de seguir.
+- Task / Task<T> → representa una operación asíncrona (con o sin retorno).
+*/
+
+/*
+⚖️ Síncrono vs Asíncrono
+Síncrono: ejecuta tareas una tras otra, esperando a que cada una termine.
+Asíncrono: inicia varias tareas a la vez y espera sus resultados al final, reduciendo el tiempo total.
+*/
+
+// Ejemplo: dos tareas que duran 1 seg cada una
+// Síncrono → total ≈ 2 seg
+// Asíncrono → total ≈ 1 seg
+public async Task<IActionResult> EjemploAsync()
+{
+    var t1 = Task.Run(() => {
+        Thread.Sleep(1000);
+        Console.WriteLine("Conexión a BD lista");
+    });
+
+    var t2 = Task.Run(() => {
+        Thread.Sleep(1000);
+        Console.WriteLine("Correo enviado");
+    });
+
+    await Task.WhenAll(t1, t2); // Espera que ambas terminen
+    return Ok("Todo ha terminado");
+}
+
 ```

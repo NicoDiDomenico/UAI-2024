@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\Nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_06_Programacion_Asincrona\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -28,5 +28,38 @@ namespace Backend.Controllers
 
             return Ok(stopwatch.Elapsed);
         }
+
+        [HttpGet("async")]
+        public async Task<ActionResult<int>> GetAsync()
+        {
+            Stopwatch stopwatch = Stopwatch.StartNew();
+
+            // Programacion Asincrona - Permite tener métodos ejecutandose en simultaneo (concurrencia), y controlar el flujo de ejecución con el await
+            var task1 = new Task<int>(() =>
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("Conexión a BD terminada");
+                return 1;
+            });
+
+            var task2 = new Task<int>(() =>
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine("Envío de mail terminado");
+                return 2;
+            });
+
+            task1.Start();
+            task2.Start();
+
+            var result1 = await task1; // Si saco el await, el código que le sigue no va a esperar que se termine de ejecutar task1.
+            var result2 = await task2; 
+
+            Console.WriteLine("Todo ha terminado");
+
+            stopwatch.Stop();
+
+            return Ok(result1 + " " + result2 + stopwatch.Elapsed); // Notar que con programación concurrente es mas rápido.
+        }
     }
 }
