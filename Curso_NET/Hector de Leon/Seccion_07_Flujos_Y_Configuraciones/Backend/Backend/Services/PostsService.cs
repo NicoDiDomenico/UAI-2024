@@ -7,16 +7,14 @@ namespace Backend.Services
     {
         private HttpClient _httpClient; // Este objeto sirve para hacer peticiones HTTP (ir a una página web, API, etc.).
 
-        public PostsService()
+        public PostsService(HttpClient httpClient)
         {
-            _httpClient = new HttpClient();
+            _httpClient = httpClient;
         }
 
         public async Task<IEnumerable<PostDto>> Get()
         {
-            string url = "https://jsonplaceholder.typicode.com/posts";
-
-            var result = await _httpClient.GetAsync(url);
+            var result = await _httpClient.GetAsync(_httpClient.BaseAddress);
             // var -> HttpResponseMessage: respuesta HTTP (status code, headers, contenido).
 
             var body = await result.Content.ReadAsStringAsync();

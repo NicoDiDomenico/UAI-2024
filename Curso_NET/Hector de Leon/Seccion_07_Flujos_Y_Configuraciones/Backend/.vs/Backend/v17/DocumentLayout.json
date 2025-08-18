@@ -1,26 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\",
+  "WorkspaceRootPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\services\\postsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\postsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\services\\postsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\postsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\postscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\services\\ipostsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\services\\ipostsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\ipostsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_07_flujos_y_configuraciones\\backend\\backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Program.cs",
+              "RelativeDocumentMoniker": "Backend\\Program.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Program.cs",
+              "RelativeToolTip": "Backend\\Program.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwBEAAABbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-17T20:35:36.154Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "PostsController.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Controllers\\PostsController.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Controllers\\PostsController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\PostsController.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Controllers\\PostsController.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Controllers\\PostsController.cs",
               "RelativeToolTip": "Backend\\Controllers\\PostsController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABDAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-17T20:37:12.312Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Program.cs",
-              "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Program.cs",
-              "RelativeToolTip": "Backend\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-17T20:35:36.154Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "PostsService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\PostsService.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\PostsService.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\PostsService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\PostsService.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\PostsService.cs",
               "RelativeToolTip": "Backend\\Services\\PostsService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAMAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-17T20:25:14.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "IPostsService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\IPostsService.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\IPostsService.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\IPostsService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\IPostsService.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\Services\\IPostsService.cs",
               "RelativeToolTip": "Backend\\Services\\IPostsService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-17T19:51:12.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "PostDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\DTOs\\PostDto.cs",
+              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\DTOs\\PostDto.cs",
               "RelativeDocumentMoniker": "Backend\\DTOs\\PostDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\DTOs\\PostDto.cs",
+              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_07_Flujos_Y_Configuraciones\\Backend\\Backend\\DTOs\\PostDto.cs",
               "RelativeToolTip": "Backend\\DTOs\\PostDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
