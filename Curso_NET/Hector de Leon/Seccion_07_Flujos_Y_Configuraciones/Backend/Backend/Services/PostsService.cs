@@ -14,6 +14,7 @@ namespace Backend.Services
 
         public async Task<IEnumerable<PostDto>> Get()
         {
+            //.post/put, podria haber usado otros metodos HTTP con este objeto _httpClient tipo HttpClient
             var result = await _httpClient.GetAsync(_httpClient.BaseAddress);
             // var -> HttpResponseMessage: respuesta HTTP (status code, headers, contenido).
 

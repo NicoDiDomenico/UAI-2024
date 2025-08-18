@@ -17,10 +17,11 @@ builder.Services.AddKeyedTransient<IRandomService, RandomService>("randomTransie
 
 builder.Services.AddScoped<IPostsService, PostsService>(); // Mi duda es ¿Si saco AddScoped AddHttpClient lo reemplaza?
 
+// Acá habló algo de patron de diseño factory pero no lo veo
 // PONER SI O SI DEBAJO DE LOS SERVICIOS sino se pisa
 builder.Services.AddHttpClient<IPostsService, PostsService>(c =>
 {
-    c.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/posts");
+    c.BaseAddress = new Uri(builder.Configuration["BaseUrlPosts"]);
 });
 // 👉 Con esto:
 /* 1. En el controlador vos pedís un `IPostsService`:

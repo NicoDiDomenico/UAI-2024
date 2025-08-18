@@ -605,4 +605,53 @@ public async Task<IActionResult> EjemploAsync()
     return Ok("Todo ha terminado");
 }
 
+//// ✅ 16. Modelos vs DTOs
+// Modelo → Representa directamente la tabla de BD (ej: Usuario con Id, Correo, Password).
+// DTO (Data Transfer Object) → Clase ligera que transfiere solo lo necesario entre capas.
+// Ventaja → Menos datos, más seguridad (no exponer Password), mejor rendimiento.
+public class Usuario
+{
+    public int Id { get; set; }
+    public string Correo { get; set; }
+    public string Password { get; set; }
+}
+public class UsuarioDto
+{
+    public int Id { get; set; }
+    public string Correo { get; set; }
+}
+
+//// ✅ 17. HttpClient
+// Clase de .NET para consumir APIs externas (GET, POST, PUT, DELETE).
+// Siempre usar async/await (operaciones lentas como llamadas HTTP).
+public class PostService
+{
+    private readonly HttpClient _http;
+    public PostService(HttpClient http) => _http = http;
+
+    public async Task<IEnumerable<PostDto>> Get()
+    {
+        var response = await _http.GetAsync("/posts");
+        var body = await response.Content.ReadAsStringAsync();
+        return JsonSerializer.Deserialize<IEnumerable<PostDto>>(body,
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+    }
+}
+
+//// ✅ 18. IHttpClientFactory
+// Patrón Factory aplicado a HttpClient. Permite centralizar configuración y reuso.
+builder.Services.AddHttpClient<IPostService, PostService>(c =>
+{
+    c.BaseAddress = new Uri("https://jsonplaceholder.typicode.com");
+});
+// Ventajas: no crear HttpClient a mano, mejor mantenimiento, evita fugas de sockets.
+
+//// ✅ 19. appsettings.json
+// Archivo de configuración → se usa para no hardcodear valores en el código.
+{
+  "UrlPost": "https://jsonplaceholder.typicode.com/posts"
+}
+// Acceso en Program.cs:
+var url = builder.Configuration["UrlPost"];
+
 ```
