@@ -654,4 +654,338 @@ builder.Services.AddHttpClient<IPostService, PostService>(c =>
 // Acceso en Program.cs:
 var url = builder.Configuration["UrlPost"];
 
+//// ✅ Entity Framework Core (EF Core) – Resumen rápido
+
+🔹 ¿Qué es?
+- ORM por defecto en .NET → mapea tablas ↔ clases (objetos).
+- Permite trabajar con BD sin SQL directo (usa LINQ).
+
+🔹 Enfoques:
+- Code First → clases → migraciones → BD.
+- Database First → BD → genera clases.
+- Manual → BD y clases a mano (asegurando equivalencia).
+
+🔹 Modelos:
+- Clase ↔ tabla. Propiedades ↔ columnas.
+- Atributos: [Key], [DatabaseGenerated], [ForeignKey].
+- Relaciones: 1:N (Brand ↔ Beers).
+
+🔹 Contexto:
+- Clase que hereda de DbContext.
+- Define DbSet<T> para cada tabla.
+- Configuración e inyección en Program.cs con AddDbContext().
+
+🔹 Migraciones:
+- Versionan la BD (historial de cambios).
+- Métodos: Up (aplica cambios), Down (revierte).
+- Flujo: Add-Migration → Update-Database → Refresh en SSMS.
+- En desarrollo: se puede revertir. En producción: generar scripts SQL.
+
+🔹 Modificaciones:
+1. Cambiar modelo (ej. agregar columna).
+2. Add-Migration Nombre.
+3. Update-Database.
+4. Verificar en SQL Server.
+
+🔹 Comandos útiles:
+- `Add-Migration Nombre` → crear migración.
+- `Update-Database` → aplicar migraciones.
+- `Update-Database Nombre` → volver a un estado previo.
+- `Remove-Migration` → eliminar la última (si no se aplicó).
+- `Script-Migration` → generar script SQL.
+- `Get-Migration` → listar migraciones.
+
+📌 Conclusión: EF Core permite que la base de datos evolucione junto con el código, manteniendo control de versiones y evitando escribir SQL manual.
+
+//// ✅ 20. CRUD
+// MODELO (Entidad de BD)
+public class Beer   // ↔ tabla Beers
+{
+    public int BeerID { get; set; }      // PK
+    public string Name { get; set; } = "";
+    public decimal Alcohol { get; set; }
+    public int BrandID { get; set; }     // FK (opcional)
+    public Brand? Brand { get; set; }    // nav (opcional)
+}
+
+// ✅ DTOS (Entrada/Salida)
+public class BeerDto                 // lo que devuelvo al cliente (Read)
+{
+    public int Id { get; set; }
+    public string Name { get; set; } = "";
+    public decimal Alcohol { get; set; }
+    public int BrandID { get; set; }
+}
+public class BeerInsertDto           // lo que recibo en POST (Create)
+{
+    public string Name { get; set; } = "";
+    public decimal Alcohol { get; set; }
+    public int BrandID { get; set; }
+}
+public class BeerUpdateDto           // lo que recibo en PUT (Update)
+{
+    public string Name { get; set; } = "";
+    public decimal Alcohol { get; set; }
+    public int BrandID { get; set; }
+}
+
+// ✅ DB CONTEXT (EF Core)
+public class StoreContext : DbContext
+{
+    public StoreContext(DbContextOptions<StoreContext> options) : base(options) { }
+    public DbSet<Beer> Beers => Set<Beer>();
+    public DbSet<Brand> Brands => Set<Brand>();
+
+    protected override void OnModelCreating(ModelBuilder mb)
+    {
+        mb.Entity<Beer>()
+          .HasKey(b => b.BeerID);
+
+        mb.Entity<Beer>()
+          .HasOne(b => b.Brand)
+          .WithMany()
+          .HasForeignKey(b => b.BrandID);
+    }
+}
+
+// ✅ PROGRAM.cs (registro básico)
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers();
+builder.Services.AddDbContext<StoreContext>(opt =>
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))); // o UseSqlite, etc.
+var app = builder.Build();
+app.MapControllers();
+app.Run();
+
+// ✅ CONTROLADOR (CRUD completo con buenas prácticas)
+[ApiController]
+[Route("api/[controller]")]
+public class BeersController : ControllerBase
+{
+    private readonly StoreContext _context;
+    public BeersController(StoreContext context) => _context = context;
+
+    // READ: lista
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<BeerDto>>> GetAll()
+    {
+        // AsNoTracking para lecturas (mejor rendimiento)
+        var data = await _context.Beers
+            .AsNoTracking()
+            .Select(b => new BeerDto
+            {
+                Id = b.BeerID,
+                Name = b.Name,
+                Alcohol = b.Alcohol,
+                BrandID = b.BrandID
+            })
+            .ToListAsync();
+
+        return Ok(data);
+    }
+
+    // READ: por id
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<BeerDto>> GetById(int id)
+    {
+        var b = await _context.Beers.AsNoTracking().FirstOrDefaultAsync(x => x.BeerID == id);
+        if (b is null) return NotFound();
+
+        return Ok(new BeerDto
+        {
+            Id = b.BeerID,
+            Name = b.Name,
+            Alcohol = b.Alcohol,
+            BrandID = b.BrandID
+        });
+    }
+
+    // CREATE
+    [HttpPost]
+    public async Task<ActionResult<BeerDto>> Create(BeerInsertDto dto)
+    {
+        var entity = new Beer
+        {
+            Name = dto.Name,
+            Alcohol = dto.Alcohol,
+            BrandID = dto.BrandID
+        };
+
+        _context.Beers.Add(entity);
+        await _context.SaveChangesAsync(); // acá se genera BeerID
+
+        var result = new BeerDto
+        {
+            Id = entity.BeerID,
+            Name = entity.Name,
+            Alcohol = entity.Alcohol,
+            BrandID = entity.BrandID
+        };
+
+        // 201 + Location: api/Beers/{id}
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+    }
+
+    // UPDATE (reemplazo total del recurso)
+    [HttpPut("{id:int}")]
+    public async Task<ActionResult<BeerDto>> Update(int id, BeerUpdateDto dto)
+    {
+        var entity = await _context.Beers.FindAsync(id);
+        if (entity is null) return NotFound();
+
+        entity.Name = dto.Name;
+        entity.Alcohol = dto.Alcohol;
+        entity.BrandID = dto.BrandID;
+
+        await _context.SaveChangesAsync();
+
+        return Ok(new BeerDto
+        {
+            Id = entity.BeerID,
+            Name = entity.Name,
+            Alcohol = entity.Alcohol,
+            BrandID = entity.BrandID
+        });
+    }
+
+    // DELETE
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var entity = await _context.Beers.FindAsync(id);
+        if (entity is null) return NotFound();
+
+        _context.Beers.Remove(entity);
+        await _context.SaveChangesAsync();
+
+        // recomendado en DELETE
+        return NoContent(); // 204
+    }
+}
+
+/* 🧠 Notas rápidas para reutilizar:
+- [ApiController] activa validación automática de ModelState (400) y binding.
+- Usá DTOs distintos para entrada (Insert/Update) y salida (Read).
+- AsNoTracking() en lecturas. Tracking para Update/Delete.
+- CreatedAtAction en POST para 201 + Location.
+- NoContent() (204) en DELETE; Ok() (200) en GET/PUT.
+- Si necesitás filtros/paginación: agregá query params (ej. ?q=...&page=1&pageSize=20) y aplicá .Where/.Skip/.Take.
+*/
+
+//// ✅ 21. Parámetros en métodos HTTP (ASP.NET Core)
+
+// Cuando definís un método en un controlador, ASP.NET Core se encarga de **mapear automáticamente** los valores que viajan en la request hacia los parámetros del método.
+// Este proceso se llama **Model Binding**.
+
+---
+/*
+## 🔹 ¿Cómo decide de dónde sacar el valor?
+
+ASP.NET Core sigue un **orden de búsqueda** para enlazar parámetros.
+Si no lo indicás explícitamente, intenta resolverlos en este orden:
+*/
+---
+
+### 1. [FromRoute] → Ruta (URL con placeholders)
+
+[HttpGet("search/{search}")]
+public IActionResult Get([FromRoute] string search)
+
+👉 URL: /api/people/search/nico
+✅ Resultado: search = "nico"
+
+---
+
+### 2. [FromQuery] → Query string (?key=value)
+
+[HttpGet("search")]
+public IActionResult Get([FromQuery] string search)
+
+👉 URL: /api/people/search?search=nico
+✅ Resultado: search = "nico"
+
+---
+
+### 3. [FromBody] → Cuerpo de la request (POST, PUT, PATCH)
+
+[HttpPost("search")]
+public IActionResult Post([FromBody] string search)
+
+👉 Body JSON: { "search": "nico" }
+✅ Resultado: search = "nico"
+
+---
+
+### 4. [FromHeader] → Headers personalizados
+
+public IActionResult Get([FromHeader(Name = "x-custom-header")] string value)
+
+👉 Header: x-custom-header: hola
+✅ Resultado: value = "hola"
+
+---
+
+### 5. [FromForm] → Datos enviados en formularios (HTML form-data)
+[HttpPost("upload")]
+public IActionResult Upload([FromForm] string name)
+
+👉 FormData: name=nico
+✅ Resultado: name = "nico"
+
+---
+
+## ✅ Resumen rápido para recordar
+
+* {param} en la ruta → [FromRoute] (URL segment).
+* ?key=value → [FromQuery] (query string).
+* JSON en body → [FromBody] (POST/PUT/PATCH).
+* Header HTTP → [FromHeader].
+* Formulario HTML → [FromForm].
+
+// 📌 Tip: Si no ponés atributo, ASP.NET Core intenta adivinar.
+// Por ejemplo, los tipos simples (`int`, `string`) los busca en query o route, y los complejos (clases) en el body.
+
+//// ✅ 22. Validaciones con FluentValidation en ASP.NET Core
+
+// 🔹 Instalación
+// Se agrega la librería FluentValidation vía NuGet.
+// Permite separar reglas de validación en clases distintas a los DTOs.
+
+// 🔹 Crear validador (ejemplo Insert)
+public class BeerInsertValidator : AbstractValidator<BeerInsertDto>
+{
+    public BeerInsertValidator()
+    {
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("El nombre es obligatorio")
+            .Length(2, 20).WithMessage("El nombre debe medir de 2 a 20 caracteres");
+
+        RuleFor(x => x.BrandID)
+            .NotNull().WithMessage("La marca es obligatoria")
+            .GreaterThan(0).WithMessage("Valor inválido de marca");
+
+        RuleFor(x => x.Alcohol)
+            .GreaterThan(0).WithMessage("{PropertyName} debe ser mayor a cero");
+    }
+}
+
+// 🔹 Inyección en Program.cs
+builder.Services.AddScoped<IValidator<BeerInsertDto>, BeerInsertValidator>();
+
+// 🔹 Uso en el controlador
+var result = await _validator.ValidateAsync(dto);
+if (!result.IsValid)
+    return BadRequest(result.Errors);
+
+// 🔹 Personalización de mensajes
+// Se utiliza .WithMessage("texto personalizado") en cada regla.
+
+// 🔹 Validaciones al Editar
+// Se crea un nuevo validador (ej: BeerUpdateValidator) que agrega regla para validar el ID.
+// Separación de responsabilidades: 
+// - DTO → transportar datos
+// - Validator → validar reglas de negocio
+// - Modelo → reflejar la BD
+
+---
 ```
