@@ -16,17 +16,15 @@ namespace Backend.Controllers
     [ApiController]
     public class BeerController : ControllerBase
     {
-        private StoreContext _context;
         private IValidator<BeerInsertDto> _beerInsertValidator;
         private IValidator<BeerUpdateDto> _beerUpdateValidator;
         private IBeerService _beerService;
 
-        public BeerController(StoreContext context, 
+        public BeerController(
             IValidator<BeerInsertDto> beerInsertValidator,
             IValidator<BeerUpdateDto> beerUpdateValidator,
             IBeerService beerService)
         {
-            _context = context;
             _beerInsertValidator = beerInsertValidator;
             _beerUpdateValidator = beerUpdateValidator;
             _beerService = beerService;
@@ -51,48 +49,18 @@ namespace Backend.Controllers
         [HttpPost]
         public async Task<ActionResult<BeerDto>> Add(BeerInsertDto beerInsertDto)
         {
+            // Las validaciones de formato/campo se quedan en el controlador
             var validationResult = await _beerInsertValidator.ValidateAsync(beerInsertDto);
 
-            // Validamos el DTO de entrada usando FluentValidation
-            if (!validationResult.IsValid)
-            {
-                // Si la validación falla, devolvemos un 400 Bad Request con los errores
-                return BadRequest(validationResult.Errors);
-            }
+            if (!validationResult.IsValid) return BadRequest(validationResult.Errors);
 
-            // 1) Creás una nueva entidad Beer a partir del DTO de entrada
-            var beer = new Beer
-            {
-                Name = beerInsertDto.Name,
-                Alcohol = beerInsertDto.Alcohol,
-                BrandID = beerInsertDto.BrandID
-            };
+            var beerDto = await _beerService.Add(beerInsertDto);
 
-            // 2) Le decís a EF Core que agregue la entidad a la base (aún no se guarda)
-            await _context.Beers.AddAsync(beer); // Acá le agrega una PK a la cerveza nueva, que es un entero autoincremental (Identity) en la base de datos
-
-            // 3) Guardás los cambios -> acá se ejecuta el INSERT en la DB
-            // y automáticamente se genera el BeerID (PK autoincremental)
-            await _context.SaveChangesAsync(); // Guarda los cambios en la base de datos, sin esta linea no se hacen los cambio
-
-            // 4) Armás el DTO de salida para devolverlo al frontend
-            var beerDto = new BeerDto
-            {
-                Id = beer.BeerID, // Asignás la PK generada por la base de datos gracias a AddAsync
-                Name = beer.Name,
-                Alcohol = beer.Alcohol,
-                BrandID = beer.BrandID
-            };
-
-            // 5) Respondés con 201 Created - CreatedAtAction es otro helper (si no llevaba param la ruta entonces no hacia falta el new {} en la firma)
             return CreatedAtAction(
-                nameof(GetById), // Nombre del método que recupera un recurso por id --> api/Beer/{id}
-                new { id = beer.BeerID }, // Valores de ruta necesarios para armar la URL de ese recurso --> api/Beer/4   
-                beerDto // El objeto que devolvés en el body
+                nameof(GetById), 
+                new { id = beerDto.Id },
+                beerDto
             );
-            // Diferencias:
-            // Ok(...) → devuelve 200 OK, usado para respuestas normales(consultas, listas, etc).
-            // CreatedAtAction(...) → devuelve 201 Created + la URL del recurso recién creado, ideal para POST.
         }
 
         [HttpPut("{id}")]
@@ -100,67 +68,20 @@ namespace Backend.Controllers
         {
             var validationResult = await _beerUpdateValidator.ValidateAsync(beerUpdateDto);
 
-            if (!validationResult.IsValid)
-            {
-                // Si la validación falla, devolvemos un 400 Bad Request con los errores
+            if (!validationResult.IsValid) 
                 return BadRequest(validationResult.Errors);
-            }
 
-            // Busca la cerveza por su ID
-            var beer = await _context.Beers.FindAsync(id);
+            var beerDto = await _beerService.Update(id, beerUpdateDto);
 
-            // Si no se encuentra, devuelve un 404 Not Found
-            if (beer == null)
-            {
-                return NotFound();
-            }
-
-            // Actualiza los campos de la cerveza con los datos del DTO
-            beer.Name = beerUpdateDto.Name;
-            beer.Alcohol = beerUpdateDto.Alcohol;
-            beer.BrandID = beerUpdateDto.BrandID;
-
-            // Marca la entidad como modificada (opcional, EF lo hace automáticamente al cambiar propiedades)
-            await _context.SaveChangesAsync();
-
-            // Crea un DTO para devolver la cerveza actualizada. Recordar que DTO es Data Transfer Object, un objeto que se usa para transferir datos entre procesos.
-            var beerDto = new BeerDto
-            {
-                Id = beer.BeerID,
-                Name = beer.Name,
-                Alcohol = beer.Alcohol,
-                BrandID = beer.BrandID
-            };
-
-            // Devuelve un 200 OK con el DTO actualizado
-            return Ok(beerDto);
+            return beerDto == null ? NotFound() : Ok(beerDto);
         }
-
+            
         [HttpDelete("{id}")]
         public async Task<ActionResult<BeerDto>> Delete(int id)
         {
-            var beer = await _context.Beers.FindAsync(id);
+            var beerDto = await _beerService.Delete(id);
 
-            if (beer == null)
-            {
-                return NotFound();
-            }
-
-            // Elimina la cerveza del contexto
-            _context.Beers.Remove(beer);
-
-            // Guarda los cambios en la base de datos
-            await _context.SaveChangesAsync();
-
-            var beerDto = new BeerDto
-            {
-                Id = beer.BeerID,
-                Name = beer.Name,
-                Alcohol = beer.Alcohol,
-                BrandID = beer.BrandID
-            };
-
-            return Ok(beerDto);
+            return beerDto == null ? NotFound() : Ok(beerDto);
         }
     }
 }

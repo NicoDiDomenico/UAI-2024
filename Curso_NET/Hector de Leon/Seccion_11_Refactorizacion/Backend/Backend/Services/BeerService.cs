@@ -42,18 +42,71 @@ namespace Backend.Services
 
         public async Task<BeerDto> Add(BeerInsertDto beerInsertDto)
         {
-            throw new NotImplementedException();
+            var beer = new Beer
+            {
+                Name = beerInsertDto.Name,
+                Alcohol = beerInsertDto.Alcohol,
+                BrandID = beerInsertDto.BrandID
+            };
+
+            await _context.Beers.AddAsync(beer);
+            await _context.SaveChangesAsync();
+
+            var beerDto = new BeerDto
+            {
+                Id = beer.BeerID,
+                Name = beer.Name,
+                Alcohol = beer.Alcohol,
+                BrandID = beer.BrandID
+            };
+
+            return beerDto;
+        }
+        public async Task<BeerDto?> Update(int id, BeerUpdateDto beerUpdateDto)
+        {
+            var beer = await _context.Beers.FindAsync(id);
+
+            if (beer != null)
+            {
+                beer.Name = beerUpdateDto.Name;
+                beer.Alcohol = beerUpdateDto.Alcohol;
+                beer.BrandID = beerUpdateDto.BrandID;
+
+                await _context.SaveChangesAsync();
+
+                var beerDto = new BeerDto
+                {
+                    Id = beer.BeerID,
+                    Name = beer.Name,
+                    Alcohol = beer.Alcohol,
+                    BrandID = beer.BrandID
+                };
+
+                return beerDto;
+            }
+            return null;
         }
 
-        public async Task<BeerDto> Delete(int id)
+        public async Task<BeerDto?> Delete(int id)
         {
-            throw new NotImplementedException();
-        }
+            var beer = await _context.Beers.FindAsync(id);
 
+            if (beer != null)
+            {
+                var beerDto = new BeerDto
+                {
+                    Id = beer.BeerID,
+                    Name = beer.Name,
+                    Alcohol = beer.Alcohol,
+                    BrandID = beer.BrandID
+                };
 
-        public async Task<BeerDto> Update(BeerUpdateDto beerUpdateDto)
-        {
-            throw new NotImplementedException();
+                _context.Beers.Remove(beer); // El profe no puso el '.Beers', no se por qué
+                await _context.SaveChangesAsync();
+
+                return beerDto;
+            }
+            return null;
         }
     }
 }

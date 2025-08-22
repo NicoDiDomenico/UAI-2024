@@ -8,7 +8,7 @@ namespace Backend.Services
         public Task<IEnumerable<BeerDto>> Get();
         public Task<BeerDto?> GetById(int id); // ActionResult no va en el servicio porque es responsabilidad del controlador devolver los códigos HTTP
         Task<BeerDto> Add(BeerInsertDto beerInsertDto);
-        Task<BeerDto> Update(BeerUpdateDto beerUpdateDto);
-        Task<BeerDto> Delete(int id);
+        Task<BeerDto?> Update(int id, BeerUpdateDto beerUpdateDto);
+        Task<BeerDto?> Delete(int id);
     }
 }
