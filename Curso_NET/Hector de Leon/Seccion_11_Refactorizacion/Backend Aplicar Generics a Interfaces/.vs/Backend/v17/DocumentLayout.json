@@ -39,8 +39,7 @@
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-17T20:35:36.154Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -70,8 +69,7 @@
               "RelativeToolTip": "Backend\\Services\\BeerService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T13:37:11.75Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-22T13:37:11.75Z"
             },
             {
               "$type": "Document",
@@ -83,8 +81,7 @@
               "RelativeToolTip": "Backend\\Services\\ICommonService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAqwAUAAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T13:04:21.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-22T13:04:21.452Z"
             }
           ]
         }

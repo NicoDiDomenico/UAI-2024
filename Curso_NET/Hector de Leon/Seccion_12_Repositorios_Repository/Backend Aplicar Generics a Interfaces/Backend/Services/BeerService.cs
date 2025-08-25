@@ -1,30 +1,39 @@
 ﻿using Backend.DTOs;
 using Backend.Modelos;
+using Backend.Repository;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Backend.Services
 {
     public class BeerService : ICommonService<BeerDto, BeerInsertDto, BeerUpdateDto>
     {
-        private StoreContext _context;
+        private IRepository<Beer> _beerRepository;
 
-        public BeerService(StoreContext context)
+        public BeerService(
+            [FromKeyedServices("beerRepository")] IRepository<Beer> beerRepository)
         {
-            _context = context;
+            _beerRepository = beerRepository;
         }
 
-        public async Task<IEnumerable<BeerDto>> Get() =>
-            await _context.Beers.Select(b => new BeerDto
-            {
-                Id = b.BeerID,
-                Name = b.Name,
-                Alcohol = b.Alcohol,
-                BrandID = b.BrandID
-            }).ToListAsync();
+        public async Task<IEnumerable<BeerDto>> Get()
+        {
+            // Mio: => (IEnumerable<BeerDto>)await _beerRepository.Get();
+            // Profe:
+            var beers = await _beerRepository.Get();
+
+            return beers.Select(x => new BeerDto() 
+            { 
+                Id =  x.BeerID,
+                Name = x.Name,
+                BrandID = x.BrandID,
+                Alcohol = x.Alcohol,
+            });
+        }
 
         public async Task<BeerDto?> GetById(int id)
         {
-            var beer = await _context.Beers.FindAsync(id);
+            var beer = await _beerRepository.GetById(id);
 
             if (beer != null)
             {
@@ -37,12 +46,12 @@ namespace Backend.Services
                 };
                 return beerDto;
             }
-
             return null;
         }
 
         public async Task<BeerDto> Add(BeerInsertDto beerInsertDto)
         {
+            // No seria mejor que instanciar beer ocurra en el Repository? Ya que Repository maneja los Modelos y SErivicios maneja los D
             var beer = new Beer
             {
                 Name = beerInsertDto.Name,
@@ -50,8 +59,8 @@ namespace Backend.Services
                 BrandID = beerInsertDto.BrandID
             };
 
-            await _context.Beers.AddAsync(beer);
-            await _context.SaveChangesAsync();
+            await _beerRepository.Add(beer);
+            await _beerRepository.Save();
 
             var beerDto = new BeerDto
             {
@@ -65,7 +74,7 @@ namespace Backend.Services
         }
         public async Task<BeerDto?> Update(int id, BeerUpdateDto beerUpdateDto)
         {
-            var beer = await _context.Beers.FindAsync(id);
+            var beer = await _beerRepository.GetById(id);
 
             if (beer != null)
             {
@@ -73,7 +82,8 @@ namespace Backend.Services
                 beer.Alcohol = beerUpdateDto.Alcohol;
                 beer.BrandID = beerUpdateDto.BrandID;
 
-                await _context.SaveChangesAsync();
+                _beerRepository.Update(beer);
+                await _beerRepository.Save(); 
 
                 var beerDto = new BeerDto
                 {
@@ -90,7 +100,7 @@ namespace Backend.Services
 
         public async Task<BeerDto?> Delete(int id)
         {
-            var beer = await _context.Beers.FindAsync(id);
+            var beer = await _beerRepository.GetById(id);
 
             if (beer != null)
             {
@@ -102,8 +112,8 @@ namespace Backend.Services
                     BrandID = beer.BrandID
                 };
 
-                _context.Beers.Remove(beer); // El profe no puso el '.Beers', no se por qué
-                await _context.SaveChangesAsync();
+                _beerRepository.Delete(beer);
+                await _beerRepository.Save();
 
                 return beerDto;
             }

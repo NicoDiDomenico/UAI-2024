@@ -874,77 +874,123 @@ public class BeersController : ControllerBase
 
 //// ✅ 21. Parámetros en métodos HTTP (ASP.NET Core)
 
-// Cuando definís un método en un controlador, ASP.NET Core se encarga de **mapear automáticamente** los valores que viajan en la request hacia los parámetros del método.
-// Este proceso se llama **Model Binding**.
+Cuando escribís un método en un controlador, ASP.NET Core se encarga de **rellenar automáticamente** los parámetros con los valores que llegan en la request.
+Este proceso se llama **Model Binding**.
 
 ---
-/*
-## 🔹 ¿Cómo decide de dónde sacar el valor?
 
-ASP.NET Core sigue un **orden de búsqueda** para enlazar parámetros.
-Si no lo indicás explícitamente, intenta resolverlos en este orden:
-*/
----
+### 1. `[FromRoute]` → Valor en la **ruta** (segmento de la URL)
 
-### 1. [FromRoute] → Ruta (URL con placeholders)
-
+```csharp
 [HttpGet("search/{search}")]
 public IActionResult Get([FromRoute] string search)
+```
 
-👉 URL: /api/people/search/nico
-✅ Resultado: search = "nico"
+👉 URL: `/api/people/search/nico`
+✅ `search = "nico"`
+
+**¿Cuándo usarlo?**
+
+* Cuando el dato **identifica un recurso** de forma única.
+* Ej: `/users/15` → quiero **ese usuario** con ID=15.
+* Se usa en **GET** principalmente.
+* Es más **legible** y se puede cachear/facilitar en SEO.
 
 ---
 
-### 2. [FromQuery] → Query string (?key=value)
+### 2. `[FromQuery]` → **Query string** (`?key=value`)
 
+```csharp
 [HttpGet("search")]
 public IActionResult Get([FromQuery] string search)
+```
 
-👉 URL: /api/people/search?search=nico
-✅ Resultado: search = "nico"
+👉 URL: `/api/people/search?search=nico`
+✅ `search = "nico"`
+
+**¿Cuándo usarlo?**
+
+* Cuando el dato es un **filtro, búsqueda o parámetro opcional**.
+* Ej: `/products?category=ropa&page=2`.
+* Ideal para **GETs con filtros o paginación**.
+* Permite combinar varios parámetros sin alterar la ruta.
 
 ---
 
-### 3. [FromBody] → Cuerpo de la request (POST, PUT, PATCH)
+### 3. `[FromBody]` → **Cuerpo** de la request (JSON en POST/PUT/PATCH)
 
+```csharp
 [HttpPost("search")]
 public IActionResult Post([FromBody] string search)
+```
 
-👉 Body JSON: { "search": "nico" }
-✅ Resultado: search = "nico"
+👉 Body JSON: `{ "search": "nico" }`
+✅ `search = "nico"`
+
+**¿Cuándo usarlo?**
+
+* Cuando mandás **información compleja** (objetos, listas, formularios grandes).
+* Ej: crear usuario → `{ "name": "Nico", "email": "nico@test.com" }`.
+* Usado en **POST/PUT/PATCH**, nunca en GET.
+* El body es más **seguro y flexible** que la URL para datos sensibles o largos.
 
 ---
 
-### 4. [FromHeader] → Headers personalizados
+### 4. `[FromHeader]` → **Headers** personalizados
 
+```csharp
 public IActionResult Get([FromHeader(Name = "x-custom-header")] string value)
+```
 
-👉 Header: x-custom-header: hola
-✅ Resultado: value = "hola"
+👉 Header: `x-custom-header: hola`
+✅ `value = "hola"`
+
+**¿Cuándo usarlo?**
+
+* Para **metadatos de la request**, no para los datos principales.
+* Ej: `Authorization: Bearer <token>` (autenticación).
+* También útil para **tracking, versiones de API, claves API**.
+* No se usa para información de negocio (ej: nombre del usuario), sino para datos de control.
 
 ---
 
-### 5. [FromForm] → Datos enviados en formularios (HTML form-data)
+### 5. `[FromForm]` → **Datos de formularios HTML** (`form-data` o `multipart/form-data`)
+
+```csharp
 [HttpPost("upload")]
 public IActionResult Upload([FromForm] string name)
+```
 
-👉 FormData: name=nico
-✅ Resultado: name = "nico"
+👉 FormData: `name=nico`
+✅ `name = "nico"`
+
+**¿Cuándo usarlo?**
+
+* Cuando el front manda datos desde un **formulario HTML tradicional**.
+* Especialmente útil en **subida de archivos** (porque se codifican como `multipart/form-data`).
+* Ej: un form con inputs de texto + un archivo adjunto.
+* Si solo son textos, suele ser mejor `[FromBody]` con JSON.
 
 ---
 
-## ✅ Resumen rápido para recordar
+## 🚀 Resumen rápido (con lógica de uso)
 
-* {param} en la ruta → [FromRoute] (URL segment).
-* ?key=value → [FromQuery] (query string).
-* JSON en body → [FromBody] (POST/PUT/PATCH).
-* Header HTTP → [FromHeader].
-* Formulario HTML → [FromForm].
+| Fuente         | Ejemplo URL / Data                             | ¿Cuándo usarlo?                                    |
+| -------------- | ---------------------------------------------- | -------------------------------------------------- |
+| `[FromRoute]`  | `/users/15`                                    | Identificador único de un recurso                  |
+| `[FromQuery]`  | `/products?category=ropa&page=2`               | Filtros, búsqueda, parámetros opcionales           |
+| `[FromBody]`   | `{ "name": "Nico", "email": "test@test.com" }` | Objetos complejos, datos sensibles, POST/PUT       |
+| `[FromHeader]` | `Authorization: Bearer token123`               | Metadatos: auth, tracking, API keys                |
+| `[FromForm]`   | `name=nico + archivo.jpg`                      | Formularios HTML, especialmente subida de archivos |
 
-// 📌 Tip: Si no ponés atributo, ASP.NET Core intenta adivinar.
-// Por ejemplo, los tipos simples (`int`, `string`) los busca en query o route, y los complejos (clases) en el body.
+📌 **Tip:**
 
+* **Route y Query** → más para *identificar o filtrar*.
+* **Body** → para *enviar datos completos*.
+* **Header** → para *autenticación y control*.
+* **Form** → para *formularios tradicionales / uploads*.
+
+---
 //// ✅ 22. Validaciones con FluentValidation en ASP.NET Core
 
 // 🔹 Instalación
@@ -1032,7 +1078,7 @@ public BeersController(IBeerService service) => _service = service;
 
 - Permiten crear un contrato reutilizable para varios servicios.
 
-```csharp
+````csharp
 public interface IService<TDto, TInsert, TUpdate>
 {
     Task<IEnumerable<TDto>> Get();
@@ -1044,5 +1090,237 @@ public interface IService<TDto, TInsert, TUpdate>
 
 * Cada servicio implementa con sus propios DTOs (ej: BeerDto, BeerInsertDto, BeerUpdateDto).
 * Ventaja: menos interfaces duplicadas y mayor reutilización.
+
+//// ✅ 24. Repository Pattern (ASP.NET Core)
+
+📌 **¿Qué es la capa Repositorio?**
+- Es una capa intermedia entre **Servicio** y **Entity Framework (Contexto/BD)**.
+- Se encarga de la **persistencia de datos** (acceso a BD, procedimientos almacenados, consultas SQL, etc.).
+- Permite que la capa de **Servicio** se enfoque en la **lógica de negocio**, sin preocuparse de cómo se accede a la BD.
+
+---
+
+🔹 **Ventajas**
+- Separa responsabilidades → código más limpio y mantenible.
+- Oculta la implementación del acceso a datos → el servicio solo conoce la interfaz, no el detalle.
+- Facilita pruebas unitarias y cambios de motor de BD.
+
+---
+
+🔹 **Interfaz genérica (IRepository<T>)**
+Métodos típicos definidos con *Generics*:
+```csharp
+public interface IRepository<TEntity>
+{
+    Task<IEnumerable<TEntity>> Get();
+    Task<TEntity?> GetById(int id);
+    Task Add(TEntity entity);
+    void Update(TEntity entity);
+    void Delete(TEntity entity);
+    Task Save();
+}
+````
+
+---
+
+🔹 **Implementación (ejemplo con BeerRepository)**
+
+```csharp
+public class BeerRepository : IRepository<Beer>
+{
+    private readonly StoreContext _context;
+    public BeerRepository(StoreContext context) => _context = context;
+
+    public async Task<IEnumerable<Beer>> Get() => await _context.Beers.ToListAsync();
+    public async Task<Beer?> GetById(int id) => await _context.Beers.FindAsync(id);
+    public async Task Add(Beer entity) => await _context.Beers.AddAsync(entity);
+    public void Update(Beer entity)
+    {
+        _context.Beers.Attach(entity);
+        _context.Entry(entity).State = EntityState.Modified;
+    }
+    public void Delete(Beer entity) => _context.Beers.Remove(entity);
+    public async Task Save() => await _context.SaveChangesAsync();
+}
+```
+
+---
+
+🔹 **Uso en la capa Servicio**
+
+- El **Servicio** consume la interfaz `IRepository<T>` en lugar del contexto.
+- Convierte las **Entidades** obtenidas del Repositorio en **DTOs** para devolver al Controller.
+- Así, la lógica de negocio (ej: promociones, cálculos, validaciones) queda en la capa Servicio.
+
+---
+
+📌 **Resumen rápido**
+
+- **Repository** = acceso a BD.
+- **Service** = reglas de negocio.
+- **Controller** = maneja requests/responses HTTP.
+
+````
+//// ✅ 25. AutoMapper en ASP.NET Core
+
+
+📌 **¿Qué es AutoMapper?**
+- Herramienta que evita asignar manualmente campo por campo entre objetos (ej. DTO ↔ Entidad).
+- Transforma un objeto origen en un destino en una sola línea de código.
+- Reduce código repetitivo y centraliza reglas de mapeo.
+
+
+---
+
+
+🔹 **Instalación y configuración**
+1. Instalar paquete NuGet: `AutoMapper.Extensions.Microsoft.DependencyInjection`.
+2. Crear clase `MappingProfile` que herede de `Profile`.
+3. Registrar en `Program.cs`:
+```csharp
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+````
+
+---
+
+🔹 **Casos principales**
+
+1. **Propiedades con el mismo nombre**
+
+```csharp
+CreateMap<BeerInsertDto, Beer>();
+```
+
+👉 AutoMapper asigna automáticamente propiedades coincidentes.
+
+2. **Propiedades con distinto nombre**
+
+```csharp
+CreateMap<Beer, BeerDto>()
+.ForMember(dto => dto.Id,
+m => m.MapFrom(b => b.BeerID));
+```
+
+👉 Permite mapear campos con nombres diferentes.
+
+3. **Mapeo sobre objeto existente (Update)**
+
+```csharp
+_mapper.Map(beerUpdateDto, beerExistente);
+```
+
+👉 Solo actualiza propiedades presentes en el DTO, mantiene intactas las demás (ej. `Id`).
+
+---
+
+🔹 **Beneficios**
+
+- Menos código repetido.
+- Reutilización de reglas de mapeo.
+- Consistencia en toda la app.
+- Mejor legibilidad y mantenimiento.
+  `
+
+````
+//// ✅ 26. Manejo de Errores en ASP.NET Core
+
+📌 **Errores de negocio**: son los que rompen las reglas propias del sistema (ej: nombre de cerveza repetido, venta sin inventario).
+
+---
+
+### 🔹 Alternativas para manejar errores
+1. **Excepciones en el servicio**
+   - Lanzar `throw` y capturar en el controlador.
+   - Útil para errores excepcionales (BD caída, fallo de servicio).
+   - No ideal para reglas de negocio (impacta rendimiento).
+
+2. **Capa intermedia de validaciones**
+   - Entre controlador y servicio.
+   - Valida reglas de negocio (ej: unicidad de nombre, descuentos).
+   - Diferente a validaciones de formato.
+
+3. **Validaciones dentro del validador existente**
+   - Se mezclan validaciones de formato + negocio.
+   - Problema: muchas veces requiere consultar repositorio.
+
+4. **En la capa de servicio (✅ opción usada)**
+   - Método `Validate(dto)` → retorna `true/false`.
+   - Propiedad pública `Errors: List<string>` con mensajes descriptivos.
+   - El controlador:
+     ```csharp
+     if (!service.Validate(dto))
+         return BadRequest(service.Errors);
+     ```
+
+---
+
+### 🔹 Métodos de Validación en el Servicio
+- Definidos en la interfaz (`ICommandService`).
+- Uso de **sobrecarga**:
+  ```csharp
+  bool Validate(BeerInsertDto dto);
+  bool Validate(BeerUpdateDto dto);
+````
+
+- `Errors` solo tiene getter (no se setea desde afuera).
+- En el controlador se chequea antes de ejecutar la acción.
+
+---
+
+### 🔹 Método de Búsqueda en Repositorio
+
+- Regla: **no repetir nombre de cerveza**.
+- No se usa `constraint UNIQUE` (no sirve con borrado lógico).
+- Se crea método genérico:
+  ```csharp
+  IEnumerable<TEntity> Search(Func<TEntity, bool> filter);
+  ```
+- Permite búsquedas dinámicas con condiciones (`WHERE`) sin estar acoplado a un campo fijo.
+- Definido también en `IRepository<T>`.
+
+---
+
+### 🔹 Implementación en Capa Servicio
+
+✔️ **Insert**
+
+```csharp
+var result = _repo.Search(b => b.Name == dto.Name);
+if (result.Count() > 0)
+{
+    Errors.Add("No puede existir una cerveza con un nombre ya existente.");
+    return false;
+}
+return true;
+```
+
+✔️ **Update**
+
+```csharp
+var result = _repo.Search(b => b.Name == dto.Name && b.BeerID != dto.Id);
+if (result.Count() > 0)
+{
+    Errors.Add("No puede existir una cerveza con un nombre ya existente.");
+    return false;
+}
+return true;
+```
+
+- En **Update** se ignora el mismo `Id` para permitir actualizar sin cambiar el nombre.
+- En el **controlador** no hace falta cambiar nada: solo se revisa el resultado de `Validate()` y se responde con **400 Bad Request** o **200 OK**.
+
+---
+
+### ✅ Resumen
+
+- Se centraliza el manejo de errores de negocio en la **capa de servicio**.
+- Se implementa con:
+  - `Validate()` (sobrecarga Insert/Update).
+  - Propiedad `Errors` con lista de mensajes.
+  - `Search(Func)` en repositorio para búsquedas dinámicas.
+- Ventaja: **código claro, flexible y reutilizable**.
+- Es solo una alternativa: la elección depende de la arquitectura y políticas del proyecto.
+
+```
 
 ```

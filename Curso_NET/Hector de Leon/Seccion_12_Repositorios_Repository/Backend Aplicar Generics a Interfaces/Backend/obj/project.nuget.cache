@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aLPxVB71LYY=",
+  "dgSpecHash": "nXKW/b5pX+o=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_12_Repositorios_Repository\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicol\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Nicol\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

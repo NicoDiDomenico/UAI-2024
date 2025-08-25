@@ -1,5 +1,6 @@
 ﻿using Backend.DTOs;
-using Backend.Modelos;
+using Backend.Modelos; // Este tenia ue ir en ingles pero me confundí
+using Backend.Repository;
 using Backend.Services;
 using Backend.Validators;
 using FluentValidation;
@@ -57,6 +58,9 @@ builder.Services.AddHttpClient<IPostsService, PostsService>(c =>
    * Ese `IPostsService` es un `PostsService`.
    * Ese `PostsService` ya viene con su `HttpClient` configurado y listo para usar. ✅
 */
+
+// Repository
+builder.Services.AddKeyedScoped<IRepository<Beer>, BeerRepository>("beerRepository");   
 
 // Entity Framework Core y SQL Server
 builder.Services.AddDbContext<StoreContext>(options =>
