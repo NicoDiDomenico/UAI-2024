@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj": {}
+    "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj": {
+    "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj",
+        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj",
         "projectName": "JWT API Minimal",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj",
+        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\JWT API Minimal.csproj",
         "packagesPath": "C:\\Users\\Nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\obj\\",
+        "outputPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\JWT\\JWT API Minimal\\JWT API Minimal\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -49,6 +45,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.*, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

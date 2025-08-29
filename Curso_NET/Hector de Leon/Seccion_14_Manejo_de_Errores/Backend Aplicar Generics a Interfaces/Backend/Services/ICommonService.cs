@@ -10,13 +10,13 @@ namespace Backend.Services
         //
         public Task<IEnumerable<T>> Get();
         public Task<T?> GetById(int id); // ActionResult no va en el servicio porque es responsabilidad del controlador devolver los códigos HTTP
-        Task<T> Add(TI beerInsertDto);
-        Task<T?> Update(int id, TU beerUpdateDto);
-        Task<T?> Delete(int id);
+        public Task<T> Add(TI beerInsertDto);
+        public Task<T?> Update(int id, TU beerUpdateDto);
+        public Task<T?> Delete(int id);
 
         // 77. Definición de Métodos de validación (1)
-        bool Validate(TI dto);
-        bool Validate(TU dto);
+        public bool Validate(TI dto);
+        public bool Validate(TU dto);
         //
     }
 }

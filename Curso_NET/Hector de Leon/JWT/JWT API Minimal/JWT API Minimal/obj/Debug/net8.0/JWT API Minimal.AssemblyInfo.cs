@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aca65e9a-2e06-4723-8fa1-01e231037ca2")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("JWT API Minimal")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+41447df0666317865082e4822473d3bd4acdbe51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b97e79cff0330115688383c0b184f5e7223a5edc")]
 [assembly: System.Reflection.AssemblyProductAttribute("JWT API Minimal")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JWT API Minimal")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

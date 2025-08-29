@@ -24,3 +24,39 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.pdb
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.genruntimeconfig.cache
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\ref\JWT API Minimal.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\appsettings.Development.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\appsettings.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\JWT API Minimal.exe
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\JWT API Minimal.deps.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\JWT API Minimal.runtimeconfig.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\JWT API Minimal.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\JWT API Minimal.pdb
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.csproj.AssemblyReference.cache
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.AssemblyInfoInputs.cache
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.AssemblyInfo.cs
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.sourcelink.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets.build.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets.development.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets\msbuild.JWT API Minimal.Microsoft.AspNetCore.StaticWebAssets.props
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets\msbuild.build.JWT API Minimal.props
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.JWT API Minimal.props
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.JWT API Minimal.props
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\staticwebassets.pack.json
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\scopedcss\bundle\JWT API Minimal.styles.css
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API .318F0FC1.Up2Date
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\refint\JWT API Minimal.dll
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.pdb
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\JWT API Minimal.genruntimeconfig.cache
+C:\GitHubProyectos\UAI-2024\Curso_NET\Hector de Leon\JWT\JWT API Minimal\JWT API Minimal\obj\Debug\net8.0\ref\JWT API Minimal.dll
