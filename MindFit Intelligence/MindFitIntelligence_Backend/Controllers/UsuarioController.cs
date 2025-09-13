@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using MindFitIntelligence_Backend.Models;
 using MindFitIntelligence_Backend.Services;
 using MindFitIntelligence_Backend.DTOs;
+using Microsoft.AspNetCore.Identity;
 
 namespace MindFitIntelligence_Backend.Controllers
 {
@@ -11,6 +12,7 @@ namespace MindFitIntelligence_Backend.Controllers
     public class UsuarioController : ControllerBase
     {
         private ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto> _usuarioService;
+        public static UsuarioDto unUsuario = new(); 
 
         public UsuarioController(
             [FromKeyedServices("usuarioService")] ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto> usuarioService)
@@ -49,6 +51,35 @@ namespace MindFitIntelligence_Backend.Controllers
                 new { id = usuarioDto.IdUsuario },
                 usuarioDto
             );
+        }
+
+        [HttpPost("register")]
+        public ActionResult<UsuarioDto> Register(UsuarioDto usuarioDto)
+        {
+            var hasheredPassword = new PasswordHasher<UsuarioDto>()
+                .HashPassword(unUsuario, usuarioDto.Password);
+
+            unUsuario.Username = usuarioDto.Username;
+            unUsuario.Password = hasheredPassword;
+
+            return Ok(unUsuario);
+        }
+
+        [HttpPost("login")]
+        public ActionResult<string> Login(UsuarioDto usuarioDto)
+        {
+            if (unUsuario.Username != usuarioDto.Username)
+                return Unauthorized("El usuario no existe");
+            if (new PasswordHasher<UsuarioDto>().VerifyHashedPassword(unUsuario, unUsuario.Password, usuarioDto.Password)
+                == PasswordVerificationResult.Failed)
+            {
+                return BadRequest("Contraseña incorrecta");
+            }
+
+            string token = "success";
+
+            return Ok(token);
+            // 19:50 me quedé
         }
 
         [HttpPut("{id}")]
