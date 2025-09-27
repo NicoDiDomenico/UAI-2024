@@ -53,6 +53,7 @@ namespace MindFitIntelligence_Backend.Controllers
             );
         }
 
+        #region Curso JWT
         [HttpPost("register")]
         public ActionResult<UsuarioDto> Register(UsuarioDto usuarioDto)
         {
@@ -81,6 +82,7 @@ namespace MindFitIntelligence_Backend.Controllers
             return Ok(token);
             // 19:50 me quedé
         }
+        #endregion
 
         [HttpPut("{id}")]
         public async Task<ActionResult<UsuarioDto?>> Update(int id, UpdateUsuarioDto updateUsuarioDto)
