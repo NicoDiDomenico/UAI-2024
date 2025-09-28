@@ -25,7 +25,8 @@ namespace MindFitIntelligence_Backend.Repository
         public async Task Add(Usuario insertUsuarioDto)
         {
             await _context.Usuarios.AddAsync(insertUsuarioDto);
-        } 
+        }
+
         public void Update(Usuario usuario)
         {
             _context.Usuarios.Attach(usuario);

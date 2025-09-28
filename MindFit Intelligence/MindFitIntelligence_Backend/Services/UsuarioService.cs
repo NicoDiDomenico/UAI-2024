@@ -2,6 +2,7 @@
 using MindFitIntelligence_Backend.Repository;
 using MindFitIntelligence_Backend.DTOs;
 using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 
 namespace MindFitIntelligence_Backend.Services
 {
@@ -43,14 +44,15 @@ namespace MindFitIntelligence_Backend.Services
 
         public async Task<UsuarioDto> Add(InsertUsuarioDto usaurioDto)
         {
-            var usaurio = _mapper.Map<Usuario>(usaurioDto);
+            var usuario = _mapper.Map<Usuario>(usaurioDto);
 
-            await _usuarioRepository.Add(usaurio);
+            usuario.PasswordHash = new PasswordHasher<Usuario>()
+                .HashPassword(usuario, usaurioDto.Password);
+
+            await _usuarioRepository.Add(usuario);
             await _usuarioRepository.Save();
 
-            var beerDto = _mapper.Map<UsuarioDto>(usaurio);
-
-            return beerDto;
+            return _mapper.Map<UsuarioDto>(usuario);
         }
 
         public async Task<UsuarioDto?> Update(int id, UpdateUsuarioDto updateUsuarioDto)

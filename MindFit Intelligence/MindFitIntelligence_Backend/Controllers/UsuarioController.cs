@@ -12,7 +12,7 @@ namespace MindFitIntelligence_Backend.Controllers
     public class UsuarioController : ControllerBase
     {
         private ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto> _usuarioService;
-        public static UsuarioDto unUsuario = new(); 
+        public static Usuario _unUsuario = new(); 
 
         public UsuarioController(
             [FromKeyedServices("usuarioService")] ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto> usuarioService)
@@ -53,25 +53,26 @@ namespace MindFitIntelligence_Backend.Controllers
             );
         }
 
-        #region Curso JWT
+        #region JWT
         [HttpPost("register")]
-        public ActionResult<UsuarioDto> Register(UsuarioDto usuarioDto)
+        public ActionResult<Usuario> Register(InsertUsuarioDto insertUsuarioDto)
         {
-            var hasheredPassword = new PasswordHasher<UsuarioDto>()
-                .HashPassword(unUsuario, usuarioDto.Password);
+            var hasheredPassword = new PasswordHasher<Usuario>()
+                .HashPassword(_unUsuario, insertUsuarioDto.Password);
 
-            unUsuario.Username = usuarioDto.Username;
-            unUsuario.Password = hasheredPassword;
 
-            return Ok(unUsuario);
+            _unUsuario.Username = insertUsuarioDto.Username;
+            _unUsuario.PasswordHash = hasheredPassword;
+
+            return Ok(_unUsuario);
         }
 
         [HttpPost("login")]
         public ActionResult<string> Login(UsuarioDto usuarioDto)
         {
-            if (unUsuario.Username != usuarioDto.Username)
+            if (_unUsuario.Username != usuarioDto.Username)
                 return Unauthorized("El usuario no existe");
-            if (new PasswordHasher<UsuarioDto>().VerifyHashedPassword(unUsuario, unUsuario.Password, usuarioDto.Password)
+            if (new PasswordHasher<Usuario>().VerifyHashedPassword(_unUsuario, _unUsuario.PasswordHash, usuarioDto.Password)
                 == PasswordVerificationResult.Failed)
             {
                 return BadRequest("Contraseña incorrecta");
@@ -80,8 +81,16 @@ namespace MindFitIntelligence_Backend.Controllers
             string token = "success";
 
             return Ok(token);
-            // 19:50 me quedé
         }
+        /*
+        private string CreateToken(Usuario user)
+        {
+            if (user == null)
+            {
+
+            }
+        }
+        */
         #endregion
 
         [HttpPut("{id}")]

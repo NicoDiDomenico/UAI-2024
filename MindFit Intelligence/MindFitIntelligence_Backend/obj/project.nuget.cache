@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QszYi0/REJU=",
+  "dgSpecHash": "phWNSMVRAFc=",
   "success": true,
-  "projectFilePath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj",
+  "projectFilePath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicol\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Nicol\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
