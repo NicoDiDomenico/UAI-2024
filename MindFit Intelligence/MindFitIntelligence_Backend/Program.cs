@@ -8,7 +8,8 @@ using MindFitIntelligence_Backend.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Mis Servicios
-builder.Services.AddKeyedScoped<ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto>, UsuarioService>("usuarioService");
+builder.Services.AddKeyedScoped<ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto, LoginUsuarioDto>, UsuarioService>("usuarioService");
+builder.Services.AddKeyedScoped<IAuthService, AuthService>("authService");  
 
 // Repository
 builder.Services.AddKeyedScoped<IRepository<Usuario>, UsuarioRepository>("usuarioRepository");

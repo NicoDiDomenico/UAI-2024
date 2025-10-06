@@ -3,21 +3,25 @@ using MindFitIntelligence_Backend.Repository;
 using MindFitIntelligence_Backend.DTOs;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace MindFitIntelligence_Backend.Services
 {
-    public class UsuarioService : ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto>
+    public class UsuarioService : ICommonService<UsuarioDto, InsertUsuarioDto, UpdateUsuarioDto, LoginUsuarioDto>
     {
         private IRepository<Usuario> _usuarioRepository;
         private IMapper _mapper;
+        private IAuthService _authService; // Servicio de autenticación (JWT)
         public List<string> Errors { get; } // No implementado aún
 
         public UsuarioService(
+            [FromKeyedServices("authService")] IAuthService authService,
             [FromKeyedServices("usuarioRepository")] IRepository<Usuario> usuarioRepository,
             IMapper mapper)
         {
             _usuarioRepository = usuarioRepository;
             _mapper = mapper;
+            _authService = authService;
             Errors = new List<string>();
         }
 
@@ -42,17 +46,40 @@ namespace MindFitIntelligence_Backend.Services
             return usuarioDto;
         }
 
-        public async Task<UsuarioDto> Add(InsertUsuarioDto usaurioDto)
+        public async Task<UsuarioDto> Register(InsertUsuarioDto insertUsuarioDto)
         {
-            var usuario = _mapper.Map<Usuario>(usaurioDto);
+            var usuario = _mapper.Map<Usuario>(insertUsuarioDto);
 
             usuario.PasswordHash = new PasswordHasher<Usuario>()
-                .HashPassword(usuario, usaurioDto.Password);
+                .HashPassword(usuario, insertUsuarioDto.Password);
 
-            await _usuarioRepository.Add(usuario);
+            await _usuarioRepository.Register(usuario);
             await _usuarioRepository.Save();
 
-            return _mapper.Map<UsuarioDto>(usuario);
+            var usuarioDto = _mapper.Map<UsuarioDto>(usuario);
+
+            return usuarioDto;
+        }
+
+        public async Task<string?> Login(LoginUsuarioDto loginUsuarioDto)
+        {
+            // Busco el usuario por username
+            var usuario = await _usuarioRepository.GetByUsername(loginUsuarioDto.Username);
+
+            if (usuario == null)
+                return null; // usuario no existe
+
+            // Verifico la contraseña
+            var result = new PasswordHasher<Usuario>()
+                .VerifyHashedPassword(usuario, usuario.PasswordHash, loginUsuarioDto.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+                return null; // contraseña incorrecta
+
+            // Usando JWT
+            string token = _authService.CreateToken(usuario);
+
+            return token;
         }
 
         public async Task<UsuarioDto?> Update(int id, UpdateUsuarioDto updateUsuarioDto)

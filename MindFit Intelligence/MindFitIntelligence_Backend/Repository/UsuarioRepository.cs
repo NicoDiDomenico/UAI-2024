@@ -22,9 +22,15 @@ namespace MindFitIntelligence_Backend.Repository
             return await _context.Usuarios.FindAsync(id);
         }
 
-        public async Task Add(Usuario insertUsuarioDto)
+        public async Task<Usuario?> GetByUsername(string username)
         {
-            await _context.Usuarios.AddAsync(insertUsuarioDto);
+            return await _context.Usuarios
+                .FirstOrDefaultAsync(u => u.Username == username);
+        }
+
+        public async Task Register(Usuario insertUsuario)
+        {
+            await _context.Usuarios.AddAsync(insertUsuario);
         }
 
         public void Update(Usuario usuario)

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj": {}
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj": {
+    "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj",
+        "projectUniqueName": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj",
         "projectName": "MindFitIntelligence_Backend",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj",
+        "projectPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\MindFitIntelligence_Backend.csproj",
         "packagesPath": "C:\\Users\\Nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\obj\\",
+        "outputPath": "C:\\GitHubProyectos\\UAI-2024\\MindFit Intelligence\\MindFitIntelligence_Backend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\Nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -67,6 +63,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.14.0, )"
             }
           },
           "imports": [

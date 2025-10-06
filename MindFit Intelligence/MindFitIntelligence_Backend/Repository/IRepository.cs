@@ -8,7 +8,9 @@ namespace MindFitIntelligence_Backend.Repository
 
         Task<TEntity?> GetById(int id);
 
-        Task Add(TEntity entity);
+        Task<Usuario?> GetByUsername(string username);
+
+        Task Register(TEntity entity);
 
         void Update(TEntity entity);
 
