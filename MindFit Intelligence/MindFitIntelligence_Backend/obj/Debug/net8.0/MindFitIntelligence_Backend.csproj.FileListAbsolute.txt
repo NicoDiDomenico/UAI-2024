@@ -340,3 +340,4 @@ C:\Users\Nicol\Desktop\UAI-2024\MindFit Intelligence\MindFitIntelligence_Backend
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Intelligence\MindFitIntelligence_Backend\obj\Debug\net8.0\MindFitIntelligence_Backend.pdb
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Intelligence\MindFitIntelligence_Backend\obj\Debug\net8.0\MindFitIntelligence_Backend.genruntimeconfig.cache
 C:\Users\Nicol\Desktop\UAI-2024\MindFit Intelligence\MindFitIntelligence_Backend\obj\Debug\net8.0\ref\MindFitIntelligence_Backend.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Intelligence\MindFitIntelligence_Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
