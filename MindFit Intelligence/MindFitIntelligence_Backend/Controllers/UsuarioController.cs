@@ -51,7 +51,7 @@ namespace MindFitIntelligence_Backend.Controllers
         }
         
         // Apliqué JWT
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<ActionResult<UsuarioDto>> Register(InsertUsuarioDto insertUsuarioDto)
         {
             var usuarioDto = await _usuarioService.Register(insertUsuarioDto);
@@ -76,7 +76,7 @@ namespace MindFitIntelligence_Backend.Controllers
 
         #region JWT
         // Acá no aplico buenas prácticas
-        [HttpPost("register")]
+        [HttpPost("registerProfe")]
         public ActionResult<Usuario> RegisterProfe(InsertUsuarioDto insertUsuarioDto)
         {
             var hasheredPassword = new PasswordHasher<Usuario>()
@@ -154,21 +154,18 @@ namespace MindFitIntelligence_Backend.Controllers
         // Solo los usuarios que envíen un token JWT válido podrán acceder.
         // Si el token es inválido, está vencido o no se envía, el servidor responderá con 401 (Unauthorized).
         [Authorize]
-
-        // Define el tipo de solicitud HTTP (GET) y la ruta específica del endpoint.
-        // En este caso, la URL completa será:  api/Usuario/autenticado
-        // (asumiendo que el controlador se llama UsuarioController y tiene [Route("api/[controller]")]).
         [HttpGet("autenticado")]
-
-        // Método que será ejecutado solo si la autenticación fue exitosa.
-        // IActionResult permite devolver distintos tipos de respuestas HTTP.
         public IActionResult AuthenticatedOnlyEndpoint()
         {
-            // Si el usuario está autenticado correctamente, se devuelve una respuesta 200 OK
-            // junto con un mensaje confirmando la autenticación.
             return Ok("Estás autenticado!");
         }
-        // Ver 53:58
+
+        [Authorize(Roles = "Admin, Dueño")]
+        [HttpGet("soloAdmin")]
+        public IActionResult AdminOnlyEndpoint()
+        {
+            return Ok("Estás autenticado Admin querido!");
+        }
         #endregion
 
         [HttpPut("{id}")]

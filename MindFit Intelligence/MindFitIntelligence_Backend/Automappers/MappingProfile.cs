@@ -14,6 +14,7 @@ namespace MindFitIntelligence_Backend.Automappers
             CreateMap<InsertUsuarioDto, Usuario>()
              // El hash lo seteás vos luego; que lo ignore AutoMapper
              .ForMember(d => d.PasswordHash, opt => opt.Ignore()); // Hay que indicarle al mapping que si falta una propiedad la ignore, ya que si sobra no pasa nada pero si falta se queja
+            CreateMap<UpdateUsuarioDto, Usuario>();
         }
     }
 }

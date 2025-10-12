@@ -13,8 +13,10 @@ namespace MindFitIntelligence_Backend.Models
         public string? Email { get; set; }
         #region JWT
         public string Username { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
-        // PasswordHash es la contraseña encriptada.
+        public string PasswordHash { get; set; } = string.Empty; // PasswordHash es la contraseña encriptada.
+        public string Rol { get; set; } = string.Empty;
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiryTime { get; set; }
         #endregion
     }
 }
