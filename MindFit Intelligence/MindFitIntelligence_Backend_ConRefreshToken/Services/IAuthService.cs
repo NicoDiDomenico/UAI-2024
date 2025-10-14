@@ -8,5 +8,6 @@ namespace MindFitIntelligence_Backend.Services
         public Task<UsuarioDto> Register(InsertUsuarioDto entityInsert);
         public Task<TokenResponseDto?> Login(LoginUsuarioDto entityLogin);
         string CreateToken(Usuario user);
+        public Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request);
     }
 }

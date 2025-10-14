@@ -26,6 +26,25 @@ namespace MindFitIntelligence_Backend.Services
             _mapper = mapper;
         }
 
+        public async Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request)
+        {
+            var usuario = await ValidateRefreshTokenAsync(request.UserId, request.RefreshToken);
+            if (usuario == null)
+                return null; // token inválido o expirado
+            return await CreateTokenResponse(usuario);
+        }
+
+        private async Task<Usuario?> ValidateRefreshTokenAsync(int userId, string refreshToken)
+        {
+            var usuario = await _usuarioRepository.GetById(userId);
+            if (usuario == null 
+                || usuario.RefreshToken != refreshToken 
+                || usuario.RefreshTokenExpiryTime <= DateTime.UtcNow)
+                return null; // token inválido o expirado
+            return usuario;
+        }
+
+        // GenerateRefreshToken: Genera un token aleatorio para usar como refresh token
         private string GenerateRefreshToken()
         {
             var randomNumber = new byte[32];
@@ -34,6 +53,7 @@ namespace MindFitIntelligence_Backend.Services
             return Convert.ToBase64String(randomNumber);
         }
 
+        // GenerateAndSaveRefreshTokenAsync: Genera un refresh token, lo guarda en la base de datos y retorna el token
         private async Task<string> GenerateAndSaveRefreshTokenAsync(Usuario usuario)
         {
             var refreshToken = GenerateRefreshToken();
@@ -74,11 +94,18 @@ namespace MindFitIntelligence_Backend.Services
                 return null; // contraseña incorrecta
 
             // Usando Resfreh JWT
-            var response = new TokenResponseDto {
-                AccessToken = CreateToken(usuario),
-                RefreshToken = await GenerateAndSaveRefreshTokenAsync(usuario),
-            };
+            TokenResponseDto response = await CreateTokenResponse(usuario);
 
+            return response;
+        }
+
+        private async Task<TokenResponseDto> CreateTokenResponse(Usuario usuario)
+        {
+            var response = new TokenResponseDto
+            {
+                AccessToken = CreateToken(usuario), // El AccessToken sirve para autenticar al usuario en cada petición
+                RefreshToken = await GenerateAndSaveRefreshTokenAsync(usuario), //  El RefreshToken sirve para obtener un nuevo AccessToken cuando este expire
+            };
             return response;
         }
 

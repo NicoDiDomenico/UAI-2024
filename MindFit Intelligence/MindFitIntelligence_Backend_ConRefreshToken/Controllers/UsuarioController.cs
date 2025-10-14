@@ -79,6 +79,16 @@ namespace MindFitIntelligence_Backend.Controllers
             // 1:06:39
         }
 
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult<TokenResponseDto>> RefreshToken([FromBody] RefreshTokenRequestDto request)
+        {
+            var result = await _authService.RefreshTokensAsync(request);
+            if (result is null || result.AccessToken is null || result.RefreshToken is null)
+                return Unauthorized("Invalid refresh token.");
+
+            return Ok(result);
+        }
+
         [Authorize]
         [HttpGet("autenticado")]
         public IActionResult AuthenticatedOnlyEndpoint()
