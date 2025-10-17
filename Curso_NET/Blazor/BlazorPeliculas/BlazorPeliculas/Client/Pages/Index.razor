@@ -1,0 +1,106 @@
+﻿@page "/"
+<!-- El using de UtilidadesString lo hemos puesto en _Imports.razor -->
+@*
+<p>Hola, @nombres[2].ToLower()</p> 
+<!-- Función Implícita:  -->
+Una funcion es implicita cuando no se marca un inicio y un fin con () 
+<p>Hola, @UtilidadesString.TransformarNombre(nombre)</p>
+<!-- Función Explicita: -->
+Una funcion es explicita cuando se marca un inicio y un fin con () 
+<p>Vamos a sumar 2 + 2 @(2 + 2)</p> 
+<button @onclick=@(() => Console.WriteLine("Me han clickeado!")) >Presióname</button>
+<!-- Pasamos la función como callback; no se llama ahora, por eso va sin (), sino cuando se necesita -->
+<button @onclick=@ManejarClickBoton>Presióname</button> 
+
+<!-- Sin Bucles: -->
+<div>
+	<h3>Pelicula:</h3>
+	<p><b>Título:</b> @SpiderMan.Titulo</p>
+	<p><b>Fecha de Lanzamiento:</b> @SpiderMan.FechaLanzamiento.ToString("dd MM yyyy")</p>
+</div> 
+*@
+<!-- Con Bucles -->
+<div>
+	<h3>Películas</h3>
+	<h4> Ejemplo foreach</h4>
+
+	@if (Peliculas is null)
+	{
+		<img alt="cargando"
+			 src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" />
+	}
+	else if (Peliculas.Count == 0)
+	{
+		<p>No hay películas para mostrar.</p>
+	}
+	else
+	{
+		@foreach (var pelicula in Peliculas)
+		{
+			<div>
+				<p>
+					Título: <b>@pelicula.Titulo</b>
+					@if ((DateTime.Now.Date - pelicula.FechaLanzamiento.Date).Days <= 14)
+					{
+						<span style="color: red"><i> New</i></span>
+					}
+				</p>
+				<p>Fecha lanzamiento: <b>@pelicula.FechaLanzamiento.ToString("dd MMM yyyy")</b></p>
+			</div>
+		}
+	}
+	@*
+	<h4>Ejemplo for</h4>
+	@for (int i = 0; i < Peliculas.Count; i++)
+	{
+		<div>
+			<p>@(i + 1)  Título: <b>@Peliculas[i].Titulo</b></p>
+			<p>Fecha lanzamiento: <b>@Peliculas[i].FechaLanzamiento.ToString("dd MMM yyyy")</b></p>
+		</div>
+	}
+	*@
+</div>
+
+@code {
+	string nombre = "Nicolás";
+
+	List<string> nombres = new List<string>
+	{
+		"Ana", "Felipe", "Nicolás"
+	};
+
+	void ManejarClickBoton()
+	{
+		Console.WriteLine("Me han clickeado otra vez!!");
+	}
+
+	Pelicula SpiderMan { get { return ObtenerPelicula(); } }
+
+	Pelicula ObtenerPelicula()
+	{
+		return new Pelicula
+		{
+			Titulo = "Spider Man",
+			FechaLanzamiento = new DateTime(2002, 5, 3)
+		};
+	}
+
+	List<Pelicula> ObtenerPeliculas()
+	{
+		return new List<Pelicula>()
+		{
+			new Pelicula { Titulo = "Wakanda Forever", FechaLanzamiento = new DateTime(2025, 10, 15) },
+			new Pelicula { Titulo = "Moana",            FechaLanzamiento = new DateTime(2016, 11, 23) },
+			new Pelicula { Titulo = "Inception",        FechaLanzamiento = new DateTime(2010, 7, 16) }
+		};
+	}
+
+	List<Pelicula>? Peliculas { get; set; } 
+
+	protected override async Task OnInitializedAsync()
+	{
+		await Task.Delay(1000);
+		Peliculas = ObtenerPeliculas();
+		// Peliculas = new List<Pelicula>();
+	}
+}
