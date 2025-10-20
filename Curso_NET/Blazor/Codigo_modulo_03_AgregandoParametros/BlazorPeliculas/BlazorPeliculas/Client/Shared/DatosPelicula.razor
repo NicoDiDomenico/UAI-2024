@@ -1,0 +1,16 @@
+﻿<h3>DatosPelicula</h3>
+<div>
+	<p>
+		Título: <b>@Pelicula.Titulo</b>
+		@if ((DateTime.Now.Date - Pelicula.FechaLanzamiento.Date).Days <= 14)
+		{
+			<span style="color: red"><i> New</i></span>
+		}
+	</p>
+	<p>Fecha lanzamiento: <b>@Pelicula.FechaLanzamiento.ToString("dd MMM yyyy")</b></p>
+</div>
+@code {
+	[Parameter] // Indica que una propiedad es un parámetro de componente, tienen que ser públicas
+	[EditorRequired] // Indica que este parámetro es obligatorio
+	public Pelicula Pelicula { get; set; } = null!; // El null! le dice al compilador que confíe en mí, sé lo que hago, o sea que no será null.
+}

@@ -1,0 +1,103 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|c:\\users\\ecost\\desktop\\uai-2024\\curso_net\\blazor\\codigo_modulo_03_agregandoparametros\\blazorpeliculas\\blazorpeliculas\\client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|solutionrelative:blazorpeliculas\\client\\pages\\index.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|c:\\users\\ecost\\desktop\\uai-2024\\curso_net\\blazor\\codigo_modulo_03_agregandoparametros\\blazorpeliculas\\blazorpeliculas\\client\\shared\\listadopeliculas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|solutionrelative:blazorpeliculas\\client\\shared\\listadopeliculas.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|c:\\users\\ecost\\desktop\\uai-2024\\curso_net\\blazor\\codigo_modulo_03_agregandoparametros\\blazorpeliculas\\blazorpeliculas\\client\\shared\\ejemplotextbox.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|solutionrelative:blazorpeliculas\\client\\shared\\ejemplotextbox.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|c:\\users\\ecost\\desktop\\uai-2024\\curso_net\\blazor\\codigo_modulo_03_agregandoparametros\\blazorpeliculas\\blazorpeliculas\\client\\shared\\datospelicula.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|solutionrelative:blazorpeliculas\\client\\shared\\datospelicula.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|c:\\users\\ecost\\desktop\\uai-2024\\curso_net\\blazor\\codigo_modulo_03_agregandoparametros\\blazorpeliculas\\blazorpeliculas\\client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5EDAB6B2-354C-4105-9689-904B09754880}|BlazorPeliculas\\Client\\BlazorPeliculas.Client.csproj|solutionrelative:blazorpeliculas\\client\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EjemploTextBox.razor",
+              "DocumentMoniker": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Shared\\EjemploTextBox.razor",
+              "RelativeDocumentMoniker": "BlazorPeliculas\\Client\\Shared\\EjemploTextBox.razor",
+              "ToolTip": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Shared\\EjemploTextBox.razor",
+              "RelativeToolTip": "BlazorPeliculas\\Client\\Shared\\EjemploTextBox.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T21:50:18.233Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DatosPelicula.razor",
+              "DocumentMoniker": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Shared\\DatosPelicula.razor",
+              "RelativeDocumentMoniker": "BlazorPeliculas\\Client\\Shared\\DatosPelicula.razor",
+              "ToolTip": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Shared\\DatosPelicula.razor",
+              "RelativeToolTip": "BlazorPeliculas\\Client\\Shared\\DatosPelicula.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-20T20:11:09.32Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "BlazorPeliculas\\Client\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Pages\\Counter.razor",
+              "RelativeToolTip": "BlazorPeliculas\\Client\\Pages\\Counter.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T21:43:38.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ListadoPeliculas.razor",
+              "DocumentMoniker": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Shared\\ListadoPeliculas.razor",
+              "RelativeDocumentMoniker": "BlazorPeliculas\\Client\\Shared\\ListadoPeliculas.razor",
+              "ToolTip": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Shared\\ListadoPeliculas.razor",
+              "RelativeToolTip": "BlazorPeliculas\\Client\\Shared\\ListadoPeliculas.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T21:06:50.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.razor",
+              "DocumentMoniker": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Pages\\Index.razor",
+              "RelativeDocumentMoniker": "BlazorPeliculas\\Client\\Pages\\Index.razor",
+              "ToolTip": "C:\\Users\\ecost\\Desktop\\UAI-2024\\Curso_NET\\Blazor\\Codigo_modulo_03_AgregandoParametros\\BlazorPeliculas\\BlazorPeliculas\\Client\\Pages\\Index.razor",
+              "RelativeToolTip": "BlazorPeliculas\\Client\\Pages\\Index.razor",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAIwB4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-16T19:32:28.24Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

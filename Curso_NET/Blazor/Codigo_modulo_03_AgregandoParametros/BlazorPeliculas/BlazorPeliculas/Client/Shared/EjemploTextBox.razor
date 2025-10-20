@@ -1,0 +1,8 @@
+﻿<input type="text" placeholder="EsteEsPorDefecto" @attributes="ParametrosAdicionales" />
+@*Blazor lee las etiquetas de derecha a izquierda, por lo tanto si "ParametrosAdicionales" tiene valores se aplica ese y no el "EsteEsPorDefecto"*@
+
+@code {
+	// Propiedad que captura todos los atributos adicionales pasados al componente. En un html los atributos son pares clave-valor dentro de una etiqueta y sirven para definir características del elemento.
+    [Parameter(CaptureUnmatchedValues = true)]
+    public IDictionary<string, object>? ParametrosAdicionales { get; set; }
+}

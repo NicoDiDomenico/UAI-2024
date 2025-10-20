@@ -1,0 +1,44 @@
+﻿@page "/"
+
+<div>
+    <h3>Películas</h3>
+    <ListadoPeliculas Peliculas="ObtenerPeliculas()" />
+</div>
+
+<div>
+    <h1>Crear nueva película</h1>
+
+    <!-- Opción 1: atributos directos -->
+    <EjemploTextBox placeholder="Nombre Pelicula" disabled="true" />
+
+    @* Opción 2: pasar un diccionario inline *@
+    <EjemploTextBox @attributes="@(new Dictionary<string, object>
+                    {
+                        ["placeholder"] = "nuevo placeholder",
+                        ["disabled"] = true   // usar bool es más limpio
+                    })" />
+
+    @* Opción 3: pasar un diccionario declarado en @code *@
+    <EjemploTextBox @attributes="atributosTextbox" />
+
+	@* Opción 4: sin atributos adicionales, se muestra el placeholder por defecto: *@
+    <EjemploTextBox disabled="true" />
+</div>
+
+@code {
+    private readonly Dictionary<string, object> atributosTextbox = new()
+    {
+        ["placeholder"] = "nuevo placeholder",
+        ["disabled"] = true
+    };
+
+    List<Pelicula> ObtenerPeliculas()
+    {
+        return new List<Pelicula>
+        {
+            new Pelicula { Titulo = "Wakanda Forever", FechaLanzamiento = new DateTime(2025, 10, 15) },
+            new Pelicula { Titulo = "Moana",            FechaLanzamiento = new DateTime(2016, 11, 23) },
+            new Pelicula { Titulo = "Inception",        FechaLanzamiento = new DateTime(2010, 7, 16) }
+        };
+    }
+}

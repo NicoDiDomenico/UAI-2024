@@ -1,0 +1,22 @@
+﻿@if (Peliculas is null)
+{
+	<img alt="cargando"
+		 src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" />
+}
+else if (Peliculas.Count == 0)
+{
+	<p>No hay películas para mostrar.</p>
+}
+else
+{
+	@foreach (var pelicula in Peliculas)
+	{
+		<DatosPelicula Pelicula="pelicula"/>
+	}
+}
+
+@code {
+	[Parameter] // Indica que una propiedad es un parámetro de componente, tienen que ser públicas
+	[EditorRequired] // Indica que este parámetro es obligatorio]
+	public List<Pelicula>? Peliculas { get; set; } 
+}
