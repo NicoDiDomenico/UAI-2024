@@ -12863,9 +12863,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 24.72998046875,
+													"left": 22.55908203125,
 													"top": 5,
-													"width": 297.654296875,
+													"width": 277.3037109375,
 													"height": 13,
 													"text": "CUD01 - Gestionar Socio y CUD05 - Eliminar Socio"
 												},
@@ -12879,7 +12879,7 @@
 													"parentStyle": true,
 													"left": 5,
 													"top": 5,
-													"width": 13.72998046875,
+													"width": 11.55908203125,
 													"height": 13,
 													"text": "sd"
 												}
@@ -12913,9 +12913,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 47.9599609375,
+													"left": 44.3291015625,
 													"top": 1189,
-													"width": 18.78271484375,
+													"width": 16.6181640625,
 													"height": 13,
 													"text": "OP"
 												},
@@ -12929,7 +12929,7 @@
 													"parentStyle": true,
 													"left": 21,
 													"top": 1189,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -13088,9 +13088,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 575.9599609375,
+													"left": 572.3291015625,
 													"top": 781,
-													"width": 36.12451171875,
+													"width": 33.947265625,
 													"height": 13,
 													"text": "LOOP"
 												},
@@ -13104,7 +13104,7 @@
 													"parentStyle": true,
 													"left": 549,
 													"top": 781,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -14632,9 +14632,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 39.9599609375,
+													"left": 36.3291015625,
 													"top": 421,
-													"width": 18.78271484375,
+													"width": 16.6181640625,
 													"height": 13,
 													"text": "OP"
 												},
@@ -14648,7 +14648,7 @@
 													"parentStyle": true,
 													"left": 13,
 													"top": 421,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -17860,9 +17860,9 @@
 													},
 													"font": "Arial;13;0",
 													"parentStyle": true,
-													"left": 759.9599609375,
+													"left": 756.3291015625,
 													"top": 213,
-													"width": 87.08349609375,
+													"width": 84.82373046875,
 													"height": 13,
 													"text": "unR === NULL"
 												},
@@ -17876,7 +17876,7 @@
 													"parentStyle": true,
 													"left": 733,
 													"top": 213,
-													"width": 20.9599609375,
+													"width": 17.3291015625,
 													"height": 13,
 													"text": "seq"
 												},
@@ -17910,7 +17910,7 @@
 																	"parentStyle": true,
 																	"left": 748,
 																	"top": 246,
-																	"width": 127.5244140625,
+																	"width": 119.234375,
 																	"height": 13,
 																	"text": "[confirmacion = False]"
 																}
@@ -17945,7 +17945,7 @@
 																	"parentStyle": true,
 																	"left": 748,
 																	"top": 289,
-																	"width": 121.98291015625,
+																	"width": 115.87646484375,
 																	"height": 13,
 																	"text": "[confirmacion = True]"
 																}
@@ -19901,9 +19901,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 136.55712890625,
+											"width": 126.724609375,
 											"height": 13,
 											"text": "CUD02 - Agregar Socio"
 										},
@@ -19917,7 +19917,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -21904,9 +21904,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 423.9599609375,
+											"left": 420.3291015625,
 											"top": 301,
-											"width": 36.12451171875,
+											"width": 33.947265625,
 											"height": 13,
 											"text": "LOOP"
 										},
@@ -21920,7 +21920,7 @@
 											"parentStyle": true,
 											"left": 397,
 											"top": 301,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -33318,9 +33318,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 24.72998046875,
+											"left": 22.55908203125,
 											"top": 5,
-											"width": 147.62744140625,
+											"width": 136.37939453125,
 											"height": 13,
 											"text": "CUD06 - Gestionar Turno"
 										},
@@ -33334,7 +33334,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 13.72998046875,
+											"width": 11.55908203125,
 											"height": 13,
 											"text": "sd"
 										}
@@ -33992,9 +33992,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 1223.9599609375,
+											"left": 1220.3291015625,
 											"top": 221,
-											"width": 36.12451171875,
+											"width": 33.947265625,
 											"height": 13,
 											"text": "LOOP"
 										},
@@ -34008,7 +34008,7 @@
 											"parentStyle": true,
 											"left": 1197,
 											"top": 221,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -34099,9 +34099,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 1255.9599609375,
+											"left": 1252.3291015625,
 											"top": 357,
-											"width": 169.23486328125,
+											"width": 156.67919921875,
 											"height": 13,
 											"text": "OP: socioValido === Boolean"
 										},
@@ -34115,7 +34115,7 @@
 											"parentStyle": true,
 											"left": 1229,
 											"top": 357,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -36212,9 +36212,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 55.9599609375,
+											"left": 52.3291015625,
 											"top": 645,
-											"width": 18.78271484375,
+											"width": 16.6181640625,
 											"height": 13,
 											"text": "OP"
 										},
@@ -36228,7 +36228,7 @@
 											"parentStyle": true,
 											"left": 29,
 											"top": 645,
-											"width": 20.9599609375,
+											"width": 17.3291015625,
 											"height": 13,
 											"text": "seq"
 										},
@@ -47149,9 +47149,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 70.55908203125,
-											"top": 1765,
-											"width": 139.73095703125,
+											"left": 40.72998046875,
+											"top": 13,
+											"width": 151.72802734375,
 											"height": 13,
 											"text": "CUD10 - Gestionar Rutina"
 										},
@@ -47163,19 +47163,19 @@
 											},
 											"font": "Arial;13;1",
 											"parentStyle": true,
-											"left": 53,
-											"top": 1765,
-											"width": 11.55908203125,
+											"left": 21,
+											"top": 13,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
 									],
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 48,
-									"top": 1760,
-									"width": 692,
-									"height": 592,
+									"left": 16,
+									"top": 8,
+									"width": 1512,
+									"height": 824,
 									"nameLabel": {
 										"$ref": "AAAAAAGSms6oRZt4KUo="
 									},
@@ -47290,7 +47290,7 @@
 											"left": 69,
 											"top": 81,
 											"width": 1,
-											"height": 817
+											"height": 757
 										}
 									],
 									"font": "Arial;13;0",
@@ -47298,7 +47298,7 @@
 									"left": 24,
 									"top": 40,
 									"width": 89.341796875,
-									"height": 858,
+									"height": 798,
 									"nameCompartment": {
 										"$ref": "AAAAAAGSmuNS5Ju0VhE="
 									},
@@ -48840,7 +48840,7 @@
 											"left": 629,
 											"top": 81,
 											"width": 1,
-											"height": 817
+											"height": 751
 										}
 									],
 									"font": "Arial;13;0",
@@ -48848,7 +48848,7 @@
 									"left": 544,
 									"top": 40,
 									"width": 169.54443359375,
-									"height": 858,
+									"height": 792,
 									"nameCompartment": {
 										"$ref": "AAAAAAGSmvYVpp4QXAg="
 									},
@@ -48973,21 +48973,6 @@
 									}
 								},
 								{
-									"_type": "UMLNoteView",
-									"_id": "AAAAAAGSmyrUDJ8Ubuc=",
-									"_parent": {
-										"$ref": "AAAAAAGSms6oRZt29CM="
-									},
-									"fillColor": "#FFFFFF",
-									"font": "Arial;13;0",
-									"parentStyle": false,
-									"left": 1032,
-									"top": 160,
-									"width": 480,
-									"height": 250,
-									"text": "unR = SELECT * FROM Responsable r\nINNER JOIN RangoHorario_Responsable rh_r ON rh_r.idPersona = r.idPersona \nINNER JOIN Rango_Horario rh ON rh.idRangoHorario = rh_r.idRangoHorario\nINNER JOIN Usuario u ON u.idUsuario = r.idUsuario\nINNER JOIN Turno t ON r.idPersona = t.idPersona\nINNER JOIN Socio s ON s.idTurno = t.idTurno\nINNER JOIN Rutina ru ON ru.idPersonaS= s.idPersonaS\nINNER JOIN HisotiralRutinas hr ON hr.idHistorialRutinas = ru.idHistorialRutinas\nINNER JOIN Calentamiento ca ON ca.idRutina= ru.idRutina\nINNER JOIN Maquina ma ON ma.idElemento= ca.idElemento\nINNER JOIN Entrenamiento en ON en.idRutina= ru.idRutina\nINNER JOIN Equipamiento equ ON equ.idElemento = en.idElemento\nINNER JOIN Ejercicio en eje.idElemento= en.idElemento\nINNER JOIN Maquina en maq.idElemento = en.idElemento\nINNER JOIN Estiramiento es ON es.idRutina= ru.idRutina\nWHERE u.nombreUsuario = :nombreUsuario"
-								},
-								{
 									"_type": "FreelineEdgeView",
 									"_id": "AAAAAAGSm3aWap9MKS4=",
 									"_parent": {
@@ -49038,9 +49023,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 828.3291015625,
+											"left": 831.9599609375,
 											"top": 285,
-											"width": 84.82373046875,
+											"width": 87.08349609375,
 											"height": 13,
 											"text": "unR === NULL"
 										},
@@ -49054,7 +49039,7 @@
 											"parentStyle": true,
 											"left": 805,
 											"top": 285,
-											"width": 17.3291015625,
+											"width": 20.9599609375,
 											"height": 13,
 											"text": "seq"
 										},
@@ -49088,7 +49073,7 @@
 															"parentStyle": true,
 															"left": 820,
 															"top": 318,
-															"width": 119.234375,
+															"width": 127.5244140625,
 															"height": 13,
 															"text": "[confirmacion = False]"
 														}
@@ -49097,7 +49082,7 @@
 													"parentStyle": true,
 													"left": 800,
 													"top": 303,
-													"width": 177.576171875,
+													"width": 184,
 													"height": 43,
 													"autoResize": true,
 													"guardLabel": {
@@ -49124,7 +49109,7 @@
 															"parentStyle": true,
 															"left": 820,
 															"top": 361,
-															"width": 115.87646484375,
+															"width": 121.98291015625,
 															"height": 13,
 															"text": "[confirmacion = True]"
 														}
@@ -49133,7 +49118,7 @@
 													"parentStyle": true,
 													"left": 800,
 													"top": 346,
-													"width": 177.576171875,
+													"width": 184,
 													"height": 43,
 													"guardLabel": {
 														"$ref": "AAAAAAGSm/B1EZ/0vvk="
@@ -49144,7 +49129,7 @@
 											"parentStyle": true,
 											"left": 800,
 											"top": 303,
-											"width": 177.576171875,
+											"width": 184,
 											"height": 86
 										}
 									],
@@ -49152,7 +49137,7 @@
 									"parentStyle": false,
 									"left": 800,
 									"top": 280,
-									"width": 177.576171875,
+									"width": 184,
 									"height": 109,
 									"nameLabel": {
 										"$ref": "AAAAAAGSm/Bb+Z/bgOM="
@@ -50404,9 +50389,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": false,
-											"left": 88,
+											"left": 128,
 											"top": 783,
-											"width": 280.38232421875,
+											"width": 200,
 											"height": 13,
 											"alpha": -0.991722326857265,
 											"distance": 31.064449134018133,
@@ -50477,6 +50462,21 @@
 									"activation": {
 										"$ref": "AAAAAAGSmvPAlZ3ylMo="
 									}
+								},
+								{
+									"_type": "UMLNoteView",
+									"_id": "AAAAAAGSmyrUDJ8Ubuc=",
+									"_parent": {
+										"$ref": "AAAAAAGSms6oRZt29CM="
+									},
+									"fillColor": "#FFFFFF",
+									"font": "Arial;13;0",
+									"parentStyle": false,
+									"left": 1032,
+									"top": 160,
+									"width": 480,
+									"height": 250,
+									"text": "unR = SELECT * FROM Responsable r\nINNER JOIN RangoHorario_Responsable rh_r ON rh_r.idPersona = r.idPersona \nINNER JOIN Rango_Horario rh ON rh.idRangoHorario = rh_r.idRangoHorario\nINNER JOIN Usuario u ON u.idUsuario = r.idUsuario\nINNER JOIN Turno t ON r.idPersona = t.idPersona\nINNER JOIN Socio s ON s.idTurno = t.idTurno\nINNER JOIN Rutina ru ON ru.idPersonaS= s.idPersonaS\nINNER JOIN HisotiralRutinas hr ON hr.idHistorialRutinas = ru.idHistorialRutinas\nINNER JOIN Calentamiento ca ON ca.idRutina= ru.idRutina\nINNER JOIN Maquina ma ON ma.idElemento= ca.idElemento\nINNER JOIN Entrenamiento en ON en.idRutina= ru.idRutina\nINNER JOIN Equipamiento equ ON equ.idElemento = en.idElemento\nINNER JOIN Ejercicio en eje.idElemento= en.idElemento\nINNER JOIN Maquina en maq.idElemento = en.idElemento\nINNER JOIN Estiramiento es ON es.idRutina= ru.idRutina\nWHERE u.nombreUsuario = :nombreUsuario"
 								}
 							]
 						}
@@ -51041,9 +51041,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 38.55908203125,
+											"left": 40.72998046875,
 											"top": 5,
-											"width": 141.43212890625,
+											"width": 152.9404296875,
 											"height": 13,
 											"text": "CUD11 – Consultar Rutina"
 										},
@@ -51057,7 +51057,7 @@
 											"parentStyle": true,
 											"left": 21,
 											"top": 5,
-											"width": 11.55908203125,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
@@ -51572,9 +51572,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 52.3291015625,
+											"left": 55.9599609375,
 											"top": 437,
-											"width": 16.6181640625,
+											"width": 18.78271484375,
 											"height": 13,
 											"text": "OP"
 										},
@@ -51588,7 +51588,7 @@
 											"parentStyle": true,
 											"left": 29,
 											"top": 437,
-											"width": 17.3291015625,
+											"width": 20.9599609375,
 											"height": 13,
 											"text": "seq"
 										},
@@ -54044,9 +54044,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 22.55908203125,
+											"left": 24.72998046875,
 											"top": 5,
-											"width": 133.9482421875,
+											"width": 144.51708984375,
 											"height": 13,
 											"text": "CUD12 – Agregar Rutina"
 										},
@@ -54060,7 +54060,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 11.55908203125,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
@@ -57595,9 +57595,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 22.55908203125,
+											"left": 24.72998046875,
 											"top": 5,
-											"width": 143.3427734375,
+											"width": 151.00439453125,
 											"height": 13,
 											"text": "CUD13 – Modificar Rutina"
 										},
@@ -57611,7 +57611,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 11.55908203125,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
@@ -60519,9 +60519,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 22.55908203125,
+											"left": 24.72998046875,
 											"top": 5,
-											"width": 178.73095703125,
+											"width": 192.91796875,
 											"height": 13,
 											"text": "CUD14 – Ver Historial de Rutinas"
 										},
@@ -60535,7 +60535,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 11.55908203125,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
@@ -63093,9 +63093,9 @@
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 22.55908203125,
+											"left": 24.72998046875,
 											"top": 5,
-											"width": 136.84912109375,
+											"width": 145.2216796875,
 											"height": 13,
 											"text": "CUD15 – Eliminar Rutina"
 										},
@@ -63109,7 +63109,7 @@
 											"parentStyle": true,
 											"left": 5,
 											"top": 5,
-											"width": 11.55908203125,
+											"width": 13.72998046875,
 											"height": 13,
 											"text": "sd"
 										}
