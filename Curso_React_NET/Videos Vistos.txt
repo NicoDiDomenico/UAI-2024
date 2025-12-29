@@ -36,3 +36,18 @@
 
 24/12/2025 --> 15:
 1 76. Validando con Yup ( le copié el codigo pero no entendi nada, asi que verlo de nuevo o preguntarle al chat)
+
+25/12/2025 --> 29:
+1 77. Deshabilitando el Botón Enviar
+2 
+3
+4
+5
+6
+
+
+26/12/2025 --> 38
+1. 83. Componente de Selección de Archivos
+
+	
+
