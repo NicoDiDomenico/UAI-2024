@@ -7,7 +7,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Menu/>
-          <div className="container">
+          <div className="container mb-4">
             <AppRoutes/>
           </div>
       </BrowserRouter>

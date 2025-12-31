@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import type PeliculaCreacion from "../modelos/PeliculaCreacion.model";
 import FormularioPelicula from "./FormularioPelicula";
 import type Genero from "../../generos/modelos/Genero.model";
+import type Cine from "../../cines/modelos/Cine.Model";
 
 export default function EditarPelicula() {
   const [modelo, setModelo] = useState<PeliculaCreacion | undefined>(undefined);
@@ -30,8 +31,16 @@ export default function EditarPelicula() {
   const generosSeleccionados: Genero[] = [{ id: 2, nombre: "Drama" }];
 
   const generosNoSeleccionados: Genero[] = [
-    { id: 1, nombre: "Acción" },
-    { id: 3, nombre: "Comedia" },
+    { id: 1, nombre: 'Acción' },
+    { id: 3, nombre: 'Comedia' }
+  ];
+
+  const cinesSeleccionados: Cine[] = [
+    { id: 1, nombre: 'Agora', latitud: 0, longitud: 0 }
+  ];
+
+  const cinesNoSeleccionados: Cine[] = [
+    { id: 2, nombre: 'Sambil', latitud: 0, longitud: 0 }
   ];
 
   return (
@@ -43,6 +52,8 @@ export default function EditarPelicula() {
           onSubmit={onSubmit}
           generosNoSeleccionados={generosNoSeleccionados}
           generosSeleccionados={generosSeleccionados}
+          cinesSeleccionados={cinesSeleccionados}
+          cinesNoSeleccionados={cinesNoSeleccionados}
         />
       ) : (
         <p>Cargando</p>
