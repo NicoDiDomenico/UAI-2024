@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rutina de Entrenamiento</title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table.border th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table.border td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .section-title {
+            background-color: #B0B0B0;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">@NOMBRE</h2>
+    <p style="text-align:center;">Dirección: @DIRECCION | Teléfono: @TELEFONO</p>
+    <p style="text-align:center;">Fecha: @FECHA</p>
+    <h2 style="text-align:center; font-family:Arial; font-size:18px; font-weight:bold; margin: 0 0 15px 0;">
+        Rutina día @DIA con @ENTRENADOR
+    </h2>
+
+    <div class="section-title">Calentamiento</div>
+    <table class="border">
+        <thead>
+            <tr>
+                <th>Actividad</th>
+                <th>Duración (minutos)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @CALENTAMIENTOS
+        </tbody>
+    </table>
+
+    <div class="section-title">Entrenamiento</div>
+    <table class="border">
+        <thead>
+            <tr>
+                <th>Ejercicio/Elemento</th>
+                <th>Series</th>
+                <th>Repeticiones</th>
+                <th>Peso (kg)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @ENTRENAMIENTOS
+        </tbody>
+    </table>
+
+    <div class="section-title">Estiramiento</div>
+    <table class="border">
+        <thead>
+            <tr>
+                <th>Actividad</th>
+                <th>Duración (minutos)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @ESTIRAMIENTOS
+        </tbody>
+    </table>
+
+</body>
+</html>

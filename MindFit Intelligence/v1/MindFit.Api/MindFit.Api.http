@@ -1,0 +1,6 @@
+@MindFit.Api_HostAddress = http://localhost:5251
+
+GET {{MindFit.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

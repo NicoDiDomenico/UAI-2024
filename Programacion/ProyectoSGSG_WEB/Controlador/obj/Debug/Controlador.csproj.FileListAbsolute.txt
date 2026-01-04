@@ -1,0 +1,121 @@
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Supervisor\Mi código\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\Users\Nicol\OneDrive\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\SGSG\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\DotNetEnv.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Sprache.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\Sprache.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\obj\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG\Controlador\obj\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Controlador.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\DAO.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\DotNetEnv.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Modelo.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Sprache.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\DAO.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Modelo.pdb
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\Sprache.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\obj\Debug\Controlador.dll
+C:\Users\Nicol\Desktop\ProyectoSGSG V2\Controlador\obj\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Controlador.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\DAO.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\DotNetEnv.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Modelo.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Sprache.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\DAO.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Modelo.pdb
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\Sprache.xml
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\obj\Debug\Controlador.csproj.AssemblyReference.cache
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\obj\Debug\Controlador.csproj.CoreCompileInputs.cache
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\obj\Debug\Controla.6B62700F.Up2Date
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\obj\Debug\Controlador.dll
+C:\GitHubProyectos\UAI-2024\MindFit Intelligence\ProyectoSGSG_WEB\Controlador\obj\Debug\Controlador.pdb

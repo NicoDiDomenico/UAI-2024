@@ -1,9 +1,0 @@
-Teoría (Transistores BJT Y FET):
-4.1 (+Ejemplo 4-1 4-2* 4-6) a 4.3. El 4.4 y 4.5 SOLO Conceptual!.
-5.1 (+Ejemplo 5-1).
-8.1, 8.2, 8.5, 8.6.
--No toma gráficas.
-
-Práctica:
-Un ejercicio transistores BJT --> Polarización fija (calcular punto de corte, punto de saturación, y dado una I de Base calcular el punto de trabajo/operación).
-*De todos los ejemplos el que seguro toma es el Ejemplo 4-2. Lo va a variar cambiando los valores pero no el circuito. Te puede variar el I de B y te pide cuanta es la R de Base.

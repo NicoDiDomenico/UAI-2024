@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "C8hhPAlmQ1dkR7RDiiLxSAtKFgaZKCuRISYPCPumgVI=",
+  "Source": "MindFit.Api",
+  "BasePath": "_content/MindFit.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yXdlzvYDMLc=",
+  "dgSpecHash": "97Bb48NOg/M=",
   "success": true,
-  "projectFilePath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_15_Codigo_Fuente_Hector\\Backend\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_15_Codigo_Fuente_Hector\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicol\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Nicol\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
