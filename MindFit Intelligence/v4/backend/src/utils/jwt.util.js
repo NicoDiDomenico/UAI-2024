@@ -1,0 +1,12 @@
+import jwt from "jsonwebtoken";
+import { config } from "../config/env.js";
+import { JwtPayload } from "../types/jwt.types.js";
+export const generateToken = (payload) => {
+    return jwt.sign(payload, config.jwtSecret, {
+        expiresIn: config.jwtExpiration,
+    });
+};
+export const verifyToken = (token) => {
+    return jwt.verify(token, config.jwtSecret);
+};
+//# sourceMappingURL=jwt.util.js.map

@@ -1,0 +1,108 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Gym {
+  gymId  Int    @id @default(autoincrement())
+  nombre String @unique
+
+  personas Persona[]
+  usuarios Usuario[]
+  roles    Rol[]
+}
+
+model Persona {
+  personaId        Int      @id @default(autoincrement())
+  gymId            Int
+  nombreYApellido  String
+  email            String
+  telefono         String?
+  direccion        String?
+  ciudad           String?
+  nroDocumento     Int?
+  genero           String?
+  fechaNacimiento  DateTime?
+
+  gym     Gym     @relation(fields: [gymId], references: [gymId])
+  usuario Usuario?
+
+  @@unique([gymId, email])
+  @@index([gymId])
+}
+
+model Usuario {
+  usuarioId     Int      @id @default(autoincrement())
+  gymId         Int
+  personaId     Int      @unique
+  nombreUsuario String
+  passwordHash  String
+  fechaRegistro DateTime @default(now())
+
+  gym     Gym     @relation(fields: [gymId], references: [gymId])
+  persona Persona @relation(fields: [personaId], references: [personaId])
+
+  usuarioRoles    UsuarioRol[]
+  usuarioPermisos UsuarioPermiso[] // opcional (permisos directos)
+
+  @@unique([gymId, nombreUsuario])
+  @@index([gymId])
+}
+
+model Rol {
+  rolId  Int    @id @default(autoincrement())
+  gymId  Int
+  nombre String
+
+  gym           Gym         @relation(fields: [gymId], references: [gymId])
+  rolPermisos   RolPermiso[]
+  usuarioRoles  UsuarioRol[]
+
+  @@unique([gymId, nombre])
+  @@index([gymId])
+}
+
+model Permiso {
+  permisoId Int    @id @default(autoincrement())
+  codigo    String @unique
+
+  rolPermisos     RolPermiso[]
+  usuarioPermisos UsuarioPermiso[] // opcional
+}
+
+model UsuarioRol {
+  usuarioId Int
+  rolId     Int
+
+  usuario Usuario @relation(fields: [usuarioId], references: [usuarioId], onDelete: Cascade)
+  rol     Rol     @relation(fields: [rolId], references: [rolId], onDelete: Cascade)
+
+  @@id([usuarioId, rolId])
+  @@index([rolId])
+}
+
+model RolPermiso {
+  rolId     Int
+  permisoId Int
+
+  rol     Rol     @relation(fields: [rolId], references: [rolId], onDelete: Cascade)
+  permiso Permiso @relation(fields: [permisoId], references: [permisoId], onDelete: Cascade)
+
+  @@id([rolId, permisoId])
+  @@index([permisoId])
+}
+
+model UsuarioPermiso {
+  usuarioId Int
+  permisoId Int
+
+  usuario Usuario @relation(fields: [usuarioId], references: [usuarioId], onDelete: Cascade)
+  permiso Permiso @relation(fields: [permisoId], references: [permisoId], onDelete: Cascade)
+
+  @@id([usuarioId, permisoId])
+}
