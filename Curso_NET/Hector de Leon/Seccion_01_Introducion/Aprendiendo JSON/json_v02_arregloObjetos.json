@@ -1,0 +1,12 @@
+[
+    {
+        "moneda": "Bitcoin",
+        "precio": 45000.50,
+        "simbolo": "BTC"
+    },
+    {
+        "moneda": "Ethereum",
+        "precio": 3200,
+        "simbolo": "ETH"
+    }
+]
