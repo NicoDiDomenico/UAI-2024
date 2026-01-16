@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Expresiones_Lambda\\",
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_02_Introducion_Csharp\\Expresiones_Lambda\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D47CD3E5-4CDB-4A5B-B83D-FFD01C2C4FE0}|Expresiones_Lambda\\Expresiones_Lambda.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\expresiones_lambda\\expresiones_lambda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D47CD3E5-4CDB-4A5B-B83D-FFD01C2C4FE0}|Expresiones_Lambda\\Expresiones_Lambda.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_02_introducion_csharp\\expresiones_lambda\\expresiones_lambda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D47CD3E5-4CDB-4A5B-B83D-FFD01C2C4FE0}|Expresiones_Lambda\\Expresiones_Lambda.csproj|solutionrelative:expresiones_lambda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,21 +14,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Expresiones_Lambda\\Expresiones_Lambda\\Program.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_02_Introducion_Csharp\\Expresiones_Lambda\\Expresiones_Lambda\\Program.cs",
               "RelativeDocumentMoniker": "Expresiones_Lambda\\Program.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Expresiones_Lambda\\Expresiones_Lambda\\Program.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_02_Introducion_Csharp\\Expresiones_Lambda\\Expresiones_Lambda\\Program.cs",
               "RelativeToolTip": "Expresiones_Lambda\\Program.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAQwBsAAAAAAAAA",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-08T19:00:51.767Z",
               "EditorCaption": ""

@@ -34,7 +34,7 @@ var namesResult2 = names.Where(n => n.Length > 3 && n.Length < 5)
                         .OrderByDescending(n => n)
                         .Select(d => d);
 
-/*
+/*  
     EJECUCIÓN INMEDIATA:
     Si agregamos ".ToList()" o ".ToArray()" al final, LINQ ejecuta la consulta en ese momento
     y guarda los datos en memoria como lista o arreglo.

@@ -1,0 +1,7 @@
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\obj\Debug\PracticaLINQ.csproj.AssemblyReference.cache
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\obj\Debug\PracticaLINQ.csproj.CoreCompileInputs.cache
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\bin\Debug\PracticaLINQ.exe.config
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\bin\Debug\PracticaLINQ.exe
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\bin\Debug\PracticaLINQ.pdb
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\obj\Debug\PracticaLINQ.exe
+C:\Users\ecost\Desktop\PracticaLINQ\PracticaLINQ\obj\Debug\PracticaLINQ.pdb
