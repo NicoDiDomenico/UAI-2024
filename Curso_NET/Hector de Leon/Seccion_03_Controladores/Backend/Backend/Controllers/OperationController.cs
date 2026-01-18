@@ -43,6 +43,57 @@ namespace Backend.Controllers
         {
             return a / b;
         }
+
+        // Del chatgpt:
+        [HttpGet("usuarios/{id}")]
+        public IActionResult GetUsuario(
+            [FromRoute] int id,
+            [FromQuery] bool? activo,
+            [FromQuery] int page = 1,
+            [FromHeader(Name = "User-Agent")] string? userAgent = null)
+        {
+            // ... usar id, activo, page, userAgent
+            return Ok(); // (no nos enfocamos en response)
+        }
+
+        [HttpPost("usuarios")]
+        public IActionResult CreateUsuario(
+            [FromBody] CreateUsuarioDto dto,
+            [FromHeader] string? Host,
+            [FromHeader(Name = "Content-Length")] long? contentLength)
+        {
+            // ... usar dto, Host, contentLength
+            return Ok();
+        }
+
+        [HttpPut("usuarios/{id}")]
+        public IActionResult UpdateUsuario(
+            [FromRoute] int id,
+            [FromBody] UpdateUsuarioDto dto,
+            [FromHeader(Name = "If-Match")] string? ifMatch = null)
+        {
+            // ... usar id + dto (+ header opcional)
+            return Ok();
+        }
+
+        [HttpDelete("usuarios/{id}")]
+        public IActionResult DeleteUsuario(
+            [FromRoute] int id,
+            [FromQuery] bool hard = false,
+            [FromHeader(Name = "X-Reason")] string? reason = null)
+        {
+            // ... usar id, hard, reason
+            return Ok();
+        }
+
+    }
+
+    public class UpdateUsuarioDto
+    {
+    }
+
+    public class CreateUsuarioDto
+    {
     }
 
     // Esto no se hace pero es solo para aprendizaje:
