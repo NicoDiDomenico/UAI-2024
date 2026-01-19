@@ -16,7 +16,9 @@ namespace Backend.Controllers
         {
             // ActionResult<T> permite manejar respuestas HTTP más complejas, como NotFound, Ok, etc. Esto me puede servir para que en vez de un codigo 500 forzar a que se devuelva un 404, ya que no se enconntró ese Usuario con ese Id, ya que seria lo mas acorde.
             var people = Repository.People.FirstOrDefault(p => p.Id == id); // FirstOrDefault devuelve null si no encuentra nada (en vez de lanzar excepción).
-
+            var people2 = (from p in Repository.People
+                           where p.Id == id
+                           select p).FirstOrDefault();
             if (people == null)
             {
                 return NotFound(); // 404 Not Found
