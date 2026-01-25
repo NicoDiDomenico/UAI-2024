@@ -151,11 +151,6 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\Backend.sourcelink.json
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets\msbuild.Backend.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets\msbuild.build.Backend.props
-C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Backend.props
-C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Backend.props
-C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\scopedcss\bundle\Backend.styles.css
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\Backend.csproj.Up2Date
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\Backend.dll
@@ -163,3 +158,11 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\Backend.pdb
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\Backend.genruntimeconfig.cache
 C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\ref\Backend.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\bin\Debug\net8.0\Backend.staticwebassets.endpoints.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Nicol\Desktop\UAI-2024\Curso_NET\Hector de Leon\Seccion_06_Programacion_Asincrona\Backend\Backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
