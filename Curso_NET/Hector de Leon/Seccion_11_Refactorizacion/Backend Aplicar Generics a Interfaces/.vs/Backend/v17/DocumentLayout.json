@@ -1,21 +1,21 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\",
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_11_refactorizacion\\backend aplicar generics a interfaces\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,15 +26,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
               "RelativeToolTip": "Backend\\Program.cs",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -43,45 +43,43 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "BeerController.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\BeerController.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
               "RelativeToolTip": "Backend\\Controllers\\BeerController.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAADwvxkAAAA9AAAA",
+              "ViewState": "AgIAACcAAAAAAAAAAAAswBkAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T17:43:11.743Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "BeerService.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\BeerService.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
               "RelativeToolTip": "Backend\\Services\\BeerService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAABGAAAA",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwAYAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T13:37:11.75Z"
+              "WhenOpened": "2025-08-22T13:37:11.75Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ICommonService.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\ICommonService.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_11_Refactorizacion\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
               "RelativeToolTip": "Backend\\Services\\ICommonService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAUAAAAuAAAA",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T13:04:21.452Z"
+              "WhenOpened": "2025-08-22T13:04:21.452Z",
+              "EditorCaption": ""
             }
           ]
         }

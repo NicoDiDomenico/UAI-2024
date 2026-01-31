@@ -1,37 +1,37 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\",
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\validators\\beerupdatevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\validators\\beerupdatevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\validators\\beerupdatevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\validators\\beerinsertvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\validators\\beerinsertvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\validators\\beerinsertvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\services\\peopleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\services\\peopleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\peopleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\githubproyectos\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_09_crud_con_entity_framework\\backend\\backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -42,74 +42,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Program.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Program.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Program.cs",
               "RelativeToolTip": "Backend\\Program.cs",
               "ViewState": "AQIAADkAAAAAAAAAAAAAAEYAAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-17T20:35:36.154Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "BeerUpdateValidator.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerUpdateValidator.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerUpdateValidator.cs",
               "RelativeDocumentMoniker": "Backend\\Validators\\BeerUpdateValidator.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerUpdateValidator.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerUpdateValidator.cs",
               "RelativeToolTip": "Backend\\Validators\\BeerUpdateValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABGAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T18:29:36.946Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "BeerInsertDto.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerInsertDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerInsertDto.cs",
               "RelativeDocumentMoniker": "Backend\\DTOs\\BeerInsertDto.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerInsertDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerInsertDto.cs",
               "RelativeToolTip": "Backend\\DTOs\\BeerInsertDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAsAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T18:15:58.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "BeerInsertValidator.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerInsertValidator.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerInsertValidator.cs",
               "RelativeDocumentMoniker": "Backend\\Validators\\BeerInsertValidator.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerInsertValidator.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Validators\\BeerInsertValidator.cs",
               "RelativeToolTip": "Backend\\Validators\\BeerInsertValidator.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-21T15:13:12.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "BeerController.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Controllers\\BeerController.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Controllers\\BeerController.cs",
               "RelativeDocumentMoniker": "Backend\\Controllers\\BeerController.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Controllers\\BeerController.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Controllers\\BeerController.cs",
               "RelativeToolTip": "Backend\\Controllers\\BeerController.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAIwIEAAAANAAAA",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAIwG8AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-20T17:43:11.743Z",
               "EditorCaption": ""
@@ -118,40 +113,37 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "PeopleService.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Services\\PeopleService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Services\\PeopleService.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\PeopleService.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Services\\PeopleService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Services\\PeopleService.cs",
               "RelativeToolTip": "Backend\\Services\\PeopleService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-21T14:58:31.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-21T14:58:31.477Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "BeerUpdateDto.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerUpdateDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerUpdateDto.cs",
               "RelativeDocumentMoniker": "Backend\\DTOs\\BeerUpdateDto.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerUpdateDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\DTOs\\BeerUpdateDto.cs",
               "RelativeToolTip": "Backend\\DTOs\\BeerUpdateDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:38:20.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-20T17:38:20.456Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Beer.cs",
-              "DocumentMoniker": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Modelos\\Beer.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Modelos\\Beer.cs",
               "RelativeDocumentMoniker": "Backend\\Modelos\\Beer.cs",
-              "ToolTip": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Modelos\\Beer.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_09_CRUD_con_Entity_Framework\\Backend\\Backend\\Modelos\\Beer.cs",
               "RelativeToolTip": "Backend\\Modelos\\Beer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T21:38:50.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-19T21:38:50.443Z"
             }
           ]
         }
