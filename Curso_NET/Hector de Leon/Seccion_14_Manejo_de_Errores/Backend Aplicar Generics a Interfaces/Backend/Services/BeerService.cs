@@ -12,7 +12,7 @@ namespace Backend.Services
         private IRepository<Beer> _beerRepository;
         private IMapper _mapper;
 
-        public List<string> Errors { get; }
+        public List<string> Errors { get; } 
 
         public BeerService(
             [FromKeyedServices("beerRepository")] IRepository<Beer> beerRepository,
@@ -98,8 +98,6 @@ namespace Backend.Services
             return null;
         }
 
-        /// 78. Método búsqueda en capa Repositorio
-        // Acá hacemos validaciones relacioadas a las reglas de negocio
         public bool Validate(BeerInsertDto beerInsertDto)
         {
             if (_beerRepository.Search(b => b.Name == beerInsertDto.Name).Count() > 0)

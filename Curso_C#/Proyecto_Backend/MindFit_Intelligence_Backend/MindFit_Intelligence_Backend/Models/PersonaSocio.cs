@@ -1,0 +1,73 @@
+﻿using MindFit_Intelligence_Backend.Models.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MindFit_Intelligence_Backend.Models
+{
+    public class PersonaSocio
+    {
+        [Key]
+        public int IdUsuario { get; set; } // PK y FK a Usuario
+
+        public Usuario Usuario { get; set; } = null!; // Navegación a Usuario
+
+        // Datos personales
+        [Column(TypeName = "varchar(50)")]
+        public string Nombre { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(50)")]
+        public string Apellido { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(50)")]
+        public string Email { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(20)")]
+        public string? Telefono { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string? Direccion { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string? Ciudad { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string TipoDocumento { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(20)")]
+        public string NroDocumento { get; set; } = string.Empty;
+
+        public Genero? Genero { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? FechaNacimiento { get; set; }
+
+        // Datos del socio
+        [Column(TypeName = "varchar(50)")]
+        public string? ObraSocial { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string? Plan { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string? EstadoSocio { get; set; }
+
+        // Actividades
+        [Column(TypeName = "date")]
+        public DateTime? FechaInicioActividades { get; set; }
+
+        [Column(TypeName = "date")]
+        public DateTime? FechaFinActividades { get; set; }
+
+        // Notificaciones
+        [Column(TypeName = "date")]
+        public DateTime? FechaNotificacion { get; set; }
+
+        public bool? RespuestaNotificacion { get; set; }
+
+        [Column(TypeName = "varchar(100)")]
+        public string? Pregunta { get; set; }
+
+        [Column(TypeName = "varchar(100)")]
+        public string? Respuesta { get; set; }
+    }
+}

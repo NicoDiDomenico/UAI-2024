@@ -90,7 +90,9 @@ namespace Backend.Controllers
         {
             var beerDto = await _beerService.Delete(id);
 
-            return beerDto == null ? NotFound() : Ok(beerDto);
+            return beerDto == null 
+                ? NotFound()
+                : Ok(beerDto);
         }
     }
 }

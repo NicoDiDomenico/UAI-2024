@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qiOcZKPcZaA=",
+  "dgSpecHash": "RIHpHfMy1JE=",
   "success": true,
-  "projectFilePath": "C:\\GitHubProyectos\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
+  "projectFilePath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nicol\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\Nicol\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
