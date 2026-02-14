@@ -1,62 +1,74 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\",
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\dtos\\refreshtokenrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\dtos\\refreshtokenrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\refreshtokenrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\dtos\\tokenresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\dtos\\loginusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\loginusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\dtos\\tokenresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\tokenresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\automappers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\dtos\\updateusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\updateusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\usuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\dtos\\insertusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\insertusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:services\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\automappers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:automappers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\appsettings.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|d:\\github-actual\\uai-2024\\programacion\\jwt patrick god\\mindfitintelligence_backend_conrefreshtoken\\appsettings.json||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:appsettings.json||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\programacion\\mindfitintelligence_backend_conrefreshtoken\\dtos\\updateusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E1C3CD2-FCE6-449A-8BC9-F803936C67E8}|MindFitIntelligence_Backend.csproj|solutionrelative:dtos\\updateusuariodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,115 +86,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\IRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\IRepository.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\IRepository.cs",
-              "RelativeToolTip": "Repository\\IRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "LoginUsuarioDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\LoginUsuarioDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginUsuarioDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\LoginUsuarioDto.cs",
+              "RelativeToolTip": "DTOs\\LoginUsuarioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:00:53.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:34.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "RefreshTokenRequestDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\RefreshTokenRequestDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\RefreshTokenRequestDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\RefreshTokenRequestDto.cs",
-              "RelativeToolTip": "DTOs\\RefreshTokenRequestDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Models\\Usuario.cs",
-              "RelativeToolTip": "Models\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.047Z",
+              "WhenOpened": "2026-02-12T14:57:26.489Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.049Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "UsuarioService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\UsuarioService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\UsuarioService.cs",
               "RelativeDocumentMoniker": "Services\\UsuarioService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\UsuarioService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\UsuarioService.cs",
               "RelativeToolTip": "Services\\UsuarioService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-09T18:05:35.052Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\AuthService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\AuthService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\AuthService.cs",
               "RelativeToolTip": "Services\\AuthService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAQwCAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-09T18:05:35.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Automappers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Automappers\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Automappers\\MappingProfile.cs",
-              "RelativeToolTip": "Automappers\\MappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.059Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\UsuarioRepository.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\UsuarioRepository.cs",
               "RelativeDocumentMoniker": "Repository\\UsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\UsuarioRepository.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\UsuarioRepository.cs",
               "RelativeToolTip": "Repository\\UsuarioRepository.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAuwCYAAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-09T18:05:35.062Z",
               "EditorCaption": ""
@@ -190,64 +139,163 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\IAuthService.cs",
-              "RelativeToolTip": "Services\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\IRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Repository\\IRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.065Z",
+              "WhenOpened": "2026-02-09T20:00:53.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TokenResponseDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\TokenResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\TokenResponseDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\TokenResponseDto.cs",
+              "RelativeToolTip": "DTOs\\TokenResponseDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:35.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:34.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RefreshTokenRequestDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\RefreshTokenRequestDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\RefreshTokenRequestDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\RefreshTokenRequestDto.cs",
+              "RelativeToolTip": "DTOs\\RefreshTokenRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:35.043Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAIwBEAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:35.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "TokenResponseDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\TokenResponseDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\TokenResponseDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\TokenResponseDto.cs",
-              "RelativeToolTip": "DTOs\\TokenResponseDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Title": "UsuarioDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\UsuarioDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UsuarioDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\UsuarioDto.cs",
+              "RelativeToolTip": "DTOs\\UsuarioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.068Z"
+              "WhenOpened": "2026-02-11T22:43:12.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Automappers\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Automappers\\MappingProfile.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Automappers\\MappingProfile.cs",
+              "RelativeToolTip": "Automappers\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:35.059Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "UpdateUsuarioDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\UpdateUsuarioDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\UpdateUsuarioDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\UpdateUsuarioDto.cs",
-              "RelativeToolTip": "DTOs\\UpdateUsuarioDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAABdAAAA",
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "Models\\Usuario.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Models\\Usuario.cs",
+              "RelativeToolTip": "Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.071Z"
+              "WhenOpened": "2026-02-09T18:05:35.047Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
+              "Title": "InsertUsuarioDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\InsertUsuarioDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\InsertUsuarioDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\InsertUsuarioDto.cs",
+              "RelativeToolTip": "DTOs\\InsertUsuarioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T15:05:07.434Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateUsuarioDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\UpdateUsuarioDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\UpdateUsuarioDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\DTOs\\UpdateUsuarioDto.cs",
+              "RelativeToolTip": "DTOs\\UpdateUsuarioDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:35.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Services\\IAuthService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\IAuthService.cs",
+              "RelativeToolTip": "Services\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:05:35.065Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\appsettings.json",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\appsettings.json",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-02-09T18:05:35.074Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "ICommonService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\ICommonService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\ICommonService.cs",
               "RelativeDocumentMoniker": "Services\\ICommonService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Programacion\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\ICommonService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Programacion\\JWT Patrick God\\MindFitIntelligence_Backend_ConRefreshToken\\Services\\ICommonService.cs",
               "RelativeToolTip": "Services\\ICommonService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:05:35.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-09T18:05:35.077Z"
             }
           ]
         }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj": {}
+    "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj": {
+    "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
+        "projectUniqueName": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\Nicol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\obj\\",
+        "projectPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\ecost\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Nicol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ecost\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -93,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

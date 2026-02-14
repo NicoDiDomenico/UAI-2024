@@ -9,11 +9,18 @@ namespace MindFit_Intelligence_Backend.Automappers
     {
         public MappingProfile()
         {
-            // Usuario con PersonaResponsable y viceversa
-            CreateMap<Usuario, UsuarioResponsableDto>();
+            // Entidad -> DTO
+            CreateMap<Usuario, UsuarioResponsableDto>()
+                .ForMember(
+                    dest => dest.PersonaResponsableDto,
+                    opt => opt.MapFrom(src => src.PersonaResponsable)
+                );
             CreateMap<PersonaResponsable, PersonaResponsableDto>();
+
+            // DTO -> Entidad
             CreateMap<UsuarioResponsableInsertDto, Usuario>();
             CreateMap<UsuarioResponsableUpdateDto, Usuario>();
+            CreateMap<PersonaResponsableInsertDto, PersonaResponsable>();
             CreateMap<PersonaResponsableUpdateDto, PersonaResponsable>();
         }
     }

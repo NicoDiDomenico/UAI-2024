@@ -26,8 +26,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
@@ -38,8 +42,7 @@
               "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\PersonaService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-07T19:32:14.365Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-07T19:32:14.365Z"
             },
             {
               "$type": "Document",
@@ -64,8 +67,7 @@
               "RelativeToolTip": "MindFit_Intelligence_Backend\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-07T19:15:34.586Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-07T19:15:34.586Z"
             },
             {
               "$type": "Document",
@@ -77,12 +79,7 @@
               "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\PersonaController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-07T19:25:38.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "WhenOpened": "2026-02-07T19:25:38.591Z"
             }
           ]
         }

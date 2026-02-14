@@ -17,14 +17,7 @@ namespace MindFitIntelligence_Backend.Services
         private IRepository<Usuario> _usuarioRepository;
         private IMapper _mapper;
 
-        public AuthService(IConfiguration configuration,
-            [FromKeyedServices("usuarioRepository")] IRepository<Usuario> usuarioRepository,
-            IMapper mapper)
-        {
-            _configuration = configuration;
-            _usuarioRepository = usuarioRepository;
-            _mapper = mapper;
-        }
+         
 
         public async Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request)
         {

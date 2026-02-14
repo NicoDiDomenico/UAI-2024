@@ -6,14 +6,10 @@ namespace MindFit_Intelligence_Backend.DTOs.Usuarios
     {
         public PersonaResponsableInsertDto? PersonaResponsableInsertDto { get; set; }
 
-        public DateTime FechaRegistro { get; set; } = DateTime.Now;
-
         #region JWT
         public string Username { get; set; } = null!;
-        public string PasswordHash { get; set; } = null!;
+        public string Password { get; set; } = null!;
         public string Rol { get; set; } = null!;
-        public string? RefreshToken { get; set; }
-        public DateTime? RefreshTokenExpiryTime { get; set; }
         #endregion
     }
 }

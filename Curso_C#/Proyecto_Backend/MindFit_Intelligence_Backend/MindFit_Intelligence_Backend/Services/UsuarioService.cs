@@ -10,21 +10,21 @@ namespace MindFit_Intelligence_Backend.Services
 {
     public class UsuarioService : ICommonService<UsuarioResponsableDto, UsuarioResponsableInsertDto, UsuarioResponsableUpdateDto>
     {
-        private ICommonRepository<Usuario> _usuarioRepository;
+        private IUsuarioRepository _usuarioRepository;
         private IPersonaResponsableRepository _personaResponsableRepository;
         private IMapper _mapper;
-        //private IAuthService _authService; // Servicio de autenticación (JWT)
+        private IAuthService _authService; // Servicio de autenticación (JWT)
 
         public UsuarioService(
-            //[FromKeyedServices("authService")] IAuthService authService,
-            ICommonRepository<Usuario> usuarioRepository,
+            IAuthService authService,
+            IUsuarioRepository usuarioRepository,
             IPersonaResponsableRepository personaResponsableRepository,
             IMapper mapper)
         {
             _usuarioRepository = usuarioRepository;
             _personaResponsableRepository = personaResponsableRepository;
             _mapper = mapper;
-            //_authService = authService;
+            _authService = authService;
         }
 
         public async Task<IEnumerable<UsuarioResponsableDto>> Get()
@@ -48,12 +48,25 @@ namespace MindFit_Intelligence_Backend.Services
             return usuarioDto;
         }
 
-        public Task<UsuarioResponsableDto> Add(UsuarioResponsableInsertDto insertUsuarioDto)
+        public async Task<UsuarioResponsableDto> Add(UsuarioResponsableInsertDto usuarioResponsableInsertDto)
         {
-            throw new NotImplementedException();
+            Usuario usuarioResponsable = _authService.SetPasswordHash(usuarioResponsableInsertDto);
+
+            PersonaResponsable responsable = _mapper.Map<PersonaResponsable>(usuarioResponsableInsertDto.PersonaResponsableInsertDto);
+
+            // Navegacion Bidreccional para EF sepa que 1..1 y asigne el mimsmo IdUsuario a ambas tablas
+            usuarioResponsable.PersonaResponsable = responsable;
+            responsable.Usuario = usuarioResponsable;
+
+            await _usuarioRepository.Add(usuarioResponsable);
+            await _usuarioRepository.Save();
+
+            UsuarioResponsableDto usuarioResponsableDto = _mapper.Map<UsuarioResponsableDto>(usuarioResponsable);
+
+            return usuarioResponsableDto;
         }
 
-        public async Task<UsuarioResponsableDto?> Update(int id, UsuarioResponsableUpdateDto usuarioUpdateDto)
+        public async Task<UsuarioResponsableDto?> Update(int id, UsuarioResponsableUpdateDto usuarioResponsableUpdateDto)
         {
             // chequear con FluentValidation que usuarioUpdateDto.PersonaResponsableUpdateDt no sea null
             Usuario? usuario = await _usuarioRepository.GetById(id);
@@ -62,10 +75,9 @@ namespace MindFit_Intelligence_Backend.Services
             if (usuario == null || personaResponsable == null)
                 return null;
 
-            _mapper.Map(usuarioUpdateDto, usuario);
-            _mapper.Map(usuarioUpdateDto.PersonaResponsableUpdateDto, personaResponsable);
+            _mapper.Map(usuarioResponsableUpdateDto, usuario);
+            _mapper.Map(usuarioResponsableUpdateDto.PersonaResponsableUpdateDto, personaResponsable);
 
-            // _usuarioRepository.Update(usuario); Ya está trackeado
             await _usuarioRepository.Save();
 
             UsuarioResponsableDto usuarioResponsableDto = _mapper.Map<UsuarioResponsableDto>(usuario);

@@ -147,5 +147,113 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "AuthenticatedOnlyEndpoint",
+    "RelativePath": "api/Usuario/autenticado",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "api/Usuario/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginUsuarioResponsableDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.LoginUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.TokenResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Usuario/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "refreshTokenRequestDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.RefreshTokenRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.TokenResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "Register",
+    "RelativePath": "api/Usuario/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioResponsableInsertDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioResponsableInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioResponsableDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "AdminOnlyEndpoint",
+    "RelativePath": "api/Usuario/soloAdmin",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "ResponsableOnlyEndpoint",
+    "RelativePath": "api/Usuario/soloResponsable",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

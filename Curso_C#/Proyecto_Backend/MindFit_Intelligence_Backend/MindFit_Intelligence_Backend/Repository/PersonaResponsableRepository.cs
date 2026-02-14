@@ -39,5 +39,11 @@ namespace MindFit_Intelligence_Backend.Repository
 
         public async Task Save()
             => await _context.SaveChangesAsync();
+
+        public async Task<PersonaResponsable?> GetByEmail(string email)
+        {
+            return await _context.PersonaResponsables
+                .FirstOrDefaultAsync(p => p.Email == email);
+        }
     }
 }

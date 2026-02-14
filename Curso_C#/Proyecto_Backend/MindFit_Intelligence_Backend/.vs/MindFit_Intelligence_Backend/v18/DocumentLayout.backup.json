@@ -1,74 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\personaresponsablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\personaresponsablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\usuarios\\forgotpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\usuarios\\forgotpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\usuarios\\usuarioresponsableupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\usuarios\\usuarioresponsableupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\personaresponsablerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\personaresponsablerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\personas\\personasocioupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\personas\\personasocioupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\personas\\personaresponsableupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\personas\\personaresponsableupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\usuarios\\resetpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\usuarios\\resetpasswordrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\personas\\personaresponsabledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\personas\\personaresponsabledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\email\\smtpemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\email\\smtpemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\dtos\\personas\\personaresponsableinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\personas\\personaresponsableinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Migrations\\20260210171414_InitDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:MindFit_Intelligence_Backend\\Migrations\\20260210171414_InitDB.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\automappers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\automappers\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\models\\mindfitintelligencecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\models\\mindfitintelligencecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\models\\personasocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\models\\personasocio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\models\\personaresponsable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\models\\personaresponsable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\personaresponsablerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\personaresponsablerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,86 +54,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PersonaResponsableController.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:41:11.516Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UsuarioResponsableUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Usuarios\\UsuarioResponsableUpdateDto.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Usuarios\\UsuarioResponsableUpdateDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Usuarios\\UsuarioResponsableUpdateDto.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Usuarios\\UsuarioResponsableUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:35:13.072Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PersonaSocioUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaSocioUpdateDto.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaSocioUpdateDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaSocioUpdateDto.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaSocioUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:35:04.336Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "PersonaResponsableDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableDto.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableDto.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:32:54.452Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PersonaResponsableInsertDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableInsertDto.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableInsertDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableInsertDto.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableInsertDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:32:49.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PersonaResponsableUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableUpdateDto.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableUpdateDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableUpdateDto.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Personas\\PersonaResponsableUpdateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:31:34.924Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
@@ -165,145 +63,140 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Program.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Program.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABAAAAACAAAAAAAAAA==",
+              "Title": "ForgotPasswordRequestDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ForgotPasswordRequestDto.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ForgotPasswordRequestDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ForgotPasswordRequestDto.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ForgotPasswordRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:52:11.41Z",
+              "WhenOpened": "2026-02-13T22:59:19.066Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs*",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs*",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAcwGAAAAAKAAAAAAAAAA==",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAswIYAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:27:53.041Z",
+              "WhenOpened": "2026-02-13T22:44:57.477Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "20260210171414_InitDB.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Migrations\\20260210171414_InitDB.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Migrations\\20260210171414_InitDB.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Migrations\\20260210171414_InitDB.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Migrations\\20260210171414_InitDB.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\IEmailService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\IEmailService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\IEmailService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T17:14:14.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MindFitIntelligenceContext.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\MindFitIntelligenceContext.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Models\\MindFitIntelligenceContext.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\MindFitIntelligenceContext.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Models\\MindFitIntelligenceContext.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAwwBkAAAB+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T13:31:06.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PersonaResponsable.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\PersonaResponsable.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Models\\PersonaResponsable.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\PersonaResponsable.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Models\\PersonaResponsable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T13:26:53.541Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PersonaSocio.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\PersonaSocio.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Models\\PersonaSocio.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\PersonaSocio.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Models\\PersonaSocio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T01:44:45.176Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Automappers\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Automappers\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Automappers\\MappingProfile.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Automappers\\MappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-10T00:39:27.446Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\Usuario.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Models\\Usuario.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\Usuario.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Models\\Usuario.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBsAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T19:24:13.406Z",
+              "WhenOpened": "2026-02-13T22:21:10.783Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "UsuarioService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAwwA8AAAAKAAAAAAAAAA==",
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\appsettings.json",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\appsettings.json",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\appsettings.json",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\appsettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-13T22:12:15.314Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResetPasswordRequestDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ResetPasswordRequestDto.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ResetPasswordRequestDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ResetPasswordRequestDto.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Usuarios\\ResetPasswordRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T18:56:41.865Z",
+              "WhenOpened": "2026-02-13T21:25:25.532Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "UsuarioRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\UsuarioRepository.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\UsuarioRepository.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\UsuarioRepository.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\UsuarioRepository.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBsAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T19:14:55.536Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 3,
               "Title": "PersonaResponsableRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\PersonaResponsableRepository.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\PersonaResponsableRepository.cs",
               "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\PersonaResponsableRepository.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\PersonaResponsableRepository.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\PersonaResponsableRepository.cs",
               "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\PersonaResponsableRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAA3wBsAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAC4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T20:02:12.012Z",
+              "WhenOpened": "2026-02-13T21:00:14.938Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\AuthService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\AuthService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\AuthService.cs",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAnwPUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-11T13:59:18.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SmtpEmailService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\Email\\SmtpEmailService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\Email\\SmtpEmailService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\Email\\SmtpEmailService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\Email\\SmtpEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T22:23:21.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Program.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Program.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Program.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T22:28:53.21Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Models\\Usuario.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\Usuario.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Models\\Usuario.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAA4wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T20:56:59.621Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\UsuarioService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-09T18:56:41.865Z"
             }
           ]
         }

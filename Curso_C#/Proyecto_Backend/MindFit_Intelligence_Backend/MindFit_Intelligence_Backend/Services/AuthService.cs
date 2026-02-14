@@ -1,29 +1,268 @@
-﻿using MindFit_Intelligence_Backend.DTOs;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace MindFit_Intelligence_Backend.Services
 {
     public class AuthService : IAuthService
     {
-        public string CreateToken(Usuario user)
+        private readonly IConfiguration _configuration;
+        private IUsuarioRepository _usuarioRepository;
+        private readonly IPersonaResponsableRepository _personaResponsableRepository;
+        private IMapper _mapper;
+        private readonly IEmailService _emailService;
+
+        public AuthService(IConfiguration configuration,
+            IUsuarioRepository usuarioRepository,
+            IPersonaResponsableRepository personaResponsableRepository,
+            IMapper mapper,
+            IEmailService emailService)
         {
-            throw new NotImplementedException();
+            _configuration = configuration;
+            _usuarioRepository = usuarioRepository;
+            _personaResponsableRepository = personaResponsableRepository;
+            _mapper = mapper;
+            _emailService = emailService;
         }
 
-        public Task<TokenResponseDto?> Login(LoginUsuarioDto entityLogin)
+        #region Register
+        public Usuario SetPasswordHash(UsuarioResponsableInsertDto usuarioResponsableInsertDto)
         {
-            throw new NotImplementedException();
+            Usuario usuario = _mapper.Map<Usuario>(usuarioResponsableInsertDto);
+
+            usuario.PasswordHash = new PasswordHasher<Usuario>()
+                .HashPassword(usuario, usuarioResponsableInsertDto.Password);
+
+            return usuario;
+        }
+        #endregion
+
+        #region Login
+        public string CreateToken(Usuario usuario)
+        {
+            // (1) PAYLOAD → datos (claims) que van dentro del token
+            var claims = new List<Claim>
+            {
+                // Guardamos el nombre de usuario dentro del token
+                new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString()),
+                new Claim(ClaimTypes.Name, usuario.Username),
+                new Claim(ClaimTypes.Role, usuario.Rol)
+                // Podrías agregar más claims, por ejemplo:
+                // new Claim(ClaimTypes.Role, "Entrenador");
+                // new Claim(ClaimTypes.Email, user.Email);
+            };
+
+            // (2) SIGNATURE → se usa esta CLAVE SECRETA para firmar el token
+            var key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration.GetValue<string>("AppSettings:Token")!)
+            );
+
+            // (3) (HEADER + (2) SIGNATURE) → define algoritmo y credenciales de firma
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
+
+            // (4) (1) PAYLOAD + (3) (HEADER + SIGNATURE) → se construye el token completo
+            var tokenDescriptor = new JwtSecurityToken(
+                issuer: _configuration.GetValue<string>("AppSettings:Issuer"), // quién emite el token (tu API)
+                audience: _configuration.GetValue<string>("AppSettings:Audience"), // audience: quién va a consumirlo (el cliente, ej: tu frontend)
+                claims: claims, // claims: los datos del usuario que pusimos antes
+                expires: DateTime.UtcNow.AddDays(1), // expires: cuándo vence el token (en este caso, dentro de 1 día)
+                signingCredentials: creds //signingCredentials: cómo se firma el token (clave + algoritmo)
+            );
+
+            // (5) Combina HEADER + PAYLOAD + SIGNATURE (4) → genera el token final en formato JWT
+            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
 
-        public Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request)
+        private string GenerateRefreshToken()
         {
-            throw new NotImplementedException();
+            var randomNumber = new byte[32];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(randomNumber);
+            return Convert.ToBase64String(randomNumber);
         }
 
-        public Task<UsuarioResponsableDto> Register(UsuarioResponsableInsertDto entityInsert)
+        private async Task<string> GenerateAndSaveRefreshTokenAsync(Usuario usuario)
         {
-            throw new NotImplementedException();
+            var refreshToken = GenerateRefreshToken();
+            usuario.RefreshToken = refreshToken;
+            usuario.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            await _usuarioRepository.Save();
+            return refreshToken;
         }
+
+        private async Task<TokenResponseDto> CreateTokenResponse(Usuario usuario)
+        {
+            var response = new TokenResponseDto
+            {
+                // El AccessToken sirve para autenticar al usuario en cada petición
+                AccessToken = CreateToken(usuario),
+
+                //  El RefreshToken sirve para obtener un nuevo AccessToken cuando este expire
+                RefreshToken = await GenerateAndSaveRefreshTokenAsync(usuario), 
+            };
+            return response;
+        }
+
+        public async Task<TokenResponseDto?> LoginAsync(LoginUsuarioDto loginUsuarioDto)
+        {
+            // Busco el usuario por username
+            Usuario? usuario = await _usuarioRepository.GetByUsername(loginUsuarioDto.Username);
+
+            if (usuario == null)
+                return null;
+
+            // Verifico la contraseña
+            var result = new PasswordHasher<Usuario>()
+                .VerifyHashedPassword(usuario, usuario.PasswordHash, loginUsuarioDto.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+                return null; // contraseña incorrecta
+
+            // Usando Resfreh JWT, se Genera el AccessToken + RefreshToken para el usuario
+            TokenResponseDto response = await CreateTokenResponse(usuario); 
+
+            return response;
+        }
+        #endregion
+
+        #region Refresh Token
+        public async Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request)
+        {
+            Usuario? usuario = await ValidateRefreshTokenAsync(request.IdUsuario, request.RefreshToken);
+            if (usuario == null)
+                return null; // token inválido o expirado
+            return await CreateTokenResponse(usuario);
+        }
+
+        private async Task<Usuario?> ValidateRefreshTokenAsync(int userId, string refreshToken)
+        {
+            Usuario? usuario = await _usuarioRepository.GetById(userId);
+            if (usuario == null
+                || usuario.RefreshToken != refreshToken
+                || usuario.RefreshTokenExpiryTime <= DateTime.UtcNow)
+                return null; // token inválido o expirado
+            return usuario;
+        }
+        #endregion
+
+        #region Recuperar Resetear Cambiar Clave
+        private static string Sha256Hex(string input)
+        {
+            // Convierte el texto en bytes (formato que entiende el algoritmo)
+            byte[] bytes = SHA256.HashData(Encoding.UTF8.GetBytes(input));
+
+            // Convierte el hash en texto hexadecimal para poder guardarlo en la base
+            return Convert.ToHexString(bytes); // siempre da 64 caracteres
+        }
+        private static string GenerateSecureToken()
+        {
+            // Genera 32 bytes completamente aleatorios y seguros
+            byte[] bytes = RandomNumberGenerator.GetBytes(32);
+
+            // Los convierte a texto para poder mandarlos por mail o link
+            return Convert.ToBase64String(bytes);
+        }
+
+        public async Task ForgotPasswordAsync(ForgotPasswordRequestDto dto)
+        {
+            string email = dto.Email;
+
+            PersonaResponsable? persona = await _personaResponsableRepository.GetByEmail(email);
+            if (persona == null) return;
+
+            Usuario? usuario = await _usuarioRepository.GetById(persona.IdUsuario);
+            if (usuario == null) return;
+
+            // Token REAL que se manda por mail Usuario
+            string tokenPlano = GenerateSecureToken();
+
+            // Hash del token que se guarda en la base de datos para comparar con el que mande el usuario
+            string tokenHasheado = Sha256Hex(tokenPlano); 
+
+            usuario.PasswordResetTokenHash = tokenHasheado; 
+            usuario.PasswordResetTokenExpiryTime = DateTime.UtcNow.AddMinutes(15);
+
+            usuario.RefreshToken = null;
+            usuario.RefreshTokenExpiryTime = null;
+
+            await _usuarioRepository.Save();
+
+            // 1) Armamos el link al FRONT (pantalla reset)
+            var frontendBaseUrl = _configuration["AppSettings:FrontendBaseUrl"]!.TrimEnd('/');
+            var resetLink = $"{frontendBaseUrl}/reset-password?token={Uri.EscapeDataString(tokenPlano)}";
+
+            // 2) Email HTML simple
+            var subject = "Recuperación de contraseña - MindFit";
+            var html = $@"
+                <h2>Recuperación de contraseña</h2>
+                <p>Recibimos una solicitud para restablecer tu contraseña.</p>
+                <p>Hacé clic en este enlace para elegir una nueva contraseña (vence en 15 minutos):</p>
+                <p><a href=""{resetLink}"">Restablecer contraseña</a></p>
+                <p>Si vos no pediste esto, ignorá este correo.</p>
+            ";
+
+            // 3) Enviar
+            await _emailService.SendAsync(persona.Email, subject, html);
+        }
+
+        // Lo que se hace ne este metodo:
+        // ResetPasswordAsync: El usuario hace clic en el link del mail, ingresa su nueva contraseña y el token que viene en el link. El backend recibe ese token, lo hashea y busca un usuario que tenga ese hash guardado. Si lo encuentra y el token no expiró, le permite cambiar la contraseña.
+        public async Task<bool> ResetPasswordAsync(ResetPasswordRequestDto dto)
+        {
+            string tokenHasheado = Sha256Hex(dto.TokenPlano);
+
+            Usuario? usuario = await _usuarioRepository.GetByPasswordResetTokenHash(tokenHasheado);
+            if (usuario == null) 
+                return false;
+
+            if (usuario.PasswordResetTokenExpiryTime == null ||
+                usuario.PasswordResetTokenExpiryTime <= DateTime.UtcNow)
+                return false;
+
+            // PasswordHasher lo habiamos usado tanto en el Register como en el Login 
+            usuario.PasswordHash = new PasswordHasher<Usuario>()
+                .HashPassword(usuario, dto.NewPassword);
+
+            // Invalida el token de reseteo para que no se pueda usar dos veces
+            usuario.PasswordResetTokenHash = null;
+            usuario.PasswordResetTokenExpiryTime = null;
+
+            // El RefreshToken se asignará luego en el Login 
+            usuario.RefreshToken = null;
+            usuario.RefreshTokenExpiryTime = null;
+
+            await _usuarioRepository.Save();
+            return true;
+        }
+
+        public async Task<bool> ChangePasswordAsync(int userId, ChangePasswordRequestDto dto)
+        {
+            var usuario = await _usuarioRepository.GetById(userId);
+            if (usuario == null) return false;
+
+            var result = new PasswordHasher<Usuario>()
+                .VerifyHashedPassword(usuario, usuario.PasswordHash, dto.CurrentPassword);
+
+            if (result == PasswordVerificationResult.Failed)
+                return false;
+
+            usuario.PasswordHash = new PasswordHasher<Usuario>()
+                .HashPassword(usuario, dto.NewPassword);
+
+            usuario.RefreshToken = null;
+            usuario.RefreshTokenExpiryTime = null;
+
+            await _usuarioRepository.Save();
+            return true;
+        }
+        #endregion
     }
 }

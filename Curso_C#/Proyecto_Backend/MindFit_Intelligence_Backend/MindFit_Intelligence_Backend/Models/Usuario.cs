@@ -13,23 +13,34 @@ namespace MindFit_Intelligence_Backend.Models
 
         public PersonaSocio? PersonaSocio { get; set; } // Navegación a PersonaSocio
 
-        /*
-        [Column(TypeName = "varchar(50)")]
-        public string NombreUsuario { get; set; } = string.Empty;
-
-        [Column(TypeName = "varchar(255)")]
-        public string ContrasenaHash { get; set; } = string.Empty;
-        */
-
         [Column(TypeName = "date")]
         public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
         #region JWT
+
+        [Column(TypeName = "varchar(50)")]
         public string Username { get; set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty; // PasswordHash es la contraseña encriptada.
+
+        [Column(TypeName = "varchar(255)")]
+        public string PasswordHash { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(30)")]
         public string Rol { get; set; } = string.Empty;
+
+        [Column(TypeName = "varchar(512)")]
         public string? RefreshToken { get; set; }
+
+        [Column(TypeName = "datetime2")]
         public DateTime? RefreshTokenExpiryTime { get; set; }
         #endregion
+
+        #region Password Reset
+        [Column(TypeName = "varchar(64)")]
+        public string? PasswordResetTokenHash { get; set; }
+
+        [Column(TypeName = "datetime2")]
+        public DateTime? PasswordResetTokenExpiryTime { get; set; }
+        #endregion
+
     }
 }
