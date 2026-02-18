@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MindFit_Intelligence_Backend.Models
 {
+    [Index(nameof(Username), IsUnique = true)]
     public class Usuario
     {
         [Key]
@@ -25,7 +27,7 @@ namespace MindFit_Intelligence_Backend.Models
         public string PasswordHash { get; set; } = string.Empty;
 
         [Column(TypeName = "varchar(30)")]
-        public string Rol { get; set; } = string.Empty;
+        public string? Rol { get; set; } = string.Empty; // Esto lo voy a sacar cuando tenga el Modulo de Seguridad implementado
 
         [Column(TypeName = "varchar(512)")]
         public string? RefreshToken { get; set; }
@@ -41,6 +43,6 @@ namespace MindFit_Intelligence_Backend.Models
         [Column(TypeName = "datetime2")]
         public DateTime? PasswordResetTokenExpiryTime { get; set; }
         #endregion
-
+        public ICollection<UsuarioGrupo> UsuarioGrupos { get; set; } = new List<UsuarioGrupo>();
     }
 }

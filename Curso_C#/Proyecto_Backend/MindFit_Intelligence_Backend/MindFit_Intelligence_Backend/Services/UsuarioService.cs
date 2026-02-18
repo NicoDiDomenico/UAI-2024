@@ -1,14 +1,17 @@
-﻿using MindFit_Intelligence_Backend.Models;
-using MindFit_Intelligence_Backend.Repository;
-using MindFit_Intelligence_Backend.DTOs.Usuarios;
-using MindFit_Intelligence_Backend.DTOs.Personas;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.DTOs.Grupos;
+using MindFit_Intelligence_Backend.DTOs.Permisos;
+using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Usuarios;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository;
+using System.Collections.Generic;
 
 namespace MindFit_Intelligence_Backend.Services
 {
-    public class UsuarioService : ICommonService<UsuarioResponsableDto, UsuarioResponsableInsertDto, UsuarioResponsableUpdateDto>
+    public class UsuarioService : IUsuarioService
     {
         private IUsuarioRepository _usuarioRepository;
         private IPersonaResponsableRepository _personaResponsableRepository;
@@ -27,44 +30,71 @@ namespace MindFit_Intelligence_Backend.Services
             _authService = authService;
         }
 
-        public async Task<IEnumerable<UsuarioResponsableDto>> Get()
+        public async Task<Usuario?> GetById(int id)
         {
-            IEnumerable<Usuario> usuarios = await _usuarioRepository.Get();
-
-            IEnumerable<UsuarioResponsableDto> usuariosDto = _mapper.Map<IEnumerable<UsuarioResponsableDto>>(usuarios);
-
-            return usuariosDto;
+            return await _usuarioRepository.GetById(id);
         }
 
-        public async Task<UsuarioResponsableDto?> GetById(int id)
+        // Acá el front obtiene info esencial para la grilla de usuarios, después con el método GetUsuarioResponsableById obtiene el detalle completo del usuario responsable seleccionado
+        public async Task<List<UsuarioGridDto>> GetUsuariosGrid()
         {
-            Usuario? usuario = await _usuarioRepository.GetById(id);
+            List<Usuario> usuarios = await _usuarioRepository.GetUsuariosResponsablesYSocios();
 
-            if (usuario is null)
-                return null;
+            List < UsuarioGridDto > usuariosGridDto = _mapper.Map<List<UsuarioGridDto>>(usuarios);
 
-            UsuarioResponsableDto usuarioDto = _mapper.Map<UsuarioResponsableDto>(usuario);
+            return usuariosGridDto;
+        }
+
+        // Con este metodo el front obtiene toda la info del usuario responsable cuando lo selecciona de la grilla
+        public async Task<UsuarioDto?> GetUsuarioById(int id)
+        {
+            Usuario? usuario = await _usuarioRepository.GetUsuarioDetalleConGruposPermisosById(id);
+            if (usuario is null) return null;
+
+            // AutoMapper se encarga de recorrer los objetos y colecciones anidadas
+            UsuarioDto usuarioDto = _mapper.Map<UsuarioDto>(usuario);
 
             return usuarioDto;
         }
 
-        public async Task<UsuarioResponsableDto> Add(UsuarioResponsableInsertDto usuarioResponsableInsertDto)
+        public async Task<UsuarioDto> Add(UsuarioInsertDto dto)
         {
-            Usuario usuarioResponsable = _authService.SetPasswordHash(usuarioResponsableInsertDto);
+            // 1) TipoPersona válido
+            if (dto.TipoPersona != "Responsable" && dto.TipoPersona != "Socio")
+                throw new Exception("TipoPersona inválido");
 
-            PersonaResponsable responsable = _mapper.Map<PersonaResponsable>(usuarioResponsableInsertDto.PersonaResponsableInsertDto);
+            // 2) Exactamente una persona
+            bool tieneResp = dto.PersonaResponsable != null;
+            bool tieneSocio = dto.PersonaSocio != null;
 
-            // Navegacion Bidreccional para EF sepa que 1..1 y asigne el mimsmo IdUsuario a ambas tablas
-            usuarioResponsable.PersonaResponsable = responsable;
-            responsable.Usuario = usuarioResponsable;
+            if (!tieneResp && !tieneSocio)
+                throw new Exception("Debe venir PersonaResponsable o PersonaSocio");
 
-            await _usuarioRepository.Add(usuarioResponsable);
+            if (tieneResp && tieneSocio)
+                throw new Exception("No puede tener ambas personas");
+
+            // 3) Coherencia con TipoPersona
+            if (dto.TipoPersona == "Responsable" && !tieneResp)
+                throw new Exception("Falta PersonaResponsable");
+
+            if (dto.TipoPersona == "Socio" && !tieneSocio)
+                throw new Exception("Falta PersonaSocio");
+
+            Usuario usuario = _mapper.Map<Usuario>(dto);
+
+            _authService.SetPasswordHash(usuario, dto);
+
+            await _usuarioRepository.Add(usuario);
             await _usuarioRepository.Save();
 
-            UsuarioResponsableDto usuarioResponsableDto = _mapper.Map<UsuarioResponsableDto>(usuarioResponsable);
+            UsuarioDto? usuarioDto = await GetUsuarioById(usuario.IdUsuario);
 
-            return usuarioResponsableDto;
+            if (usuarioDto == null)
+                throw new Exception("Error al obtener el usuario creado");
+
+            return usuarioDto!;
         }
+
 
         public async Task<UsuarioResponsableDto?> Update(int id, UsuarioResponsableUpdateDto usuarioResponsableUpdateDto)
         {

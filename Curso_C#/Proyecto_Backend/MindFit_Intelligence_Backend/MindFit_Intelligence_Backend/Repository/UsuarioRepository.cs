@@ -12,25 +12,46 @@ namespace MindFit_Intelligence_Backend.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Usuario>> Get()
-        {
-            IEnumerable<Usuario> usuario = await _context.Usuarios.ToListAsync();
-            return usuario;
-        }
-
         public async Task<Usuario?> GetById(int id)
         {
             Usuario? usuario = await _context.Usuarios.FindAsync(id);
             return usuario;
         }
+
+        // Aca traigo tanto los Responsables como los Socios
+        public async Task<List<Usuario>> GetUsuariosResponsablesYSocios()
+        {
+            return await _context.Usuarios
+                .AsNoTracking()
+                .Include(u => u.PersonaResponsable)
+                .Include(u => u.PersonaSocio)
+                // NO incluir UsuarioGrupos
+                .ToListAsync();
+        }
+
+        public async Task<Usuario?> GetUsuarioDetalleConGruposPermisosById(int id)
+        {
+            Usuario? usuario = await _context.Usuarios
+                .AsNoTracking()
+                .Include(u => u.PersonaResponsable)
+                .Include(u => u.PersonaSocio)
+                .Include(u => u.UsuarioGrupos)
+                    .ThenInclude(ug => ug.Grupo)
+                        .ThenInclude(g => g.GrupoPermisos)
+                            .ThenInclude(gp => gp.Permiso)
+                .FirstOrDefaultAsync(u => u.IdUsuario == id);
+
+            return usuario;
+        }
+
+        public async Task Add(Usuario entity)
+            => await _context.Usuarios.AddAsync(entity);
+
         public async Task<Usuario?> GetByUsername(string username)
         {
             return await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.Username == username);
         }
-
-        public async Task Add(Usuario entity)
-            => await _context.Usuarios.AddAsync(entity);
 
         // No se que hacer con este metodo porque no lo estoy usando ya que siempre uso el metodo GetById y ya queda el objeto en el contexto para mapearlo y luego guardarlo.
         public void Update(Usuario entity)
@@ -50,5 +71,7 @@ namespace MindFit_Intelligence_Backend.Repository
             return await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.PasswordResetTokenHash == tokenHasheado);
         }
+
+
     }
 }

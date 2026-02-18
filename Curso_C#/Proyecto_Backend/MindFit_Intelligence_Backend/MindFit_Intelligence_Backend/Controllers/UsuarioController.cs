@@ -12,13 +12,13 @@ namespace MindFit_Intelligence_Backend.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly IConfiguration _configuration; // JWT
-        private ICommonService<UsuarioResponsableDto, UsuarioResponsableInsertDto, UsuarioResponsableUpdateDto> _usuarioService;
+        private IUsuarioService _usuarioService;
         private IAuthService _authService;
         public static Usuario _unUsuario = new();
 
         public UsuarioController(
             IConfiguration configuration,
-            ICommonService<UsuarioResponsableDto, UsuarioResponsableInsertDto, UsuarioResponsableUpdateDto> usuarioService,
+            IUsuarioService usuarioService,
             IAuthService authService
             )
         {
@@ -27,25 +27,25 @@ namespace MindFit_Intelligence_Backend.Controllers
             _authService = authService;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UsuarioResponsableDto>>> Get()
+        [HttpGet("grilla")]
+        public async Task<ActionResult<List<UsuarioGridDto>>> GetUsuariosGrid()
         {
-            var usuarios = await _usuarioService.Get();
+            List<UsuarioGridDto> usuariosGridDto = await _usuarioService.GetUsuariosGrid();
 
-            return Ok(usuarios);
+            return Ok(usuariosGridDto);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<UsuarioResponsableDto?>> GetById(int id)
+        public async Task<ActionResult<UsuarioDto?>> GetUsuarioById(int id)
         {
-            var UsuarioResponsableDto = await _usuarioService.GetById(id);
+            UsuarioDto? usuarioDetalleDto = await _usuarioService.GetUsuarioById(id);
 
-            return UsuarioResponsableDto == null
+            return usuarioDetalleDto == null
                 ? NotFound()
-                : Ok(UsuarioResponsableDto);
+                : Ok(usuarioDetalleDto);
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("responsables/{id}")]
         public async Task<ActionResult<UsuarioResponsableDto?>> Update(int id, UsuarioResponsableUpdateDto usuarioResponsableUpdateDto)
         {
             UsuarioResponsableDto? usuarioResponsableDto = await _usuarioService.Update(id, usuarioResponsableUpdateDto);
@@ -53,7 +53,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             return usuarioResponsableDto == null ? NotFound() : Ok(usuarioResponsableDto);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("responsables/{id}")]
         public async Task<ActionResult<UsuarioResponsableDto>> Delete(int id)
         {
             var UsuarioResponsableDto = await _usuarioService.Delete(id);
@@ -63,26 +63,26 @@ namespace MindFit_Intelligence_Backend.Controllers
 
         #region JWT
         [HttpPost("register")]
-        public async Task<ActionResult<UsuarioResponsableDto>> Register(UsuarioResponsableInsertDto usuarioResponsableInsertDto)
+        public async Task<ActionResult<UsuarioDto>> Register(UsuarioInsertDto usuarioInsertDto)
         {
-            UsuarioResponsableDto UsuarioResponsableDto = await _usuarioService.Add(usuarioResponsableInsertDto);
+            UsuarioDto usuarioDto = await _usuarioService.Add(usuarioInsertDto);
 
             return CreatedAtAction(
-                nameof(GetById),
-                new { id = UsuarioResponsableDto.IdUsuario },
-                UsuarioResponsableDto
+                nameof(GetUsuarioById),
+                new { id = usuarioDto.IdUsuario },
+                usuarioDto
             );
         }
         
         [HttpPost("login")]
-        public async Task<ActionResult<TokenResponseDto>> Login(LoginUsuarioDto loginUsuarioResponsableDto)
+        public async Task<ActionResult<TokenResponseDto>> Login(LoginUsuarioDto loginUsuarioDto)
         {
-            TokenResponseDto? responde = await _authService.LoginAsync(loginUsuarioResponsableDto);
+            TokenResponseDto? res= await _authService.LoginAsync(loginUsuarioDto);
 
-            if (responde == null)
+            if (res == null)
                 return Unauthorized("Usuario o contraseña incorrectos");
 
-            return Ok(responde);
+            return Ok(res);
         }
         
         [Authorize]
@@ -143,12 +143,15 @@ namespace MindFit_Intelligence_Backend.Controllers
         [HttpPost("change-password")] // Endpoint para cambiar la contraseña autenticado, requiere la contraseña actual
         public async Task<IActionResult> ChangePassword(ChangePasswordRequestDto dto)
         {
-            string? userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-            
-            if (!int.TryParse(userIdClaim, out int userId))
+            // Obtenemos el IdUsuario del token JWT
+            string? claimIdUsuario = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+
+            // Validamos que el claim exista y sea un número entero
+            if (!int.TryParse(claimIdUsuario, out int idUsuario))
                 return Unauthorized();
 
-            bool rta = await _authService.ChangePasswordAsync(userId, dto);
+            // Llamamos al servicio para cambiar la contraseña
+            bool rta = await _authService.ChangePasswordAsync(idUsuario, dto);
 
             return rta == true 
                 ? Ok("Contraseña cambiada correctamente.")

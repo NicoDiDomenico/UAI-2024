@@ -6,6 +6,7 @@ using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Repository;
 using System.IdentityModel.Tokens.Jwt;
+using System.Numerics;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
@@ -34,51 +35,83 @@ namespace MindFit_Intelligence_Backend.Services
         }
 
         #region Register
-        public Usuario SetPasswordHash(UsuarioResponsableInsertDto usuarioResponsableInsertDto)
+        public void SetPasswordHash(Usuario usuario, UsuarioInsertDto usuarioInsertDto)
         {
-            Usuario usuario = _mapper.Map<Usuario>(usuarioResponsableInsertDto);
-
             usuario.PasswordHash = new PasswordHasher<Usuario>()
-                .HashPassword(usuario, usuarioResponsableInsertDto.Password);
-
-            return usuario;
+                .HashPassword(usuario, usuarioInsertDto.Password);
         }
         #endregion
 
         #region Login
         public string CreateToken(Usuario usuario)
         {
-            // (1) PAYLOAD → datos (claims) que van dentro del token
-            var claims = new List<Claim>
+            // JWT: HEADER + PAYLOAD + SIGNATURE
+
+            // 🔹 1) CLAIMS --> Información para contruir el PAYLOAD
+            // Estos datos no están cifrados, cualquiera puede leerlos si tiene el token.
+            // Lo que garantiza seguridad no es ocultarlos, sino la FIRMA.
+            List<Claim> claims = new List<Claim>
             {
-                // Guardamos el nombre de usuario dentro del token
+                // Identificador único del usuario
                 new Claim(ClaimTypes.NameIdentifier, usuario.IdUsuario.ToString()),
+
+                // Username visible en el token
                 new Claim(ClaimTypes.Name, usuario.Username),
+
+                // Rol del usuario (usado luego por [Authorize(Roles = "...")])
                 new Claim(ClaimTypes.Role, usuario.Rol)
-                // Podrías agregar más claims, por ejemplo:
-                // new Claim(ClaimTypes.Role, "Entrenador");
-                // new Claim(ClaimTypes.Email, user.Email);
             };
 
-            // (2) SIGNATURE → se usa esta CLAVE SECRETA para firmar el token
-            var key = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(_configuration.GetValue<string>("AppSettings:Token")!)
+            // 🔹 2) CLAVE SECRETA --> Información para contruir las CREDENCIALES DE FIRMA
+            // Esta clave se usa para generar la FIRMA(SIGNATURE) del token.
+            // NO cifra el token. Solo se usa para firmarlo.
+            SymmetricSecurityKey key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(
+                    _configuration.GetValue<string>("AppSettings:Token")!
+                )
             );
 
-            // (3) (HEADER + (2) SIGNATURE) → define algoritmo y credenciales de firma
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
-
-            // (4) (1) PAYLOAD + (3) (HEADER + SIGNATURE) → se construye el token completo
-            var tokenDescriptor = new JwtSecurityToken(
-                issuer: _configuration.GetValue<string>("AppSettings:Issuer"), // quién emite el token (tu API)
-                audience: _configuration.GetValue<string>("AppSettings:Audience"), // audience: quién va a consumirlo (el cliente, ej: tu frontend)
-                claims: claims, // claims: los datos del usuario que pusimos antes
-                expires: DateTime.UtcNow.AddDays(1), // expires: cuándo vence el token (en este caso, dentro de 1 día)
-                signingCredentials: creds //signingCredentials: cómo se firma el token (clave + algoritmo)
+            // 🔹 3) CREDENCIALES DE FIRMA (Signing Credentials) --> Información para contruir el HEADER y la SIGNATURE
+            // HmacSha512 significa:
+            // - Se va a usar HMAC (Hash-based Message Authentication Code)
+            // - Con el algoritmo SHA-512 (genera 512 bits)
+            // Esto NO cifra el contenido, solo genera la firma.
+            SigningCredentials creds = new SigningCredentials(
+                key,
+                SecurityAlgorithms.HmacSha512
             );
 
-            // (5) Combina HEADER + PAYLOAD + SIGNATURE (4) → genera el token final en formato JWT
-            return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+            // 🔹 4) CONSTRUCCIÓN DE LA PARTE 1 Y 2 DEL TOKEN --> (HEADER + PAYLOAD)
+            // Acá todavía NO existe la firma.
+            // Solo estamos definiendo:
+            // - quién lo emite (issuer)
+            // - quién lo consume (audience)
+            // - qué datos lleva (claims)
+            // - cuándo expira
+            // - cómo se va a firmar
+            JwtSecurityToken tokenDescriptor = new JwtSecurityToken(
+                issuer: _configuration.GetValue<string>("AppSettings:Issuer"),
+                audience: _configuration.GetValue<string>("AppSettings:Audience"),
+                claims: claims,
+                expires: DateTime.UtcNow.AddDays(1),
+                signingCredentials: creds
+            );
+
+            // 🔹 5) GENERACIÓN REAL DEL JWT STRING --> HEADER.PAYLOAD.SIGNATURE
+            // Acá internamente ocurre esto:
+            //
+            // 1) Se crea el HEADER automáticamente:
+            //    { "alg": "HS512", "typ": "JWT" }
+            //
+            // 2) Se convierte header y payload a Base64Url
+            //
+            // 3) Se genera la FIRMA:
+            //    signature = HMACSHA512(secretKey, header.payload)
+            //
+            // 4) Se devuelve:
+            //    header.payload.signature
+            string token = new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
+            return token;
         }
 
         private string GenerateRefreshToken()
@@ -176,7 +209,14 @@ namespace MindFit_Intelligence_Backend.Services
             string email = dto.Email;
 
             PersonaResponsable? persona = await _personaResponsableRepository.GetByEmail(email);
-            if (persona == null) return;
+            if (persona == null)
+                return;
+
+            /*// FALTA HACER CON SOCIOS
+            if (persona == null)
+            {
+                PersonaSocio? persona = await _personaSocioRepository.GetByEmail(email);
+            } else return;*/
 
             Usuario? usuario = await _usuarioRepository.GetById(persona.IdUsuario);
             if (usuario == null) return;
@@ -243,17 +283,19 @@ namespace MindFit_Intelligence_Backend.Services
             return true;
         }
 
-        public async Task<bool> ChangePasswordAsync(int userId, ChangePasswordRequestDto dto)
+        public async Task<bool> ChangePasswordAsync(int idUsuario, ChangePasswordRequestDto dto)
         {
-            var usuario = await _usuarioRepository.GetById(userId);
+            Usuario? usuario = await _usuarioRepository.GetById(idUsuario);
             if (usuario == null) return false;
 
-            var result = new PasswordHasher<Usuario>()
+            // Verifico que la contraseña actual que el usuario ingresó coincida con su contraseña real (hash)
+            PasswordVerificationResult result = new PasswordHasher<Usuario>()
                 .VerifyHashedPassword(usuario, usuario.PasswordHash, dto.CurrentPassword);
 
             if (result == PasswordVerificationResult.Failed)
                 return false;
 
+            // Si la contraseña actual es correcta, se hashea la nueva contraseña y se guarda en la BD
             usuario.PasswordHash = new PasswordHasher<Usuario>()
                 .HashPassword(usuario, dto.NewPassword);
 

@@ -325,3 +325,7 @@ D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\MindFit_Intelligence_Backend.genruntimeconfig.cache
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\ref\MindFit_Intelligence_Backend.dll
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MailKit.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MimeKit.dll

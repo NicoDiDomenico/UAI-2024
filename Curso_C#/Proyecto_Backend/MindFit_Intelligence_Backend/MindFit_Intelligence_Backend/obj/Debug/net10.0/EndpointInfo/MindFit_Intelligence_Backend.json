@@ -83,7 +83,7 @@
         }
       }
     },
-    "/api/Usuario": {
+    "/api/Usuario/grilla": {
       "get": {
         "tags": [
           "Usuario"
@@ -96,7 +96,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UsuarioResponsableDto"
+                    "$ref": "#/components/schemas/UsuarioGridDto"
                   }
                 }
               },
@@ -104,7 +104,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UsuarioResponsableDto"
+                    "$ref": "#/components/schemas/UsuarioGridDto"
                   }
                 }
               },
@@ -112,7 +112,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UsuarioResponsableDto"
+                    "$ref": "#/components/schemas/UsuarioGridDto"
                   }
                 }
               }
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/api/Usuario/{id}": {
+    "/{id}": {
       "get": {
         "tags": [
           "Usuario"
@@ -143,23 +143,25 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsuarioResponsableDto"
+                  "$ref": "#/components/schemas/UsuarioDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsuarioResponsableDto"
+                  "$ref": "#/components/schemas/UsuarioDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsuarioResponsableDto"
+                  "$ref": "#/components/schemas/UsuarioDto"
                 }
               }
             }
           }
         }
-      },
+      }
+    },
+    "/api/Usuario/responsables/{id}": {
       "put": {
         "tags": [
           "Usuario"
@@ -265,17 +267,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UsuarioResponsableInsertDto"
+                "$ref": "#/components/schemas/UsuarioInsertDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UsuarioResponsableInsertDto"
+                "$ref": "#/components/schemas/UsuarioInsertDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UsuarioResponsableInsertDto"
+                "$ref": "#/components/schemas/UsuarioInsertDto"
               }
             }
           }
@@ -286,17 +288,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsuarioResponsableDto"
+                  "$ref": "#/components/schemas/UsuarioDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsuarioResponsableDto"
+                  "$ref": "#/components/schemas/UsuarioDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsuarioResponsableDto"
+                  "$ref": "#/components/schemas/UsuarioDto"
                 }
               }
             }
@@ -435,10 +437,127 @@
           }
         }
       }
+    },
+    "/api/Usuario/forgot-password": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/reset-password": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Usuario/change-password": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "ChangePasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Genero": {
         "enum": [
           1,
@@ -449,6 +568,31 @@
         "type": "integer",
         "format": "int32"
       },
+      "GrupoDto": {
+        "type": "object",
+        "properties": {
+          "idGrupo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "permisos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermisoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "LoginUsuarioDto": {
         "type": "object",
         "properties": {
@@ -457,6 +601,24 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PermisoDto": {
+        "type": "object",
+        "properties": {
+          "idPermiso": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
             "type": "string",
             "nullable": true
           }
@@ -605,6 +767,180 @@
         },
         "additionalProperties": false
       },
+      "PersonaSocioDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "obraSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "plan": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoSocio": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicioActividades": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaFinActividades": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaNotificacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "respuestaNotificacion": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "pregunta": {
+            "type": "string",
+            "nullable": true
+          },
+          "respuesta": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaSocioInsertDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "obraSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "plan": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoSocio": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaInicioActividades": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaFinActividades": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaNotificacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "respuestaNotificacion": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "pregunta": {
+            "type": "string",
+            "nullable": true
+          },
+          "respuesta": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RefreshTokenRequestDto": {
         "required": [
           "refreshToken"
@@ -616,6 +952,20 @@
             "format": "int32"
           },
           "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "tokenPlano": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
             "type": "string",
             "nullable": true
           }
@@ -635,6 +985,103 @@
           },
           "refreshToken": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaResponsable": {
+            "$ref": "#/components/schemas/PersonaResponsableDto"
+          },
+          "personaSocio": {
+            "$ref": "#/components/schemas/PersonaSocioDto"
+          },
+          "grupos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrupoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioGridDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioInsertDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaResponsable": {
+            "$ref": "#/components/schemas/PersonaResponsableInsertDto"
+          },
+          "personaSocio": {
+            "$ref": "#/components/schemas/PersonaSocioInsertDto"
+          },
+          "idGrupos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "nullable": true
           }
         },
@@ -665,26 +1112,12 @@
           "rol": {
             "type": "string",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "UsuarioResponsableInsertDto": {
-        "type": "object",
-        "properties": {
-          "personaResponsableInsertDto": {
-            "$ref": "#/components/schemas/PersonaResponsableInsertDto"
           },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "password": {
-            "type": "string",
-            "nullable": true
-          },
-          "rol": {
-            "type": "string",
+          "grupos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrupoDto"
+            },
             "nullable": true
           }
         },

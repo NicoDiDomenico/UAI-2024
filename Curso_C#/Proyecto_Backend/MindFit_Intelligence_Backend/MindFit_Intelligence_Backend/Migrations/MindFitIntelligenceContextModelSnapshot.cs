@@ -22,6 +22,67 @@ namespace MindFit_Intelligence_Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
+                {
+                    b.Property<int>("IdGrupo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdGrupo"));
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("varchar(200)");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("IdGrupo");
+
+                    b.HasIndex("Nombre")
+                        .IsUnique();
+
+                    b.ToTable("Grupo", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoPermiso", b =>
+                {
+                    b.Property<int>("IdGrupo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdPermiso")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdGrupo", "IdPermiso");
+
+                    b.HasIndex("IdPermiso");
+
+                    b.ToTable("GrupoPermiso", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Permiso", b =>
+                {
+                    b.Property<int>("IdPermiso")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPermiso"));
+
+                    b.Property<string>("Codigo")
+                        .IsRequired()
+                        .HasColumnType("varchar(80)");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("varchar(200)");
+
+                    b.HasKey("IdPermiso");
+
+                    b.HasIndex("Codigo")
+                        .IsUnique();
+
+                    b.ToTable("Permiso", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaResponsable", b =>
                 {
                     b.Property<int>("IdUsuario")
@@ -167,7 +228,6 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Rol")
-                        .IsRequired()
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("Username")
@@ -180,6 +240,40 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .IsUnique();
 
                     b.ToTable("Usuario", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.UsuarioGrupo", b =>
+                {
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGrupo")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdUsuario", "IdGrupo");
+
+                    b.HasIndex("IdGrupo");
+
+                    b.ToTable("UsuarioGrupo", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoPermiso", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Grupo", "Grupo")
+                        .WithMany("GrupoPermisos")
+                        .HasForeignKey("IdGrupo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Permiso", "Permiso")
+                        .WithMany("GrupoPermisos")
+                        .HasForeignKey("IdPermiso")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Grupo");
+
+                    b.Navigation("Permiso");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaResponsable", b =>
@@ -204,11 +298,44 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.UsuarioGrupo", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Grupo", "Grupo")
+                        .WithMany("UsuarioGrupos")
+                        .HasForeignKey("IdGrupo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Usuario", "Usuario")
+                        .WithMany("UsuarioGrupos")
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Grupo");
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
+                {
+                    b.Navigation("GrupoPermisos");
+
+                    b.Navigation("UsuarioGrupos");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Permiso", b =>
+                {
+                    b.Navigation("GrupoPermisos");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Usuario", b =>
                 {
                     b.Navigation("PersonaResponsable");
 
                     b.Navigation("PersonaSocio");
+
+                    b.Navigation("UsuarioGrupos");
                 });
 #pragma warning restore 612, 618
         }

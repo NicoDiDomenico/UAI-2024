@@ -6,7 +6,7 @@ namespace MindFit_Intelligence_Backend.Services
     public interface IAuthService
     {
         public string CreateToken(Usuario user);
-        public Usuario SetPasswordHash(UsuarioResponsableInsertDto entityInsert);
+        public void SetPasswordHash(Usuario usuario, UsuarioInsertDto entityInsert);
         public Task<TokenResponseDto?> LoginAsync(LoginUsuarioDto entityLogin);
         public Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request);
         Task ForgotPasswordAsync(ForgotPasswordRequestDto dto);

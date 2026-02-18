@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Grupos;
+using MindFit_Intelligence_Backend.DTOs.Permisos;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
@@ -9,19 +11,48 @@ namespace MindFit_Intelligence_Backend.Automappers
     {
         public MappingProfile()
         {
-            // Entidad -> DTO
+            // Chequear que no haya mapeos innecesarios o redundantes y si no hay asignarle metodo del service correspondiente
             CreateMap<Usuario, UsuarioResponsableDto>()
                 .ForMember(
                     dest => dest.PersonaResponsableDto,
                     opt => opt.MapFrom(src => src.PersonaResponsable)
                 );
-            CreateMap<PersonaResponsable, PersonaResponsableDto>();
-
-            // DTO -> Entidad
             CreateMap<UsuarioResponsableInsertDto, Usuario>();
-            CreateMap<UsuarioResponsableUpdateDto, Usuario>();
-            CreateMap<PersonaResponsableInsertDto, PersonaResponsable>();
+            CreateMap<UsuarioResponsableUpdateDto, Usuario>();      
             CreateMap<PersonaResponsableUpdateDto, PersonaResponsable>();
+            CreateMap<PersonaResponsableDto, PersonaResponsable>();
+            CreateMap<PersonaSocioDto, PersonaSocio>();
+
+            // GetUsuariosGrid()
+            CreateMap<Usuario, UsuarioGridDto>()
+                .ForMember(d => d.TipoPersona, opt => opt.MapFrom(s =>
+                    s.PersonaResponsable != null ? "Responsable" : "Socio"))
+                .ForMember(d => d.NombreCompleto, opt => opt.MapFrom(s =>
+                    s.PersonaResponsable != null
+                        ? $"{s.PersonaResponsable.Apellido} {s.PersonaResponsable.Nombre}"
+                        : $"{s.PersonaSocio!.Apellido} {s.PersonaSocio!.Nombre}"))
+                .ForMember(d => d.Email, opt => opt.MapFrom(s =>
+                    s.PersonaResponsable != null ? s.PersonaResponsable.Email : s.PersonaSocio!.Email));
+
+            // GetUsuarioById()
+            CreateMap<Usuario, UsuarioDto>()
+                .ForMember(dest => dest.TipoPersona, opt => opt.MapFrom(src =>
+                    src.PersonaResponsable != null ? "Responsable" : src.PersonaSocio != null ? "Socio" : ""))
+                .ForMember(dest => dest.Grupos, opt => opt.MapFrom(src =>
+                    src.UsuarioGrupos.Select(ug => ug.Grupo)));
+            CreateMap<Permiso, PermisoDto>();
+            CreateMap<Grupo, GrupoDto>()
+                .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
+                    src.GrupoPermisos.Select(gp => gp.Permiso)));
+            CreateMap<PersonaResponsable, PersonaResponsableDto>();
+            CreateMap<PersonaSocio, PersonaSocioDto>();
+
+            //// Add()
+            CreateMap<UsuarioInsertDto, Usuario>()
+                .ForMember(dest => dest.UsuarioGrupos, opt => opt.MapFrom(src =>
+                    src.IdGrupos.Select(id => new UsuarioGrupo { IdGrupo = id })));
+            CreateMap<PersonaResponsableInsertDto, PersonaResponsable>();
+            CreateMap<PersonaSocioInsertDto, PersonaSocio>();
         }
     }
 }

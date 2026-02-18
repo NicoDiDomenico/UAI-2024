@@ -11,5 +11,6 @@ namespace MindFit_Intelligence_Backend.DTOs.Usuarios
         public string Password { get; set; } = null!;
         public string Rol { get; set; } = null!;
         #endregion
+        public List<int> IdGrupos { get; set; } = new();
     }
 }
