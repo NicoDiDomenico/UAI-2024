@@ -1,0 +1,26 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Repository
+{
+    public class PersonaSocioRepository : IPersonaSocioRepository
+    {
+        private MindFitIntelligenceContext _context;
+        public PersonaSocioRepository(MindFitIntelligenceContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<PersonaSocio?> GetById(int id)
+        {
+           PersonaSocio? personaSocio = await _context.PersonaSocios.FindAsync(id);
+            return personaSocio;
+        }
+
+        public async Task<PersonaSocio?> GetByEmail(string email)
+        {
+            return await _context.PersonaSocios
+                .FirstOrDefaultAsync(p => p.Email == email);
+        }
+    }
+}

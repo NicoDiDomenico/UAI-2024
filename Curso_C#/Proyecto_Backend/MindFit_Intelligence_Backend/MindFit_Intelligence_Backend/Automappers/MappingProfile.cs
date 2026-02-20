@@ -11,18 +11,7 @@ namespace MindFit_Intelligence_Backend.Automappers
     {
         public MappingProfile()
         {
-            // Chequear que no haya mapeos innecesarios o redundantes y si no hay asignarle metodo del service correspondiente
-            CreateMap<Usuario, UsuarioResponsableDto>()
-                .ForMember(
-                    dest => dest.PersonaResponsableDto,
-                    opt => opt.MapFrom(src => src.PersonaResponsable)
-                );
-            CreateMap<UsuarioResponsableInsertDto, Usuario>();
-            CreateMap<UsuarioResponsableUpdateDto, Usuario>();      
-            CreateMap<PersonaResponsableUpdateDto, PersonaResponsable>();
-            CreateMap<PersonaResponsableDto, PersonaResponsable>();
-            CreateMap<PersonaSocioDto, PersonaSocio>();
-
+            ///// UsuarioService.cs
             // GetUsuariosGrid()
             CreateMap<Usuario, UsuarioGridDto>()
                 .ForMember(d => d.TipoPersona, opt => opt.MapFrom(s =>
@@ -34,7 +23,7 @@ namespace MindFit_Intelligence_Backend.Automappers
                 .ForMember(d => d.Email, opt => opt.MapFrom(s =>
                     s.PersonaResponsable != null ? s.PersonaResponsable.Email : s.PersonaSocio!.Email));
 
-            // GetUsuarioById()
+            // GetUsuarioById(), Delete() y PersonaResponsableService.cs
             CreateMap<Usuario, UsuarioDto>()
                 .ForMember(dest => dest.TipoPersona, opt => opt.MapFrom(src =>
                     src.PersonaResponsable != null ? "Responsable" : src.PersonaSocio != null ? "Socio" : ""))
@@ -44,15 +33,37 @@ namespace MindFit_Intelligence_Backend.Automappers
             CreateMap<Grupo, GrupoDto>()
                 .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
                     src.GrupoPermisos.Select(gp => gp.Permiso)));
-            CreateMap<PersonaResponsable, PersonaResponsableDto>();
+            CreateMap<PersonaResponsable, PersonaResponsableDto>(); 
             CreateMap<PersonaSocio, PersonaSocioDto>();
 
-            //// Add()
+            // Add()
             CreateMap<UsuarioInsertDto, Usuario>()
                 .ForMember(dest => dest.UsuarioGrupos, opt => opt.MapFrom(src =>
                     src.IdGrupos.Select(id => new UsuarioGrupo { IdGrupo = id })));
             CreateMap<PersonaResponsableInsertDto, PersonaResponsable>();
             CreateMap<PersonaSocioInsertDto, PersonaSocio>();
+
+            // Update()
+            CreateMap<UsuarioUpdateDto, Usuario>();
+            CreateMap<PersonaResponsableUpdateDto, PersonaResponsable>();
+            CreateMap<PersonaSocioUpdateDto, PersonaSocio>();
+
+            //// GrupoService.cs
+            // Get(), GetById() y Delete()
+            CreateMap<Grupo, GrupoDto>()
+                .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
+                    src.GrupoPermisos.Select(gp => gp.Permiso)));
+            CreateMap<Permiso, PermisoDto>();
+
+            // Add()
+            CreateMap<GrupoInsertDto, Grupo>()
+                .ForMember(dest => dest.GrupoPermisos, opt => opt.MapFrom(src =>
+                    src.IdPermisos.Select(id => new GrupoPermiso { IdPermiso = id })));
+
+            // Update()
+            CreateMap<GrupoUpdateDto, Grupo>()
+                .ForMember(dest => dest.GrupoPermisos, opt => opt.MapFrom(src =>
+                    src.IdPermisos.Select(id => new GrupoPermiso { IdPermiso = id })));
         }
     }
 }

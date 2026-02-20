@@ -9,7 +9,7 @@ namespace MindFit_Intelligence_Backend.Services
         public Task<List<UsuarioGridDto>> GetUsuariosGrid();
         public Task<UsuarioDto?> GetUsuarioById(int id);
         public Task<UsuarioDto> Add(UsuarioInsertDto typeInsertDto);
-        public Task<UsuarioResponsableDto?> Update(int id, UsuarioResponsableUpdateDto typeUpdateDto);
-        public Task<UsuarioResponsableDto?> Delete(int id);
+        public Task<UsuarioDto?> Update(int id, UsuarioUpdateDto typeUpdateDto);
+        public Task<UsuarioDto?> Delete(int id);
     }
 }

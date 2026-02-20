@@ -227,9 +227,6 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Property<DateTime?>("RefreshTokenExpiryTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Rol")
-                        .HasColumnType("varchar(30)");
-
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("varchar(50)");

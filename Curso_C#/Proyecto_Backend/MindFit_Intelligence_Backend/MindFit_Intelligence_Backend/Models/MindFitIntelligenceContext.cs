@@ -38,31 +38,36 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<Usuario>()
                 .HasOne(u => u.PersonaResponsable)
                 .WithOne(pr => pr.Usuario)
-                .HasForeignKey<PersonaResponsable>(pr => pr.IdUsuario);
+                .HasForeignKey<PersonaResponsable>(pr => pr.IdUsuario)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // 1 a 1 PK compartida Usuario <-> PersonaSocio
             modelBuilder.Entity<Usuario>()
                 .HasOne(u => u.PersonaSocio)
                 .WithOne(ps => ps.Usuario)
-                .HasForeignKey<PersonaSocio>(ps => ps.IdUsuario);
+                .HasForeignKey<PersonaSocio>(ps => ps.IdUsuario)
+                .OnDelete(DeleteBehavior.Cascade);
 
             //// Modulo de Seguridad (N:M)
             // Relaciones UsuarioGrupo
             modelBuilder.Entity<UsuarioGrupo>()
                 .HasOne(ug => ug.Usuario)
                 .WithMany(u => u.UsuarioGrupos)
-                .HasForeignKey(ug => ug.IdUsuario);
+                .HasForeignKey(ug => ug.IdUsuario)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<UsuarioGrupo>()
                 .HasOne(ug => ug.Grupo)
                 .WithMany(g => g.UsuarioGrupos)
-                .HasForeignKey(ug => ug.IdGrupo);
+                .HasForeignKey(ug => ug.IdGrupo)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Relaciones GrupoPermiso
             modelBuilder.Entity<GrupoPermiso>()
                 .HasOne(gp => gp.Grupo)
                 .WithMany(g => g.GrupoPermisos)
-                .HasForeignKey(gp => gp.IdGrupo);
+                .HasForeignKey(gp => gp.IdGrupo)
+                .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<GrupoPermiso>()
                 .HasOne(gp => gp.Permiso)

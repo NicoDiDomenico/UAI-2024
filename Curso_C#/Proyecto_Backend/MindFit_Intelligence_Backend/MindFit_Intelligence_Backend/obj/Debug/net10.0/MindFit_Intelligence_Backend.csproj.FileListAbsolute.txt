@@ -320,7 +320,6 @@ D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\staticwebassets.development.json
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\staticwebassets.build.endpoints.json
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\swae.build.ex.cache
-D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\MindFit_.05A08201.Up2Date
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\MindFit_Intelligence_Backend.genruntimeconfig.cache
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\ref\MindFit_Intelligence_Backend.dll
@@ -329,3 +328,7 @@ C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_B
 C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MailKit.dll
 C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Nicol\Desktop\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MimeKit.dll
+D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\BouncyCastle.Cryptography.dll
+D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MailKit.dll
+D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MimeKit.dll
+D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

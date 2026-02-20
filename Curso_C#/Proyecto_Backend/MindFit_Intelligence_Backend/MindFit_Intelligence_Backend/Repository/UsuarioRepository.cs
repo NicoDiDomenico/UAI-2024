@@ -50,7 +50,9 @@ namespace MindFit_Intelligence_Backend.Repository
         public async Task<Usuario?> GetByUsername(string username)
         {
             return await _context.Usuarios
-                .FirstOrDefaultAsync(u => u.Username == username);
+                    .Include(u => u.UsuarioGrupos)
+                        .ThenInclude(ug => ug.Grupo)
+                    .FirstOrDefaultAsync(u => u.Username == username);
         }
 
         // No se que hacer con este metodo porque no lo estoy usando ya que siempre uso el metodo GetById y ya queda el objeto en el contexto para mapearlo y luego guardarlo.
@@ -58,6 +60,27 @@ namespace MindFit_Intelligence_Backend.Repository
         {
             _context.Usuarios.Attach(entity);
             _context.Usuarios.Entry(entity).State = EntityState.Modified;
+        }
+
+        public async Task ReplaceUsuarioGrupos(int idUsuario, List<int> nuevosIdGrupos)
+        {
+            Usuario? usuario = await _context.Usuarios
+                .Include(u => u.UsuarioGrupos)
+                .FirstOrDefaultAsync(u => u.IdUsuario == idUsuario);
+
+            if (usuario == null) return;
+
+            // eliminar actuales
+            _context.UsuarioGrupos.RemoveRange(usuario.UsuarioGrupos);
+
+            // agregar nuevos
+            usuario.UsuarioGrupos = nuevosIdGrupos
+                .Select(idGrupo => new UsuarioGrupo
+                {
+                    IdUsuario = idUsuario,
+                    IdGrupo = idGrupo
+                })
+                .ToList();
         }
 
         public void Delete(Usuario entity)
@@ -71,7 +94,5 @@ namespace MindFit_Intelligence_Backend.Repository
             return await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.PasswordResetTokenHash == tokenHasheado);
         }
-
-
     }
 }

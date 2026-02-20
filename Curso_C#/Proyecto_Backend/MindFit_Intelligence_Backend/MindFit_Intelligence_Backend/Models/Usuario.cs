@@ -26,9 +26,6 @@ namespace MindFit_Intelligence_Backend.Models
         [Column(TypeName = "varchar(255)")]
         public string PasswordHash { get; set; } = string.Empty;
 
-        [Column(TypeName = "varchar(30)")]
-        public string? Rol { get; set; } = string.Empty; // Esto lo voy a sacar cuando tenga el Modulo de Seguridad implementado
-
         [Column(TypeName = "varchar(512)")]
         public string? RefreshToken { get; set; }
 

@@ -1,13 +1,8 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using MindFit_Intelligence_Backend.DTOs.Grupos;
-using MindFit_Intelligence_Backend.DTOs.Permisos;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Repository;
-using System.Collections.Generic;
 
 namespace MindFit_Intelligence_Backend.Services
 {
@@ -15,6 +10,7 @@ namespace MindFit_Intelligence_Backend.Services
     {
         private IUsuarioRepository _usuarioRepository;
         private IPersonaResponsableRepository _personaResponsableRepository;
+        private IPersonaSocioRepository _personaSocioRepository;
         private IMapper _mapper;
         private IAuthService _authService; // Servicio de autenticación (JWT)
 
@@ -22,10 +18,12 @@ namespace MindFit_Intelligence_Backend.Services
             IAuthService authService,
             IUsuarioRepository usuarioRepository,
             IPersonaResponsableRepository personaResponsableRepository,
+            IPersonaSocioRepository personaSocioRepository,
             IMapper mapper)
         {
             _usuarioRepository = usuarioRepository;
             _personaResponsableRepository = personaResponsableRepository;
+            _personaSocioRepository = personaSocioRepository;
             _mapper = mapper;
             _authService = authService;
         }
@@ -45,7 +43,7 @@ namespace MindFit_Intelligence_Backend.Services
             return usuariosGridDto;
         }
 
-        // Con este metodo el front obtiene toda la info del usuario responsable cuando lo selecciona de la grilla
+        // Con este metodo el front obtiene toda la info del usuario cuando lo selecciona de la grilla
         public async Task<UsuarioDto?> GetUsuarioById(int id)
         {
             Usuario? usuario = await _usuarioRepository.GetUsuarioDetalleConGruposPermisosById(id);
@@ -95,40 +93,80 @@ namespace MindFit_Intelligence_Backend.Services
             return usuarioDto!;
         }
 
-
-        public async Task<UsuarioResponsableDto?> Update(int id, UsuarioResponsableUpdateDto usuarioResponsableUpdateDto)
+        public async Task<UsuarioDto?> Update(int id, UsuarioUpdateDto dto)
         {
-            // chequear con FluentValidation que usuarioUpdateDto.PersonaResponsableUpdateDt no sea null
+            //// Estas validaciones despues las hago con FluentValidation o Manejo de errores
+            // 1) Validaciones mínimas
+            if (dto.TipoPersona != "Responsable" && dto.TipoPersona != "Socio")
+                throw new Exception("TipoPersona inválido");
+
+            bool tieneResp = dto.PersonaResponsable != null;
+            bool tieneSocio = dto.PersonaSocio != null;
+
+            if (dto.TipoPersona == "Responsable" && !tieneResp)
+                throw new Exception("Falta PersonaResponsable");
+
+            if (dto.TipoPersona == "Socio" && !tieneSocio)
+                throw new Exception("Falta PersonaSocio");
+
+            if (tieneResp && tieneSocio)
+                throw new Exception("No puede venir ambas personas");
+
+            // 2) Traer entidades a actualizar
             Usuario? usuario = await _usuarioRepository.GetById(id);
-            PersonaResponsable? personaResponsable = await _personaResponsableRepository.GetById(id);
+            if (usuario == null) return null;
 
-            if (usuario == null || personaResponsable == null)
-                return null;
+            if (dto.TipoPersona == "Responsable")
+            {
+                PersonaResponsable? pr = await _personaResponsableRepository.GetById(id);
+                if (pr == null) return null;
 
-            _mapper.Map(usuarioResponsableUpdateDto, usuario);
-            _mapper.Map(usuarioResponsableUpdateDto.PersonaResponsableUpdateDto, personaResponsable);
+                usuario.PersonaResponsable = pr;
+                usuario.PersonaSocio = null;      // por coherencia
+
+                pr.Usuario = usuario;             // opcional pero prolijo
+            }
+            else // Socio
+            {
+                PersonaSocio? ps = await _personaSocioRepository.GetById(id);
+                if (ps == null) return null;
+
+                usuario.PersonaSocio = ps;
+                usuario.PersonaResponsable = null;
+
+                ps.Usuario = usuario;
+            }
+
+            // Un solo map actualiza Usuario + PersonaX (porque ya está conectada)
+            _mapper.Map(dto, usuario);
+
+            // 3) Si actualizás grupos acá (opcional)
+            if (dto.IdGrupos != null)
+            {
+                await _usuarioRepository.ReplaceUsuarioGrupos(id, dto.IdGrupos);
+            }
 
             await _usuarioRepository.Save();
 
-            UsuarioResponsableDto usuarioResponsableDto = _mapper.Map<UsuarioResponsableDto>(usuario);
-            usuarioResponsableDto.PersonaResponsableDto = _mapper.Map<PersonaResponsableDto>(personaResponsable);
-
-            return usuarioResponsableDto;
+            // 4) Devolver “completo” usando el método que ya tenés
+            return await GetUsuarioById(id);
         }
 
-        public async Task<UsuarioResponsableDto?> Delete(int id)
+        public async Task<UsuarioDto?> Delete(int id)
         {
-            var usuario = await _usuarioRepository.GetById(id);
+            Usuario? usuarioRestore = await _usuarioRepository.GetUsuarioDetalleConGruposPermisosById(id);
+            if (usuarioRestore == null)
+                return null;
+            UsuarioDto usuarioDto = _mapper.Map<UsuarioDto>(usuarioRestore);
 
-            if (usuario != null) 
-            {
-                _usuarioRepository.Delete(usuario);
-                await _usuarioRepository.Save();
+            Usuario? usuarioDelete = await _usuarioRepository.GetById(id);
+            if (usuarioDelete == null)
+                return null;
 
-                var usuarioDto = _mapper.Map<UsuarioResponsableDto>(usuario);
-                return usuarioDto;
-            }
-            return null;
+            _usuarioRepository.Delete(usuarioDelete); // Se elimina tambien las relaciones debido al Cascade Delete
+            await _usuarioRepository.Save();
+
+            return usuarioDto;
         }
     }
 }

@@ -1,31 +1,5 @@
 [
   {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "GetUsuarioById",
-    "RelativePath": "{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.PersonaResponsableController",
     "Method": "Get",
     "RelativePath": "api/PersonaResponsable",
@@ -62,6 +36,89 @@
     "ReturnTypes": [
       {
         "Type": "MindFit_Intelligence_Backend.DTOs.Personas.PersonaResponsableDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "GetUsuarioById",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "Update",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuarioUpdateDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "Delete",
+    "RelativePath": "api/Usuario/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -142,7 +199,7 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "loginUsuarioResponsableDto",
+        "Name": "loginUsuarioDto",
         "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.LoginUsuarioDto",
         "IsRequired": true
       }
@@ -226,63 +283,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "Update",
-    "RelativePath": "api/Usuario/responsables/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "usuarioResponsableUpdateDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioResponsableUpdateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioResponsableDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "Delete",
-    "RelativePath": "api/Usuario/responsables/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioResponsableDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",

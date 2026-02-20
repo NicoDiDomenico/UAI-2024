@@ -19,10 +19,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IPersonaService<PersonaResponsableDto>, PersonaResponsableService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IGrupoService, GrupoService>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
+builder.Services.AddScoped<IPersonaSocioRepository, PersonaSocioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
 
 // Entity Framework
 builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>

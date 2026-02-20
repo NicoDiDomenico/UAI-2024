@@ -34,40 +34,5 @@ namespace MindFit_Intelligence_Backend.Controllers
                 ? NotFound() // 404 Not Found
                 : Ok(PersonaResponsableDto); // 200 OK
         }
-        /*
-        // Los métodos POST, PUT y DELETE de cada uno mejor se haran en UsuarioController
-        [HttpPost]
-        public async Task<ActionResult<PersonaResponsableDto>> Add(PersonaResponsableInsertDto PersonaResponsableInsertDto)
-        {
-            PersonaResponsableDto PersonaResponsableDto = await _PersonaResponsableService.Add(PersonaResponsableInsertDto);
-
-            return CreatedAtAction(
-                nameof(GetById),
-                new { id = PersonaResponsableDto.IdUsuario },
-                PersonaResponsableDto
-            );
-        }
-
-        [HttpPut("{id}")]
-        public async Task<ActionResult<PersonaResponsableDto>> Update(int id, PersonaResponsableUpdateDto PersonaResponsableUpdateDto)
-        {
-
-            PersonaResponsableDto? PersonaResponsableDto = await _PersonaResponsableService.Update(id, PersonaResponsableUpdateDto);
-
-            return PersonaResponsableDto == null ? 
-                NotFound() 
-                : Ok(PersonaResponsableDto);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<PersonaResponsableDto>> Delete(int id)
-        {
-            PersonaResponsableDto? PersonaResponsableDto = await _PersonaResponsableService.Delete(id);
-
-            return PersonaResponsableDto == null 
-                ? NotFound() 
-                : Ok(PersonaResponsableDto);
-        }
-        */
     }
 }
