@@ -94,5 +94,28 @@ namespace MindFit_Intelligence_Backend.Repository
             return await _context.Usuarios
                 .FirstOrDefaultAsync(u => u.PasswordResetTokenHash == tokenHasheado);
         }
+
+        public async Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso)
+        {
+            // Esta consulta busca si existe alguna relación donde:
+            // El usuario pertenezca a un grupo y ese grupo tenga el permiso solicitado.
+            return await _context.Usuarios
+                .Where(u => u.IdUsuario == idUsuario)
+                .AnyAsync(u => u.UsuarioGrupos
+                    .Any(ug => ug.Grupo.GrupoPermisos
+                        .Any(gp => gp.Permiso.Codigo == nombrePermiso)));
+        }
+
+        public async Task<List<string>> GetNombresPermisosByUsuario(int idUsuario)
+        {
+            return await _context.Usuarios
+                .Where(u => u.IdUsuario == idUsuario)
+                .SelectMany(u => u.UsuarioGrupos)
+                .Select(ug => ug.Grupo)
+                .SelectMany(g => g.GrupoPermisos)
+                .Select(gp => gp.Permiso.Codigo)
+                .Distinct()
+                .ToListAsync();
+        }
     }
 }

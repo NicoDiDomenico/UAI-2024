@@ -48,7 +48,7 @@ namespace MindFit_Intelligence_Backend.Automappers
             CreateMap<PersonaResponsableUpdateDto, PersonaResponsable>();
             CreateMap<PersonaSocioUpdateDto, PersonaSocio>();
 
-            //// GrupoService.cs
+            //// GrupoService.cs y PermisoService.cs
             // Get(), GetById() y Delete()
             CreateMap<Grupo, GrupoDto>()
                 .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>

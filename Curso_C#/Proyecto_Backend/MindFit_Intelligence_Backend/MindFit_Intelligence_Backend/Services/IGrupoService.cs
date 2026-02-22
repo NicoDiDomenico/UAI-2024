@@ -2,7 +2,7 @@
 
 namespace MindFit_Intelligence_Backend.Services
 {
-    public interface IGrupoService : ICommonService<GrupoDto,GrupoInsertDto, GrupoUpdateDto>
+    public interface IGrupoService : ICommonService<GrupoDto, GrupoInsertDto, GrupoUpdateDto>
     {
     }
 }

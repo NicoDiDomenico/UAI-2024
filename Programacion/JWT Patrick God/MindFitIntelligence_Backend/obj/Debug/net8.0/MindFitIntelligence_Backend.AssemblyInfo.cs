@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MindFitIntelligence_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08759ebf09bb35b3857d439aa4bcbaecc4ab0824")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce76c09d11083776b7197c133d886eaf78cd6973")]
 [assembly: System.Reflection.AssemblyProductAttribute("MindFitIntelligence_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MindFitIntelligence_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using MindFit_Intelligence_Backend.Authorization;
 using MindFit_Intelligence_Backend.Automappers;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
@@ -20,12 +22,14 @@ builder.Services.AddScoped<IPersonaService<PersonaResponsableDto>, PersonaRespon
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
+builder.Services.AddScoped<IPermisoService, PermisoService>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
 builder.Services.AddScoped<IPersonaSocioRepository, PersonaSocioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
+builder.Services.AddScoped<IPermisoRepository, PermisoRepository>();
 
 // Entity Framework
 builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>
@@ -78,6 +82,35 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddAuthorization(options =>
+{
+    // Usuario
+    options.AddPolicy("CrearUsuario", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CREAR_USUARIO")));
+
+    options.AddPolicy("EditarUsuario", policy =>
+        policy.Requirements.Add(new PermisoRequirement("EDITAR_USUARIO")));
+
+    options.AddPolicy("EliminarUsuario", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_USUARIO")));
+
+    // Auth
+    options.AddPolicy("CambiarContrasena", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CAMBIAR_CONTRASENA")));
+
+    // Grupo
+    options.AddPolicy("CrearGrupo", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CREAR_GRUPO")));
+
+    options.AddPolicy("EditarGrupo", policy =>
+        policy.Requirements.Add(new PermisoRequirement("EDITAR_GRUPO")));
+
+    options.AddPolicy("EliminarGrupo", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_GRUPO")));
+});
+
+builder.Services.AddScoped<IAuthorizationHandler, PermisoHandler>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -89,8 +122,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 

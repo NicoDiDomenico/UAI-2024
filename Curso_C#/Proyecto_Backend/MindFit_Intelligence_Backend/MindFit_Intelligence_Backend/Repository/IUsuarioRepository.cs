@@ -14,6 +14,8 @@ namespace MindFit_Intelligence_Backend.Repository
         public void Update(Usuario entity);
         public void Delete(Usuario entity);
         public Task Save();
-        Task ReplaceUsuarioGrupos(int idUsuario, List<int> nuevosIdGrupos);
+        public Task ReplaceUsuarioGrupos(int idUsuario, List<int> nuevosIdGrupos);
+        public Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso);
+        public Task<List<string>> GetNombresPermisosByUsuario(int idUsuario);
     }
 }

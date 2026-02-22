@@ -168,5 +168,10 @@ namespace MindFit_Intelligence_Backend.Services
 
             return usuarioDto;
         }
+
+        public async Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso)
+        {
+            return await _usuarioRepository.UsuarioTienePermiso(idUsuario, nombrePermiso);
+        }
     }
 }

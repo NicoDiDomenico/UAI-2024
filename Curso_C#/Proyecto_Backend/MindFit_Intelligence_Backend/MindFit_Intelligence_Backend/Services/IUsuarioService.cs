@@ -11,5 +11,6 @@ namespace MindFit_Intelligence_Backend.Services
         public Task<UsuarioDto> Add(UsuarioInsertDto typeInsertDto);
         public Task<UsuarioDto?> Update(int id, UsuarioUpdateDto typeUpdateDto);
         public Task<UsuarioDto?> Delete(int id);
+        public Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso);
     }
 }

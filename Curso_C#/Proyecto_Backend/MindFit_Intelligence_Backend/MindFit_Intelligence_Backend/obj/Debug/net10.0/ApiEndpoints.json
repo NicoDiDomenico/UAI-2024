@@ -1,5 +1,264 @@
 [
   {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ChangePassword",
+    "RelativePath": "api/Auth/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ForgotPassword",
+    "RelativePath": "api/Auth/forgot-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "forgotPasswordRequestDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ForgotPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginUsuarioDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.LoginUsuarioDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.TokenResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "GetPermisosActuales",
+    "RelativePath": "api/Auth/permisos-actuales",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Permisos.PermisosActualizadosDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "RefreshToken",
+    "RelativePath": "api/Auth/refresh-token",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "refreshTokenRequestDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.RefreshTokenRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.TokenResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/Auth/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPasswordRequestDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ResetPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
+    "Method": "Get",
+    "RelativePath": "api/Grupo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
+    "Method": "Add",
+    "RelativePath": "api/Grupo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "grupoInsertDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
+    "Method": "Update",
+    "RelativePath": "api/Grupo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "grupoUpdateDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
+    "Method": "GetById",
+    "RelativePath": "api/Grupo/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
+    "Method": "Delete",
+    "RelativePath": "api/Grupo/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.PermisoController",
+    "Method": "Get",
+    "RelativePath": "api/Permiso",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.PersonaResponsableController",
     "Method": "Get",
     "RelativePath": "api/PersonaResponsable",
@@ -130,48 +389,6 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "AuthenticatedOnlyEndpoint",
-    "RelativePath": "api/Usuario/autenticado",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/Usuario/change-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "ForgotPassword",
-    "RelativePath": "api/Usuario/forgot-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "forgotPasswordRequestDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ForgotPasswordRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
     "Method": "GetUsuariosGrid",
     "RelativePath": "api/Usuario/grilla",
     "HttpMethod": "GET",
@@ -181,58 +398,6 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.List\u00601[[MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioGridDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "Login",
-    "RelativePath": "api/Usuario/login",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "loginUsuarioDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.LoginUsuarioDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.TokenResponseDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "RefreshToken",
-    "RelativePath": "api/Usuario/refresh-token",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "refreshTokenRequestDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.RefreshTokenRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.TokenResponseDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -267,41 +432,5 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "ResetPassword",
-    "RelativePath": "api/Usuario/reset-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "resetPasswordRequestDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ResetPasswordRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "AdminOnlyEndpoint",
-    "RelativePath": "api/Usuario/soloAdmin",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "ResponsableOnlyEndpoint",
-    "RelativePath": "api/Usuario/soloResponsable",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
   }
 ]

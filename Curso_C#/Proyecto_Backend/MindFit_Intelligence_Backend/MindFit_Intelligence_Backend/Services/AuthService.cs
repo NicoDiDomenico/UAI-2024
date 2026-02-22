@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using MindFit_Intelligence_Backend.DTOs.Permisos;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Repository;
@@ -59,6 +60,7 @@ namespace MindFit_Intelligence_Backend.Services
                 //new Claim(ClaimTypes.Role, usuario.Rol), --> Lo cambio por Roles desde BD
             };
 
+            /* Cuando decidas sacar esto cambiá también el método GetByUsername en UsuarioRepository para que incluya los grupos del usuario (Include) y no tengas problemas de referencia circular.
             // 1.2) Roles desde BD: 1 claim por grupo
             IEnumerable<string?> roles = usuario.UsuarioGrupos
                 .Select(ug => ug.Grupo?.Nombre)
@@ -66,6 +68,7 @@ namespace MindFit_Intelligence_Backend.Services
                 .Distinct();
             foreach (string? rol in roles)
                 claims.Add(new Claim(ClaimTypes.Role, rol!));
+            */
 
             // 🔹 2) CLAVE SECRETA --> Información para contruir las CREDENCIALES DE FIRMA
             // Esta clave se usa para generar la FIRMA(SIGNATURE) del token.
@@ -138,13 +141,18 @@ namespace MindFit_Intelligence_Backend.Services
 
         private async Task<TokenResponseDto> CreateTokenResponse(Usuario usuario)
         {
+            var listaPermisos = await _usuarioRepository.GetNombresPermisosByUsuario(usuario.IdUsuario);
+
             var response = new TokenResponseDto
             {
                 // El AccessToken sirve para autenticar al usuario en cada petición
                 AccessToken = CreateToken(usuario),
 
                 //  El RefreshToken sirve para obtener un nuevo AccessToken cuando este expire
-                RefreshToken = await GenerateAndSaveRefreshTokenAsync(usuario), 
+                RefreshToken = await GenerateAndSaveRefreshTokenAsync(usuario),
+
+                // Lista de permisos del usuario para mostrar en el front y controlar la visibilidad de ciertas opciones
+                Permisos = listaPermisos
             };
             return response;
         }
@@ -321,5 +329,17 @@ namespace MindFit_Intelligence_Backend.Services
             return true;
         }
         #endregion
+
+        public async Task<PermisosActualizadosDto> ObtenerPermisosActuales(int idUsuario)
+        {
+            // El repo sigue devolviendo la List<string>
+            var lista = await _usuarioRepository.GetNombresPermisosByUsuario(idUsuario);
+
+            // El Service la envuelve en el DTO
+            return new PermisosActualizadosDto
+            {
+                Permisos = lista
+            };
+        }
     }
 }

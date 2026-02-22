@@ -4,5 +4,6 @@
     {
         public required string AccessToken { get; set; }
         public required string RefreshToken { get; set; }
+        public List<string> Permisos { get; set; } = new List<string>();
     }
 }

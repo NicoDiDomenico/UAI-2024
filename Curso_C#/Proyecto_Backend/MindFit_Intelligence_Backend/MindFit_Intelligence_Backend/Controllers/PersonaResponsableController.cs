@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.Services;
 using MindFit_Intelligence_Backend.DTOs.Personas;
@@ -17,7 +18,9 @@ namespace MindFit_Intelligence_Backend.Controllers
                 _PersonaResponsableService = PersonaResponsableService;
         }
 
+        // Front: Por si se quiere mostrar una lista de SOLO responsables, pero probablemente no se haga o se muestre con UsuariosController
         [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<PersonaResponsableDto>> Get()
         {
            IEnumerable<PersonaResponsableDto> PersonaResponsable = await _PersonaResponsableService.Get();
@@ -25,7 +28,9 @@ namespace MindFit_Intelligence_Backend.Controllers
             return PersonaResponsable;
         }
 
+        // Front : Para mostrar el detalle de un responsable, pero probablemente no se haga o se muestre con UsuariosController
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<PersonaResponsableDto>> GetById(int id)
         {
             PersonaResponsableDto? PersonaResponsableDto = await _PersonaResponsableService.GetById(id);

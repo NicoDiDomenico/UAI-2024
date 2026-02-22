@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProyectoJSON")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+644a52be88f2be49a34f5348f565e02d9f5cb76e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce76c09d11083776b7197c133d886eaf78cd6973")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProyectoJSON")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProyectoJSON")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

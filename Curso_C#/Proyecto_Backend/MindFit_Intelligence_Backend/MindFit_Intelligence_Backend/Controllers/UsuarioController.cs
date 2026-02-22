@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Services;
+using System.Security.Claims;
 
 namespace MindFit_Intelligence_Backend.Controllers
 {
@@ -10,17 +11,14 @@ namespace MindFit_Intelligence_Backend.Controllers
     public class UsuarioController : ControllerBase
     {
         private IUsuarioService _usuarioService;
-        private IAuthService _authService;
 
-        public UsuarioController(
-            IUsuarioService usuarioService,
-            IAuthService authService
-            )
+        public UsuarioController(IUsuarioService usuarioService)
         {
             _usuarioService = usuarioService;
-            _authService = authService;
         }
 
+        // Front: Mostrar listado esencial de usuarios en grilla, con paginación, ordenamiento y filtros
+        [Authorize]
         [HttpGet("grilla")]
         public async Task<ActionResult<List<UsuarioGridDto>>> GetUsuariosGrid()
         {
@@ -29,6 +27,8 @@ namespace MindFit_Intelligence_Backend.Controllers
             return Ok(usuariosGridDto);
         }
 
+        // Front: Mostrar detalle de usuario en el formulario al hacer click en la grilla
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<UsuarioDto?>> GetUsuarioById(int id)
         {
@@ -39,23 +39,8 @@ namespace MindFit_Intelligence_Backend.Controllers
                 : Ok(usuarioDetalleDto);
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<UsuarioDto?>> Update(int id, UsuarioUpdateDto usuarioUpdateDto)
-        {
-            UsuarioDto? usuarioDto = await _usuarioService.Update(id, usuarioUpdateDto);
-
-            return usuarioDto == null ? NotFound() : Ok(usuarioDto);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<UsuarioDto>> Delete(int id)
-        {
-            UsuarioDto? usuarioDto = await _usuarioService.Delete(id);
-
-            return usuarioDto == null ? NotFound() : Ok(usuarioDto);
-        }
-
-        #region JWT
+        // Front: Crear nuevo usuario desde el formulario
+        [Authorize(Policy = "CrearUsuario")]
         [HttpPost("register")]
         public async Task<ActionResult<UsuarioDto>> Register(UsuarioInsertDto usuarioInsertDto)
         {
@@ -67,90 +52,25 @@ namespace MindFit_Intelligence_Backend.Controllers
                 usuarioDto
             );
         }
-        
-        [HttpPost("login")]
-        public async Task<ActionResult<TokenResponseDto>> Login(LoginUsuarioDto loginUsuarioDto)
-        {
-            TokenResponseDto? res= await _authService.LoginAsync(loginUsuarioDto);
 
-            if (res == null)
-                return Unauthorized("Usuario o contraseña incorrectos");
-
-            return Ok(res);
-        }
-        
-        [Authorize]
-        [HttpGet("autenticado")]
-        public IActionResult AuthenticatedOnlyEndpoint()
+        // Front: Editar usuario desde el formulario
+        [Authorize(Policy = "EditarUsuario")]
+        [HttpPut("{id}")]
+        public async Task<ActionResult<UsuarioDto?>> Update(int id, UsuarioUpdateDto usuarioUpdateDto)
         {
-            return Ok("Estás autenticado!");
+            UsuarioDto? usuarioDto = await _usuarioService.Update(id, usuarioUpdateDto);
+
+            return usuarioDto == null ? NotFound() : Ok(usuarioDto);
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpGet("soloAdmin")]
-        public IActionResult AdminOnlyEndpoint()
+        // Front: Eliminar usuario desde el formulario o boton
+        [Authorize(Policy = "EliminarUsuario")]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<UsuarioDto>> Delete(int id)
         {
-            return Ok("Estás autenticado Admin querido!");
+            UsuarioDto? usuarioDto = await _usuarioService.Delete(id);
+
+            return usuarioDto == null ? NotFound() : Ok(usuarioDto);
         }
-
-        [Authorize(Roles = "Responsable")]
-        [HttpGet("soloResponsable")]
-        public IActionResult ResponsableOnlyEndpoint()
-        {
-            return Ok("Estás autenticado Responsable querido!");
-        }
-
-        [AllowAnonymous]
-        [HttpPost("refresh-token")]
-        public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto refreshTokenRequestDto)
-        {
-            TokenResponseDto? result = await _authService.RefreshTokensAsync(refreshTokenRequestDto);
-            if (result is null || result.AccessToken is null || result.RefreshToken is null)
-                return Unauthorized("Invalid refresh token.");
-
-            return Ok(result);
-        }
-        #endregion
-
-        #region Password Reset
-        [AllowAnonymous]
-        [HttpPost("forgot-password")] // Endpoint para solicitar el reseteo de contraseña
-        public async Task<IActionResult> ForgotPassword(ForgotPasswordRequestDto forgotPasswordRequestDto)
-        {
-            await _authService.ForgotPasswordAsync(forgotPasswordRequestDto);
-            return Ok("Se enviaron instrucciones para recuperar la contraseña."); 
-            // Siempre respondemos con éxito para evitar revelar si el email existe o no
-        }
-
-        [AllowAnonymous]
-        [HttpPost("reset-password")] // Endpoint para resetear la contraseña usando el token enviado por email
-        public async Task<IActionResult> ResetPassword(ResetPasswordRequestDto resetPasswordRequestDto)
-        {
-            bool rta = await _authService.ResetPasswordAsync(resetPasswordRequestDto);
-
-            return rta == true 
-                ? Ok("Contraseña reseteada correctamente.")
-                : BadRequest("Token inválido o expirado.");
-        }
-
-        [Authorize]
-        [HttpPost("change-password")] // Endpoint para cambiar la contraseña autenticado, requiere la contraseña actual
-        public async Task<IActionResult> ChangePassword(ChangePasswordRequestDto dto)
-        {
-            // Obtenemos el IdUsuario del token JWT
-            string? claimIdUsuario = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
-
-            // Validamos que el claim exista y sea un número entero
-            if (!int.TryParse(claimIdUsuario, out int idUsuario))
-                return Unauthorized();
-
-            // Llamamos al servicio para cambiar la contraseña
-            bool rta = await _authService.ChangePasswordAsync(idUsuario, dto);
-
-            return rta == true 
-                ? Ok("Contraseña cambiada correctamente.")
-                : BadRequest("La contraseña actual es incorrecta.");
-        }
-        #endregion
     }
 }
