@@ -14,6 +14,8 @@ namespace MindFit_Intelligence_Backend.Models
         public DbSet<Permiso> Permisos { get; set; } = null!;
         public DbSet<UsuarioGrupo> UsuarioGrupos { get; set; } = null!;
         public DbSet<GrupoPermiso> GrupoPermisos { get; set; } = null!;
+        public DbSet<Rutina> Rutinas { get; set; } = null!;
+        public DbSet<Dia> Dias { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +34,8 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<Permiso>().ToTable("Permiso");
             modelBuilder.Entity<UsuarioGrupo>().ToTable("UsuarioGrupo");
             modelBuilder.Entity<GrupoPermiso>().ToTable("GrupoPermiso");
+            modelBuilder.Entity<Rutina>().ToTable("Rutina");
+            modelBuilder.Entity<Dia>().ToTable("Dia");
 
             //// Relacio 1 a 1 PK compartida
             // 1 a 1 PK compartida Usuario <-> PersonaResponsable
@@ -73,6 +77,42 @@ namespace MindFit_Intelligence_Backend.Models
                 .HasOne(gp => gp.Permiso)
                 .WithMany(p => p.GrupoPermisos)
                 .HasForeignKey(gp => gp.IdPermiso);
+
+            // Relaciones Rutina - PersonaSocio (N:1)
+            modelBuilder.Entity<Rutina>()
+                .HasOne(r => r.PersonaSocio)
+                .WithMany(ps => ps.Rutinas)
+                .HasForeignKey(r => r.IdPersonaSocio)
+                .OnDelete(DeleteBehavior.Cascade); // Si se borra un socio, se borran sus rutinas
+
+            // Relacion Rutina - Dia (N:1)
+            modelBuilder.Entity<Rutina>()
+                .HasOne(r => r.Dia)
+                .WithMany(d => d.Rutinas)
+                .HasForeignKey(r => r.IdDia);
+
+            //Configurando Enums para que se guarden como Strings en la BD (en vez de enteros)
+            modelBuilder.Entity<PersonaResponsable>()
+                .Property(p => p.Genero)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<PersonaSocio>()
+                .Property(p => p.Plan)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<PersonaSocio>()
+                .Property(p => p.EstadoSocio)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<PersonaSocio>()
+                .Property(p => p.Genero)
+                .HasConversion<string>();
+
+            // Configurando índice único para evitar que un mismo socio tenga más de una rutina para el mismo día
+            // COLOCAR FLUENT VALIDADATION EN EL DTO DE RUTINA PARA VALIDAR QUE NO SE REPITA EL DIA EN LAS RUTINAS QUE ME LLEGAN EN EL DTO DE PERSONA SOCIO
+            modelBuilder.Entity<Rutina>()
+                .HasIndex(r => new { r.IdPersonaSocio, r.IdDia })
+                .IsUnique();
         }
     }
 }

@@ -71,8 +71,8 @@ namespace Backend.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<BeerDto>> Update(int id, BeerUpdateDto beerUpdateDto)
         {
+            // FluentValidation
             var validationResult = await _beerUpdateValidator.ValidateAsync(beerUpdateDto);
-
             if (!validationResult.IsValid) 
                 return BadRequest(validationResult.Errors);
 

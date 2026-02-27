@@ -2,7 +2,10 @@
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
-using MindFit_Intelligence_Backend.Repository;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using MindFit_Intelligence_Backend.Models.Enums;
+using MindFit_Intelligence_Backend.DTOs.Dia;
 
 namespace MindFit_Intelligence_Backend.Services
 {
@@ -13,19 +16,36 @@ namespace MindFit_Intelligence_Backend.Services
         private IPersonaSocioRepository _personaSocioRepository;
         private IMapper _mapper;
         private IAuthService _authService; // Servicio de autenticación (JWT)
+        private IPersonaSocioService _personaSocioService;
+        private IDiaRepository _diaRepository;
+        public List<string> Errors { get; }
 
         public UsuarioService(
             IAuthService authService,
             IUsuarioRepository usuarioRepository,
             IPersonaResponsableRepository personaResponsableRepository,
             IPersonaSocioRepository personaSocioRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IPersonaSocioService personaSocioService,
+            IDiaRepository diaRepository)
         {
             _usuarioRepository = usuarioRepository;
             _personaResponsableRepository = personaResponsableRepository;
             _personaSocioRepository = personaSocioRepository;
             _mapper = mapper;
             _authService = authService;
+            Errors = new List<string>();
+            _personaSocioService = personaSocioService;
+            _diaRepository = diaRepository;
+        }
+
+        public async Task<IEnumerable<DiaDto>> GetDias()
+        {
+            IEnumerable<Dia> dia = await _diaRepository.GetAll();
+
+            IEnumerable<DiaDto> diaDtos = _mapper.Map<IEnumerable<DiaDto>>(dia);
+
+            return diaDtos;
         }
 
         public async Task<Usuario?> GetById(int id)
@@ -38,7 +58,7 @@ namespace MindFit_Intelligence_Backend.Services
         {
             List<Usuario> usuarios = await _usuarioRepository.GetUsuariosResponsablesYSocios();
 
-            List < UsuarioGridDto > usuariosGridDto = _mapper.Map<List<UsuarioGridDto>>(usuarios);
+            List <UsuarioGridDto > usuariosGridDto = _mapper.Map<List<UsuarioGridDto>>(usuarios);
 
             return usuariosGridDto;
         }
@@ -55,68 +75,44 @@ namespace MindFit_Intelligence_Backend.Services
             return usuarioDto;
         }
 
-        public async Task<UsuarioDto> Add(UsuarioInsertDto dto)
+        public async Task<UsuarioDto?> Add(UsuarioInsertDto dto)
         {
-            // 1) TipoPersona válido
-            if (dto.TipoPersona != "Responsable" && dto.TipoPersona != "Socio")
-                throw new Exception("TipoPersona inválido");
-
-            // 2) Exactamente una persona
-            bool tieneResp = dto.PersonaResponsable != null;
-            bool tieneSocio = dto.PersonaSocio != null;
-
-            if (!tieneResp && !tieneSocio)
-                throw new Exception("Debe venir PersonaResponsable o PersonaSocio");
-
-            if (tieneResp && tieneSocio)
-                throw new Exception("No puede tener ambas personas");
-
-            // 3) Coherencia con TipoPersona
-            if (dto.TipoPersona == "Responsable" && !tieneResp)
-                throw new Exception("Falta PersonaResponsable");
-
-            if (dto.TipoPersona == "Socio" && !tieneSocio)
-                throw new Exception("Falta PersonaSocio");
+            Errors.Clear();
+            bool esSocio = dto.TipoPersona == "Socio" && dto.PersonaSocio != null;
 
             Usuario usuario = _mapper.Map<Usuario>(dto);
 
             _authService.SetPasswordHash(usuario, dto);
 
+            if (esSocio)
+                _personaSocioService.setSocioNuevo(usuario.PersonaSocio!, dto.PersonaSocio!.DiasActivosIds);
+
             await _usuarioRepository.Add(usuario);
             await _usuarioRepository.Save();
+
+            if (esSocio)
+                _personaSocioService.enviarEmailBienvenida(usuario);
 
             UsuarioDto? usuarioDto = await GetUsuarioById(usuario.IdUsuario);
 
             if (usuarioDto == null)
-                throw new Exception("Error al obtener el usuario creado");
+            {
+                Errors.Add("Error al obtener el usuario creado");
+                return null;
+            }
 
-            return usuarioDto!;
+            return usuarioDto;
         }
 
         public async Task<UsuarioDto?> Update(int id, UsuarioUpdateDto dto)
         {
-            //// Estas validaciones despues las hago con FluentValidation o Manejo de errores
-            // 1) Validaciones mínimas
-            if (dto.TipoPersona != "Responsable" && dto.TipoPersona != "Socio")
-                throw new Exception("TipoPersona inválido");
+            Errors.Clear();
 
-            bool tieneResp = dto.PersonaResponsable != null;
-            bool tieneSocio = dto.PersonaSocio != null;
-
-            if (dto.TipoPersona == "Responsable" && !tieneResp)
-                throw new Exception("Falta PersonaResponsable");
-
-            if (dto.TipoPersona == "Socio" && !tieneSocio)
-                throw new Exception("Falta PersonaSocio");
-
-            if (tieneResp && tieneSocio)
-                throw new Exception("No puede venir ambas personas");
-
-            // 2) Traer entidades a actualizar
+            // 1) Traer entidades a actualizar
             Usuario? usuario = await _usuarioRepository.GetById(id);
             if (usuario == null) return null;
 
-            if (dto.TipoPersona == "Responsable")
+            if (dto.TipoPersona == "Responsable" && dto.PersonaSocio == null)
             {
                 PersonaResponsable? pr = await _personaResponsableRepository.GetById(id);
                 if (pr == null) return null;
@@ -135,6 +131,8 @@ namespace MindFit_Intelligence_Backend.Services
                 usuario.PersonaResponsable = null;
 
                 ps.Usuario = usuario;
+
+                _personaSocioService.setSocioActualizado(usuario.PersonaSocio, dto.PersonaSocio!.DiasActivosIds);
             }
 
             // Un solo map actualiza Usuario + PersonaX (porque ya está conectada)
@@ -149,7 +147,15 @@ namespace MindFit_Intelligence_Backend.Services
             await _usuarioRepository.Save();
 
             // 4) Devolver “completo” usando el método que ya tenés
-            return await GetUsuarioById(id);
+             UsuarioDto? usuarioDto = await GetUsuarioById(id);
+
+            if (usuarioDto == null)
+            {
+                Errors.Add("Error inesperado al obtener el usuario actualizado de la BD");
+                return null;
+            }
+
+            return usuarioDto;
         }
 
         public async Task<UsuarioDto?> Delete(int id)
@@ -172,6 +178,53 @@ namespace MindFit_Intelligence_Backend.Services
         public async Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso)
         {
             return await _usuarioRepository.UsuarioTienePermiso(idUsuario, nombrePermiso);
+        }
+
+        public bool Validate(UsuarioInsertDto dto)
+        {
+            Errors.Clear();
+
+            if (dto.TipoPersona != "Responsable" && dto.TipoPersona != "Socio")
+                Errors.Add("TipoPersona inválido");
+
+            bool tieneResp = dto.PersonaResponsable != null;
+            bool tieneSocio = dto.PersonaSocio != null;
+
+            if (!tieneResp && !tieneSocio)
+                Errors.Add("Debe venir PersonaResponsable o PersonaSocio");
+
+            if (tieneResp && tieneSocio)
+                Errors.Add("No puede tener ambas personas");
+
+            if (dto.TipoPersona == "Responsable" && !tieneResp)
+                Errors.Add("Falta PersonaResponsable");
+
+            if (dto.TipoPersona == "Socio" && !tieneSocio)
+                Errors.Add("Falta PersonaSocio");
+
+            return !Errors.Any();
+        }
+
+        public bool Validate(UsuarioUpdateDto dto)
+        {
+            Errors.Clear();
+
+            if (dto.TipoPersona != "Responsable" && dto.TipoPersona != "Socio")
+                Errors.Add("TipoPersona inválido");
+
+            bool tieneResp = dto.PersonaResponsable != null;
+            bool tieneSocio = dto.PersonaSocio != null;
+
+            if (tieneResp && tieneSocio)
+                Errors.Add("No puede venir ambas personas");
+
+            if (dto.TipoPersona == "Responsable" && !tieneResp)
+                Errors.Add("Falta PersonaResponsable");
+
+            if (dto.TipoPersona == "Socio" && !tieneSocio)
+                Errors.Add("Falta PersonaSocio");
+
+            return !Errors.Any();
         }
     }
 }

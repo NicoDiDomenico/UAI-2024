@@ -10,8 +10,10 @@ using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Repository;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
 using MindFit_Intelligence_Backend.Services;
-using MindFit_Intelligence_Backend.Services.Email;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using FluentValidation;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +25,7 @@ builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
 builder.Services.AddScoped<IPermisoService, PermisoService>();
+builder.Services.AddScoped<IPersonaSocioService, PersonaSocioService>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
@@ -30,6 +33,7 @@ builder.Services.AddScoped<IPersonaSocioRepository, PersonaSocioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
 builder.Services.AddScoped<IPermisoRepository, PermisoRepository>();
+builder.Services.AddScoped<IDiaRepository, DiaRepository>();
 
 // Entity Framework
 builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>
@@ -40,13 +44,27 @@ builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>
 // AutoMapper
 builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>(), typeof(MappingProfile).Assembly);
 
+// FluentValidation - Registro automático de todos los validadores del ensamblado
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
 // Inyección de dependencias para el servicio de email (SMTP)
 builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 
-builder.Services.AddControllers();
+// Antes era solo builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Esto hace que los Enums (Genero, Plan, Estado) se envíen como Texto al Front
+        options.JsonSerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+    });
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    // Esto ayuda a que Swagger entienda que vas a usar Strings para los Enums
+    c.DescribeAllParametersInCamelCase();
+});
 
 // JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

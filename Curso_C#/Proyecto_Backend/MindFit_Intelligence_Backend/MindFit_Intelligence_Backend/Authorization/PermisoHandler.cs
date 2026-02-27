@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using MindFit_Intelligence_Backend.Services;
+using MindFit_Intelligence_Backend.Services.Interfaces;
 using System.Security.Claims;
 
 namespace MindFit_Intelligence_Backend.Authorization

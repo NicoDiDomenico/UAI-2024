@@ -332,3 +332,5 @@ D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MailKit.dll
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\MimeKit.dll
 D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\FluentValidation.dll
+D:\GitHub-Actual\UAI-2024\Curso_C#\Proyecto_Backend\MindFit_Intelligence_Backend\MindFit_Intelligence_Backend\bin\Debug\net10.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -40,6 +40,6 @@ namespace MindFit_Intelligence_Backend.Models
         [Column(TypeName = "datetime2")]
         public DateTime? PasswordResetTokenExpiryTime { get; set; }
         #endregion
-        public ICollection<UsuarioGrupo> UsuarioGrupos { get; set; } = new List<UsuarioGrupo>();
+        public required ICollection<UsuarioGrupo> UsuarioGrupos { get; set; }
     }
 }

@@ -1,74 +1,74 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\",
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\modelos\\storecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\modelos\\storecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\repository\\beerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\repository\\beerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\controllers\\beercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\validators\\beerupdatevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\validators\\beerupdatevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\validators\\beerupdatevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\beerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\modelos\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\modelos\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\modelos\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\validators\\beerinsertvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\validators\\beerinsertvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\validators\\beerinsertvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\beerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\automapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\modelos\\storecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\modelos\\storecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\repository\\beerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\repository\\beerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\repository\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\services\\icommonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerupdatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\postdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\dtos\\beerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\dtos\\beerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|d:\\github-actual\\uai-2024\\curso_net\\hector de leon\\seccion_14_manejo_de_errores\\backend aplicar generics a interfaces\\backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39A20E29-6693-4C4E-82E5-C1E5521560FC}|Backend\\Backend.csproj|solutionrelative:backend\\modelos\\beer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,46 +78,152 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
               "RelativeDocumentMoniker": "Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Program.cs",
               "RelativeToolTip": "Backend\\Program.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAE0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-17T20:35:36.154Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "StoreContext.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\StoreContext.cs",
-              "RelativeDocumentMoniker": "Backend\\Modelos\\StoreContext.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\StoreContext.cs",
-              "RelativeToolTip": "Backend\\Modelos\\StoreContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-09T22:41:41.526Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
+              "Title": "Brand.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Brand.cs",
+              "RelativeDocumentMoniker": "Backend\\Modelos\\Brand.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Brand.cs",
+              "RelativeToolTip": "Backend\\Modelos\\Brand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T18:40:33.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BeerUpdateValidator.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerUpdateValidator.cs",
+              "RelativeDocumentMoniker": "Backend\\Validators\\BeerUpdateValidator.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerUpdateValidator.cs",
+              "RelativeToolTip": "Backend\\Validators\\BeerUpdateValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-07T17:39:44.955Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Automapper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Backend\\Automapper\\MappingProfile.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Automapper\\MappingProfile.cs",
+              "RelativeToolTip": "Backend\\Automapper\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T03:29:09.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BeerInsertValidator.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerInsertValidator.cs",
+              "RelativeDocumentMoniker": "Backend\\Validators\\BeerInsertValidator.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerInsertValidator.cs",
+              "RelativeToolTip": "Backend\\Validators\\BeerInsertValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-27T03:28:53.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BeerService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
+              "RelativeDocumentMoniker": "Backend\\Services\\BeerService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
+              "RelativeToolTip": "Backend\\Services\\BeerService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAIwGgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-23T17:07:40.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BeerController.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
+              "RelativeDocumentMoniker": "Backend\\Controllers\\BeerController.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
+              "RelativeToolTip": "Backend\\Controllers\\BeerController.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAIwEkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-20T17:43:11.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\appsettings.json",
+              "RelativeDocumentMoniker": "Backend\\appsettings.json",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\appsettings.json",
+              "RelativeToolTip": "Backend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-26T23:56:56.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BeerInsertDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerInsertDto.cs",
+              "RelativeDocumentMoniker": "Backend\\DTOs\\BeerInsertDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerInsertDto.cs",
+              "RelativeToolTip": "Backend\\DTOs\\BeerInsertDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T19:06:16.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "BeerUpdateDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerUpdateDto.cs",
+              "RelativeDocumentMoniker": "Backend\\DTOs\\BeerUpdateDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerUpdateDto.cs",
+              "RelativeToolTip": "Backend\\DTOs\\BeerUpdateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-08T19:06:22.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "PostDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\PostDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\PostDto.cs",
               "RelativeDocumentMoniker": "Backend\\DTOs\\PostDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\PostDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\PostDto.cs",
               "RelativeToolTip": "Backend\\DTOs\\PostDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -126,95 +232,22 @@
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "BeerUpdateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerUpdateDto.cs",
-              "RelativeDocumentMoniker": "Backend\\DTOs\\BeerUpdateDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerUpdateDto.cs",
-              "RelativeToolTip": "Backend\\DTOs\\BeerUpdateDto.cs",
+              "Title": "StoreContext.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\StoreContext.cs",
+              "RelativeDocumentMoniker": "Backend\\Modelos\\StoreContext.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\StoreContext.cs",
+              "RelativeToolTip": "Backend\\Modelos\\StoreContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T19:06:22.593Z"
+              "WhenOpened": "2026-02-09T22:41:41.526Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "BeerInsertDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerInsertDto.cs",
-              "RelativeDocumentMoniker": "Backend\\DTOs\\BeerInsertDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerInsertDto.cs",
-              "RelativeToolTip": "Backend\\DTOs\\BeerInsertDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T19:06:16.551Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Brand.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Brand.cs",
-              "RelativeDocumentMoniker": "Backend\\Modelos\\Brand.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Brand.cs",
-              "RelativeToolTip": "Backend\\Modelos\\Brand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-08T18:40:33.303Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BeerUpdateValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerUpdateValidator.cs",
-              "RelativeDocumentMoniker": "Backend\\Validators\\BeerUpdateValidator.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerUpdateValidator.cs",
-              "RelativeToolTip": "Backend\\Validators\\BeerUpdateValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-07T17:39:44.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Automapper\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Backend\\Automapper\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Automapper\\MappingProfile.cs",
-              "RelativeToolTip": "Backend\\Automapper\\MappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T03:29:09.638Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "BeerInsertValidator.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerInsertValidator.cs",
-              "RelativeDocumentMoniker": "Backend\\Validators\\BeerInsertValidator.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Validators\\BeerInsertValidator.cs",
-              "RelativeToolTip": "Backend\\Validators\\BeerInsertValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-27T03:28:53.126Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BeerController.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
-              "RelativeDocumentMoniker": "Backend\\Controllers\\BeerController.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Controllers\\BeerController.cs",
-              "RelativeToolTip": "Backend\\Controllers\\BeerController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowF4AAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-20T17:43:11.743Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "IRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\IRepository.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\IRepository.cs",
               "RelativeDocumentMoniker": "Backend\\Repository\\IRepository.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\IRepository.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\IRepository.cs",
               "RelativeToolTip": "Backend\\Repository\\IRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -223,22 +256,10 @@
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\appsettings.json",
-              "RelativeDocumentMoniker": "Backend\\appsettings.json",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\appsettings.json",
-              "RelativeToolTip": "Backend\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAB5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-26T23:56:56.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "Beer.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Beer.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Beer.cs",
               "RelativeDocumentMoniker": "Backend\\Modelos\\Beer.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Beer.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Modelos\\Beer.cs",
               "RelativeToolTip": "Backend\\Modelos\\Beer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -246,11 +267,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "BeerDto.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerDto.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerDto.cs",
               "RelativeDocumentMoniker": "Backend\\DTOs\\BeerDto.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerDto.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\DTOs\\BeerDto.cs",
               "RelativeToolTip": "Backend\\DTOs\\BeerDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -258,24 +279,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BeerService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
-              "RelativeDocumentMoniker": "Backend\\Services\\BeerService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\BeerService.cs",
-              "RelativeToolTip": "Backend\\Services\\BeerService.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAiwEAAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:07:40.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "ICommonService.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
               "RelativeDocumentMoniker": "Backend\\Services\\ICommonService.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Services\\ICommonService.cs",
               "RelativeToolTip": "Backend\\Services\\ICommonService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -283,16 +291,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "BeerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\BeerRepository.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\BeerRepository.cs",
               "RelativeDocumentMoniker": "Backend\\Repository\\BeerRepository.cs",
-              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\BeerRepository.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_NET\\Hector de Leon\\Seccion_14_Manejo_de_Errores\\Backend Aplicar Generics a Interfaces\\Backend\\Repository\\BeerRepository.cs",
               "RelativeToolTip": "Backend\\Repository\\BeerRepository.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-23T17:00:57.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-23T17:00:57.184Z"
             }
           ]
         }

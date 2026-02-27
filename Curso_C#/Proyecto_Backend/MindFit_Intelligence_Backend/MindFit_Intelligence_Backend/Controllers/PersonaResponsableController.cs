@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MindFit_Intelligence_Backend.Services;
 using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.Services.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Controllers
 {
@@ -10,8 +10,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     [ApiController]
     public class PersonaResponsableController : ControllerBase
     {
-        private IPersonaService<PersonaResponsableDto> _PersonaResponsableService;
-        // falta validaciones con FluentValidation (falta instalar)
+        private readonly IPersonaService<PersonaResponsableDto> _PersonaResponsableService;
 
         public PersonaResponsableController(IPersonaService<PersonaResponsableDto> PersonaResponsableService) 
         {
@@ -31,6 +30,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Front : Para mostrar el detalle de un responsable, pero probablemente no se haga o se muestre con UsuariosController
         [HttpGet("{id}")]
         [Authorize]
+        [AllowAnonymous]
         public async Task<ActionResult<PersonaResponsableDto>> GetById(int id)
         {
             PersonaResponsableDto? PersonaResponsableDto = await _PersonaResponsableService.GetById(id);

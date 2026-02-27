@@ -22,6 +22,26 @@ namespace MindFit_Intelligence_Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Dia", b =>
+                {
+                    b.Property<int>("IdDia")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDia"));
+
+                    b.Property<string>("NombreDia")
+                        .IsRequired()
+                        .HasColumnType("varchar(25)");
+
+                    b.HasKey("IdDia");
+
+                    b.HasIndex("NombreDia")
+                        .IsUnique();
+
+                    b.ToTable("Dia", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
                 {
                     b.Property<int>("IdGrupo")
@@ -105,8 +125,8 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Property<DateTime?>("FechaNacimiento")
                         .HasColumnType("date");
 
-                    b.Property<int?>("Genero")
-                        .HasColumnType("int");
+                    b.Property<string>("Genero")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -148,6 +168,7 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("EstadoSocio")
+                        .IsRequired()
                         .HasColumnType("varchar(50)");
 
                     b.Property<DateTime?>("FechaFinActividades")
@@ -162,8 +183,8 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Property<DateTime?>("FechaNotificacion")
                         .HasColumnType("date");
 
-                    b.Property<int?>("Genero")
-                        .HasColumnType("int");
+                    b.Property<string>("Genero")
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -177,6 +198,7 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Plan")
+                        .IsRequired()
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Pregunta")
@@ -198,6 +220,36 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.HasKey("IdUsuario");
 
                     b.ToTable("PersonaSocio", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Rutina", b =>
+                {
+                    b.Property<int>("IdRutina")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRutina"));
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdDia")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdPersonaSocio")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdRutina");
+
+                    b.HasIndex("IdDia");
+
+                    b.HasIndex("IdPersonaSocio", "IdDia")
+                        .IsUnique();
+
+                    b.ToTable("Rutina", (string)null);
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Usuario", b =>
@@ -295,12 +347,31 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Rutina", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Dia", "Dia")
+                        .WithMany("Rutinas")
+                        .HasForeignKey("IdDia")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.PersonaSocio", "PersonaSocio")
+                        .WithMany("Rutinas")
+                        .HasForeignKey("IdPersonaSocio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Dia");
+
+                    b.Navigation("PersonaSocio");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.UsuarioGrupo", b =>
                 {
                     b.HasOne("MindFit_Intelligence_Backend.Models.Grupo", "Grupo")
                         .WithMany("UsuarioGrupos")
                         .HasForeignKey("IdGrupo")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("MindFit_Intelligence_Backend.Models.Usuario", "Usuario")
@@ -314,6 +385,11 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Dia", b =>
+                {
+                    b.Navigation("Rutinas");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
                 {
                     b.Navigation("GrupoPermisos");
@@ -324,6 +400,11 @@ namespace MindFit_Intelligence_Backend.Migrations
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Permiso", b =>
                 {
                     b.Navigation("GrupoPermisos");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaSocio", b =>
+                {
+                    b.Navigation("Rutinas");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Usuario", b =>

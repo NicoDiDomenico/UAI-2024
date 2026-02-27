@@ -11,7 +11,6 @@ namespace MindFit_Intelligence_Backend.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdPermiso { get; set; }
 
-        [Required]
         [Column(TypeName = "varchar(80)")]
         public string Codigo { get; set; } = string.Empty;
 
@@ -19,6 +18,6 @@ namespace MindFit_Intelligence_Backend.Models
         public string? Descripcion { get; set; }
 
         // Navegación (N:M)
-        public ICollection<GrupoPermiso> GrupoPermisos { get; set; } = new List<GrupoPermiso>();
+        public required ICollection<GrupoPermiso> GrupoPermisos { get; set; } 
     }
 }

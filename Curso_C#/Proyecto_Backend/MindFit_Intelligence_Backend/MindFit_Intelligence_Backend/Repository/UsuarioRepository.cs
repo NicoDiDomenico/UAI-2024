@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Repository
 {
@@ -35,6 +36,7 @@ namespace MindFit_Intelligence_Backend.Repository
                 .AsNoTracking()
                 .Include(u => u.PersonaResponsable)
                 .Include(u => u.PersonaSocio)
+                    .ThenInclude(ps => ps.Rutinas)
                 .Include(u => u.UsuarioGrupos)
                     .ThenInclude(ug => ug.Grupo)
                         .ThenInclude(g => g.GrupoPermisos)

@@ -389,6 +389,26 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "GetDias",
+    "RelativePath": "api/Usuario/dias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Dia.DiaDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
     "Method": "GetUsuariosGrid",
     "RelativePath": "api/Usuario/grilla",
     "HttpMethod": "GET",

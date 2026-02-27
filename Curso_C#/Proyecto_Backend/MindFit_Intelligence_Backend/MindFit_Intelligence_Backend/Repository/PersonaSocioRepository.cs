@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Repository
 {

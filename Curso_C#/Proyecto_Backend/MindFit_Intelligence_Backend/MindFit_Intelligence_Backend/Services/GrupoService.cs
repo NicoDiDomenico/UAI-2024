@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using MindFit_Intelligence_Backend.DTOs.Grupos;
 using MindFit_Intelligence_Backend.Models;
-using MindFit_Intelligence_Backend.Repository;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Services
 {
@@ -9,11 +10,13 @@ namespace MindFit_Intelligence_Backend.Services
     {
         private IGrupoRepository _grupoRepository;
         private IMapper _mapper;
+        public List<string> Errors { get; } 
 
         public GrupoService(IGrupoRepository grupoRepository, IMapper mapper) 
         {
             _grupoRepository = grupoRepository;
             _mapper = mapper;
+            Errors  = new List<string>();
         }
 
         public async Task<IEnumerable<GrupoDto>> Get()
@@ -38,9 +41,11 @@ namespace MindFit_Intelligence_Backend.Services
             await _grupoRepository.Save();
 
             var grupoCompleto = await _grupoRepository.GetById(grupo.IdGrupo);
+            /* No me convence esto, para mí esto no debería pasaar. Para evitar esta excepcion tedria que armar manualmente el dto 
+             * a partir del grupo que ya tengo, no volver a consultar a la base de datos. Pero bueno, lo dejo así por ahora.
             if (grupoCompleto == null)
-                throw new Exception("No se pudo recuperar el grupo creado.");
-
+                throw new Exception("No se pudo recuperar el grupo creado."); 
+            */
             return _mapper.Map<GrupoDto>(grupoCompleto);
         }
 
@@ -69,9 +74,6 @@ namespace MindFit_Intelligence_Backend.Services
             if (grupo == null)
                 return null;
 
-            if (grupo.UsuarioGrupos.Any())
-                throw new InvalidOperationException("No se puede eliminar el grupo porque está asignado a usuarios.");
-
             var grupoDto = _mapper.Map<GrupoDto>(grupo);
 
             _grupoRepository.Delete(grupo); // Elimina el grupo, y como EF tiene Cascade Delete se borrará GrupoPermisos
@@ -81,5 +83,16 @@ namespace MindFit_Intelligence_Backend.Services
             return grupoDto;
         }
 
+        public bool ValidateDelete(int id)
+        {
+            Errors.Clear();
+
+            if (_grupoRepository.Search(gu => gu.IdGrupo == id).Any())
+            {
+                Errors.Add("No se puede eliminar el grupo porque está asignado a usuarios.");
+                return false;
+            }
+            return true;
+        }
     }
 }

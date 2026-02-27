@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using System.Linq.Expressions;
 
 namespace MindFit_Intelligence_Backend.Repository
 {
@@ -49,5 +51,10 @@ namespace MindFit_Intelligence_Backend.Repository
 
         public async Task Save()             
             => await _context.SaveChangesAsync();
+
+        // Sin el Expression se obtenian todos los registros para hacer la consulta en memoria, lo que era ineficiente.
+        // Con el Expression se filtra directamente en la base de datos.
+        public IEnumerable<UsuarioGrupo> Search(Expression<Func<UsuarioGrupo, bool>> filter) 
+            => _context.UsuarioGrupos.Where(filter).ToList();
     }
 }

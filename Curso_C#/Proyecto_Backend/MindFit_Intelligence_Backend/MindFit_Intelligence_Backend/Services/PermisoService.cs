@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
 using MindFit_Intelligence_Backend.DTOs.Permisos;
 using MindFit_Intelligence_Backend.Models;
-using MindFit_Intelligence_Backend.Repository;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Services
 {

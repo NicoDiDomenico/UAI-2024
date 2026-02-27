@@ -1,4 +1,5 @@
-﻿using MindFit_Intelligence_Backend.DTOs.Usuarios;
+﻿using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models.Enums;
 
 namespace MindFit_Intelligence_Backend.DTOs.Personas
@@ -16,13 +17,14 @@ namespace MindFit_Intelligence_Backend.DTOs.Personas
         public Genero? Genero { get; set; }
         public DateTime? FechaNacimiento { get; set; }
         public string? ObraSocial { get; set; }
-        public string? Plan { get; set; }
-        public string? EstadoSocio { get; set; }
-        public DateTime? FechaInicioActividades { get; set; }
-        public DateTime? FechaFinActividades { get; set; }
+        public Plan Plan { get; set; }
+        // public EstadoSocio EstadoSocio { get; set; }
+        //public DateTime? FechaInicioActividades { get; set; }
+        //public DateTime? FechaFinActividades { get; set; }
         public DateTime? FechaNotificacion { get; set; }
         public bool? RespuestaNotificacion { get; set; }
         public string? Pregunta { get; set; }
         public string? Respuesta { get; set; }
+        public required List<int> DiasActivosIds { get; set; }
     }
 }

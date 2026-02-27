@@ -36,6 +36,7 @@ namespace MindFit_Intelligence_Backend.Models
         [Column(TypeName = "varchar(20)")]
         public string NroDocumento { get; set; } = string.Empty;
 
+        [Column(TypeName = "varchar(20)")]
         public Genero? Genero { get; set; }
 
         [Column(TypeName = "date")]
@@ -46,10 +47,10 @@ namespace MindFit_Intelligence_Backend.Models
         public string? ObraSocial { get; set; }
 
         [Column(TypeName = "varchar(50)")]
-        public string? Plan { get; set; }
+        public Plan Plan { get; set; }
 
         [Column(TypeName = "varchar(50)")]
-        public string? EstadoSocio { get; set; }
+        public EstadoSocio EstadoSocio { get; set; }
 
         // Actividades
         [Column(TypeName = "date")]
@@ -69,5 +70,7 @@ namespace MindFit_Intelligence_Backend.Models
 
         [Column(TypeName = "varchar(100)")]
         public string? Respuesta { get; set; }
+
+        public required ICollection<Rutina> Rutinas { get; set; } // Navegación a Rutinas
     }
 }

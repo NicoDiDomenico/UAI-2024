@@ -33,8 +33,9 @@ namespace MindFit_Intelligence_Backend.Models
         public string TipoDocumento { get; set; } = string.Empty;
 
         [Column(TypeName = "varchar(20)")]
-        public string NroDocumento { get; set; } = string.Empty; 
+        public string NroDocumento { get; set; } = string.Empty;
 
+        [Column(TypeName = "varchar(20)")]
         public Genero? Genero { get; set; }
 
         [Column(TypeName = "date")]

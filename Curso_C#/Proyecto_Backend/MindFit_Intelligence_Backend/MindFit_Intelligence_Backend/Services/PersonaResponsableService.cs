@@ -1,7 +1,8 @@
-﻿using MindFit_Intelligence_Backend.Repository;
-using AutoMapper;
+﻿using AutoMapper;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Services
 {
