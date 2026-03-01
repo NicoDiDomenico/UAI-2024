@@ -1,83 +1,148 @@
-﻿using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Rutina;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Models.Enums;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
 using MindFit_Intelligence_Backend.Services.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Services
 {
     public class PersonaSocioService : IPersonaSocioService
     {
-        private IEmailService _emailService;
+        private readonly IEmailService _emailService;
+        private readonly IDiaRepository _diaRepository;
 
-        public PersonaSocioService(IEmailService emailService)
+        public PersonaSocioService(IEmailService emailService, IDiaRepository diaRepository)
         {
             _emailService = emailService;
+            _diaRepository = diaRepository;
         }
 
-        public async void enviarEmailBienvenida(Usuario usuario)
+        public async Task SetSocioNuevoAsync(PersonaSocio socio, List<int> diasActivosIds)
         {
-            var socio = usuario.PersonaSocio;
+            var inicio = DateTime.Now;
+            socio.FechaInicioActividades = inicio;
+
+            var dias = await _diaRepository.GetAll();
+
+            socio.Rutinas = new List<Rutina>();
+            foreach (var dia in dias)
+            {
+                socio.Rutinas.Add(new Rutina
+                {
+                    IdDia = dia.IdDia,
+                    FechaModificacion = inicio,
+                    Activo = diasActivosIds.Contains(dia.IdDia)
+                });
+            }
+
+            socio.EstadoSocio = EstadoSocio.Nuevo;
+        }
+
+        public Cuota CrearCuotaInicial(PersonaSocio socio, Plan plan, decimal monto)
+        {
+            var now = DateTime.Now;
+
+            var cuota = new Cuota
+            {
+                Plan = plan,
+                Monto = monto,
+                FechaInicioPeriodo = now,
+                FechaFinPeriodo = plan switch
+                {
+                    Plan.Mensual => now.AddMonths(1),
+                    Plan.Anual => now.AddYears(1),
+                    _ => throw new ArgumentOutOfRangeException(nameof(plan))
+                },
+                EstadoCuota = EstadoCuota.Pagado,
+                FechaPago = now
+            };
+
+            // IMPORTANTE: PersonaSocio debe tener socio.Cuotas
+            socio.Cuotas.Add(cuota);
+
+            return cuota;
+        }
+
+        public Task SetSocioActualizadoAsync(PersonaSocio socio, List<int> diasActivosIds)
+        {
+            var fechaActual = DateTime.Now;
+
+            foreach (var rutina in socio.Rutinas)
+            {
+                rutina.Activo = diasActivosIds.Contains(rutina.IdDia);
+                rutina.FechaModificacion = fechaActual;
+            }
+
+            socio.EstadoSocio = EstadoSocio.Actualizado;
+
+            return Task.CompletedTask;
+        }
+
+        public Cuota ActualizarCuota(PersonaSocio socio, Plan plan, decimal monto)
+        {
+            // La colección ya viene ordenada por FechaFinPeriodo DESC desde el repositorio
+            Cuota? ultimaCuota = socio.Cuotas.FirstOrDefault();
+
+            // Si hay cobertura activa: encadenar al final; si ya venció: arrancar desde hoy
+            DateTime inicio = ultimaCuota?.FechaFinPeriodo > DateTime.Now
+                ? ultimaCuota.FechaFinPeriodo
+                : DateTime.Now;
+
+            var cuota = new Cuota
+            {
+                Plan = plan,
+                Monto = monto,
+                FechaInicioPeriodo = inicio,
+                FechaFinPeriodo = plan switch
+                {
+                    Plan.Mensual => inicio.AddMonths(1),
+                    Plan.Anual   => inicio.AddYears(1),
+                    _ => throw new ArgumentOutOfRangeException(nameof(plan))
+                },
+                EstadoCuota = EstadoCuota.Pagado,
+                FechaPago = DateTime.Now
+            };
+
+            socio.Cuotas.Add(cuota);
+
+            return cuota;
+        }
+
+        public async Task EnviarEmailBienvenidaAsync(Usuario usuario, Cuota? cuota)
+        {
+            var socio = usuario.PersonaSocio!;
             string htmlBody = $"""
-                    <h2>¡Bienvenido/a a MindFit Intelligence, {socio.Nombre} {socio.Apellido}!</h2>
-                    <p>Tu registro fue completado exitosamente.</p>
-                    <ul>
-                        <li><strong>Cuenta de Usuario:</strong> {usuario.Username}</li>
-                        <li><strong>Plan:</strong> {socio.Plan}</li>
-                        <li><strong>Inicio de actividades:</strong> {socio.FechaInicioActividades:dd/MM/yyyy}</li>
-                        <li><strong>Vencimiento:</strong> {socio.FechaFinActividades:dd/MM/yyyy}</li>
-                    </ul>
-                    <p>¡Te esperamos!</p>
-                    """;
+                <h2>¡Bienvenido/a a MindFit Intelligence, {socio.Nombre} {socio.Apellido}!</h2>
+                <p>Tu registro fue completado exitosamente.</p>
+                <ul>
+                    <li><strong>Cuenta de Usuario:</strong> {usuario.Username}</li>
+                    <li><strong>Plan:</strong> {cuota?.Plan}</li>
+                    <li><strong>Inicio de actividades:</strong> {socio.FechaInicioActividades:dd/MM/yyyy}</li>
+                    <li><strong>Vencimiento:</strong> {cuota?.FechaFinPeriodo:dd/MM/yyyy}</li>
+                </ul>
+                <p>¡Te esperamos!</p>
+                """;
 
             await _emailService.SendAsync(socio.Email, "Confirmación de registro - MindFit Intelligence", htmlBody);
         }
 
-        public void setSocioNuevo(PersonaSocio personaSocio, List<int> diasActivosIds)
+        public async Task EnviarEmailActualizacionCuotaAsync(Usuario usuario, Cuota? cuota)
         {
-            var inicio = DateTime.Now;
+            var socio = usuario.PersonaSocio!;
+            string htmlBody = $"""
+                <h2>Renovación de cuota - MindFit Intelligence</h2>
+                <p>Hola {socio.Nombre} {socio.Apellido}, tu cuota fue renovada exitosamente.</p>
+                <ul>
+                    <li><strong>Plan:</strong> {cuota?.Plan}</li>
+                    <li><strong>Período:</strong> {cuota?.FechaInicioPeriodo:dd/MM/yyyy} - {cuota?.FechaFinPeriodo:dd/MM/yyyy}</li>
+                    <li><strong>Monto abonado:</strong> ${cuota?.Monto:F2}</li>
+                </ul>
+                <p>¡Gracias por seguir eligiendo MindFit Intelligence!</p>
+                """;
 
-            personaSocio.FechaInicioActividades = inicio;
-
-            personaSocio.FechaFinActividades = personaSocio.Plan switch
-            {
-                Plan.Mensual => inicio.AddMonths(1),
-                Plan.Anual => inicio.AddYears(1),
-                _ => throw new ArgumentOutOfRangeException(nameof(personaSocio.Plan), "Plan no soportado")
-            };
-
-            // Crear las 7 rutinas (una por cada día de la semana)
-            personaSocio.Rutinas = new List<Rutina>();
-            for (int idDia = 1; idDia <= 7; idDia++) // Lo correcto seria traer los dias de la base de datos, pero por simplicidad se asume que los dias van del 1 al 7
-            {
-                personaSocio.Rutinas.Add(new Rutina
-                {
-                    IdDia = idDia,
-                    FechaModificacion = inicio,
-                    Activo = diasActivosIds.Contains(idDia)
-                });
-            }
-
-            personaSocio.EstadoSocio = EstadoSocio.Nuevo;
-        }
-        public void setSocioActualizado(PersonaSocio personaSocio, List<int> diasActivosIds)
-        {
-            var fechaActual = DateTime.Now;
-
-            personaSocio.Rutinas = new List<Rutina>();
-            for (int idDia = 1; idDia <= 7; idDia++) // Lo correcto seria traer los dias de la base de datos, pero por simplicidad se asume que los dias van del 1 al 7
-            {
-                personaSocio.Rutinas.Add(new Rutina
-                {
-                    IdDia = idDia,
-                    FechaModificacion = fechaActual,
-                    Activo = diasActivosIds.Contains(idDia)
-                });
-            }
-            
-
-            personaSocio.EstadoSocio = EstadoSocio.Actualizado;
-            
+            await _emailService.SendAsync(socio.Email, "Renovación de cuota - MindFit Intelligence", htmlBody);
         }
     }
 }

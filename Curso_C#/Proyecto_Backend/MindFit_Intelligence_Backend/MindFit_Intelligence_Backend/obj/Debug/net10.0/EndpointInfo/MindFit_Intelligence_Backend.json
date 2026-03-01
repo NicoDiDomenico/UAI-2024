@@ -1204,7 +1204,7 @@
       },
       "PersonaSocioInsertDto": {
         "required": [
-          "rutinas"
+          "diasActivosIds"
         ],
         "type": "object",
         "properties": {
@@ -1272,10 +1272,11 @@
             "type": "string",
             "nullable": true
           },
-          "rutinas": {
+          "diasActivosIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RutinaInsertDto"
+              "type": "integer",
+              "format": "int32"
             },
             "nullable": true
           }
@@ -1284,7 +1285,7 @@
       },
       "PersonaSocioUpdateDto": {
         "required": [
-          "rutinas"
+          "diasActivosIds"
         ],
         "type": "object",
         "properties": {
@@ -1352,10 +1353,11 @@
             "type": "string",
             "nullable": true
           },
-          "rutinas": {
+          "diasActivosIds": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RutinaUpdateDto"
+              "type": "integer",
+              "format": "int32"
             },
             "nullable": true
           }
@@ -1411,26 +1413,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "idDia": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RutinaInsertDto": {
-        "type": "object",
-        "properties": {
-          "idDia": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "RutinaUpdateDto": {
-        "type": "object",
-        "properties": {
           "idDia": {
             "type": "integer",
             "format": "int32"

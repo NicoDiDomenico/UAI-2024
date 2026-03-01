@@ -1,0 +1,89 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class PersonaSocioService : IPersonaSocioService
+    {
+        private IEmailService _emailService;
+        private IDiaRepository _diaRepository;
+        private ICuotaService _cuotaService;
+
+        public PersonaSocioService(IEmailService emailService, IDiaRepository diaRepository, ICuotaService cuotaService)
+        {
+            _emailService = emailService;
+            _diaRepository = diaRepository;
+            _cuotaService = cuotaService;
+        }
+
+        public async void enviarEmailBienvenida(Usuario usuario, CuotaDto? cuota)
+        {
+            var socio = usuario.PersonaSocio;
+            string htmlBody = $"""
+                    <h2>¡Bienvenido/a a MindFit Intelligence, {socio.Nombre} {socio.Apellido}!</h2>
+                    <p>Tu registro fue completado exitosamente.</p>
+                    <ul>
+                        <li><strong>Cuenta de Usuario:</strong> {usuario.Username}</li>
+                        <li><strong>Plan:</strong> {cuota?.Plan}</li>
+                        <li><strong>Inicio de actividades:</strong> {socio.FechaInicioActividades:dd/MM/yyyy}</li>
+                        <li><strong>Vencimiento:</strong> {cuota?.FechaFinPeriodo:dd/MM/yyyy}</li>
+                    </ul>
+                    <p>¡Te esperamos!</p>
+                    """;
+
+            await _emailService.SendAsync(socio.Email, "Confirmación de registro - MindFit Intelligence", htmlBody);
+        }
+
+        public async void setSocioNuevo(PersonaSocio personaSocio, List<int> diasActivosIds)
+        {
+            var inicio = DateTime.Now;
+
+            personaSocio.FechaInicioActividades = inicio;
+
+            var dias = await _diaRepository.GetAll();
+
+            // Crear las 7 rutinas (una por cada día de la semana)
+            personaSocio.Rutinas = new List<Rutina>();
+            foreach (var dia in dias)
+            {
+                personaSocio.Rutinas.Add(new Rutina
+                {
+                    IdDia = dia.IdDia,
+                    FechaModificacion = inicio,
+                    Activo = diasActivosIds.Contains(dia.IdDia)
+                });
+            }
+
+            personaSocio.EstadoSocio = EstadoSocio.Nuevo;
+        }
+
+        public async Task<CuotaDto?> CrearCuotaInicial(CuotaInsertDto cuotaDto)
+            => await _cuotaService.Add(cuotaDto);
+
+        public async void setSocioActualizado(PersonaSocio personaSocio, List<int> diasActivosIds)
+        {
+            var fechaActual = DateTime.Now;
+
+            var dias = await _diaRepository.GetAll();
+
+            personaSocio.Rutinas = new List<Rutina>();
+            foreach (var dia in dias)
+            {
+                personaSocio.Rutinas.Add(new Rutina
+                {
+                    IdDia = dia.IdDia,
+                    FechaModificacion = fechaActual,
+                    Activo = diasActivosIds.Contains(dia.IdDia)
+                });
+            }
+
+            // Esto no se dejarlo asi o si cambiar el estado solo cuando se modifica una rutina
+            personaSocio.EstadoSocio = EstadoSocio.Actualizado;
+        }
+    }
+}

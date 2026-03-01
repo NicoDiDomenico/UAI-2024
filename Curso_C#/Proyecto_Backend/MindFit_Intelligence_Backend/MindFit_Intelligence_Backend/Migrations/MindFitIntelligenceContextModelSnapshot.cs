@@ -80,6 +80,34 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("GrupoPermiso", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PerfilIA", b =>
+                {
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DisponibilidadHoraria")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("EjerciciosAEvitar")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("EjerciciosPreferidos")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("MotivacionPersonal")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("NivelExperiencia")
+                        .HasColumnType("varchar(500)");
+
+                    b.Property<string>("ObjetivoPrincipal")
+                        .HasColumnType("varchar(500)");
+
+                    b.HasKey("IdUsuario");
+
+                    b.ToTable("PerfilIA", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Permiso", b =>
                 {
                     b.Property<int>("IdPermiso")
@@ -325,6 +353,17 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("Permiso");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PerfilIA", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.PersonaSocio", "PersonaSocio")
+                        .WithOne("PerfilIA")
+                        .HasForeignKey("MindFit_Intelligence_Backend.Models.PerfilIA", "IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PersonaSocio");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaResponsable", b =>
                 {
                     b.HasOne("MindFit_Intelligence_Backend.Models.Usuario", "Usuario")
@@ -404,6 +443,8 @@ namespace MindFit_Intelligence_Backend.Migrations
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaSocio", b =>
                 {
+                    b.Navigation("PerfilIA");
+
                     b.Navigation("Rutinas");
                 });
 

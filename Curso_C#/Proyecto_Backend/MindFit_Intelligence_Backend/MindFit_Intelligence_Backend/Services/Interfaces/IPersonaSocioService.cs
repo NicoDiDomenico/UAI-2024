@@ -1,14 +1,22 @@
-﻿using MindFit_Intelligence_Backend.DTOs.Personas;
+﻿using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Rutina;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
 
 namespace MindFit_Intelligence_Backend.Services.Interfaces
 {
     public interface IPersonaSocioService
     {
-        void setSocioNuevo(PersonaSocio usuario, List<int> diasActivosIds);
-        void setSocioActualizado(PersonaSocio usuario, List<int> diasActivosIds);
+        Task SetSocioNuevoAsync(PersonaSocio socio, List<int> diasActivosIds);
+        Task SetSocioActualizadoAsync(PersonaSocio socio, List<int> diasActivosIds);
 
-        void enviarEmailBienvenida(Usuario usuario);
+        // Crea y adjunta la cuota al socio (NO guarda)
+        Cuota CrearCuotaInicial(PersonaSocio socio, Plan plan, decimal monto);
+        Cuota ActualizarCuota(PersonaSocio socio, Plan plan, decimal monto);
+
+        // Side-effect (mail) -> siempre Task
+        Task EnviarEmailBienvenidaAsync(Usuario usuario, Cuota? cuota);
+        Task EnviarEmailActualizacionCuotaAsync(Usuario usuario, Cuota? cuota);
     }
 }
