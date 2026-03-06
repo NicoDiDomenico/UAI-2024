@@ -28,9 +28,35 @@ namespace MindFit_Intelligence_Backend.Models
         public decimal Monto { get; set; }
 
         [Column(TypeName = "varchar(50)")]
-        public EstadoCuota EstadoCuota { get; set; }
+        public EstadoCuota EstadoCuota { get; private set; } 
 
         [Column(TypeName = "date")]
         public DateTime? FechaPago { get; set; }
+
+        private bool PuedeMarcarseComoVencida()
+        {
+            return FechaFinPeriodo < DateTime.Now
+                   && EstadoCuota != EstadoCuota.Vencida;
+        }
+
+        public bool SuperaMargenDeGracia() => FechaFinPeriodo.AddDays(30) <= DateTime.Now;
+
+        public void MarcarComoVencida()
+        {
+            if (!PuedeMarcarseComoVencida()) return;
+
+            EstadoCuota = EstadoCuota.Vencida;
+        }
+
+        public void MarcarComoVigente()
+        {
+            EstadoCuota = EstadoCuota.Vigente;
+        }
+
+        // RN: Una cuota bloquea la eliminación si todavía está vigente.
+        public bool ImpideEliminacionSocio()
+        {
+            return EstadoCuota == EstadoCuota.Vigente;
+        }
     }
 }

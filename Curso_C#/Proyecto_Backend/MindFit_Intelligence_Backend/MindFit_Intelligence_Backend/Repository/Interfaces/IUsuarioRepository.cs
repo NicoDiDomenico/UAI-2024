@@ -9,6 +9,8 @@ namespace MindFit_Intelligence_Backend.Repository.Interfaces
 
         public Task<Usuario?> GetById(int id);
         public Task<List<Usuario>> GetUsuariosResponsablesYSocios();
+        public Task<List<Usuario>> GetUsuariosSocios();
+        public Task<List<Usuario>> GetUsuariosResponsables();
         public Task<Usuario?> GetUsuarioCompletoById(int id);
         public Task Add(Usuario entity);
         public void Update(Usuario entity);

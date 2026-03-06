@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
 using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.DTOs.Dia;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
 using MindFit_Intelligence_Backend.Repository.Interfaces;
 using MindFit_Intelligence_Backend.Services.Interfaces;
-using MindFit_Intelligence_Backend.Models.Enums;
-using MindFit_Intelligence_Backend.DTOs.Dia;
+using System.Collections.Generic;
 namespace MindFit_Intelligence_Backend.Services
 {
     public class UsuarioService : IUsuarioService
@@ -56,20 +57,34 @@ namespace MindFit_Intelligence_Backend.Services
             return await _usuarioRepository.GetById(id);
         }
 
-        // Acá el front obtiene info esencial para la grilla de usuarios, después con el método GetUsuarioResponsableById obtiene el detalle completo del usuario responsable seleccionado
+        // Acá el front obtiene info esencial para la grilla de Usuarios (tanto Socio como responsables), después con el método GetUsuarioResponsableById obtiene el detalle completo del usuario responsable seleccionado
         public async Task<List<UsuarioGridDto>> GetUsuariosGrid()
         {
             List<Usuario> usuarios = await _usuarioRepository.GetUsuariosResponsablesYSocios();
 
-            List <UsuarioGridDto > usuariosGridDto = _mapper.Map<List<UsuarioGridDto>>(usuarios);
+            List<UsuarioGridDto> usuariosGridDto = _mapper.Map<List<UsuarioGridDto>>(usuarios);
 
             return usuariosGridDto;
         }
 
-        // Con este metodo el front obtiene toda la info del usuario cuando lo selecciona de la grilla
-        public async Task<UsuarioDto?> GetUsuarioById(int id)
+        // Acá el front obtiene info esencial para la grilla de Socios
+        public async Task<List<SocioGridDto>> GetUsuariosSociosGrid()
         {
-            Usuario? usuario = await _usuarioRepository.GetUsuarioCompletoById(id);
+            List<Usuario> usuarios = await _usuarioRepository.GetUsuariosSocios();
+            return _mapper.Map<List<SocioGridDto>>(usuarios);
+        }
+
+        // Acá el front obtiene info esencial para la grilla de Responsables
+        public async Task<List<ResponsableGridDto>> GetUsuariosResponsablesGrid()
+        {
+            List<Usuario> usuarios = await _usuarioRepository.GetUsuariosResponsables();
+            return _mapper.Map<List<ResponsableGridDto>>(usuarios);
+        }
+
+        // Con este metodo el front obtiene toda la info del usuario cuando lo selecciona de la grilla
+        public async Task<UsuarioDto?> GetUsuarioById(int idUsuario)
+        {
+            Usuario? usuario = await _usuarioRepository.GetUsuarioCompletoById(idUsuario);
             if (usuario is null) return null;
 
             // AutoMapper se encarga de recorrer los objetos y colecciones anidadas
@@ -177,6 +192,17 @@ namespace MindFit_Intelligence_Backend.Services
             return usuarioDto;
         }
 
+        public async Task<UsuarioDto?> RecoverSoftDeletedSocio(int idUsuario)
+        {
+            PersonaSocio? personaSocio = await _personaSocioRepository.GetById(idUsuario);
+            if (personaSocio == null) return null;
+
+            personaSocio.MarcarComoActualizado();
+            await _usuarioRepository.Save();
+
+            return await GetUsuarioById(idUsuario);
+        }
+
         public async Task<UsuarioDto?> Delete(int id)
         {
             Usuario? usuarioRestore = await _usuarioRepository.GetUsuarioCompletoById(id);
@@ -194,37 +220,51 @@ namespace MindFit_Intelligence_Backend.Services
             return usuarioDto;
         }
 
+        public async Task<UsuarioDto?> AutoSoftDeleteSocio(int idUsuario)
+        {
+            var cuota = await _cuotaRepository.GetUltimaCuotaSocio(idUsuario);
+            var socio = await _personaSocioRepository.GetById(idUsuario);
+
+            if (cuota == null || socio == null) return null;
+
+            // Solo entramos si cumple la regla de los 30 días
+            if (cuota.SuperaMargenDeGracia())
+            {
+                socio.MarcarComoEliminado();
+                await _usuarioRepository.Save();
+                return await GetUsuarioById(idUsuario);
+            }
+
+            return null; // No cumplió la regla, no hacemos nada
+        }
+
         public async Task<UsuarioDto?> SoftDeleteSocio(int id)
         {
             PersonaSocio? personaSocio = await _personaSocioRepository.GetById(id);
             if (personaSocio == null) return null;
 
-            personaSocio.EstadoSocio = EstadoSocio.Eliminado;
+            personaSocio.MarcarComoEliminado();
             await _usuarioRepository.Save();
 
             return await GetUsuarioById(id);
         }
 
+        
         public async Task<bool> ValidateDelete(int id)
         {
             Errors.Clear();
 
             IEnumerable<Cuota> cuotas = await _cuotaRepository.GetBySocio(id);
 
-            bool tieneCuotaVencida = cuotas.Any(c =>
-                c.EstadoCuota == EstadoCuota.Pendiente &&
-                c.FechaFinPeriodo < DateTime.Now);
+            // Le pedimos a la colección de cuotas que verifique si alguna "impide la eliminación"
+            bool tieneCuotaActiva = cuotas.Any(c => c.ImpideEliminacionSocio());
 
-            if (tieneCuotaVencida)
-                Errors.Add("No se puede eliminar el socio porque tiene cuotas vencidas sin pagar");
+            if (tieneCuotaActiva)
+                Errors.Add("No se puede eliminar el socio con la cuota al día.");
 
             return !Errors.Any();
         }
-
-        public async Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso)
-        {
-            return await _usuarioRepository.UsuarioTienePermiso(idUsuario, nombrePermiso);
-        }
+        
 
         public bool Validate(UsuarioInsertDto dto)
         {
@@ -269,6 +309,24 @@ namespace MindFit_Intelligence_Backend.Services
 
             if (dto.TipoPersona == "Socio" && !tieneSocio)
                 Errors.Add("Falta PersonaSocio");
+
+            return !Errors.Any();
+        }
+        public async Task<bool> UsuarioTienePermiso(int idUsuario, string nombrePermiso)
+        {
+            return await _usuarioRepository.UsuarioTienePermiso(idUsuario, nombrePermiso);
+        }
+
+        // No se tednria que llegar a esta validacion si el front-end es correcto ya que este método se llama desde un botón que solo aparece en los Socios Eliminados, pero lo dejo por las dudas para evitar errores inesperados
+        public async Task<bool> ValidateRecover( int idUsuario) 
+        {
+            Errors.Clear();
+
+            Usuario? usuario = await _usuarioRepository.GetUsuarioCompletoById(idUsuario);
+
+            // Verificamos si existe el socio y si él mismo se considera "recuperable"
+            if (usuario?.PersonaSocio == null || !usuario.PersonaSocio.PuedeSerRecuperado())
+                Errors.Add("El Socio no se encuentra en un estado que permita su recuperación.");
 
             return !Errors.Any();
         }

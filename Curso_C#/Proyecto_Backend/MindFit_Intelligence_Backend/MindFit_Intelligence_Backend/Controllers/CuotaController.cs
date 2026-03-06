@@ -34,22 +34,23 @@ namespace MindFit_Intelligence_Backend.Controllers
             return cuotaDto == null ? NotFound() : Ok(cuotaDto);
         }
 
+        // Front: Actualiza a Pendiente las cuotas vencidas y suspende al socio correspondiente (esto tiene que ser algo interno del front para mi)
+        // ESTADO SOCIO NUEVO/ACTUALIZADO A SUSPENDIDO
+        [Authorize]
+        [HttpPut("actualizar-vencidas")]
+        public async Task<ActionResult> ActualizarCuotasVencidas()
+        {
+            int cantidad = await _cuotaService.ActualizarCuotasVencidas();
+            return Ok(new { cuotasActualizadas = cantidad }); // Como es interno tiene mas sentido que no devuelva nada, pero por ahora lo dejo asi para probarlo desde el front
+        }
+
         // Front: Eliminar cuota
-        [Authorize(Policy = "EliminarUsuario")]
+        [Authorize(Policy = "EliminarCuota")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<CuotaDto>> Delete(int id)
         {
             CuotaDto? cuotaDto = await _cuotaService.Delete(id);
             return cuotaDto == null ? NotFound() : Ok(cuotaDto);
-        }
-
-        // FRont: Actualiza a Pendiente las cuotas vencidas y suspende al socio correspondiente (esto tiene que ser algo interno del front para mi)
-        [Authorize(Policy = "EditarUsuario")]
-        [HttpPut("actualizar-vencidas")]
-        public async Task<ActionResult> ActualizarCuotasVencidas()
-        {
-            int cantidad = await _cuotaService.ActualizarCuotasVencidas();
-            return Ok(new { cuotasActualizadas = cantidad });
         }
     }
 }

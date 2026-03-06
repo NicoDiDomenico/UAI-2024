@@ -25,7 +25,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             _updateValidator = updateValidator;
         }
 
-        // Front: Mostrar todos los grupos en una grilla para seleccionar uno y hacer modificacion o eliminación
+        // Front: Mostrar los grupos para Responsables (No Grupo SOCIO) en una grilla para seleccionar uno y hacer modificacion o eliminación
         [HttpGet]
         [Authorize]
         public async Task<ActionResult<IEnumerable<GrupoDto>>> Get()
@@ -67,7 +67,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         }
 
         // Front: Formulario para modificar un grupo existente, con un select multiple para elegir los permisos que va a tener el grupo
-        [HttpPut]
+        [HttpPut("/{id}")]
         [Authorize(Policy = "EditarGrupo")]
         public async Task<ActionResult<GrupoDto>> Update(int id, GrupoUpdateDto grupoUpdateDto)
         {

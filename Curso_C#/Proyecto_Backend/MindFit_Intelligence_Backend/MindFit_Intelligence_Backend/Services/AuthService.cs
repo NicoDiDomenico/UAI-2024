@@ -56,20 +56,22 @@ namespace MindFit_Intelligence_Backend.Services
 
                 // Username visible en el token
                 new Claim(ClaimTypes.Name, usuario.Username),
-
-                // Rol del usuario (usado luego por [Authorize(Roles = "...")])
-                //new Claim(ClaimTypes.Role, usuario.Rol), --> Lo cambio por Roles desde BD
             };
 
-            /* Cuando decidas sacar esto cambiá también el método GetByUsername en UsuarioRepository para que incluya los grupos del usuario (Include) y no tengas problemas de referencia circular.
-            // 1.2) Roles desde BD: 1 claim por grupo
-            IEnumerable<string?> roles = usuario.UsuarioGrupos
-                .Select(ug => ug.Grupo?.Nombre)
-                .Where(nombre => !string.IsNullOrWhiteSpace(nombre))
-                .Distinct();
-            foreach (string? rol in roles)
-                claims.Add(new Claim(ClaimTypes.Role, rol!));
-            */
+            // 1.2) Roles desde BD - Lo voy a usar para el rol Socio: 
+            // Esto sirve para que 'RequireRole' funcione en el Program.cs
+            if (usuario.UsuarioGrupos != null)
+            {
+                var roles = usuario.UsuarioGrupos
+                    .Select(ug => ug.Grupo?.Nombre)
+                    .Where(nombre => !string.IsNullOrWhiteSpace(nombre))
+                    .Distinct();
+
+                foreach (var rol in roles)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, rol!));
+                }
+            }
 
             // 🔹 2) CLAVE SECRETA --> Información para contruir las CREDENCIALES DE FIRMA
             // Esta clave se usa para generar la FIRMA(SIGNATURE) del token.

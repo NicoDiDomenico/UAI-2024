@@ -18,6 +18,7 @@ namespace MindFit_Intelligence_Backend.Models
         public DbSet<Dia> Dias { get; set; } = null!;
         public DbSet<PerfilIA> PerfilesIA { get; set; } = null!;
         public DbSet<Cuota> Cuotas { get; set; } = null!;
+        public DbSet<Turno> Turnos { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +41,7 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<Dia>().ToTable("Dia");
             modelBuilder.Entity<PerfilIA>().ToTable("PerfilIA");
             modelBuilder.Entity<Cuota>().ToTable("Cuota");
+            modelBuilder.Entity<Turno>().ToTable("Turno");
 
             //// Relacio 1 a 1 PK compartida
             // 1 a 1 PK compartida Usuario <-> PersonaResponsable
@@ -100,7 +102,7 @@ namespace MindFit_Intelligence_Backend.Models
                 .HasOne(c => c.PersonaSocio)
                 .WithMany(ps => ps.Cuotas)
                 .HasForeignKey(c => c.IdUsuario)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade); // Si se borra un socio, se borran sus cuotas
 
             //Configurando Enums para que se guarden como Strings en la BD (en vez de enteros)
             modelBuilder.Entity<PersonaResponsable>()
@@ -134,6 +136,18 @@ namespace MindFit_Intelligence_Backend.Models
                 .WithOne(ps => ps.PerfilIA)
                 .HasForeignKey<PerfilIA>(p => p.IdUsuario)
                 .OnDelete(DeleteBehavior.Cascade);
+        
+            modelBuilder.Entity<Turno>()
+                .HasOne(t => t.PersonaResponsable)
+                .WithMany(pr => pr.Turnos)
+                .HasForeignKey(t => t.IdUsuarioResponsable)
+                .OnDelete(DeleteBehavior.Restrict); // Si se borra un responsable, no se borran los turnos (se podría poner en null el IdUsuarioResponsable)
+            
+            modelBuilder.Entity<Turno>()
+                .HasOne(t => t.PersonaSocio)
+                .WithMany(ps => ps.Turnos)
+                .HasForeignKey(t => t.IdUsuarioSocio)
+                .OnDelete(DeleteBehavior.Cascade); // Si se borra un socio, se borran sus turnos
         }
     }
 }

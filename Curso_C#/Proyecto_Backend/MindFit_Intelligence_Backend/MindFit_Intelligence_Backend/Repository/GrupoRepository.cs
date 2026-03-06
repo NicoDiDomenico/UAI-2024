@@ -17,6 +17,7 @@ namespace MindFit_Intelligence_Backend.Repository
         {
             return await _context.Grupos
                 .AsNoTracking()
+                .Where(g => g.Nombre != "Socio") /// Excluye el grupo "Socio" de la lista de grupos.
                 .Include(g => g.GrupoPermisos)
                     .ThenInclude(gp => gp.Permiso)
                 .ToListAsync();

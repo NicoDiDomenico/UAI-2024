@@ -30,6 +30,20 @@ namespace MindFit_Intelligence_Backend.Services
             return cuota == null ? null : _mapper.Map<CuotaDto>(cuota);
         }
 
+        public async Task<int> ActualizarCuotasVencidas()
+        {
+            var cuotasCandidatas = await _cuotaRepository.GetVencidas();
+
+            foreach (var cuota in cuotasCandidatas)
+            {
+                cuota.MarcarComoVencida();
+                cuota.PersonaSocio.MarcarComoSuspendido();
+            }
+
+            await _cuotaRepository.Save();
+            return cuotasCandidatas.Count();
+        }
+
         public async Task<CuotaDto?> Delete(int id)
         {
             Cuota? cuota = await _cuotaRepository.GetById(id);
@@ -40,21 +54,6 @@ namespace MindFit_Intelligence_Backend.Services
             await _cuotaRepository.Save();
 
             return cuotaDto;
-        }
-
-        public async Task<int> ActualizarCuotasVencidas()
-        {
-            IEnumerable<Cuota> cuotasVencidas = await _cuotaRepository.GetVencidas();
-
-            foreach (Cuota cuota in cuotasVencidas)
-            {
-                cuota.EstadoCuota = EstadoCuota.Pendiente;
-                cuota.PersonaSocio.EstadoSocio = EstadoSocio.Supendido;
-            }
-
-            await _cuotaRepository.Save();
-
-            return cuotasVencidas.Count();
         }
     }
 }

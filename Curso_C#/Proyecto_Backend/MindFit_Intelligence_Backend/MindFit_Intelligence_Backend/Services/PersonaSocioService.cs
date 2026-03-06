@@ -37,7 +37,7 @@ namespace MindFit_Intelligence_Backend.Services
                 });
             }
 
-            socio.EstadoSocio = EstadoSocio.Nuevo;
+            socio.MarcarComoNuevo();
         }
 
         public Cuota CrearCuotaInicial(PersonaSocio socio, Plan plan, decimal monto)
@@ -55,9 +55,10 @@ namespace MindFit_Intelligence_Backend.Services
                     Plan.Anual => now.AddYears(1),
                     _ => throw new ArgumentOutOfRangeException(nameof(plan))
                 },
-                EstadoCuota = EstadoCuota.Pagado,
                 FechaPago = now
             };
+
+            cuota.MarcarComoVigente();
 
             // IMPORTANTE: PersonaSocio debe tener socio.Cuotas
             socio.Cuotas.Add(cuota);
@@ -75,15 +76,16 @@ namespace MindFit_Intelligence_Backend.Services
                 rutina.FechaModificacion = fechaActual;
             }
 
-            socio.EstadoSocio = EstadoSocio.Actualizado;
+            if (socio.PuedePasarAActualizado())
+                socio.MarcarComoActualizado();
 
             return Task.CompletedTask;
         }
 
         public Cuota ActualizarCuota(PersonaSocio socio, Plan plan, decimal monto)
         {
-            // La colección ya viene ordenada por FechaFinPeriodo DESC desde el repositorio
-            Cuota? ultimaCuota = socio.Cuotas.FirstOrDefault();
+            // Usamos MaxBy para obtener la cuota con la fecha de fin más lejana (MaxBy() = OrderByDescending().FirstOrDefault())
+            Cuota? ultimaCuota = socio.Cuotas.MaxBy(c => c.FechaFinPeriodo);
 
             // Si hay cobertura activa: encadenar al final; si ya venció: arrancar desde hoy
             DateTime inicio = ultimaCuota?.FechaFinPeriodo > DateTime.Now
@@ -101,11 +103,14 @@ namespace MindFit_Intelligence_Backend.Services
                     Plan.Anual   => inicio.AddYears(1),
                     _ => throw new ArgumentOutOfRangeException(nameof(plan))
                 },
-                EstadoCuota = EstadoCuota.Pagado,
                 FechaPago = DateTime.Now
             };
 
+            cuota.MarcarComoVigente();
+
             socio.Cuotas.Add(cuota);
+
+            socio.MarcarComoActualizado();
 
             return cuota;
         }

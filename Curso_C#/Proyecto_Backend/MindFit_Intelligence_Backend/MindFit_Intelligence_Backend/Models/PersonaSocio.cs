@@ -49,7 +49,7 @@ namespace MindFit_Intelligence_Backend.Models
         public string? ObraSocial { get; set; }
 
         [Column(TypeName = "varchar(50)")]
-        public EstadoSocio EstadoSocio { get; set; }
+        public EstadoSocio EstadoSocio { get; private set; }
 
         // Actividades
         [Column(TypeName = "date")]
@@ -72,5 +72,43 @@ namespace MindFit_Intelligence_Backend.Models
         public ICollection<Cuota> Cuotas { get; set; } = new List<Cuota>();
 
         public PerfilIA? PerfilIA { get; set; }
+
+        public ICollection<Turno> Turnos { get; set; } = new List<Turno>();
+
+        private bool PuedeMarcarseComoSuspendido() => 
+            EstadoSocio != EstadoSocio.Supendido 
+            && EstadoSocio != EstadoSocio.Eliminado;
+
+        public void MarcarComoSuspendido()
+        {
+            if (PuedeMarcarseComoSuspendido())
+                EstadoSocio = EstadoSocio.Supendido;
+        }
+
+        // RN: Si pasaron más de 30 días desde que venció su última cuota el etsado del socio pasa a eliminado
+        public void MarcarComoEliminado()
+        {
+            EstadoSocio = EstadoSocio.Eliminado;
+        }
+
+        public bool PuedePasarAActualizado() => 
+            EstadoSocio != EstadoSocio.Supendido 
+            && EstadoSocio != EstadoSocio.Eliminado;
+
+        public void MarcarComoActualizado()
+        {
+            EstadoSocio = EstadoSocio.Actualizado;
+        }
+
+        public void MarcarComoNuevo()
+        {
+            EstadoSocio = EstadoSocio.Nuevo;
+        }
+
+        // RN: Solo se puede recuperar a alguien que actualmente tiene estado Eliminado
+        public bool PuedeSerRecuperado()
+        {
+            return EstadoSocio == EstadoSocio.Eliminado;
+        }
     }
 }

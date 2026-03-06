@@ -23,19 +23,25 @@ namespace MindFit_Intelligence_Backend.Repository
                 .ToListAsync();
         }
 
+        public async Task<Cuota?> GetUltimaCuotaSocio(int idUsuario)
+        {
+            return await _context.Cuotas
+                .Where(c => c.IdUsuario == idUsuario)
+                .OrderByDescending(c => c.FechaFinPeriodo)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<Cuota?> GetById(int id)
         {
             return await _context.Cuotas.FindAsync(id);
         }
-
         public async Task<IEnumerable<Cuota>> GetVencidas()
         {
             return await _context.Cuotas
                 .Include(c => c.PersonaSocio)
-                .Where(c => c.FechaFinPeriodo < DateTime.Now && c.EstadoCuota != EstadoCuota.Pendiente)
+                .Where(c => c.FechaFinPeriodo < DateTime.Now && c.EstadoCuota != EstadoCuota.Vencida)
                 .ToListAsync();
         }
-
         public async Task Add(Cuota entity)
             => await _context.Cuotas.AddAsync(entity);
 

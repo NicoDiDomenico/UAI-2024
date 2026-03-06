@@ -104,6 +104,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization(options =>
 {
+    // Política para el Socio basada puramente en su Rol
+    options.AddPolicy("SoloSocio", policy =>
+        policy.RequireRole("Socio"));
+
     // Usuario
     options.AddPolicy("CrearUsuario", policy =>
         policy.Requirements.Add(new PermisoRequirement("CREAR_USUARIO")));
@@ -127,6 +131,9 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("EliminarGrupo", policy =>
         policy.Requirements.Add(new PermisoRequirement("ELIMINAR_GRUPO")));
+
+    options.AddPolicy("EliminarCuota", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_CUOTA")));
 });
 
 builder.Services.AddScoped<IAuthorizationHandler, PermisoHandler>();
