@@ -1,0 +1,90 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Turno;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class TurnoService : ITurnoService
+    {
+        private readonly IPersonaSocioRepository _socioRepository;
+        private readonly ICuotaRepository _cuotaRepository;
+        private readonly ITurnoRepository _turnoRepository;
+        private readonly IDiaRangoHorarioRepository _diaRangoHorarioRepository;
+
+        public List<string> Errors { get; } = new();
+
+        public TurnoService(
+            IPersonaSocioRepository socioRepository,
+            ICuotaRepository cuotaRepository,
+            ITurnoRepository turnoRepository,
+            IDiaRangoHorarioRepository diaRangoHorarioRepository)
+        {
+            _socioRepository = socioRepository;
+            _cuotaRepository = cuotaRepository;
+            _turnoRepository = turnoRepository;
+            _diaRangoHorarioRepository = diaRangoHorarioRepository;
+        }
+
+        public async Task<bool> ValidateAsync(TurnoInsertDto dto)
+        {
+            Errors.Clear();
+
+            // 1. Validacion del Socio
+            var socio = await _socioRepository.GetById(dto.IdUsuarioSocio);
+            if (socio is null)
+            {
+                Errors.Add("El socio no existe.");
+                return false;
+            }
+
+            if (!socio.PuedeReservarTurno())
+            {
+                Errors.Add("El socio no puede reservar turno debido a su estado actual.");
+                return false;
+            }
+
+            // 2. Validacion de Cuota Vigente
+            var cuota = await _cuotaRepository.GetCuotaVigente(dto.IdUsuarioSocio);
+            if (cuota is null)
+            {
+                Errors.Add("El socio no tiene una cuota vigente.");
+                return false;
+            }
+
+            if (!cuota.EstaVigenteParaFecha(dto.Fecha))
+            {
+                Errors.Add("La fecha del turno supera el período de vigencia de la cuota.");
+                return false;
+            }
+
+            // 3. Limite de Turno Diario
+            var tieneTurno = await _turnoRepository.ExisteTurnoEnFecha(dto.IdUsuarioSocio, dto.Fecha);
+            if (tieneTurno)
+            {
+                Errors.Add("Ya tienes un turno para este día.");
+                return false;
+            }
+
+            // 4. Validacion de RangoHorario
+            var diaRangoHorario = await _diaRangoHorarioRepository.GetById(dto.IdRangoHorario);
+            if (diaRangoHorario is null)
+            {
+                Errors.Add("El rango horario no existe.");
+                return false;
+            }
+
+            if (!diaRangoHorario.CorrespondeADia(dto.Fecha))
+            {
+                Errors.Add("El rango horario no está activo o no corresponde al día seleccionado.");
+                return false;
+            }
+
+            return true;
+        }
+
+        public Task<TurnoDto> RegistrarTurno(TurnoInsertDto turnoInsertDto)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

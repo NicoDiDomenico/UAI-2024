@@ -1,0 +1,10 @@
+﻿using MindFit_Intelligence_Backend.DTOs.DiaRangoHorario;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface IDiaRangoHorarioService
+    {
+        Task <IEnumerable<GrillaDiaRangoHorarioDto>> GetAll();
+        Task<bool> ActivarDesactivarHorario(int IdDiaRangoHorario, ActualizarDiaRangoHorarioDto dto);
+    }
+}

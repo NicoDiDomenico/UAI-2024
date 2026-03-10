@@ -1,0 +1,13 @@
+using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Repository.Interfaces
+{
+    public interface ITurnoRepository
+    {
+        Task<bool> ExisteTurnoEnFecha(int idSocio, DateTime fecha);
+        Task<IEnumerable<Turno>> GetByIdUsuarioSocio(int idUsuarioSocio);
+        Task<Turno?> GetByIdWithIncludes(int idTurno);
+        Task Add(Turno entity);
+        Task Save();
+    }
+}

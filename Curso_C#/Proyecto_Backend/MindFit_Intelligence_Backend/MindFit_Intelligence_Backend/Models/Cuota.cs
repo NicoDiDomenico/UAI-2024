@@ -58,5 +58,7 @@ namespace MindFit_Intelligence_Backend.Models
         {
             return EstadoCuota == EstadoCuota.Vigente;
         }
+
+        public bool EstaVigenteParaFecha(DateTime fecha) => fecha <= FechaFinPeriodo;
     }
 }

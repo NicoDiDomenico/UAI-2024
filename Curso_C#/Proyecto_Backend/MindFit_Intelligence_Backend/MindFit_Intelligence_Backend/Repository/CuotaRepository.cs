@@ -31,6 +31,14 @@ namespace MindFit_Intelligence_Backend.Repository
                 .FirstOrDefaultAsync();
         }
 
+        public async Task<Cuota?> GetCuotaVigente(int idUsuario)
+        {
+            return await _context.Cuotas
+                .Where(c => c.IdUsuario == idUsuario && c.EstadoCuota == EstadoCuota.Vigente)
+                .OrderByDescending(c => c.FechaFinPeriodo)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<Cuota?> GetById(int id)
         {
             return await _context.Cuotas.FindAsync(id);

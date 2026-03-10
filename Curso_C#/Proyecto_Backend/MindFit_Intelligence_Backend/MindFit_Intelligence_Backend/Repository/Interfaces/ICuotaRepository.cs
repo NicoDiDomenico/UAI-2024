@@ -6,6 +6,7 @@ namespace MindFit_Intelligence_Backend.Repository.Interfaces
     {
         Task<IEnumerable<Cuota>> GetBySocio(int idUsuario);
         Task<Cuota?> GetUltimaCuotaSocio(int idUsuario);
+        Task<Cuota?> GetCuotaVigente(int idUsuario);
         Task<Cuota?> GetById(int id);
         Task<IEnumerable<Cuota>> GetVencidas();
         Task Add(Cuota entity);

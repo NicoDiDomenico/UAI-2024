@@ -19,6 +19,10 @@ namespace MindFit_Intelligence_Backend.Models
         public DbSet<PerfilIA> PerfilesIA { get; set; } = null!;
         public DbSet<Cuota> Cuotas { get; set; } = null!;
         public DbSet<Turno> Turnos { get; set; } = null!;
+        public DbSet<CupoFecha> CupoFechas { get; set; } = null!;
+        public DbSet<RangoHorario> RangosHorarios { get; set; } = null!;
+        public DbSet<DiaRangoHorario> DiaRangosHorarios { get; set; } = null!;
+        public DbSet<DiaRangoHorarioResponsable> DiaRangosHorariosResponsables { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -42,6 +46,10 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<PerfilIA>().ToTable("PerfilIA");
             modelBuilder.Entity<Cuota>().ToTable("Cuota");
             modelBuilder.Entity<Turno>().ToTable("Turno");
+            modelBuilder.Entity<CupoFecha>().ToTable("CupoFecha");
+            modelBuilder.Entity<RangoHorario>().ToTable("RangoHorario");
+            modelBuilder.Entity<DiaRangoHorario>().ToTable("DiaRangoHorario");
+            modelBuilder.Entity<DiaRangoHorarioResponsable>().ToTable("DiaRangoHorarioResponsable");
 
             //// Relacio 1 a 1 PK compartida
             // 1 a 1 PK compartida Usuario <-> PersonaResponsable
@@ -125,6 +133,10 @@ namespace MindFit_Intelligence_Backend.Models
                 .Property(c => c.EstadoCuota)
                 .HasConversion<string>();
 
+            modelBuilder.Entity<Turno>()
+                .Property(t => t.EstadoTurno)
+                .HasConversion<string>();
+
             // Configurando índice único para evitar que un mismo socio tenga más de una rutina para el mismo día
             // COLOCAR FLUENT VALIDADATION EN EL DTO DE RUTINA PARA VALIDAR QUE NO SE REPITA EL DIA EN LAS RUTINAS QUE ME LLEGAN EN EL DTO DE PERSONA SOCIO
             modelBuilder.Entity<Rutina>()
@@ -148,6 +160,42 @@ namespace MindFit_Intelligence_Backend.Models
                 .WithMany(ps => ps.Turnos)
                 .HasForeignKey(t => t.IdUsuarioSocio)
                 .OnDelete(DeleteBehavior.Cascade); // Si se borra un socio, se borran sus turnos
+
+            modelBuilder.Entity<Turno>()
+                .HasOne(t => t.CupoFecha)
+                .WithMany(cf => cf.Turnos)
+                .HasForeignKey(t => t.IdCupoFecha)
+                .OnDelete(DeleteBehavior.Restrict); // Si se borra un cupo fecha, no se borran los turnos (se podría poner en null el IdCupoFecha)
+
+            modelBuilder.Entity<DiaRangoHorario>()
+                .HasOne(drh => drh.Dia)
+                .WithMany(d => d.DiaRangosHorarios)
+                .HasForeignKey(drh => drh.IdDia)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<DiaRangoHorario>()
+                .HasOne(drh => drh.RangoHorario)
+                .WithMany(rh => rh.DiaRangosHorarios)
+                .HasForeignKey(drh => drh.IdRangoHorario)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CupoFecha>()
+                .HasOne(cf => cf.DiaRangoHorario)
+                .WithMany(drh => drh.CupoFechas)
+                .HasForeignKey(cf => cf.IdDiaRangoHorario)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<DiaRangoHorarioResponsable>()
+                .HasOne(drhr => drhr.PersonaResponsable)
+                .WithMany(pr => pr.DiaRangoHorarioResponsables)
+                .HasForeignKey(drhr => drhr.IdUsuarioResponsable)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DiaRangoHorarioResponsable>()
+                .HasOne(drhr => drhr.DiaRangoHorario)
+                .WithMany(drh => drh.DiaRangoHorarioResponsables)
+                .HasForeignKey(drhr => drhr.IdDiaRangoHorario)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

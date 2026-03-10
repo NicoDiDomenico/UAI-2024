@@ -10,9 +10,9 @@ namespace MindFit_Intelligence_Backend.Controllers
     [ApiController]
     public class PersonaResponsableController : ControllerBase
     {
-        private readonly IPersonaService<PersonaResponsableDto> _PersonaResponsableService;
+        private readonly IPersonaResponsableService _PersonaResponsableService;
 
-        public PersonaResponsableController(IPersonaService<PersonaResponsableDto> PersonaResponsableService) 
+        public PersonaResponsableController(IPersonaResponsableService PersonaResponsableService) 
         {
                 _PersonaResponsableService = PersonaResponsableService;
         }
@@ -30,7 +30,6 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Front : Para mostrar el detalle de un responsable, pero probablemente no se haga o se muestre con UsuariosController
         [HttpGet("{id}")]
         [Authorize]
-        [AllowAnonymous]
         public async Task<ActionResult<PersonaResponsableDto>> GetById(int id)
         {
             PersonaResponsableDto? PersonaResponsableDto = await _PersonaResponsableService.GetById(id);
@@ -39,5 +38,14 @@ namespace MindFit_Intelligence_Backend.Controllers
                 ? NotFound() // 404 Not Found
                 : Ok(PersonaResponsableDto); // 200 OK
         }
+        
+        // Front: Lista de entrenadores para asignarlos a un DiaRangoHorario
+        [Authorize]
+        [HttpGet("entrenadores")]
+        public async Task<ActionResult<IEnumerable<EntrenadorDto>>> GetEntrenadores()
+        {
+            var entrenadores = await _PersonaResponsableService.GetEntrenadores();
+            return Ok(entrenadores);
+        }
+        }
     }
-}

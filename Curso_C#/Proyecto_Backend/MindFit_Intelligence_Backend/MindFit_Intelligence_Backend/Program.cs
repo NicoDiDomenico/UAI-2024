@@ -20,13 +20,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Services
-builder.Services.AddScoped<IPersonaService<PersonaResponsableDto>, PersonaResponsableService>();
+builder.Services.AddScoped<IPersonaResponsableService, PersonaResponsableService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
 builder.Services.AddScoped<IPermisoService, PermisoService>();
 builder.Services.AddScoped<IPersonaSocioService, PersonaSocioService>();
 builder.Services.AddScoped<ICuotaService, CuotaService>();
+builder.Services.AddScoped<ITurnoService, TurnoService>();
+builder.Services.AddScoped<IDiaRangoHorarioService, DiaRangoHorarioService>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
@@ -36,6 +38,9 @@ builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
 builder.Services.AddScoped<IPermisoRepository, PermisoRepository>();
 builder.Services.AddScoped<IDiaRepository, DiaRepository>();
 builder.Services.AddScoped<ICuotaRepository, CuotaRepository>();
+builder.Services.AddScoped<ITurnoRepository, TurnoRepository>();
+builder.Services.AddScoped<IDiaRangoHorarioRepository, DiaRangoHorarioRepository>();
+builder.Services.AddScoped<ICupoFechaRepository, CupoFechaRepository>();
 
 // Entity Framework
 builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>
@@ -134,6 +139,12 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("EliminarCuota", policy =>
         policy.Requirements.Add(new PermisoRequirement("ELIMINAR_CUOTA")));
+
+    options.AddPolicy("AgregarTurno", policy =>
+        policy.Requirements.Add(new PermisoRequirement("AGREGAR_TURNO")));
+
+    options.AddPolicy("modificarDiaRangoHorario", policy =>
+        policy.Requirements.Add(new PermisoRequirement("MODIFICAR_DIA_RH")));
 });
 
 builder.Services.AddScoped<IAuthorizationHandler, PermisoHandler>();

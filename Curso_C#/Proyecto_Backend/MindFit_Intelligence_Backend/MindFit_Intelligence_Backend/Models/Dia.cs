@@ -14,7 +14,8 @@ namespace MindFit_Intelligence_Backend.Models
         [Column(TypeName = "varchar(25)")]
         public string NombreDia { get; set; } = string.Empty;
 
-        // Navegación
-        public required ICollection<Rutina> Rutinas { get; set; }
+        public ICollection<Rutina> Rutinas { get; set; } = new List<Rutina>();
+
+        public ICollection<DiaRangoHorario> DiaRangosHorarios { get; set; } = new List<DiaRangoHorario>();
     }
 }

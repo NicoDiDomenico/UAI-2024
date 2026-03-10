@@ -41,6 +41,8 @@ namespace MindFit_Intelligence_Backend.Models
         [Column(TypeName = "date")]
         public DateTime? FechaNacimiento { get; set; }
 
-        public ICollection<Turno> Turnos { get; set; } = null!; // Navegación a Turno
+        public ICollection<Turno> Turnos { get; set; } = new List<Turno>();
+
+        public ICollection<DiaRangoHorarioResponsable> DiaRangoHorarioResponsables { get; set; } = new List<DiaRangoHorarioResponsable>();
     }
 }

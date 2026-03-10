@@ -1,0 +1,11 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Turno;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface ITurnoService
+    {
+        List<string> Errors { get; }
+        Task<TurnoDto> RegistrarTurno(TurnoInsertDto turnoInsertDto);
+        bool Validate(TurnoInsertDto dto);
+    }
+}

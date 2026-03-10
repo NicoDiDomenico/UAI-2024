@@ -17,10 +17,73 @@ namespace MindFit_Intelligence_Backend.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.2")
+                .HasAnnotation("ProductVersion", "10.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Cuota", b =>
+                {
+                    b.Property<int>("IdCuota")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCuota"));
+
+                    b.Property<string>("EstadoCuota")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("FechaFinPeriodo")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime>("FechaInicioPeriodo")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime?>("FechaPago")
+                        .HasColumnType("date");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("Monto")
+                        .HasColumnType("decimal(10,2)");
+
+                    b.Property<string>("Plan")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("IdCuota");
+
+                    b.HasIndex("IdUsuario");
+
+                    b.ToTable("Cuota", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.CupoFecha", b =>
+                {
+                    b.Property<int>("IdCupoFecha")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCupoFecha"));
+
+                    b.Property<int>("CupoActual")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("date");
+
+                    b.Property<int>("IdDiaRangoHorario")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdCupoFecha");
+
+                    b.HasIndex("IdDiaRangoHorario", "Fecha")
+                        .IsUnique();
+
+                    b.ToTable("CupoFecha", (string)null);
+                });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Dia", b =>
                 {
@@ -40,6 +103,63 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .IsUnique();
 
                     b.ToTable("Dia", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.DiaRangoHorario", b =>
+                {
+                    b.Property<int>("IdDiaRangoHorario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDiaRangoHorario"));
+
+                    b.Property<bool>("Activo")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("CupoMaximo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdDia")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRangoHorario")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdDiaRangoHorario");
+
+                    b.HasIndex("IdRangoHorario");
+
+                    b.HasIndex("IdDia", "IdRangoHorario")
+                        .IsUnique();
+
+                    b.ToTable("DiaRangoHorario", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.DiaRangoHorarioResponsable", b =>
+                {
+                    b.Property<int>("IdDiaRangoHorarioResponsable")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdDiaRangoHorarioResponsable"));
+
+                    b.Property<int>("IdDiaRangoHorario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuarioResponsable")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("varchar(255)");
+
+                    b.HasKey("IdDiaRangoHorarioResponsable");
+
+                    b.HasIndex("IdUsuarioResponsable");
+
+                    b.HasIndex("IdDiaRangoHorario", "IdUsuarioResponsable")
+                        .IsUnique();
+
+                    b.ToTable("DiaRangoHorarioResponsable", (string)null);
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
@@ -199,9 +319,6 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<DateTime?>("FechaFinActividades")
-                        .HasColumnType("date");
-
                     b.Property<DateTime?>("FechaInicioActividades")
                         .HasColumnType("date");
 
@@ -225,10 +342,6 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Property<string>("ObraSocial")
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Plan")
-                        .IsRequired()
-                        .HasColumnType("varchar(50)");
-
                     b.Property<string>("Pregunta")
                         .HasColumnType("varchar(100)");
 
@@ -248,6 +361,28 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.HasKey("IdUsuario");
 
                     b.ToTable("PersonaSocio", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RangoHorario", b =>
+                {
+                    b.Property<int>("IdRangoHorario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRangoHorario"));
+
+                    b.Property<TimeSpan>("HoraDesde")
+                        .HasColumnType("time");
+
+                    b.Property<TimeSpan>("HoraHasta")
+                        .HasColumnType("time");
+
+                    b.HasKey("IdRangoHorario");
+
+                    b.HasIndex("HoraDesde", "HoraHasta")
+                        .IsUnique();
+
+                    b.ToTable("RangoHorario", (string)null);
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Rutina", b =>
@@ -278,6 +413,41 @@ namespace MindFit_Intelligence_Backend.Migrations
                         .IsUnique();
 
                     b.ToTable("Rutina", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Turno", b =>
+                {
+                    b.Property<int>("IdTurno")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTurno"));
+
+                    b.Property<string>("EstadoTurno")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("FechaAlta")
+                        .HasColumnType("date");
+
+                    b.Property<int>("IdCupoFecha")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuarioResponsable")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuarioSocio")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdTurno");
+
+                    b.HasIndex("IdCupoFecha");
+
+                    b.HasIndex("IdUsuarioResponsable");
+
+                    b.HasIndex("IdUsuarioSocio");
+
+                    b.ToTable("Turno", (string)null);
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Usuario", b =>
@@ -332,6 +502,66 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.HasIndex("IdGrupo");
 
                     b.ToTable("UsuarioGrupo", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Cuota", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.PersonaSocio", "PersonaSocio")
+                        .WithMany("Cuotas")
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PersonaSocio");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.CupoFecha", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.DiaRangoHorario", "DiaRangoHorario")
+                        .WithMany("CupoFechas")
+                        .HasForeignKey("IdDiaRangoHorario")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("DiaRangoHorario");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.DiaRangoHorario", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Dia", "Dia")
+                        .WithMany("DiaRangosHorarios")
+                        .HasForeignKey("IdDia")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.RangoHorario", "RangoHorario")
+                        .WithMany("DiaRangosHorarios")
+                        .HasForeignKey("IdRangoHorario")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Dia");
+
+                    b.Navigation("RangoHorario");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.DiaRangoHorarioResponsable", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.DiaRangoHorario", "DiaRangoHorario")
+                        .WithMany("DiaRangoHorarioResponsables")
+                        .HasForeignKey("IdDiaRangoHorario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.PersonaResponsable", "PersonaResponsable")
+                        .WithMany("DiaRangoHorarioResponsables")
+                        .HasForeignKey("IdUsuarioResponsable")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("DiaRangoHorario");
+
+                    b.Navigation("PersonaResponsable");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoPermiso", b =>
@@ -405,6 +635,33 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("PersonaSocio");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Turno", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.CupoFecha", "CupoFecha")
+                        .WithMany("Turnos")
+                        .HasForeignKey("IdCupoFecha")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.PersonaResponsable", "PersonaResponsable")
+                        .WithMany("Turnos")
+                        .HasForeignKey("IdUsuarioResponsable")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.PersonaSocio", "PersonaSocio")
+                        .WithMany("Turnos")
+                        .HasForeignKey("IdUsuarioSocio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CupoFecha");
+
+                    b.Navigation("PersonaResponsable");
+
+                    b.Navigation("PersonaSocio");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.UsuarioGrupo", b =>
                 {
                     b.HasOne("MindFit_Intelligence_Backend.Models.Grupo", "Grupo")
@@ -424,9 +681,23 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.CupoFecha", b =>
+                {
+                    b.Navigation("Turnos");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Dia", b =>
                 {
+                    b.Navigation("DiaRangosHorarios");
+
                     b.Navigation("Rutinas");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.DiaRangoHorario", b =>
+                {
+                    b.Navigation("CupoFechas");
+
+                    b.Navigation("DiaRangoHorarioResponsables");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
@@ -441,11 +712,27 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("GrupoPermisos");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaResponsable", b =>
+                {
+                    b.Navigation("DiaRangoHorarioResponsables");
+
+                    b.Navigation("Turnos");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PersonaSocio", b =>
                 {
+                    b.Navigation("Cuotas");
+
                     b.Navigation("PerfilIA");
 
                     b.Navigation("Rutinas");
+
+                    b.Navigation("Turnos");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RangoHorario", b =>
+                {
+                    b.Navigation("DiaRangosHorarios");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Usuario", b =>
