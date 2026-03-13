@@ -29,6 +29,7 @@ builder.Services.AddScoped<IPersonaSocioService, PersonaSocioService>();
 builder.Services.AddScoped<ICuotaService, CuotaService>();
 builder.Services.AddScoped<ITurnoService, TurnoService>();
 builder.Services.AddScoped<IDiaRangoHorarioService, DiaRangoHorarioService>();
+builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
@@ -53,9 +54,6 @@ builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>(), typeof(M
 
 // FluentValidation - Registro automático de todos los validadores del ensamblado
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
-
-// Inyección de dependencias para el servicio de email (SMTP)
-builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 
 // Antes era solo builder.Services.AddControllers();
 builder.Services.AddControllers()
@@ -142,6 +140,9 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("AgregarTurno", policy =>
         policy.Requirements.Add(new PermisoRequirement("AGREGAR_TURNO")));
+
+    options.AddPolicy("CancelarTurno", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CANCELAR_TURNO")));
 
     options.AddPolicy("modificarDiaRangoHorario", policy =>
         policy.Requirements.Add(new PermisoRequirement("MODIFICAR_DIA_RH")));

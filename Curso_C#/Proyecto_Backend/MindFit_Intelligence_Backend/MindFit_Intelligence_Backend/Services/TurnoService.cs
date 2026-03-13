@@ -14,6 +14,7 @@ namespace MindFit_Intelligence_Backend.Services
         private readonly IDiaRangoHorarioRepository _diaRangoHorarioRepository;
         private readonly ICupoFechaRepository _cupoFechaRepository;
         private readonly IMapper _mapper;
+        private readonly IEmailService _emailService;
 
         public List<string> Errors { get; } = new();
 
@@ -23,7 +24,8 @@ namespace MindFit_Intelligence_Backend.Services
             ITurnoRepository turnoRepository,
             IDiaRangoHorarioRepository diaRangoHorarioRepository,
             ICupoFechaRepository cupoFechaRepository,
-            IMapper mapper)
+            IMapper mapper,
+            IEmailService emailService)
         {
             _socioRepository = socioRepository;
             _cuotaRepository = cuotaRepository;
@@ -31,6 +33,8 @@ namespace MindFit_Intelligence_Backend.Services
             _diaRangoHorarioRepository = diaRangoHorarioRepository;
             _cupoFechaRepository = cupoFechaRepository;
             _mapper = mapper;
+            _emailService = emailService;
+          _emailService = emailService;
         }
 
         public async Task<IEnumerable<TurnoDto>> GetTurnosByIdUsuarioSocio(int idUsuarioSocio)
@@ -137,6 +141,72 @@ namespace MindFit_Intelligence_Backend.Services
             // Medio al pedo retornar el turno para mi con saber que se registro es suficiente
             var turnoCompleto = await _turnoRepository.GetByIdWithIncludes(turno.IdTurno);
             return _mapper.Map<TurnoDto>(turnoCompleto);
+        }
+
+        public async Task<bool> CancelarTurno(int idTurno)
+        {
+            Errors.Clear();
+
+            var turno = await _turnoRepository.GetByIdWithIncludes(idTurno);
+
+            if (turno is null)
+            {
+                Errors.Add("El turno no existe.");
+                return false;
+            }
+
+            if (!turno.ValidarAntelacion(Errors))
+            {
+                return false;
+            }
+
+            turno.Cancelar();
+
+            if (turno.CupoFecha != null)
+            {
+                turno.CupoFecha.DecrementarCupo();
+            }
+
+            await _turnoRepository.Save();
+
+            // 3. RF29 - Enviar correo confirmando la cancelación
+            if (!string.IsNullOrEmpty(turno.PersonaSocio?.Email))
+            {
+                // Formateamos fecha y hora para que se vea bien en el correo
+                string fechaFormateada = turno.CupoFecha!.Fecha.ToString("dd/MM/yyyy");
+                string horaFormateada = turno.CupoFecha.DiaRangoHorario.RangoHorario.HoraDesde.ToString(@"hh\:mm");
+
+                string subject = "Cancelación de Turno - MindFit Intelligence";
+
+                // Armamos un HTML básico. Puedes mejorarlo con estilos en línea (CSS inline)
+                string htmlBody = $@"
+                    <div style='font-family: Arial, sans-serif; color: #333;'>
+                        <h2>Hola {turno.PersonaSocio.Nombre},</h2>
+                        <p>Te confirmamos que tu turno ha sido cancelado exitosamente.</p>
+                        <ul>
+                            <li><strong>Fecha:</strong> {fechaFormateada}</li>
+                            <li><strong>Hora:</strong> {horaFormateada} hs</li>
+                        </ul>
+                        <p>¡Esperamos verte pronto!</p>
+                        <hr>
+                        <p style='font-size: 12px; color: #777;'>MindFit Intelligence - Sistema de Gestión</p>
+                    </div>";
+
+                try
+                {
+                    // Llamamos a tu SmtpEmailService
+                    await _emailService.SendAsync(turno.PersonaSocio.Email, subject, htmlBody);
+                }
+                catch (Exception ex)
+                {
+                    // Buena práctica a implementar: Si el correo falla (ej: error de SMTP), 
+                    // NO frenamos el proceso porque en la base de datos el turno YA se canceló.
+                    // Idealmente aquí podrías loguear el error: _logger.LogError(ex, "Error al enviar email de cancelación");
+                    Console.WriteLine($"Error al enviar correo: {ex.Message}");
+                }
+            }
+
+            return true;
         }
     }
 }

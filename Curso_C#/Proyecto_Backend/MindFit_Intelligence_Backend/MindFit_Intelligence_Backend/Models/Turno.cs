@@ -1,6 +1,7 @@
 ﻿using MindFit_Intelligence_Backend.Models.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MindFit_Intelligence_Backend.Models
 {
@@ -31,5 +32,29 @@ namespace MindFit_Intelligence_Backend.Models
         public EstadoTurno EstadoTurno { get; private set; }
 
         public void Iniciar() => EstadoTurno = EstadoTurno.EnCurso;
+        public void Cancelar() => EstadoTurno = EstadoTurno.Cancelado;
+        public void Finalizar() => EstadoTurno = EstadoTurno.Finalizado;
+
+        // Lógica de validación dentro de la entidad (DDD)
+        public bool ValidarAntelacion(List<string> Errors)
+        {
+            if (CupoFecha?.DiaRangoHorario?.RangoHorario == null)
+            {
+                Errors.Add("Error interno: Faltan datos del horario para validar la antelación.");
+                return false;
+            }
+
+            // Unimos la fecha (00:00:00) con la HoraDesde del rango para tener el momento exacto
+            DateTime fechaYHoraExactaDelTurno = CupoFecha.Fecha.Add(CupoFecha.DiaRangoHorario.RangoHorario.HoraDesde);
+
+            var horasAntelacion = (fechaYHoraExactaDelTurno - DateTime.Now).TotalHours;
+
+            if (horasAntelacion < 3)
+            {
+                Errors.Add("El turno ya no puede cancelarse por superar el límite de tiempo mínimo permitido (3 horas antes del turno).");
+                return false;
+            }
+            return true;
+        }
     }
 }

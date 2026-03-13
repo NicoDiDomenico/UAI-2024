@@ -38,8 +38,9 @@ namespace MindFit_Intelligence_Backend.Controllers
                 ? NotFound() // 404 Not Found
                 : Ok(PersonaResponsableDto); // 200 OK
         }
-        
-        // Front: Lista de entrenadores para asignarlos a un DiaRangoHorario
+
+        /* Front: Lista de entrenadores para asignarlos a un DiaRangoHorario.
+           Se usa en DiaRangoHorarioController.cs*/
         [Authorize]
         [HttpGet("entrenadores")]
         public async Task<ActionResult<IEnumerable<EntrenadorDto>>> GetEntrenadores()

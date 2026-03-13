@@ -27,5 +27,10 @@ namespace MindFit_Intelligence_Backend.Models
         public bool TieneDisponibilidad() => CupoActual < DiaRangoHorario.CupoMaximo;
 
         public void IncrementarCupo() => CupoActual++;
+        public void DecrementarCupo()
+        {
+            if (CupoActual > 0)
+                CupoActual--;
+        }
     }
 }

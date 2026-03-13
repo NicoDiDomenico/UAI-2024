@@ -7,6 +7,7 @@ using MindFit_Intelligence_Backend.Services.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Controllers
 {
+    // Modulo Gestion Gimnasio, necesario para CUDs 6-7-8
     [Route("api/[controller]")]
     [ApiController]
     public class DiaRangoHorarioController : ControllerBase
@@ -17,7 +18,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             _diaRangoHorarioService = diaRangoHorarioService;
         }
 
-        // Front: Grilla de Dias Rango Horarios para asignarles Entrenadores o Desactivar rangos horarios
+        // Front: Grilla de Dias Rango Horarios para asignarles Entrenadores, Desactivar rangos horarios o Registar Turno
         // IMPORTANTE: Esta grilla se complementa con un endpoint GET "api/PersonaResponsable/entrenadores" que trae los entrenadores que NO estan asociados a un dia, ya que la idea es asociarlos desde el front
         [Authorize]
         [HttpGet("grilla")]
@@ -40,7 +41,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             return NoContent(); 
         }
 
-        // Front: Asignar un entrenador a un dia rango horario específico
+        // Front: Asignar un entrenador a un dia rango horario específico. Requiere de GET api/PersonaResponsable/entrenadores + GET api/DiaRangoHorario/grilla
         [Authorize(Policy = "modificarDiaRangoHorario")]
         [HttpPost("asignar-responsable")]
         public async Task<ActionResult> AsignarResponsable([FromBody] DiaRangoHorarioResponsableInsertDto dto)

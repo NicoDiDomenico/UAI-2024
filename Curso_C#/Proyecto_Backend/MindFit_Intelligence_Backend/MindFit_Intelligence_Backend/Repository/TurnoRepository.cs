@@ -38,6 +38,7 @@ namespace MindFit_Intelligence_Backend.Repository
         {
             return await _context.Turnos
                 .Include(t => t.PersonaResponsable)
+                .Include(t => t.PersonaSocio)
                 .Include(t => t.CupoFecha)
                     .ThenInclude(cf => cf.DiaRangoHorario)
                         .ThenInclude(drh => drh.RangoHorario)

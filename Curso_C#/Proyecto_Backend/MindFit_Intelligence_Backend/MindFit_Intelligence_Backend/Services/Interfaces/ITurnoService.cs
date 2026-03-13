@@ -7,6 +7,7 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
         List<string> Errors { get; }
         Task<IEnumerable<TurnoDto>> GetTurnosByIdUsuarioSocio(int idUsuarioSocio);
         Task<TurnoDto?> RegistrarTurno(TurnoInsertDto turnoInsertDto);
+        Task<bool> CancelarTurno(int idTurno);
         Task<bool> ValidateAsync(TurnoInsertDto dto);
     }
 }
