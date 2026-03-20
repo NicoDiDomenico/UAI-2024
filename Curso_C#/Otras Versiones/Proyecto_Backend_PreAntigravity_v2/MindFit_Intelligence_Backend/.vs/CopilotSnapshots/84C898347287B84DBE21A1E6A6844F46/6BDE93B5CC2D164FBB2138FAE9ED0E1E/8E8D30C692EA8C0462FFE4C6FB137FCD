@@ -1,0 +1,13 @@
+﻿# Copilot Instructions
+
+## General Guidelines
+- First general instruction
+- Second general instruction
+
+## Code Style
+- Use specific formatting rules
+- Follow naming conventions
+
+## Project-Specific Rules
+- Prefer only [Authorize] on read endpoints (GetUsuariosGrid and GetUsuarioById) and use permission policies only on endpoints that modify state (CrearUsuario, EditarUsuario, EliminarUsuario).
+- The frontend decides button visibility based on permissions returned by /api/auth/permisos-actuales.

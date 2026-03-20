@@ -157,7 +157,7 @@ namespace MindFit_Intelligence_Backend.Services
 
                 ps.Usuario = usuario;
 
-                await _personaSocioService.SetSocioActualizadoAsync(usuario.PersonaSocio, dto.PersonaSocio!.DiasActivosIds);
+                _personaSocioService.SetSocioActualizado(usuario.PersonaSocio, dto.PersonaSocio!.DiasActivosIds);
                 if (dto.PersonaSocio.Cuota.renueva)
                     cuotaActualizada = _personaSocioService.ActualizarCuota(
                         usuario.PersonaSocio!,

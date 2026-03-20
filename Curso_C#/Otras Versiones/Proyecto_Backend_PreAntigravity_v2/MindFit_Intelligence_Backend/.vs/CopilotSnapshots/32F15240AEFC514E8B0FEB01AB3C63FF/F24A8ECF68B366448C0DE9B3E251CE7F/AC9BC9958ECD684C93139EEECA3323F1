@@ -1,0 +1,31 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Turno;
+using MindFit_Intelligence_Backend.DTOs.Usuarios;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class TurnoService : ITurnoService
+    {
+        public List<string> Errors { get; }
+
+        public TurnoService()
+        {
+            Errors = new List<string>();
+        }
+
+        public Task<TurnoDto> RegistrarTurno(TurnoInsertDto turnoInsertDto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Validate(TurnoInsertDto dto)
+        {
+            Errors.Clear();
+
+            
+
+            return !Errors.Any();
+        }
+    }
+}

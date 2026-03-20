@@ -9,7 +9,7 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
     public interface IPersonaSocioService
     {
         Task SetSocioNuevoAsync(PersonaSocio socio, List<int> diasActivosIds);
-        Task SetSocioActualizadoAsync(PersonaSocio socio, List<int> diasActivosIds);
+        void SetSocioActualizado(PersonaSocio socio, List<int> diasActivosIds);
 
         // Crea y adjunta la cuota al socio (NO guarda)
         Cuota CrearCuotaInicial(PersonaSocio socio, Plan plan, decimal monto);

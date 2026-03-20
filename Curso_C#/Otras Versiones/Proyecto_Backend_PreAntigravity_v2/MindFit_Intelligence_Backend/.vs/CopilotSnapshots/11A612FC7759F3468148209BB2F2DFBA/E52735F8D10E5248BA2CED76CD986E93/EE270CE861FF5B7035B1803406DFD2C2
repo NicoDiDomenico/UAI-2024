@@ -1,0 +1,57 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Repository
+{
+    public class TurnoRepository : ITurnoRepository
+    {
+        private readonly MindFitIntelligenceContext _context;
+
+        public TurnoRepository(MindFitIntelligenceContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<bool> ExisteTurnoEnFecha(int idSocio, DateTime fecha)
+        {
+            return await _context.Turnos
+                .AnyAsync(t => t.IdUsuarioSocio == idSocio
+                            && t.CupoFecha.Fecha == fecha.Date);
+        }
+
+        public async Task<IEnumerable<Turno>> GetByIdUsuarioSocio(int idUsuarioSocio)
+        {
+            return await _context.Turnos
+                .Include(t => t.PersonaResponsable)
+                .Include(t => t.CupoFecha)
+                    .ThenInclude(cf => cf.DiaRangoHorario)
+                        .ThenInclude(drh => drh.RangoHorario)
+                .Include(t => t.CupoFecha)
+                    .ThenInclude(cf => cf.DiaRangoHorario)
+                        .ThenInclude(drh => drh.Dia)
+                .Where(t => t.IdUsuarioSocio == idUsuarioSocio)
+                .ToListAsync();
+        }
+
+        public async Task<Turno?> GetByIdWithIncludes(int idTurno)
+        {
+            return await _context.Turnos
+                .Include(t => t.PersonaResponsable)
+                .Include(t => t.PersonaSocio)
+                .Include(t => t.CupoFecha)
+                    .ThenInclude(cf => cf.DiaRangoHorario)
+                        .ThenInclude(drh => drh.RangoHorario)
+                .Include(t => t.CupoFecha)
+                    .ThenInclude(cf => cf.DiaRangoHorario)
+                        .ThenInclude(drh => drh.Dia)
+                .FirstOrDefaultAsync(t => t.IdTurno == idTurno);
+        }
+
+        public async Task Add(Turno entity)
+            => await _context.Turnos.AddAsync(entity);
+
+        public async Task Save()
+            => await _context.SaveChangesAsync();
+    }
+}

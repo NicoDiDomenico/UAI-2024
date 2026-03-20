@@ -1,0 +1,14 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface IPersonaSocioService
+    {
+        void setSocioNuevo(PersonaSocio usuario);
+        void setSocioActualizado(PersonaSocio usuario, ICollection<RutinaUpdateDto> rutinaUpdateDto);
+
+        void enviarEmailBienvenida(Usuario usuario);
+    }
+}

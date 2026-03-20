@@ -1,0 +1,3 @@
+Si bien cada panel de control que hice responde a las preguntas de manera exitosa (aunque la de la segunda pregunta se podria haber echo mas explicita la respuesta), 
+la idea para futuro seria que las 6 respuestas esten en una sola pagina, de manera que no haga falta que se respondan cada una con su grafico correspondiente sino 
+que un conjunto de graficos (mientras menos mejor) sean lo suficientemente interactivos como para dar respuesta a todas las preguntas en la misma pagina.

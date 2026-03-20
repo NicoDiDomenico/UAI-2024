@@ -1,0 +1,149 @@
+﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class CuotaService : ICuotaService
+    {
+        private readonly ICuotaRepository _cuotaRepository;
+        private readonly IPersonaSocioRepository _personaSocioRepository;
+        private readonly IMapper _mapper;
+        public List<string> Errors { get; } = new();
+
+        public CuotaService(ICuotaRepository cuotaRepository, IPersonaSocioRepository personaSocioRepository, IMapper mapper)
+        {
+            _cuotaRepository = cuotaRepository;
+            _personaSocioRepository = personaSocioRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<IEnumerable<CuotaDto>> GetBySocio(int idUsuario)
+        {
+            IEnumerable<Cuota> cuotas = await _cuotaRepository.GetBySocio(idUsuario);
+            return _mapper.Map<IEnumerable<CuotaDto>>(cuotas);
+        }
+
+        public async Task<CuotaDto?> GetById(int id)
+        {
+            Cuota? cuota = await _cuotaRepository.GetById(id);
+            return cuota == null ? null : _mapper.Map<CuotaDto>(cuota);
+        }
+
+        public async Task<CuotaDto?> Add(CuotaInsertDto dto)
+        {
+            IEnumerable<Cuota> cuotasExistentes = await _cuotaRepository.GetBySocio(dto.IdUsuario!.Value);
+            var inicio = CalcularNuevoInicio(cuotasExistentes);
+
+            var cuota = new Cuota
+            {
+                Plan = dto.Plan,
+                Monto = dto.Monto,
+                FechaInicioPeriodo = inicio,
+                FechaFinPeriodo = dto.Plan switch
+                {
+                    Plan.Mensual => inicio.AddMonths(1),
+                    Plan.Anual => inicio.AddYears(1),
+                    _ => throw new ArgumentOutOfRangeException(nameof(dto.Plan), "Plan no soportado")
+                },
+                EstadoCuota = EstadoCuota.Pagado,
+                FechaPago = DateTime.Now
+            };
+
+            cuota.IdUsuario = dto.IdUsuario!.Value;
+
+            await _cuotaRepository.Add(cuota);
+            await _cuotaRepository.Save();
+
+            return _mapper.Map<CuotaDto>(cuota);
+        }
+
+        public async Task<CuotaDto?> Update(int id, CuotaUpdateDto dto)
+        {
+            Cuota? cuota = await _cuotaRepository.GetById(id);
+            if (cuota == null) return null;
+
+            _mapper.Map(dto, cuota);
+            await _cuotaRepository.Save();
+
+            return _mapper.Map<CuotaDto>(cuota);
+        }
+
+        public async Task<CuotaDto?> Delete(int id)
+        {
+            Cuota? cuota = await _cuotaRepository.GetById(id);
+            if (cuota == null) return null;
+
+            CuotaDto cuotaDto = _mapper.Map<CuotaDto>(cuota);
+            _cuotaRepository.Delete(cuota);
+            await _cuotaRepository.Save();
+
+            return cuotaDto;
+        }
+
+        public async Task<bool> Validate(CuotaInsertDto dto)
+        {
+            Errors.Clear();
+
+            if (!dto.IdUsuario.HasValue) return !Errors.Any();
+
+            // RN1a + RN1b: el usuario debe existir y ser socio
+            PersonaSocio? socio = await _personaSocioRepository.GetById(dto.IdUsuario.Value);
+            if (socio == null)
+            {
+                Errors.Add("El usuario no existe o no es un socio.");
+                return false;
+            }
+
+            // RN1c: el socio debe estar activo
+            if (socio.EstadoSocio == EstadoSocio.Eliminado)
+            {
+                Errors.Add("El socio está dado de baja y no puede registrar nuevas cuotas.");
+                return false;
+            }
+
+            if (socio.EstadoSocio == EstadoSocio.Supendido)
+            {
+                Errors.Add("El socio está suspendido y no puede registrar nuevas cuotas.");
+                return false;
+            }
+
+            IEnumerable<Cuota> cuotas = await _cuotaRepository.GetBySocio(dto.IdUsuario.Value);
+
+            // RN2: anti-overlap — no permitir períodos superpuestos (incluso si la cuota anterior está paga)
+            var newInicio = CalcularNuevoInicio(cuotas);
+            var newFin = dto.Plan switch
+            {
+                Plan.Mensual => newInicio.AddMonths(1),
+                Plan.Anual   => newInicio.AddYears(1),
+                _ => throw new ArgumentOutOfRangeException(nameof(dto.Plan), "Plan no soportado")
+            };
+
+            bool hayOverlap = cuotas.Any(c => newInicio < c.FechaFinPeriodo && newFin > c.FechaInicioPeriodo);
+            if (hayOverlap)
+            {
+                Errors.Add("Ya existe una cuota cuyo período se superpone con el período solicitado.");
+                return false;
+            }
+
+            // RN3: la cuota anterior no debe estar pendiente de pago (cubre el caso borde de cuota vencida sin pagar)
+            Cuota? ultimaCuota = cuotas.FirstOrDefault(); // GetBySocio retorna ordenado por FechaInicioPeriodo DESC
+            if (ultimaCuota != null && ultimaCuota.EstadoCuota == EstadoCuota.Pendiente)
+                Errors.Add("No se puede registrar una nueva cuota mientras la cuota anterior esté pendiente de pago.");
+
+            return !Errors.Any();
+        }
+
+        // RN3: si hay cobertura activa, el nuevo período empieza al finalizar la última cuota; si no, empieza ahora
+        private static DateTime CalcularNuevoInicio(IEnumerable<Cuota> cuotas)
+        {
+            Cuota? ultimaCuota = cuotas.FirstOrDefault(); // ya ordenado por FechaInicioPeriodo DESC
+            return ultimaCuota?.FechaFinPeriodo > DateTime.Now
+                ? ultimaCuota.FechaFinPeriodo
+                : DateTime.Now;
+        }
+    }
+}

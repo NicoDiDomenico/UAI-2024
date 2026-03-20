@@ -75,8 +75,8 @@ namespace MindFit_Intelligence_Backend.Models
 
         public ICollection<Turno> Turnos { get; set; } = new List<Turno>();
 
-        private bool PuedeMarcarseComoSuspendido() => 
-            EstadoSocio != EstadoSocio.Supendido 
+        private bool PuedeMarcarseComoSuspendido() =>
+            EstadoSocio != EstadoSocio.Supendido
             && EstadoSocio != EstadoSocio.Eliminado;
 
         public void MarcarComoSuspendido()
@@ -91,8 +91,8 @@ namespace MindFit_Intelligence_Backend.Models
             EstadoSocio = EstadoSocio.Eliminado;
         }
 
-        public bool PuedePasarAActualizado() => 
-            EstadoSocio != EstadoSocio.Supendido 
+        public bool PuedePasarAActualizado() =>
+            EstadoSocio != EstadoSocio.Supendido
             && EstadoSocio != EstadoSocio.Eliminado;
 
         public void MarcarComoActualizado()
@@ -113,5 +113,46 @@ namespace MindFit_Intelligence_Backend.Models
 
         public bool PuedeReservarTurno() =>
             EstadoSocio == EstadoSocio.Nuevo || EstadoSocio == EstadoSocio.Actualizado;
+
+        private void SetRutinas(IEnumerable<Dia> dias, DateTime inicio, List<int> diasActivosIds)
+        {
+            Rutinas = new List<Rutina>();
+            foreach (var dia in dias)
+            {
+                Rutinas.Add(new Rutina
+                {
+                    IdDia = dia.IdDia,
+                    FechaModificacion = inicio,
+                    Activo = diasActivosIds.Contains(dia.IdDia)
+                });
+            }
+        }
+
+        public void InicializarSocioNuevo(IEnumerable<Dia> dias, List<int> diasActivosIds)
+        {
+            var inicio = DateTime.Now;
+            this.FechaInicioActividades = inicio;
+
+            this.SetRutinas(dias, inicio, diasActivosIds);
+
+            this.MarcarComoNuevo();
+        }
+
+        public void ActualizarRutinas(List<int> diasActivosIds)
+        {
+            var ahora = DateTime.Now;
+
+            foreach (var rutina in Rutinas)
+            {
+                rutina.Activo = diasActivosIds.Contains(rutina.IdDia);
+                rutina.FechaModificacion = ahora;
+            }
+
+            // Aplicamos la lógica de estado si corresponde
+            if (PuedePasarAActualizado())
+            {
+                MarcarComoActualizado();
+            }
+        }
     }
 }

@@ -21,23 +21,9 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task SetSocioNuevoAsync(PersonaSocio socio, List<int> diasActivosIds)
         {
-            var inicio = DateTime.Now;
-            socio.FechaInicioActividades = inicio;
-
             var dias = await _diaRepository.GetAll();
 
-            socio.Rutinas = new List<Rutina>();
-            foreach (var dia in dias)
-            {
-                socio.Rutinas.Add(new Rutina
-                {
-                    IdDia = dia.IdDia,
-                    FechaModificacion = inicio,
-                    Activo = diasActivosIds.Contains(dia.IdDia)
-                });
-            }
-
-            socio.MarcarComoNuevo();
+            socio.InicializarSocioNuevo(dias, diasActivosIds);
         }
 
         public Cuota CrearCuotaInicial(PersonaSocio socio, Plan plan, decimal monto)
@@ -66,20 +52,9 @@ namespace MindFit_Intelligence_Backend.Services
             return cuota;
         }
 
-        public Task SetSocioActualizadoAsync(PersonaSocio socio, List<int> diasActivosIds)
+        public void SetSocioActualizado(PersonaSocio socio, List<int> diasActivosIds)
         {
-            var fechaActual = DateTime.Now;
-
-            foreach (var rutina in socio.Rutinas)
-            {
-                rutina.Activo = diasActivosIds.Contains(rutina.IdDia);
-                rutina.FechaModificacion = fechaActual;
-            }
-
-            if (socio.PuedePasarAActualizado())
-                socio.MarcarComoActualizado();
-
-            return Task.CompletedTask;
+            socio.ActualizarRutinas(diasActivosIds);
         }
 
         public Cuota ActualizarCuota(PersonaSocio socio, Plan plan, decimal monto)
