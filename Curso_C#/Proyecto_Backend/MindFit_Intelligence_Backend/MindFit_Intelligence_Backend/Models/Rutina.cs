@@ -21,5 +21,9 @@ namespace MindFit_Intelligence_Backend.Models
         public Dia Dia { get; set; } = null!;
 
         public bool Activo { get; set; }
+
+        public ICollection<Calentamiento> Calentamientos { get; set; } = new List<Calentamiento>();
+        public ICollection<Entrenamiento> Entrenamientos { get; set; } = new List<Entrenamiento>();
+        public ICollection<Estiramiento> Estiramientos { get; set; } = new List<Estiramiento>();
     }
 }

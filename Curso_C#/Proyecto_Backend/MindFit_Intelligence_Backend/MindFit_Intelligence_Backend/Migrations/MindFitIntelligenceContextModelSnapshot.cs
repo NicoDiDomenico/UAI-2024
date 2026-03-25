@@ -22,6 +22,38 @@ namespace MindFit_Intelligence_Backend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Calentamiento", b =>
+                {
+                    b.Property<int>("IdCalentamiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCalentamiento"));
+
+                    b.Property<int>("Duracion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRutina")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("VARCHAR(200)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdCalentamiento");
+
+                    b.HasIndex("IdEjercicio");
+
+                    b.HasIndex("IdRutina");
+
+                    b.ToTable("Calentamiento", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Cuota", b =>
                 {
                     b.Property<int>("IdCuota")
@@ -162,6 +194,139 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("DiaRangoHorarioResponsable", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Ejercicio", b =>
+                {
+                    b.Property<int>("IdEjercicio")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEjercicio"));
+
+                    b.Property<string>("DescEjercicio")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(100)");
+
+                    b.Property<int?>("IdEquipamiento")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdGrupoMuscular")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("IdMaquina")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdTipoEjercicio")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdEjercicio");
+
+                    b.HasIndex("IdEquipamiento");
+
+                    b.HasIndex("IdGrupoMuscular");
+
+                    b.HasIndex("IdMaquina");
+
+                    b.HasIndex("IdTipoEjercicio");
+
+                    b.ToTable("Ejercicio", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Entrenamiento", b =>
+                {
+                    b.Property<int>("IdEntrenamiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEntrenamiento"));
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRutina")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("VARCHAR(200)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("PesoAsignado")
+                        .HasColumnType("DECIMAL(18,2)");
+
+                    b.Property<int>("Repeticiones")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Series")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TiempoDescansoSegundos")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdEntrenamiento");
+
+                    b.HasIndex("IdEjercicio");
+
+                    b.HasIndex("IdRutina");
+
+                    b.ToTable("Entrenamiento", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Equipamiento", b =>
+                {
+                    b.Property<int>("IdEquipamiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEquipamiento"));
+
+                    b.Property<decimal>("CostoAdquisicion")
+                        .HasColumnType("DECIMAL(18,2)");
+
+                    b.Property<string>("NombreEquipo")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.Property<decimal?>("PesoFijoKg")
+                        .HasColumnType("DECIMAL(18,2)");
+
+                    b.HasKey("IdEquipamiento");
+
+                    b.ToTable("Equipamiento", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Estiramiento", b =>
+                {
+                    b.Property<int>("IdEstiramiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEstiramiento"));
+
+                    b.Property<int>("Duracion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRutina")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("VARCHAR(200)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdEstiramiento");
+
+                    b.HasIndex("IdEjercicio");
+
+                    b.HasIndex("IdRutina");
+
+                    b.ToTable("Estiramiento", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
                 {
                     b.Property<int>("IdGrupo")
@@ -185,6 +350,26 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("Grupo", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoMuscular", b =>
+                {
+                    b.Property<int>("IdGrupoMuscular")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdGrupoMuscular"));
+
+                    b.Property<string>("IdMapaAnatomico")
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.Property<string>("NombreMusculo")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.HasKey("IdGrupoMuscular");
+
+                    b.ToTable("GrupoMuscular", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoPermiso", b =>
                 {
                     b.Property<int>("IdGrupo")
@@ -198,6 +383,38 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.HasIndex("IdPermiso");
 
                     b.ToTable("GrupoPermiso", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Maquina", b =>
+                {
+                    b.Property<int>("IdMaquina")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMaquina"));
+
+                    b.Property<decimal>("CostoAdquisicion")
+                        .HasColumnType("DECIMAL(18,2)");
+
+                    b.Property<bool>("EsElectrica")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaCompra")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaFabricacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NombreMaquina")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.Property<decimal?>("PesoMaximoLingotera")
+                        .HasColumnType("DECIMAL(18,2)");
+
+                    b.HasKey("IdMaquina");
+
+                    b.ToTable("Maquina", (string)null);
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.PerfilIA", b =>
@@ -415,6 +632,23 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("Rutina", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.TipoEjercicio", b =>
+                {
+                    b.Property<int>("IdTipoEjercicio")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTipoEjercicio"));
+
+                    b.Property<string>("NombreTipo")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(50)");
+
+                    b.HasKey("IdTipoEjercicio");
+
+                    b.ToTable("TipoEjercicio", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Turno", b =>
                 {
                     b.Property<int>("IdTurno")
@@ -504,6 +738,25 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("UsuarioGrupo", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Calentamiento", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Ejercicio", "Ejercicio")
+                        .WithMany()
+                        .HasForeignKey("IdEjercicio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Rutina", "Rutina")
+                        .WithMany("Calentamientos")
+                        .HasForeignKey("IdRutina")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ejercicio");
+
+                    b.Navigation("Rutina");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Cuota", b =>
                 {
                     b.HasOne("MindFit_Intelligence_Backend.Models.PersonaSocio", "PersonaSocio")
@@ -562,6 +815,77 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("DiaRangoHorario");
 
                     b.Navigation("PersonaResponsable");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Ejercicio", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Equipamiento", "Equipamiento")
+                        .WithMany()
+                        .HasForeignKey("IdEquipamiento")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.GrupoMuscular", "GrupoMuscular")
+                        .WithMany("Ejercicios")
+                        .HasForeignKey("IdGrupoMuscular")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Maquina", "Maquina")
+                        .WithMany()
+                        .HasForeignKey("IdMaquina")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.TipoEjercicio", "TipoEjercicio")
+                        .WithMany("Ejercicios")
+                        .HasForeignKey("IdTipoEjercicio")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Equipamiento");
+
+                    b.Navigation("GrupoMuscular");
+
+                    b.Navigation("Maquina");
+
+                    b.Navigation("TipoEjercicio");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Entrenamiento", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Ejercicio", "Ejercicio")
+                        .WithMany()
+                        .HasForeignKey("IdEjercicio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Rutina", "Rutina")
+                        .WithMany("Entrenamientos")
+                        .HasForeignKey("IdRutina")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ejercicio");
+
+                    b.Navigation("Rutina");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Estiramiento", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Ejercicio", "Ejercicio")
+                        .WithMany()
+                        .HasForeignKey("IdEjercicio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Rutina", "Rutina")
+                        .WithMany("Estiramientos")
+                        .HasForeignKey("IdRutina")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ejercicio");
+
+                    b.Navigation("Rutina");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoPermiso", b =>
@@ -707,6 +1031,11 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("UsuarioGrupos");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoMuscular", b =>
+                {
+                    b.Navigation("Ejercicios");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Permiso", b =>
                 {
                     b.Navigation("GrupoPermisos");
@@ -733,6 +1062,20 @@ namespace MindFit_Intelligence_Backend.Migrations
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RangoHorario", b =>
                 {
                     b.Navigation("DiaRangosHorarios");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Rutina", b =>
+                {
+                    b.Navigation("Calentamientos");
+
+                    b.Navigation("Entrenamientos");
+
+                    b.Navigation("Estiramientos");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.TipoEjercicio", b =>
+                {
+                    b.Navigation("Ejercicios");
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Usuario", b =>

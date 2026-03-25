@@ -1,5 +1,36 @@
 [
   {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
+    "Method": "Update",
+    "RelativePath": "{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "grupoUpdateDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
     "Method": "ChangePassword",
     "RelativePath": "api/Auth/change-password",
@@ -120,6 +151,183 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.CuotaController",
+    "Method": "GetById",
+    "RelativePath": "api/Cuota/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Cuota.CuotaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.CuotaController",
+    "Method": "Delete",
+    "RelativePath": "api/Cuota/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Cuota.CuotaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.CuotaController",
+    "Method": "ActualizarCuotasVencidas",
+    "RelativePath": "api/Cuota/actualizar-vencidas",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.CuotaController",
+    "Method": "GetBySocio",
+    "RelativePath": "api/Cuota/socio/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Cuota.CuotaDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.DiaRangoHorarioController",
+    "Method": "ActualizarResponsable",
+    "RelativePath": "api/DiaRangoHorario/actualizar-responsable",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.DiaRangoHorarioResponsable.DiaRangoHorarioResponsableUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.DiaRangoHorarioController",
+    "Method": "AsignarResponsable",
+    "RelativePath": "api/DiaRangoHorario/asignar-responsable",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.DiaRangoHorarioResponsable.DiaRangoHorarioResponsableInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.DiaRangoHorarioController",
+    "Method": "ActivarDesactivarHorario",
+    "RelativePath": "api/DiaRangoHorario/cambiar-estado/{IdDiaRangoHorario}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdDiaRangoHorario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.DiaRangoHorario.DiaRangoHorarioUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.DiaRangoHorarioController",
+    "Method": "GetAll",
+    "RelativePath": "api/DiaRangoHorario/grilla",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.DiaRangoHorario.GrillaDiaRangoHorarioDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.DiaRangoHorarioController",
+    "Method": "QuitarResponsable",
+    "RelativePath": "api/DiaRangoHorario/quitar-responsable",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.DiaRangoHorarioResponsable.DiaRangoHorarioResponsableDeleteDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
     "Method": "Get",
     "RelativePath": "api/Grupo",
@@ -150,37 +358,6 @@
       {
         "Name": "grupoInsertDto",
         "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoInsertDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
-    "Method": "Update",
-    "RelativePath": "api/Grupo",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "grupoUpdateDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoUpdateDto",
         "IsRequired": true
       }
     ],
@@ -305,15 +482,119 @@
     ]
   },
   {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "GetUsuarioById",
-    "RelativePath": "api/Usuario/{id}",
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.PersonaResponsableController",
+    "Method": "GetEntrenadores",
+    "RelativePath": "api/PersonaResponsable/entrenadores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Personas.EntrenadorDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
+    "Method": "GetTurnos",
+    "RelativePath": "api/Turno",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "idUsuarioSocio",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Turno.TurnoDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
+    "Method": "CancelarTurno",
+    "RelativePath": "api/Turno/cancelar/{idTurno}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idTurno",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
+    "Method": "RegistrarTurno",
+    "RelativePath": "api/Turno/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "turnoInsertDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Turno.TurnoInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Turno.TurnoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
+    "Method": "ValidarIngreso",
+    "RelativePath": "api/Turno/validar-ingreso",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Turno.ValidarIngresoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "GetUsuarioById",
+    "RelativePath": "api/Usuario/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -333,13 +614,13 @@
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
     "Method": "Update",
-    "RelativePath": "api/Usuario/{id}",
+    "RelativePath": "api/Usuario/{idUsuario}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "idUsuario",
         "Type": "System.Int32",
         "IsRequired": true
       },
@@ -364,13 +645,65 @@
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
     "Method": "Delete",
-    "RelativePath": "api/Usuario/{id}",
+    "RelativePath": "api/Usuario/{idUsuario}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "SoftDeleteSocio",
+    "RelativePath": "api/Usuario/{idUsuario}/baja",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "RecoverSoftDeletedSocio",
+    "RelativePath": "api/Usuario/{idUsuario}/recuperacion",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
         "Type": "System.Int32",
         "IsRequired": true
       }
@@ -409,8 +742,74 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "AutoSoftDeleteSocio",
+    "RelativePath": "api/Usuario/eliminacion-automatica/{idUsuario}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "GetUsuariosResponsablesGrid",
+    "RelativePath": "api/Usuario/grilla-responsable",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MindFit_Intelligence_Backend.DTOs.Usuarios.ResponsableGridDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "GetUsuariosSocioGrid",
+    "RelativePath": "api/Usuario/grilla-socio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[MindFit_Intelligence_Backend.DTOs.Usuarios.SocioGridDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
     "Method": "GetUsuariosGrid",
-    "RelativePath": "api/Usuario/grilla",
+    "RelativePath": "api/Usuario/grilla-usuarios",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

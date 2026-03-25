@@ -23,6 +23,14 @@ namespace MindFit_Intelligence_Backend.Models
         public DbSet<RangoHorario> RangosHorarios { get; set; } = null!;
         public DbSet<DiaRangoHorario> DiaRangosHorarios { get; set; } = null!;
         public DbSet<DiaRangoHorarioResponsable> DiaRangosHorariosResponsables { get; set; } = null!;
+        public DbSet<GrupoMuscular> GruposMusculares { get; set; } = null!;
+        public DbSet<TipoEjercicio> TiposEjercicios { get; set; } = null!;
+        public DbSet<Ejercicio> Ejercicios { get; set; } = null!;
+        public DbSet<Maquina> Maquinas { get; set; } = null!;
+        public DbSet<Equipamiento> Equipamientos { get; set; } = null!;
+        public DbSet<Calentamiento> Calentamientos { get; set; } = null!;
+        public DbSet<Entrenamiento> Entrenamientos { get; set; } = null!;
+        public DbSet<Estiramiento> Estiramientos { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -50,6 +58,14 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<RangoHorario>().ToTable("RangoHorario");
             modelBuilder.Entity<DiaRangoHorario>().ToTable("DiaRangoHorario");
             modelBuilder.Entity<DiaRangoHorarioResponsable>().ToTable("DiaRangoHorarioResponsable");
+            modelBuilder.Entity<GrupoMuscular>().ToTable("GrupoMuscular");
+            modelBuilder.Entity<TipoEjercicio>().ToTable("TipoEjercicio");
+            modelBuilder.Entity<Ejercicio>().ToTable("Ejercicio");
+            modelBuilder.Entity<Maquina>().ToTable("Maquina");
+            modelBuilder.Entity<Equipamiento>().ToTable("Equipamiento");
+            modelBuilder.Entity<Calentamiento>().ToTable("Calentamiento");
+            modelBuilder.Entity<Entrenamiento>().ToTable("Entrenamiento");
+            modelBuilder.Entity<Estiramiento>().ToTable("Estiramiento");
 
             //// Relacio 1 a 1 PK compartida
             // 1 a 1 PK compartida Usuario <-> PersonaResponsable
@@ -196,6 +212,78 @@ namespace MindFit_Intelligence_Backend.Models
                 .WithMany(drh => drh.DiaRangoHorarioResponsables)
                 .HasForeignKey(drhr => drhr.IdDiaRangoHorario)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Configurando Enums para que se guarden como Strings en la BD (en vez de enteros)
+            modelBuilder.Entity<TipoEjercicio>()
+                .Property(t => t.NombreTipo)
+                .HasConversion<string>();
+
+            modelBuilder.Entity<GrupoMuscular>()
+                .Property(t => t.NombreMusculo)
+                .HasConversion<string>();
+
+            // Relaciones de Ejercicio (Catálogo)
+            modelBuilder.Entity<Ejercicio>()
+                .HasOne(e => e.GrupoMuscular)
+                .WithMany(gm => gm.Ejercicios)
+                .HasForeignKey(e => e.IdGrupoMuscular)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Ejercicio>()
+                .HasOne(e => e.TipoEjercicio)
+                .WithMany(te => te.Ejercicios)
+                .HasForeignKey(e => e.IdTipoEjercicio)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Ejercicio>()
+                .HasOne(e => e.Maquina)
+                .WithMany() // Una máquina puede estar en varios ejercicios (ej: multipower)
+                .HasForeignKey(e => e.IdMaquina)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Ejercicio>()
+                .HasOne(e => e.Equipamiento)
+                .WithMany()
+                .HasForeignKey(e => e.IdEquipamiento)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            // Relaciones de Instancias de Rutina (Calentamiento, Entrenamiento, Estiramiento)
+
+            // CALENTAMIENTO
+            modelBuilder.Entity<Calentamiento>()
+                .HasOne(c => c.Rutina)
+                .WithMany(r => r.Calentamientos)
+                .HasForeignKey(c => c.IdRutina)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Calentamiento>()
+                .HasOne(c => c.Ejercicio)
+                .WithMany()
+                .HasForeignKey(c => c.IdEjercicio);
+
+            // ENTRENAMIENTO
+            modelBuilder.Entity<Entrenamiento>()
+                .HasOne(en => en.Rutina)
+                .WithMany(r => r.Entrenamientos)
+                .HasForeignKey(en => en.IdRutina)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Entrenamiento>()
+                .HasOne(en => en.Ejercicio)
+                .WithMany()
+                .HasForeignKey(en => en.IdEjercicio);
+
+            // ESTIRAMIENTO
+            modelBuilder.Entity<Estiramiento>()
+                .HasOne(es => es.Rutina)
+                .WithMany(r => r.Estiramientos)
+                .HasForeignKey(es => es.IdRutina)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Estiramiento>()
+                .HasOne(es => es.Ejercicio)
+                .WithMany()
+                .HasForeignKey(es => es.IdEjercicio);
         }
     }
 }

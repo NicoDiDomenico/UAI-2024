@@ -223,6 +223,318 @@
         }
       }
     },
+    "/api/Cuota/socio/{idUsuario}": {
+      "get": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuotaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuotaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuotaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cuota/{id}": {
+      "get": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cuota/actualizar-vencidas": {
+      "put": {
+        "tags": [
+          "Cuota"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/grilla": {
+      "get": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/cambiar-estado/{IdDiaRangoHorario}": {
+      "patch": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "idDiaRangoHorario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/asignar-responsable": {
+      "post": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/actualizar-responsable": {
+      "patch": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/quitar-responsable": {
+      "delete": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableDeleteDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableDeleteDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableDeleteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Grupo": {
       "get": {
         "tags": [
@@ -305,62 +617,6 @@
             }
           }
         }
-      },
-      "put": {
-        "tags": [
-          "Grupo"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GrupoUpdateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/GrupoUpdateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/GrupoUpdateDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/GrupoDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GrupoDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/GrupoDto"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/api/Grupo/{id}": {
@@ -417,6 +673,65 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "put": {
+        "tags": [
+          "Grupo"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoUpdateDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
@@ -531,6 +846,194 @@
         }
       }
     },
+    "/api/PersonaResponsable/entrenadores": {
+      "get": {
+        "tags": [
+          "PersonaResponsable"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno": {
+      "get": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuarioSocio",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/registrar": {
+      "post": {
+        "tags": [
+          "Turno"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/cancelar/{idTurno}": {
+      "patch": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "idTurno",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Turno/validar-ingreso": {
+      "post": {
+        "tags": [
+          "Turno"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarIngresoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarIngresoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarIngresoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Usuario/dias": {
       "get": {
         "tags": [
@@ -569,7 +1072,7 @@
         }
       }
     },
-    "/api/Usuario/grilla": {
+    "/api/Usuario/grilla-usuarios": {
       "get": {
         "tags": [
           "Usuario"
@@ -607,14 +1110,90 @@
         }
       }
     },
-    "/api/Usuario/{id}": {
+    "/api/Usuario/grilla-responsable": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponsableGridDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponsableGridDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponsableGridDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/grilla-socio": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioGridDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioGridDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioGridDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/{idUsuario}": {
       "get": {
         "tags": [
           "Usuario"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "idUsuario",
             "in": "path",
             "required": true,
             "schema": {
@@ -652,7 +1231,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "idUsuario",
             "in": "path",
             "required": true,
             "schema": {
@@ -709,7 +1288,7 @@
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "idUsuario",
             "in": "path",
             "required": true,
             "schema": {
@@ -789,6 +1368,126 @@
           }
         }
       }
+    },
+    "/api/Usuario/eliminacion-automatica/{idUsuario}": {
+      "patch": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/{idUsuario}/baja": {
+      "patch": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/{idUsuario}/recuperacion": {
+      "patch": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -807,6 +1506,82 @@
         },
         "additionalProperties": false
       },
+      "CuotaDto": {
+        "type": "object",
+        "properties": {
+          "idCuota": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "fechaInicioPeriodo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinPeriodo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "estadoCuota": {
+            "$ref": "#/components/schemas/EstadoCuota"
+          },
+          "fechaPago": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CuotaInsertDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CuotaUpdateDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "renueva": {
+            "type": "boolean"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "DiaDto": {
         "type": "object",
         "properties": {
@@ -821,12 +1596,108 @@
         },
         "additionalProperties": false
       },
+      "DiaRangoHorarioResponsableDeleteDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioResponsableInsertDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioResponsableUpdateDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioUpdateDto": {
+        "type": "object",
+        "properties": {
+          "activo": {
+            "type": "boolean"
+          },
+          "cupoMaximo": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntrenadorDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EstadoCuota": {
+        "enum": [
+          "Vigente",
+          "Vencida"
+        ],
+        "type": "string"
+      },
       "EstadoSocio": {
         "enum": [
           "Nuevo",
           "Actualizado",
           "Supendido",
           "Eliminado"
+        ],
+        "type": "string"
+      },
+      "EstadoTurno": {
+        "enum": [
+          "EnCurso",
+          "Cancelado",
+          "Finalizado"
         ],
         "type": "string"
       },
@@ -848,6 +1719,64 @@
           "NoEspecifica"
         ],
         "type": "string"
+      },
+      "GrillaDiaRangoHorarioDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cupoMaximo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "horaDesde": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "horaHasta": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "nombreDia": {
+            "type": "string",
+            "nullable": true
+          },
+          "responsables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrillaDiaRangoHorarioResponsableDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrillaDiaRangoHorarioResponsableDto": {
+        "type": "object",
+        "properties": {
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "GrupoDto": {
         "type": "object",
@@ -926,6 +1855,96 @@
             "nullable": true
           },
           "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilIADto": {
+        "type": "object",
+        "properties": {
+          "objetivoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "nivelExperiencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosPreferidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosAEvitar": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponibilidadHoraria": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivacionPersonal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilIAInsertDto": {
+        "type": "object",
+        "properties": {
+          "objetivoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "nivelExperiencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosPreferidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosAEvitar": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponibilidadHoraria": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivacionPersonal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilIAUpdateDto": {
+        "type": "object",
+        "properties": {
+          "objetivoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "nivelExperiencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosPreferidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosAEvitar": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponibilidadHoraria": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivacionPersonal": {
             "type": "string",
             "nullable": true
           }
@@ -1159,18 +2178,10 @@
             "type": "string",
             "nullable": true
           },
-          "plan": {
-            "$ref": "#/components/schemas/Plan"
-          },
           "estadoSocio": {
             "$ref": "#/components/schemas/EstadoSocio"
           },
           "fechaInicioActividades": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "fechaFinActividades": {
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -1198,12 +2209,23 @@
               "$ref": "#/components/schemas/RutinaDto"
             },
             "nullable": true
+          },
+          "cuotas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CuotaDto"
+            },
+            "nullable": true
+          },
+          "perfilIA": {
+            "$ref": "#/components/schemas/PerfilIADto"
           }
         },
         "additionalProperties": false
       },
       "PersonaSocioInsertDto": {
         "required": [
+          "cuota",
           "diasActivosIds"
         ],
         "type": "object",
@@ -1252,9 +2274,6 @@
             "type": "string",
             "nullable": true
           },
-          "plan": {
-            "$ref": "#/components/schemas/Plan"
-          },
           "fechaNotificacion": {
             "type": "string",
             "format": "date-time",
@@ -1279,12 +2298,19 @@
               "format": "int32"
             },
             "nullable": true
+          },
+          "cuota": {
+            "$ref": "#/components/schemas/CuotaInsertDto"
+          },
+          "perfilIA": {
+            "$ref": "#/components/schemas/PerfilIAInsertDto"
           }
         },
         "additionalProperties": false
       },
       "PersonaSocioUpdateDto": {
         "required": [
+          "cuota",
           "diasActivosIds"
         ],
         "type": "object",
@@ -1333,9 +2359,6 @@
             "type": "string",
             "nullable": true
           },
-          "plan": {
-            "$ref": "#/components/schemas/Plan"
-          },
           "fechaNotificacion": {
             "type": "string",
             "format": "date-time",
@@ -1360,6 +2383,12 @@
               "format": "int32"
             },
             "nullable": true
+          },
+          "perfilIA": {
+            "$ref": "#/components/schemas/PerfilIAUpdateDto"
+          },
+          "cuota": {
+            "$ref": "#/components/schemas/CuotaUpdateDto"
           }
         },
         "additionalProperties": false
@@ -1402,6 +2431,32 @@
         },
         "additionalProperties": false
       },
+      "ResponsableGridDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nombreCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RutinaDto": {
         "type": "object",
         "properties": {
@@ -1416,6 +2471,43 @@
           "idDia": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SocioGridDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nombreCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoSocio": {
+            "$ref": "#/components/schemas/EstadoSocio"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "fechaFinPeriodo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1441,6 +2533,65 @@
               "type": "string"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TurnoDto": {
+        "type": "object",
+        "properties": {
+          "idTurno": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaAlta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estadoTurno": {
+            "$ref": "#/components/schemas/EstadoTurno"
+          },
+          "horaDesde": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "horaHasta": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "nombreDia": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreResponsable": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidoResponsable": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TurnoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -1569,12 +2720,28 @@
           }
         },
         "additionalProperties": false
+      },
+      "ValidarIngresoDto": {
+        "type": "object",
+        "properties": {
+          "dniSocio": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       }
     }
   },
   "tags": [
     {
       "name": "Auth"
+    },
+    {
+      "name": "Cuota"
+    },
+    {
+      "name": "DiaRangoHorario"
     },
     {
       "name": "Grupo"
@@ -1584,6 +2751,9 @@
     },
     {
       "name": "PersonaResponsable"
+    },
+    {
+      "name": "Turno"
     },
     {
       "name": "Usuario"
