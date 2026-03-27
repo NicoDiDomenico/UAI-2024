@@ -328,6 +328,210 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EjercicioController",
+    "Method": "Get",
+    "RelativePath": "api/Ejercicio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idGrupoMuscular",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Ejercicios.EjercicioDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EjercicioController",
+    "Method": "Add",
+    "RelativePath": "api/Ejercicio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Ejercicios.EjercicioInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EjercicioController",
+    "Method": "GetById",
+    "RelativePath": "api/Ejercicio/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Ejercicios.EjercicioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EjercicioController",
+    "Method": "Update",
+    "RelativePath": "api/Ejercicio/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Ejercicios.EjercicioUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EjercicioController",
+    "Method": "Delete",
+    "RelativePath": "api/Ejercicio/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EquipamientoController",
+    "Method": "Get",
+    "RelativePath": "api/Equipamiento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Equipamientos.EquipamientoDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EquipamientoController",
+    "Method": "Add",
+    "RelativePath": "api/Equipamiento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Equipamientos.EquipamientoInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EquipamientoController",
+    "Method": "GetById",
+    "RelativePath": "api/Equipamiento/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Equipamientos.EquipamientoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EquipamientoController",
+    "Method": "Update",
+    "RelativePath": "api/Equipamiento/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Equipamientos.EquipamientoUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.EquipamientoController",
+    "Method": "Delete",
+    "RelativePath": "api/Equipamiento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
     "Method": "Get",
     "RelativePath": "api/Grupo",
@@ -426,6 +630,151 @@
     ]
   },
   {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoMuscularController",
+    "Method": "Get",
+    "RelativePath": "api/GrupoMuscular",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.GrupoMuscular.GrupoMuscularDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoMuscularController",
+    "Method": "GetById",
+    "RelativePath": "api/GrupoMuscular/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.GrupoMuscular.GrupoMuscularDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.MaquinaController",
+    "Method": "Get",
+    "RelativePath": "api/Maquina",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Maquinas.MaquinaDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.MaquinaController",
+    "Method": "Add",
+    "RelativePath": "api/Maquina",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Maquinas.MaquinaInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.MaquinaController",
+    "Method": "GetById",
+    "RelativePath": "api/Maquina/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Maquinas.MaquinaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.MaquinaController",
+    "Method": "Update",
+    "RelativePath": "api/Maquina/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Maquinas.MaquinaUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.MaquinaController",
+    "Method": "Delete",
+    "RelativePath": "api/Maquina/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.PermisoController",
     "Method": "Get",
     "RelativePath": "api/Permiso",
@@ -492,6 +841,52 @@
     "ReturnTypes": [
       {
         "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Personas.EntrenadorDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TipoEjercicioController",
+    "Method": "Get",
+    "RelativePath": "api/TipoEjercicio",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.TipoEjercicio.TipoEjercicioDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TipoEjercicioController",
+    "Method": "GetById",
+    "RelativePath": "api/TipoEjercicio/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.TipoEjercicio.TipoEjercicioDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

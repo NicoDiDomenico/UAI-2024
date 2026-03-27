@@ -30,6 +30,11 @@ builder.Services.AddScoped<ICuotaService, CuotaService>();
 builder.Services.AddScoped<ITurnoService, TurnoService>();
 builder.Services.AddScoped<IDiaRangoHorarioService, DiaRangoHorarioService>();
 builder.Services.AddScoped<IEmailService, SmtpEmailService>();
+builder.Services.AddScoped<IMaquinaService, MaquinaService>();
+builder.Services.AddScoped<IEquipamientoService, EquipamientoService>();
+builder.Services.AddScoped<IEjercicioService, EjercicioService>();
+builder.Services.AddScoped<IGrupoMuscularRepository, GrupoMuscularRepository>();
+builder.Services.AddScoped<ITipoEjercicioRepository, TipoEjercicioRepository>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
@@ -42,6 +47,11 @@ builder.Services.AddScoped<ICuotaRepository, CuotaRepository>();
 builder.Services.AddScoped<ITurnoRepository, TurnoRepository>();
 builder.Services.AddScoped<IDiaRangoHorarioRepository, DiaRangoHorarioRepository>();
 builder.Services.AddScoped<ICupoFechaRepository, CupoFechaRepository>();
+builder.Services.AddScoped<IMaquinaRepository, MaquinaRepository>();
+builder.Services.AddScoped<IEquipamientoRepository, EquipamientoRepository>();
+builder.Services.AddScoped<IEjercicioRepository, EjercicioRepository>();
+builder.Services.AddScoped<IGrupoMuscularService, GrupoMuscularService>();
+builder.Services.AddScoped<ITipoEjercicioService, TipoEjercicioService>();
 
 // Entity Framework
 builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>

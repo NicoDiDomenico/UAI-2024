@@ -1,0 +1,68 @@
+﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Equipamientos;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class EquipamientoService : IEquipamientoService
+    {
+        private readonly IEquipamientoRepository _equipamientoRepository;
+        private readonly IMapper _mapper;
+
+        public EquipamientoService(IEquipamientoRepository equipamientoRepository, IMapper mapper)
+        {
+            _equipamientoRepository = equipamientoRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<IEnumerable<EquipamientoDto>> GetEquipamientosAsync()
+        {
+            var equipamientos = await _equipamientoRepository.Get();
+            return _mapper.Map<IEnumerable<EquipamientoDto>>(equipamientos);
+        }
+
+        public async Task<EquipamientoDto?> GetEquipamientoByIdAsync(int id)
+        {
+            var equipamiento = await _equipamientoRepository.GetById(id);
+            if (equipamiento == null) return null;
+
+            return _mapper.Map<EquipamientoDto>(equipamiento);
+        }
+
+        public async Task<EquipamientoDto> CreateEquipamientoAsync(EquipamientoInsertDto insertDto)
+        {
+            var equipamiento = _mapper.Map<Equipamiento>(insertDto);
+            
+            await _equipamientoRepository.Add(equipamiento);
+            await _equipamientoRepository.Save();
+
+            return _mapper.Map<EquipamientoDto>(equipamiento);
+        }
+
+        public async Task<EquipamientoDto?> UpdateEquipamientoAsync(int id, EquipamientoUpdateDto updateDto)
+        {
+            var equipamiento = await _equipamientoRepository.GetById(id);
+            if (equipamiento == null) return null;
+
+            _mapper.Map(updateDto, equipamiento);
+            
+            _equipamientoRepository.Update(equipamiento);
+            await _equipamientoRepository.Save();
+
+            return _mapper.Map<EquipamientoDto>(equipamiento);
+        }
+
+        public async Task<bool> DeleteEquipamientoAsync(int id)
+        {
+            var equipamiento = await _equipamientoRepository.GetById(id);
+            if (equipamiento == null) return false;
+
+            _equipamientoRepository.Delete(equipamiento);
+            await _equipamientoRepository.Save();
+            
+            return true;
+        }
+    }
+}

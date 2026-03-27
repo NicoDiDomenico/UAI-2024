@@ -535,6 +535,352 @@
         }
       }
     },
+    "/api/Ejercicio": {
+      "get": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "idGrupoMuscular",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EjercicioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EjercicioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EjercicioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ejercicio/{id}": {
+      "get": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Equipamiento": {
+      "get": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipamientoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipamientoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipamientoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Equipamiento/{id}": {
+      "get": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Grupo": {
       "get": {
         "tags": [
@@ -756,6 +1102,252 @@
         }
       }
     },
+    "/api/GrupoMuscular": {
+      "get": {
+        "tags": [
+          "GrupoMuscular"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoMuscularDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoMuscularDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoMuscularDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GrupoMuscular/{id}": {
+      "get": {
+        "tags": [
+          "GrupoMuscular"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoMuscularDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoMuscularDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoMuscularDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Maquina": {
+      "get": {
+        "tags": [
+          "Maquina"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaquinaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaquinaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaquinaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Maquina"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Maquina/{id}": {
+      "get": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Permiso": {
       "get": {
         "tags": [
@@ -877,6 +1469,84 @@
                   "items": {
                     "$ref": "#/components/schemas/EntrenadorDto"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TipoEjercicio": {
+      "get": {
+        "tags": [
+          "TipoEjercicio"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoEjercicioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoEjercicioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoEjercicioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TipoEjercicio/{id}": {
+      "get": {
+        "tags": [
+          "TipoEjercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoEjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoEjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoEjercicioDto"
                 }
               }
             }
@@ -1659,6 +2329,97 @@
         },
         "additionalProperties": false
       },
+      "EjercicioDto": {
+        "required": [
+          "descEjercicio"
+        ],
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descEjercicio": {
+            "type": "string",
+            "nullable": true
+          },
+          "grupoMuscular": {
+            "$ref": "#/components/schemas/GrupoMuscularDto"
+          },
+          "tipoEjercicio": {
+            "$ref": "#/components/schemas/TipoEjercicioDto"
+          },
+          "maquina": {
+            "$ref": "#/components/schemas/MaquinaDto"
+          },
+          "equipamiento": {
+            "$ref": "#/components/schemas/EquipamientoDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EjercicioInsertDto": {
+        "required": [
+          "descEjercicio"
+        ],
+        "type": "object",
+        "properties": {
+          "descEjercicio": {
+            "type": "string",
+            "nullable": true
+          },
+          "idGrupoMuscular": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idTipoEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idMaquina": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idEquipamiento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EjercicioUpdateDto": {
+        "required": [
+          "descEjercicio"
+        ],
+        "type": "object",
+        "properties": {
+          "descEjercicio": {
+            "type": "string",
+            "nullable": true
+          },
+          "idGrupoMuscular": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idTipoEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idMaquina": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idEquipamiento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EntrenadorDto": {
         "type": "object",
         "properties": {
@@ -1672,6 +2433,76 @@
           },
           "apellido": {
             "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipamientoDto": {
+        "required": [
+          "nombreEquipo"
+        ],
+        "type": "object",
+        "properties": {
+          "idEquipamiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreEquipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoFijoKg": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipamientoInsertDto": {
+        "required": [
+          "nombreEquipo"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreEquipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoFijoKg": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipamientoUpdateDto": {
+        "required": [
+          "nombreEquipo"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreEquipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoFijoKg": {
+            "type": "number",
+            "format": "double",
             "nullable": true
           }
         },
@@ -1825,6 +2656,26 @@
         },
         "additionalProperties": false
       },
+      "GrupoMuscularDto": {
+        "required": [
+          "nombreMusculo"
+        ],
+        "type": "object",
+        "properties": {
+          "idGrupoMuscular": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreMusculo": {
+            "$ref": "#/components/schemas/Musculo"
+          },
+          "idMapaAnatomico": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "GrupoUpdateDto": {
         "type": "object",
         "properties": {
@@ -1860,6 +2711,126 @@
           }
         },
         "additionalProperties": false
+      },
+      "MaquinaDto": {
+        "required": [
+          "nombreMaquina"
+        ],
+        "type": "object",
+        "properties": {
+          "idMaquina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreMaquina": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaFabricacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoMaximoLingotera": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esElectrica": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaquinaInsertDto": {
+        "required": [
+          "nombreMaquina"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreMaquina": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaFabricacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoMaximoLingotera": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esElectrica": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaquinaUpdateDto": {
+        "required": [
+          "nombreMaquina"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreMaquina": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaFabricacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoMaximoLingotera": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esElectrica": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Musculo": {
+        "enum": [
+          "Pecho",
+          "Espalda",
+          "Hombros",
+          "Biceps",
+          "Triceps",
+          "Antebrazos",
+          "Abdominales",
+          "Lumbares",
+          "Cuadriceps",
+          "Isquiotibiales",
+          "Gluteos",
+          "Pantorrillas"
+        ],
+        "type": "string"
       },
       "PerfilIADto": {
         "type": "object",
@@ -2512,6 +3483,30 @@
         },
         "additionalProperties": false
       },
+      "TipoDeEjercicio": {
+        "enum": [
+          "Calentamiento",
+          "Entrenamiento",
+          "Estiramiento"
+        ],
+        "type": "string"
+      },
+      "TipoEjercicioDto": {
+        "required": [
+          "nombreTipo"
+        ],
+        "type": "object",
+        "properties": {
+          "idTipoEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreTipo": {
+            "$ref": "#/components/schemas/TipoDeEjercicio"
+          }
+        },
+        "additionalProperties": false
+      },
       "TokenResponseDto": {
         "required": [
           "accessToken",
@@ -2744,13 +3739,28 @@
       "name": "DiaRangoHorario"
     },
     {
+      "name": "Ejercicio"
+    },
+    {
+      "name": "Equipamiento"
+    },
+    {
       "name": "Grupo"
+    },
+    {
+      "name": "GrupoMuscular"
+    },
+    {
+      "name": "Maquina"
     },
     {
       "name": "Permiso"
     },
     {
       "name": "PersonaResponsable"
+    },
+    {
+      "name": "TipoEjercicio"
     },
     {
       "name": "Turno"
