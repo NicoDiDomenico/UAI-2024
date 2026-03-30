@@ -90,8 +90,13 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<EjercicioDto?> GetEjercicioByIdAsync(int id)
         {
+            Errors.Clear();
             var ejercicio = await _ejercicioRepository.GetById(id);
-            if (ejercicio == null) return null;
+            if (ejercicio == null)
+            {
+                Errors.Add("El ejercicio no existe.");
+                return null;
+            }
 
             return _mapper.Map<EjercicioDto>(ejercicio);
         }
@@ -111,6 +116,7 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<EjercicioDto?> UpdateEjercicioAsync(int id, EjercicioUpdateDto updateDto)
         {
+            Errors.Clear();
             var ejercicio = await _ejercicioRepository.GetById(id);
             if (ejercicio == null)
             {
@@ -127,15 +133,22 @@ namespace MindFit_Intelligence_Backend.Services
             return _mapper.Map<EjercicioDto>(updatedEjercicio!);
         }
 
-        public async Task<bool> DeleteEjercicioAsync(int id)
+        public async Task<EjercicioDto?> DeleteEjercicioAsync(int id)
         {
+            Errors.Clear();
             var ejercicio = await _ejercicioRepository.GetById(id);
-            if (ejercicio == null) return false;
+            if (ejercicio == null)
+            {
+                Errors.Add("El ejercicio no existe.");
+                return null;
+            }
+
+            var deletedEjercicioDto = _mapper.Map<EjercicioDto>(ejercicio);
 
             _ejercicioRepository.Delete(ejercicio);
             await _ejercicioRepository.Save();
             
-            return true;
+            return deletedEjercicioDto;
         }
     }
 }

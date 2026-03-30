@@ -1,22 +1,37 @@
+using Azure;
+using FluentValidation;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Maquinas;
 using MindFit_Intelligence_Backend.Services.Interfaces;
+using System.Runtime.ConstrainedExecution;
 
 namespace MindFit_Intelligence_Backend.Controllers
 {
-    // Módulo de Gestión del Gimnasio
+    /// Módulo de Gestión del Gimnasio
     [Route("api/[controller]")]
     [ApiController]
     public class MaquinaController : ControllerBase
     {
         private readonly IMaquinaService _maquinaService;
+        private readonly IValidator<MaquinaInsertDto> _insertValidator;
+        private readonly IValidator<MaquinaUpdateDto> _updateValidator;
 
-        public MaquinaController(IMaquinaService maquinaService)
+        public MaquinaController(
+            IMaquinaService maquinaService,
+            IValidator<MaquinaInsertDto> insertValidator,
+            IValidator<MaquinaUpdateDto> updateValidator)
         {
             _maquinaService = maquinaService;
+            _insertValidator = insertValidator;
+            _updateValidator = updateValidator;
         }
 
-        // Front: Para el grid de máquinas.
+        // Testeado --> Anda bien
+        /* Front: Para el grid o Selector (Dropdown) de máquinas.
+        Esto puede estar en:
+        - Inventario --> Máquinas --> Grid
+        - Gestionar Ejercicios --> Selector de máquinas ya sea para Crear o Editar un Ejericicio */
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MaquinaDto>>> Get()
         {
@@ -24,20 +39,27 @@ namespace MindFit_Intelligence_Backend.Controllers
             return Ok(maquinas);
         }
 
-        // No creo que lo use porque el detalle ya se tare cuando armo el grid.
+        // Testeado --> Anda bien
+        // Front: No creo que lo use porque el detalle ya se trae en el grid o Selector.
         [HttpGet("{id}")]
         public async Task<ActionResult<MaquinaDto>> GetById(int id)
         {
             var maquina = await _maquinaService.GetMaquinaByIdAsync(id);
             if (maquina == null)
-                return NotFound();
+                return NotFound(_maquinaService.Errors);
 
             return Ok(maquina);
         }
 
+        // Testeado --> Anda bien
+        // Front: Para el formulario de creación de máquina.
         [HttpPost]
         public async Task<IActionResult> Add(MaquinaInsertDto dto)
         {
+            var validationResult = await _insertValidator.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors.Select(e => e.ErrorMessage));
+
             if (!_maquinaService.Validate(dto))
                 return BadRequest(_maquinaService.Errors);
 
@@ -45,9 +67,15 @@ namespace MindFit_Intelligence_Backend.Controllers
             return Ok(result);
         }
 
+        // Testeado --> Anda bien
+        // Front: Para el formulario de edición de máquina.
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, MaquinaUpdateDto dto)
         {
+            var validationResult = await _updateValidator.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors.Select(e => e.ErrorMessage));
+
             if (!_maquinaService.Validate(dto))
                 return BadRequest(_maquinaService.Errors);
 
@@ -58,14 +86,16 @@ namespace MindFit_Intelligence_Backend.Controllers
             return Ok(result);
         }
 
+        // Testeado --> Anda bien
+        // Front: Para eliminar una maquina desde el grid.
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<ActionResult<MaquinaDto>> Delete(int id)
         {
-            var success = await _maquinaService.DeleteMaquinaAsync(id);
-            if (!success)
-                return NotFound();
+            var maquinaEliminada = await _maquinaService.DeleteMaquinaAsync(id);
+            if (maquinaEliminada == null)
+                return NotFound(_maquinaService.Errors);
 
-            return Ok();
+            return Ok(maquinaEliminada);
         }
     }
 }

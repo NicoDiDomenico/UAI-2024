@@ -43,8 +43,13 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<MaquinaDto?> GetMaquinaByIdAsync(int id)
         {
+            Errors.Clear();
             var maquina = await _maquinaRepository.GetById(id);
-            if (maquina == null) return null;
+            if (maquina == null)
+            {
+                Errors.Add("La máquina no existe.");
+                return null;
+            }
 
             return _mapper.Map<MaquinaDto>(maquina);
         }
@@ -61,6 +66,7 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<MaquinaDto?> UpdateMaquinaAsync(int id, MaquinaUpdateDto updateDto)
         {
+            Errors.Clear();
             var maquina = await _maquinaRepository.GetById(id);
             if (maquina == null)
             {
@@ -76,15 +82,22 @@ namespace MindFit_Intelligence_Backend.Services
             return _mapper.Map<MaquinaDto>(maquina);
         }
 
-        public async Task<bool> DeleteMaquinaAsync(int id)
+        public async Task<MaquinaDto?> DeleteMaquinaAsync(int id)
         {
+            Errors.Clear();
             var maquina = await _maquinaRepository.GetById(id);
-            if (maquina == null) return false;
+            if (maquina == null)
+            {
+                Errors.Add("La máquina no existe.");
+                return null;
+            }
+
+            var deletedMaquinaDto = _mapper.Map<MaquinaDto>(maquina);
 
             _maquinaRepository.Delete(maquina);
             await _maquinaRepository.Save();
             
-            return true;
+            return deletedMaquinaDto;
         }
     }
 }

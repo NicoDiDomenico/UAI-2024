@@ -430,7 +430,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Ejercicios.EjercicioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.EquipamientoController",
@@ -529,7 +539,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Equipamientos.EquipamientoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
@@ -772,7 +792,17 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Maquinas.MaquinaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.PermisoController",

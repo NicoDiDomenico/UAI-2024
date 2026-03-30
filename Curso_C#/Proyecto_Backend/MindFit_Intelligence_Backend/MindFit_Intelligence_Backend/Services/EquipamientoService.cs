@@ -43,8 +43,13 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<EquipamientoDto?> GetEquipamientoByIdAsync(int id)
         {
+            Errors.Clear();
             var equipamiento = await _equipamientoRepository.GetById(id);
-            if (equipamiento == null) return null;
+            if (equipamiento == null)
+            {
+                Errors.Add("El equipamiento no existe.");
+                return null;
+            }
 
             return _mapper.Map<EquipamientoDto>(equipamiento);
         }
@@ -61,6 +66,7 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<EquipamientoDto?> UpdateEquipamientoAsync(int id, EquipamientoUpdateDto updateDto)
         {
+            Errors.Clear();
             var equipamiento = await _equipamientoRepository.GetById(id);
             if (equipamiento == null)
             {
@@ -76,15 +82,22 @@ namespace MindFit_Intelligence_Backend.Services
             return _mapper.Map<EquipamientoDto>(equipamiento);
         }
 
-        public async Task<bool> DeleteEquipamientoAsync(int id)
+        public async Task<EquipamientoDto?> DeleteEquipamientoAsync(int id)
         {
+            Errors.Clear();
             var equipamiento = await _equipamientoRepository.GetById(id);
-            if (equipamiento == null) return false;
+            if (equipamiento == null)
+            {
+                Errors.Add("El equipamiento no existe.");
+                return null;
+            }
+
+            var deletedEquipamientoDto = _mapper.Map<EquipamientoDto>(equipamiento);
 
             _equipamientoRepository.Delete(equipamiento);
             await _equipamientoRepository.Save();
             
-            return true;
+            return deletedEquipamientoDto;
         }
     }
 }

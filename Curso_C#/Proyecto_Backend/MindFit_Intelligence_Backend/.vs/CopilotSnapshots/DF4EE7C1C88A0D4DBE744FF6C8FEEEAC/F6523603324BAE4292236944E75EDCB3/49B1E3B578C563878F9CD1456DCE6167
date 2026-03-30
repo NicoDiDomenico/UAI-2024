@@ -1,0 +1,79 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using MindFit_Intelligence_Backend.DTOs.Equipamientos;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Controllers
+{
+    /// Módulo de Gestión del Gimnasio
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EquipamientoController : ControllerBase
+    {
+        private readonly IEquipamientoService _equipamientoService;
+
+        public EquipamientoController(IEquipamientoService equipamientoService)
+        {
+            _equipamientoService = equipamientoService;
+        }
+
+        // Testeado --> Anda bien
+        /* Front: Para el grid o Selector (Dropdown) de equipamientos.
+        Esto puede estar en:
+        - Inventario --> Equipamiento --> Grid
+        - Gestionar Ejercicios --> Selector de equipamientos ya sea para Crear o Editar un Ejericicio */
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EquipamientoDto>>> Get()
+        {
+            var equipamientos = await _equipamientoService.GetEquipamientosAsync();
+            return Ok(equipamientos);
+        }
+
+        // Testeado --> Anda bien
+        // Front: No creo que lo use porque el detalle ya se trae en el grid.
+        [HttpGet("{id}")]
+        public async Task<ActionResult<EquipamientoDto>> GetById(int id)
+        {
+            var equipamiento = await _equipamientoService.GetEquipamientoByIdAsync(id);
+            if (equipamiento == null)
+                return NotFound(_equipamientoService.Errors);
+
+            return Ok(equipamiento);
+        }
+
+        // Front: Para el formulario de creación de equipamientos.
+        [HttpPost]
+        public async Task<IActionResult> Add(EquipamientoInsertDto dto)
+        {
+            if (!_equipamientoService.Validate(dto))
+                return BadRequest(_equipamientoService.Errors);
+
+            var result = await _equipamientoService.CreateEquipamientoAsync(dto);
+            return Ok(result);
+        }
+
+        // Front: Para el formulario de edición de equipamientos.
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, EquipamientoUpdateDto dto)
+        {
+            if (!_equipamientoService.Validate(dto))
+                return BadRequest(_equipamientoService.Errors);
+
+            var result = await _equipamientoService.UpdateEquipamientoAsync(id, dto);
+            if (result == null)
+                return NotFound(_equipamientoService.Errors);
+
+            return Ok(result);
+        }
+
+        // Front: Para eliminar un equipamiento desde el grid.
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var success = await _equipamientoService.DeleteEquipamientoAsync(id);
+            if (!success)
+                return NotFound(_equipamientoService.Errors);
+
+            return Ok();
+        }
+    }
+}

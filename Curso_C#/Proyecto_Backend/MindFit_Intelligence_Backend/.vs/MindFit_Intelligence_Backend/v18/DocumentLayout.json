@@ -1,17 +1,17 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
+  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\ejerciciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\ejerciciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\ejerciciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\equipamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\equipamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\equipamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\maquinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\maquinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\maquinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -22,53 +22,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "EjercicioController.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAIA9wBYAAABHAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MaquinaController.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAowFoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T18:26:12.238Z",
+              "WhenOpened": "2026-03-28T20:57:06.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "EquipamientoController.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EquipamientoController.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EquipamientoController.cs",
               "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\EquipamientoController.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EquipamientoController.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EquipamientoController.cs",
               "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\EquipamientoController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwBoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T18:26:03.101Z",
+              "WhenOpened": "2026-03-28T20:54:44.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MaquinaController.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\MaquinaController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAA1wAYAAAAXAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "EjercicioController.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAowDIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T18:25:59.284Z",
+              "WhenOpened": "2026-03-28T19:59:23.381Z",
               "EditorCaption": ""
             }
           ]

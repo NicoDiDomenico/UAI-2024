@@ -13,6 +13,6 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
         Task<EquipamientoDto?> GetEquipamientoByIdAsync(int id);
         Task<EquipamientoDto?> CreateEquipamientoAsync(EquipamientoInsertDto insertDto);
         Task<EquipamientoDto?> UpdateEquipamientoAsync(int id, EquipamientoUpdateDto updateDto);
-        Task<bool> DeleteEquipamientoAsync(int id);
+        Task<EquipamientoDto?> DeleteEquipamientoAsync(int id);
     }
 }

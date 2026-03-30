@@ -12,6 +12,6 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
         Task<MaquinaDto?> GetMaquinaByIdAsync(int id);
         Task<MaquinaDto?> CreateMaquinaAsync(MaquinaInsertDto insertDto);
         Task<MaquinaDto?> UpdateMaquinaAsync(int id, MaquinaUpdateDto updateDto);
-        Task<bool> DeleteMaquinaAsync(int id);
+        Task<MaquinaDto?> DeleteMaquinaAsync(int id);
     }
 }
