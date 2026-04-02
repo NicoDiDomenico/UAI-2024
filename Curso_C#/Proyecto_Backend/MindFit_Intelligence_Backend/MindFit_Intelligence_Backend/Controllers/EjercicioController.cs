@@ -1,4 +1,5 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Ejercicios;
 using MindFit_Intelligence_Backend.Services.Interfaces;
@@ -8,6 +9,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     /// Módulo de Gestión del Gimnasio 
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EjercicioController : ControllerBase
     {
         private readonly IEjercicioService _ejercicioService;
@@ -51,6 +53,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de creación de ejercicio.
         [HttpPost]
+        [Authorize(Policy = "CrearEjercicio")]
         public async Task<IActionResult> Add(EjercicioInsertDto dto)
         {
             var validationResult = await _insertValidator.ValidateAsync(dto);
@@ -67,6 +70,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de edición de ejercicio.
         [HttpPut("{id}")]
+        [Authorize(Policy = "EditarEjercicio")]
         public async Task<IActionResult> Update(int id, EjercicioUpdateDto dto)
         {
             var validationResult = await _updateValidator.ValidateAsync(dto);
@@ -86,6 +90,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para eliminar un ejercicio del sistema desde el grid.
         [HttpDelete("{id}")]
+        [Authorize(Policy = "EliminarEjercicio")]
         public async Task<ActionResult<EjercicioDto>> Delete(int id)
         {
             var ejercicioEliminado = await _ejercicioService.DeleteEjercicioAsync(id);

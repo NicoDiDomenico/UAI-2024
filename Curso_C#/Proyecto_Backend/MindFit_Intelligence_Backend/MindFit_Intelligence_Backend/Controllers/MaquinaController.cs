@@ -1,5 +1,6 @@
 using Azure;
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Maquinas;
@@ -11,6 +12,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     /// Módulo de Gestión del Gimnasio
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class MaquinaController : ControllerBase
     {
         private readonly IMaquinaService _maquinaService;
@@ -54,6 +56,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de creación de máquina.
         [HttpPost]
+        [Authorize(Policy = "CrearMaquina")]
         public async Task<IActionResult> Add(MaquinaInsertDto dto)
         {
             var validationResult = await _insertValidator.ValidateAsync(dto);
@@ -70,6 +73,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de edición de máquina.
         [HttpPut("{id}")]
+        [Authorize(Policy = "EditarMaquina")]
         public async Task<IActionResult> Update(int id, MaquinaUpdateDto dto)
         {
             var validationResult = await _updateValidator.ValidateAsync(dto);
@@ -89,6 +93,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para eliminar una maquina desde el grid.
         [HttpDelete("{id}")]
+        [Authorize(Policy = "EliminarMaquina")]
         public async Task<ActionResult<MaquinaDto>> Delete(int id)
         {
             var maquinaEliminada = await _maquinaService.DeleteMaquinaAsync(id);

@@ -5,9 +5,8 @@ namespace MindFit_Intelligence_Backend.DTOs.Cuota
     public class CuotaUpdateDto
     {
 
-        public int? IdUsuario { get; set; }
         public bool renueva { get; set; }
-        public Plan Plan { get; set; }
-        public decimal Monto { get; set; }
+        public Plan? Plan { get; set; }
+        public decimal? Monto { get; set; }
     }
 }

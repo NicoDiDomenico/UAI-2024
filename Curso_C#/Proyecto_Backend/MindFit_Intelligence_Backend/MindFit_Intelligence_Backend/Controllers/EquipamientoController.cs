@@ -1,4 +1,5 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Equipamientos;
 using MindFit_Intelligence_Backend.Services.Interfaces;
@@ -8,6 +9,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     /// Módulo de Gestión del Gimnasio
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EquipamientoController : ControllerBase
     {
         private readonly IEquipamientoService _equipamientoService;
@@ -51,6 +53,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de creación de equipamientos.
         [HttpPost]
+        [Authorize(Policy = "CrearEquipamiento")]
         public async Task<IActionResult> Add(EquipamientoInsertDto dto)
         {
             var validationResult = await _insertValidator.ValidateAsync(dto);
@@ -67,6 +70,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de edición de equipamientos.
         [HttpPut("{id}")]
+        [Authorize(Policy = "EditarEquipamiento")]
         public async Task<IActionResult> Update(int id, EquipamientoUpdateDto dto)
         {
             var validationResult = await _updateValidator.ValidateAsync(dto);
@@ -86,6 +90,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para eliminar un equipamiento desde el grid.
         [HttpDelete("{id}")]
+        [Authorize(Policy = "EliminarEquipamiento")]
         public async Task<ActionResult<EquipamientoDto>> Delete(int id)
         {
             var equipamientoEliminado = await _equipamientoService.DeleteEquipamientoAsync(id);

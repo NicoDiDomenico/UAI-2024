@@ -74,7 +74,9 @@ namespace MindFit_Intelligence_Backend.Automappers
                 .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
                     src.GrupoPermisos.Select(gp => gp.Permiso)));
             CreateMap<PersonaResponsable, PersonaResponsableDto>();
-            CreateMap<PersonaSocio, PersonaSocioDto>();
+            CreateMap<PersonaSocio, PersonaSocioDto>()
+                .ForMember(dest => dest.Rutinas, opt => opt.MapFrom(src =>
+                    src.Rutinas.Where(r => r.Activo))); // Solo mapeamos las rutinas activas, las inactivas no se muestran en el detalle del socio
             CreateMap<PerfilIA, PerfilIADto>();
             CreateMap<Rutina, RutinaDto>();
 

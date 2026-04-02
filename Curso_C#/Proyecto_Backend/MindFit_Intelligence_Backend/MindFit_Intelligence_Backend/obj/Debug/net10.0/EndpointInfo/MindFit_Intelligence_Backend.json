@@ -2267,11 +2267,6 @@
       "CuotaInsertDto": {
         "type": "object",
         "properties": {
-          "idUsuario": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "plan": {
             "$ref": "#/components/schemas/Plan"
           },
@@ -2285,11 +2280,6 @@
       "CuotaUpdateDto": {
         "type": "object",
         "properties": {
-          "idUsuario": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "renueva": {
             "type": "boolean"
           },
@@ -2298,7 +2288,8 @@
           },
           "monto": {
             "type": "number",
-            "format": "double"
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -159,11 +159,19 @@ namespace MindFit_Intelligence_Backend.Services
 
                 _personaSocioService.SetSocioActualizado(usuario.PersonaSocio, dto.PersonaSocio!.DiasActivosIds);
                 if (dto.PersonaSocio.Cuota.renueva)
+                {
+                    if (!dto.PersonaSocio.Cuota.Plan.HasValue || !dto.PersonaSocio.Cuota.Monto.HasValue)
+                    {
+                        Errors.Add("Plan y Monto son obligatorios cuando se renueva la cuota.");
+                        return null;
+                    }
+
                     cuotaActualizada = _personaSocioService.ActualizarCuota(
                         usuario.PersonaSocio!,
-                        dto.PersonaSocio!.Cuota.Plan,
-                        dto.PersonaSocio!.Cuota.Monto
+                        dto.PersonaSocio.Cuota.Plan.Value,
+                        dto.PersonaSocio.Cuota.Monto.Value
                     );
+                }
             }
 
             // Un solo map actualiza Usuario + PersonaX (porque ya está conectada)
@@ -178,7 +186,7 @@ namespace MindFit_Intelligence_Backend.Services
             await _usuarioRepository.Save();
 
             if (cuotaActualizada != null)
-                await _personaSocioService.EnviarEmailBienvenidaAsync(usuario, cuotaActualizada);
+                await _personaSocioService.EnviarEmailActualizacionCuotaAsync(usuario, cuotaActualizada);
 
             // 4) Devolver “completo” usando el método que ya tenés
             UsuarioDto? usuarioDto = await GetUsuarioById(id);

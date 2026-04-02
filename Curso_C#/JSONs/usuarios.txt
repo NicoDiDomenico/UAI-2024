@@ -1,0 +1,130 @@
+{
+  "username": "lmessi",
+  "password": "Password123!",
+  "tipoPersona": "Socio",
+  "personaResponsable": null,
+  "personaSocio": {
+    "nombre": "Lionel",
+    "apellido": "Messi",
+    "email": "nicolasdidomenico1996@gmail.com",
+    "telefono": "3415551234",
+    "direccion": "Av. Pellegrini 1024",
+    "ciudad": "Rosario",
+    "tipoDocumento": "DNI",
+    "nroDocumento": "30123456",
+    "genero": "Masculino",
+    "fechaNacimiento": "1987-06-24T00:00:00.000Z",
+    "obraSocial": "OSDE",
+    "fechaNotificacion": "2026-03-31T00:00:00.000Z",
+    "respuestaNotificacion": true,
+    "pregunta": "¿Apto físico al día?",
+    "respuesta": "Sí, entregado en recepción.",
+    "diasActivosIds": [
+      1,
+      3,
+      5
+    ],
+    "cuota": {
+      "plan": "Mensual",
+      "monto": 25000
+    },
+    "perfilIA": {
+      "objetivoPrincipal": "Ganar fuerza y masa muscular",
+      "nivelExperiencia": "Intermedio",
+      "ejerciciosPreferidos": "Press de banca, Sentadillas",
+      "ejerciciosAEvitar": "Peso muerto pesado",
+      "disponibilidadHoraria": "Tarde",
+      "motivacionPersonal": "Mejorar rendimiento deportivo"
+    }
+  },
+  "idGrupos": [
+    3
+  ]
+}
+
+{
+  "username": "adimaria",
+  "password": "Password123!",
+  "tipoPersona": "Socio",
+  "personaResponsable": null,
+  "personaSocio": {
+    "nombre": "Ángel",
+    "apellido": "Di María",
+    "email": "nicolasdidomenico1996@gmail.com",
+    "telefono": "3414449876",
+    "direccion": "Bv. Oroño 150",
+    "ciudad": "Rosario",
+    "tipoDocumento": "DNI",
+    "nroDocumento": "32456789",
+    "genero": "Masculino",
+    "fechaNacimiento": "1988-02-14T00:00:00.000Z",
+    "obraSocial": "Swiss Medical",
+    "fechaNotificacion": "2026-03-31T00:00:00.000Z",
+    "respuestaNotificacion": true,
+    "pregunta": "¿Apto físico al día?",
+    "respuesta": "Sí, adjunto PDF.",
+    "diasActivosIds": [
+      2,
+      4,
+      6
+    ],
+    "cuota": {
+      "plan": "Anual",
+      "monto": 25000
+    },
+    "perfilIA": {
+      "objetivoPrincipal": "Mejorar resistencia y agilidad",
+      "nivelExperiencia": "Avanzado",
+      "ejerciciosPreferidos": "Dominadas, Ejercicios funcionales",
+      "ejerciciosAEvitar": "Máquinas guiadas pesadas",
+      "disponibilidadHoraria": "Mañana",
+      "motivacionPersonal": "Mantenimiento físico"
+    }
+  },
+  "idGrupos": [
+    3
+  ]
+}
+
+{
+  "username": "Paula_Pareto",
+  "password": "Password123!",
+  "tipoPersona": "Socio",
+  "personaResponsable": null,
+  "personaSocio": {
+    "nombre": "Paula",
+    "apellido": "Pareto",
+    "email": "nico.a.didomenico@gmail.com",
+    "telefono": "3415551234",
+    "direccion": "Av. Pellegrini 1024",
+    "ciudad": "Rosario",
+    "tipoDocumento": "DNI",
+    "nroDocumento": "30123456",
+    "genero": "Masculino",
+    "fechaNacimiento": "1987-06-24T00:00:00.000Z",
+    "obraSocial": "OSDE",
+    "fechaNotificacion": "2026-03-31T00:00:00.000Z",
+    "respuestaNotificacion": true,
+    "pregunta": "¿Apto físico al día?",
+    "respuesta": "Sí, entregado en recepción.",
+    "diasActivosIds": [
+      1
+    ],
+    "cuota": {
+      "renueva": true,
+      "plan": "Anual",
+      "monto": 100000
+    },
+    "perfilIA": {
+      "objetivoPrincipal": "Ganar fuerza y masa muscular",
+      "nivelExperiencia": "Intermedio",
+      "ejerciciosPreferidos": "Press de banca, Sentadillas",
+      "ejerciciosAEvitar": "Peso muerto pesado",
+      "disponibilidadHoraria": "Tarde",
+      "motivacionPersonal": "Mejorar rendimiento deportivo"
+    }
+  },
+  "idGrupos": [
+    3
+  ]
+}

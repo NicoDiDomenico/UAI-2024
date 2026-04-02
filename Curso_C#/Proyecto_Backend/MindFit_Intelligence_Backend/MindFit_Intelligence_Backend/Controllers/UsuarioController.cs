@@ -28,9 +28,10 @@ namespace MindFit_Intelligence_Backend.Controllers
             _updateValidator = updateValidator;
         }
 
+        // Testeado --> Anda bien
         /// CUD02 - Paso 1
         // Front: Sirve para mostrar en el GrupoBox de Dias del formulario de usuario, el listado de dias disponibles para asignar a la rutina del usuario
-        [Authorize]
+        //[Authorize]
         [HttpGet("dias")]
         public async Task<ActionResult<IEnumerable<DiaDto>>> GetDias()
         {
@@ -61,7 +62,7 @@ namespace MindFit_Intelligence_Backend.Controllers
 
         /// CUD02 - Paso 1 y CUD03
         // Front: Mostrar listado esencial de socios en grilla NO ELIMINADOS, con paginación, ordenamiento y filtros. Para mostrar todos se muestra un icono de "Ver socios eliminados" para hacerlo visibles en la grilla
-        [Authorize]
+        //[Authorize]
         [HttpGet("grilla-socio")]
         public async Task<ActionResult<List<SocioGridDto>>> GetUsuariosSocioGrid()
         {
@@ -71,7 +72,7 @@ namespace MindFit_Intelligence_Backend.Controllers
 
         /// CUD02 - Paso 2 y CUD03
         // Front: Mostrar detalle de usuario en el formulario al hacer click en la grilla
-        [Authorize]
+        //[Authorize]
         [HttpGet("{idUsuario}")]
         public async Task<ActionResult<UsuarioDto?>> GetUsuarioById(int idUsuario)
         {
@@ -82,9 +83,10 @@ namespace MindFit_Intelligence_Backend.Controllers
                 : Ok(usuarioDetalleDto);
         }
 
+        // Testeado --> Anda bien
         /// CUD02 Paso 3 al 8
         // Front: Crear nuevo usuario desde el formulario
-        [Authorize(Policy = "CrearUsuario")]
+        //[Authorize(Policy = "CrearUsuario")]
         [HttpPost("register")]
         public async Task<ActionResult<UsuarioDto>> Register(UsuarioInsertDto usuarioInsertDto)
         {
@@ -104,14 +106,15 @@ namespace MindFit_Intelligence_Backend.Controllers
 
             return CreatedAtAction(
                 nameof(GetUsuarioById),
-                new { id = usuarioDto!.IdUsuario },
+                new { idUsuario = usuarioDto!.IdUsuario },
                 usuarioDto
             );
         }
 
+        // Testeado --> Anda bien
         /// CUD04
         // Front: Editar usuario desde el formulario
-        [Authorize(Policy = "EditarUsuario")]
+        //[Authorize(Policy = "EditarUsuario")]
         [HttpPut("{idUsuario}")]
         public async Task<ActionResult<UsuarioDto?>> Update(int idUsuario, UsuarioUpdateDto usuarioUpdateDto)
         {
@@ -144,7 +147,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             if (!await _usuarioService.ValidateDelete(idUsuario))
                 return Conflict(_usuarioService.Errors);
 
-            UsuarioDto? usuarioDto = await _usuarioService.SoftDeleteSocio(idUsuario);
+            UsuarioDto? usuarioDto = await _usuarioService.AutoSoftDeleteSocio(idUsuario);
 
             return usuarioDto == null ? NotFound() : Ok(usuarioDto);
         }

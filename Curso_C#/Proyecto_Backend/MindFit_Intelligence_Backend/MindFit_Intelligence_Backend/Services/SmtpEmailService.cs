@@ -39,9 +39,12 @@ namespace MindFit_Intelligence_Backend.Services
 
             using var client = new SmtpClient();
 
-            // STARTTLS típico: puerto 587
-            // Si UseSsl=true suele ser puerto 465
-            var secureOption = useSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.StartTls;
+            var secureOption = port switch
+            {
+                465 => SecureSocketOptions.SslOnConnect,
+                587 => SecureSocketOptions.StartTls,
+                _ => useSsl ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.StartTlsWhenAvailable
+            };
 
             await client.ConnectAsync(host, port, secureOption);
             await client.AuthenticateAsync(username, password);

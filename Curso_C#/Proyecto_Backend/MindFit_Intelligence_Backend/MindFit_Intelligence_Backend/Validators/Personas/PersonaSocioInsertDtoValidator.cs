@@ -1,11 +1,12 @@
 using FluentValidation;
+using MindFit_Intelligence_Backend.DTOs.Cuota;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 
 namespace MindFit_Intelligence_Backend.Validators.Personas
 {
     public class PersonaSocioInsertDtoValidator : AbstractValidator<PersonaSocioInsertDto>
     {
-        public PersonaSocioInsertDtoValidator()
+        public PersonaSocioInsertDtoValidator(IValidator<CuotaInsertDto> cuotaInsertValidator)
         {
             RuleFor(x => x.Nombre)
                 .NotEmpty().WithMessage("El nombre es obligatorio.")
@@ -51,6 +52,19 @@ namespace MindFit_Intelligence_Backend.Validators.Personas
             RuleFor(x => x.Respuesta)
                 .MaximumLength(500).WithMessage("La respuesta no puede superar los 500 caracteres.")
                 .When(x => !string.IsNullOrEmpty(x.Respuesta));
+
+            RuleFor(x => x.DiasActivosIds)
+                .NotEmpty().WithMessage("Debe informar al menos un día activo.");
+
+            RuleForEach(x => x.DiasActivosIds)
+                .GreaterThan(0).WithMessage("Los IDs de día deben ser mayores a 0.");
+
+            RuleFor(x => x.Cuota)
+                .NotNull().WithMessage("La cuota es obligatoria.");
+
+            RuleFor(x => x.Cuota)
+                .SetValidator(cuotaInsertValidator)
+                .When(x => x.Cuota != null);
         }
     }
 }

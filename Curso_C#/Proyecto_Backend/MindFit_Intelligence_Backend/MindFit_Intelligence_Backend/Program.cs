@@ -159,6 +159,36 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("ValidarIngreso", policy =>
         policy.Requirements.Add(new PermisoRequirement("VALIDAR_INGRESO")));
+
+    // Máquina
+    options.AddPolicy("CrearMaquina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CREAR_MAQUINA")));
+
+    options.AddPolicy("EditarMaquina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("EDITAR_MAQUINA")));
+
+    options.AddPolicy("EliminarMaquina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_MAQUINA")));
+
+    // Equipamiento
+    options.AddPolicy("CrearEquipamiento", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CREAR_EQUIPAMIENTO")));
+
+    options.AddPolicy("EditarEquipamiento", policy =>
+        policy.Requirements.Add(new PermisoRequirement("EDITAR_EQUIPAMIENTO")));
+
+    options.AddPolicy("EliminarEquipamiento", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_EQUIPAMIENTO")));
+
+    // Ejercicio
+    options.AddPolicy("CrearEjercicio", policy =>
+        policy.Requirements.Add(new PermisoRequirement("CREAR_EJERCICIO")));
+
+    options.AddPolicy("EditarEjercicio", policy =>
+        policy.Requirements.Add(new PermisoRequirement("EDITAR_EJERCICIO")));
+
+    options.AddPolicy("EliminarEjercicio", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_EJERCICIO")));
 });
 
 builder.Services.AddScoped<IAuthorizationHandler, PermisoHandler>();
