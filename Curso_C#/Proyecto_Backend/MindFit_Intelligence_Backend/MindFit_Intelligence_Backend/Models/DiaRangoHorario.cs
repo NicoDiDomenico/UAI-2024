@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Globalization;
+using System.Text;
 
 namespace MindFit_Intelligence_Backend.Models
 {
@@ -12,10 +13,10 @@ namespace MindFit_Intelligence_Backend.Models
         {
             { DayOfWeek.Monday,    "Lunes"      },
             { DayOfWeek.Tuesday,   "Martes"     },
-            { DayOfWeek.Wednesday, "Miercoles"  },
+            { DayOfWeek.Wednesday, "Miércoles"  },
             { DayOfWeek.Thursday,  "Jueves"     },
             { DayOfWeek.Friday,    "Viernes"    },
-            { DayOfWeek.Saturday,  "Sabado"     },
+            { DayOfWeek.Saturday,  "Sábado"     },
             { DayOfWeek.Sunday,    "Domingo"    }
         };
 
@@ -48,7 +49,17 @@ namespace MindFit_Intelligence_Backend.Models
             if (Dia is null) return false;
 
             _diasEspanol.TryGetValue(fecha.DayOfWeek, out var nombreEsperado);
-            return string.Equals(Dia.NombreDia, nombreEsperado, StringComparison.OrdinalIgnoreCase);
+            return string.Equals(NormalizarNombreDia(Dia.NombreDia), NormalizarNombreDia(nombreEsperado), StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static string NormalizarNombreDia(string? nombreDia)
+        {
+            if (string.IsNullOrWhiteSpace(nombreDia))
+                return string.Empty;
+
+            var normalized = nombreDia.Normalize(NormalizationForm.FormD);
+            var chars = normalized.Where(c => CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark).ToArray();
+            return new string(chars).Normalize(NormalizationForm.FormC);
         }
 
         public void setActivo(bool activo)

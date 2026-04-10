@@ -11,3 +11,4 @@
 ## Project-Specific Rules
 - Prefer only `[Authorize]` on read endpoints (GetUsuariosGrid and GetUsuarioById) and use permission policies only on endpoints that modify state (CrearUsuario, EditarUsuario, EliminarUsuario).
 - The frontend decides button visibility based on permissions returned by `/api/auth/permisos-actuales`.
+- When separating logic into a new repository, register its dependency injection in `Program.cs`.

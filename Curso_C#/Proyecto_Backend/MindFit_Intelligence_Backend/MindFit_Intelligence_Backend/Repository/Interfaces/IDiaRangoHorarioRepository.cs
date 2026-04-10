@@ -5,10 +5,8 @@ namespace MindFit_Intelligence_Backend.Repository.Interfaces
     public interface IDiaRangoHorarioRepository
     {
         Task<IEnumerable<DiaRangoHorario>> GetAll();
+        Task<IEnumerable<DiaRangoHorario>> GetByNombreDia(string nombreDia);
         Task<DiaRangoHorario?> GetById(int id);
-        Task<DiaRangoHorarioResponsable?> GetResponsable(int idDiaRangoHorario, int idUsuarioResponsable);
-        Task AddResponsable(DiaRangoHorarioResponsable responsable);
-        Task RemoveResponsable(DiaRangoHorarioResponsable responsable);
         Task Save();
     }
 }

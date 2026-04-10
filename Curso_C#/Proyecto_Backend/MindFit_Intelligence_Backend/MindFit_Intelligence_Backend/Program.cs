@@ -21,6 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Services
 builder.Services.AddScoped<IPersonaResponsableService, PersonaResponsableService>();
+builder.Services.AddScoped<IRutinaService, RutinaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
@@ -33,11 +34,13 @@ builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 builder.Services.AddScoped<IMaquinaService, MaquinaService>();
 builder.Services.AddScoped<IEquipamientoService, EquipamientoService>();
 builder.Services.AddScoped<IEjercicioService, EjercicioService>();
+builder.Services.AddScoped<IRangoHorarioService, RangoHorarioService>();
 builder.Services.AddScoped<IGrupoMuscularRepository, GrupoMuscularRepository>();
 builder.Services.AddScoped<ITipoEjercicioRepository, TipoEjercicioRepository>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
+builder.Services.AddScoped<IRutinaRepository, RutinaRepository>();
 builder.Services.AddScoped<IPersonaSocioRepository, PersonaSocioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
@@ -46,10 +49,12 @@ builder.Services.AddScoped<IDiaRepository, DiaRepository>();
 builder.Services.AddScoped<ICuotaRepository, CuotaRepository>();
 builder.Services.AddScoped<ITurnoRepository, TurnoRepository>();
 builder.Services.AddScoped<IDiaRangoHorarioRepository, DiaRangoHorarioRepository>();
+builder.Services.AddScoped<IDiaRangoHorarioResponsableRepository, DiaRangoHorarioResponsableRepository>();
 builder.Services.AddScoped<ICupoFechaRepository, CupoFechaRepository>();
 builder.Services.AddScoped<IMaquinaRepository, MaquinaRepository>();
 builder.Services.AddScoped<IEquipamientoRepository, EquipamientoRepository>();
 builder.Services.AddScoped<IEjercicioRepository, EjercicioRepository>();
+builder.Services.AddScoped<IRangoHorarioRepository, RangoHorarioRepository>();
 builder.Services.AddScoped<IGrupoMuscularService, GrupoMuscularService>();
 builder.Services.AddScoped<ITipoEjercicioService, TipoEjercicioService>();
 

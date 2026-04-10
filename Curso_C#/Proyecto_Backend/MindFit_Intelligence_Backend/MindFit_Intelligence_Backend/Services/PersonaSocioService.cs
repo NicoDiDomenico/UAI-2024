@@ -1,6 +1,5 @@
 using MindFit_Intelligence_Backend.DTOs.Cuota;
 using MindFit_Intelligence_Backend.DTOs.Personas;
-using MindFit_Intelligence_Backend.DTOs.Rutina;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Models.Enums;
 using MindFit_Intelligence_Backend.Repository.Interfaces;
@@ -12,11 +11,34 @@ namespace MindFit_Intelligence_Backend.Services
     {
         private readonly IEmailService _emailService;
         private readonly IDiaRepository _diaRepository;
+        private readonly ITurnoRepository _turnoRepository;
 
-        public PersonaSocioService(IEmailService emailService, IDiaRepository diaRepository)
+        public PersonaSocioService(
+            IEmailService emailService,
+            IDiaRepository diaRepository,
+            ITurnoRepository turnoRepository)
         {
             _emailService = emailService;
             _diaRepository = diaRepository;
+            _turnoRepository = turnoRepository;
+        }
+
+        public async Task<IEnumerable<SocioTurnoDto>> GetSociosConTurnoHoyPorEntrenadorYHorario(int idUsuarioResponsable, int idRangoHorario)
+        {
+            DateTime fechaActual = DateTime.Today;
+
+            IEnumerable<Turno> turnos = await _turnoRepository
+                .GetSociosConTurnoHoyPorEntrenadorYHorario(idUsuarioResponsable, idRangoHorario, fechaActual);
+
+            return turnos
+                .Select(t => t.PersonaSocio)
+                .Distinct()
+                .Select(s => new SocioTurnoDto
+                {
+                    IdUsuario = s.IdUsuario,
+                    Nombre = s.Nombre,
+                    Apellido = s.Apellido
+                });
         }
 
         public async Task SetSocioNuevoAsync(PersonaSocio socio, List<int> diasActivosIds)

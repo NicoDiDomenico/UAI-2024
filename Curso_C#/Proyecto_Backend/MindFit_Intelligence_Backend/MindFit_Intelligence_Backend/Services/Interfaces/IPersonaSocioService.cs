@@ -8,6 +8,7 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
 {
     public interface IPersonaSocioService
     {
+        Task<IEnumerable<SocioTurnoDto>> GetSociosConTurnoHoyPorEntrenadorYHorario(int idUsuarioResponsable, int idRangoHorario);
         Task SetSocioNuevoAsync(PersonaSocio socio, List<int> diasActivosIds);
         void SetSocioActualizado(PersonaSocio socio, List<int> diasActivosIds);
 

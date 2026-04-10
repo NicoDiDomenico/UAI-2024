@@ -6,6 +6,7 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
     public interface IDiaRangoHorarioService
     {
         Task<IEnumerable<GrillaDiaRangoHorarioDto>> GetAll();
+        Task<IEnumerable<GrillaDiaRangoHorarioDto>> GetByFecha(DateTime fecha);
         Task<bool> ActivarDesactivarHorario(int IdDiaRangoHorario, DiaRangoHorarioUpdateDto dto);
         Task<bool> AsignarResponsable(DiaRangoHorarioResponsableInsertDto dto);
         Task<bool> ActualizarResponsable(DiaRangoHorarioResponsableUpdateDto dto);

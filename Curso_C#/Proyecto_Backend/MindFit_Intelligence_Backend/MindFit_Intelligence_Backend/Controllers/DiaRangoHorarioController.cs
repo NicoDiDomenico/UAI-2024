@@ -18,13 +18,25 @@ namespace MindFit_Intelligence_Backend.Controllers
             _diaRangoHorarioService = diaRangoHorarioService;
         }
 
-        // Front: Grilla de Dias Rango Horarios para asignarles Entrenadores, Desactivar rangos horarios o Registar Turno
+        // Chequeado --> Anda bien
+        // Front: Grilla de Dias Rango Horarios para asignarles Entrenadores o Desactivar rangos horarios
         // IMPORTANTE: Esta grilla se complementa con un endpoint GET "api/PersonaResponsable/entrenadores" que trae los entrenadores que NO estan asociados a un dia, ya que la idea es asociarlos desde el front
-        [Authorize]
+        //[Authorize]
         [HttpGet("grilla")]
         public async Task<ActionResult<IEnumerable<GrillaDiaRangoHorarioDto>>> GetAll()
         {
             var diaRangoHorarioDto = await _diaRangoHorarioService.GetAll();
+            return Ok(diaRangoHorarioDto);
+        }
+
+        // Chequeado --> Anda bien
+        // Front: Obtener rangos horarios para registrar turno de un día específico.
+        // Si no se envía fecha, se utiliza el día actual del sistema.
+        [HttpGet("grilla-por-dia")]
+        public async Task<ActionResult<IEnumerable<GrillaDiaRangoHorarioDto>>> GetByDia([FromQuery] DateTime? fecha)
+        {
+            var fechaConsulta = fecha?.Date ?? DateTime.Today;
+            var diaRangoHorarioDto = await _diaRangoHorarioService.GetByFecha(fechaConsulta);
             return Ok(diaRangoHorarioDto);
         }
 
@@ -41,8 +53,9 @@ namespace MindFit_Intelligence_Backend.Controllers
             return NoContent(); 
         }
 
+        // Chequeado --> Anda bien
         // Front: Asignar un entrenador a un dia rango horario específico. Requiere de GET api/PersonaResponsable/entrenadores + GET api/DiaRangoHorario/grilla
-        [Authorize(Policy = "ModificarDiaRangoHorario")]
+        //Authorize(Policy = "ModificarDiaRangoHorario")]
         [HttpPost("asignar-responsable")]
         public async Task<ActionResult> AsignarResponsable([FromBody] DiaRangoHorarioResponsableInsertDto dto)
         {

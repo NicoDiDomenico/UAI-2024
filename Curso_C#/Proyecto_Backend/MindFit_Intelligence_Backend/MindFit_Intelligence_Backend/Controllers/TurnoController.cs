@@ -31,14 +31,13 @@ namespace MindFit_Intelligence_Backend.Controllers
         /* 
          CUD07 - Agregar Turno
          Front: Se apreta el boton de reservar turno, para armar el dto se necesita:
-         Fecha -> se consigue con un datepicker para elegir la fecha
-         IdDiaRangoHorarios -> se consigue con un select de rangos horarios en un dia determinado desde GET api/DiaRangoHorario/grilla.
+         IdDiaRangoHorario -> se consigue con un select de rangos horarios desde GET api/DiaRangoHorario/grilla-por-dia.
          IdUsuarioResponsable -> se consigue con un select para elegir el responsable, desde List<GrillaDiaRangoHorarioResponsableDto> Responsables del dto del endpoint anterior
          IdUsuarioSocio -> se consigue de 2 formas:
             Modulo Gestionar Turno Socio - Con el id del usuario que esta logueado, que se puede sacar del token. POST api/Auth/login
             Modulo Gestionar Turno Asistente - Con un select para elegir el socio. Se arma con los datos de los usuarios que son socios desde GET api/Usuario/grilla-socio
          */
-        [Authorize(Policy = "AgregarTurno")]
+        //[Authorize(Policy = "AgregarTurno")]
         [HttpPost("registrar")]
         public async Task<ActionResult<TurnoDto>> RegistrarTurno(TurnoInsertDto turnoInsertDto)
         {

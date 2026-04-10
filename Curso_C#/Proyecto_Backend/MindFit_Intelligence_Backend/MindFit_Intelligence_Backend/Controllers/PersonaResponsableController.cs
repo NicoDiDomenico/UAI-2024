@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.Services.Interfaces;
@@ -12,9 +11,9 @@ namespace MindFit_Intelligence_Backend.Controllers
     {
         private readonly IPersonaResponsableService _PersonaResponsableService;
 
-        public PersonaResponsableController(IPersonaResponsableService PersonaResponsableService) 
+        public PersonaResponsableController(IPersonaResponsableService PersonaResponsableService)
         {
-                _PersonaResponsableService = PersonaResponsableService;
+            _PersonaResponsableService = PersonaResponsableService;
         }
 
         // Front: Por si se quiere mostrar una lista de SOLO responsables, pero probablemente no se haga o se muestre con UsuariosController
@@ -22,7 +21,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         [Authorize]
         public async Task<IEnumerable<PersonaResponsableDto>> Get()
         {
-           IEnumerable<PersonaResponsableDto> PersonaResponsable = await _PersonaResponsableService.Get();
+            IEnumerable<PersonaResponsableDto> PersonaResponsable = await _PersonaResponsableService.Get();
 
             return PersonaResponsable;
         }
@@ -48,5 +47,6 @@ namespace MindFit_Intelligence_Backend.Controllers
             var entrenadores = await _PersonaResponsableService.GetEntrenadores();
             return Ok(entrenadores);
         }
-        }
+
     }
+}

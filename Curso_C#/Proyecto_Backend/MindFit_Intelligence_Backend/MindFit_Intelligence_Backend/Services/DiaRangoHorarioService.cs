@@ -8,10 +8,26 @@ namespace MindFit_Intelligence_Backend.Services
 {
     public class DiaRangoHorarioService : IDiaRangoHorarioService
     {
+        private static readonly Dictionary<DayOfWeek, string> _diasEspanol = new()
+        {
+            { DayOfWeek.Monday, "Lunes" },
+            { DayOfWeek.Tuesday, "Martes" },
+            { DayOfWeek.Wednesday, "Miércoles" },
+            { DayOfWeek.Thursday, "Jueves" },
+            { DayOfWeek.Friday, "Viernes" },
+            { DayOfWeek.Saturday, "Sábado" },
+            { DayOfWeek.Sunday, "Domingo" }
+        };
+
         private readonly IDiaRangoHorarioRepository _diaRangoHorarioRepository;
-        public DiaRangoHorarioService(IDiaRangoHorarioRepository diaRangoHorarioRepository)
+    private readonly IDiaRangoHorarioResponsableRepository _diaRangoHorarioResponsableRepository;
+
+    public DiaRangoHorarioService(
+        IDiaRangoHorarioRepository diaRangoHorarioRepository,
+        IDiaRangoHorarioResponsableRepository diaRangoHorarioResponsableRepository)
         {
             _diaRangoHorarioRepository = diaRangoHorarioRepository;
+        _diaRangoHorarioResponsableRepository = diaRangoHorarioResponsableRepository;
         }
 
         public async Task<bool> ActivarDesactivarHorario(int IdDiaRangoHorario, DiaRangoHorarioUpdateDto dto)
@@ -33,7 +49,7 @@ namespace MindFit_Intelligence_Backend.Services
 
         public async Task<bool> AsignarResponsable(DiaRangoHorarioResponsableInsertDto dto)
         {
-            var existe = await _diaRangoHorarioRepository.GetResponsable(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
+        var existe = await _diaRangoHorarioResponsableRepository.GetByIds(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
 
             if (existe != null)
                 return false;
@@ -45,48 +61,61 @@ namespace MindFit_Intelligence_Backend.Services
                 Observaciones = dto.Observaciones
             };
 
-            await _diaRangoHorarioRepository.AddResponsable(nuevo);
-            await _diaRangoHorarioRepository.Save();
+        await _diaRangoHorarioResponsableRepository.Add(nuevo);
+        await _diaRangoHorarioResponsableRepository.Save();
 
             return true;
         }
 
         public async Task<bool> ActualizarResponsable(DiaRangoHorarioResponsableUpdateDto dto)
         {
-            var responsable = await _diaRangoHorarioRepository.GetResponsable(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
+        var responsable = await _diaRangoHorarioResponsableRepository.GetByIds(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
 
             if (responsable == null)
                 return false;
 
             responsable.Observaciones = dto.Observaciones;
 
-            await _diaRangoHorarioRepository.Save();
+        await _diaRangoHorarioResponsableRepository.Save();
 
             return true;
         }
 
         public async Task<bool> QuitarResponsable(DiaRangoHorarioResponsableDeleteDto dto)
         {
-            var responsable = await _diaRangoHorarioRepository.GetResponsable(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
+        var responsable = await _diaRangoHorarioResponsableRepository.GetByIds(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
 
             if (responsable == null)
                 return false;
 
-            await _diaRangoHorarioRepository.RemoveResponsable(responsable);
-            await _diaRangoHorarioRepository.Save();
+        await _diaRangoHorarioResponsableRepository.Remove(responsable);
+        await _diaRangoHorarioResponsableRepository.Save();
 
             return true;
         }
 
         public async Task<IEnumerable<GrillaDiaRangoHorarioDto>> GetAll()
         {
-            var DiaRangoHorarios = await _diaRangoHorarioRepository.GetAll();
+            var diaRangoHorarios = await _diaRangoHorarioRepository.GetAll();
+            return MapToGrillaDto(diaRangoHorarios);
+        }
 
-            List<GrillaDiaRangoHorarioDto> GrillaDiaRangoHorarioDtos = new List<GrillaDiaRangoHorarioDto>();
-            
-            foreach (var drh in DiaRangoHorarios)
+        public async Task<IEnumerable<GrillaDiaRangoHorarioDto>> GetByFecha(DateTime fecha)
+        {
+            if (!_diasEspanol.TryGetValue(fecha.DayOfWeek, out var nombreDia))
+                return Enumerable.Empty<GrillaDiaRangoHorarioDto>();
+
+            var diaRangoHorarios = await _diaRangoHorarioRepository.GetByNombreDia(nombreDia);
+            return MapToGrillaDto(diaRangoHorarios);
+        }
+
+        private static IEnumerable<GrillaDiaRangoHorarioDto> MapToGrillaDto(IEnumerable<DiaRangoHorario> diaRangoHorarios)
+        {
+            List<GrillaDiaRangoHorarioDto> grillaDiaRangoHorarioDtos = new List<GrillaDiaRangoHorarioDto>();
+
+            foreach (var drh in diaRangoHorarios)
             {
-                GrillaDiaRangoHorarioDtos.Add(new GrillaDiaRangoHorarioDto
+                grillaDiaRangoHorarioDtos.Add(new GrillaDiaRangoHorarioDto
                 {
                     IdDiaRangoHorario = drh.IdDiaRangoHorario,
                     CupoMaximo = drh.CupoMaximo,
@@ -103,7 +132,8 @@ namespace MindFit_Intelligence_Backend.Services
                     }).ToList()
                 });
             }
-            return GrillaDiaRangoHorarioDtos;
+
+            return grillaDiaRangoHorarioDtos;
         }
     }
 }

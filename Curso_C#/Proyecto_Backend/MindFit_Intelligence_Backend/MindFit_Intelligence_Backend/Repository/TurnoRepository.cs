@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
 using MindFit_Intelligence_Backend.Repository.Interfaces;
 
 namespace MindFit_Intelligence_Backend.Repository
@@ -18,6 +19,18 @@ namespace MindFit_Intelligence_Backend.Repository
             return await _context.Turnos
                 .AnyAsync(t => t.IdUsuarioSocio == idSocio
                             && t.CupoFecha.Fecha == fecha.Date);
+        }
+
+        public async Task<IEnumerable<Turno>> GetSociosConTurnoHoyPorEntrenadorYHorario(int idUsuarioResponsable, int idRangoHorario, DateTime fechaActual)
+        {
+            return await _context.Turnos
+                .AsNoTracking()
+                .Include(t => t.PersonaSocio)
+                .Where(t => t.IdUsuarioResponsable == idUsuarioResponsable
+                            && t.CupoFecha.Fecha == fechaActual
+                            && t.CupoFecha.DiaRangoHorario.IdRangoHorario == idRangoHorario
+                            && t.EstadoTurno == EstadoTurno.EnCurso)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Turno>> GetByIdUsuarioSocio(int idUsuarioSocio)
