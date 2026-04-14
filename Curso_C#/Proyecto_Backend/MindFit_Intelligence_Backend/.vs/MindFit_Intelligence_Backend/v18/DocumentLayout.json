@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
+  "WorkspaceRootPath": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\rangohorariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\rangohorariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\rutinaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\rutinaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\rutinaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|d:\\github-actual\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\rutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\rutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\rutinarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\users\\nicol\\desktop\\uai-2024\\curso_c#\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\models\\rutina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\models\\rutina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,66 +26,65 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RangoHorarioController.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\RangoHorarioController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\RangoHorarioController.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\RangoHorarioController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\RangoHorarioController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAiAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "RutinaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAWwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T15:30:48.526Z",
+              "WhenOpened": "2026-04-13T21:38:56.754Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "RutinaRepository.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\RutinaRepository.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
+              "Title": "Rutina.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\Rutina.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Models\\Rutina.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Models\\Rutina.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Models\\Rutina.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAA0wBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T15:05:36.004Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RutinaService.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAUwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T15:05:18.897Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T21:32:39.467Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "RutinaController.cs",
-              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
               "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
-              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
               "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAnwDMAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwDMAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-10T13:35:32.524Z",
+              "WhenOpened": "2026-04-13T21:21:21.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RutinaService.cs",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\UAI-2024\\Curso_C#\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\RutinaService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwB0AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T21:30:05.592Z",
               "EditorCaption": ""
             }
           ]

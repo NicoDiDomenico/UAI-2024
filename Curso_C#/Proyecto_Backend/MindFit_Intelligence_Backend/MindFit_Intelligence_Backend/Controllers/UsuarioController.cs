@@ -28,17 +28,19 @@ namespace MindFit_Intelligence_Backend.Controllers
             _updateValidator = updateValidator;
         }
 
+        // MOVI TODO A diaController.cs
         // Testeado --> Anda bien
         /// CUD02 - Paso 1
         // Front: Sirve para mostrar en el GrupoBox de Dias del formulario de usuario, el listado de dias disponibles para asignar a la rutina del usuario
         //[Authorize]
-        [HttpGet("dias")]
+        /*[HttpGet("dias")]
         public async Task<ActionResult<IEnumerable<DiaDto>>> GetDias()
         {
             IEnumerable<DiaDto> diaDtos = await _usuarioService.GetDias();
 
             return Ok(diaDtos);
         }
+        */
 
         /// No pertenece a ningun CUD, lo deje impementado por si un modulo necesita motrar todos los usuarios 
         // Front: Mostrar listado esencial de usuarios en grilla, con paginación, ordenamiento y filtros

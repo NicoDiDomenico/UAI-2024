@@ -4,6 +4,6 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
 {
     public interface IRutinaService
     {
-        Task<RutinaDto?> GetRutinaPorSocioYDia(int idUsuarioSocio, DateTime? fecha);
+        Task<RutinaDto?> GetRutinaPorSocioYDia(int idUsuarioSocio, int? idDia);
     }
 }

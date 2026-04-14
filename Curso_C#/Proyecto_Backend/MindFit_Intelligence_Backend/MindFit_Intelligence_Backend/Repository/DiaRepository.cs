@@ -15,8 +15,9 @@ namespace MindFit_Intelligence_Backend.Repository
 
         public async Task<IEnumerable<Dia>> GetAll()
         {
-            IEnumerable<Dia> dias = await _context.Dias.ToListAsync();
-            return dias;
+            return await _context.Dias
+                .OrderBy(d => d.IdDia)
+                .ToListAsync();
         }
     }
 }

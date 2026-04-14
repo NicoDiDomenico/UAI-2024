@@ -10292,6 +10292,31 @@
 							"headNameLabel": {
 								"$ref": "AAAAAAGdG1ak0GRZgdo="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGdiG4g1jOUmNo=",
+							"_parent": {
+								"$ref": "AAAAAAFLzntJC6ElOqo="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 2736,
+							"top": 1656,
+							"width": 136,
+							"height": 55,
+							"text": "Calentamiento = 1,\nEntrenamiento = 2,\nEstiramiento = 3"
+						},
+						{
+							"_type": "FreelineEdgeView",
+							"_id": "AAAAAAGdiG5pHzOeBrM=",
+							"_parent": {
+								"$ref": "AAAAAAFLzntJC6ElOqo="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"lineStyle": 1,
+							"points": "2736:1688;2673:1689"
 						}
 					]
 				},

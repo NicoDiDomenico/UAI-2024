@@ -13,13 +13,22 @@ namespace MindFit_Intelligence_Backend.Repository
             _context = context;
         }
 
-        public async Task<Rutina?> GetRutinaPorSocioYDia(int idUsuarioSocio, string nombreDia)
+        public async Task<Rutina?> GetRutinaPorSocioYDia(int idUsuarioSocio, int? idDia, string? nombreDia)
         {
             return await _context.Rutinas
                 .AsNoTracking()
+                .AsSplitQuery()
+                .Include(r => r.Calentamientos)
+                    .ThenInclude(c => c.Ejercicio)
+                .Include(r => r.Entrenamientos)
+                    .ThenInclude(e => e.Ejercicio)
+                .Include(r => r.Estiramientos)
+                    .ThenInclude(e => e.Ejercicio)
                 .Where(r => r.IdPersonaSocio == idUsuarioSocio
                             && r.Activo
-                            && r.Dia.NombreDia == nombreDia)
+                            && (idDia.HasValue
+                                ? r.IdDia == idDia.Value
+                                : r.Dia.NombreDia == nombreDia))
                 .FirstOrDefaultAsync();
         }
     }

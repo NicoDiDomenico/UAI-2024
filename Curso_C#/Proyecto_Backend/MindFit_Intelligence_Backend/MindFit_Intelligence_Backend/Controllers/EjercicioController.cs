@@ -9,7 +9,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     /// Módulo de Gestión del Gimnasio 
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class EjercicioController : ControllerBase
     {
         private readonly IEjercicioService _ejercicioService;
@@ -32,7 +32,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         - El Entrenador consulta el listado de ejercicios para editar o eliminar uno, o para decidir crear uno nuevo.   
         - El Entrenador selecciona del grid o Mapa Anatomica el Ejercicio para que el IdEjercicio sea asignado a Calentamiento/Entrenamiento/Estiramiento  */
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EjercicioDto>>> Get([FromQuery] int? idGrupoMuscular)
+        public async Task<ActionResult<IEnumerable<EjercicioDto>>> Get([FromQuery] int? idGrupoMuscular) // Para mi es mejor que el filtro por idGrupoMuscular se haga en el front, pero lo dejo por si lo quieren hacer desde el backend.
         {
             var ejercicios = await _ejercicioService.GetEjerciciosAsync(idGrupoMuscular);
             return Ok(ejercicios);

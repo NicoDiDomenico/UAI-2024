@@ -18,12 +18,16 @@ namespace MindFit_Intelligence_Backend.Services
             _mapper = mapper;
         }
 
-        public async Task<RutinaDto?> GetRutinaPorSocioYDia(int idUsuarioSocio, DateTime? fecha)
+        public async Task<RutinaDto?> GetRutinaPorSocioYDia(int idUsuarioSocio, int? idDia)
         {
-            DateTime fechaEvaluada = (fecha ?? DateTime.Today).Date;
-            string nombreDia = ObtenerNombreDia(fechaEvaluada);
+            string? nombreDia = null;
 
-            Rutina? rutina = await _rutinaRepository.GetRutinaPorSocioYDia(idUsuarioSocio, nombreDia);
+            if (!idDia.HasValue)
+            {
+                nombreDia = ObtenerNombreDia(DateTime.Today);
+            }
+
+            Rutina? rutina = await _rutinaRepository.GetRutinaPorSocioYDia(idUsuarioSocio, idDia, nombreDia);
 
             return rutina == null ? null : _mapper.Map<RutinaDto>(rutina);
         }

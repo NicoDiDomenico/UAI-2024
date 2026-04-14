@@ -362,6 +362,44 @@
         }
       }
     },
+    "/api/Dia/dias": {
+      "get": {
+        "tags": [
+          "Dia"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DiaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DiaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DiaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/DiaRangoHorario/grilla": {
       "get": {
         "tags": [
@@ -1736,11 +1774,11 @@
             }
           },
           {
-            "name": "fecha",
+            "name": "idDia",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "date-time"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -1992,44 +2030,6 @@
         "responses": {
           "200": {
             "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Usuario/dias": {
-      "get": {
-        "tags": [
-          "Usuario"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DiaDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DiaDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DiaDto"
-                  }
-                }
-              }
-            }
           }
         }
       }
@@ -2454,6 +2454,39 @@
   },
   "components": {
     "schemas": {
+      "CalentamientoDto": {
+        "type": "object",
+        "properties": {
+          "idCalentamiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ChangePasswordRequestDto": {
         "type": "object",
         "properties": {
@@ -2721,6 +2754,53 @@
         },
         "additionalProperties": false
       },
+      "EntrenamientoDto": {
+        "type": "object",
+        "properties": {
+          "idEntrenamiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "series": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repeticiones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pesoAsignado": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiempoDescansoSegundos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EquipamientoDto": {
         "required": [
           "nombreEquipo"
@@ -2814,6 +2894,39 @@
           "Finalizado"
         ],
         "type": "string"
+      },
+      "EstiramientoDto": {
+        "type": "object",
+        "properties": {
+          "idEstiramiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "ForgotPasswordRequestDto": {
         "type": "object",
@@ -3736,13 +3849,41 @@
             "type": "integer",
             "format": "int32"
           },
-          "fechaModificacion": {
-            "type": "string",
-            "format": "date-time"
+          "idPersonaSocio": {
+            "type": "integer",
+            "format": "int32"
           },
           "idDia": {
             "type": "integer",
             "format": "int32"
+          },
+          "fechaModificacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "calentamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CalentamientoDto"
+            },
+            "nullable": true
+          },
+          "entrenamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntrenamientoDto"
+            },
+            "nullable": true
+          },
+          "estiramientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstiramientoDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -4053,6 +4194,9 @@
     },
     {
       "name": "Cuota"
+    },
+    {
+      "name": "Dia"
     },
     {
       "name": "DiaRangoHorario"

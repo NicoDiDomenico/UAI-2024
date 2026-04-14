@@ -1,0 +1,26 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Repository
+{
+    public class RutinaRepository : IRutinaRepository
+    {
+        private readonly MindFitIntelligenceContext _context;
+
+        public RutinaRepository(MindFitIntelligenceContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Rutina?> GetRutinaPorSocioYDia(int idUsuarioSocio, string nombreDia)
+        {
+            return await _context.Rutinas
+                .AsNoTracking()
+                .Where(r => r.IdPersonaSocio == idUsuarioSocio
+                            && r.Activo
+                            && r.Dia.NombreDia == nombreDia)
+                .FirstOrDefaultAsync();
+        }
+    }
+}

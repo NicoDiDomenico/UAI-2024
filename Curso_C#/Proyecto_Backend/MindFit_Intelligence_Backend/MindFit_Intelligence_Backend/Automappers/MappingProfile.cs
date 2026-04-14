@@ -1,18 +1,21 @@
 ﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Calentamiento;
 using MindFit_Intelligence_Backend.DTOs.Cuota;
 using MindFit_Intelligence_Backend.DTOs.Dia;
+using MindFit_Intelligence_Backend.DTOs.Ejercicios;
+using MindFit_Intelligence_Backend.DTOs.Entrenamiento;
+using MindFit_Intelligence_Backend.DTOs.Equipamientos;
+using MindFit_Intelligence_Backend.DTOs.Estiramiento;
+using MindFit_Intelligence_Backend.DTOs.GrupoMuscular;
 using MindFit_Intelligence_Backend.DTOs.Grupos;
+using MindFit_Intelligence_Backend.DTOs.Maquinas;
 using MindFit_Intelligence_Backend.DTOs.PerfilIA;
 using MindFit_Intelligence_Backend.DTOs.Permisos;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.DTOs.TipoEjercicio;
 using MindFit_Intelligence_Backend.DTOs.Turno;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
-using MindFit_Intelligence_Backend.DTOs.Maquinas;
-using MindFit_Intelligence_Backend.DTOs.Equipamientos;
-using MindFit_Intelligence_Backend.DTOs.Ejercicios;
-using MindFit_Intelligence_Backend.DTOs.GrupoMuscular;
-using MindFit_Intelligence_Backend.DTOs.TipoEjercicio;
 using MindFit_Intelligence_Backend.Models;
 using MindFit_Intelligence_Backend.Models.Enums;
 
@@ -147,6 +150,11 @@ namespace MindFit_Intelligence_Backend.Automappers
             CreateMap<Ejercicio, EjercicioDto>();
             CreateMap<EjercicioInsertDto, Ejercicio>();
             CreateMap<EjercicioUpdateDto, Ejercicio>();
+
+            // Gestion Rutina
+            CreateMap<Calentamiento, CalentamientoDto>();
+            CreateMap<Entrenamiento, EntrenamientoDto>();
+            CreateMap<Estiramiento, EstiramientoDto>();
         }
     }
 }

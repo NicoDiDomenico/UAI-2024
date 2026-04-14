@@ -23,6 +23,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IPersonaResponsableService, PersonaResponsableService>();
 builder.Services.AddScoped<IRutinaService, RutinaService>();
 builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+builder.Services.AddScoped<IDiaService, DiaService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
 builder.Services.AddScoped<IPermisoService, PermisoService>();

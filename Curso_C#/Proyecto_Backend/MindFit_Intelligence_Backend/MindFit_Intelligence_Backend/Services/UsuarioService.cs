@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MindFit_Intelligence_Backend.DTOs.Cuota;
-using MindFit_Intelligence_Backend.DTOs.Dia;
 using MindFit_Intelligence_Backend.DTOs.Personas;
 using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
@@ -18,7 +17,6 @@ namespace MindFit_Intelligence_Backend.Services
         private IMapper _mapper;
         private IAuthService _authService; // Servicio de autenticación (JWT)
         private IPersonaSocioService _personaSocioService;
-        private IDiaRepository _diaRepository;
         private ICuotaRepository _cuotaRepository;
         public List<string> Errors { get; }
 
@@ -29,7 +27,6 @@ namespace MindFit_Intelligence_Backend.Services
             IPersonaSocioRepository personaSocioRepository,
             IMapper mapper,
             IPersonaSocioService personaSocioService,
-            IDiaRepository diaRepository,
             ICuotaRepository cuotaRepository)
         {
             _usuarioRepository = usuarioRepository;
@@ -39,17 +36,7 @@ namespace MindFit_Intelligence_Backend.Services
             _authService = authService;
             Errors = new List<string>();
             _personaSocioService = personaSocioService;
-            _diaRepository = diaRepository;
             _cuotaRepository = cuotaRepository;
-        }
-
-        public async Task<IEnumerable<DiaDto>> GetDias()
-        {
-            IEnumerable<Dia> dia = await _diaRepository.GetAll();
-
-            IEnumerable<DiaDto> diaDtos = _mapper.Map<IEnumerable<DiaDto>>(dia);
-
-            return diaDtos;
         }
 
         public async Task<Usuario?> GetById(int id)

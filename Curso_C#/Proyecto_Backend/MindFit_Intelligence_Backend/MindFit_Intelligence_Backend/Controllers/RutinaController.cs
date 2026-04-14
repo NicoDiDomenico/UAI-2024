@@ -49,16 +49,16 @@ namespace MindFit_Intelligence_Backend.Controllers
         }
 
         // CUD10 – Gestionar Rutina y CUD11 – Consultar Rutina
-        // Chequeado --> Anda bien
-        // Front: Trae la rutina de un socio para un día específico (o el día actual si no se especifica fecha).
+        // Hay que volver a chequear cuando tenga los ABM de Calentamiento, Entrenamiento y Estiramiento hechos.
+        // Front: Trae la rutina de un socio para un día específico por IdDia (o el día actual si no se especifica IdDia).
         //[Authorize]
         [HttpGet("socios/{idUsuarioSocio}/rutinas")]
-        public async Task<ActionResult<RutinaDto>> ObtenerRutinaPorSocioYDia(int idUsuarioSocio, [FromQuery] DateTime? fecha)
+        public async Task<ActionResult<RutinaDto>> ObtenerRutinaPorSocioYDia(int idUsuarioSocio, [FromQuery] int? idDia)
         {
-            var rutina = await _RutinaService.GetRutinaPorSocioYDia(idUsuarioSocio, fecha);
+            var rutina = await _RutinaService.GetRutinaPorSocioYDia(idUsuarioSocio, idDia);
 
             return rutina == null
-                ? NotFound()
+                ? NotFound("El Socio no asiste este dia")
                 : Ok(rutina);
         }
     }

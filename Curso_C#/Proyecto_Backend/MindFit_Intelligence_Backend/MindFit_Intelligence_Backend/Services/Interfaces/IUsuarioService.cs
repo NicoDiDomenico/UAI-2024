@@ -1,12 +1,10 @@
-﻿using MindFit_Intelligence_Backend.DTOs.Dia;
-using MindFit_Intelligence_Backend.DTOs.Usuarios;
+﻿using MindFit_Intelligence_Backend.DTOs.Usuarios;
 using MindFit_Intelligence_Backend.Models;
 
 namespace MindFit_Intelligence_Backend.Services.Interfaces
 {
     public interface IUsuarioService
     {
-        Task<IEnumerable<DiaDto>> GetDias();
         Task<Usuario?> GetById(int id);
         Task<List<UsuarioGridDto>> GetUsuariosGrid();
         Task<List<SocioGridDto>> GetUsuariosSociosGrid();
