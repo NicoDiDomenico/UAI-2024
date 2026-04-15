@@ -15,6 +15,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             _grupoMuscularService = grupoMuscularService;
         }
 
+        // CUD12 – Agregar Rutina y CUD13 – Modificar Rutina
         // Front: Ejercicio necesita IdGrupoMuscular, por eso se obtiene la lista completa de grupos musculares para mostrar en un Mapa Anatomico o un dropdown.
         // Testeado --> Anda bien
         [HttpGet]

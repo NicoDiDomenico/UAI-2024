@@ -31,6 +31,10 @@ namespace MindFit_Intelligence_Backend.Models
         public DbSet<Calentamiento> Calentamientos { get; set; } = null!;
         public DbSet<Entrenamiento> Entrenamientos { get; set; } = null!;
         public DbSet<Estiramiento> Estiramientos { get; set; } = null!;
+        public DbSet<RutinaHistorial> RutinasHistorial { get; set; } = null!;
+        public DbSet<RutinaHistorialCalentamiento> RutinasHistorialCalentamientos { get; set; } = null!;
+        public DbSet<RutinaHistorialEntrenamiento> RutinasHistorialEntrenamientos { get; set; } = null!;
+        public DbSet<RutinaHistorialEstiramiento> RutinasHistorialEstiramientos { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -66,6 +70,10 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<Calentamiento>().ToTable("Calentamiento");
             modelBuilder.Entity<Entrenamiento>().ToTable("Entrenamiento");
             modelBuilder.Entity<Estiramiento>().ToTable("Estiramiento");
+            modelBuilder.Entity<RutinaHistorial>().ToTable("RutinaHistorial");
+            modelBuilder.Entity<RutinaHistorialCalentamiento>().ToTable("RutinaHistorialCalentamiento");
+            modelBuilder.Entity<RutinaHistorialEntrenamiento>().ToTable("RutinaHistorialEntrenamiento");
+            modelBuilder.Entity<RutinaHistorialEstiramiento>().ToTable("RutinaHistorialEstiramiento");
 
             //// Relacio 1 a 1 PK compartida
             // 1 a 1 PK compartida Usuario <-> PersonaResponsable
@@ -284,6 +292,35 @@ namespace MindFit_Intelligence_Backend.Models
                 .HasOne(es => es.Ejercicio)
                 .WithMany()
                 .HasForeignKey(es => es.IdEjercicio);
+
+            // Historial de Rutina
+            modelBuilder.Entity<RutinaHistorial>()
+                .HasOne(h => h.Rutina)
+                .WithMany(r => r.Historiales)
+                .HasForeignKey(h => h.IdRutina)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RutinaHistorial>()
+                .HasIndex(h => new { h.IdRutina, h.Version })
+                .IsUnique();
+
+            modelBuilder.Entity<RutinaHistorialCalentamiento>()
+                .HasOne(c => c.RutinaHistorial)
+                .WithMany(h => h.Calentamientos)
+                .HasForeignKey(c => c.IdRutinaHistorial)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RutinaHistorialEntrenamiento>()
+                .HasOne(e => e.RutinaHistorial)
+                .WithMany(h => h.Entrenamientos)
+                .HasForeignKey(e => e.IdRutinaHistorial)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<RutinaHistorialEstiramiento>()
+                .HasOne(e => e.RutinaHistorial)
+                .WithMany(h => h.Estiramientos)
+                .HasForeignKey(e => e.IdRutinaHistorial)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

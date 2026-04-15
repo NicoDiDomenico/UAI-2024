@@ -948,6 +948,146 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.RutinaController",
+    "Method": "GuardarBloquesRutina",
+    "RelativePath": "api/Rutina/{idRutina}/bloques",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRutina",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "bloquesDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Rutina.RutinaBloquesUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Rutina.RutinaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.RutinaController",
+    "Method": "CambiarEstadoRutina",
+    "RelativePath": "api/Rutina/{idRutina}/estado",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRutina",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "estadoDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Rutina.RutinaEstadoUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.RutinaController",
+    "Method": "ObtenerHistorialPorRutina",
+    "RelativePath": "api/Rutina/{idRutina}/historial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRutina",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Rutina.RutinaHistorialResumenDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.RutinaController",
+    "Method": "ObtenerDetalleHistorial",
+    "RelativePath": "api/Rutina/{idRutina}/historial/{idRutinaHistorial}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRutina",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idRutinaHistorial",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Rutina.RutinaHistorialDetalleDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.RutinaController",
+    "Method": "RestaurarDesdeHistorial",
+    "RelativePath": "api/Rutina/{idRutina}/historial/{idRutinaHistorial}/restaurar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idRutina",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "idRutinaHistorial",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Rutina.RutinaDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.RutinaController",
     "Method": "ObtenerEntrenadoresPorHorario",
     "RelativePath": "api/Rutina/entrenadores/{idRangoHorario}",
     "HttpMethod": "GET",

@@ -1806,6 +1806,254 @@
         }
       }
     },
+    "/api/Rutina/{idRutina}/bloques": {
+      "put": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaBloquesUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaBloquesUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaBloquesUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/historial": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RutinaHistorialResumenDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RutinaHistorialResumenDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RutinaHistorialResumenDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/historial/{idRutinaHistorial}": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idRutinaHistorial",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaHistorialDetalleDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaHistorialDetalleDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaHistorialDetalleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/historial/{idRutinaHistorial}/restaurar": {
+      "post": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idRutinaHistorial",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/estado": {
+      "patch": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaEstadoUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaEstadoUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaEstadoUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/TipoEjercicio": {
       "get": {
         "tags": [
@@ -2465,12 +2713,30 @@
             "type": "integer",
             "format": "int32"
           },
-          "idEjercicio": {
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "duracion": {
             "type": "integer",
             "format": "int32"
           },
-          "ejercicio": {
-            "$ref": "#/components/schemas/EjercicioDto"
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalentamientoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
           },
           "duracion": {
             "type": "integer",
@@ -2765,12 +3031,44 @@
             "type": "integer",
             "format": "int32"
           },
-          "idEjercicio": {
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "series": {
             "type": "integer",
             "format": "int32"
           },
-          "ejercicio": {
-            "$ref": "#/components/schemas/EjercicioDto"
+          "repeticiones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pesoAsignado": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiempoDescansoSegundos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntrenamientoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
           },
           "series": {
             "type": "integer",
@@ -2906,12 +3204,30 @@
             "type": "integer",
             "format": "int32"
           },
-          "idEjercicio": {
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "duracion": {
             "type": "integer",
             "format": "int32"
           },
-          "ejercicio": {
-            "$ref": "#/components/schemas/EjercicioDto"
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EstiramientoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
           },
           "duracion": {
             "type": "integer",
@@ -3842,6 +4158,33 @@
         },
         "additionalProperties": false
       },
+      "RutinaBloquesUpdateDto": {
+        "type": "object",
+        "properties": {
+          "calentamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CalentamientoInsertDto"
+            },
+            "nullable": true
+          },
+          "entrenamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntrenamientoInsertDto"
+            },
+            "nullable": true
+          },
+          "estiramientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstiramientoInsertDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "RutinaDto": {
         "type": "object",
         "properties": {
@@ -3884,6 +4227,166 @@
               "$ref": "#/components/schemas/EstiramientoDto"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaEstadoUpdateDto": {
+        "type": "object",
+        "properties": {
+          "activo": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialCalentamientoDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialDetalleDto": {
+        "type": "object",
+        "properties": {
+          "idRutinaHistorial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaSnapshot": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activoSnapshot": {
+            "type": "boolean"
+          },
+          "calentamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaHistorialCalentamientoDto"
+            },
+            "nullable": true
+          },
+          "entrenamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaHistorialEntrenamientoDto"
+            },
+            "nullable": true
+          },
+          "estiramientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaHistorialEstiramientoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialEntrenamientoDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "series": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repeticiones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pesoAsignado": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiempoDescansoSegundos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialEstiramientoDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialResumenDto": {
+        "type": "object",
+        "properties": {
+          "idRutinaHistorial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaSnapshot": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activoSnapshot": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

@@ -195,6 +195,20 @@ builder.Services.AddAuthorization(options =>
 
     options.AddPolicy("EliminarEjercicio", policy =>
         policy.Requirements.Add(new PermisoRequirement("ELIMINAR_EJERCICIO")));
+
+    // Rutina
+    options.AddPolicy("EditarRutina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("EDITAR_RUTINA")));
+
+    options.AddPolicy("VerHistorialRutina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("VER_HISTORIAL_RUTINA")));
+
+    options.AddPolicy("EliminarRutina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("ELIMINAR_RUTINA")));
+
+    options.AddPolicy("RecuperarRutina", policy =>
+        policy.Requirements.Add(new PermisoRequirement("RECUPERAR_RUTINA")));
+   
 });
 
 builder.Services.AddScoped<IAuthorizationHandler, PermisoHandler>();

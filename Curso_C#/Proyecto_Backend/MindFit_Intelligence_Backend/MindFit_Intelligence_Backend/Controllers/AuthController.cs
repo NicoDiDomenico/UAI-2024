@@ -26,6 +26,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             _changePasswordValidator = changePasswordValidator;
         }
 
+        // Va a estar en todos los CUDs
         // Front: Endpoint para obtener los permisos y asi cambiar en el front el estado global de los botones y opciones del menú según los permisos del usuario
         [Authorize]
         [HttpGet("permisos-actuales")]

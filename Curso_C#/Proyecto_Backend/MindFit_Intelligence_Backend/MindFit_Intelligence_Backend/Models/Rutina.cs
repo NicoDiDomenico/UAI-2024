@@ -25,5 +25,6 @@ namespace MindFit_Intelligence_Backend.Models
         public ICollection<Calentamiento> Calentamientos { get; set; } = new List<Calentamiento>();
         public ICollection<Entrenamiento> Entrenamientos { get; set; } = new List<Entrenamiento>();
         public ICollection<Estiramiento> Estiramientos { get; set; } = new List<Estiramiento>();
+        public ICollection<RutinaHistorial> Historiales { get; set; } = new List<RutinaHistorial>();
     }
 }

@@ -632,6 +632,133 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("Rutina", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorial", b =>
+                {
+                    b.Property<int>("IdRutinaHistorial")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRutinaHistorial"));
+
+                    b.Property<bool>("ActivoSnapshot")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaSnapshot")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdRutina")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Version")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdRutinaHistorial");
+
+                    b.HasIndex("IdRutina", "Version")
+                        .IsUnique();
+
+                    b.ToTable("RutinaHistorial", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorialCalentamiento", b =>
+                {
+                    b.Property<int>("IdRutinaHistorialCalentamiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRutinaHistorialCalentamiento"));
+
+                    b.Property<int>("Duracion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRutinaHistorial")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("VARCHAR(200)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdRutinaHistorialCalentamiento");
+
+                    b.HasIndex("IdRutinaHistorial");
+
+                    b.ToTable("RutinaHistorialCalentamiento", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorialEntrenamiento", b =>
+                {
+                    b.Property<int>("IdRutinaHistorialEntrenamiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRutinaHistorialEntrenamiento"));
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRutinaHistorial")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("VARCHAR(200)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("PesoAsignado")
+                        .HasColumnType("DECIMAL(18,2)");
+
+                    b.Property<int>("Repeticiones")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Series")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TiempoDescansoSegundos")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdRutinaHistorialEntrenamiento");
+
+                    b.HasIndex("IdRutinaHistorial");
+
+                    b.ToTable("RutinaHistorialEntrenamiento", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorialEstiramiento", b =>
+                {
+                    b.Property<int>("IdRutinaHistorialEstiramiento")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRutinaHistorialEstiramiento"));
+
+                    b.Property<int>("Duracion")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdEjercicio")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdRutinaHistorial")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Observaciones")
+                        .HasColumnType("VARCHAR(200)");
+
+                    b.Property<int>("Orden")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdRutinaHistorialEstiramiento");
+
+                    b.HasIndex("IdRutinaHistorial");
+
+                    b.ToTable("RutinaHistorialEstiramiento", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.TipoEjercicio", b =>
                 {
                     b.Property<int>("IdTipoEjercicio")
@@ -959,6 +1086,50 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("PersonaSocio");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorial", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Rutina", "Rutina")
+                        .WithMany("Historiales")
+                        .HasForeignKey("IdRutina")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rutina");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorialCalentamiento", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.RutinaHistorial", "RutinaHistorial")
+                        .WithMany("Calentamientos")
+                        .HasForeignKey("IdRutinaHistorial")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RutinaHistorial");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorialEntrenamiento", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.RutinaHistorial", "RutinaHistorial")
+                        .WithMany("Entrenamientos")
+                        .HasForeignKey("IdRutinaHistorial")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RutinaHistorial");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorialEstiramiento", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.RutinaHistorial", "RutinaHistorial")
+                        .WithMany("Estiramientos")
+                        .HasForeignKey("IdRutinaHistorial")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("RutinaHistorial");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Turno", b =>
                 {
                     b.HasOne("MindFit_Intelligence_Backend.Models.CupoFecha", "CupoFecha")
@@ -1065,6 +1236,17 @@ namespace MindFit_Intelligence_Backend.Migrations
                 });
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Rutina", b =>
+                {
+                    b.Navigation("Calentamientos");
+
+                    b.Navigation("Entrenamientos");
+
+                    b.Navigation("Estiramientos");
+
+                    b.Navigation("Historiales");
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.RutinaHistorial", b =>
                 {
                     b.Navigation("Calentamientos");
 
