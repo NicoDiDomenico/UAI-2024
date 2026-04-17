@@ -5,6 +5,8 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
 {
     public interface IGrupoService : ICommonService<GrupoDto, GrupoInsertDto, GrupoUpdateDto>
     {
+        Task<IEnumerable<GrupoDto>> GetAllSinPermisos();
+
         List<string> Errors { get; }
         bool ValidateDelete(int id);
     }

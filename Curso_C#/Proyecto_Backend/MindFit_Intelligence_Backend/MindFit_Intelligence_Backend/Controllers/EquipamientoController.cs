@@ -9,7 +9,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     /// Módulo de Gestión del Gimnasio
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class EquipamientoController : ControllerBase
     {
         private readonly IEquipamientoService _equipamientoService;
@@ -53,8 +53,8 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de creación de equipamientos.
         [HttpPost]
-        [Authorize(Policy = "CrearEquipamiento")]
-        public async Task<IActionResult> Add(EquipamientoInsertDto dto)
+        //[Authorize(Policy = "CrearEquipamiento")]
+        public async Task<ActionResult<EquipamientoDto>> Add(EquipamientoInsertDto dto)
         {
             var validationResult = await _insertValidator.ValidateAsync(dto);
             if (!validationResult.IsValid)
@@ -64,6 +64,9 @@ namespace MindFit_Intelligence_Backend.Controllers
                 return BadRequest(_equipamientoService.Errors);
 
             var result = await _equipamientoService.CreateEquipamientoAsync(dto);
+            if (result == null)
+                return BadRequest(_equipamientoService.Errors);
+
             return Ok(result);
         }
 
@@ -71,7 +74,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Front: Para el formulario de edición de equipamientos.
         [HttpPut("{id}")]
         [Authorize(Policy = "EditarEquipamiento")]
-        public async Task<IActionResult> Update(int id, EquipamientoUpdateDto dto)
+        public async Task<ActionResult<EquipamientoDto>> Update(int id, EquipamientoUpdateDto dto)
         {
             var validationResult = await _updateValidator.ValidateAsync(dto);
             if (!validationResult.IsValid)

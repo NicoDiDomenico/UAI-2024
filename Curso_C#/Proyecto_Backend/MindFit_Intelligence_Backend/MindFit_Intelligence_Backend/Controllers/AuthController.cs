@@ -27,7 +27,8 @@ namespace MindFit_Intelligence_Backend.Controllers
         }
 
         // Va a estar en todos los CUDs
-        // Front: Endpoint para obtener los permisos y asi cambiar en el front el estado global de los botones y opciones del menú según los permisos del usuario
+        /* NO SIRVE --> Front: Endpoint para obtener los permisos y asi cambiar en el front el estado global de los botones y opciones del menú según los permisos del usuario
+           USAR MEJOR --> GET api/Permiso */
         [Authorize]
         [HttpGet("permisos-actuales")]
         public async Task<ActionResult<PermisosActualizadosDto>> GetPermisosActuales()

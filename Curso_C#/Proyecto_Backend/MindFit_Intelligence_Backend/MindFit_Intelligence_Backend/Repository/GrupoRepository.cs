@@ -23,6 +23,13 @@ namespace MindFit_Intelligence_Backend.Repository
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Grupo>> GetAllSinPermisos()
+        {
+            return await _context.Grupos
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
         public async Task<Grupo?> GetById(int id)
         {
             return await _context.Grupos

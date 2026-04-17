@@ -18,10 +18,13 @@ namespace MindFit_Intelligence_Backend.Controllers
             _permisoService = permisoService;
         }
 
-        // Front: Para cargar el select de permisos en el formulario de creación/edición de grupos
+        /* Front: 
+            - Para cargar el select de permisos en el formulario de creación/edición de grupos
+            - Para asignar cada permiso a un botón, de manera de ocultar el boton si el permiso que tiene asignado no coincide con alguno de los permisos traidos cuando el usuario se logueó.
+         */
         [HttpGet]
-        [Authorize]
-        public async Task<IActionResult> Get()
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<PermisoDto>>> Get()
         {
             var permisosDtos = await _permisoService.Get();
 

@@ -130,14 +130,14 @@ namespace MindFit_Intelligence_Backend.Repository
                         .Any(gp => gp.Permiso.Codigo == nombrePermiso)));
         }
 
-        public async Task<List<string>> GetNombresPermisosByUsuario(int idUsuario)
+        public async Task<List<string>> GetNombresPermisosByUsuario(int idUsuario) // Con Nombre se refiere al Codigo
         {
             return await _context.Usuarios
                 .Where(u => u.IdUsuario == idUsuario)
                 .SelectMany(u => u.UsuarioGrupos)
                 .Select(ug => ug.Grupo)
                 .SelectMany(g => g.GrupoPermisos)
-                .Select(gp => gp.Permiso.Codigo)
+                .Select(gp => gp.Permiso.Codigo) 
                 .Distinct()
                 .ToListAsync();
         }

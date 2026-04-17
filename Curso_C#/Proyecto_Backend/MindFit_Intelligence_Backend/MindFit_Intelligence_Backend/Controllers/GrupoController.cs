@@ -27,12 +27,22 @@ namespace MindFit_Intelligence_Backend.Controllers
 
         // Front: Mostrar los grupos para Responsables (No Grupo SOCIO) en una grilla para seleccionar uno y hacer modificacion o eliminación
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<IEnumerable<GrupoDto>>> Get()
         {
             var gruposDtos = await _grupoService.Get();
 
-            return gruposDtos.Any()! ? NotFound("No hay grupos cargados") : Ok(gruposDtos);
+            return !gruposDtos.Any() ? NotFound("No hay grupos cargados") : Ok(gruposDtos);
+        }
+
+        // Front: Traer absolutamente todos los grupos (incluyendo Socio), sin permisos, para asociarlos a botones y compararlos contra claims
+        [HttpGet("todos")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<GrupoDto>>> GetAllSinPermisos()
+        {
+            var gruposDtos = await _grupoService.GetAllSinPermisos();
+
+            return !gruposDtos.Any() ? NotFound("No hay grupos cargados") : Ok(gruposDtos);
         }
 
         // Front: ?

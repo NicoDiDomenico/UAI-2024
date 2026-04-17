@@ -54,7 +54,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Front: Para el formulario de creación de ejercicio.
         [HttpPost]
         [Authorize(Policy = "CrearEjercicio")]
-        public async Task<IActionResult> Add(EjercicioInsertDto dto)
+        public async Task<ActionResult<EjercicioDto>> Add(EjercicioInsertDto dto)
         {
             var validationResult = await _insertValidator.ValidateAsync(dto);
             if (!validationResult.IsValid)
@@ -71,7 +71,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Front: Para el formulario de edición de ejercicio.
         [HttpPut("{id}")]
         [Authorize(Policy = "EditarEjercicio")]
-        public async Task<IActionResult> Update(int id, EjercicioUpdateDto dto)
+        public async Task<ActionResult<EjercicioDto>> Update(int id, EjercicioUpdateDto dto)
         {
             var validationResult = await _updateValidator.ValidateAsync(dto);
             if (!validationResult.IsValid)

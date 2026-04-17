@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|d:\\github-actual\\uai-2024\\curso_c#\\prototipo front\\proyectosgsg\\vista\\frmgestionargimnasio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|d:\\github-actual\\uai-2024\\curso_c#\\prototipo front\\proyectosgsg\\vista\\frmgestionargimnasio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\frmgestionargimnasio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\vista\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C377B2D3-AC6F-4ED7-9ABA-A6D889036A88}|Vista\\Vista.csproj|solutionrelative:vista\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\controlador\\observer\\emailutilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{134D6236-5620-4043-8DF9-D9CFC81D98BC}|Controlador\\Controlador.csproj|solutionrelative:controlador\\observer\\emailutilidades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nicol\\Desktop\\SGSG\\ProyectoSGSG\\Vista\\Resources\\.env||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmGestionarGimnasio.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Vista\\frmGestionarGimnasio.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasio.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Vista\\frmGestionarGimnasio.cs*",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasio.cs*",
+              "ViewState": "AgIAAG4AAAAAAAAAAAASwHwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T16:49:58.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmGestionarGimnasio.cs [Dise\u00F1o]",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Vista\\frmGestionarGimnasio.cs",
+              "RelativeDocumentMoniker": "Vista\\frmGestionarGimnasio.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Vista\\frmGestionarGimnasio.cs [Dise\u00F1o]*",
+              "RelativeToolTip": "Vista\\frmGestionarGimnasio.cs [Dise\u00F1o]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T14:01:39.134Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": ".env",
+              "DocumentMoniker": "C:\\Users\\Nicol\\Desktop\\SGSG\\ProyectoSGSG\\Vista\\Resources\\.env",
+              "ToolTip": "C:\\Users\\Nicol\\Desktop\\SGSG\\ProyectoSGSG\\Vista\\Resources\\.env",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-02T18:41:34.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EmailUtilidades.cs",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Controlador\\Observer\\EmailUtilidades.cs",
+              "RelativeDocumentMoniker": "Controlador\\Observer\\EmailUtilidades.cs",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Controlador\\Observer\\EmailUtilidades.cs",
+              "RelativeToolTip": "Controlador\\Observer\\EmailUtilidades.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T18:41:34.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Vista\\App.config",
+              "RelativeDocumentMoniker": "Vista\\App.config",
+              "ToolTip": "D:\\GitHub-Actual\\UAI-2024\\Curso_C#\\Prototipo Front\\ProyectoSGSG\\Vista\\App.config",
+              "RelativeToolTip": "Vista\\App.config",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwBYAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2026-04-02T18:41:34.516Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

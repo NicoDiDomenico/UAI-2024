@@ -2738,7 +2738,7 @@
 									"parentStyle": true,
 									"left": 1760,
 									"top": 1325,
-									"width": 217.54150390625,
+									"width": 217.560546875,
 									"height": 13,
 									"text": "RutinaHistorial"
 								},
@@ -2766,7 +2766,7 @@
 											"parentStyle": true,
 											"left": 1765,
 											"top": 1348,
-											"width": 207.54150390625,
+											"width": 207.560546875,
 											"height": 13
 										},
 										{
@@ -2783,7 +2783,7 @@
 											"parentStyle": true,
 											"left": 1765,
 											"top": 1363,
-											"width": 207.54150390625,
+											"width": 207.560546875,
 											"height": 13
 										},
 										{
@@ -2800,7 +2800,7 @@
 											"parentStyle": true,
 											"left": 1765,
 											"top": 1378,
-											"width": 207.54150390625,
+											"width": 207.560546875,
 											"height": 13
 										},
 										{
@@ -2817,7 +2817,7 @@
 											"parentStyle": true,
 											"left": 1765,
 											"top": 1393,
-											"width": 207.54150390625,
+											"width": 207.560546875,
 											"height": 13
 										}
 									],
@@ -2826,7 +2826,7 @@
 									"parentStyle": true,
 									"left": 1760,
 									"top": 1343,
-									"width": 217.54150390625,
+									"width": 217.560546875,
 									"height": 68
 								}
 							],
@@ -2835,7 +2835,7 @@
 							"parentStyle": false,
 							"left": 1760,
 							"top": 1320,
-							"width": 217.54150390625,
+							"width": 217.560546875,
 							"height": 91,
 							"nameLabel": {
 								"$ref": "AAAAAAGSM8dgVkVRCkY="
@@ -9357,7 +9357,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2185,
+									"left": 2273,
 									"top": 1572,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -9376,7 +9376,7 @@
 									"fillColor": "#FFFF91",
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2185,
+									"left": 2273,
 									"top": 1576,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -9395,7 +9395,7 @@
 									"fillColor": "#FFFF91",
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2185,
+									"left": 2273,
 									"top": 1569,
 									"height": 13,
 									"alpha": -0.5235987755982988,
@@ -9414,7 +9414,7 @@
 							"tail": {
 								"$ref": "AAAAAAGdBnI9/nLhYg0="
 							},
-							"points": "2200:1608;2200:1550",
+							"points": "2288:1608;2288:1550",
 							"nameLabel": {
 								"$ref": "AAAAAAGdBnQQ6HMWNqI="
 							},

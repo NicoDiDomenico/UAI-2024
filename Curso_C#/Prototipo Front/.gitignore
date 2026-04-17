@@ -1,0 +1,5 @@
+# Ignorar el archivo .env dentro de Vista/Resources
+ProyectoSGSG/Vista/Resources/.env
+
+# Ignorar App.config (para que la cadena de conexión no suba)
+ProyectoSGSG/Vista/App.config

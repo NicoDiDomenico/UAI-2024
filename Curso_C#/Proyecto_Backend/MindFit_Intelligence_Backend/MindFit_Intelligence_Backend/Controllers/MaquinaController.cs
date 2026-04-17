@@ -12,7 +12,7 @@ namespace MindFit_Intelligence_Backend.Controllers
     /// Módulo de Gestión del Gimnasio
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class MaquinaController : ControllerBase
     {
         private readonly IMaquinaService _maquinaService;
@@ -56,8 +56,8 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Testeado --> Anda bien
         // Front: Para el formulario de creación de máquina.
         [HttpPost]
-        [Authorize(Policy = "CrearMaquina")]
-        public async Task<IActionResult> Add(MaquinaInsertDto dto)
+        //[Authorize(Policy = "CrearMaquina")]
+        public async Task<ActionResult<MaquinaDto>> Add(MaquinaInsertDto dto)
         {
             var validationResult = await _insertValidator.ValidateAsync(dto);
             if (!validationResult.IsValid)
@@ -74,7 +74,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Front: Para el formulario de edición de máquina.
         [HttpPut("{id}")]
         [Authorize(Policy = "EditarMaquina")]
-        public async Task<IActionResult> Update(int id, MaquinaUpdateDto dto)
+        public async Task<ActionResult<MaquinaDto>> Update(int id, MaquinaUpdateDto dto)
         {
             var validationResult = await _updateValidator.ValidateAsync(dto);
             if (!validationResult.IsValid)
