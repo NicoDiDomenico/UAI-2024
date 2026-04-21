@@ -12,8 +12,10 @@ namespace MindFit_Intelligence_Backend.Models
         public DbSet<PersonaSocio> PersonaSocios { get; set; } = null!;
         public DbSet<Grupo> Grupos { get; set; } = null!;
         public DbSet<Permiso> Permisos { get; set; } = null!;
+        public DbSet<Formulario> Formularios { get; set; } = null!;
         public DbSet<UsuarioGrupo> UsuarioGrupos { get; set; } = null!;
         public DbSet<GrupoPermiso> GrupoPermisos { get; set; } = null!;
+        public DbSet<FormularioPermiso> FormularioPermisos { get; set; } = null!;
         public DbSet<Rutina> Rutinas { get; set; } = null!;
         public DbSet<Dia> Dias { get; set; } = null!;
         public DbSet<PerfilIA> PerfilesIA { get; set; } = null!;
@@ -51,8 +53,10 @@ namespace MindFit_Intelligence_Backend.Models
             modelBuilder.Entity<PersonaSocio>().ToTable("PersonaSocio");
             modelBuilder.Entity<Grupo>().ToTable("Grupo");
             modelBuilder.Entity<Permiso>().ToTable("Permiso");
+            modelBuilder.Entity<Formulario>().ToTable("Formulario");
             modelBuilder.Entity<UsuarioGrupo>().ToTable("UsuarioGrupo");
             modelBuilder.Entity<GrupoPermiso>().ToTable("GrupoPermiso");
+            modelBuilder.Entity<FormularioPermiso>().ToTable("FormularioPermiso");
             modelBuilder.Entity<Rutina>().ToTable("Rutina");
             modelBuilder.Entity<Dia>().ToTable("Dia");
             modelBuilder.Entity<PerfilIA>().ToTable("PerfilIA");
@@ -115,6 +119,18 @@ namespace MindFit_Intelligence_Backend.Models
                 .HasOne(gp => gp.Permiso)
                 .WithMany(p => p.GrupoPermisos)
                 .HasForeignKey(gp => gp.IdPermiso);
+
+            // Relaciones FormularioPermiso
+            modelBuilder.Entity<FormularioPermiso>()
+                .HasOne(fp => fp.Formulario)
+                .WithMany(f => f.FormularioPermisos)
+                .HasForeignKey(fp => fp.IdFormulario)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<FormularioPermiso>()
+                .HasOne(fp => fp.Permiso)
+                .WithMany(p => p.FormularioPermisos)
+                .HasForeignKey(fp => fp.IdPermiso);
 
             // Relaciones Rutina - PersonaSocio (N:1)
             modelBuilder.Entity<Rutina>()

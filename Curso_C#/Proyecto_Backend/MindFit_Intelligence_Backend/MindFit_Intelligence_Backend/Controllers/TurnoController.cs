@@ -33,13 +33,34 @@ namespace MindFit_Intelligence_Backend.Controllers
          Front: Se apreta el boton de reservar turno, para armar el dto se necesita:
          IdDiaRangoHorario -> se consigue con un select de rangos horarios desde GET api/DiaRangoHorario/grilla-por-dia.
          IdUsuarioResponsable -> se consigue con un select para elegir el responsable, desde List<GrillaDiaRangoHorarioResponsableDto> Responsables del dto del endpoint anterior
-         IdUsuarioSocio -> se consigue de 2 formas:
-            Modulo Gestionar Turno Socio - Con el id del usuario que esta logueado, que se puede sacar del token. POST api/Auth/login
+         IdUsuarioSocio -> se consigue de:
             Modulo Gestionar Turno Asistente - Con un select para elegir el socio. Se arma con los datos de los usuarios que son socios desde GET api/Usuario/grilla-socio
          */
-        //[Authorize(Policy = "AgregarTurno")]
-        [HttpPost("registrar")]
-        public async Task<ActionResult<TurnoDto>> RegistrarTurno(TurnoInsertDto turnoInsertDto)
+        [Authorize(Policy = "AgregarTurno")]
+        [HttpPost("asistente/registrar")]
+        public async Task<ActionResult<TurnoDto>> AsistenteRegistraTurno(TurnoInsertDto turnoInsertDto)
+        {
+            if (!await _turnoService.ValidateAsync(turnoInsertDto))
+                return Conflict(_turnoService.Errors);
+
+            var turno = await _turnoService.RegistrarTurno(turnoInsertDto);
+            if (turno is null)
+                return Conflict(_turnoService.Errors);
+
+            return Ok(turno);
+        }
+
+        /* 
+         CUD07 - Agregar Turno
+         Front: Se apreta el boton de reservar turno, para armar el dto se necesita:
+         IdDiaRangoHorario -> se consigue con un select de rangos horarios desde GET api/DiaRangoHorario/grilla-por-dia.
+         IdUsuarioResponsable -> se consigue con un select para elegir el responsable, desde List<GrillaDiaRangoHorarioResponsableDto> Responsables del dto del endpoint anterior
+         IdUsuarioSocio -> se consigue de:
+            Modulo Gestionar Turno Socio - Con el id del usuario que esta logueado, que se puede sacar del token. POST api/Auth/login
+         */
+        [Authorize(Policy = "SoloSocio")]
+        [HttpPost("socio/registrar")]
+        public async Task<ActionResult<TurnoDto>> SocioRegistraTurno(TurnoInsertDto turnoInsertDto)
         {
             if (!await _turnoService.ValidateAsync(turnoInsertDto))
                 return Conflict(_turnoService.Errors);

@@ -112,6 +112,11 @@ namespace MindFit_Intelligence_Backend.Automappers
                 .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
                     src.GrupoPermisos.Select(gp => gp.Permiso)));
             CreateMap<Permiso, PermisoDto>();
+            CreateMap<Grupo, GrupoAuthDto>()
+                .ForMember(dest => dest.NombreGrupo, opt => opt.MapFrom(src => src.Nombre))
+                .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
+                    src.GrupoPermisos.Select(gp => gp.Permiso)));
+            CreateMap<Permiso, PermisoAuthDto>();
 
             // Add()
             CreateMap<GrupoInsertDto, Grupo>()

@@ -327,6 +327,41 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.ToTable("Estiramiento", (string)null);
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Formulario", b =>
+                {
+                    b.Property<int>("IdFormulario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdFormulario"));
+
+                    b.Property<string>("NombreFormulario")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("IdFormulario");
+
+                    b.HasIndex("NombreFormulario")
+                        .IsUnique();
+
+                    b.ToTable("Formulario", (string)null);
+                });
+
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.FormularioPermiso", b =>
+                {
+                    b.Property<int>("IdFormulario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdPermiso")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdFormulario", "IdPermiso");
+
+                    b.HasIndex("IdPermiso");
+
+                    b.ToTable("FormularioPermiso", (string)null);
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
                 {
                     b.Property<int>("IdGrupo")
@@ -1015,6 +1050,25 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("Rutina");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.FormularioPermiso", b =>
+                {
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Formulario", "Formulario")
+                        .WithMany("FormularioPermisos")
+                        .HasForeignKey("IdFormulario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MindFit_Intelligence_Backend.Models.Permiso", "Permiso")
+                        .WithMany("FormularioPermisos")
+                        .HasForeignKey("IdPermiso")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Formulario");
+
+                    b.Navigation("Permiso");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.GrupoPermiso", b =>
                 {
                     b.HasOne("MindFit_Intelligence_Backend.Models.Grupo", "Grupo")
@@ -1195,6 +1249,11 @@ namespace MindFit_Intelligence_Backend.Migrations
                     b.Navigation("DiaRangoHorarioResponsables");
                 });
 
+            modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Formulario", b =>
+                {
+                    b.Navigation("FormularioPermisos");
+                });
+
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Grupo", b =>
                 {
                     b.Navigation("GrupoPermisos");
@@ -1209,6 +1268,8 @@ namespace MindFit_Intelligence_Backend.Migrations
 
             modelBuilder.Entity("MindFit_Intelligence_Backend.Models.Permiso", b =>
                 {
+                    b.Navigation("FormularioPermisos");
+
                     b.Navigation("GrupoPermisos");
                 });
 

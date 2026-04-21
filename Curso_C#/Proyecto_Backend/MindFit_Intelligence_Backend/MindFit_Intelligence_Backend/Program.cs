@@ -27,6 +27,7 @@ builder.Services.AddScoped<IDiaService, DiaService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IGrupoService, GrupoService>();
 builder.Services.AddScoped<IPermisoService, PermisoService>();
+builder.Services.AddScoped<IFormularioService, FormularioService>();
 builder.Services.AddScoped<IPersonaSocioService, PersonaSocioService>();
 builder.Services.AddScoped<ICuotaService, CuotaService>();
 builder.Services.AddScoped<ITurnoService, TurnoService>();
@@ -46,6 +47,7 @@ builder.Services.AddScoped<IPersonaSocioRepository, PersonaSocioRepository>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 builder.Services.AddScoped<IGrupoRepository, GrupoRepository>();
 builder.Services.AddScoped<IPermisoRepository, PermisoRepository>();
+builder.Services.AddScoped<IFormularioRepository, FormularioRepository>();
 builder.Services.AddScoped<IDiaRepository, DiaRepository>();
 builder.Services.AddScoped<ICuotaRepository, CuotaRepository>();
 builder.Services.AddScoped<ITurnoRepository, TurnoRepository>();
@@ -127,6 +129,7 @@ builder.Services.AddAuthorization(options =>
     options.AddPolicy("SoloSocio", policy =>
         policy.RequireRole("Socio"));
 
+    // Política para el Responsable basada en Requerimientos
     // Usuario
     options.AddPolicy("CrearUsuario", policy =>
         policy.Requirements.Add(new PermisoRequirement("CREAR_USUARIO")));

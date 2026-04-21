@@ -18,6 +18,7 @@ namespace MindFit_Intelligence_Backend.Models
         public string? Descripcion { get; set; }
 
         // Navegación (N:M)
-        public required ICollection<GrupoPermiso> GrupoPermisos { get; set; } 
+        public required ICollection<GrupoPermiso> GrupoPermisos { get; set; }
+        public required ICollection<FormularioPermiso> FormularioPermisos { get; set; }
     }
 }

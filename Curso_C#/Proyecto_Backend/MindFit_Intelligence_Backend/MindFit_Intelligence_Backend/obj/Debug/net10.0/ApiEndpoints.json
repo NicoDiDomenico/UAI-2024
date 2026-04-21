@@ -90,26 +90,6 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
-    "Method": "GetPermisosActuales",
-    "RelativePath": "api/Auth/permisos-actuales",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Permisos.PermisosActualizadosDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
     "Method": "RefreshToken",
     "RelativePath": "api/Auth/refresh-token",
     "HttpMethod": "POST",
@@ -638,6 +618,26 @@
     ]
   },
   {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.FormularioController",
+    "Method": "Get",
+    "RelativePath": "api/Formulario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Formularios.FormularioDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
     "Method": "Get",
     "RelativePath": "api/Grupo",
@@ -726,26 +726,6 @@
     "ReturnTypes": [
       {
         "Type": "MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GrupoController",
-    "Method": "GetAllSinPermisos",
-    "RelativePath": "api/Grupo/todos",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Grupos.GrupoDto, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1338,6 +1318,32 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
+    "Method": "AsistenteRegistraTurno",
+    "RelativePath": "api/Turno/asistente/registrar",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "turnoInsertDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Turno.TurnoInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Turno.TurnoDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
     "Method": "CancelarTurno",
     "RelativePath": "api/Turno/cancelar/{idTurno}",
     "HttpMethod": "PATCH",
@@ -1354,8 +1360,8 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
-    "Method": "RegistrarTurno",
-    "RelativePath": "api/Turno/registrar",
+    "Method": "SocioRegistraTurno",
+    "RelativePath": "api/Turno/socio/registrar",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

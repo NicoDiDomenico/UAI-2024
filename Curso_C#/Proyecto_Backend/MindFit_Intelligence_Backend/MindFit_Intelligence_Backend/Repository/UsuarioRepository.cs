@@ -15,8 +15,10 @@ namespace MindFit_Intelligence_Backend.Repository
 
         public async Task<Usuario?> GetById(int id)
         {
-            Usuario? usuario = await _context.Usuarios.FindAsync(id);
-            return usuario;
+            return await _context.Usuarios
+                .Include(u => u.UsuarioGrupos)
+                    .ThenInclude(ug => ug.Grupo)
+                .FirstOrDefaultAsync(u => u.IdUsuario == id);
         }
 
         // Aca traigo tanto los Responsables como los Socios

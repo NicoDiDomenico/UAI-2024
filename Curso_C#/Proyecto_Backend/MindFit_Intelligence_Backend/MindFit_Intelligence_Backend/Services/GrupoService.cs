@@ -26,6 +26,13 @@ namespace MindFit_Intelligence_Backend.Services
             return grupos == null ? new List<GrupoDto>() : _mapper.Map<IEnumerable<GrupoDto>>(grupos);
         }
 
+        public async Task<IEnumerable<GrupoAuthDto>> GetAuth()
+        {
+            var grupos = await _grupoRepository.Get();
+
+            return grupos == null ? new List<GrupoAuthDto>() : _mapper.Map<IEnumerable<GrupoAuthDto>>(grupos);
+        }
+
         public async Task<IEnumerable<GrupoDto>> GetAllSinPermisos()
         {
             var grupos = await _grupoRepository.GetAllSinPermisos();

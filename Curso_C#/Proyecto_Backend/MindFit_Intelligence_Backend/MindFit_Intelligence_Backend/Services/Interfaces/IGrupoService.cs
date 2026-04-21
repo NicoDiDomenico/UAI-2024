@@ -9,5 +9,6 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
 
         List<string> Errors { get; }
         bool ValidateDelete(int id);
+        Task<IEnumerable<GrupoAuthDto>> GetAuth();
     }
 }

@@ -5,35 +5,6 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Auth/permisos-actuales": {
-      "get": {
-        "tags": [
-          "Auth"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermisosActualizadosDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermisosActualizadosDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PermisosActualizadosDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Auth/login": {
       "post": {
         "tags": [
@@ -1069,6 +1040,44 @@
         }
       }
     },
+    "/api/Formulario": {
+      "get": {
+        "tags": [
+          "Formulario"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormularioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormularioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormularioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Grupo": {
       "get": {
         "tags": [
@@ -1146,44 +1155,6 @@
               "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/GrupoDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Grupo/todos": {
-      "get": {
-        "tags": [
-          "Grupo"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GrupoDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GrupoDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GrupoDto"
-                  }
                 }
               }
             }
@@ -2346,7 +2317,55 @@
         }
       }
     },
-    "/api/Turno/registrar": {
+    "/api/Turno/asistente/registrar": {
+      "post": {
+        "tags": [
+          "Turno"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/socio/registrar": {
       "post": {
         "tags": [
           "Turno"
@@ -3420,6 +3439,27 @@
         },
         "additionalProperties": false
       },
+      "FormularioDto": {
+        "type": "object",
+        "properties": {
+          "idFormulario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreFormulario": {
+            "type": "string",
+            "nullable": true
+          },
+          "permisos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Genero": {
         "enum": [
           "Masculino",
@@ -3813,19 +3853,6 @@
           },
           "descripcion": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PermisosActualizadosDto": {
-        "type": "object",
-        "properties": {
-          "permisos": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
             "nullable": true
           }
         },
@@ -4875,6 +4902,9 @@
     },
     {
       "name": "Equipamiento"
+    },
+    {
+      "name": "Formulario"
     },
     {
       "name": "Grupo"

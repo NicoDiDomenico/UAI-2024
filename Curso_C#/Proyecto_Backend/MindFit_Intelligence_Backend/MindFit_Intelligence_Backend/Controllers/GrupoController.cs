@@ -35,6 +35,19 @@ namespace MindFit_Intelligence_Backend.Controllers
             return !gruposDtos.Any() ? NotFound("No hay grupos cargados") : Ok(gruposDtos);
         }
 
+        /* No creo que lo necesite
+        // Front: Traer grupos para autenticación con el detalle mínimo de permisos
+        [HttpGet("auth")]
+        //[Authorize]
+        public async Task<ActionResult<IEnumerable<GrupoAuthDto>>> GetAuth()
+        {
+            var gruposAuthDtos = await _grupoService.GetAuth();
+
+            return !gruposAuthDtos.Any() ? NotFound("No hay grupos cargados") : Ok(gruposAuthDtos);
+        }
+        */
+
+        /* No sirve
         // Front: Traer absolutamente todos los grupos (incluyendo Socio), sin permisos, para asociarlos a botones y compararlos contra claims
         [HttpGet("todos")]
         [AllowAnonymous]
@@ -44,6 +57,7 @@ namespace MindFit_Intelligence_Backend.Controllers
 
             return !gruposDtos.Any() ? NotFound("No hay grupos cargados") : Ok(gruposDtos);
         }
+        */
 
         // Front: ?
         [HttpGet("{id}")]

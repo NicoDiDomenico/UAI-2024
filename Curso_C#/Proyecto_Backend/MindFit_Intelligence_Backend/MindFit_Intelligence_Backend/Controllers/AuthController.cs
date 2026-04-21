@@ -26,9 +26,8 @@ namespace MindFit_Intelligence_Backend.Controllers
             _changePasswordValidator = changePasswordValidator;
         }
 
-        // Va a estar en todos los CUDs
         /* NO SIRVE --> Front: Endpoint para obtener los permisos y asi cambiar en el front el estado global de los botones y opciones del menú según los permisos del usuario
-           USAR MEJOR --> GET api/Permiso */
+           USAR MEJOR --> GET api/Permiso y asi traigo todos ls permisos del usuario y no solo los actuales, para tener toda la info en el front y no hacer otra consulta cada vez que se necesite validar un permiso específico
         [Authorize]
         [HttpGet("permisos-actuales")]
         public async Task<ActionResult<PermisosActualizadosDto>> GetPermisosActuales()
@@ -45,6 +44,7 @@ namespace MindFit_Intelligence_Backend.Controllers
             // 3. Devolvemos el objeto DTO
             return Ok(response);
         }
+        */
 
         // Front: Login de usuario, con generación de JWT y Permisos asociados al usuario para validar que puede y no hacer en UI
         [AllowAnonymous]

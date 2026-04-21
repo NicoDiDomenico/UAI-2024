@@ -1,0 +1,10 @@
+﻿namespace MindFit_Intelligence_Backend.DTOs.Formularios
+{
+    public class FormularioDto
+    {
+        public int IdFormulario { get; set; }
+        public string NombreFormulario { get; set; } = string.Empty;
+        public int IdPermiso { get; set; }
+        public string CodigoPermiso { get; set; } = string.Empty;
+    }
+}
