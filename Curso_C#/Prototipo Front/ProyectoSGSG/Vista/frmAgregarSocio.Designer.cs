@@ -64,6 +64,8 @@
             this.chkMiercoles = new System.Windows.Forms.CheckBox();
             this.chkMartes = new System.Windows.Forms.CheckBox();
             this.chkLunes = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,13 +87,15 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.label1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.Black;
             this.panel4.Location = new System.Drawing.Point(200, 497);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1359, 62);
+            this.panel4.Size = new System.Drawing.Size(1359, 137);
             this.panel4.TabIndex = 99;
             // 
             // panel5
@@ -455,6 +459,23 @@
             this.chkLunes.Text = "Lunes";
             this.chkLunes.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.label1.Location = new System.Drawing.Point(342, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 17);
+            this.label1.TabIndex = 104;
+            this.label1.Text = "Monto:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(404, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(213, 23);
+            this.textBox1.TabIndex = 103;
+            // 
             // frmAgregarSocio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,5 +542,7 @@
         private System.Windows.Forms.CheckBox chkMiercoles;
         private System.Windows.Forms.CheckBox chkMartes;
         private System.Windows.Forms.CheckBox chkLunes;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -382,3 +382,5 @@ D:\GitHub-Actual\UAI-2024\Curso_C#\Prototipo Front\ProyectoSGSG\Vista\obj\Debug\
 D:\GitHub-Actual\UAI-2024\Curso_C#\Prototipo Front\ProyectoSGSG\Vista\obj\Debug\Vista.csproj.Up2Date
 D:\GitHub-Actual\UAI-2024\Curso_C#\Prototipo Front\ProyectoSGSG\Vista\obj\Debug\Vista.exe
 D:\GitHub-Actual\UAI-2024\Curso_C#\Prototipo Front\ProyectoSGSG\Vista\obj\Debug\Vista.pdb
+C:\Facu\UAI\V2\UAI-2024\Curso_C#\Prototipo Front\ProyectoSGSG\Vista\obj\Debug\Vista.exe
+C:\Facu\UAI\V2\UAI-2024\Curso_C#\Prototipo Front\ProyectoSGSG\Vista\obj\Debug\Vista.pdb

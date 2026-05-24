@@ -1,0 +1,29 @@
+﻿using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Repository
+{
+    public class TurnoRepository : ITurnoRepository
+    {
+        private readonly MindFitIntelligenceContext _context;
+
+        public TurnoRepository(MindFitIntelligenceContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<bool> ExisteTurnoEnFecha(int idSocio, DateTime fecha)
+        {
+            return await _context.Turnos
+                .AnyAsync(t => t.IdUsuarioSocio == idSocio
+                            && t.CupoFecha.Fecha == fecha.Date);
+        }
+
+        public async Task Add(Turno entity)
+            => await _context.Turnos.AddAsync(entity);
+
+        public async Task Save()
+            => await _context.SaveChangesAsync();
+    }
+}

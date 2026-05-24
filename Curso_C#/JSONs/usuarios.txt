@@ -128,3 +128,25 @@
     3
   ]
 }
+
+{
+  "username": "emilio.mancuerna",
+  "password": "Emilio123!",
+  "tipoPersona": "Responsable",
+  "personaResponsable": {
+    "nombre": "Emilio",
+    "apellido": "Mancuerna",
+    "email": "emilio.mancuerna@gmail.com",
+    "telefono": "3415987456",
+    "direccion": "Bv. Oroño 245",
+    "ciudad": "Rosario",
+    "tipoDocumento": "DNI",
+    "nroDocumento": "32876543",
+    "genero": "Masculino",
+    "fechaNacimiento": "1985-03-21T00:00:00.000Z"
+  },
+  "personaSocio": null,
+  "idGrupos": [
+    4
+  ]
+}

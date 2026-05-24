@@ -42,17 +42,17 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.label3.Location = new System.Drawing.Point(65, 44);
+            this.label3.Location = new System.Drawing.Point(69, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(161, 20);
+            this.label3.Size = new System.Drawing.Size(137, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Codigo de Ingreso:";
+            this.label3.Text = "Número de DNI:";
             // 
             // txtCodigoIngreso
             // 
-            this.txtCodigoIngreso.Location = new System.Drawing.Point(255, 44);
+            this.txtCodigoIngreso.Location = new System.Drawing.Point(212, 44);
             this.txtCodigoIngreso.Name = "txtCodigoIngreso";
-            this.txtCodigoIngreso.Size = new System.Drawing.Size(277, 20);
+            this.txtCodigoIngreso.Size = new System.Drawing.Size(320, 20);
             this.txtCodigoIngreso.TabIndex = 9;
             // 
             // iconPictureBox1
