@@ -46,6 +46,13 @@ namespace MindFit_Intelligence_Backend.Controllers
         }
         */
 
+        /// <summary>
+        /// Login de usuario con JWT.
+        /// </summary>
+        /// <remarks>
+        /// Header requerido:
+        /// - X-Gym-Id: ID del gimnasio (ej: 1)
+        /// </remarks>
         // Front: Login de usuario, con generación de JWT y Permisos asociados al usuario para validar que puede y no hacer en UI
         [AllowAnonymous]
         [HttpPost("login")]
@@ -64,6 +71,13 @@ namespace MindFit_Intelligence_Backend.Controllers
             return Ok(res);
         }
 
+        /// <summary>
+        /// Refresca el JWT usando refresh token.
+        /// </summary>
+        /// <remarks>
+        /// Header requerido:
+        /// - X-Gym-Id: ID del gimnasio (ej: 1)
+        /// </remarks>
         // Front: Endpoint para refrescar el token JWT usando el refresh token, sin necesidad de hacer login nuevamente
         [AllowAnonymous]
         [HttpPost("refresh-token")]
@@ -76,7 +90,15 @@ namespace MindFit_Intelligence_Backend.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Solicita reset de contraseña.
+        /// </summary>
+        /// <remarks>
+        /// Header requerido:
+        /// - X-Gym-Id: ID del gimnasio (ej: 1)
+        /// </remarks>
         // Front: Endpoint para solicitar reseteo de contraseña, se envía un email con un token seguro para resetear la contraseña sin revelar si el email existe o no
+        // requiere header X-Gym-Id string(header)
         [AllowAnonymous]
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordRequestDto forgotPasswordRequestDto)
@@ -86,6 +108,13 @@ namespace MindFit_Intelligence_Backend.Controllers
             // Siempre respondemos con éxito para evitar revelar si el email existe o no
         }
 
+        /// <summary>
+        /// Resetea la contraseña con token de recuperación.
+        /// </summary>
+        /// <remarks>
+        /// Header requerido:
+        /// - X-Gym-Id: ID del gimnasio (ej: 1)
+        /// </remarks>
         // Front: Endpoint para resetear la contraseña usando el token enviado por email
         [AllowAnonymous]
         [HttpPost("reset-password")]
@@ -98,6 +127,13 @@ namespace MindFit_Intelligence_Backend.Controllers
                 : BadRequest("Token inválido o expirado.");
         }
 
+        /// <summary>
+        /// Cambia contraseña de responsable autenticado.
+        /// </summary>
+        /// <remarks>
+        /// Header opcional:
+        /// - X-Gym-Id: Si no se envía, se lee del JWT (recomendado no enviarlo)
+        /// </remarks>
         // Front: Endpoint para cambiar la contraseña autenticado dentro del sistema, requiere la contraseña actual
         [Authorize(Policy = "CambiarContrasenaResponsable")]
         [HttpPost("responsables/change-password")]
@@ -123,6 +159,13 @@ namespace MindFit_Intelligence_Backend.Controllers
                 : BadRequest("La contraseña actual es incorrecta.");
         }
 
+        /// <summary>
+        /// Cambia contraseña de socio autenticado.
+        /// </summary>
+        /// <remarks>
+        /// Header opcional:
+        /// - X-Gym-Id: Si no se envía, se lee del JWT (recomendado no enviarlo)
+        /// </remarks>
         // Front: Endpoint para cambiar la contraseña autenticado dentro del sistema, requiere la contraseña actual
         [Authorize(Policy = "CambiarContrasenaSocio")]
         [HttpPost("socio/change-password")]

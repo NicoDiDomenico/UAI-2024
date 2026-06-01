@@ -15,6 +15,9 @@ using MindFit_Intelligence_Backend.Services;
 using MindFit_Intelligence_Backend.Services.Interfaces;
 using FluentValidation;
 using System.Text;
+using MindFit_Intelligence_Backend.Models.Master;
+using MindFit_Intelligence_Backend.Middleware;
+using MindFit_Intelligence_Backend.Swagger; // <-- AGREGAR ESTA LÍNEA
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,9 +39,11 @@ builder.Services.AddScoped<IEmailService, SmtpEmailService>();
 builder.Services.AddScoped<IMaquinaService, MaquinaService>();
 builder.Services.AddScoped<IEquipamientoService, EquipamientoService>();
 builder.Services.AddScoped<IEjercicioService, EjercicioService>();
+builder.Services.AddScoped<IGrupoMuscularService, GrupoMuscularService>();
+builder.Services.AddScoped<ITipoEjercicioService, TipoEjercicioService>();
 builder.Services.AddScoped<IRangoHorarioService, RangoHorarioService>();
-builder.Services.AddScoped<IGrupoMuscularRepository, GrupoMuscularRepository>();
-builder.Services.AddScoped<ITipoEjercicioRepository, TipoEjercicioRepository>();
+
+builder.Services.AddScoped<IGymPublicoService, GymPublicoService>();
 
 // Repositories
 builder.Services.AddScoped<IPersonaResponsableRepository, PersonaResponsableRepository>();
@@ -58,13 +63,32 @@ builder.Services.AddScoped<IMaquinaRepository, MaquinaRepository>();
 builder.Services.AddScoped<IEquipamientoRepository, EquipamientoRepository>();
 builder.Services.AddScoped<IEjercicioRepository, EjercicioRepository>();
 builder.Services.AddScoped<IRangoHorarioRepository, RangoHorarioRepository>();
-builder.Services.AddScoped<IGrupoMuscularService, GrupoMuscularService>();
-builder.Services.AddScoped<ITipoEjercicioService, TipoEjercicioService>();
+builder.Services.AddScoped<IGrupoMuscularRepository, GrupoMuscularRepository>();
+builder.Services.AddScoped<ITipoEjercicioRepository, TipoEjercicioRepository>();
+builder.Services.AddScoped<IGymRepository, GymRepository>();
+builder.Services.AddScoped<IUsuarioMasterRepository, UsuarioMasterRepository>();
 
-// Entity Framework
-builder.Services.AddDbContext<MindFitIntelligenceContext>(options =>
+// Infra: Tenant services
+builder.Services.AddScoped<ITenantContext, TenantContext>(); 
+builder.Services.AddScoped<ITenantResolver, TenantResolver>();
+
+// Entity Framework - Master DB (ya creado)
+builder.Services.AddDbContext<MindFitMasterContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("StoreConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("MasterConnection"));
+});
+
+// Entity Framework - Tenant DbContext configurado dinámicamente usando ITenantContext
+builder.Services.AddDbContext<MindFitIntelligenceContext>((serviceProvider, options) =>
+{
+    // Intentamos resolver la connection string desde el TenantContext (scoped)
+    var tenantContext = serviceProvider.GetService<ITenantContext>();
+    var configuration = serviceProvider.GetRequiredService<IConfiguration>();
+
+    var connectionString = tenantContext?.ConnectionString
+        ?? configuration.GetConnectionString("StoreConnection"); // fallback a la conexión por defecto
+
+    options.UseSqlServer(connectionString);
 });
 
 // AutoMapper
@@ -87,6 +111,9 @@ builder.Services.AddSwaggerGen(c =>
 {
     // Esto ayuda a que Swagger entienda que vas a usar Strings para los Enums
     c.DescribeAllParametersInCamelCase();
+
+    // Registrar el OperationFilter que añade X-Gym-Id en Swagger UI
+    c.OperationFilter<TenantHeaderOperationFilter>();
 });
 
 // JWT Authentication
@@ -251,7 +278,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+// Authentication MUST run before TenantMiddleware so claims are populated when middleware reads them
 app.UseAuthentication();
+
+// Tenant middleware: resuelve y guarda en ITenantContext la connection string por request
+app.UseMiddleware<TenantMiddleware>();
+
 app.UseAuthorization();
 
 app.MapControllers();

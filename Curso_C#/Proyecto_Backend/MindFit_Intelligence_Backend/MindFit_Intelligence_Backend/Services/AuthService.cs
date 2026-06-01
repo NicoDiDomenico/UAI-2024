@@ -19,18 +19,21 @@ namespace MindFit_Intelligence_Backend.Services
         private readonly IPersonaResponsableRepository _personaResponsableRepository;
         private readonly IPersonaSocioRepository _personaSocioRepository;
         private readonly IEmailService _emailService;
+        private readonly ITenantContext? _tenantContext; // inyectado para leer IdGimnasio
 
         public AuthService(IConfiguration configuration,
             IUsuarioRepository usuarioRepository,
             IPersonaResponsableRepository personaResponsableRepository,
             IPersonaSocioRepository personaSocioRepository,
-            IEmailService emailService)
+            IEmailService emailService,
+            ITenantContext? tenantContext = null) // inyectable opcional para compatibilidad
         {
             _configuration = configuration;
             _usuarioRepository = usuarioRepository;
             _personaResponsableRepository = personaResponsableRepository;
             _personaSocioRepository = personaSocioRepository;
             _emailService = emailService;
+            _tenantContext = tenantContext;
         }
 
         #region Register
@@ -73,9 +76,16 @@ namespace MindFit_Intelligence_Backend.Services
                 }
             }
 
+            // Agregar IdGimnasio desde TenantContext si está disponible
+            if (_tenantContext?.IdGimnasio != null)
+            {
+                claims.Add(new Claim("IdGimnasio", _tenantContext.IdGimnasio.Value.ToString()));
+            }
+
             // 🔹 2) CLAVE SECRETA --> Información para contruir las CREDENCIALES DE FIRMA
             // Esta clave se usa para generar la FIRMA(SIGNATURE) del token.
             // NO cifra el token. Solo se usa para firmarlo.
+            // Clave secreta y firma
             SymmetricSecurityKey key = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(
                     _configuration.GetValue<string>("AppSettings:Token")!

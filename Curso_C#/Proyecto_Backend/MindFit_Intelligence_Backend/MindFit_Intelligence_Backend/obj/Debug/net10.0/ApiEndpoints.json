@@ -32,22 +32,6 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
-    "Method": "ChangePassword",
-    "RelativePath": "api/Auth/change-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
     "Method": "ForgotPassword",
     "RelativePath": "api/Auth/forgot-password",
     "HttpMethod": "POST",
@@ -125,6 +109,38 @@
       {
         "Name": "resetPasswordRequestDto",
         "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ResetPasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ChangePasswordResponsable",
+    "RelativePath": "api/Auth/responsables/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ChangePasswordSocio",
+    "RelativePath": "api/Auth/socio/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
         "IsRequired": true
       }
     ],
@@ -780,6 +796,42 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GymsController",
+    "Method": "GetAllActivos",
+    "RelativePath": "api/Gyms/activos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[MindFit_Intelligence_Backend.DTOs.Gyms.GymPublicoDTO, MindFit_Intelligence_Backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.GymsController",
+    "Method": "RegistrarNuevoGym",
+    "RelativePath": "api/Gyms/onboarding",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Gyms.NuevoGymRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.MaquinaController",
@@ -1490,115 +1542,6 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "Update",
-    "RelativePath": "api/Usuario/{idUsuario}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "idUsuario",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "usuarioUpdateDto",
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioUpdateDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "Delete",
-    "RelativePath": "api/Usuario/{idUsuario}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "idUsuario",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "SoftDeleteSocio",
-    "RelativePath": "api/Usuario/{idUsuario}/baja",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "idUsuario",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "RecoverSoftDeletedSocio",
-    "RelativePath": "api/Usuario/{idUsuario}/recuperacion",
-    "HttpMethod": "PATCH",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "idUsuario",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
     "Method": "GetUsuariosResponsablesGrid",
     "RelativePath": "api/Usuario/grilla-responsable",
     "HttpMethod": "GET",
@@ -1679,8 +1622,174 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
-    "Method": "Register",
-    "RelativePath": "api/Usuario/register",
+    "Method": "UpdateResponsable",
+    "RelativePath": "api/Usuario/responsable/{idUsuario}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuarioUpdateDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "DeleteResponsable",
+    "RelativePath": "api/Usuario/responsable/{idUsuario}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "RegisterResponsable",
+    "RelativePath": "api/Usuario/responsable/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioInsertDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioInsertDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "UpdateSocio",
+    "RelativePath": "api/Usuario/socio/{idUsuario}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "usuarioUpdateDto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioUpdateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "DeleteSocio",
+    "RelativePath": "api/Usuario/socio/{idUsuario}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "SoftDeleteSocio",
+    "RelativePath": "api/Usuario/socio/{idUsuario}/baja",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.UsuarioDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.UsuarioController",
+    "Method": "RegisterSocio",
+    "RelativePath": "api/Usuario/socio/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

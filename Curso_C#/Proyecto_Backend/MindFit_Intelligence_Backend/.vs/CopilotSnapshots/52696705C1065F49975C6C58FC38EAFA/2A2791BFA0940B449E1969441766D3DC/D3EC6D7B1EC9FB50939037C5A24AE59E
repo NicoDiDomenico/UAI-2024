@@ -1,0 +1,23 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Gyms;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class GymPublicoService : IGymPublicoService
+    {
+        private readonly IGymRepository _gymRepository;
+
+        public GymPublicoService(IGymRepository gymRepository)
+        {
+            _gymRepository = gymRepository;
+        }
+
+        public async Task<IEnumerable<GymPublicoDTO>> GetAllGymsActivosAsync()
+        {
+            return await _gymRepository.GetAllGymsActivosAsync();
+        }
+    }
+}

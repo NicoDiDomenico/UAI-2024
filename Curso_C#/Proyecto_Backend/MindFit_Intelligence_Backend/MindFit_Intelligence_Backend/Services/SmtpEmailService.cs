@@ -21,6 +21,7 @@ namespace MindFit_Intelligence_Backend.Services
             var port = int.Parse(_configuration["Smtp:Port"]!);
             var useSsl = bool.Parse(_configuration["Smtp:UseSsl"]!);
 
+            // username y password los tendria que sacar de la bd del gym o podria ser un usuario global para todos los gyms.
             var username = _configuration["Smtp:Username"]!;
             var password = _configuration["Smtp:Password"]!;
 
