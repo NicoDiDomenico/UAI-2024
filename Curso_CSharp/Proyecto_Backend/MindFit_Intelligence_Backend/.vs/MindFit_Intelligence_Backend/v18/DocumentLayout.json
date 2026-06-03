@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\services\\gympublicoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\gympublicoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\controllers\\gymscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\gymscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\usuariomasterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\usuariomasterrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\repository\\gymrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\gymrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_backend\\mindfit_intelligence_backend\\mindfit_intelligence_backend\\validators\\usuarios\\usuarioinsertdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\validators\\usuarios\\usuarioinsertdtovalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Program.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Program.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Program.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Program.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T23:39:29.074Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GymRepository.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\GymRepository.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\GymRepository.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\GymRepository.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\GymRepository.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvyEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T23:39:09.918Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UsuarioInsertDtoValidator.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Validators\\Usuarios\\UsuarioInsertDtoValidator.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Validators\\Usuarios\\UsuarioInsertDtoValidator.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Validators\\Usuarios\\UsuarioInsertDtoValidator.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Validators\\Usuarios\\UsuarioInsertDtoValidator.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAADwvy4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T23:33:31.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioMasterRepository.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\UsuarioMasterRepository.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\UsuarioMasterRepository.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Repository\\UsuarioMasterRepository.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\UsuarioMasterRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T23:28:26.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GymsController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-27T20:52:10.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GymPublicoService.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\GymPublicoService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\GymPublicoService.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_Backend\\MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend\\Services\\GymPublicoService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\GymPublicoService.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAApwFMAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-31T22:54:30.379Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

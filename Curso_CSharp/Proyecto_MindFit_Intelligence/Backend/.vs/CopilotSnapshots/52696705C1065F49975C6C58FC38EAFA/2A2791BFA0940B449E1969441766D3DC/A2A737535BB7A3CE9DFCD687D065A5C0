@@ -1,0 +1,14 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Gyms;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace MindFit_Intelligence_Backend.Repository.Interfaces
+{
+    public interface IGymRepository
+    {
+        /// <summary>
+        /// Obtiene todos los gimnasios activos desde la base maestra.
+        /// </summary>
+        Task<IEnumerable<GymPublicoDTO>> GetAllGymsActivosAsync();
+    }
+}

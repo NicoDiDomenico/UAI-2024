@@ -1,0 +1,24 @@
+﻿using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MindFit_Intelligence_Backend.DTOs.Turno
+{
+    public class TurnoDto
+    {
+        public int IdTurno { get; set; }
+
+        public int IdUsuarioResponsable { get; set; }
+
+        public int IdUsuarioSocio { get; set; }
+
+        public int IdCupoFecha { get; set; }
+
+        public CupoFecha CupoFecha { get; set; } = null!;
+
+        public DateTime FechaAlta { get; set; }
+
+        public EstadoTurno EstadoTurno { get; private set; }
+    }
+}

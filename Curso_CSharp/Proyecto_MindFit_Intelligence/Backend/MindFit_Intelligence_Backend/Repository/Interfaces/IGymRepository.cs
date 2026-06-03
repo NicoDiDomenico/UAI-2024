@@ -1,0 +1,20 @@
+using MindFit_Intelligence_Backend.DTOs.Gyms;
+using MindFit_Intelligence_Backend.Models.Master;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace MindFit_Intelligence_Backend.Repository.Interfaces
+{
+    public interface IGymRepository
+    {
+        /// <summary>
+        /// Obtiene todos los gimnasios activos desde la base maestra.
+        /// </summary>
+        Task<IEnumerable<GymPublicoDTO>> GetAllGymsActivosAsync();
+
+        /// <summary>
+        /// Agrega un nuevo gym a la base maestra y retorna su Id.
+        /// </summary>
+        Task<int> AddGymAsync(Gym gym);
+    }
+}

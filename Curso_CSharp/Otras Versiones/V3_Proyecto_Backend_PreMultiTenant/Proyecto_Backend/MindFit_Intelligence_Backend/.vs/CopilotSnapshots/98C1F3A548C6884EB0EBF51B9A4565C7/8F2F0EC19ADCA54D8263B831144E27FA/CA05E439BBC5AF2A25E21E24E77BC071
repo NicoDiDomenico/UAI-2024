@@ -1,0 +1,109 @@
+﻿using MindFit_Intelligence_Backend.DTOs.DiaRangoHorario;
+using MindFit_Intelligence_Backend.DTOs.DiaRangoHorarioResponsable;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class DiaRangoHorarioService : IDiaRangoHorarioService
+    {
+        private readonly IDiaRangoHorarioRepository _diaRangoHorarioRepository;
+        public DiaRangoHorarioService(IDiaRangoHorarioRepository diaRangoHorarioRepository)
+        {
+            _diaRangoHorarioRepository = diaRangoHorarioRepository;
+        }
+
+        public async Task<bool> ActivarDesactivarHorario(int IdDiaRangoHorario, DiaRangoHorarioUpdateDto dto)
+        {
+            var diaRangoHorario = await _diaRangoHorarioRepository.GetById(IdDiaRangoHorario);
+
+            if (diaRangoHorario == null)
+            {
+                return false; 
+            }
+
+            diaRangoHorario.setActivo(dto.Activo);
+            diaRangoHorario.CupoMaximo = dto.CupoMaximo;
+
+            await _diaRangoHorarioRepository.Save();
+
+            return true; 
+        }
+
+        public async Task<bool> AsignarResponsable(DiaRangoHorarioResponsableInsertDto dto)
+        {
+            var existe = await _diaRangoHorarioRepository.GetResponsable(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
+
+            if (existe != null)
+                return false;
+
+            var nuevo = new DiaRangoHorarioResponsable
+            {
+                IdDiaRangoHorario = dto.IdDiaRangoHorario,
+                IdUsuarioResponsable = dto.IdUsuarioResponsable,
+                Observaciones = dto.Observaciones
+            };
+
+            await _diaRangoHorarioRepository.AddResponsable(nuevo);
+            await _diaRangoHorarioRepository.Save();
+
+            return true;
+        }
+
+        public async Task<bool> ActualizarResponsable(DiaRangoHorarioResponsableUpdateDto dto)
+        {
+            var responsable = await _diaRangoHorarioRepository.GetResponsable(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
+
+            if (responsable == null)
+                return false;
+
+            responsable.Observaciones = dto.Observaciones;
+
+            await _diaRangoHorarioRepository.Save();
+
+            return true;
+        }
+
+        public async Task<bool> QuitarResponsable(DiaRangoHorarioResponsableDeleteDto dto)
+        {
+            var responsable = await _diaRangoHorarioRepository.GetResponsable(dto.IdDiaRangoHorario, dto.IdUsuarioResponsable);
+
+            if (responsable == null)
+                return false;
+
+            await _diaRangoHorarioRepository.RemoveResponsable(responsable);
+            await _diaRangoHorarioRepository.Save();
+
+            return true;
+        }
+
+        public async Task<IEnumerable<GrillaDiaRangoHorarioDto>> GetAll()
+        {
+            var DiaRangoHorarios = await _diaRangoHorarioRepository.GetAll();
+
+            List<GrillaDiaRangoHorarioDto> GrillaDiaRangoHorarioDtos = new List<GrillaDiaRangoHorarioDto>();
+            
+            foreach (var drh in DiaRangoHorarios)
+            {
+                GrillaDiaRangoHorarioDtos.Add(new GrillaDiaRangoHorarioDto
+                {
+                    IdDiaRangoHorario = drh.IdDiaRangoHorario,
+                    CupoMaximo = drh.CupoMaximo,
+                    Activo = drh.Activo,
+                    HoraDesde = drh.RangoHorario.HoraDesde,
+                    HoraHasta = drh.RangoHorario.HoraHasta,
+                    NombreDia = drh.Dia.NombreDia,
+                    Responsables = drh.DiaRangoHorarioResponsables.Select(r => new GrillaDiaRangoHorarioResponsableDto
+                    {
+                        IdUsuarioResponsable = r.IdUsuarioResponsable,
+                        Nombre = r.PersonaResponsable.Nombre,
+                        Apellido = r.PersonaResponsable.Apellido,
+                        Observaciones = r.Observaciones
+                    }).ToList()
+                });
+            }
+            return GrillaDiaRangoHorarioDtos;
+        }
+    }
+}

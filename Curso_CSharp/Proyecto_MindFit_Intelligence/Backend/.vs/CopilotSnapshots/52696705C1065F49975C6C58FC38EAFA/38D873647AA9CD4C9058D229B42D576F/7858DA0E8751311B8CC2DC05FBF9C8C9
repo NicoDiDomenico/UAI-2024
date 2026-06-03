@@ -1,0 +1,39 @@
+﻿using Microsoft.EntityFrameworkCore;
+
+// 1. Le agregamos .Master al final del namespace para que coincida con la carpeta
+namespace MindFit_Intelligence_Backend.Models.Master
+{
+    public class MindFitMasterContext : DbContext
+    {
+        public MindFitMasterContext(DbContextOptions<MindFitMasterContext> options)
+            : base(options) { }
+
+        public DbSet<Gym> Gyms { get; set; } = null!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Gym>(entity =>
+            {
+                entity.ToTable("Gym");
+                entity.HasKey(x => x.IdGym);
+
+                // 2. CORREGIDO: Copilot había puesto x.Nombre, pero tu propiedad es x.NombreGym
+                entity.Property(x => x.NombreGym)
+                    .IsRequired()
+                    .HasMaxLength(150);
+
+                entity.Property(x => x.ConnectionString)
+                    .IsRequired()
+                    .HasMaxLength(500);
+
+                entity.Property(x => x.Activo)
+                    .HasDefaultValue(true);
+
+                entity.Property(x => x.FechaCreacion)
+                    .HasDefaultValueSql("GETUTCDATE()");
+            });
+        }
+    }
+}
