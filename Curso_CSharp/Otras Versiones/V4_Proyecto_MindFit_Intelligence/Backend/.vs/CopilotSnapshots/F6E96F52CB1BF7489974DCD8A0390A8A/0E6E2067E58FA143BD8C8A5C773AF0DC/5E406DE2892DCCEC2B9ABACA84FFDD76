@@ -1,0 +1,17 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface ICuotaService
+    {
+        Task<IEnumerable<CuotaDto>> GetBySocio(int idUsuario);
+        Task<CuotaDto?> GetById(int id);
+        Cuota ConstruirCuota(CuotaInsertDto dto);
+        Task<CuotaDto?> Add(CuotaInsertDto dto);
+        Task<CuotaDto?> Update(int id, CuotaUpdateDto dto);
+        Task<CuotaDto?> Delete(int id);
+        List<string> Errors { get; }
+        Task<bool> Validate(CuotaInsertDto dto);
+    }
+}

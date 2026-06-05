@@ -1,0 +1,6098 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "MindFit_Intelligence_Backend",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUsuarioDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUsuarioDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUsuarioDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RefreshTokenRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenResponseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/reset-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/responsables/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/socio/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Cuota/socio/{idUsuario}": {
+      "get": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuotaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuotaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CuotaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cuota/{id}": {
+      "get": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CuotaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Cuota/actualizar-vencidas": {
+      "put": {
+        "tags": [
+          "Cuota"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Dia/dias": {
+      "get": {
+        "tags": [
+          "Dia"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DiaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DiaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DiaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/grilla": {
+      "get": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/grilla-por-dia": {
+      "get": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrillaDiaRangoHorarioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/cambiar-estado/{IdDiaRangoHorario}": {
+      "patch": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "idDiaRangoHorario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/asignar-responsable": {
+      "post": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/actualizar-responsable": {
+      "patch": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/DiaRangoHorario/quitar-responsable": {
+      "delete": {
+        "tags": [
+          "DiaRangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableDeleteDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableDeleteDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DiaRangoHorarioResponsableDeleteDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Ejercicio": {
+      "get": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "idGrupoMuscular",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EjercicioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EjercicioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EjercicioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Ejercicio/{id}": {
+      "get": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EjercicioUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ejercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EjercicioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Equipamiento": {
+      "get": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipamientoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipamientoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EquipamientoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Equipamiento/{id}": {
+      "get": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EquipamientoUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Equipamiento"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EquipamientoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Formulario": {
+      "get": {
+        "tags": [
+          "Formulario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormularioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormularioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FormularioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Grupo": {
+      "get": {
+        "tags": [
+          "Grupo"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Grupo"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Grupo/{id}": {
+      "get": {
+        "tags": [
+          "Grupo"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Grupo"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{id}": {
+      "put": {
+        "tags": [
+          "Grupo"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GrupoUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GrupoMuscular": {
+      "get": {
+        "tags": [
+          "GrupoMuscular"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoMuscularDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoMuscularDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GrupoMuscularDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/GrupoMuscular/{id}": {
+      "get": {
+        "tags": [
+          "GrupoMuscular"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoMuscularDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoMuscularDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrupoMuscularDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Gyms/activos": {
+      "get": {
+        "tags": [
+          "Gyms"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GymPublicoDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GymPublicoDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GymPublicoDTO"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Gyms/onboarding": {
+      "post": {
+        "tags": [
+          "Gyms"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevoGymRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevoGymRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/NuevoGymRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Maquina": {
+      "get": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaquinaDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaquinaDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaquinaDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Maquina/{id}": {
+      "get": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MaquinaUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Maquina"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MaquinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Permiso": {
+      "get": {
+        "tags": [
+          "Permiso"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermisoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermisoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermisoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PersonaResponsable": {
+      "get": {
+        "tags": [
+          "PersonaResponsable"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PersonaResponsableDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PersonaResponsableDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PersonaResponsableDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PersonaResponsable/{id}": {
+      "get": {
+        "tags": [
+          "PersonaResponsable"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonaResponsableDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonaResponsableDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PersonaResponsableDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/PersonaResponsable/entrenadores": {
+      "get": {
+        "tags": [
+          "PersonaResponsable"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RangoHorario": {
+      "get": {
+        "tags": [
+          "RangoHorario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RangoHorarioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RangoHorarioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RangoHorarioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/entrenadores/{idRangoHorario}": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRangoHorario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EntrenadorDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/entrenadores/{idUsuarioResponsable}/socios/{idRangoHorario}": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuarioResponsable",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idRangoHorario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioTurnoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioTurnoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioTurnoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/socios/{idUsuarioSocio}/rutinas": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuarioSocio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idDia",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/bloques": {
+      "put": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaBloquesUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaBloquesUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaBloquesUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/historial": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RutinaHistorialResumenDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RutinaHistorialResumenDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RutinaHistorialResumenDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/historial/{idRutinaHistorial}": {
+      "get": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idRutinaHistorial",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaHistorialDetalleDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaHistorialDetalleDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaHistorialDetalleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/historial/{idRutinaHistorial}/restaurar": {
+      "post": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idRutinaHistorial",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RutinaDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Rutina/{idRutina}/estado": {
+      "patch": {
+        "tags": [
+          "Rutina"
+        ],
+        "parameters": [
+          {
+            "name": "idRutina",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaEstadoUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaEstadoUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RutinaEstadoUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/TipoEjercicio": {
+      "get": {
+        "tags": [
+          "TipoEjercicio"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoEjercicioDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoEjercicioDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TipoEjercicioDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TipoEjercicio/{id}": {
+      "get": {
+        "tags": [
+          "TipoEjercicio"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoEjercicioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoEjercicioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TipoEjercicioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/asistente/{idUsuarioSocio}": {
+      "get": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuarioSocio",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/socio": {
+      "get": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/asistente/registrar": {
+      "post": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/socio/registrar": {
+      "post": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TurnoInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TurnoDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Turno/asistente/cancelar/{idTurno}": {
+      "patch": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "idTurno",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Turno/socio/cancelar/{idTurno}": {
+      "patch": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "idTurno",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Turno/validar-ingreso": {
+      "post": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarIngresoDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarIngresoDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidarIngresoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Turno/inicio/grilla-fecha": {
+      "get": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "fecha",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDetalleDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDetalleDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TurnoDetalleDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/grilla-usuarios": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioGridDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioGridDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioGridDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/grilla-responsable": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponsableGridDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponsableGridDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ResponsableGridDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/grilla-socio": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioGridDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioGridDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SocioGridDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/{idUsuario}": {
+      "get": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/responsable/register": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/socio/register": {
+      "post": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInsertDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInsertDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioInsertDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/responsable/{idUsuario}": {
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/socio/{idUsuario}": {
+      "put": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioUpdateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioUpdateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/procesar-eliminaciones-pendientes": {
+      "patch": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcesarEliminacionesDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcesarEliminacionesDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcesarEliminacionesDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Usuario/socio/{idUsuario}/baja": {
+      "patch": {
+        "tags": [
+          "Usuario"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CalentamientoDto": {
+        "type": "object",
+        "properties": {
+          "idCalentamiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CalentamientoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ChangePasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "currentPassword": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CuotaDto": {
+        "type": "object",
+        "properties": {
+          "idCuota": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "fechaInicioPeriodo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinPeriodo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          },
+          "estadoCuota": {
+            "$ref": "#/components/schemas/EstadoCuota"
+          },
+          "fechaPago": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CuotaInsertDto": {
+        "type": "object",
+        "properties": {
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CuotaUpdateDto": {
+        "type": "object",
+        "properties": {
+          "renueva": {
+            "type": "boolean"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "monto": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaDto": {
+        "type": "object",
+        "properties": {
+          "idDia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreDia": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioResponsableDeleteDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioResponsableInsertDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioResponsableUpdateDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DiaRangoHorarioUpdateDto": {
+        "type": "object",
+        "properties": {
+          "activo": {
+            "type": "boolean"
+          },
+          "cupoMaximo": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EjercicioDto": {
+        "required": [
+          "descEjercicio"
+        ],
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descEjercicio": {
+            "type": "string",
+            "nullable": true
+          },
+          "grupoMuscular": {
+            "$ref": "#/components/schemas/GrupoMuscularDto"
+          },
+          "tipoEjercicio": {
+            "$ref": "#/components/schemas/TipoEjercicioDto"
+          },
+          "maquina": {
+            "$ref": "#/components/schemas/MaquinaDto"
+          },
+          "equipamiento": {
+            "$ref": "#/components/schemas/EquipamientoDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EjercicioInsertDto": {
+        "required": [
+          "descEjercicio"
+        ],
+        "type": "object",
+        "properties": {
+          "descEjercicio": {
+            "type": "string",
+            "nullable": true
+          },
+          "idGrupoMuscular": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idTipoEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idMaquina": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idEquipamiento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EjercicioUpdateDto": {
+        "required": [
+          "descEjercicio"
+        ],
+        "type": "object",
+        "properties": {
+          "descEjercicio": {
+            "type": "string",
+            "nullable": true
+          },
+          "idGrupoMuscular": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idTipoEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idMaquina": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idEquipamiento": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntrenadorDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntrenamientoDto": {
+        "type": "object",
+        "properties": {
+          "idEntrenamiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "series": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repeticiones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pesoAsignado": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiempoDescansoSegundos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EntrenamientoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "series": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repeticiones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pesoAsignado": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiempoDescansoSegundos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipamientoDto": {
+        "required": [
+          "nombreEquipo"
+        ],
+        "type": "object",
+        "properties": {
+          "idEquipamiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreEquipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoFijoKg": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipamientoInsertDto": {
+        "required": [
+          "nombreEquipo"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreEquipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoFijoKg": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EquipamientoUpdateDto": {
+        "required": [
+          "nombreEquipo"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreEquipo": {
+            "type": "string",
+            "nullable": true
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoFijoKg": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EstadoCuota": {
+        "enum": [
+          "Vigente",
+          "Vencida"
+        ],
+        "type": "string"
+      },
+      "EstadoSocio": {
+        "enum": [
+          "Nuevo",
+          "Actualizado",
+          "Supendido",
+          "Eliminado"
+        ],
+        "type": "string"
+      },
+      "EstadoTurno": {
+        "enum": [
+          "EnCurso",
+          "Cancelado",
+          "Finalizado"
+        ],
+        "type": "string"
+      },
+      "EstiramientoDto": {
+        "type": "object",
+        "properties": {
+          "idEstiramiento": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "ejercicio": {
+            "$ref": "#/components/schemas/EjercicioDto"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EstiramientoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ForgotPasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FormularioDto": {
+        "type": "object",
+        "properties": {
+          "idFormulario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreFormulario": {
+            "type": "string",
+            "nullable": true
+          },
+          "permisos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Genero": {
+        "enum": [
+          "Masculino",
+          "Femenino",
+          "Otro",
+          "NoEspecifica"
+        ],
+        "type": "string"
+      },
+      "GrillaDiaRangoHorarioDto": {
+        "type": "object",
+        "properties": {
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cupoMaximo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "horaDesde": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "horaHasta": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "nombreDia": {
+            "type": "string",
+            "nullable": true
+          },
+          "responsables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrillaDiaRangoHorarioResponsableDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrillaDiaRangoHorarioResponsableDto": {
+        "type": "object",
+        "properties": {
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrupoDto": {
+        "type": "object",
+        "properties": {
+          "idGrupo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "permisos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermisoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrupoInsertDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPermisos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrupoMuscularDto": {
+        "required": [
+          "nombreMusculo"
+        ],
+        "type": "object",
+        "properties": {
+          "idGrupoMuscular": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreMusculo": {
+            "$ref": "#/components/schemas/Musculo"
+          },
+          "idMapaAnatomico": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GrupoUpdateDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          },
+          "idPermisos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "GymPublicoDTO": {
+        "type": "object",
+        "properties": {
+          "idGym": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreGym": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginUsuarioDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaquinaDto": {
+        "required": [
+          "nombreMaquina"
+        ],
+        "type": "object",
+        "properties": {
+          "idMaquina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreMaquina": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaFabricacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoMaximoLingotera": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esElectrica": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaquinaInsertDto": {
+        "required": [
+          "nombreMaquina"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreMaquina": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaFabricacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoMaximoLingotera": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esElectrica": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaquinaUpdateDto": {
+        "required": [
+          "nombreMaquina"
+        ],
+        "type": "object",
+        "properties": {
+          "nombreMaquina": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaFabricacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaCompra": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "costoAdquisicion": {
+            "type": "number",
+            "format": "double"
+          },
+          "pesoMaximoLingotera": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "esElectrica": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Musculo": {
+        "enum": [
+          "Pecho",
+          "Espalda",
+          "Cuadriceps",
+          "Biceps",
+          "Tricep",
+          "Gluteos",
+          "Abdomen",
+          "Hombro",
+          "Gemelos",
+          "Antebrazos",
+          "Lumbares",
+          "Isquiotibiales"
+        ],
+        "type": "string"
+      },
+      "NuevoGymRequestDto": {
+        "type": "object",
+        "properties": {
+          "nombreGym": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuarioMaster": {
+            "$ref": "#/components/schemas/UsuarioMasterInsertDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilIADto": {
+        "type": "object",
+        "properties": {
+          "objetivoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "nivelExperiencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosPreferidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosAEvitar": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponibilidadHoraria": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivacionPersonal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilIAInsertDto": {
+        "type": "object",
+        "properties": {
+          "objetivoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "nivelExperiencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosPreferidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosAEvitar": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponibilidadHoraria": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivacionPersonal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PerfilIAUpdateDto": {
+        "type": "object",
+        "properties": {
+          "objetivoPrincipal": {
+            "type": "string",
+            "nullable": true
+          },
+          "nivelExperiencia": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosPreferidos": {
+            "type": "string",
+            "nullable": true
+          },
+          "ejerciciosAEvitar": {
+            "type": "string",
+            "nullable": true
+          },
+          "disponibilidadHoraria": {
+            "type": "string",
+            "nullable": true
+          },
+          "motivacionPersonal": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PermisoDto": {
+        "type": "object",
+        "properties": {
+          "idPermiso": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "codigo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descripcion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaResponsableDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaResponsableInsertDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaResponsableMasterInsertDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaResponsableUpdateDto": {
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaSocioDto": {
+        "required": [
+          "rutinas"
+        ],
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "obraSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoSocio": {
+            "$ref": "#/components/schemas/EstadoSocio"
+          },
+          "fechaInicioActividades": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fechaNotificacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "respuestaNotificacion": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "pregunta": {
+            "type": "string",
+            "nullable": true
+          },
+          "respuesta": {
+            "type": "string",
+            "nullable": true
+          },
+          "rutinas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaDto"
+            },
+            "nullable": true
+          },
+          "cuotas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CuotaDto"
+            },
+            "nullable": true
+          },
+          "perfilIA": {
+            "$ref": "#/components/schemas/PerfilIADto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaSocioInsertDto": {
+        "required": [
+          "cuota",
+          "diasActivosIds"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "obraSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaNotificacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "respuestaNotificacion": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "pregunta": {
+            "type": "string",
+            "nullable": true
+          },
+          "respuesta": {
+            "type": "string",
+            "nullable": true
+          },
+          "diasActivosIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "cuota": {
+            "$ref": "#/components/schemas/CuotaInsertDto"
+          },
+          "perfilIA": {
+            "$ref": "#/components/schemas/PerfilIAInsertDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonaSocioUpdateDto": {
+        "required": [
+          "cuota",
+          "diasActivosIds"
+        ],
+        "type": "object",
+        "properties": {
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefono": {
+            "type": "string",
+            "nullable": true
+          },
+          "direccion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ciudad": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
+            "nullable": true
+          },
+          "genero": {
+            "$ref": "#/components/schemas/Genero"
+          },
+          "fechaNacimiento": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "obraSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaNotificacion": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "respuestaNotificacion": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "pregunta": {
+            "type": "string",
+            "nullable": true
+          },
+          "respuesta": {
+            "type": "string",
+            "nullable": true
+          },
+          "diasActivosIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "perfilIA": {
+            "$ref": "#/components/schemas/PerfilIAUpdateDto"
+          },
+          "cuota": {
+            "$ref": "#/components/schemas/CuotaUpdateDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Plan": {
+        "enum": [
+          "Mensual",
+          "Anual"
+        ],
+        "type": "string"
+      },
+      "ProcesarEliminacionesDto": {
+        "type": "object",
+        "properties": {
+          "sociosElimidados": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idsProcesados": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "mensaje": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaEjecucion": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RangoHorarioDto": {
+        "type": "object",
+        "properties": {
+          "idRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "horaDesde": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "horaHasta": {
+            "type": "string",
+            "format": "date-span"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RefreshTokenRequestDto": {
+        "required": [
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResetPasswordRequestDto": {
+        "type": "object",
+        "properties": {
+          "tokenPlano": {
+            "type": "string",
+            "nullable": true
+          },
+          "newPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResponsableGridDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreGrupo": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaBloquesUpdateDto": {
+        "type": "object",
+        "properties": {
+          "calentamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CalentamientoInsertDto"
+            },
+            "nullable": true
+          },
+          "entrenamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntrenamientoInsertDto"
+            },
+            "nullable": true
+          },
+          "estiramientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstiramientoInsertDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaDto": {
+        "type": "object",
+        "properties": {
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idPersonaSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idDia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaModificacion": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activo": {
+            "type": "boolean"
+          },
+          "calentamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CalentamientoDto"
+            },
+            "nullable": true
+          },
+          "entrenamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EntrenamientoDto"
+            },
+            "nullable": true
+          },
+          "estiramientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EstiramientoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaEstadoUpdateDto": {
+        "type": "object",
+        "properties": {
+          "activo": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialCalentamientoDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialDetalleDto": {
+        "type": "object",
+        "properties": {
+          "idRutinaHistorial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaSnapshot": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activoSnapshot": {
+            "type": "boolean"
+          },
+          "calentamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaHistorialCalentamientoDto"
+            },
+            "nullable": true
+          },
+          "entrenamientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaHistorialEntrenamientoDto"
+            },
+            "nullable": true
+          },
+          "estiramientos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RutinaHistorialEstiramientoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialEntrenamientoDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "series": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repeticiones": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pesoAsignado": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "tiempoDescansoSegundos": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialEstiramientoDto": {
+        "type": "object",
+        "properties": {
+          "idEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "duracion": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orden": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "observaciones": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RutinaHistorialResumenDto": {
+        "type": "object",
+        "properties": {
+          "idRutinaHistorial": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idRutina": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaSnapshot": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "activoSnapshot": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SocioGridDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "nombreCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoSocio": {
+            "$ref": "#/components/schemas/EstadoSocio"
+          },
+          "plan": {
+            "$ref": "#/components/schemas/Plan"
+          },
+          "fechaFinPeriodo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SocioTurnoDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TipoDeEjercicio": {
+        "enum": [
+          "Calentamiento",
+          "Entrenamiento",
+          "Estiramiento"
+        ],
+        "type": "string"
+      },
+      "TipoEjercicioDto": {
+        "required": [
+          "nombreTipo"
+        ],
+        "type": "object",
+        "properties": {
+          "idTipoEjercicio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreTipo": {
+            "$ref": "#/components/schemas/TipoDeEjercicio"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TokenResponseDto": {
+        "required": [
+          "accessToken",
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "accessToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "permisos": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TurnoDetalleDto": {
+        "type": "object",
+        "properties": {
+          "idTurno": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombreDia": {
+            "type": "string",
+            "nullable": true
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "cupos": {
+            "type": "string",
+            "nullable": true
+          },
+          "hora": {
+            "type": "string",
+            "nullable": true
+          },
+          "entrenador": {
+            "type": "string",
+            "nullable": true
+          },
+          "socio": {
+            "type": "string",
+            "nullable": true
+          },
+          "estadoTurno": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TurnoDto": {
+        "type": "object",
+        "properties": {
+          "idTurno": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fechaAlta": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estadoTurno": {
+            "$ref": "#/components/schemas/EstadoTurno"
+          },
+          "horaDesde": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "horaHasta": {
+            "type": "string",
+            "format": "date-span"
+          },
+          "nombreDia": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreResponsable": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellidoResponsable": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TurnoInsertDto": {
+        "type": "object",
+        "properties": {
+          "idUsuarioResponsable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuarioSocio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaResponsable": {
+            "$ref": "#/components/schemas/PersonaResponsableDto"
+          },
+          "personaSocio": {
+            "$ref": "#/components/schemas/PersonaSocioDto"
+          },
+          "grupos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/GrupoDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioGridDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "fechaRegistro": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "nombreCompleto": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioInsertDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaResponsable": {
+            "$ref": "#/components/schemas/PersonaResponsableInsertDto"
+          },
+          "personaSocio": {
+            "$ref": "#/components/schemas/PersonaSocioInsertDto"
+          },
+          "idGrupos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioMasterInsertDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaResponsable": {
+            "$ref": "#/components/schemas/PersonaResponsableMasterInsertDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioUpdateDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoPersona": {
+            "type": "string",
+            "nullable": true
+          },
+          "personaResponsable": {
+            "$ref": "#/components/schemas/PersonaResponsableUpdateDto"
+          },
+          "personaSocio": {
+            "$ref": "#/components/schemas/PersonaSocioUpdateDto"
+          },
+          "idGrupos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidarIngresoDto": {
+        "type": "object",
+        "properties": {
+          "dniSocio": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "Cuota"
+    },
+    {
+      "name": "Dia"
+    },
+    {
+      "name": "DiaRangoHorario"
+    },
+    {
+      "name": "Ejercicio"
+    },
+    {
+      "name": "Equipamiento"
+    },
+    {
+      "name": "Formulario"
+    },
+    {
+      "name": "Grupo"
+    },
+    {
+      "name": "GrupoMuscular"
+    },
+    {
+      "name": "Gyms"
+    },
+    {
+      "name": "Maquina"
+    },
+    {
+      "name": "Permiso"
+    },
+    {
+      "name": "PersonaResponsable"
+    },
+    {
+      "name": "RangoHorario"
+    },
+    {
+      "name": "Rutina"
+    },
+    {
+      "name": "TipoEjercicio"
+    },
+    {
+      "name": "Turno"
+    },
+    {
+      "name": "Usuario"
+    }
+  ]
+}

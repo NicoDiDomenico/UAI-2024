@@ -1,0 +1,38 @@
+﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using System.Globalization;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class RutinaService : IRutinaService
+    {
+        private readonly IRutinaRepository _rutinaRepository;
+        private readonly IMapper _mapper;
+
+        public RutinaService(IRutinaRepository rutinaRepository, IMapper mapper)
+        {
+            _rutinaRepository = rutinaRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<IEnumerable<RutinaDto>> GetRutinasPorSocioYDia(int idUsuarioSocio, DateTime? fecha)
+        {
+            DateTime fechaEvaluada = (fecha ?? DateTime.Today).Date;
+            string nombreDia = ObtenerNombreDia(fechaEvaluada);
+
+            IEnumerable<Rutina> rutinas = await _rutinaRepository.GetRutinasPorSocioYDia(idUsuarioSocio, nombreDia);
+
+            return rutinas.Select(r => _mapper.Map<RutinaDto>(r));
+        }
+
+        private static string ObtenerNombreDia(DateTime fecha)
+        {
+            var cultura = new CultureInfo("es-ES");
+            string diaCultura = fecha.ToString("dddd", cultura);
+            return cultura.TextInfo.ToTitleCase(diaCultura);
+        }
+    }
+}

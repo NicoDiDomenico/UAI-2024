@@ -1,0 +1,321 @@
+﻿# Plan para convertir el backend a Multi-Tenant
+
+## Objetivo
+
+Transformar el backend actual, que está pensado para un solo gimnasio, en un servicio capaz de atender a **múltiples gimnasios** manteniendo los datos **separados y aislados** entre sí.
+
+Cada gimnasio debe ver únicamente su propia información: usuarios, socios, rutinas, turnos, equipos, permisos y cualquier otro dato operativo.
+
+---
+
+## Qué significa Multi-Tenant
+
+Multi-tenant significa que una sola aplicación y una sola base de datos pueden servir a varios clientes o "tenants".
+
+En este caso:
+- **Tenant = Gimnasio**
+- Un usuario autenticado debe operar siempre dentro del gimnasio al que pertenece.
+- Los registros de un gimnasio no deben mezclarse con los de otro.
+
+---
+
+## Opciones de arquitectura
+
+### 1. Base de datos compartida con `GimnasioId` en las tablas
+
+Es la opción más simple para empezar.
+
+**Cómo funciona:**
+- Se crea una tabla `Gimnasio`.
+- Todas las tablas principales agregan una columna `IdGimnasio`.
+- Todas las consultas filtran por ese identificador.
+
+**Ventajas:**
+- Más fácil de implementar.
+- Menor costo operativo.
+- Un solo despliegue y una sola base de datos.
+
+**Desventajas:**
+- Requiere mucho cuidado para no olvidar filtros.
+- El aislamiento es lógico, no físico.
+
+**Recomendación:**
+- Esta es la mejor opción para una primera versión multi-tenant.
+
+---
+
+### 2. Una base de datos por gimnasio
+
+Cada gimnasio tiene su propia base de datos.
+
+**Ventajas:**
+- Aislamiento fuerte.
+- Migraciones independientes.
+- Más seguridad entre clientes.
+
+**Desventajas:**
+- Mucha más complejidad.
+- Mantenimiento y despliegue más difíciles.
+- Escalabilidad operativa más costosa.
+
+**Recomendación:**
+- Solo si el negocio crece mucho y el aislamiento fuerte se vuelve necesario.
+
+---
+
+### 3. Un esquema por gimnasio
+
+Cada gimnasio comparte la misma base de datos, pero con un esquema distinto.
+
+**Ventajas:**
+- Aislamiento intermedio.
+
+**Desventajas:**
+- Más complejo que la opción 1.
+- No suele ser la primera elección en proyectos pequeños o medianos.
+
+**Recomendación:**
+- No es la mejor alternativa para este proyecto ahora mismo.
+
+---
+
+## Estrategia recomendada para este proyecto
+
+Usar **una sola base de datos compartida** con un campo `IdGimnasio` en las entidades principales.
+
+Esto permite avanzar con cambios controlados y sin rehacer toda la arquitectura.
+
+---
+
+## Plan de implementación por etapas
+
+## Etapa 1: Diseñar la entidad `Gimnasio`
+
+Se debe crear una nueva tabla para representar a cada cliente del sistema.
+
+### Campos sugeridos
+- `IdGimnasio`
+- `Nombre`
+- `Direccion`
+- `Telefono`
+- `Email`
+- `Activo`
+- `FechaCreacion`
+
+### Propósito
+Esta tabla será la referencia principal para separar los datos de cada gimnasio.
+
+---
+
+## Etapa 2: Relacionar las entidades con `Gimnasio`
+
+Agregar `IdGimnasio` en las entidades que deban quedar separadas por cliente.
+
+### Ejemplos de entidades que probablemente deban tenerlo
+- `Usuario`
+- `PersonaSocio`
+- `PersonaResponsable`
+- `Rutina`
+- `Turno`
+- `Grupo`
+- `Maquina`
+- `Equipamiento`
+- `Ejercicio`
+- `Dia`
+- `Cuota`
+- `Formulario`
+- cualquier otra tabla operativa del gimnasio
+
+### Objetivo
+Evitar que un gimnasio pueda acceder, por error o por diseño, a registros de otro gimnasio.
+
+---
+
+## Etapa 3: Asociar el usuario autenticado con su gimnasio
+
+Cuando el usuario inicia sesión, el backend debe conocer a qué gimnasio pertenece.
+
+### Cómo lograrlo
+- Guardar `IdGimnasio` en el usuario.
+- Incluir `IdGimnasio` dentro del JWT.
+- Leer ese dato en cada request autenticado.
+
+### Resultado
+Cada petición podrá identificarse dentro del contexto correcto del gimnasio.
+
+---
+
+## Etapa 4: Crear un servicio de contexto del tenant
+
+Crear un servicio que guarde el gimnasio actual de la request.
+
+### Responsabilidad
+- Obtener el gimnasio desde el token.
+- Exponerlo a repositorios y servicios.
+- Evitar que cada clase tenga que buscar el gimnasio por su cuenta.
+
+### Beneficio
+Centraliza la lógica y reduce errores.
+
+---
+
+## Etapa 5: Incorporar un middleware
+
+Agregar un middleware que se ejecute en cada request.
+
+### Función
+- Leer el JWT.
+- Extraer el `IdGimnasio`.
+- Guardarlo en el contexto actual.
+- Bloquear la request si falta información crítica.
+
+### Beneficio
+Garantiza que toda la aplicación trabaje siempre con el gimnasio correcto.
+
+---
+
+## Etapa 6: Filtrar todas las consultas por gimnasio
+
+Esta es una de las partes más importantes.
+
+### Regla general
+Toda consulta de lectura, edición o eliminación debe verificar que el registro pertenezca al gimnasio actual.
+
+### Ejemplo de comportamiento esperado
+- Un usuario de Gym A no debe poder ver rutinas de Gym B.
+- Un usuario de Gym A no debe poder editar socios de Gym B.
+- Un usuario de Gym A no debe poder eliminar turnos de Gym B.
+
+### Recomendación técnica
+Crear una base común para repositorios o una estrategia de filtrado centralizada.
+
+---
+
+## Etapa 7: Asegurar la creación de registros con el gimnasio correcto
+
+Cuando se cree un nuevo registro:
+- el backend debe asignar automáticamente el `IdGimnasio`
+- el cliente no debería enviarlo manualmente
+
+### Beneficio
+Evita errores y reduce riesgos de manipulación indebida.
+
+---
+
+## Etapa 8: Revisar autorización y permisos
+
+Los permisos seguirán siendo importantes, pero ahora deben convivir con el contexto del gimnasio.
+
+### Diferencia importante
+- **Permiso**: qué puede hacer el usuario
+- **Tenant**: a qué gimnasio pertenece ese usuario
+
+### Ejemplo
+Un usuario puede tener permiso para editar rutinas, pero solo dentro de su propio gimnasio.
+
+---
+
+## Etapa 9: Migraciones de base de datos
+
+Se deberán crear migraciones para:
+- agregar la tabla `Gimnasio`
+- agregar `IdGimnasio` a las tablas necesarias
+- definir relaciones y claves foráneas
+- adaptar restricciones únicas, índices y validaciones
+
+### Importante
+Algunas restricciones únicas actuales podrían necesitar cambios.
+
+Por ejemplo:
+- `Username` quizá sea único globalmente o único por gimnasio, según la regla de negocio.
+- Otras entidades también podrían necesitar unicidad compuesta por `IdGimnasio`.
+
+---
+
+## Etapa 10: Validación funcional y de seguridad
+
+Antes de darlo por terminado, hay que probar casos reales:
+
+### Casos de prueba
+- Login de usuarios de distintos gimnasios.
+- Listado de datos solo del gimnasio correcto.
+- Intento de acceder a un registro de otro gimnasio.
+- Creación de nuevos registros con el gimnasio asignado automáticamente.
+- Edición y eliminación restringidas por tenant.
+
+---
+
+## Riesgos principales
+
+### 1. Olvidar filtrar alguna consulta
+Este es el riesgo más grande.
+
+**Mitigación:**
+- centralizar filtros
+- revisar repositorios y servicios uno por uno
+- agregar pruebas
+
+### 2. Mezclar permisos con tenant
+Un permiso no reemplaza el aislamiento por gimnasio.
+
+**Mitigación:**
+- tratar permisos y tenant como validaciones distintas
+
+### 3. Restricciones únicas conflictivas
+Al pasar a multi-tenant, algunas reglas únicas podrían dejar de funcionar como antes.
+
+**Mitigación:**
+- revisar índices y claves únicas
+- definir si son globales o por gimnasio
+
+### 4. Datos históricos sin gimnasio
+Si ya existe información cargada, habrá que migrarla.
+
+**Mitigación:**
+- crear un gimnasio por defecto
+- asignar los registros existentes a ese gimnasio
+
+---
+
+## Orden sugerido para implementar
+
+1. Crear la entidad `Gimnasio`
+2. Agregar `IdGimnasio` a `Usuario`
+3. Incluir `IdGimnasio` en el JWT
+4. Crear servicio de contexto del tenant
+5. Crear middleware
+6. Actualizar `Program.cs`
+7. Agregar `IdGimnasio` al resto de las entidades
+8. Modificar repositorios y servicios para filtrar por gimnasio
+9. Revisar migraciones
+10. Probar el sistema completo
+
+---
+
+## Recomendación práctica
+
+Si el objetivo es avanzar sin romper todo el proyecto, conviene hacerlo en este orden:
+
+- primero autenticar y saber qué gimnasio usa cada usuario
+- luego aislar la lectura de datos
+- después aislar la creación y modificación
+- por último revisar permisos, migraciones y validaciones
+
+---
+
+## Resultado final esperado
+
+Al terminar la migración:
+- cada gimnasio tendrá sus propios datos
+- un usuario solo verá la información de su gimnasio
+- el sistema podrá venderse como servicio a varios clientes
+- se mantendrá una sola aplicación backend con aislamiento lógico
+
+---
+
+## Conclusión
+
+La forma más realista de convertir este backend en multi-tenant es empezar con una arquitectura de **base compartida + `IdGimnasio` en las tablas**.
+
+Es la opción más simple, escalable para una primera etapa y compatible con la estructura actual del proyecto.
+
