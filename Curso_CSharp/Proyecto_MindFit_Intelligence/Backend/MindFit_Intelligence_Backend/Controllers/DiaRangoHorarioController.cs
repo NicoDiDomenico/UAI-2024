@@ -32,6 +32,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         // Chequeado --> Anda bien
         // Front: Obtener rangos horarios para registrar turno de un día específico.
         // Si no se envía fecha, se utiliza el día actual del sistema.
+        [Authorize]
         [HttpGet("grilla-por-dia")]
         public async Task<ActionResult<IEnumerable<GrillaDiaRangoHorarioDto>>> GetByDia([FromQuery] DateTime? fecha)
         {

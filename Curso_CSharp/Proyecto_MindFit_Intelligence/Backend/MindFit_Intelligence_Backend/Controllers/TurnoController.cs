@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MindFit_Intelligence_Backend.DTOs.Turno;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Services;
 using MindFit_Intelligence_Backend.Services.Interfaces;
 using System.Security.Claims;
 
@@ -20,7 +21,7 @@ namespace MindFit_Intelligence_Backend.Controllers
 
         // CUD06 - Gestionar Turno - Asistente
         // Front: Se trae una grilla de historial de los turnos del Socio seleccionado. Alli esta la opcion del boton de reservar turno 
-        //[Authorize]
+        [Authorize]
         [HttpGet("asistente/{idUsuarioSocio}")]
         public async Task<ActionResult<IEnumerable<TurnoDto>>> AsistenteGetTurnos(int idUsuarioSocio)
         {
@@ -53,7 +54,7 @@ namespace MindFit_Intelligence_Backend.Controllers
          IdUsuarioSocio -> se consigue de:
             Modulo Gestionar Turno Asistente - Con un select para elegir el socio. Se arma con los datos de los usuarios que son socios desde GET api/Usuario/grilla-socio
          */
-        //[Authorize(Policy = "AgregarTurno")]
+        [Authorize(Policy = "AgregarTurno")]
         [HttpPost("asistente/registrar")]
         public async Task<ActionResult<TurnoDto>> AsistenteRegistraTurno(TurnoInsertDto turnoInsertDto)
         {
@@ -164,6 +165,24 @@ namespace MindFit_Intelligence_Backend.Controllers
 
             return Ok(new { message = "Se ha validado exitosamente el ingreso del socio." });
         }
+
+
+        // Acá falta un endpoint que recorra todos los turnos y si hay tunros con estado EnCurso pero que ya se les paso la fecha de asistencia entonces pasar el estado de los turnos venciso a "Vencido"
+        [Authorize]
+        [HttpPatch("procesar-turnos-vencidos")]
+        public async Task<ActionResult> ProcesarTurnosVencidos()
+        {
+            try
+            {
+                int turnosProcesados = await _turnoService.ProcesarTurnosVencidos();
+                return Ok(new { mensaje = $"Turnos vencidos procesados correctamente: {turnosProcesados}" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Error al procesar turnos vencidos", detalle = ex.Message });
+            }
+        }
+
 
         // Front: Grilla general de los turnos del día actual (ideal para el dashboard del Asistente)
         [AllowAnonymous]

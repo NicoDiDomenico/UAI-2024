@@ -54,6 +54,8 @@
 - Se muestran mensajes de exito y error usando el estilo existente de alertas del frontend.
 - Al confirmar cambios o borrar definitivamente se refresca la grilla de socios.
 
+- Ajuste posterior: los campos de `Cambiar Contrasena` usan una estrategia reforzada contra autocompletado con inputs senuelo ocultos, nombres no asociados a credenciales y `readOnly` hasta foco real, para evitar que el navegador inyecte la clave del usuario autenticado.
+
 ## Axios / interceptors
 
 - No se modifico `apiClient`.

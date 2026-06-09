@@ -251,7 +251,7 @@ namespace MindFit_Intelligence_Backend.Controllers
         /// CUD05 
         // Front: Baja lógica de un socio (cambia EstadoSocio a Eliminado). 
         // ESTADO SOCIO SUSPENDIDO A ELIMINADO
-        [Authorize(Policy = "EliminarUsuarioSocio")] // Cambiar a una política más específica (opcional)
+        //[Authorize(Policy = "EliminarUsuarioSocio")] // Cambiar a una política más específica (opcional)
         [HttpPatch("socio/{idUsuario}/baja")]
         public async Task<ActionResult<UsuarioDto>> SoftDeleteSocio(int idUsuario)
         {

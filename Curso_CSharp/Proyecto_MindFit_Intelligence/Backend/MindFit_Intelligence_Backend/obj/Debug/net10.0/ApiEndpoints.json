@@ -1438,6 +1438,16 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
+    "Method": "ProcesarTurnosVencidos",
+    "RelativePath": "api/Turno/procesar-turnos-vencidos",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.TurnoController",
     "Method": "SocioGetTurnos",
     "RelativePath": "api/Turno/socio",
     "HttpMethod": "GET",

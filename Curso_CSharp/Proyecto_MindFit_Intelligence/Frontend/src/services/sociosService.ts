@@ -4,6 +4,7 @@ import type {
   ProcesarEliminacionesResponse,
   SocioGridItem,
   UsuarioDto,
+  UsuarioInsertDto,
   UsuarioUpdateDto,
 } from '../types/socio'
 import { apiClient } from './apiClient'
@@ -36,8 +37,18 @@ export const sociosService = {
     return response.data
   },
 
+  async registerSocio(dto: UsuarioInsertDto) {
+    const response = await apiClient.post<UsuarioDto>('/Usuario/socio/register', dto)
+    return response.data
+  },
+
   async updateSocio(idUsuario: number, dto: UsuarioUpdateDto) {
     const response = await apiClient.put<UsuarioDto>(`/Usuario/socio/${idUsuario}`, dto)
+    return response.data
+  },
+
+  async darDeBajaSocio(idUsuario: number) {
+    const response = await apiClient.patch<UsuarioDto>(`/Usuario/socio/${idUsuario}/baja`)
     return response.data
   },
 

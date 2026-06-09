@@ -12,5 +12,6 @@ namespace MindFit_Intelligence_Backend.DTOs.Usuarios
         public EstadoSocio EstadoSocio { get; set; }
         public Plan? Plan { get; set; }
         public DateTime? FechaFinPeriodo { get; set; }
+        public string? NroDocumento { get; set; } // --> Lo agregue nuevo asi lo mostraba en el grid de turnos del Socio selecionado
     }
 }

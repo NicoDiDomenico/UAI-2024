@@ -14,19 +14,85 @@ const DEFAULT_TURNOS_ERROR =
   'No pudimos cargar los turnos del dia. Intenta nuevamente en unos minutos.'
 const DEFAULT_SOCIOS_ERROR =
   'No pudimos cargar la lista de socios. Revisa la conexion con el backend e intenta nuevamente.'
+const DEFAULT_SOCIO_DELETE_ERROR =
+  'No pudimos completar la baja del socio. Intenta nuevamente en unos minutos.'
+const DEFAULT_SOCIO_TURNOS_ERROR =
+  'No pudimos cargar el historial de turnos del socio. Intenta nuevamente en unos minutos.'
+const DEFAULT_CANCELAR_TURNO_ERROR =
+  'No pudimos cancelar el turno seleccionado. Intenta nuevamente en unos minutos.'
+const DEFAULT_DISPONIBILIDAD_TURNO_ERROR =
+  'No pudimos cargar la disponibilidad de turnos. Intenta nuevamente en unos minutos.'
+const DEFAULT_REGISTRAR_TURNO_ERROR =
+  'No pudimos registrar el turno. Revisa los datos seleccionados e intenta nuevamente.'
 
-function getServerStringMessage(error: unknown) {
-  if (!axios.isAxiosError(error)) {
-    return null
+function getMessageFromObject(data: Record<string, unknown>) {
+  const message = data.message
+
+  if (typeof message === 'string' && message.trim()) {
+    return message
   }
 
-  const serverMessage = error.response?.data
+  if (Array.isArray(message)) {
+    const normalizedMessage = message.filter(
+      (value): value is string => typeof value === 'string' && value.trim().length > 0,
+    )
 
-  if (typeof serverMessage === 'string' && serverMessage.trim()) {
-    return serverMessage
+    if (normalizedMessage.length > 0) {
+      return normalizedMessage.join(' ')
+    }
+  }
+
+  const errors = data.errors
+
+  if (Array.isArray(errors)) {
+    const normalizedErrors = errors.filter(
+      (value): value is string => typeof value === 'string' && value.trim().length > 0,
+    )
+
+    if (normalizedErrors.length > 0) {
+      return normalizedErrors.join(' ')
+    }
+  }
+
+  const title = data.title
+
+  if (typeof title === 'string' && title.trim()) {
+    return title
   }
 
   return null
+}
+
+export function getApiErrorMessage(error: unknown, fallbackMessage: string) {
+  if (!axios.isAxiosError(error)) {
+    return fallbackMessage
+  }
+
+  const responseData = error.response?.data
+
+  if (typeof responseData === 'string' && responseData.trim()) {
+    return responseData
+  }
+
+  if (Array.isArray(responseData)) {
+    const normalizedErrors = responseData.filter(
+      (value): value is string => typeof value === 'string' && value.trim().length > 0,
+    )
+
+    if (normalizedErrors.length > 0) {
+      return normalizedErrors.join(' ')
+    }
+  }
+
+  if (responseData && typeof responseData === 'object') {
+    const objectMessage = getMessageFromObject(responseData as Record<string, unknown>)
+
+    if (objectMessage) {
+      return objectMessage
+    }
+  }
+
+  return fallbackMessage
 }
 
 export function getLoginErrorMessage(error: unknown) {
@@ -44,51 +110,44 @@ export function getLoginErrorMessage(error: unknown) {
 }
 
 export function getGymsErrorMessage(error: unknown) {
-  const serverMessage = getServerStringMessage(error)
-
-  if (serverMessage) {
-    return serverMessage
-  }
-
-  return DEFAULT_GYMS_ERROR
+  return getApiErrorMessage(error, DEFAULT_GYMS_ERROR)
 }
 
 export function getForgotPasswordErrorMessage(error: unknown) {
-  const serverMessage = getServerStringMessage(error)
-
-  if (serverMessage) {
-    return serverMessage
-  }
-
-  return DEFAULT_FORGOT_PASSWORD_ERROR
+  return getApiErrorMessage(error, DEFAULT_FORGOT_PASSWORD_ERROR)
 }
 
 export function getResetPasswordErrorMessage(error: unknown) {
-  const serverMessage = getServerStringMessage(error)
-
-  if (serverMessage) {
-    return serverMessage
-  }
-
-  return DEFAULT_RESET_PASSWORD_ERROR
+  return getApiErrorMessage(error, DEFAULT_RESET_PASSWORD_ERROR)
 }
 
 export function getInicioErrorMessage(error: unknown, resource: 'formularios' | 'turnos') {
-  const serverMessage = getServerStringMessage(error)
-
-  if (serverMessage) {
-    return serverMessage
-  }
-
-  return resource === 'formularios' ? DEFAULT_FORMULARIOS_ERROR : DEFAULT_TURNOS_ERROR
+  return getApiErrorMessage(
+    error,
+    resource === 'formularios' ? DEFAULT_FORMULARIOS_ERROR : DEFAULT_TURNOS_ERROR,
+  )
 }
 
 export function getSociosErrorMessage(error: unknown) {
-  const serverMessage = getServerStringMessage(error)
+  return getApiErrorMessage(error, DEFAULT_SOCIOS_ERROR)
+}
 
-  if (serverMessage) {
-    return serverMessage
-  }
+export function getSocioDeleteErrorMessage(error: unknown) {
+  return getApiErrorMessage(error, DEFAULT_SOCIO_DELETE_ERROR)
+}
 
-  return DEFAULT_SOCIOS_ERROR
+export function getSocioTurnosErrorMessage(error: unknown) {
+  return getApiErrorMessage(error, DEFAULT_SOCIO_TURNOS_ERROR)
+}
+
+export function getCancelarTurnoErrorMessage(error: unknown) {
+  return getApiErrorMessage(error, DEFAULT_CANCELAR_TURNO_ERROR)
+}
+
+export function getDisponibilidadTurnoErrorMessage(error: unknown) {
+  return getApiErrorMessage(error, DEFAULT_DISPONIBILIDAD_TURNO_ERROR)
+}
+
+export function getRegistrarTurnoErrorMessage(error: unknown) {
+  return getApiErrorMessage(error, DEFAULT_REGISTRAR_TURNO_ERROR)
 }

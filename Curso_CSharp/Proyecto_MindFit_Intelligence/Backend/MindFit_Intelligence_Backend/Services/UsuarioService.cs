@@ -114,7 +114,18 @@ namespace MindFit_Intelligence_Backend.Services
         public async Task<List<SocioGridDto>> GetUsuariosSociosGrid()
         {
             List<Usuario> usuarios = await _usuarioRepository.GetUsuariosSocios();
-            return _mapper.Map<List<SocioGridDto>>(usuarios);
+
+            List<SocioGridDto> sociosGridDto = _mapper.Map<List<SocioGridDto>>(usuarios);
+
+            foreach (var socioDto in sociosGridDto)
+            {
+                socioDto.NroDocumento = usuarios
+                    .Where(u => u.IdUsuario == socioDto.IdUsuario)
+                    .Select(u => u.PersonaSocio?.NroDocumento)
+                    .FirstOrDefault();
+            }
+
+            return sociosGridDto;
         }
 
         // Acá el front obtiene info esencial para la grilla de Responsables

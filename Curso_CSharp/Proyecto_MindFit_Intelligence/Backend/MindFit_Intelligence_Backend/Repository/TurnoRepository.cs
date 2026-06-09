@@ -44,6 +44,7 @@ namespace MindFit_Intelligence_Backend.Repository
                 .Include(t => t.CupoFecha)
                     .ThenInclude(cf => cf.DiaRangoHorario)
                         .ThenInclude(drh => drh.Dia)
+                .Include(t => t.PersonaSocio)
                 .Where(t => t.IdUsuarioSocio == idUsuarioSocio)
                 .ToListAsync();
         }
@@ -112,6 +113,14 @@ namespace MindFit_Intelligence_Backend.Repository
             });
 
             return resultado;
+        }
+
+        public async Task<List<Turno>> GetTurnosEnCurso()
+        {
+            return await _context.Turnos
+                .Include(t => t.CupoFecha)
+                .Where(t => t.EstadoTurno == Models.Enums.EstadoTurno.EnCurso)
+                .ToListAsync();
         }
 
         public async Task Save()

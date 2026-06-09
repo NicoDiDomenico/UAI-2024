@@ -11,6 +11,7 @@ export interface SocioGridItem {
   estadoSocio: EstadoSocio
   plan: string | null
   fechaFinPeriodo: string | null
+  nroDocumento: string | null
 }
 
 export interface ProcesarEliminacionesResponse {
@@ -102,6 +103,13 @@ export interface PerfilIAUpdateDto {
   motivacionPersonal: string | null
 }
 
+export type PerfilIAInsertDto = PerfilIAUpdateDto
+
+export interface CuotaInsertDto {
+  plan: PlanSocio
+  monto: number
+}
+
 export interface CuotaUpdateDto {
   renueva: boolean
   plan: PlanSocio | null
@@ -134,6 +142,36 @@ export interface UsuarioUpdateDto {
   tipoPersona: string
   personaResponsable: null
   personaSocio: PersonaSocioUpdateDto
+  idGrupos: number[]
+}
+
+export interface PersonaSocioInsertDto {
+  nombre: string
+  apellido: string
+  email: string
+  telefono: string | null
+  direccion: string | null
+  ciudad: string | null
+  tipoDocumento: string
+  nroDocumento: string
+  genero: GeneroSocio | null
+  fechaNacimiento: string | null
+  obraSocial: string | null
+  fechaNotificacion: string | null
+  respuestaNotificacion: boolean | null
+  pregunta: string | null
+  respuesta: string | null
+  diasActivosIds: number[]
+  cuota: CuotaInsertDto
+  perfilIA: PerfilIAInsertDto | null
+}
+
+export interface UsuarioInsertDto {
+  username: string
+  password: string
+  tipoPersona: 'Socio'
+  personaResponsable: null
+  personaSocio: PersonaSocioInsertDto
   idGrupos: number[]
 }
 

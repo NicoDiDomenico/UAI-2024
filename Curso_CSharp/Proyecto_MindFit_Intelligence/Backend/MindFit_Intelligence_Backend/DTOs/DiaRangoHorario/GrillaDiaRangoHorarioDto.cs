@@ -5,6 +5,7 @@ namespace MindFit_Intelligence_Backend.DTOs.DiaRangoHorario
     public class GrillaDiaRangoHorarioDto
     {
         public int IdDiaRangoHorario { get; set; }
+        public int CupoActual { get; set; }
 
         public int CupoMaximo { get; set; }
 

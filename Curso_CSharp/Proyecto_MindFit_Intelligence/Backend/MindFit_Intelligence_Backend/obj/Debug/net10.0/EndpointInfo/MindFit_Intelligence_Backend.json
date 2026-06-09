@@ -3205,6 +3205,28 @@
         }
       }
     },
+    "/api/Turno/procesar-turnos-vencidos": {
+      "patch": {
+        "tags": [
+          "Turno"
+        ],
+        "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Turno/inicio/grilla-fecha": {
       "get": {
         "tags": [
@@ -4372,7 +4394,8 @@
         "enum": [
           "EnCurso",
           "Cancelado",
-          "Finalizado"
+          "Finalizado",
+          "Vencido"
         ],
         "type": "string"
       },
@@ -4471,6 +4494,10 @@
         "type": "object",
         "properties": {
           "idDiaRangoHorario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cupoActual": {
             "type": "integer",
             "format": "int32"
           },
@@ -5716,6 +5743,10 @@
           "fechaFinPeriodo": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          },
+          "nroDocumento": {
+            "type": "string",
             "nullable": true
           }
         },

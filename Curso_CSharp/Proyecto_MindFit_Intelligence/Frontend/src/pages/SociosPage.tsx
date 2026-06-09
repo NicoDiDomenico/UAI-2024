@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { ConsultarSocioModal } from '../components/socios/ConsultarSocioModal'
+import { EliminarSocioModal } from '../components/socios/EliminarSocioModal'
+import { GestionTurnosModal } from '../components/socios/GestionTurnosModal'
 import { useAuth } from '../hooks/useAuth'
 import { AppLayout } from '../layouts/AppLayout'
+import { AgregarSocioModal } from './AgregarSocioPage'
 import { sociosService } from '../services/sociosService'
-import type { SocioGridItem } from '../types/socio'
+import type { SocioGridItem, UsuarioDto } from '../types/socio'
 import { formatDateCell, normalizeDateForSearch } from '../utils/date'
 import { getSociosErrorMessage } from '../utils/apiError'
 
@@ -49,6 +52,7 @@ function getSocioDisplayName(socio: SocioGridItem) {
 
 export function SociosPage() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { idUsuario } = useParams()
   const { session } = useAuth()
   const userPermissions = session?.permisos ?? []
@@ -57,14 +61,23 @@ export function SociosPage() {
   const [showDeleted, setShowDeleted] = useState(false)
   const [searchField, setSearchField] = useState<SearchField>('nombreCompleto')
   const [searchValue, setSearchValue] = useState('')
+  const [isSearchAutofillGuardEnabled, setIsSearchAutofillGuardEnabled] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
+  const [deleteTargetSocio, setDeleteTargetSocio] = useState<SocioGridItem | null>(null)
 
   const canAgregar = userPermissions.includes(ACTION_PERMISSIONS.agregar)
   const canConsultar = matchesPermission(userPermissions, CONSULTAR_PERMISSIONS)
   const canEliminar = userPermissions.includes(ACTION_PERMISSIONS.eliminar)
   const canTurnos = matchesPermission(userPermissions, TURNOS_PERMISSIONS)
+  const isAgregarRoute = location.pathname === '/socios/agregar'
+  const isConsultarRoute = location.pathname.endsWith('/consultar')
   const consultarSocioId = idUsuario ? Number(idUsuario) : null
+  const routeSocioId =
+    consultarSocioId && !Number.isNaN(consultarSocioId) ? consultarSocioId : null
+  const isTurnosRoute = location.pathname.endsWith('/turnos')
+  const effectiveSelectedSocioId = routeSocioId ?? selectedSocioId
 
   const loadSocios = useCallback(
     async (options?: { keepLoading?: boolean }) => {
@@ -103,14 +116,6 @@ export function SociosPage() {
     }
   }, [loadSocios])
 
-  useEffect(() => {
-    if (!consultarSocioId || Number.isNaN(consultarSocioId)) {
-      return
-    }
-
-    setSelectedSocioId(consultarSocioId)
-  }, [consultarSocioId])
-
   const visibleSocios = useMemo(() => {
     const normalizedSearch = searchValue.trim().toLocaleLowerCase('es-AR')
 
@@ -126,21 +131,13 @@ export function SociosPage() {
   }, [searchField, searchValue, showDeleted, socios])
 
   const selectedSocio = useMemo(
-    () => socios.find((socio) => socio.idUsuario === selectedSocioId) ?? null,
-    [selectedSocioId, socios],
+    () => visibleSocios.find((socio) => socio.idUsuario === effectiveSelectedSocioId) ?? null,
+    [effectiveSelectedSocioId, visibleSocios],
   )
-
-  useEffect(() => {
-    if (!selectedSocioId) {
-      return
-    }
-
-    const stillVisible = visibleSocios.some((socio) => socio.idUsuario === selectedSocioId)
-
-    if (!stillVisible) {
-      setSelectedSocioId(null)
-    }
-  }, [selectedSocioId, visibleSocios])
+  const routeSocio = useMemo(
+    () => socios.find((socio) => socio.idUsuario === routeSocioId) ?? null,
+    [routeSocioId, socios],
+  )
 
   function goToSelected(pathBuilder: (idUsuario: number) => string) {
     if (!selectedSocio) {
@@ -148,6 +145,26 @@ export function SociosPage() {
     }
 
     navigate(pathBuilder(selectedSocio.idUsuario))
+  }
+
+  function handleSocioDeleted(updatedSocio: UsuarioDto) {
+    const nextEstado = updatedSocio.personaSocio?.estadoSocio ?? 'Eliminado'
+
+    setSocios((currentSocios) =>
+      currentSocios.map((socio) =>
+        socio.idUsuario === updatedSocio.idUsuario
+          ? {
+              ...socio,
+              estadoSocio: nextEstado,
+            }
+          : socio,
+      ),
+    )
+  }
+
+  function closeDeleteModal() {
+    setIsDeleteModalOpen(false)
+    setDeleteTargetSocio(null)
   }
 
   return (
@@ -175,6 +192,22 @@ export function SociosPage() {
             </div>
 
             <div className="socios-filters" aria-label="Filtros de busqueda">
+              <input
+                type="text"
+                name="socios-filter-decoy-user"
+                autoComplete="username"
+                tabIndex={-1}
+                aria-hidden="true"
+                className="autofill-decoy"
+              />
+              <input
+                type="password"
+                name="socios-filter-decoy-password"
+                autoComplete="current-password"
+                tabIndex={-1}
+                aria-hidden="true"
+                className="autofill-decoy"
+              />
               <label className="field-group socios-filter-field">
                 <span className="field-label">Buscar por</span>
                 <select
@@ -195,7 +228,12 @@ export function SociosPage() {
                 <input
                   className="field-input"
                   type="text"
+                  name="socios-filter-query"
+                  autoComplete="one-time-code"
+                  readOnly={isSearchAutofillGuardEnabled}
                   value={searchValue}
+                  onMouseDown={() => setIsSearchAutofillGuardEnabled(false)}
+                  onFocus={() => setIsSearchAutofillGuardEnabled(false)}
                   onChange={(event) => setSearchValue(event.target.value)}
                   placeholder="Filtrar resultados"
                 />
@@ -235,7 +273,7 @@ export function SociosPage() {
                     </tr>
                   ) : (
                     visibleSocios.map((socio) => {
-                      const isSelected = socio.idUsuario === selectedSocioId
+                      const isSelected = socio.idUsuario === effectiveSelectedSocioId
                       const isAlertState =
                         socio.estadoSocio === 'Eliminado' || socio.estadoSocio === 'Suspendido'
 
@@ -304,8 +342,15 @@ export function SociosPage() {
               <button
                 className="ghost-button socios-action"
                 type="button"
-                disabled={!selectedSocio}
-                onClick={() => goToSelected((idUsuario) => `/socios/${idUsuario}/eliminar`)}
+                disabled={!selectedSocio || isLoading}
+                onClick={() => {
+                  if (!selectedSocio) {
+                    return
+                  }
+
+                  setDeleteTargetSocio(selectedSocio)
+                  setIsDeleteModalOpen(true)
+                }}
               >
                 Eliminar
               </button>
@@ -324,7 +369,7 @@ export function SociosPage() {
           </div>
         </section>
 
-        {consultarSocioId && !Number.isNaN(consultarSocioId) && canConsultar ? (
+        {isConsultarRoute && consultarSocioId && !Number.isNaN(consultarSocioId) && canConsultar ? (
           <ConsultarSocioModal
             idUsuario={consultarSocioId}
             userPermissions={userPermissions}
@@ -334,6 +379,33 @@ export function SociosPage() {
               void loadSocios({ keepLoading: false })
             }}
             onUpdated={() => void loadSocios({ keepLoading: false })}
+          />
+        ) : null}
+
+        {isTurnosRoute && routeSocio && canTurnos ? (
+          <GestionTurnosModal
+            socio={routeSocio}
+            userPermissions={userPermissions}
+            onClose={() => navigate('/socios')}
+          />
+        ) : null}
+
+        {isAgregarRoute && canAgregar ? (
+          <AgregarSocioModal
+            onClose={() => navigate('/socios')}
+            onCreated={() => {
+              navigate('/socios')
+              void loadSocios({ keepLoading: false })
+            }}
+          />
+        ) : null}
+
+        {isDeleteModalOpen && deleteTargetSocio ? (
+          <EliminarSocioModal
+            key={deleteTargetSocio.idUsuario}
+            socio={deleteTargetSocio}
+            onClose={closeDeleteModal}
+            onDeleted={handleSocioDeleted}
           />
         ) : null}
       </main>

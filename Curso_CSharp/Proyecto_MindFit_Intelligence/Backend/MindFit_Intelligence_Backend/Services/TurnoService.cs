@@ -227,6 +227,25 @@ namespace MindFit_Intelligence_Backend.Services
             return true;
         }
 
+        public async Task<int> ProcesarTurnosVencidos()
+        {
+            List<Turno> turnos = await _turnoRepository.GetTurnosEnCurso();
+            if (turnos.Count == 0) return 0;
+
+            int contadorVencidos = 0;
+            foreach (Turno t in turnos)
+            {
+                if (t.ValidarVencimiento())
+                {
+                    t.Vencido();
+                    contadorVencidos++;
+                }
+            }
+
+            await _turnoRepository.Save();
+            return contadorVencidos;
+        }
+
         public async Task<IEnumerable<TurnoDetalleDto>> GetTurnosPorFechaAsync(DateTime? fecha)
         {
             // Si 'fecha' es null (no se envió en la URL), se asigna DateTime.Today por defecto.

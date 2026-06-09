@@ -1,6 +1,7 @@
 ﻿using MindFit_Intelligence_Backend.DTOs.DiaRangoHorario;
 using MindFit_Intelligence_Backend.DTOs.DiaRangoHorarioResponsable;
 using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository;
 using MindFit_Intelligence_Backend.Repository.Interfaces;
 using MindFit_Intelligence_Backend.Services.Interfaces;
 
@@ -20,14 +21,17 @@ namespace MindFit_Intelligence_Backend.Services
         };
 
         private readonly IDiaRangoHorarioRepository _diaRangoHorarioRepository;
-    private readonly IDiaRangoHorarioResponsableRepository _diaRangoHorarioResponsableRepository;
+        private readonly IDiaRangoHorarioResponsableRepository _diaRangoHorarioResponsableRepository;
+        private readonly ICupoFechaRepository _cupoFechaRepository;
 
-    public DiaRangoHorarioService(
+        public DiaRangoHorarioService(
         IDiaRangoHorarioRepository diaRangoHorarioRepository,
-        IDiaRangoHorarioResponsableRepository diaRangoHorarioResponsableRepository)
+        IDiaRangoHorarioResponsableRepository diaRangoHorarioResponsableRepository,
+        ICupoFechaRepository cupoFechaRepository)
         {
             _diaRangoHorarioRepository = diaRangoHorarioRepository;
-        _diaRangoHorarioResponsableRepository = diaRangoHorarioResponsableRepository;
+            _diaRangoHorarioResponsableRepository = diaRangoHorarioResponsableRepository;
+            _cupoFechaRepository = cupoFechaRepository;
         }
 
         public async Task<bool> ActivarDesactivarHorario(int IdDiaRangoHorario, DiaRangoHorarioUpdateDto dto)
@@ -106,7 +110,15 @@ namespace MindFit_Intelligence_Backend.Services
                 return Enumerable.Empty<GrillaDiaRangoHorarioDto>();
 
             var diaRangoHorarios = await _diaRangoHorarioRepository.GetByNombreDia(nombreDia);
-            return MapToGrillaDto(diaRangoHorarios);
+            var grillaDiaRangoHorarioDtos = MapToGrillaDto(diaRangoHorarios);
+
+            foreach (var drh in grillaDiaRangoHorarioDtos)
+            {
+                var cupoFecha = await _cupoFechaRepository.GetByDiaRangoHorarioYFecha(drh.IdDiaRangoHorario, fecha);
+                drh.CupoActual = cupoFecha?.CupoActual ?? 0;
+            }
+
+            return grillaDiaRangoHorarioDtos;
         }
 
         private static IEnumerable<GrillaDiaRangoHorarioDto> MapToGrillaDto(IEnumerable<DiaRangoHorario> diaRangoHorarios)
@@ -118,6 +130,8 @@ namespace MindFit_Intelligence_Backend.Services
                 grillaDiaRangoHorarioDtos.Add(new GrillaDiaRangoHorarioDto
                 {
                     IdDiaRangoHorario = drh.IdDiaRangoHorario,
+                    
+                    CupoActual = 0,
                     CupoMaximo = drh.CupoMaximo,
                     Activo = drh.Activo,
                     HoraDesde = drh.RangoHorario.HoraDesde,

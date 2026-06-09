@@ -20,20 +20,22 @@ namespace MindFit_Intelligence_Backend.Models
         public int IdUsuarioSocio { get; set; }
 
         public PersonaSocio PersonaSocio { get; set; } = null!;
-        
+
         [ForeignKey(nameof(CupoFecha))]
         public int IdCupoFecha { get; set; }
 
         public CupoFecha CupoFecha { get; set; } = null!;
-        
+
         [Column(TypeName = "date")]
-        public DateTime FechaAlta{ get; set; }
+        public DateTime FechaAlta { get; set; }
 
         public EstadoTurno EstadoTurno { get; private set; }
 
         public void Iniciar() => EstadoTurno = EstadoTurno.EnCurso;
         public void Cancelar() => EstadoTurno = EstadoTurno.Cancelado;
         public void Finalizar() => EstadoTurno = EstadoTurno.Finalizado;
+
+        public void Vencido() => EstadoTurno = EstadoTurno.Vencido;
 
         // Lógica de validación dentro de la entidad (DDD)
         public bool ValidarAntelacion(List<string> Errors)
@@ -55,6 +57,14 @@ namespace MindFit_Intelligence_Backend.Models
                 return false;
             }
             return true;
+        }
+
+        public bool ValidarVencimiento()
+        {
+            // Un turno se considera vencido si la fecha del turno es anterior a la fecha actual
+            if (CupoFecha.Fecha < DateTime.Today)
+                return true;
+            return false;
         }
     }
 }

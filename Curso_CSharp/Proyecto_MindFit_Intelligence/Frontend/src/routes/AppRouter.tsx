@@ -29,10 +29,10 @@ export function AppRouter() {
           <Route path="/dashboard" element={<InicioPage />} />
           <Route path="/rutinas" element={<PlaceholderPage title="Gestionar rutinas" />} />
           <Route path="/socios" element={<SociosPage />} />
-          <Route path="/socios/agregar" element={<PlaceholderPage title="Agregar socio" />} />
+          <Route path="/socios/agregar" element={<SociosPage />} />
           <Route path="/socios/:idUsuario/consultar" element={<SociosPage />} />
           <Route path="/socios/:idUsuario/eliminar" element={<PlaceholderPage title="Eliminar socio" />} />
-          <Route path="/socios/:idUsuario/turnos" element={<PlaceholderPage title="Turnos del socio" />} />
+          <Route path="/socios/:idUsuario/turnos" element={<SociosPage />} />
           <Route path="/gimnasio" element={<PlaceholderPage title="Gestionar gimnasio" />} />
         </Route>
         <Route path="*" element={<FallbackRoute />} />

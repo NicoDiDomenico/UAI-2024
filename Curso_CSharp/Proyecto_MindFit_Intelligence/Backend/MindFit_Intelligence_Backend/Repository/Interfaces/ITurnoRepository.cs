@@ -13,5 +13,6 @@ namespace MindFit_Intelligence_Backend.Repository.Interfaces
         Task Add(Turno entity);
         Task<IEnumerable<TurnoDetalleDto>> GetTurnosDetallePorFechaAsync(DateTime fechaFiltro);
         Task Save();
+        Task<List<Turno>> GetTurnosEnCurso();
     }
 }

@@ -11,6 +11,7 @@ namespace MindFit_Intelligence_Backend.Services.Interfaces
         Task<bool> ValidateAsync(TurnoInsertDto dto);
         Task<bool> ValidarIngresoAsync(ValidarIngresoDto dto);
         Task<IEnumerable<TurnoDetalleDto>> GetTurnosPorFechaAsync(DateTime? fecha);
+        Task<int> ProcesarTurnosVencidos();
     }
 }
 

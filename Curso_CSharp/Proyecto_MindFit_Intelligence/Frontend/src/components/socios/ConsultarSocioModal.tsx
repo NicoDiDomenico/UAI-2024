@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 import { sociosService } from '../../services/sociosService'
 import type {
   ChangePasswordRequestDto,
@@ -252,6 +252,7 @@ export function ConsultarSocioModal({
     currentPassword: '',
     newPassword: '',
   })
+  const [isPasswordAutofillGuardEnabled, setIsPasswordAutofillGuardEnabled] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const [isSaving, setIsSaving] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -263,6 +264,7 @@ export function ConsultarSocioModal({
   const canChangePassword = hasPermission(userPermissions, CHANGE_PASSWORD_PERMISSION)
   const canDelete = hasPermission(userPermissions, DELETE_PERMISSION)
   const socio = usuario?.personaSocio ?? null
+  const passwordFormKey = useId()
   const latestCuota = useMemo(() => getLatestCuota(usuario), [usuario])
   const socioName = getSocioName(usuario)
   const isDirty = useMemo(() => {
@@ -487,6 +489,7 @@ export function ConsultarSocioModal({
         newPassword: passwordState.newPassword,
       })
 
+      setIsPasswordAutofillGuardEnabled(true)
       setPasswordState({ visible: false, currentPassword: '', newPassword: '' })
       setSuccess(response || 'Contrasena cambiada correctamente.')
     } catch (requestError) {
@@ -785,7 +788,10 @@ export function ConsultarSocioModal({
                       <button
                         className="ghost-button"
                         type="button"
-                        onClick={() => setPasswordState({ ...passwordState, visible: true })}
+                        onClick={() => {
+                          setIsPasswordAutofillGuardEnabled(true)
+                          setPasswordState({ ...passwordState, visible: true })
+                        }}
                       >
                         Cambiar Contrasena
                       </button>
@@ -794,12 +800,35 @@ export function ConsultarSocioModal({
                     )
                   ) : (
                     <div className="consultar-password-box">
+                      <div aria-hidden="true">
+                        <input
+                          type="text"
+                          name={`${passwordFormKey}-decoy-user`}
+                          autoComplete="username"
+                          tabIndex={-1}
+                          aria-hidden="true"
+                          className="autofill-decoy"
+                        />
+                        <input
+                          type="password"
+                          name={`${passwordFormKey}-decoy-password`}
+                          autoComplete="current-password"
+                          tabIndex={-1}
+                          aria-hidden="true"
+                          className="autofill-decoy"
+                        />
+                      </div>
                       <label className="field-group">
                         <span className="field-label">Contrasena Actual</span>
                         <input
                           className="field-input"
                           type="password"
+                          name={`${passwordFormKey}-current-password`}
+                          autoComplete="new-password"
+                          readOnly={isPasswordAutofillGuardEnabled}
                           value={passwordState.currentPassword}
+                          onMouseDown={() => setIsPasswordAutofillGuardEnabled(false)}
+                          onFocus={() => setIsPasswordAutofillGuardEnabled(false)}
                           onChange={(event) =>
                             setPasswordState({
                               ...passwordState,
@@ -813,7 +842,12 @@ export function ConsultarSocioModal({
                         <input
                           className="field-input"
                           type="password"
+                          name={`${passwordFormKey}-next-password`}
+                          autoComplete="new-password"
+                          readOnly={isPasswordAutofillGuardEnabled}
                           value={passwordState.newPassword}
+                          onMouseDown={() => setIsPasswordAutofillGuardEnabled(false)}
+                          onFocus={() => setIsPasswordAutofillGuardEnabled(false)}
                           onChange={(event) =>
                             setPasswordState({
                               ...passwordState,
@@ -835,11 +869,14 @@ export function ConsultarSocioModal({
                           className="ghost-button"
                           type="button"
                           onClick={() =>
-                            setPasswordState({
-                              visible: false,
-                              currentPassword: '',
-                              newPassword: '',
-                            })
+                            {
+                              setIsPasswordAutofillGuardEnabled(true)
+                              setPasswordState({
+                                visible: false,
+                                currentPassword: '',
+                                newPassword: '',
+                              })
+                            }
                           }
                         >
                           Cancelar

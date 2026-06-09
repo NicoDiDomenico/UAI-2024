@@ -1,0 +1,1 @@
+- El elemento "<input class="field-input" placeholder="Filtrar resultados" type="text" value="emilio.mancuerna">" notar como se le autocompleto con el nombre de usuario del usuario registrado. Esto sucedio cuando al Consultar un Socio hice clic en el elemento "<button class="ghost-button" type="button">Cambiar Contrasena</button>", eso autocompletado no tendria que suceder.
