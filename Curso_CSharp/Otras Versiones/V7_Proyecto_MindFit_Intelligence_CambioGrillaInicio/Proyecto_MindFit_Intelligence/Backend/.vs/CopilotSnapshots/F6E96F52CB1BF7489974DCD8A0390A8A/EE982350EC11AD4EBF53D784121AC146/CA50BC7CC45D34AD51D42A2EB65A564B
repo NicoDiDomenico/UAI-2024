@@ -1,0 +1,100 @@
+﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class CuotaService : ICuotaService
+    {
+        private readonly ICuotaRepository _cuotaRepository;
+        private readonly IMapper _mapper;
+        public List<string> Errors { get; } = new();
+
+        public CuotaService(ICuotaRepository cuotaRepository, IMapper mapper)
+        {
+            _cuotaRepository = cuotaRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<IEnumerable<CuotaDto>> GetBySocio(int idUsuario)
+        {
+            IEnumerable<Cuota> cuotas = await _cuotaRepository.GetBySocio(idUsuario);
+            return _mapper.Map<IEnumerable<CuotaDto>>(cuotas);
+        }
+
+        public async Task<CuotaDto?> GetById(int id)
+        {
+            Cuota? cuota = await _cuotaRepository.GetById(id);
+            return cuota == null ? null : _mapper.Map<CuotaDto>(cuota);
+        }
+
+        public async Task<CuotaDto?> Add(CuotaInsertDto dto)
+        {
+            var inicio = DateTime.Now;
+
+            var cuota = new Cuota
+            {
+                IdUsuario = dto.IdUsuario!.Value,
+                Plan = dto.Plan,
+                Monto = dto.Monto,
+                FechaInicioPeriodo = inicio,
+                FechaFinPeriodo = dto.Plan switch
+                {
+                    Plan.Mensual => inicio.AddMonths(1),
+                    Plan.Anual => inicio.AddYears(1),
+                    _ => throw new ArgumentOutOfRangeException(nameof(dto.Plan), "Plan no soportado")
+                },
+                EstadoCuota = dto.EstadoCuota,
+                FechaPago = dto.FechaPago
+            };
+
+            await _cuotaRepository.Add(cuota);
+            await _cuotaRepository.Save();
+
+            return _mapper.Map<CuotaDto>(cuota);
+        }
+
+        public async Task<CuotaDto?> Update(int id, CuotaUpdateDto dto)
+        {
+            Cuota? cuota = await _cuotaRepository.GetById(id);
+            if (cuota == null) return null;
+
+            _mapper.Map(dto, cuota);
+            await _cuotaRepository.Save();
+
+            return _mapper.Map<CuotaDto>(cuota);
+        }
+
+        public async Task<CuotaDto?> Delete(int id)
+        {
+            Cuota? cuota = await _cuotaRepository.GetById(id);
+            if (cuota == null) return null;
+
+            CuotaDto cuotaDto = _mapper.Map<CuotaDto>(cuota);
+            _cuotaRepository.Delete(cuota);
+            await _cuotaRepository.Save();
+
+            return cuotaDto;
+        }
+
+        public async Task<bool> Validate(CuotaInsertDto dto)
+        {
+            Errors.Clear();
+
+            if (dto.IdUsuario.HasValue)
+            {
+                // RN: no se puede registrar una nueva cuota si la cuota anterior sigue pendiente de pago
+                IEnumerable<Cuota> cuotas = await _cuotaRepository.GetBySocio(dto.IdUsuario.Value);
+                Cuota? ultimaCuota = cuotas.FirstOrDefault(); // GetBySocio retorna ordenado por FechaInicioPeriodo DESC
+
+                if (ultimaCuota != null && ultimaCuota.EstadoCuota == EstadoCuota.Pendiente)
+                    Errors.Add("No se puede registrar una nueva cuota mientras la cuota anterior esté pendiente de pago.");
+            }
+
+            return !Errors.Any();
+        }
+    }
+}

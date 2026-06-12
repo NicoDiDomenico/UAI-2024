@@ -57,8 +57,11 @@ export const sociosService = {
     return response.data
   },
 
-  async changeSocioPassword(dto: ChangePasswordRequestDto) {
-    const response = await apiClient.post<string>('/Auth/socio/change-password', dto)
+  async changeSocioPassword(idUsuario: number, dto: ChangePasswordRequestDto) {
+    const response = await apiClient.post<string>(
+      `/Auth/socio/${idUsuario}/change-password`,
+      dto,
+    )
     return response.data
   },
 }

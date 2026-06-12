@@ -1,0 +1,62 @@
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using MindFit_Intelligence_Backend.DTOs.Gyms;
+using MindFit_Intelligence_Backend.Models.Master;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace MindFit_Intelligence_Backend.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class GymsController : ControllerBase
+    {
+        private readonly IGymPublicoService _gymPublicoService;
+
+        public GymsController(IGymPublicoService gymPublicoService)
+        {
+            _gymPublicoService = gymPublicoService;
+        }
+
+        // Front: Para dropdown de NombreGym para que se asigne el IdGym al header del endpoint POST api/Auth/login.
+        [HttpGet("activos")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<GymPublicoDTO>>> GetAllActivos()
+        {
+            var gyms = await _gymPublicoService.GetAllGymsActivosAsync();
+            return Ok(gyms);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("onboarding")]
+        public async Task<IActionResult> RegistrarNuevoGym([FromBody] NuevoGymRequestDto dto)
+        {
+            // 1. Armamos un nombre de Base de Datos limpio (sin espacios) para el ConnectionString
+            string nombreDbSugerido = "MindFit_" + dto.NombreGym.Replace(" ", "");
+
+            // 2. Armamos el ConnectionString igual al que tenés en tu servidor
+            // IMPORTANTE: Asegurate de poner tu Password real acá (la 0045981746 que tenías en la foto)
+            string connString = $"Server=DiDomenicoPC\\SQLEXPRESS; Database={nombreDbSugerido}; User Id=nicolas_didomenico; Password=TU_PASSWORD_AQUI; TrustServerCertificate=True;";
+
+            // 3. Creamos el objeto para tu tabla Gym
+            var nuevoGym = new Gym
+            {
+                NombreGym = dto.NombreGym,
+                ConnectionString = connString,
+                Activo = false, // ¡CLAVE! Lo dejamos inactivo para que no aparezca en el Dropdown del Login hasta que vos crees la BD
+                FechaCreacion = DateTime.UtcNow
+            };
+
+            // 4. Guardamos en la Base Maestra
+            _masterContext.Gyms.Add(nuevoGym);
+            await _masterContext.SaveChangesAsync();
+
+            return Ok(new
+            {
+                mensaje = "Gimnasio registrado con éxito.",
+                idGym = nuevoGym.IdGym
+            });
+        }
+    }
+}

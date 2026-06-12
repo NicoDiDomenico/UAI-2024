@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\diarangohorariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\diarangohorariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\turnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\turnocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\grupocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\grupocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\services\\turnoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\turnoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\formulariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\formulariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +38,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TurnoService.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Services\\TurnoService.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\TurnoService.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Services\\TurnoService.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\TurnoService.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAD4v2EAAAANAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAQwK8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T19:41:55.635Z",
+              "WhenOpened": "2026-06-12T12:52:47.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormularioController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-12T12:48:06.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TurnoController.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\TurnoController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\TurnoController.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\TurnoController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\TurnoController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwDoAAABXAAAAAAAAAA==",
+              "Title": "GrupoController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T19:40:24.556Z",
+              "WhenOpened": "2026-06-12T12:47:09.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "DiaRangoHorarioController.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowCQAAABLAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAgwA4AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-09T18:22:01.419Z",
+              "WhenOpened": "2026-06-12T12:46:21.167Z",
               "EditorCaption": ""
             }
           ]

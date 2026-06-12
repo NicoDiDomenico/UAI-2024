@@ -1,0 +1,78 @@
+﻿using AutoMapper;
+using MindFit_Intelligence_Backend.DTOs.Grupos;
+using MindFit_Intelligence_Backend.DTOs.Permisos;
+using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.DTOs.Usuarios;
+using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Automappers
+{
+    public class MappingProfile : Profile
+    {
+        public MappingProfile()
+        {
+            ///// UsuarioService.cs
+            // GetUsuariosGrid()
+            CreateMap<Usuario, UsuarioGridDto>()
+                .ForMember(d => d.TipoPersona, opt => opt.MapFrom(s =>
+                    s.PersonaResponsable != null ? "Responsable" : "Socio"))
+                .ForMember(d => d.NombreCompleto, opt => opt.MapFrom(s =>
+                    s.PersonaResponsable != null
+                        ? $"{s.PersonaResponsable.Apellido} {s.PersonaResponsable.Nombre}"
+                        : $"{s.PersonaSocio!.Apellido} {s.PersonaSocio!.Nombre}"))
+                .ForMember(d => d.Email, opt => opt.MapFrom(s =>
+                    s.PersonaResponsable != null ? s.PersonaResponsable.Email : s.PersonaSocio!.Email));
+
+            // GetUsuarioById(), Delete() y PersonaResponsableService.cs
+            CreateMap<Usuario, UsuarioDto>()
+                .ForMember(dest => dest.TipoPersona, opt => opt.MapFrom(src =>
+                    src.PersonaResponsable != null ? "Responsable" : src.PersonaSocio != null ? "Socio" : ""))
+                .ForMember(dest => dest.Grupos, opt => opt.MapFrom(src =>
+                    src.UsuarioGrupos.Select(ug => ug.Grupo)));
+            CreateMap<Permiso, PermisoDto>();
+            CreateMap<Grupo, GrupoDto>()
+                .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
+                    src.GrupoPermisos.Select(gp => gp.Permiso)));
+            CreateMap<PersonaResponsable, PersonaResponsableDto>(); 
+            CreateMap<PersonaSocio, PersonaSocioDto>()
+                .ForMember(dest => dest.IdsRutina, opt => opt.MapFrom(src =>
+                    src.Rutinas.Select(r => r.IdRutina).ToList()));
+
+            // Add()
+            CreateMap<UsuarioInsertDto, Usuario>()
+                .ForMember(dest => dest.UsuarioGrupos, opt => opt.MapFrom(src =>
+                    src.IdGrupos.Select(id => new UsuarioGrupo { IdGrupo = id })));
+            CreateMap<PersonaResponsableInsertDto, PersonaResponsable>();
+            CreateMap<PersonaSocioInsertDto, PersonaSocio>()
+                .ForMember(dest => dest.Rutinas, opt => opt.MapFrom(src => src.Rutinas));
+            CreateMap<RutinaInsertDto, Rutina>()
+                .ForMember(dest => dest.FechaModificacion, opt => opt.MapFrom(src => DateTime.Now)); // para mi no hace falta la fecha de modificacion
+
+            // Update()
+            CreateMap<UsuarioUpdateDto, Usuario>();
+            CreateMap<PersonaResponsableUpdateDto, PersonaResponsable>();
+            CreateMap<PersonaSocioUpdateDto, PersonaSocio>()
+                .ForMember(dest => dest.Rutinas, opt => opt.MapFrom(src =>
+                    src.IdsDias.Select(id => new Rutina { IdDia = id, FechaModificacion = DateTime.Now }))); // para mi no hace falta la fecha de modificacion
+
+
+            //// GrupoService.cs y PermisoService.cs
+            // Get(), GetById() y Delete()
+            CreateMap<Grupo, GrupoDto>()
+                .ForMember(dest => dest.Permisos, opt => opt.MapFrom(src =>
+                    src.GrupoPermisos.Select(gp => gp.Permiso)));
+            CreateMap<Permiso, PermisoDto>();
+
+            // Add()
+            CreateMap<GrupoInsertDto, Grupo>()
+                .ForMember(dest => dest.GrupoPermisos, opt => opt.MapFrom(src =>
+                    src.IdPermisos.Select(id => new GrupoPermiso { IdPermiso = id })));
+
+            // Update()
+            CreateMap<GrupoUpdateDto, Grupo>()
+                .ForMember(dest => dest.GrupoPermisos, opt => opt.MapFrom(src =>
+                    src.IdPermisos.Select(id => new GrupoPermiso { IdPermiso = id })));
+        }
+    }
+}

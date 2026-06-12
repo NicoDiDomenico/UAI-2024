@@ -1,0 +1,97 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Models.Enums;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class PersonaSocioService : IPersonaSocioService
+    {
+        private IEmailService _emailService;
+
+        public PersonaSocioService(IEmailService emailService)
+        {
+            _emailService = emailService;
+        }
+
+        public async void enviarEmailBienvenida(Usuario usuario)
+        {
+            var socio = usuario.PersonaSocio;
+            string htmlBody = $"""
+                    <h2>¡Bienvenido/a a MindFit Intelligence, {socio.Nombre} {socio.Apellido}!</h2>
+                    <p>Tu registro fue completado exitosamente.</p>
+                    <ul>
+                        <li><strong>Cuenta de Usuario:</strong> {usuario.Username}</li>
+                        <li><strong>Plan:</strong> {socio.Plan}</li>
+                        <li><strong>Inicio de actividades:</strong> {socio.FechaInicioActividades:dd/MM/yyyy}</li>
+                        <li><strong>Vencimiento:</strong> {socio.FechaFinActividades:dd/MM/yyyy}</li>
+                    </ul>
+                    <p>¡Te esperamos!</p>
+                    """;
+
+            await _emailService.SendAsync(socio.Email, "Confirmación de registro - MindFit Intelligence", htmlBody);
+        }
+
+        public void setSocioNuevo(PersonaSocio personaSocio, List<int> diasActivosIds)
+        {
+            var inicio = DateTime.Now;
+
+            personaSocio.FechaInicioActividades = inicio;
+
+            personaSocio.FechaFinActividades = personaSocio.Plan switch
+            {
+                Plan.Mensual => inicio.AddMonths(1),
+                Plan.Anual => inicio.AddYears(1),
+                _ => throw new ArgumentOutOfRangeException(nameof(personaSocio.Plan), "Plan no soportado")
+            };
+
+            // Crear las 7 rutinas (una por cada día de la semana)
+            personaSocio.Rutinas = new List<Rutina>();
+            for (int idDia = 1; idDia <= 7; idDia++)
+            {
+                personaSocio.Rutinas.Add(new Rutina
+                {
+                    IdDia = idDia,
+                    FechaModificacion = inicio,
+                    Activo = diasActivosIds.Contains(idDia)
+                });
+            }
+
+            personaSocio.EstadoSocio = EstadoSocio.Nuevo;
+        }
+        public void setSocioActualizado(PersonaSocio personaSocio, ICollection<RutinaUpdateDto> rutinaDtos)
+        {
+
+           foreach (Rutina r in personaSocio.Rutinas)
+            {
+                foreach (RutinaUpdateDto rDto in rutinaDtos)
+                {
+                    if (r.IdDia == rDto.IdDia)
+                    {
+                        r.FechaModificacion = DateTime.Now;
+                    }
+                }
+            }
+            /*
+            var inicio = DateTime.Now;
+
+            personaSocio.FechaInicioActividades = inicio;
+
+            personaSocio.FechaFinActividades = personaSocio.Plan switch
+            {
+                Plan.Mensual => inicio.AddMonths(1),
+                Plan.Anual => inicio.AddYears(1),
+                _ => throw new ArgumentOutOfRangeException(nameof(personaSocio.Plan), "Plan no soportado")
+            };
+
+            foreach (var rutina in personaSocio.Rutinas)
+            {
+                rutina.FechaModificacion = inicio;
+            }
+
+            personaSocio.EstadoSocio = EstadoSocio.Actualizado;
+            */
+        }
+    }
+}

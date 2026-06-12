@@ -1,11 +1,14 @@
 import type { Formulario } from '../types/formulario'
 
-export interface NavigationItem {
-  key: 'rutinas' | 'socios' | 'gimnasio'
+export interface PermissionNavigationItem<TKey extends string = string> {
+  key: TKey
   label: string
-  description: string
   path: string
   permissionCodes: readonly string[]
+}
+
+export interface NavigationItem extends PermissionNavigationItem<'rutinas' | 'socios' | 'gimnasio'> {
+  description: string
 }
 
 export const navigationItems: readonly NavigationItem[] = [
@@ -65,9 +68,17 @@ export function getVisibleNavigationItems(
   userPermissions: readonly string[],
   formularios: readonly Formulario[],
 ) {
+  return getVisiblePermissionNavigationItems(navigationItems, userPermissions, formularios)
+}
+
+export function getVisiblePermissionNavigationItems<TItem extends PermissionNavigationItem>(
+  items: readonly TItem[],
+  userPermissions: readonly string[],
+  formularios: readonly Formulario[],
+): TItem[] {
   const userPermissionSet = new Set(userPermissions)
 
-  return navigationItems.filter((item) => {
+  return items.filter((item) => {
     const compatibleFormPermissions = formularios
       .filter((formulario) =>
         formulario.permisos.some((permission) => item.permissionCodes.includes(permission)),

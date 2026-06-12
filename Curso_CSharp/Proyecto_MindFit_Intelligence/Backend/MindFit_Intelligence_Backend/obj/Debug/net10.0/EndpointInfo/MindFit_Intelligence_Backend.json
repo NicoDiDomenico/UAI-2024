@@ -244,12 +244,112 @@
         }
       }
     },
+    "/api/Auth/responsables/{idUsuario}/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Auth/socio/change-password": {
       "post": {
         "tags": [
           "Auth"
         ],
         "parameters": [
+          {
+            "name": "X-Gym-Id",
+            "in": "header",
+            "description": "Id del gimnasio (tenant). OBLIGATORIO para endpoints públicos (login/refresh/forgot-password). OPCIONAL para endpoints autenticados (si viaja en JWT, se usa automáticamente).",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePasswordRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Auth/socio/{idUsuario}/change-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
           {
             "name": "X-Gym-Id",
             "in": "header",
@@ -4039,6 +4139,31 @@
         },
         "additionalProperties": false
       },
+      "DatosPersonalesDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nombre": {
+            "type": "string",
+            "nullable": true
+          },
+          "apellido": {
+            "type": "string",
+            "nullable": true
+          },
+          "rol": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DiaDto": {
         "type": "object",
         "properties": {
@@ -5797,6 +5922,7 @@
       "TokenResponseDto": {
         "required": [
           "accessToken",
+          "datosPersonales",
           "refreshToken"
         ],
         "type": "object",
@@ -5815,6 +5941,9 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "datosPersonales": {
+            "$ref": "#/components/schemas/DatosPersonalesDto"
           }
         },
         "additionalProperties": false

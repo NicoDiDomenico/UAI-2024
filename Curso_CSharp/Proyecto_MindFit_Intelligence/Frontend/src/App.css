@@ -576,9 +576,9 @@
 
 .section-heading {
   min-height: 3.6rem;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(5rem, auto);
+  align-items: end;
   gap: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(100, 116, 139, 0.2);
@@ -589,13 +589,59 @@
   color: #0f172a;
   font-family: 'Arial Narrow', 'Trebuchet MS', sans-serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .section-count {
   flex: 0 0 auto;
   color: #64748b;
   font-size: 0.78rem;
+  text-align: right;
+}
+
+.turnos-view-toggle {
+  appearance: none;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(100%, 13rem);
+  padding: 0.28rem;
+  border: 2px solid #78b2ac;
+  border-radius: 999px;
+  background: #78b2ac;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+  cursor: pointer;
+  font: inherit;
+}
+
+.turnos-view-toggle__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 2.3rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.turnos-view-toggle__option:hover {
+  transform: translateY(-1px);
+}
+
+.turnos-view-toggle__option--active {
+  background: #ffffff;
+  color: #78b2ac;
+  box-shadow: 0 0.45rem 1rem rgba(15, 118, 110, 0.12);
 }
 
 .navigation-list {
@@ -665,37 +711,130 @@
 .turnos-table {
   width: 100%;
   border-collapse: collapse;
-  color: #334155;
-  font-size: 0.88rem;
+  color: #243449;
+  font-size: 0.9rem;
 }
 
 .turnos-table th,
 .turnos-table td {
-  padding: 1rem 0.8rem;
-  border-bottom: 1px solid rgba(100, 116, 139, 0.16);
+  padding: 1.12rem 0.8rem;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.18);
   text-align: left;
   white-space: nowrap;
 }
 
 .turnos-table th {
-  color: #64748b;
+  color: #475569;
   font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.turnos-table tbody tr {
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+.turnos-table tbody tr:hover {
+  background: rgba(120, 178, 172, 0.08);
 }
 
 .turnos-table td strong {
   color: #0f172a;
 }
 
+.turnos-table td:nth-child(4),
+.turnos-table th:nth-child(4) {
+  text-align: center;
+}
+
+.turnos-table td:last-child,
+.turnos-table th:last-child {
+  text-align: left;
+}
+
+.turnos-table--compact th,
+.turnos-table--compact td {
+  padding-block: 0.95rem;
+}
+
+.turnos-table--compact td:nth-child(2),
+.turnos-table--compact th:nth-child(2),
+.turnos-table--compact td:nth-child(3),
+.turnos-table--compact th:nth-child(3) {
+  text-align: left;
+}
+
+.turnos-hour-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.turnos-hour-summary span {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid rgba(120, 178, 172, 0.42);
+  border-radius: 999px;
+  background: rgba(120, 178, 172, 0.1);
+  color: #475569;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.turnos-hour-summary strong {
+  color: #0f766e;
+}
+
+.turnos-cupos {
+  display: inline-grid;
+  min-width: 4.4rem;
+  gap: 0.35rem;
+  justify-items: center;
+  color: #243449;
+  font-weight: 700;
+}
+
+.turnos-cupos__track {
+  width: 100%;
+  height: 0.28rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(120, 178, 172, 0.18);
+}
+
+.turnos-cupos__bar {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #78b2ac;
+}
+
 .turno-state {
   display: inline-flex;
   border-radius: 999px;
   padding: 0.3rem 0.62rem;
-  background: rgba(15, 118, 110, 0.09);
-  color: #0f766e;
   font-size: 0.74rem;
   font-weight: 800;
+}
+
+.turno-state--cancelled {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.turno-state--finished {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.turno-state--neutral {
+  background: rgba(100, 116, 139, 0.12);
+  color: #475569;
 }
 
 .workspace-shell .placeholder-page {
@@ -717,6 +856,131 @@
   margin-top: 2rem;
   color: #0f766e;
   font-weight: 800;
+}
+
+.gimnasio-page {
+  width: min(100%, 92rem);
+  min-height: calc(100vh - 5.25rem);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 4rem);
+}
+
+.gimnasio-intro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-bottom: clamp(1.75rem, 4vw, 3rem);
+  border-bottom: 1px solid rgba(100, 116, 139, 0.2);
+  animation: inicio-rise 420ms ease-out both;
+}
+
+.gimnasio-menu-section {
+  padding-top: clamp(2rem, 5vw, 4rem);
+  animation: inicio-rise 500ms 90ms ease-out both;
+}
+
+.gimnasio-menu-heading {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.gimnasio-menu-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(9.5rem, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.35rem;
+}
+
+.gimnasio-menu-item {
+  min-width: 9.5rem;
+  min-height: 10.5rem;
+  display: grid;
+  align-content: start;
+  justify-items: center;
+  gap: 0.65rem;
+  padding: 1.15rem 0.9rem;
+  border: 1px solid rgba(100, 116, 139, 0.18);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.74);
+  color: #0f172a;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
+}
+
+.gimnasio-menu-item:hover {
+  border-color: rgba(15, 118, 110, 0.4);
+  background: rgba(240, 253, 250, 0.84);
+  box-shadow: 0 16px 34px rgba(15, 118, 110, 0.12);
+  transform: translateY(-2px);
+}
+
+.gimnasio-menu-item:focus-visible {
+  outline: 2px solid #0f766e;
+  outline-offset: 3px;
+}
+
+.gimnasio-menu-item__icon {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.45rem;
+  background:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.1), rgba(15, 118, 110, 0.04)),
+    #f8fafc;
+  color: #0f766e;
+  font-family: 'Arial Narrow', 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.gimnasio-menu-item__label {
+  color: #0f172a;
+  font-size: 0.98rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.gimnasio-menu-item__description {
+  color: #64748b;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.gimnasio-empty {
+  display: grid;
+  justify-items: start;
+}
+
+.gimnasio-empty__link {
+  margin-top: 0.35rem;
+}
+
+.socio-inicio-card {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.socio-inicio-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.socio-inicio-actions {
+  justify-content: flex-end;
+  padding-top: 0.25rem;
 }
 
 .socios-page {
@@ -1606,6 +1870,19 @@
     grid-template-columns: 1fr;
   }
 
+  .gimnasio-menu-list {
+    grid-template-columns: repeat(6, minmax(9.5rem, 11rem));
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .section-count {
+    text-align: left;
+  }
+
   .socios-filters {
     width: 100%;
     grid-template-columns: 1fr;
@@ -1615,6 +1892,7 @@
   .consultar-billing-grid,
   .consultar-billing-actions,
   .consultar-renewal,
+  .socio-inicio-header,
   .gestionar-turnos-modal__intro,
   .nuevo-turno-modal__controls,
   .nuevo-turno-modal__summary {
@@ -1625,7 +1903,17 @@
     max-width: none;
   }
 
+  .gimnasio-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .gestionar-turnos-modal__intro {
+    display: grid;
+    align-items: start;
+  }
+
+  .socio-inicio-header {
     display: grid;
     align-items: start;
   }
@@ -1653,6 +1941,10 @@
 
   .workspace-session {
     justify-content: space-between;
+  }
+
+  .turnos-view-toggle {
+    width: 100%;
   }
 
   .turnos-table,
@@ -1687,6 +1979,10 @@
     border: 0;
     white-space: normal;
     text-align: right;
+  }
+
+  .turnos-cupos {
+    justify-items: end;
   }
 
   .turnos-table td::before,

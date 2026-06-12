@@ -1,5 +1,5 @@
 {
-  "username": "lmessi",
+  "username": "Lionel_Messi",
   "password": "Password123!",
   "tipoPersona": "Socio",
   "personaResponsable": null,

@@ -1,0 +1,69 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using MindFit_Intelligence_Backend.DTOs.Ejercicios;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Controllers
+{
+    // Módulo de Gestiòn del Gimnasio 
+    [Route("api/[controller]")]
+    [ApiController]
+    public class EjercicioController : ControllerBase
+    {
+        private readonly IEjercicioService _ejercicioService;
+
+        public EjercicioController(IEjercicioService ejercicioService)
+        {
+            _ejercicioService = ejercicioService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] int? idGrupoMuscular)
+        {
+            var ejercicios = await _ejercicioService.GetEjerciciosAsync(idGrupoMuscular);
+            return Ok(ejercicios);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var ejercicio = await _ejercicioService.GetEjercicioByIdAsync(id);
+            if (ejercicio == null)
+                return NotFound();
+
+            return Ok(ejercicio);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(EjercicioInsertDto dto)
+        {
+            if (!await _ejercicioService.ValidateAsync(dto))
+                return BadRequest(_ejercicioService.Errors);
+
+            var result = await _ejercicioService.CreateEjercicioAsync(dto);
+            return Ok(result);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, EjercicioUpdateDto dto)
+        {
+            if (!await _ejercicioService.ValidateAsync(dto))
+                return BadRequest(_ejercicioService.Errors);
+
+            var result = await _ejercicioService.UpdateEjercicioAsync(id, dto);
+            if (result == null)
+                return NotFound(_ejercicioService.Errors);
+
+            return Ok(result);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var success = await _ejercicioService.DeleteEjercicioAsync(id);
+            if (!success)
+                return NotFound();
+
+            return Ok();
+        }
+    }
+}

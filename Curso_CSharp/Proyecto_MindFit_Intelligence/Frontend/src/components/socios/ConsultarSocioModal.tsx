@@ -484,7 +484,7 @@ export function ConsultarSocioModal({
     setSuccess('')
 
     try {
-      const response = await sociosService.changeSocioPassword({
+      const response = await sociosService.changeSocioPassword(idUsuario, {
         currentPassword: passwordState.currentPassword,
         newPassword: passwordState.newPassword,
       })

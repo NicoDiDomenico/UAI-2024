@@ -1,0 +1,15 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Cuota;
+using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface IPersonaSocioService
+    {
+        void setSocioNuevo(PersonaSocio personaSocio, List<int> diasActivosIds);
+        void setSocioActualizado(PersonaSocio personaSocio, List<int> diasActivosIds);
+        Task<CuotaDto?> CrearCuotaInicial(CuotaInsertDto cuotaDto);
+        void enviarEmailBienvenida(Usuario usuario, CuotaDto? cuota);
+    }
+}

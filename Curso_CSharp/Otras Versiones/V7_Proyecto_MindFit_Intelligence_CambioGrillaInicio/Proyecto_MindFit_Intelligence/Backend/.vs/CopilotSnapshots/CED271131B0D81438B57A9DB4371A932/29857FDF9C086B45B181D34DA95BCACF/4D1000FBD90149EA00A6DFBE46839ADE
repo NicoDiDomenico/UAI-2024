@@ -1,0 +1,128 @@
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.DTOs.Ejercicios;
+using MindFit_Intelligence_Backend.Models;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class EjercicioService : IEercicioService
+    {
+        private readonly IEjercicioRepository _ejercicioRepository;
+        private readonly IMapper _mapper;
+        private readonly MindFitIntelligenceContext _context;
+
+        public EjercicioService(
+            IEjercicioRepository ejercicioRepository, 
+            IMapper mapper, 
+            MindFitIntelligenceContext context)
+        {
+            _ejercicioRepository = ejercicioRepository;
+            _mapper = mapper;
+            _context = context;
+        }
+
+        public async Task<IEnumerable<EjercicioDto>> GetEjerciciosAsync(int? idGrupoMuscular)
+        {
+            IEnumerable<Ejercicio> ejercicios;
+            if (idGrupoMuscular.HasValue)
+            {
+                ejercicios = await _ejercicioRepository.GetByGrupoMuscularId(idGrupoMuscular.Value);
+            }
+            else
+            {
+                ejercicios = await _ejercicioRepository.Get();
+            }
+
+            return _mapper.Map<IEnumerable<EjercicioDto>>(ejercicios);
+        }
+
+        public async Task<EjercicioDto?> GetEjercicioByIdAsync(int id)
+        {
+            var ejercicio = await _ejercicioRepository.GetById(id);
+            if (ejercicio == null) return null;
+
+            return _mapper.Map<EjercicioDto>(ejercicio);
+        }
+
+        public async Task<EjercicioDto> CreateEjercicioAsync(EjercicioInsertDto insertDto)
+        {
+            // Validaciones de existencia
+            var grupoExists = await _context.GruposMusculares.AnyAsync(g => g.IdGrupoMuscular == insertDto.IdGrupoMuscular);
+            if (!grupoExists)
+                throw new Exception("El Grupo Muscular especificado no existe.");
+
+            var tipoExists = await _context.TiposEjercicios.AnyAsync(t => t.IdTipoEjercicio == insertDto.IdTipoEjercicio);
+            if (!tipoExists)
+                throw new Exception("El Tipo de Ejercicio especificado no existe.");
+
+            if (insertDto.IdMaquina.HasValue)
+            {
+                var maquinaExists = await _context.Maquinas.AnyAsync(m => m.IdMaquina == insertDto.IdMaquina.Value);
+                if (!maquinaExists)
+                    throw new Exception("La Máquina especificada no existe.");
+            }
+
+            if (insertDto.IdEquipamiento.HasValue)
+            {
+                var equipExists = await _context.Equipamientos.AnyAsync(e => e.IdEquipamiento == insertDto.IdEquipamiento.Value);
+                if (!equipExists)
+                    throw new Exception("El Equipamiento especificado no existe.");
+            }
+
+            var ejercicio = _mapper.Map<Ejercicio>(insertDto);
+            
+            await _ejercicioRepository.Add(ejercicio);
+            await _ejercicioRepository.Save();
+
+            // Refrescamos el ejercicio para obtener las entidades relacionadas y mapear el DTO completo
+            var ejercicioCreado = await _ejercicioRepository.GetById(ejercicio.IdEjercicio);
+
+            return _mapper.Map<EjercicioDto>(ejercicioCreado!);
+        }
+
+        public async Task<EjercicioDto?> UpdateEjercicioAsync(int id, EjercicioUpdateDto updateDto)
+        {
+            var ejercicio = await _ejercicioRepository.GetById(id);
+            if (ejercicio == null) return null;
+
+            var grupoExists = await _context.GruposMusculares.AnyAsync(g => g.IdGrupoMuscular == updateDto.IdGrupoMuscular);
+            if (!grupoExists) throw new Exception("El Grupo Muscular especificado no existe.");
+
+            var tipoExists = await _context.TiposEjercicios.AnyAsync(t => t.IdTipoEjercicio == updateDto.IdTipoEjercicio);
+            if (!tipoExists) throw new Exception("El Tipo de Ejercicio especificado no existe.");
+
+            if (updateDto.IdMaquina.HasValue)
+            {
+                var maquinaExists = await _context.Maquinas.AnyAsync(m => m.IdMaquina == updateDto.IdMaquina.Value);
+                if (!maquinaExists) throw new Exception("La Máquina especificada no existe.");
+            }
+            
+            if (updateDto.IdEquipamiento.HasValue)
+            {
+                var equipExists = await _context.Equipamientos.AnyAsync(e => e.IdEquipamiento == updateDto.IdEquipamiento.Value);
+                if (!equipExists) throw new Exception("El Equipamiento especificado no existe.");
+            }
+
+            _mapper.Map(updateDto, ejercicio);
+            
+            _ejercicioRepository.Update(ejercicio);
+            await _ejercicioRepository.Save();
+
+            var updatedEjercicio = await _ejercicioRepository.GetById(id);
+            return _mapper.Map<EjercicioDto>(updatedEjercicio!);
+        }
+
+        public async Task<bool> DeleteEjercicioAsync(int id)
+        {
+            var ejercicio = await _ejercicioRepository.GetById(id);
+            if (ejercicio == null) return false;
+
+            _ejercicioRepository.Delete(ejercicio);
+            await _ejercicioRepository.Save();
+            
+            return true;
+        }
+    }
+}

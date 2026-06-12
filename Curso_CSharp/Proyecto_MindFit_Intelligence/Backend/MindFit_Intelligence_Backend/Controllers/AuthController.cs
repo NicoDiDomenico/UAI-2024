@@ -159,6 +159,22 @@ namespace MindFit_Intelligence_Backend.Controllers
                 : BadRequest("La contraseña actual es incorrecta.");
         }
 
+        // NUEVO --> Front: Endpoint para cambiar la contraseña de un responsable desde el panel de administración, requiere la contraseña actual
+        [Authorize(Policy = "CambiarContrasenaResponsable")]
+        [HttpPost("responsables/{idUsuario:int}/change-password")]
+        public async Task<IActionResult> ChangePasswordResponsableSeleccionado(int idUsuario, ChangePasswordRequestDto dto)
+        {
+            var validationResult = await _changePasswordValidator.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors.Select(e => e.ErrorMessage));
+
+            bool rta = await _authService.ChangePasswordAsync(idUsuario, dto);
+
+            return rta
+                ? Ok("Contraseña cambiada correctamente.")
+                : BadRequest("La contraseña actual es incorrecta.");
+        }
+
         /// <summary>
         /// Cambia contraseña de socio autenticado.
         /// </summary>
@@ -187,6 +203,22 @@ namespace MindFit_Intelligence_Backend.Controllers
             bool rta = await _authService.ChangePasswordAsync(idUsuario, dto);
 
             return rta == true
+                ? Ok("Contraseña cambiada correctamente.")
+                : BadRequest("La contraseña actual es incorrecta.");
+        }
+
+        // NUEVO --> Front: Endpoint para cambiar la contraseña de un socio desde el panel de administración, requiere la contraseña actual
+        [Authorize(Policy = "CambiarContrasenaSocio")]
+        [HttpPost("socio/{idUsuario:int}/change-password")]
+        public async Task<IActionResult> ChangePasswordSocioSeleccionado(int idUsuario, ChangePasswordRequestDto dto)
+        {
+            var validationResult = await _changePasswordValidator.ValidateAsync(dto);
+            if (!validationResult.IsValid)
+                return BadRequest(validationResult.Errors.Select(e => e.ErrorMessage));
+
+            bool rta = await _authService.ChangePasswordAsync(idUsuario, dto);
+
+            return rta
                 ? Ok("Contraseña cambiada correctamente.")
                 : BadRequest("La contraseña actual es incorrecta.");
         }

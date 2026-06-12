@@ -1,0 +1,41 @@
+using Microsoft.EntityFrameworkCore;
+using MindFit_Intelligence_Backend.DTOs.Gyms;
+using MindFit_Intelligence_Backend.Models.Master;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace MindFit_Intelligence_Backend.Repository
+{
+    public class GymRepository : IGymRepository
+    {
+        private readonly MindFitMasterContext _masterContext;
+
+        public GymRepository(MindFitMasterContext masterContext)
+        {
+            _masterContext = masterContext;
+        }
+
+        public async Task<IEnumerable<GymPublicoDTO>> GetAllGymsActivosAsync()
+        {
+            return await _masterContext.Gyms
+                .Where(g => g.Activo)
+                .Select(g => new GymPublicoDTO
+                {
+                    IdGym = g.IdGym,
+                    NombreGym = g.NombreGym
+                })
+                .OrderBy(g => g.NombreGym)
+                .AsNoTracking()
+                .ToListAsync();
+        }
+
+        public async Task<int> AddGymAsync(Gym gym)
+        {
+            _masterContext.Gyms.Add(gym);
+            await _masterContext.SaveChangesAsync();
+            return gym.IdGym;
+        }
+    }
+}

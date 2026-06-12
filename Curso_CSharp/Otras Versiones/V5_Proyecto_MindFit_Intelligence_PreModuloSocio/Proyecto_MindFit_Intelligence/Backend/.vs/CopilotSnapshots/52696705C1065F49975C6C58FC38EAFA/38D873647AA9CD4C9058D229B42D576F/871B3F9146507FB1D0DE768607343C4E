@@ -1,0 +1,56 @@
+﻿using Microsoft.Extensions.Configuration;
+using MindFit_Intelligence_Backend.DTOs.Gyms;
+using MindFit_Intelligence_Backend.Models.Master;
+using MindFit_Intelligence_Backend.Repository.Interfaces;
+using MindFit_Intelligence_Backend.Services.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace MindFit_Intelligence_Backend.Services
+{
+    public class GymPublicoService : IGymPublicoService
+    {
+        private readonly IGymRepository _gymRepository;
+        private readonly IConfiguration _configuration;
+
+        public GymPublicoService(IGymRepository gymRepository, IConfiguration configuration)
+        {
+            _gymRepository = gymRepository;
+            _configuration = configuration;
+        }
+
+        public async Task<IEnumerable<GymPublicoDTO>> GetAllGymsActivosAsync()
+        {
+            return await _gymRepository.GetAllGymsActivosAsync();
+        }
+
+        public async Task<int> RegistrarNuevoGymAsync(NuevoGymRequestDto dto)
+        {
+            // 1. Armamos un nombre de Base de Datos limpio (sin espacios) para el ConnectionString
+            string nombreDbSugerido = "MindFit_" + dto.NombreGym.Replace(" ", "");
+
+            // 2. Leemos la plantilla desde configuration y usamos string.Format para reemplazar {0}
+            var template = _configuration.GetConnectionString("TenantTemplate");
+            if (string.IsNullOrWhiteSpace(template))
+            {
+                throw new InvalidOperationException("Connection string template 'TenantTemplate' is not configured.");
+            }
+
+            string connString = string.Format(template, nombreDbSugerido);
+
+            // 3. Creamos el objeto para tu tabla Gym
+            var nuevoGym = new Gym
+            {
+                NombreGym = dto.NombreGym,
+                ConnectionString = connString,
+                Activo = false, // Lo dejamos inactivo hasta crear la BD
+                FechaCreacion = DateTime.UtcNow
+            };
+
+            // 4. Guardamos en la Base Maestra a traves del repositorio
+            var id = await _gymRepository.AddGymAsync(nuevoGym);
+            return id;
+        }
+    }
+}

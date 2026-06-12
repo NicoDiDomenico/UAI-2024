@@ -116,12 +116,54 @@
   },
   {
     "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ChangePasswordResponsableSeleccionado",
+    "RelativePath": "api/Auth/responsables/{idUsuario}/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
     "Method": "ChangePasswordResponsable",
     "RelativePath": "api/Auth/responsables/change-password",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MindFit_Intelligence_Backend.Controllers.AuthController",
+    "Method": "ChangePasswordSocioSeleccionado",
+    "RelativePath": "api/Auth/socio/{idUsuario}/change-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
       {
         "Name": "dto",
         "Type": "MindFit_Intelligence_Backend.DTOs.Usuarios.ChangePasswordRequestDto",

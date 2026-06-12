@@ -131,27 +131,12 @@ export function NuevoTurnoModal({ socio, onClose, onRegistered }: NuevoTurnoModa
   }
 
   useEffect(() => {
-    let isActive = true
-
     async function loadForDate() {
       setSubmitError('')
-
-      try {
-        await loadDisponibilidad(fecha)
-      } finally {
-        if (!isActive) {
-          return
-        }
-      }
+      await loadDisponibilidad(fecha)
     }
 
-    if (isActive) {
-      void loadForDate()
-    }
-
-    return () => {
-      isActive = false
-    }
+    void loadForDate()
   }, [fecha])
 
   const selectedRango = useMemo(
