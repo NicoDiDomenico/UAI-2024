@@ -1,0 +1,4 @@
+- El elemento "<label class="consultar-field"><span>Contrasena</span><input class="consultar-input" type="password" value="Emilio123!"></label>" le falta la "ñ" a Contraseña. ADemas se esta autocompletando con informacion del usuario registrado, esto no tiene que pasar porque en realidad el usuario registrado está agregando/registrando un Socio nuevo, por lo tanto el campo debe estar vacio.
+- Lo mismo pasa con este elemento "<input class="consultar-input" type="text" value="emilio.mancuerna">" se está completando con el nombre de usuario del usuario registrado, tiene que estar en blanco.
+- Todo esta implementacion tendria que ser un modal al igual como se hizo con "Consultar".
+- No se debe usar cuadro de diálogo de confirmación cuando se hace clic en "Volver a socios" o "cancelar", que se cierre y listo.

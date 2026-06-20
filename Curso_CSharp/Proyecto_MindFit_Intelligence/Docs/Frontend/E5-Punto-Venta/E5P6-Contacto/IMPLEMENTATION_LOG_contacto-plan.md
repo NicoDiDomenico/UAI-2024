@@ -1,0 +1,33 @@
+# Implementation Log - Contacto
+
+- **Archivos creados:**
+  - `Frontend/src/pages/ContactoPage.tsx`.
+  - `Docs/Frontend/E5-Punto-Venta/E5P5-Contacto/IMPLEMENTATION_LOG_contacto-plan.md`.
+- **Archivos modificados:**
+  - `Frontend/src/routes/AppRouter.tsx`: `/contacto` dejó de renderizar la pantalla temporal y ahora usa `ContactoPage`; también se retiró el import del placeholder público que ya no tenía rutas asociadas.
+  - `Frontend/src/App.css`: se agregaron estilos encapsulados bajo clases `contact-*` para banner, métodos de contacto, formulario, validaciones, responsive y movimiento reducido.
+- **Diseño y fuente visual:**
+  - El límite de llamadas del plan Starter impidió leer el frame `2:381` mediante Figma MCP.
+  - La implementación se basó en la captura `pantalla-contacto.png` proporcionada por el usuario.
+  - Se reutilizó `Frontend/src/assets/blog-hero.png` porque corresponde a la misma ilustración mostrada en la captura; no fue necesario duplicar el asset.
+  - Se reutilizó `LandingHeader`, por lo que `Contacto` queda resaltado automáticamente mediante `NavLink`.
+- **Formulario y contacto:**
+  - Se implementaron los campos `Nombre`, `Email` y `Mensaje` con placeholders, autocomplete y atributos accesibles.
+  - Se agregaron validaciones locales para campos requeridos y formato de email.
+  - El formulario no consume servicios ni transmite datos porque no existe un endpoint de contacto documentado; al validar correctamente informa que el envío estará disponible próximamente.
+  - El email `mindfitintelligence@gmail.com` usa un enlace `mailto:`. Dirección, WhatsApp y Chat se muestran como información sin inventar URLs o números no documentados.
+  - Los íconos son SVG inline, decorativos y no agregan dependencias al proyecto.
+- **Navegación e integración:**
+  - La pantalla es pública y no modifica Axios, DTOs, autenticación ni backend.
+  - No se modificaron las demás rutas públicas, rutas protegidas ni la lógica de `FallbackRoute`.
+- **Validaciones ejecutadas:**
+  - `npm.cmd run build`: exitoso; TypeScript y Vite compilaron sin errores.
+  - ESLint específico sobre `ContactoPage.tsx` y `AppRouter.tsx`: exitoso.
+  - Verificación automatizada en Chrome a `1280x1000` y `390x844`: tres campos, cuatro métodos de contacto, imagen cargada y sin overflow horizontal.
+  - Se confirmó `Contacto` como navegación activa con `aria-current="page"`.
+  - El envío vacío mostró tres errores; los datos válidos mostraron el aviso local esperado.
+  - Se confirmó el destino `mailto:mindfitintelligence@gmail.com`.
+- **TODOs y limitaciones:**
+  - Integrar el botón `Enviar` con un endpoint, proveedor de email o servicio de soporte cuando se defina el contrato correspondiente.
+  - Agregar destinos reales para WhatsApp y Chat cuando existan números o URLs oficiales.
+  - El build conserva el warning general de Vite por un chunk JavaScript superior a 500 kB; resolverlo requiere una estrategia de code splitting fuera del alcance de esta pantalla.

@@ -236,3 +236,10 @@ Verificar manualmente:
 - La etapa no requiere dashboard real.
 - La etapa no requiere autorización visual avanzada por permisos.
 - No se agregan endpoints fuera de los documentados para este paso.
+
+## Cambio incremental - Volver al inicio
+
+- Se agrega en `/login` un enlace secundario visible con el texto `Volver al inicio`.
+- El enlace navega a la ruta publica `/` mediante React Router, sin recargar la aplicacion.
+- Su estilo mantiene la paleta, tipografia, forma redondeada y estados de foco del panel de autenticacion.
+- Se verifica que el cambio compile con `npm run build` y no introduzca errores de lint.

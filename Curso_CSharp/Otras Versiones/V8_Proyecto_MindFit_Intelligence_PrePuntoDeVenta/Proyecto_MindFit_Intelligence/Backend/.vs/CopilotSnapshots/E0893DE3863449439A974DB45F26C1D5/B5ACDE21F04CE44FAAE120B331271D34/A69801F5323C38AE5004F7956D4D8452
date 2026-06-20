@@ -1,0 +1,9 @@
+﻿using MindFit_Intelligence_Backend.Models;
+
+namespace MindFit_Intelligence_Backend.Repository.Interfaces
+{
+    public interface IRutinaRepository
+    {
+        Task<IEnumerable<Rutina>> GetRutinasPorSocioYDia(int idUsuarioSocio, string nombreDia);
+    }
+}

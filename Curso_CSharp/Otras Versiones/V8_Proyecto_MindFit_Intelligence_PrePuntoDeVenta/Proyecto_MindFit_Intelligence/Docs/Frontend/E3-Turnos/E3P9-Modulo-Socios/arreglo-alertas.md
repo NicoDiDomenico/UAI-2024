@@ -1,0 +1,1 @@
+- Quiero que quites el elemento "<p class="form-alert form-alert--error">No es posible cancelar un turno vencido.</p>" o cualquiera similar que esté en la ruta "http://localhost:5173/socio/inicio", estas aletas suelen aparecer cuando cancelo un turno. Reemplazalas por un modal de confirmación, que podes reutilizar el de /socios/:idUsuario/turnos.

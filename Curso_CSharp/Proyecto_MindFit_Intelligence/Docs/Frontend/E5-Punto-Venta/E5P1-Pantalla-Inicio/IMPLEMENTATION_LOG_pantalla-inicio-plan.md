@@ -1,0 +1,39 @@
+# Implementation Log - Pantalla de Inicio
+
+- **Archivos creados:**
+  - `Frontend/src/pages/LandingPage.tsx`.
+  - `Frontend/src/pages/PublicComingSoonPage.tsx`.
+  - `Frontend/src/components/landing/LandingHeader.tsx`.
+  - `Frontend/src/assets/landing-hero.png`.
+  - `Frontend/src/assets/landing-brand.svg`.
+  - `Frontend/src/assets/landing-admin.svg`.
+  - `Frontend/src/assets/landing-routines.svg`.
+  - `Frontend/src/assets/landing-nutrition.svg`.
+  - `Frontend/src/assets/landing-ai.svg`.
+  - `Docs/Frontend/E5-Punto-Venta/E5P1-Pantalla-Inicio/IMPLEMENTATION_LOG_pantalla-inicio-plan.md`.
+- **Archivos modificados:**
+  - `Frontend/src/routes/AppRouter.tsx`: se agregaron las rutas públicas `/`, `/funcionalidades`, `/precios`, `/testimonios`, `/blog` y `/contacto` fuera de `ProtectedRoute` y antes del fallback.
+  - `Frontend/src/App.css`: se agregaron estilos encapsulados bajo clases `landing-*`, incluyendo navegación activa, pantalla de próximos contenidos, estados responsive, foco, hover, animaciones y soporte para `prefers-reduced-motion`.
+- **Diseño y Figma MCP:**
+  - Se inspeccionó el frame `1:2` del archivo Figma indicado en el plan.
+  - Se reprodujeron el encabezado, navegación, hero fotográfico, cuatro módulos y CTA final.
+  - La fotografía y los cinco íconos se descargaron desde los assets expuestos por Figma MCP y se guardaron localmente; el código no depende de URLs temporales externas.
+  - Se mantuvo la paleta blanca, negra y azul `#1294d4`, el ancho de contenido y los radios de 8 px del frame.
+- **Navegación:**
+  - El encabezado se centralizó en `LandingHeader` para reutilizar la misma navegación en todas las rutas públicas.
+  - Las seis opciones del menú usan `NavLink` de React Router y cada una navega a una ruta propia.
+  - La opción correspondiente a la ruta actual recibe automáticamente `landing-navigation__link--active`, texto negro resaltado y `aria-current="page"`; la coincidencia exacta de `/` evita que `Inicio` permanezca activo en las rutas secundarias.
+  - `Funcionalidades`, `Precios`, `Testimonios`, `Blog` y `Contacto` renderizan `PublicComingSoonPage` con el título de la sección y el mensaje `Próximamente...`.
+  - `Acceso Clientes` usa `Link` de React Router con destino `/login`.
+  - `Solicitar Demo` también dirige a `/login`, sin inventar formularios, endpoints ni flujos backend.
+  - No se modificó la lógica de `FallbackRoute` ni el comportamiento de las rutas protegidas existentes.
+- **Validaciones ejecutadas:**
+  - `npm.cmd run build`: exitoso; TypeScript y Vite compilaron sin errores.
+  - Verificación visual en Chrome headless a `1280x900` y `390x844`: imagen cargada, cuatro módulos visibles y sin overflow horizontal.
+  - Navegación automatizada: `Acceso Clientes` cambió correctamente de `/` a `/login`.
+  - Verificación automatizada de las seis rutas públicas: cada ruta mostró exactamente un enlace activo, con el texto esperado y sin overflow horizontal.
+  - Verificación de interacción: al seleccionar `Funcionalidades` desde `/`, la URL cambió a `/funcionalidades`, `Funcionalidades` quedó resaltado y `Inicio` recuperó el estilo normal.
+  - `npm.cmd run lint`: la landing no agregó errores, pero el comando global continúa fallando por dos errores preexistentes de `react-hooks/set-state-in-effect` en `src/hooks/useInicioData.ts:57` y `src/pages/UsuariosPage.tsx:244`.
+- **TODOs y limitaciones:**
+  - El build conserva el warning existente de Vite por un chunk JavaScript superior a 500 kB; no se abordó porque requiere una decisión de code splitting fuera del alcance de esta pantalla.
+  - Las cinco rutas secundarias son pantallas temporales y deberán reemplazarse progresivamente por sus contenidos definitivos.

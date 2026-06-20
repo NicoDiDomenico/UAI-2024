@@ -1,0 +1,1 @@
+Se ha implementado la ruta publica "/", eso lo podras ver en IMPLEMENTATION_LOG_pantalla-inicio-plan.md, lo que sucede es que una vez que estoy en [login ](http://localhost:5173/login) no puedo volver a "/" desde algun boton, me gustaria que coloques un boton que me permita ir a esa ruta.

@@ -1,0 +1,1 @@
+- Cuando selecciono un grupo y le agrego un Permiso y guardo los cambios aparece el cartel "No pudimos actualizar el grupo. Revisa los datos e intenta nuevamente." lo cual no tiene sentido porque en la grilla veo que se actualiza correctamente la cantidad de permisos

@@ -97,6 +97,10 @@ export function LoginPage() {
     <main className="auth-page">
       <section className="auth-panel">
         <div className="auth-panel__inner">
+          <Link className="auth-back-link" to="/" aria-label="Volver a la pagina de inicio">
+            <span aria-hidden="true">&larr;</span>
+            Volver al inicio
+          </Link>
           <span className="auth-kicker">MindFit Intelligence</span>
           <h1 className="auth-title">Opera tu gimnasio desde un inicio de sesion claro.</h1>
           <p className="auth-subtitle">

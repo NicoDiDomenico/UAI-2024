@@ -1,0 +1,9 @@
+﻿namespace MindFit_Intelligence_Backend.DTOs.DiaRangoHorario
+{
+    public class AsignarResponsableDto
+    {
+        public int IdDiaRangoHorario { get; set; }
+        public int IdUsuarioResponsable { get; set; }
+        public string? Observaciones { get; set; }
+    }
+}

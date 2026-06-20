@@ -3,20 +3,36 @@
   "WorkspaceRootPath": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\gymscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\gymscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\grupocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\grupocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\formulariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\formulariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\services\\diarangohorarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\diarangohorarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\diarangohorariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\diarangohorariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\dtos\\diarangohorarioresponsable\\diarangohorarioresponsableinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\diarangohorarioresponsable\\diarangohorarioresponsableinsertdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\personaresponsablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\personaresponsablecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\repository\\diarangohorariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\repository\\diarangohorariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\facu\\uai\\v2\\uai-2024\\curso_csharp\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\services\\interfaces\\idiarangohorarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\services\\interfaces\\idiarangohorarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +42,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GymsController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\GymsController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwA8AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-19T00:27:02.058Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\appsettings.json",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\appsettings.json",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\appsettings.json",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-06-18T23:51:14.602Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -38,55 +80,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAQwK8AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "IDiaRangoHorarioService.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Services\\Interfaces\\IDiaRangoHorarioService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\Interfaces\\IDiaRangoHorarioService.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Services\\Interfaces\\IDiaRangoHorarioService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\Interfaces\\IDiaRangoHorarioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T12:52:47.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T20:41:37.239Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormularioController.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\FormularioController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "DiaRangoHorarioRepository.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Repository\\DiaRangoHorarioRepository.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Repository\\DiaRangoHorarioRepository.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Repository\\DiaRangoHorarioRepository.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Repository\\DiaRangoHorarioRepository.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAEwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T12:48:06.17Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GrupoController.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\GrupoController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T12:47:09.093Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T20:27:06.201Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "UsuarioController.cs",
-              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
-              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
-              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
-              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\UsuarioController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAgwA4AAAAiAAAAAAAAAA==",
+              "Title": "DiaRangoHorarioController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\DiaRangoHorarioController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwDMAAABqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-12T12:46:21.167Z",
+              "WhenOpened": "2026-06-17T16:58:34.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DiaRangoHorarioService.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Services\\DiaRangoHorarioService.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Services\\DiaRangoHorarioService.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Services\\DiaRangoHorarioService.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Services\\DiaRangoHorarioService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAowDUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T19:37:47.319Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PersonaResponsableController.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\PersonaResponsableController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCwAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T16:58:50.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DiaRangoHorarioResponsableInsertDto.cs",
+              "DocumentMoniker": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\DTOs\\DiaRangoHorarioResponsable\\DiaRangoHorarioResponsableInsertDto.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\DiaRangoHorarioResponsable\\DiaRangoHorarioResponsableInsertDto.cs",
+              "ToolTip": "C:\\Facu\\UAI\\V2\\UAI-2024\\Curso_CSharp\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\DTOs\\DiaRangoHorarioResponsable\\DiaRangoHorarioResponsableInsertDto.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\DiaRangoHorarioResponsable\\DiaRangoHorarioResponsableInsertDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-17T19:40:30.294Z"
             }
           ]
         }

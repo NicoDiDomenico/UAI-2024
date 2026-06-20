@@ -1,0 +1,35 @@
+# Implementation Log - Blog
+
+- **Archivos creados:**
+  - `Frontend/src/pages/BlogPage.tsx`.
+  - `Frontend/src/assets/blog-hero.png`.
+  - `Frontend/src/assets/blog-digitalizacion.png`.
+  - `Frontend/src/assets/blog-ia.png`.
+  - `Frontend/src/assets/blog-socios.png`.
+  - `Frontend/src/assets/blog-marketing.png`.
+  - `Frontend/src/assets/blog-retencion.png`.
+  - `Frontend/src/assets/blog-tendencias.png`.
+  - `Docs/Frontend/E5-Punto-Venta/E5P5-Blog/IMPLEMENTATION_LOG_blog-plan.md`.
+- **Archivos modificados:**
+  - `Frontend/src/routes/AppRouter.tsx`: `/blog` dejó de renderizar la pantalla temporal y ahora usa `BlogPage`.
+  - `Frontend/src/App.css`: se agregaron estilos encapsulados bajo clases `blog-*` para banner, grilla editorial, categorías, responsive y movimiento reducido. También se compactó el menú público en móvil para mantener visibles sus seis opciones.
+- **Diseño y Figma MCP:**
+  - Se inspeccionó el frame `2:299` del archivo MindFit.
+  - Se reprodujeron el banner editorial, seis artículos visuales y la barra lateral con cinco categorías.
+  - Las siete imágenes se descargaron desde los assets expuestos por Figma MCP y se guardaron localmente; el código no depende de URLs temporales.
+  - Se reutilizó `LandingHeader`, por lo que `Blog` queda resaltado automáticamente mediante `NavLink`.
+- **Navegación e integración:**
+  - La pantalla es pública y no consume servicios, Axios, DTOs ni endpoints backend.
+  - Los artículos y categorías se mantienen como contenido estático porque el frame no define rutas de detalle ni comportamiento de filtrado; no se agregaron enlaces sin destino real.
+  - No se modificaron las demás rutas públicas, rutas protegidas ni la lógica de `FallbackRoute`.
+- **Validaciones ejecutadas:**
+  - `npm.cmd run build`: exitoso; TypeScript y Vite compilaron sin errores.
+  - ESLint específico sobre `BlogPage.tsx` y `AppRouter.tsx`: exitoso.
+  - Verificación automatizada en Chrome a `1280x900` y `390x844`: seis artículos, cinco categorías, todos los assets cargados y sin overflow horizontal del documento.
+  - Se confirmó `Blog` como navegación activa con `aria-current="page"`.
+  - La fila de categorías usa scroll horizontal interno en móvil sin ampliar el ancho de la página.
+  - Se confirmó que las seis opciones del menú público caben completas en 390 px.
+- **TODOs y limitaciones:**
+  - Crear rutas y contenido de detalle cuando se definan los artículos reales.
+  - Convertir las categorías en filtros o rutas cuando exista una fuente de datos para el blog.
+  - El build conserva el warning general de Vite por un chunk JavaScript superior a 500 kB; resolverlo requiere una estrategia de code splitting fuera del alcance de esta pantalla.
