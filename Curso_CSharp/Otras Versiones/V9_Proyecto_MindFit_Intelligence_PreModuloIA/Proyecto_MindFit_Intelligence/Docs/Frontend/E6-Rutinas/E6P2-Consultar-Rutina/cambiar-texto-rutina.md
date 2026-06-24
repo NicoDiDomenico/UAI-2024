@@ -1,0 +1,1 @@
+- En http://localhost:5173/rutinas, no tiene sentido el texto que hay en este elemento "<p>Los cambios quedan solo en memoria hasta la proxima etapa de Guardar.</p>", tiene que ser algo que le sirva al entrenador nada del sistema. Propongo "Seleccioná el día de entrenamiento para cargar la rutina del socio y gestionar su avance".

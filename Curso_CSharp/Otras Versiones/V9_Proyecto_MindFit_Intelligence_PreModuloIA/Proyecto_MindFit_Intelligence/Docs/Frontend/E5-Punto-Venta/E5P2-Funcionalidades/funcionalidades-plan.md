@@ -1,0 +1,1 @@
+Implementar en la ruta http://localhost:5173/funcionalidades un diseño de pantalla igual a este [text](https://www.figma.com/design/fZNLHzSfSR2k2CllMxkNyz/MindFit?node-id=2-83&t=vQsTWn7uFvcx6vZs-4), y dejar registrado lo implementado en IMPLEMENTATION_LOG_funcionalidades-plan.md en esta misma carpeta.

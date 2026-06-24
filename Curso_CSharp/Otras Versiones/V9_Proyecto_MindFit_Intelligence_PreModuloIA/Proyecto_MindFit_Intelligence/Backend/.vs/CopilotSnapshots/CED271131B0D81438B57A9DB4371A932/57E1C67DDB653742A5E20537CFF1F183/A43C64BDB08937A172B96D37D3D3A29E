@@ -1,0 +1,15 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Maquinas;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface IMaquinaService
+    {
+        List<string> Errors { get; }
+
+        Task<IEnumerable<MaquinaDto>> GetMaquinasAsync();
+        Task<MaquinaDto?> GetMaquinaByIdAsync(int id);
+        Task<MaquinaDto> CreateMaquinaAsync(MaquinaInsertDto insertDto);
+        Task<MaquinaDto?> UpdateMaquinaAsync(int id, MaquinaUpdateDto updateDto);
+        Task<bool> DeleteMaquinaAsync(int id);
+    }
+}

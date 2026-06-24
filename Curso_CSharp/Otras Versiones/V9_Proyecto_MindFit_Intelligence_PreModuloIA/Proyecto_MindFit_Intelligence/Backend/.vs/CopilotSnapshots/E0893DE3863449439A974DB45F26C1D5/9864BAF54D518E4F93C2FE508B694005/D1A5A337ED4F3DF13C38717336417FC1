@@ -1,0 +1,12 @@
+﻿using MindFit_Intelligence_Backend.DTOs.Personas;
+using MindFit_Intelligence_Backend.DTOs.Rutina;
+
+namespace MindFit_Intelligence_Backend.Services.Interfaces
+{
+    public interface IPersonaResponsableService : IPersonaService<PersonaResponsableDto>
+    {
+        Task<IEnumerable<EntrenadorDto>> GetEntrenadores();
+        Task<IEnumerable<EntrenadorDto>> GetEntrenadoresPorHorario(int idRangoHorario);
+        Task<IEnumerable<RutinaDto>> GetRutinasPorSocioYDia(int idUsuarioSocio, DateTime? fecha);
+    }
+}

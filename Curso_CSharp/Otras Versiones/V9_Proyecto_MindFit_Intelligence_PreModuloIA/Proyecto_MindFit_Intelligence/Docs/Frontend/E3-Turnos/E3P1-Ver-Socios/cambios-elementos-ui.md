@@ -1,0 +1,1 @@
+Cambia el estilo del elemento "<a class="ghost-button socios-backlink" href="/dashboard" data-discover="true">Volver a Inicio</a>" a algo parecido a la imagen volver-inicio.png, busco que tenga esa felcha que indique el volver para atras, las funcionalidades mantenelas es solo un cambio visual. ADemas registra este cambio en IMPLEMENTATION_LOG_turno-socios-plan.md

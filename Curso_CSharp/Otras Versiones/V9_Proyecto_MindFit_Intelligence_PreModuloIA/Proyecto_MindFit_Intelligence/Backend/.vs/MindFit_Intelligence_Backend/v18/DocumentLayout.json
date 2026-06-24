@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\repositorios\\mindfit-intelligence\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\rutinacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\repositorios\\mindfit-intelligence\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\dtos\\rutina\\rutinahistorialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\dtos\\rutina\\rutinahistorialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\repositorios\\mindfit-intelligence\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\ejerciciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\ejerciciocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\repositorios\\mindfit-intelligence\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\diacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\diacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\repositorios\\mindfit-intelligence\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|c:\\repositorios\\mindfit-intelligence\\proyecto_mindfit_intelligence\\backend\\mindfit_intelligence_backend\\controllers\\grupomuscularcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB6144C5-28D0-4296-9D0F-2EF61FACA755}|MindFit_Intelligence_Backend\\MindFit_Intelligence_Backend.csproj|solutionrelative:mindfit_intelligence_backend\\controllers\\grupomuscularcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RutinaHistorialDto.cs",
+              "DocumentMoniker": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\DTOs\\Rutina\\RutinaHistorialDto.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\DTOs\\Rutina\\RutinaHistorialDto.cs",
+              "ToolTip": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\DTOs\\Rutina\\RutinaHistorialDto.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\DTOs\\Rutina\\RutinaHistorialDto.cs",
+              "ViewState": "AgIAABkAAAAAnpmZmZkWwBMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T23:55:03.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Program.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Program.cs",
+              "ToolTip": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Program.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Program.cs",
+              "ViewState": "AgIAAO0AAAAAQTMzM/MmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T23:35:21.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GrupoMuscularController.cs",
+              "DocumentMoniker": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GrupoMuscularController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\GrupoMuscularController.cs",
+              "ToolTip": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\GrupoMuscularController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\GrupoMuscularController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T18:42:29.36Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EjercicioController.cs",
+              "DocumentMoniker": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "ToolTip": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\EjercicioController.cs",
+              "ViewState": "AgIAAC4AAAAAAQAAAIAVwAwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T18:27:29.101Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RutinaController.cs",
+              "DocumentMoniker": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
+              "ToolTip": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\RutinaController.cs",
+              "ViewState": "AgIAAF8AAAAA1czMzEwswF0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T17:01:26.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DiaController.cs",
+              "DocumentMoniker": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\DiaController.cs",
+              "RelativeDocumentMoniker": "MindFit_Intelligence_Backend\\Controllers\\DiaController.cs",
+              "ToolTip": "C:\\Repositorios\\mindfit-intelligence\\Proyecto_MindFit_Intelligence\\Backend\\MindFit_Intelligence_Backend\\Controllers\\DiaController.cs",
+              "RelativeToolTip": "MindFit_Intelligence_Backend\\Controllers\\DiaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-23T17:01:19.602Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

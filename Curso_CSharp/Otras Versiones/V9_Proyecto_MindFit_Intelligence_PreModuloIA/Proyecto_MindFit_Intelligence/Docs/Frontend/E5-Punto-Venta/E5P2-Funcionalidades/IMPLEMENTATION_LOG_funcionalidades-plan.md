@@ -1,0 +1,33 @@
+# Implementation Log - Funcionalidades
+
+- **Archivos creados:**
+  - `Frontend/src/pages/FuncionalidadesPage.tsx`.
+  - `Frontend/src/assets/features-hero.png`.
+  - `Frontend/src/assets/features-gym.svg`.
+  - `Frontend/src/assets/features-members.svg`.
+  - `Frontend/src/assets/features-schedule.svg`.
+  - `Frontend/src/assets/features-routines.svg`.
+  - `Frontend/src/assets/features-ai.svg`.
+  - `Frontend/src/assets/features-nutrition.svg`.
+  - `Docs/Frontend/E5-Punto-Venta/E5P2-Funcionalidades/IMPLEMENTATION_LOG_funcionalidades-plan.md`.
+- **Archivos modificados:**
+  - `Frontend/src/routes/AppRouter.tsx`: `/funcionalidades` dejó de renderizar la pantalla temporal y ahora usa `FuncionalidadesPage`.
+  - `Frontend/src/App.css`: se agregaron estilos encapsulados bajo clases `features-*` para hero, listado, CTA, responsive y movimiento reducido.
+- **Diseño y Figma MCP:**
+  - Se inspeccionó el frame `2:83` del archivo MindFit.
+  - Se reprodujeron el hero fotográfico, el listado de seis funcionalidades y el CTA final.
+  - La fotografía y los seis íconos se descargaron desde los assets expuestos por Figma MCP y se guardaron localmente; no quedaron URLs temporales en el código.
+  - Se reutilizó `LandingHeader` para mantener la navegación pública consistente y el resaltado automático de `Funcionalidades` mediante `NavLink`.
+- **Navegación e integración:**
+  - La pantalla es pública y no consume servicios, Axios, DTOs ni endpoints backend.
+  - `Solicitar Demo` usa `Link` de React Router y navega al formulario público `/registro-gym`.
+  - Las demás rutas públicas y la lógica de `FallbackRoute` no fueron modificadas.
+- **Validaciones ejecutadas:**
+  - `npm.cmd run build`: exitoso; TypeScript y Vite compilaron sin errores.
+  - ESLint específico sobre `FuncionalidadesPage.tsx` y `AppRouter.tsx`: exitoso.
+  - Verificación automatizada en Chrome a `1280x900` y `390x844`: hero cargado, seis funcionalidades visibles y sin overflow horizontal.
+  - Se confirmó `Funcionalidades` como navegación activa con `aria-current="page"`.
+  - Se confirmó que `Solicitar Demo` navega de `/funcionalidades` a `/registro-gym`.
+- **TODOs y limitaciones:**
+  - El build conserva el warning general de Vite por un chunk JavaScript superior a 500 kB; resolverlo requiere una estrategia de code splitting fuera del alcance de esta pantalla.
+  - El CTA quedó integrado con el flujo público de registro de gimnasio.

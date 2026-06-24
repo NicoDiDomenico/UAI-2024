@@ -1,0 +1,19 @@
+{
+"nombreGym": "Iron Fitness Center",
+"usuarioMaster": {
+"username": "admin_iron",
+"password": "Password123!",
+"personaResponsable": {
+"nombre": "Roberto",
+"apellido": "García",
+"email": "roberto@ironfitness.com",
+"telefono": "3415558899",
+"direccion": "Bv. Oroño 1500",
+"ciudad": "Rosario",
+"tipoDocumento": "DNI",
+"nroDocumento": "35123456",
+"genero": "Masculino",
+"fechaNacimiento": "1990-05-15T00:00:00.000Z"
+}
+}
+}

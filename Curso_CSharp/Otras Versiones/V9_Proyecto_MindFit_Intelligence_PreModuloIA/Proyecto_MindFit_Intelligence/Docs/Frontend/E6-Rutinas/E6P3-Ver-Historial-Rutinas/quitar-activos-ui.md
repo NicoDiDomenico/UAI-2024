@@ -1,0 +1,4 @@
+- quitar "<span>Activa</span>" y "<strong>Activa</strong>" del modal de Restaurar Rutina
+- Cambiar este elemento "<h2 id="rutinas-history-title">Versiones de la rutina #34</h2>" que diga Historial de rutinas de (aca poner el nombre y apellido del socio)
+- el elemento "<span>23/06/2026, 10:05 p. m.</span>" que esta en "<div class="rutinas-history-detail__meta"><span>Version 1</span><span>23/06/2026, 10:05 p. m.</span></div>" quiero que lo separes en dos por un lado la fecha y otro la hora, y quiero que ambos tengan mas informacion, en un que diga por ejemplo "Fecha actualizacion: 23/06/2026" y el otro diga "Hora actualizacion: 10:05 p. m."
+- HAce que "<span>Version 1</span>" tenga decimales por mas que desde el backend venga con enteros, por lo tanto escribilo asi: "Versión 1.0"

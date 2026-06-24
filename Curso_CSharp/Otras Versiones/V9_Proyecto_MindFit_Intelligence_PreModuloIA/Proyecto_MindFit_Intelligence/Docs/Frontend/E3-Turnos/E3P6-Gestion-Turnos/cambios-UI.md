@@ -1,0 +1,3 @@
+- cuando seleciono un socio aparece el elemento "<div class="gestionar-turnos-modal__selection"><span>Turno seleccionado</span><strong>09/04/2026 · 15:00</strong></div>", quieor que lo quites no me interesa, y a se sabe que socio está selecionado gracias a "<td data-label="Seleccion"><span class="socios-radio socios-radio--selected" aria-hidden="true"></span></td>"
+- El elemento "<button class="ghost-button consultar-footer__close" type="button">Cancelar Turno</button>" pintalo de un color rojo o similar.
+- El boton "Cancelar turno" debe debe verse desactivado si no selecione un turno

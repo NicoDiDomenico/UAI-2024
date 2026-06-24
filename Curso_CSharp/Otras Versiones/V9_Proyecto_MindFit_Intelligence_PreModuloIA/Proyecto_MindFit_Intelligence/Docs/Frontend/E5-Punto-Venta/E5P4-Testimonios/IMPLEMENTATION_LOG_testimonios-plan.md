@@ -1,0 +1,31 @@
+# Implementation Log - Testimonios
+
+- **Archivos creados:**
+  - `Frontend/src/pages/TestimoniosPage.tsx`.
+  - `Frontend/src/assets/testimonials-hero.png`.
+  - `Frontend/src/assets/testimonials-sofia.png`.
+  - `Frontend/src/assets/testimonials-carlos.png`.
+  - `Frontend/src/assets/testimonials-lucia.png`.
+  - `Docs/Frontend/E5-Punto-Venta/E5P4-Testimonios/IMPLEMENTATION_LOG_testimonios-plan.md`.
+- **Archivos modificados:**
+  - `Frontend/src/routes/AppRouter.tsx`: `/testimonios` dejó de renderizar la pantalla temporal y ahora usa `TestimoniosPage`.
+  - `Frontend/src/App.css`: se agregaron estilos encapsulados bajo clases `testimonials-*` para banner, grilla, retratos, responsive y movimiento reducido.
+- **Diseño y Figma MCP:**
+  - Se inspeccionó el frame `2:265` del archivo MindFit.
+  - Se reprodujeron el banner fotográfico, el título y los tres testimonios con sus citas y autores.
+  - Las cuatro imágenes se descargaron desde los assets expuestos por Figma MCP y se guardaron localmente; el código no depende de URLs temporales.
+  - Se reutilizó `LandingHeader`, por lo que `Testimonios` queda resaltado automáticamente mediante `NavLink`.
+  - Los testimonios usan semántica `figure`, `blockquote` y `figcaption` para conservar una estructura accesible.
+- **Navegación e integración:**
+  - La pantalla es pública y no consume servicios, Axios, DTOs ni endpoints backend.
+  - No se agregaron acciones o CTAs porque el frame de Figma no define ninguno para esta pantalla.
+  - No se modificaron las demás rutas públicas, rutas protegidas ni la lógica de `FallbackRoute`.
+- **Validaciones ejecutadas:**
+  - `npm.cmd run build`: exitoso; TypeScript y Vite compilaron sin errores.
+  - ESLint específico sobre `TestimoniosPage.tsx` y `AppRouter.tsx`: exitoso.
+  - Verificación automatizada en Chrome a `1280x900` y `390x844`: tres testimonios visibles, todas las imágenes cargadas y sin overflow horizontal.
+  - Se confirmó `Testimonios` como navegación activa con `aria-current="page"`.
+  - Se revisaron capturas de escritorio y móvil para validar recortes, jerarquía y legibilidad.
+- **TODOs y limitaciones:**
+  - Las imágenes son ilustraciones provistas por el diseño; podrán reemplazarse por fotografías o testimonios reales cuando exista contenido definitivo.
+  - El build conserva el warning general de Vite por un chunk JavaScript superior a 500 kB; resolverlo requiere una estrategia de code splitting fuera del alcance de esta pantalla.
